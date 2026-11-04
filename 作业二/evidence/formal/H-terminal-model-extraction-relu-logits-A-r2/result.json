@@ -1,0 +1,8 @@
+{
+  "task": "model-extraction-relu-logits",
+  "wall_seconds": 393.3328758330317,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "model-extraction-relu-logits__hBJJXD3/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}
