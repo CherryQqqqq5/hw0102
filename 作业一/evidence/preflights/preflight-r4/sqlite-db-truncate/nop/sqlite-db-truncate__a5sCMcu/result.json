@@ -1,0 +1,106 @@
+{
+    "id": "c12c07eb-fea4-44ef-a217-8bf9e37b2255",
+    "task_name": "terminal-bench/sqlite-db-truncate",
+    "trial_name": "sqlite-db-truncate__a5sCMcu",
+    "trial_uri": "file://[本机路径]",
+    "task_id": {
+        "path": "[本机路径]"
+    },
+    "source": null,
+    "task_checksum": "d5ca714adf76e6a11f617c95929698802f80d66559600ae37b318ffb5157e747",
+    "config": {
+        "task": {
+            "path": "[本机路径]",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "sqlite-db-truncate__a5sCMcu",
+        "trials_dir": "[本机路径]",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "nop",
+            "import_path": null,
+            "model_name": null,
+            "base_url": null,
+            "model_api_key_name": null,
+            "model_api_format": null,
+            "skip_model_parsing": false,
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "stream": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [
+                "[本机路径]"
+            ],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": null,
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "nop",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": null,
+    "verifier_result": null,
+    "verifier_environment_mode": "shared",
+    "exception_info": {
+        "exception_type": "EnvironmentStartTimeoutError",
+        "exception_message": "Environment start timed out after 600.0 seconds",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"[本机路径]\", line 507, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"[本机路径]\", line 1091, in start\n    await self._run_docker_compose_command([\"up\", *runtime.up_args])\n  File \"[本机路径]\", line 758, in _run_docker_compose_command\n    result = await self._collect_buffered_output(\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<3 lines>...\n    )\n    ^\n  File \"[本机路径]\", line 788, in _collect_buffered_output\n    stdout_bytes, stderr_bytes = await process.communicate(input=stdin_data)\n                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"[本机路径]\", line 201, in communicate\n    stdin, stdout, stderr = await tasks.gather(stdin, stdout, stderr)\n                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"[本机路径]\", line 181, in _read_stream\n    output = await stream.read()\n             ^^^^^^^^^^^^^^^^^^^\n  File \"[本机路径]\", line 723, in read\n    block = await self.read(self._limit)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"[本机路径]\", line 730, in read\n    await self._wait_for_data('read')\n  File \"[本机路径]\", line 539, in _wait_for_data\n    await self._waiter\nasyncio.exceptions.CancelledError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"[本机路径]\", line 1855, in _start_agent_environment\n    await asyncio.wait_for(\n    ...<4 lines>...\n    )\n  File \"[本机路径]\", line 506, in wait_for\n    async with timeouts.timeout(timeout):\n               ~~~~~~~~~~~~~~~~^^^^^^^^^\n  File \"[本机路径]\", line 116, in __aexit__\n    raise TimeoutError from exc_val\nTimeoutError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"[本机路径]\", line 606, in run\n    await self._prepare()\n  File \"[本机路径]\", line 645, in _prepare\n    await self._setup_agent_environment()\n  File \"[本机路径]\", line 1849, in _setup_agent_environment\n    await self._start_agent_environment()\n  File \"[本机路径]\", line 1862, in _start_agent_environment\n    raise EnvironmentStartTimeoutError(\n        f\"Environment start timed out after {self._environment_build_timeout_sec} seconds\"\n    ) from exc\nharbor.trial.errors.EnvironmentStartTimeoutError: Environment start timed out after 600.0 seconds\n",
+        "occurred_at": "2026-11-04T08:16:25.326622Z"
+    },
+    "started_at": "2026-11-04T08:06:16.904880Z",
+    "finished_at": "2026-11-04T08:16:26.384747Z",
+    "environment_setup": {
+        "started_at": "2026-11-04T08:06:25.251560Z",
+        "finished_at": "2026-11-04T08:16:25.279544Z"
+    },
+    "agent_setup": null,
+    "agent_execution": null,
+    "verifier": null,
+    "step_results": null
+}

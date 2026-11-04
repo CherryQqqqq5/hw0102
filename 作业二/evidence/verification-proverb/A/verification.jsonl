@@ -1,0 +1,4 @@
+{"event": "submission_check", "time": 1793776882.299912, "state": {"public-suite": {"state": "pending", "returncode": null, "snapshot": null}}, "partial": false, "blocked": true}
+{"event": "public_check", "time": 1793776884.162028, "check": {"check_id": "public-suite", "source_quote": "Original tests are available.", "command": "python -m pytest", "dependencies": ["proverb.py", "proverb_test.py"]}, "before": null, "after": null, "state": "passed", "returncode": 0, "snapshot": null}
+{"event": "submission_check", "time": 1793776884.9153368, "state": {"public-suite": {"state": "passed", "returncode": 0, "snapshot": null}}, "partial": false, "blocked": false}
+{"event": "submission_check", "time": 1793776885.3836732, "state": {"public-suite": {"state": "passed", "returncode": 0, "snapshot": null}}, "partial": false, "blocked": false}

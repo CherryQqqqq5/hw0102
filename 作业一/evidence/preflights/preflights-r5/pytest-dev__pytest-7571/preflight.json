@@ -1,0 +1,13 @@
+{
+  "task": "pytest-dev__pytest-7571",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "grader_seconds": 33.37554404209368
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "grader_seconds": 34.381459624972194
+  }
+}

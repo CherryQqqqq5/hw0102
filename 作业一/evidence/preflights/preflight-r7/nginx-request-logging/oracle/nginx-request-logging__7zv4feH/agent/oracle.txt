@@ -1,0 +1,124 @@
+Ign:1 http://deb.debian.org/debian bookworm InRelease
+Ign:2 http://deb.debian.org/debian bookworm-updates InRelease
+Ign:3 http://deb.debian.org/debian-security bookworm-security InRelease
+Ign:1 http://deb.debian.org/debian bookworm InRelease
+Ign:2 http://deb.debian.org/debian bookworm-updates InRelease
+Ign:3 http://deb.debian.org/debian-security bookworm-security InRelease
+Ign:1 http://deb.debian.org/debian bookworm InRelease
+Ign:2 http://deb.debian.org/debian bookworm-updates InRelease
+Ign:3 http://deb.debian.org/debian-security bookworm-security InRelease
+Err:1 http://deb.debian.org/debian bookworm InRelease
+  Temporary failure resolving 'deb.debian.org'
+Err:2 http://deb.debian.org/debian bookworm-updates InRelease
+  Temporary failure resolving 'deb.debian.org'
+Err:3 http://deb.debian.org/debian-security bookworm-security InRelease
+  Temporary failure resolving 'deb.debian.org'
+Reading package lists...
+W: Failed to fetch http://deb.debian.org/debian/dists/bookworm/InRelease  Temporary failure resolving 'deb.debian.org'
+W: Failed to fetch http://deb.debian.org/debian/dists/bookworm-updates/InRelease  Temporary failure resolving 'deb.debian.org'
+W: Failed to fetch http://deb.debian.org/debian-security/dists/bookworm-security/InRelease  Temporary failure resolving 'deb.debian.org'
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  iproute2 libatm1 libbpf1 libbsd0 libcap2-bin libelf1 libmnl0 libpam-cap
+  libtirpc-common libtirpc3 libxtables12 nginx-common
+Suggested packages:
+  iproute2-doc python3:any fcgiwrap nginx-doc ssl-cert
+The following NEW packages will be installed:
+  iproute2 libatm1 libbpf1 libbsd0 libcap2-bin libelf1 libmnl0 libpam-cap
+  libtirpc-common libtirpc3 libxtables12 nginx nginx-common
+0 upgraded, 13 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2383 kB of archives.
+After this operation, 7673 kB of additional disk space will be used.
+Ign:1 http://deb.debian.org/debian bookworm/main amd64 libelf1 amd64 0.188-2.1
+Ign:2 http://deb.debian.org/debian bookworm/main amd64 libbpf1 amd64 1:1.1.0-1
+Ign:3 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2
+Ign:4 http://deb.debian.org/debian bookworm/main amd64 libmnl0 amd64 1.0.4-3
+Ign:5 http://deb.debian.org/debian bookworm/main amd64 libtirpc-common all 1.3.3+ds-1
+Ign:6 http://deb.debian.org/debian bookworm/main amd64 libtirpc3 amd64 1.3.3+ds-1
+Ign:7 http://deb.debian.org/debian bookworm/main amd64 libxtables12 amd64 1.8.9-2
+Ign:8 http://deb.debian.org/debian bookworm/main amd64 libcap2-bin amd64 1:2.66-4+deb12u1
+Ign:9 http://deb.debian.org/debian bookworm/main amd64 iproute2 amd64 6.1.0-3
+Ign:10 http://deb.debian.org/debian bookworm/main amd64 libatm1 amd64 1:2.5.1-4+b2
+Ign:11 http://deb.debian.org/debian bookworm/main amd64 libpam-cap amd64 1:2.66-4+deb12u1
+Ign:12 http://deb.debian.org/debian bookworm/main amd64 nginx-common all 1.22.1-9+deb12u2
+Ign:13 http://deb.debian.org/debian bookworm/main amd64 nginx amd64 1.22.1-9+deb12u2
+Ign:1 http://deb.debian.org/debian bookworm/main amd64 libelf1 amd64 0.188-2.1
+Ign:2 http://deb.debian.org/debian bookworm/main amd64 libbpf1 amd64 1:1.1.0-1
+Ign:3 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2
+Ign:4 http://deb.debian.org/debian bookworm/main amd64 libmnl0 amd64 1.0.4-3
+Ign:5 http://deb.debian.org/debian bookworm/main amd64 libtirpc-common all 1.3.3+ds-1
+Ign:6 http://deb.debian.org/debian bookworm/main amd64 libtirpc3 amd64 1.3.3+ds-1
+Ign:7 http://deb.debian.org/debian bookworm/main amd64 libxtables12 amd64 1.8.9-2
+Ign:8 http://deb.debian.org/debian bookworm/main amd64 libcap2-bin amd64 1:2.66-4+deb12u1
+Ign:9 http://deb.debian.org/debian bookworm/main amd64 iproute2 amd64 6.1.0-3
+Ign:10 http://deb.debian.org/debian bookworm/main amd64 libatm1 amd64 1:2.5.1-4+b2
+Ign:11 http://deb.debian.org/debian bookworm/main amd64 libpam-cap amd64 1:2.66-4+deb12u1
+Ign:12 http://deb.debian.org/debian bookworm/main amd64 nginx-common all 1.22.1-9+deb12u2
+Ign:13 http://deb.debian.org/debian bookworm/main amd64 nginx amd64 1.22.1-9+deb12u2
+Ign:1 http://deb.debian.org/debian bookworm/main amd64 libelf1 amd64 0.188-2.1
+Ign:2 http://deb.debian.org/debian bookworm/main amd64 libbpf1 amd64 1:1.1.0-1
+Ign:3 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2
+Ign:4 http://deb.debian.org/debian bookworm/main amd64 libmnl0 amd64 1.0.4-3
+Ign:5 http://deb.debian.org/debian bookworm/main amd64 libtirpc-common all 1.3.3+ds-1
+Ign:6 http://deb.debian.org/debian bookworm/main amd64 libtirpc3 amd64 1.3.3+ds-1
+Ign:7 http://deb.debian.org/debian bookworm/main amd64 libxtables12 amd64 1.8.9-2
+Ign:8 http://deb.debian.org/debian bookworm/main amd64 libcap2-bin amd64 1:2.66-4+deb12u1
+Ign:9 http://deb.debian.org/debian bookworm/main amd64 iproute2 amd64 6.1.0-3
+Ign:10 http://deb.debian.org/debian bookworm/main amd64 libatm1 amd64 1:2.5.1-4+b2
+Ign:11 http://deb.debian.org/debian bookworm/main amd64 libpam-cap amd64 1:2.66-4+deb12u1
+Ign:12 http://deb.debian.org/debian bookworm/main amd64 nginx-common all 1.22.1-9+deb12u2
+Ign:13 http://deb.debian.org/debian bookworm/main amd64 nginx amd64 1.22.1-9+deb12u2
+Err:1 http://deb.debian.org/debian bookworm/main amd64 libelf1 amd64 0.188-2.1
+  Temporary failure resolving 'deb.debian.org'
+Err:2 http://deb.debian.org/debian bookworm/main amd64 libbpf1 amd64 1:1.1.0-1
+  Temporary failure resolving 'deb.debian.org'
+Err:3 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2
+  Temporary failure resolving 'deb.debian.org'
+Err:4 http://deb.debian.org/debian bookworm/main amd64 libmnl0 amd64 1.0.4-3
+  Temporary failure resolving 'deb.debian.org'
+Err:5 http://deb.debian.org/debian bookworm/main amd64 libtirpc-common all 1.3.3+ds-1
+  Temporary failure resolving 'deb.debian.org'
+Err:6 http://deb.debian.org/debian bookworm/main amd64 libtirpc3 amd64 1.3.3+ds-1
+  Temporary failure resolving 'deb.debian.org'
+Err:7 http://deb.debian.org/debian bookworm/main amd64 libxtables12 amd64 1.8.9-2
+  Temporary failure resolving 'deb.debian.org'
+Err:8 http://deb.debian.org/debian bookworm/main amd64 libcap2-bin amd64 1:2.66-4+deb12u1
+  Temporary failure resolving 'deb.debian.org'
+Err:9 http://deb.debian.org/debian bookworm/main amd64 iproute2 amd64 6.1.0-3
+  Temporary failure resolving 'deb.debian.org'
+Err:10 http://deb.debian.org/debian bookworm/main amd64 libatm1 amd64 1:2.5.1-4+b2
+  Temporary failure resolving 'deb.debian.org'
+Err:11 http://deb.debian.org/debian bookworm/main amd64 libpam-cap amd64 1:2.66-4+deb12u1
+  Temporary failure resolving 'deb.debian.org'
+Err:12 http://deb.debian.org/debian bookworm/main amd64 nginx-common all 1.22.1-9+deb12u2
+  Temporary failure resolving 'deb.debian.org'
+Err:13 http://deb.debian.org/debian bookworm/main amd64 nginx amd64 1.22.1-9+deb12u2
+  Temporary failure resolving 'deb.debian.org'
+E: Failed to fetch http://deb.debian.org/debian/pool/main/e/elfutils/libelf1_0.188-2.1_amd64.deb  Temporary failure resolving 'deb.debian.org'
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libb/libbpf/libbpf1_1.1.0-1_amd64.deb  Temporary failure resolving 'deb.debian.org'
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libb/libbsd/libbsd0_0.11.7-2_amd64.deb  Temporary failure resolving 'deb.debian.org'
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libm/libmnl/libmnl0_1.0.4-3_amd64.deb  Temporary failure resolving 'deb.debian.org'
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libt/libtirpc/libtirpc-common_1.3.3%2bds-1_all.deb  Temporary failure resolving 'deb.debian.org'
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libt/libtirpc/libtirpc3_1.3.3%2bds-1_amd64.deb  Temporary failure resolving 'deb.debian.org'
+E: Failed to fetch http://deb.debian.org/debian/pool/main/i/iptables/libxtables12_1.8.9-2_amd64.deb  Temporary failure resolving 'deb.debian.org'
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libc/libcap2/libcap2-bin_2.66-4%2bdeb12u1_amd64.deb  Temporary failure resolving 'deb.debian.org'
+E: Failed to fetch http://deb.debian.org/debian/pool/main/i/iproute2/iproute2_6.1.0-3_amd64.deb  Temporary failure resolving 'deb.debian.org'
+E: Failed to fetch http://deb.debian.org/debian/pool/main/l/linux-atm/libatm1_2.5.1-4%2bb2_amd64.deb  Temporary failure resolving 'deb.debian.org'
+E: Failed to fetch http://deb.debian.org/debian/pool/main/libc/libcap2/libpam-cap_2.66-4%2bdeb12u1_amd64.deb  Temporary failure resolving 'deb.debian.org'
+E: Failed to fetch http://deb.debian.org/debian/pool/main/n/nginx/nginx-common_1.22.1-9%2bdeb12u2_all.deb  Temporary failure resolving 'deb.debian.org'
+E: Failed to fetch http://deb.debian.org/debian/pool/main/n/nginx/nginx_1.22.1-9%2bdeb12u2_amd64.deb  Temporary failure resolving 'deb.debian.org'
+E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+/usr/bin/grep: /etc/nginx/nginx.conf: No such file or directory
+/usr/bin/sed: can't read /etc/nginx/nginx.conf: No such file or directory
+/usr/bin/grep: /etc/nginx/nginx.conf: No such file or directory
+/usr/bin/sed: can't read /etc/nginx/nginx.conf: No such file or directory
+/solution/solve.sh: line 26: /etc/nginx/conf.d/benchmark-site.conf: No such file or directory
+/solution/solve.sh: line 51: nginx: command not found
+nginx: unrecognized service
+/solution/solve.sh: line 54: systemctl: command not found
+/solution/solve.sh: line 54: /etc/init.d/nginx: No such file or directory
+Server is not responding on port 8080
+Access logs are available at: /var/log/nginx/benchmark-access.log

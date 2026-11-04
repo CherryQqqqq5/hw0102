@@ -1,0 +1,5 @@
+{
+  "stdout": "============================= test session starts ==============================\nplatform linux -- Python 3.13.7, pytest-8.4.1, pluggy-1.7.0\nrootdir: /\ncollected 6 items\n\n../test_outputs.py ......                                                [100%]\n\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../test_outputs.py::test_directory_structure\nPASSED ../test_outputs.py::test_key_file\nPASSED ../test_outputs.py::test_certificate_file\nPASSED ../test_outputs.py::test_combined_pem_file\nPASSED ../test_outputs.py::test_verification_file\nPASSED ../test_outputs.py::test_python_verification_script\n============================== 6 passed in 2.45s ===============================\n",
+  "stderr": "",
+  "returncode": 0
+}

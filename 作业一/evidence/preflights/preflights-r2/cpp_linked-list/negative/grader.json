@@ -1,0 +1,5 @@
+{
+  "stdout": "-- The CXX compiler identification is GNU 12.2.0\n-- Detecting CXX compiler ABI info\n-- Detecting CXX compiler ABI info - done\n-- Check for working CXX compiler: /usr/bin/c++ - skipped\n-- Detecting CXX compile features\n-- Detecting CXX compile features - done\n-- Configuring done\n",
+  "stderr": "CMake Error at CMakeLists.txt:35 (add_executable):\n  Cannot find source file:\n\n    exercise_test.cpp\n\n  Tried extensions .c .C .c++ .cc .cpp .cxx .cu .mpp .m .M .mm .ixx .cppm .h\n  .hh .h++ .hm .hpp .hxx .in .txx .f .F .for .f77 .f90 .f95 .f03 .hip .ispc\n\n\nCMake Error at CMakeLists.txt:35 (add_executable):\n  No SOURCES given to target: exercise\n\n\nCMake Generate step failed.  Build files cannot be regenerated correctly.\n",
+  "returncode": 1
+}

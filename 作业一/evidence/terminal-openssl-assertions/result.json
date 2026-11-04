@@ -1,0 +1,8 @@
+{
+  "task": "openssl-selfsigned-cert",
+  "check": "original_test_assertions",
+  "starter_exit_code": 1,
+  "reference_exit_code": 0,
+  "official_harbor_trial": false,
+  "model_requests": 0
+}

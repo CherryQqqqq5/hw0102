@@ -1,0 +1,122 @@
+2026-11-04 18:16:50,614 - INFO - Creating container for django__django-13346...
+2026-11-04 18:16:50,687 - INFO - Container for django__django-13346 created: 47b7caa85494cc053a19207e0cd9ae07d71a2a6b3b9d49e560c8feaa9379c4d3
+2026-11-04 18:16:50,798 - INFO - Container for django__django-13346 started: 47b7caa85494cc053a19207e0cd9ae07d71a2a6b3b9d49e560c8feaa9379c4d3
+2026-11-04 18:16:50,798 - INFO - Intermediate patch for django__django-13346 written to [本机路径] now applying to container...
+2026-11-04 18:16:50,972 - INFO - >>>>> Applied Patch:
+Checking patch django/db/models/fields/json.py...
+Checking patch tests/model_fields/test_jsonfield.py...
+Applied patch django/db/models/fields/json.py cleanly.
+Applied patch tests/model_fields/test_jsonfield.py cleanly.
+
+2026-11-04 18:16:52,329 - INFO - Git diff before:
+diff --git a/django/db/models/fields/json.py b/django/db/models/fields/json.py
+index fafc1beee8..c85c0e1ad1 100644
+--- a/django/db/models/fields/json.py
++++ b/django/db/models/fields/json.py
+@@ -479,7 +479,32 @@ class KeyTransformGte(KeyTransformNumericLookupMixin, lookups.GreaterThanOrEqual
+     pass
+ 
+ 
++class KeyTransformIn(lookups.In):
++    def resolve_expression_parameter(self, compiler, connection, sql, param):
++        sql, params = super().resolve_expression_parameter(
++            compiler, connection, sql, param,
++        )
++        if (
++            not hasattr(param, 'as_sql') and
++            not connection.features.has_native_json_field
++        ):
++            if connection.vendor == 'oracle':
++                value = json.loads(params[0])
++                function = 'JSON_QUERY' if isinstance(value, (list, dict)) else 'JSON_VALUE'
++                sql = "%s('%s', '$.value')" % (
++                    function,
++                    json.dumps({'value': value}),
++                )
++                params = []
++            elif connection.vendor == 'mysql' or (
++                connection.vendor == 'sqlite' and params[0] != 'null'
++            ):
++                sql = "JSON_EXTRACT(%s, '$')" % sql
++        return sql, params
++
++
+ KeyTransform.register_lookup(KeyTransformExact)
++KeyTransform.register_lookup(KeyTransformIn)
+ KeyTransform.register_lookup(KeyTransformIExact)
+ KeyTransform.register_lookup(KeyTransformIsNull)
+ KeyTransform.register_lookup(KeyTransformIContains)
+diff --git a/tests/model_fields/test_jsonfield.py b/tests/model_fields/test_jsonfield.py
+index a7648711ac..16b80812d7 100644
+--- a/tests/model_fields/test_jsonfield.py
++++ b/tests/model_fields/test_jsonfield.py
+@@ -623,6 +623,20 @@ class TestQuerying(TestCase):
+                     expected,
+                 )
+ 
++    def test_key_in(self):
++        tests = [
++            ('value__c__in', [14], self.objs[3:5]),
++            ('value__c__in', [14, 15], self.objs[3:5]),
++            ('value__0__in', [1], [self.objs[5]]),
++            ('value__0__in', [1, 3], [self.objs[5]]),
++        ]
++        for lookup, value, expected in tests:
++            with self.subTest(lookup=lookup, value=value):
++                self.assertSequenceEqual(
++                    NullableJSONModel.objects.filter(**{lookup: value}),
++                    expected,
++                )
++
+     def test_key_iexact(self):
+         self.assertIs(NullableJSONModel.objects.filter(value__foo__iexact='BaR').exists(), True)
+         self.assertIs(NullableJSONModel.objects.filter(value__foo__iexact='"BaR"').exists(), False)
+2026-11-04 18:16:52,330 - INFO - Eval script for django__django-13346 written to [本机路径] copying to container...
+2026-11-04 18:17:18,876 - INFO - Test runtime: 26.45 seconds
+2026-11-04 18:17:18,878 - INFO - Test output for django__django-13346 written to [本机路径]
+2026-11-04 18:17:19,087 - INFO - Git diff after:
+diff --git a/django/db/models/fields/json.py b/django/db/models/fields/json.py
+index fafc1beee8..c85c0e1ad1 100644
+--- a/django/db/models/fields/json.py
++++ b/django/db/models/fields/json.py
+@@ -479,7 +479,32 @@ class KeyTransformGte(KeyTransformNumericLookupMixin, lookups.GreaterThanOrEqual
+     pass
+ 
+ 
++class KeyTransformIn(lookups.In):
++    def resolve_expression_parameter(self, compiler, connection, sql, param):
++        sql, params = super().resolve_expression_parameter(
++            compiler, connection, sql, param,
++        )
++        if (
++            not hasattr(param, 'as_sql') and
++            not connection.features.has_native_json_field
++        ):
++            if connection.vendor == 'oracle':
++                value = json.loads(params[0])
++                function = 'JSON_QUERY' if isinstance(value, (list, dict)) else 'JSON_VALUE'
++                sql = "%s('%s', '$.value')" % (
++                    function,
++                    json.dumps({'value': value}),
++                )
++                params = []
++            elif connection.vendor == 'mysql' or (
++                connection.vendor == 'sqlite' and params[0] != 'null'
++            ):
++                sql = "JSON_EXTRACT(%s, '$')" % sql
++        return sql, params
++
++
+ KeyTransform.register_lookup(KeyTransformExact)
++KeyTransform.register_lookup(KeyTransformIn)
+ KeyTransform.register_lookup(KeyTransformIExact)
+ KeyTransform.register_lookup(KeyTransformIsNull)
+ KeyTransform.register_lookup(KeyTransformIContains)
+2026-11-04 18:17:19,087 - INFO - Git diff changed after running eval script
+2026-11-04 18:17:19,087 - INFO - Grading answer for django__django-13346...
+2026-11-04 18:17:19,090 - INFO - report: {'django__django-13346': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['test_key_in (model_fields.test_jsonfield.TestQuerying)', 'test_key_iregex (model_fields.test_jsonfield.TestQuerying)'], 'failure': []}, 'PASS_TO_PASS': {'success': ['test_formfield (model_fields.test_jsonfield.TestFormField)', 'test_formfield_custom_encoder_decoder (model_fields.test_jsonfield.TestFormField)', 'test_custom_encoder (model_fields.test_jsonfield.TestValidation)', 'test_invalid_decoder (model_fields.test_jsonfield.TestValidation)', 'test_invalid_encoder (model_fields.test_jsonfield.TestValidation)', 'test_validation_error (model_fields.test_jsonfield.TestValidation)', 'test_deconstruct (model_fields.test_jsonfield.TestMethods)', 'test_deconstruct_custom_encoder_decoder (model_fields.test_jsonfield.TestMethods)', 'test_get_transforms (model_fields.test_jsonfield.TestMethods)', 'test_key_transform_text_lookup_mixin_non_key_transform (model_fields.test_jsonfield.TestMethods)', 'test_custom_encoder_decoder (model_fields.test_jsonfield.JSONFieldTests)', 'test_db_check_constraints (model_fields.test_jsonfield.JSONFieldTests)', 'test_invalid_value (model_fields.test_jsonfield.JSONFieldTests)', 'test_dumping (model_fields.test_jsonfield.TestSerialization)', 'test_loading (model_fields.test_jsonfield.TestSerialization)', 'test_xml_serialization (model_fields.test_jsonfield.TestSerialization)', 'test_dict (model_fields.test_jsonfield.TestSaveLoad)', 'test_json_null_different_from_sql_null (model_fields.test_jsonfield.TestSaveLoad)', 'test_list (model_fields.test_jsonfield.TestSaveLoad)', 'test_null (model_fields.test_jsonfield.TestSaveLoad)', 'test_primitives (model_fields.test_jsonfield.TestSaveLoad)', 'test_realistic_object (model_fields.test_jsonfield.TestSaveLoad)', 'test_contained_by_unsupported (model_fields.test_jsonfield.TestQuerying)', 'test_contains_unsupported (model_fields.test_jsonfield.TestQuerying)', 'test_deep_lookup_array (model_fields.test_jsonfield.TestQuerying)', 'test_deep_lookup_mixed (model_fields.test_jsonfield.TestQuerying)', 'test_deep_lookup_objs (model_fields.test_jsonfield.TestQuerying)', 'test_deep_lookup_transform (model_fields.test_jsonfield.TestQuerying)', 'test_deep_values (model_fields.test_jsonfield.TestQuerying)', 'test_exact (model_fields.test_jsonfield.TestQuerying)', 'test_exact_complex (model_fields.test_jsonfield.TestQuerying)', 'test_has_any_keys (model_fields.test_jsonfield.TestQuerying)', 'test_has_key (model_fields.test_jsonfield.TestQuerying)', 'test_has_key_deep (model_fields.test_jsonfield.TestQuerying)', 'test_has_key_list (model_fields.test_jsonfield.TestQuerying)', 'test_has_key_null_value (model_fields.test_jsonfield.TestQuerying)', 'test_has_keys (model_fields.test_jsonfield.TestQuerying)', 'test_isnull (model_fields.test_jsonfield.TestQuerying)', 'test_isnull_key (model_fields.test_jsonfield.TestQuerying)', 'test_isnull_key_or_none (model_fields.test_jsonfield.TestQuerying)', 'test_key_endswith (model_fields.test_jsonfield.TestQuerying)', 'test_key_escape (model_fields.test_jsonfield.TestQuerying)', 'test_key_icontains (model_fields.test_jsonfield.TestQuerying)', 'test_key_iendswith (model_fields.test_jsonfield.TestQuerying)', 'test_key_iexact (model_fields.test_jsonfield.TestQuerying)', 'test_key_istartswith (model_fields.test_jsonfield.TestQuerying)', 'test_key_regex (model_fields.test_jsonfield.TestQuerying)', 'test_key_sql_injection_escape (model_fields.test_jsonfield.TestQuerying)', 'test_key_startswith (model_fields.test_jsonfield.TestQuerying)', 'test_key_transform_expression (model_fields.test_jsonfield.TestQuerying)', 'test_key_transform_raw_expression (model_fields.test_jsonfield.TestQuerying)', 'test_lookups_with_key_transform (model_fields.test_jsonfield.TestQuerying)', 'test_nested_key_transform_expression (model_fields.test_jsonfield.TestQuerying)', 'test_nested_key_transform_raw_expression (model_fields.test_jsonfield.TestQuerying)', 'test_none_key (model_fields.test_jsonfield.TestQuerying)', 'test_none_key_and_exact_lookup (model_fields.test_jsonfield.TestQuerying)', 'test_none_key_exclude (model_fields.test_jsonfield.TestQuerying)', 'test_obj_subquery_lookup (model_fields.test_jsonfield.TestQuerying)', 'test_ordering_by_transform (model_fields.test_jsonfield.TestQuerying)', 'test_ordering_grouping_by_count (model_fields.test_jsonfield.TestQuerying)', 'test_ordering_grouping_by_key_transform (model_fields.test_jsonfield.TestQuerying)', 'test_shallow_list_lookup (model_fields.test_jsonfield.TestQuerying)', 'test_shallow_lookup_obj_target (model_fields.test_jsonfield.TestQuerying)', 'test_shallow_obj_lookup (model_fields.test_jsonfield.TestQuerying)', 'test_usage_in_subquery (model_fields.test_jsonfield.TestQuerying)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-13346: resolved: True
+2026-11-04 18:17:19,090 - INFO - Attempting to stop container sweb.eval.django__django-13346.D-swe-django__django-13346-B0-r1...
+2026-11-04 18:17:34,471 - INFO - Container sweb.eval.django__django-13346.D-swe-django__django-13346-B0-r1 stopped successfully.
+2026-11-04 18:17:34,472 - INFO - Attempting to remove container sweb.eval.django__django-13346.D-swe-django__django-13346-B0-r1...
+2026-11-04 18:17:34,556 - INFO - Container sweb.eval.django__django-13346.D-swe-django__django-13346-B0-r1 removed successfully.

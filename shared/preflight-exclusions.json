@@ -1,0 +1,21 @@
+{
+  "swe/psf__requests-1766": "The official no-patch and upstream-reference preflights both failed the PASS_TO_PASS test_mixed_case_scheme_acceptable assertion with certificate verification errors on the local image. No agent trial was started.",
+  "aider/rust/alphametics": "The upstream reference uses itertools and permutohedron, absent from the original Cargo.toml. It did not compile in the configured offline original-test environment. No agent trial was started.",
+  "terminal/fix-ocaml-gc": "The original verifier clones an external repository and rebuilds OCaml to reconstitute its private test suite. It cannot run with the common offline dependency bootstrap.",
+  "terminal/build-cython-ext": "The original oracle could not retrieve the source repository or install setuptools in the disconnected environment. The verifier returned zero with the expected repository and package both absent.",
+  "terminal/git-multibranch": "The original grader invokes Ubuntu package installation within the HTTPS deployment test. Offline package retrieval failed during the unmodified reference control, which returned zero.",
+  "terminal/configure-git-webserver": "The unmodified oracle could not retrieve the required Ubuntu packages in the isolated environment. Its verifier completed and returned zero.",
+  "terminal/sqlite-with-gcov": "The unmodified oracle could not retrieve the required build packages offline. The verifier reported the missing sqlite3 binary and returned zero.",
+  "terminal/nginx-request-logging": "After preserving its original pytest arguments and running both controls, the oracle could not retrieve its Debian dependencies in the disconnected environment and the verifier returned zero.",
+  "terminal/chess-best-move": "The unmodified oracle could not install Stockfish and its Python dependencies in the disconnected environment. The expected output file was absent and the verifier returned zero.",
+  "terminal/count-dataset-tokens": "The unmodified oracle installs datasets==4.0.0 at runtime and the task requires a hosted dataset. In the isolated no-network control, the oracle failed and the verifier returned zero.",
+  "terminal/pytorch-model-recovery": "The exact Linux verifier dependency torch==2.7.1 resolved to the CUDA-enabled PyTorch wheel and multiple multi-hundred-MiB CUDA libraries. Dependency installation was stopped for the CPU-only environment before the task was run.",
+  "terminal/pytorch-model-cli": "The original verifier requires torch==2.7.1, the same dependency that resolved to the CUDA-enabled wheel and multi-gigabyte CUDA libraries for pytorch-model-recovery in this CPU-only environment.",
+  "terminal/pypi-server": "The independent offline Harbor preflight returned zero for both the original state and the unmodified reference run. The task does not pass the reference control.",
+  "terminal/adaptive-rejection-sampler": "After the original image was present, the independent offline Harbor preflight returned zero for both the original state and the unmodified reference run.",
+  "terminal/reshard-c4-data": "The independent Harbor preflight returned zero for both the original state and the unmodified reference run, with no runner exception. It failed the reference control before model evaluation.",
+  "terminal/hf-model-inference": "The public instruction explicitly requires downloading a named model from Hugging Face during the task. This is outside the isolated no-network evaluation scope.",
+  "terminal/mteb-retrieve": "The public task requires loading a specific remote embedding-model revision. The original Dockerfile installs the packages and copies the data file but does not stage a model snapshot.",
+  "aider/go/markdown": "The untouched starter passes the original Go tests in the isolated grader; excludes initially passing tasks from repair evaluation.",
+  "aider/go/ledger": "Both the untouched starter and upstream reference passed the isolated original-test command after extending the grader timeout for cold compilation."
+}

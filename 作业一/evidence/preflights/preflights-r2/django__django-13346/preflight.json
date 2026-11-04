@@ -1,0 +1,11 @@
+{
+  "task": "django__django-13346",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true
+  }
+}

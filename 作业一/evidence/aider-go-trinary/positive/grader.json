@@ -1,0 +1,5 @@
+{
+  "stdout": "",
+  "stderr": "bash: line 1: go: command not found\n",
+  "returncode": 127
+}

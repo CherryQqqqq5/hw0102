@@ -1,0 +1,13 @@
+{
+  "task": "pypi-server",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "pypi-server__hqgWraH/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "pypi-server__bNpprZ7/result.json"
+  }
+}

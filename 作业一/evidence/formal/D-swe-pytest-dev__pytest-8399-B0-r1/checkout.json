@@ -1,0 +1,9 @@
+{
+  "base_commit": "6e7dc8bac831cd8cf7a53b08efa366bd84f0c0fe",
+  "image_commit": "ac43e94eaf25c8c109af2500d327ef938dcf24d7",
+  "base_tree": "8501ad3839bb098676d9d3354979cef6e218d95c",
+  "image_tree": "8501ad3839bb098676d9d3354979cef6e218d95c",
+  "status": "",
+  "changed_paths": 0,
+  "executable_bit_changes": 0
+}

@@ -1,0 +1,9 @@
+{
+  "task": "python/wordy",
+  "wall_seconds": 173.85231816594023,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0
+}

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "JSONDecodeError",
+    "submission": "",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 1
+    }
+  }
+}

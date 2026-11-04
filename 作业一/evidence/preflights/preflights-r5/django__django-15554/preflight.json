@@ -1,0 +1,13 @@
+{
+  "task": "django__django-15554",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "grader_seconds": 59.67297400010284
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "grader_seconds": 50.92846249998547
+  }
+}

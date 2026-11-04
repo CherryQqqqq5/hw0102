@@ -1,0 +1,13 @@
+{
+  "task": "cpp/parallel-letter-frequency",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "grader_exit_code": 2
+  },
+  "upstream_reference": {
+    "scoreable": false,
+    "passed": null,
+    "grader_exit_code": 124
+  }
+}

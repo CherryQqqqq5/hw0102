@@ -1,0 +1,5 @@
+{
+  "stdout": "",
+  "stderr": "   Compiling alphametics v1.3.0 (/exercise)\nerror[E0463]: can't find crate for `itertools`\n --> src/lib.rs:3:1\n  |\n3 | extern crate itertools;\n  | ^^^^^^^^^^^^^^^^^^^^^^^ can't find crate\n\nerror[E0463]: can't find crate for `permutohedron`\n --> src/lib.rs:4:1\n  |\n4 | extern crate permutohedron;\n  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^ can't find crate\n\nerror[E0599]: no method named `combinations` found for struct `std::slice::Iter` in the current scope\n  --> src/lib.rs:66:40\n   |\n66 |     for combinations in numbers.iter().combinations(letters.len()) {\n   |                                        ^^^^^^^^^^^^\n   |\nhelp: there is a method `position` with a similar name\n   |\n66 |     for combinations in numbers.iter().position(letters.len()) {\n   |                                        ~~~~~~~~\n\nSome errors have detailed explanations: E0463, E0599.\nFor more information about an error, try `rustc --explain E0463`.\nerror: could not compile `alphametics` (lib) due to 3 previous errors\n",
+  "returncode": 101
+}

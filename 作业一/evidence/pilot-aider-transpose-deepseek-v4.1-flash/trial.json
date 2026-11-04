@@ -1,0 +1,18 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "javascript/transpose",
+    "stratum": "javascript",
+    "group": "transpose",
+    "solution_files": [
+      "transpose.js"
+    ],
+    "test_files": [
+      "transpose.spec.js"
+    ],
+    "exclude": null
+  },
+  "phase": "pilot",
+  "configuration": "B0",
+  "status": "started"
+}

@@ -1,0 +1,13 @@
+{
+  "task": "build-cython-ext",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "build-cython-ext__tJiu3xk/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "build-cython-ext__vCMPMrV/result.json"
+  }
+}

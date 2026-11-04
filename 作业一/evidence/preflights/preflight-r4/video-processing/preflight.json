@@ -1,0 +1,13 @@
+{
+  "task": "video-processing",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "video-processing__xaoDr7L/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "video-processing__nqaHamR/result.json"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "counts": {
+    "swe/D": {
+      "expected": 10,
+      "qualified": 10
+    },
+    "swe/H": {
+      "expected": 5,
+      "qualified": 5
+    },
+    "terminal/D": {
+      "expected": 10,
+      "qualified": 10
+    },
+    "terminal/H": {
+      "expected": 5,
+      "qualified": 5
+    },
+    "aider/D": {
+      "expected": 10,
+      "qualified": 10
+    },
+    "aider/H": {
+      "expected": 5,
+      "qualified": 5
+    }
+  },
+  "outstanding": []
+}

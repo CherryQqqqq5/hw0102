@@ -1,0 +1,13 @@
+{
+  "task": "nginx-request-logging",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "nginx-request-logging__5FFPZeo/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "nginx-request-logging__7zv4feH/result.json"
+  }
+}

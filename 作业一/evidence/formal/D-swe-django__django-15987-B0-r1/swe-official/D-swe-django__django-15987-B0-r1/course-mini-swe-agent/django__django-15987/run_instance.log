@@ -1,0 +1,162 @@
+2026-11-04 18:03:34,896 - INFO - Creating container for django__django-15987...
+2026-11-04 18:03:34,950 - INFO - Container for django__django-15987 created: 2376b2fb57a0f7586cb0a6a6bb7a5715c191091fe209a46a54bd3a78128fe024
+2026-11-04 18:03:35,044 - INFO - Container for django__django-15987 started: 2376b2fb57a0f7586cb0a6a6bb7a5715c191091fe209a46a54bd3a78128fe024
+2026-11-04 18:03:35,045 - INFO - Intermediate patch for django__django-15987 written to [本机路径] now applying to container...
+2026-11-04 18:03:35,189 - INFO - >>>>> Applied Patch:
+Checking patch django/core/management/commands/loaddata.py...
+Checking patch tests/fixtures/tests.py...
+Applied patch django/core/management/commands/loaddata.py cleanly.
+Applied patch tests/fixtures/tests.py cleanly.
+
+2026-11-04 18:03:36,270 - INFO - Git diff before:
+diff --git a/django/core/management/commands/loaddata.py b/django/core/management/commands/loaddata.py
+index ac97f13161..ac91644105 100644
+--- a/django/core/management/commands/loaddata.py
++++ b/django/core/management/commands/loaddata.py
+@@ -361,7 +361,7 @@ class Command(BaseCommand):
+         current directory.
+         """
+         dirs = []
+-        fixture_dirs = settings.FIXTURE_DIRS
++        fixture_dirs = [os.fspath(fixture_dir) for fixture_dir in settings.FIXTURE_DIRS]
+         if len(fixture_dirs) != len(set(fixture_dirs)):
+             raise ImproperlyConfigured("settings.FIXTURE_DIRS contains duplicates.")
+         for app_config in apps.get_app_configs():
+diff --git a/tests/fixtures/tests.py b/tests/fixtures/tests.py
+index e66007d2d4..cbc6484b10 100644
+--- a/tests/fixtures/tests.py
++++ b/tests/fixtures/tests.py
+@@ -5,17 +5,24 @@ import tempfile
+ import unittest
+ import warnings
+ from io import StringIO
++from pathlib import Path
+ from unittest import mock
+ 
+ from django.apps import apps
+ from django.contrib.sites.models import Site
+ from django.core import management
++from django.core.exceptions import ImproperlyConfigured
+ from django.core.files.temp import NamedTemporaryFile
+ from django.core.management import CommandError
+ from django.core.management.commands.dumpdata import ProxyModelWarning
+ from django.core.serializers.base import ProgressBar
+ from django.db import IntegrityError, connection
+-from django.test import TestCase, TransactionTestCase, skipUnlessDBFeature
++from django.test import (
++    TestCase,
++    TransactionTestCase,
++    override_settings,
++    skipUnlessDBFeature,
++)
+ 
+ from .models import (
+     Article,
+@@ -943,6 +950,26 @@ class FixtureLoadingTests(DumpDataAssertMixin, TestCase):
+             "Who needs more than one database?",
+         )
+ 
++    def test_loaddata_fixture_dirs_duplicates_with_path(self):
++        msg = "settings.FIXTURE_DIRS contains duplicates."
++        for fixture_dirs in (
++            [Path("/fixtures_dir"), "/fixtures_dir"],
++            [Path("/fixtures_dir"), Path("/fixtures_dir")],
++        ):
++            with self.subTest(fixture_dirs=fixture_dirs):
++                with self.assertRaisesMessage(ImproperlyConfigured, msg):
++                    with override_settings(FIXTURE_DIRS=fixture_dirs):
++                        management.call_command(
++                            "loaddata", "fixture1.json", verbosity=0
++                        )
++
++    def test_loaddata_default_fixture_dir_as_path(self):
++        app_dir = Path(apps.get_app_config("fixtures").path, "fixtures")
++        msg = "'%s' is a default fixture directory for the 'fixtures' app " % app_dir
++        with self.assertRaisesMessage(ImproperlyConfigured, msg):
++            with override_settings(FIXTURE_DIRS=[app_dir]):
++                management.call_command("loaddata", "fixture1.json", verbosity=0)
++
+     def test_loaddata_verbosity_three(self):
+         output = StringIO()
+         management.call_command(
+2026-11-04 18:03:36,270 - INFO - Eval script for django__django-15987 written to [本机路径] copying to container...
+2026-11-04 18:03:51,565 - INFO - Test runtime: 15.23 seconds
+2026-11-04 18:03:51,566 - INFO - Test output for django__django-15987 written to [本机路径]
+2026-11-04 18:03:51,793 - INFO - Git diff after:
+diff --git a/django/core/management/commands/loaddata.py b/django/core/management/commands/loaddata.py
+index ac97f13161..ac91644105 100644
+--- a/django/core/management/commands/loaddata.py
++++ b/django/core/management/commands/loaddata.py
+@@ -361,7 +361,7 @@ class Command(BaseCommand):
+         current directory.
+         """
+         dirs = []
+-        fixture_dirs = settings.FIXTURE_DIRS
++        fixture_dirs = [os.fspath(fixture_dir) for fixture_dir in settings.FIXTURE_DIRS]
+         if len(fixture_dirs) != len(set(fixture_dirs)):
+             raise ImproperlyConfigured("settings.FIXTURE_DIRS contains duplicates.")
+         for app_config in apps.get_app_configs():
+diff --git a/tests/fixtures/tests.py b/tests/fixtures/tests.py
+index e66007d2d4..cbc6484b10 100644
+--- a/tests/fixtures/tests.py
++++ b/tests/fixtures/tests.py
+@@ -5,17 +5,24 @@ import tempfile
+ import unittest
+ import warnings
+ from io import StringIO
++from pathlib import Path
+ from unittest import mock
+ 
+ from django.apps import apps
+ from django.contrib.sites.models import Site
+ from django.core import management
++from django.core.exceptions import ImproperlyConfigured
+ from django.core.files.temp import NamedTemporaryFile
+ from django.core.management import CommandError
+ from django.core.management.commands.dumpdata import ProxyModelWarning
+ from django.core.serializers.base import ProgressBar
+ from django.db import IntegrityError, connection
+-from django.test import TestCase, TransactionTestCase, skipUnlessDBFeature
++from django.test import (
++    TestCase,
++    TransactionTestCase,
++    override_settings,
++    skipUnlessDBFeature,
++)
+ 
+ from .models import (
+     Article,
+@@ -943,6 +950,26 @@ class FixtureLoadingTests(DumpDataAssertMixin, TestCase):
+             "Who needs more than one database?",
+         )
+ 
++    def test_loaddata_fixture_dirs_duplicates_with_path(self):
++        msg = "settings.FIXTURE_DIRS contains duplicates."
++        for fixture_dirs in (
++            [Path("/fixtures_dir"), "/fixtures_dir"],
++            [Path("/fixtures_dir"), Path("/fixtures_dir")],
++        ):
++            with self.subTest(fixture_dirs=fixture_dirs):
++                with self.assertRaisesMessage(ImproperlyConfigured, msg):
++                    with override_settings(FIXTURE_DIRS=fixture_dirs):
++                        management.call_command(
++                            "loaddata", "fixture1.json", verbosity=0
++                        )
++
++    def test_loaddata_default_fixture_dir_as_path(self):
++        app_dir = Path(apps.get_app_config("fixtures").path, "fixtures")
++        msg = "'%s' is a default fixture directory for the 'fixtures' app " % app_dir
++        with self.assertRaisesMessage(ImproperlyConfigured, msg):
++            with override_settings(FIXTURE_DIRS=[app_dir]):
++                management.call_command("loaddata", "fixture1.json", verbosity=0)
++
+     def test_loaddata_verbosity_three(self):
+         output = StringIO()
+         management.call_command(
+2026-11-04 18:03:51,794 - INFO - Grading answer for django__django-15987...
+2026-11-04 18:03:51,799 - INFO - report: {'django__django-15987': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['settings.FIXTURE_DIRS cannot contain a default fixtures directory'], 'failure': []}, 'PASS_TO_PASS': {'success': ['test_fixtures_loaded (fixtures_regress.tests.TestLoadFixtureFromOtherAppDirectory)', 'Natural keys with foreing keys in dependencies works in a multiple', 'M2M relations with explicit through models should NOT count as', 'Circular M2M relations with explicit through models should be serializable', 'M2M relations without explicit through models SHOULD count as dependencies', 'Resolving circular M2M relations without explicit through models should', 'Test serializing and deserializing back models with simple M2M relations', 'test_dependency_self_referential (fixtures_regress.tests.NaturalKeyFixtureTests)', "It doesn't matter what order you mention the models,  Store *must* be", 'test_dependency_sorting_2 (fixtures_regress.tests.NaturalKeyFixtureTests)', 'test_dependency_sorting_3 (fixtures_regress.tests.NaturalKeyFixtureTests)', 'test_dependency_sorting_4 (fixtures_regress.tests.NaturalKeyFixtureTests)', 'test_dependency_sorting_5 (fixtures_regress.tests.NaturalKeyFixtureTests)', 'test_dependency_sorting_6 (fixtures_regress.tests.NaturalKeyFixtureTests)', 'test_dependency_sorting_dangling (fixtures_regress.tests.NaturalKeyFixtureTests)', 'test_dependency_sorting_long (fixtures_regress.tests.NaturalKeyFixtureTests)', 'test_dependency_sorting_normal (fixtures_regress.tests.NaturalKeyFixtureTests)', 'test_dependency_sorting_tight_circular (fixtures_regress.tests.NaturalKeyFixtureTests)', 'test_dependency_sorting_tight_circular_2 (fixtures_regress.tests.NaturalKeyFixtureTests)', 'Test for ticket #13030 - Python based parser version', 'Test for ticket #13030 - XML version', 'Natural key requirements are taken into account when serializing models.', 'Normal primary keys work on a model with natural key capabilities.', 'Fixtures can be rolled back (ticket #11101).', 'Regression test for ticket #6436 --', 'Test for ticket #7572 -- MySQL has a problem if the same connection is', 'Regression for #11286', 'This is a regression test for ticket #3790.', 'Test for ticket #18213 -- Loading a fixture file with no data output a warning.', 'Regression for #9011 - error message is correct.', 'Test for tickets #8298, #9942 - Field values should be coerced into the', 'settings.FIXTURE_DIRS cannot contain duplicates in order to avoid', 'test_fixtures_dir_pathlib (fixtures_regress.tests.TestFixtures)', 'Test for ticket #4371 -- Loading a fixture file with invalid data', 'Regression for #17530 - should be able to cope with forward references', 'Error is quickly reported when no fixtures is provided in the command', 'Test for ticket #9279 -- Ignores entries in', 'Test for ticket #19998 -- Ignore entries in the XML serialized data', 'Test for ticket #9279 -- Error is raised for entries in', 'Data with nonexistent child key references raises error.', 'Regression test for ticket #17946.', 'test_loaddata_with_valid_fixture_dirs (fixtures_regress.tests.TestFixtures)', 'Forward references cause fixtures not to load in MySQL (InnoDB).', 'test_path_containing_dots (fixtures_regress.tests.TestFixtures)', "Test for ticket #7565 -- PostgreSQL sequence resetting checks shouldn't", "Regression for #11428 - Proxy models aren't included when you dumpdata", 'test_relative_path (fixtures_regress.tests.TestFixtures)', 'test_relative_path_in_fixture_dirs (fixtures_regress.tests.TestFixtures)', 'Regression for ticket #20820 -- loaddata on a model that inherits', 'Regression for ticket #22421 -- loaddata on a model that inherits from', 'Failing serializer import raises the proper error', 'Test for ticket #4371 -- Loading data of an unknown format should fail'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-15987: resolved: True
+2026-11-04 18:03:51,800 - INFO - Attempting to stop container sweb.eval.django__django-15987.D-swe-django__django-15987-B0-r1...
+2026-11-04 18:04:07,235 - INFO - Container sweb.eval.django__django-15987.D-swe-django__django-15987-B0-r1 stopped successfully.
+2026-11-04 18:04:07,235 - INFO - Attempting to remove container sweb.eval.django__django-15987.D-swe-django__django-15987-B0-r1...
+2026-11-04 18:04:07,305 - INFO - Container sweb.eval.django__django-15987.D-swe-django__django-15987-B0-r1 removed successfully.

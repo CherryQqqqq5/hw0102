@@ -1,0 +1,26 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "python/wordy",
+    "stratum": "python",
+    "group": "wordy",
+    "solution_files": [
+      "wordy.py"
+    ],
+    "test_files": [
+      "wordy_test.py"
+    ],
+    "exclude": null
+  },
+  "phase": "pilot",
+  "configuration": "B0",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "limits": {
+    "model_calls": 1,
+    "wall_seconds": 90,
+    "command_seconds": 60,
+    "max_output_tokens": 4096
+  }
+}

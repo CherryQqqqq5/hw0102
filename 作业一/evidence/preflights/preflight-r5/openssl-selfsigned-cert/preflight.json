@@ -1,0 +1,13 @@
+{
+  "task": "openssl-selfsigned-cert",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "openssl-selfsigned-cert__vZeyyaU/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "openssl-selfsigned-cert__5A9razx/result.json"
+  }
+}

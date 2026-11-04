@@ -1,0 +1,5 @@
+{
+  "stdout": "\n> test\n> jest ./*\n\n",
+  "stderr": "PASS ./food-chain.spec.js (5.522 s)\n  Food Chain\n    ✓ fly (22 ms)\n    ✓ spider (13 ms)\n    ✓ bird (4 ms)\n    ✓ cat\n    ✓ dog (1 ms)\n    ✓ goat (3 ms)\n    ✓ cow (1 ms)\n    ✓ horse\n    ✓ multiple verses (1 ms)\n    ✓ the whole song (6 ms)\n\nTest Suites: 1 passed, 1 total\nTests:       10 passed, 10 total\nSnapshots:   0 total\nTime:        5.691 s\nRan all test suites matching /.\\/LICENSE|.\\/babel.config.js|.\\/food-chain.js|.\\/food-chain.spec.js|.\\/node_modules|.\\/package-lock.json|.\\/package.json/i.\n",
+  "returncode": 0
+}

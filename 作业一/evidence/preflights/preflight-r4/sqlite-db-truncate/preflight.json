@@ -1,0 +1,13 @@
+{
+  "task": "sqlite-db-truncate",
+  "original_starter": {
+    "scoreable": false,
+    "passed": null,
+    "harbor_result": "sqlite-db-truncate__a5sCMcu/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "sqlite-db-truncate__vVAbvo8/result.json"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "task": "adaptive-rejection-sampler",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "adaptive-rejection-sampler__YrmetT9/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "adaptive-rejection-sampler__jQoiYmP/result.json"
+  }
+}

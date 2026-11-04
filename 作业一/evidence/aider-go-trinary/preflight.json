@@ -1,0 +1,13 @@
+{
+  "task": "go/trinary",
+  "original_starter": {
+    "scoreable": false,
+    "passed": null,
+    "grader_exit_code": 127
+  },
+  "upstream_reference": {
+    "scoreable": false,
+    "passed": null,
+    "grader_exit_code": 127
+  }
+}

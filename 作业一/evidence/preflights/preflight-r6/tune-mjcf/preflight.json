@@ -1,0 +1,13 @@
+{
+  "task": "tune-mjcf",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "tune-mjcf__WP2voma/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "tune-mjcf__yWwFwfs/result.json"
+  }
+}

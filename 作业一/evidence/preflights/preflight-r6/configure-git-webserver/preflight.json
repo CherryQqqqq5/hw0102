@@ -1,0 +1,13 @@
+{
+  "task": "configure-git-webserver",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "configure-git-webserver__V67TPhc/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "configure-git-webserver__aKL5p2Q/result.json"
+  }
+}

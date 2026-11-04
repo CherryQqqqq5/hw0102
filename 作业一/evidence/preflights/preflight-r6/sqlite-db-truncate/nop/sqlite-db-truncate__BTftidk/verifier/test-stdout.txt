@@ -1,0 +1,21 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.12, pytest-8.4.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 1 item
+
+../tests/test_outputs.py F                                               [100%]
+
+=================================== FAILURES ===================================
+________________________________ test_json_data ________________________________
+
+    def test_json_data():
+        # Reference the directory the agent operated in (the WORKDIR in the Docker env)
+>       data = json.load(open("/app/recover.json"))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/app/recover.json'
+
+/tests/test_outputs.py:22: FileNotFoundError
+=========================== short test summary info ============================
+FAILED ../tests/test_outputs.py::test_json_data - FileNotFoundError: [Errno 2...
+============================== 1 failed in 0.41s ===============================

@@ -1,0 +1,13 @@
+{
+  "task": "custom-memory-heap-crash",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "custom-memory-heap-crash__7KvpfDy/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "custom-memory-heap-crash__odpGcUT/result.json"
+  }
+}

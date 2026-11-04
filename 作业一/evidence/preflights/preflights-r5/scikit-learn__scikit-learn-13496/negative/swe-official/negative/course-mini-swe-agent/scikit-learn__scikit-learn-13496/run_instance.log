@@ -1,0 +1,18 @@
+2026-11-04 16:45:05,243 - INFO - Creating container for scikit-learn__scikit-learn-13496...
+2026-11-04 16:45:05,616 - INFO - Container for scikit-learn__scikit-learn-13496 created: 2ce59c025080ef225a0afb70d0adc12d124c906dbe15f452477581f6fb0270b0
+2026-11-04 16:45:06,218 - INFO - Container for scikit-learn__scikit-learn-13496 started: 2ce59c025080ef225a0afb70d0adc12d124c906dbe15f452477581f6fb0270b0
+2026-11-04 16:45:06,219 - INFO - Skipping model patch for scikit-learn__scikit-learn-13496 (--no-patch mode)
+2026-11-04 16:45:07,915 - INFO - Git diff before:
+
+2026-11-04 16:45:07,916 - INFO - Eval script for scikit-learn__scikit-learn-13496 written to work/preflights-r5/scikit-learn__scikit-learn-13496/negative/swe-official/negative/course-mini-swe-agent/scikit-learn__scikit-learn-13496/eval.sh; copying to container...
+2026-11-04 16:45:53,486 - INFO - Test runtime: 45.38 seconds
+2026-11-04 16:45:53,490 - INFO - Test output for scikit-learn__scikit-learn-13496 written to work/preflights-r5/scikit-learn__scikit-learn-13496/negative/swe-official/negative/course-mini-swe-agent/scikit-learn__scikit-learn-13496/test_output.txt
+2026-11-04 16:45:53,860 - INFO - Git diff after:
+
+2026-11-04 16:45:53,860 - INFO - Grading answer for scikit-learn__scikit-learn-13496...
+2026-11-04 16:45:53,865 - INFO - report: {'scikit-learn__scikit-learn-13496': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['sklearn/ensemble/tests/test_iforest.py::test_iforest_warm_start']}, 'PASS_TO_PASS': {'success': ['sklearn/ensemble/tests/test_iforest.py::test_iforest', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_sparse', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_error', 'sklearn/ensemble/tests/test_iforest.py::test_recalculate_max_depth', 'sklearn/ensemble/tests/test_iforest.py::test_max_samples_attribute', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_parallel_regression', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_performance', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_works[0.25]', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_works[auto]', 'sklearn/ensemble/tests/test_iforest.py::test_max_samples_consistency', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_subsampled_features', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_average_path_length', 'sklearn/ensemble/tests/test_iforest.py::test_score_samples', 'sklearn/ensemble/tests/test_iforest.py::test_deprecation', 'sklearn/ensemble/tests/test_iforest.py::test_behaviour_param', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_chunks_works1[0.25-3]', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_chunks_works1[auto-2]', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_chunks_works2[0.25-3]', 'sklearn/ensemble/tests/test_iforest.py::test_iforest_chunks_works2[auto-2]'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for scikit-learn__scikit-learn-13496: resolved: False
+2026-11-04 16:45:53,866 - INFO - Attempting to stop container sweb.eval.scikit-learn__scikit-learn-13496.negative...
+2026-11-04 16:46:09,529 - INFO - Container sweb.eval.scikit-learn__scikit-learn-13496.negative stopped successfully.
+2026-11-04 16:46:09,531 - INFO - Attempting to remove container sweb.eval.scikit-learn__scikit-learn-13496.negative...
+2026-11-04 16:46:09,741 - INFO - Container sweb.eval.scikit-learn__scikit-learn-13496.negative removed successfully.

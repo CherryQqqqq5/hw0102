@@ -1,0 +1,11 @@
+{
+  "task": "psf__requests-1921",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": false
+  }
+}

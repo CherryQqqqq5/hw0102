@@ -1,0 +1,26 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.12, pytest-8.4.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 1 item
+
+../tests/test_outputs.py F                                               [100%]
+
+=================================== FAILURES ===================================
+_____________________ test_command_output_content_example ______________________
+
+    def test_command_output_content_example():
+        # Directly check the integer token count in the expected output file
+        expected_output = "79586"
+        actual_output = Path("/app/answer.txt").read_text()
+    
+>       assert expected_output in actual_output, (
+            f"Expected '{expected_output}' to be in answer.txt"
+        )
+E       AssertionError: Expected '79586' to be in answer.txt
+E       assert '79586' in ''
+
+/tests/test_outputs.py:11: AssertionError
+=========================== short test summary info ============================
+FAILED ../tests/test_outputs.py::test_command_output_content_example - Assert...
+============================== 1 failed in 2.94s ===============================

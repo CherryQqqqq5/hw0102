@@ -1,0 +1,13 @@
+{
+  "task": "mailman",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "mailman__KujAo8s/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "mailman__eD9rYEM/result.json"
+  }
+}

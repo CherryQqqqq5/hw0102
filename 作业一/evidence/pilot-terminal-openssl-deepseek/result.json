@@ -1,0 +1,7 @@
+{
+  "task": "openssl-selfsigned-cert",
+  "wall_seconds": 544.2245647920063,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "openssl-selfsigned-cert__QYnhFBV/result.json"
+}

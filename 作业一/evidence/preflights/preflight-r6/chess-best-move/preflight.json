@@ -1,0 +1,13 @@
+{
+  "task": "chess-best-move",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "chess-best-move__LqL7d4L/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "chess-best-move__SkqLrNa/result.json"
+  }
+}

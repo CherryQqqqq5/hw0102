@@ -1,0 +1,13 @@
+{
+  "task": "llm-inference-batching-scheduler",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "llm-inference-batching-scheduler__4ifuRZC/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "llm-inference-batching-scheduler__WH8je9E/result.json"
+  }
+}

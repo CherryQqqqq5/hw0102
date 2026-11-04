@@ -1,0 +1,5 @@
+{
+  "stdout": "FAIL\ttrinary [build failed]\nFAIL\n",
+  "stderr": "# trinary [trinary.test]\n./trinary_test.go:23:22: ParseTrinary(test.arg) (no value) used as value\n./trinary_test.go:23:35: not enough arguments in call to ParseTrinary\n\thave (string)\n\twant (string, int64, bool)\n./trinary_test.go:44:17: not enough arguments in call to ParseTrinary\n\thave (string)\n\twant (string, int64, bool)\n",
+  "returncode": 1
+}

@@ -1,0 +1,13 @@
+{
+  "task": "rust/doubly-linked-list",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "grader_exit_code": 101
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "grader_exit_code": 0
+  }
+}

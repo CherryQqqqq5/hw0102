@@ -1,0 +1,13 @@
+{
+  "task": "extract-elf",
+  "original_starter": {
+    "scoreable": false,
+    "passed": null,
+    "harbor_result": "extract-elf__cNLn9Jp/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": false,
+    "passed": null,
+    "harbor_result": "extract-elf__LEpyF4A/result.json"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "task": "sparql-university",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "sparql-university__Pgvv6xD/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "sparql-university__Mz9T7k8/result.json"
+  }
+}

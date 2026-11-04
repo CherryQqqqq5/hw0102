@@ -1,0 +1,15 @@
+{
+  "task": "go/connect",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "grader_exit_code": 1,
+    "grader_seconds": 28.759102332987823
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "grader_exit_code": 0,
+    "grader_seconds": 24.642580208950676
+  }
+}

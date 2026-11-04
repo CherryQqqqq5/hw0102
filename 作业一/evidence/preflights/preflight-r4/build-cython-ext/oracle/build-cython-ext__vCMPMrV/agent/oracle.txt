@@ -1,0 +1,18 @@
+Cloning into '/app/pyknotid'...
+fatal: unable to access 'https://github.com/SPOCKnots/pyknotid.git/': Could not resolve host: github.com
+/usr/bin/sed: can't read /app/pyknotid/pyknotid/make/torus.py: No such file or directory
+/usr/bin/sed: can't read /app/pyknotid/pyknotid/spacecurves/spacecurve.py: No such file or directory
+/usr/bin/sed: can't read /app/pyknotid/pyknotid/make/periodic_knot.py: No such file or directory
+/usr/bin/sed: can't read /app/pyknotid/pyknotid/invariants.py: No such file or directory
+/usr/bin/sed: can't read /app/pyknotid/pyknotid/invariants.py: No such file or directory
+/usr/bin/sed: can't read /app/pyknotid/pyknotid/representations/representation.py: No such file or directory
+/usr/bin/sed: can't read /app/pyknotid/pyknotid/spacecurves/periodiccell.py: No such file or directory
+/usr/bin/sed: can't read /app/pyknotid/pyknotid/spacecurves/ccomplexity.pyx: No such file or directory
+WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7ffffd2b9550>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/setuptools/
+WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7ffffd42a710>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/setuptools/
+WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7ffffd42a990>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/setuptools/
+WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7ffffd42ac10>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/setuptools/
+WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7ffffd42ae90>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/setuptools/
+ERROR: Could not find a version that satisfies the requirement setuptools==80.9.0 (from versions: none)
+ERROR: No matching distribution found for setuptools==80.9.0
+/solution/solve.sh: line 17: cd: /app/pyknotid: No such file or directory

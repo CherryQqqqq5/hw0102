@@ -1,0 +1,13 @@
+{
+  "task": "regex-log",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "regex-log__GMr6Ytu/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "regex-log__gUJFwcM/result.json"
+  }
+}

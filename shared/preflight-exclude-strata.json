@@ -1,0 +1,3 @@
+{
+  "swe/psf/requests": "Two official reference patches reached zero FAIL_TO_PASS misses but failed the same unchanged mixed-case HTTPS regression because the base image could not verify the certificate chain. The repository stratum is excluded before formal model runs."
+}

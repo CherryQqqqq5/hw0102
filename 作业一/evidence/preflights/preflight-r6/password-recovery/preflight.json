@@ -1,0 +1,13 @@
+{
+  "task": "password-recovery",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "password-recovery__YXpEN3h/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "password-recovery__9nohAhs/result.json"
+  }
+}

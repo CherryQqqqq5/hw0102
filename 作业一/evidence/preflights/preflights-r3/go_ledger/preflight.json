@@ -1,0 +1,13 @@
+{
+  "task": "go/ledger",
+  "original_starter": {
+    "scoreable": false,
+    "passed": null,
+    "grader_exit_code": 124
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "grader_exit_code": 0
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "task": "reshard-c4-data",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "reshard-c4-data__TeYDqWm/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "reshard-c4-data__PWigG3E/result.json"
+  }
+}

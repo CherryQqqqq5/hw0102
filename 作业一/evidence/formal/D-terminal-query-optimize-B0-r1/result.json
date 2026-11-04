@@ -1,0 +1,7 @@
+{
+  "task": "query-optimize",
+  "wall_seconds": 2400.4394172499888,
+  "scoreable": true,
+  "passed": false,
+  "harbor_result": "query-optimize__HmteJbf/result.json"
+}

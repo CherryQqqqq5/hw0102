@@ -1,0 +1,13 @@
+{
+  "task": "pydata__xarray-4695",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "grader_seconds": 131.61576970899478
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "grader_seconds": 112.46373324992601
+  }
+}

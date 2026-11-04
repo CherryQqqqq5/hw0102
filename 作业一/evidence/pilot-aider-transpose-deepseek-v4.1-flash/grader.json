@@ -1,0 +1,5 @@
+{
+  "stdout": "\n> test\n> jest ./*\n\n",
+  "stderr": "PASS ./transpose.spec.js\n  Transpose\n    ✓ empty string (2 ms)\n    ✓ two characters in a row\n    ✓ two characters in a column\n    ✓ simple\n    ✓ single line (1 ms)\n    ✓ first line longer than second line\n    ✓ second line longer than first line\n    ✓ mixed line length\n    ✓ square\n    ✓ rectangle (1 ms)\n    ✓ triangle\n    ✓ jagged triangle\n    ✓ many lines (1 ms)\n\nTest Suites: 1 passed, 1 total\nTests:       13 passed, 13 total\nSnapshots:   0 total\nTime:        0.897 s\nRan all test suites matching /.\\/LICENSE|.\\/babel.config.js|.\\/node_modules|.\\/package-lock.json|.\\/package.json|.\\/transpose.js|.\\/transpose.spec.js/i.\n",
+  "returncode": 0
+}

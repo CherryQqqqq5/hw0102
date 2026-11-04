@@ -1,0 +1,7 @@
+{
+  "task": "llm-inference-batching-scheduler",
+  "wall_seconds": 410.74145041697193,
+  "scoreable": false,
+  "passed": null,
+  "harbor_result": "llm-inference-batching-scheduler__4JRrDe2/result.json"
+}

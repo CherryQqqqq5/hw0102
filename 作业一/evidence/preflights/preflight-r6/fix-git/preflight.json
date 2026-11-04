@@ -1,0 +1,13 @@
+{
+  "task": "fix-git",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "fix-git__be47SmG/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "fix-git__zsC6kQw/result.json"
+  }
+}

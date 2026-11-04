@@ -1,0 +1,13 @@
+{
+  "task": "model-extraction-relu-logits",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "model-extraction-relu-logits__GpWxMzo/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "model-extraction-relu-logits__fbfDCwN/result.json"
+  }
+}

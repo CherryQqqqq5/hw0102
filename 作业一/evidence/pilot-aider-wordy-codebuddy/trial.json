@@ -1,0 +1,18 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "python/wordy",
+    "stratum": "python",
+    "group": "wordy",
+    "solution_files": [
+      "wordy.py"
+    ],
+    "test_files": [
+      "wordy_test.py"
+    ],
+    "exclude": null
+  },
+  "phase": "pilot",
+  "configuration": "B0",
+  "status": "started"
+}

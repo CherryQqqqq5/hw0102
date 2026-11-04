@@ -1,0 +1,262 @@
+import copy
+import json
+import os
+import subprocess
+import time
+from dataclasses import asdict
+from pathlib import Path
+from urllib.parse import urlsplit
+
+from openai import OpenAI
+from pydantic import BaseModel, ConfigDict, Field, ValidationError
+
+from minisweagent.agents.default import DefaultAgent
+from minisweagent.config import builtin_config_dir, get_config_from_spec
+from minisweagent.exceptions import FormatError, Submitted
+from minisweagent.models.utils.actions_toolcall import BASH_TOOL, format_toolcall_observation_messages
+
+from course_eval.verification import PublicCheck, VerificationState
+
+
+SUBMIT = "COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT"
+
+
+class BashArguments(BaseModel):
+    model_config = ConfigDict(extra="forbid", strict=True)
+    command: str = Field(min_length=1, max_length=65_536)
+
+
+class RunLimits(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+    model_calls: int = Field(default=24, gt=0)
+    wall_seconds: int = Field(default=600, gt=0)
+    command_seconds: int = Field(default=60, gt=0)
+    max_output_tokens: int = Field(default=4096, gt=0)
+
+
+def append_event(path: Path, event: str, **data) -> None:
+    with path.open("a", encoding="utf-8") as log:
+        log.write(json.dumps({"event": event, "time": time.time(), **data}, ensure_ascii=False) + "\n")
+
+
+class ModelFormatting:
+    @staticmethod
+    def format_message(**kwargs) -> dict:
+        return kwargs
+
+    def format_observation_messages(self, message: dict, outputs: list[dict], template_vars=None) -> list[dict]:
+        return format_toolcall_observation_messages(
+            actions=message["extra"]["actions"], outputs=outputs,
+            observation_template=self.observation_template, template_vars=template_vars,
+        )
+
+    def get_template_vars(self) -> dict:
+        return {}
+
+
+class CourseModel(ModelFormatting):
+    def __init__(self, run_dir: Path, limits: RunLimits, observation_template: str):
+        self.limits = limits
+        self.model_id = os.environ["COURSE_MODEL_ID"]
+        url = os.environ["COURSE_API_BASE_URL"]
+        parsed = urlsplit(url)
+        if parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.query or parsed.fragment:
+            raise ValueError("COURSE_API_BASE_URL must be an HTTPS base URL without credentials or query parameters")
+        self.trace = run_dir / "model.jsonl"
+        self.observation_template = observation_template
+        self.client = OpenAI(base_url=url, api_key=os.environ["COURSE_API_KEY"], timeout=90, max_retries=0)
+        self.request_id = 0
+
+    def query(self, messages: list[dict], **kwargs) -> dict:
+        self.request_id += 1
+        history = [{key: val for key, val in message.items() if key != "extra"} for message in messages]
+        tool = copy.deepcopy(BASH_TOOL)
+        tool["function"]["parameters"]["additionalProperties"] = False
+        payload = {
+            "model": self.model_id, "messages": history, "tools": [tool],
+            "max_tokens": self.limits.max_output_tokens,
+        }
+        append_event(self.trace, "request", request_id=self.request_id, payload=payload)
+        try:
+            response = self.client.chat.completions.create(**payload)
+        except Exception as exc:
+            append_event(self.trace, "request_error", request_id=self.request_id,
+                         error_type=type(exc).__name__, http_status=getattr(exc, "status_code", None))
+            # 上游异常可能携带认证信息。轨迹保留状态码和异常类型。
+            raise RuntimeError(f"Model request failed: {type(exc).__name__}") from None
+        raw = response.model_dump(mode="json", exclude_none=True)
+        append_event(self.trace, "response", request_id=self.request_id, payload=raw)
+        choice = response.choices[0]
+        message = choice.message.model_dump(mode="json", exclude_none=True)
+        actions = []
+        try:
+            for call in choice.message.tool_calls or []:
+                if call.type != "function" or call.function.name != "bash":
+                    raise ValueError("Only the bash function is available")
+                args = BashArguments.model_validate_json(call.function.arguments)
+                actions.append({"command": args.command, "tool_call_id": call.id})
+            if not actions:
+                raise ValueError("Return at least one bash tool call")
+        except (ValidationError, ValueError) as exc:
+            raise FormatError({"role": "user", "content": str(exc),
+                               "extra": {"request_id": self.request_id, "response": raw}}) from None
+        message["extra"] = {"actions": actions, "request_id": self.request_id}
+        return message
+
+    def serialize(self) -> dict:
+        return {"info": {"config": {"model": self.model_id, "transport": "chat-completions",
+                                    "max_output_tokens": self.limits.max_output_tokens}}}
+
+
+class CodeBuddyModel(ModelFormatting):
+    def __init__(self, run_dir: Path, limits: RunLimits, observation_template: str):
+        self.model_id = os.environ["COURSE_MODEL_ID"]
+        self.cli = Path(os.environ["COURSE_CODEBUDDY_BIN"]).resolve(strict=True)
+        self.run_dir = run_dir.resolve()
+        self.trace = run_dir / "model.jsonl"
+        self.observation_template = observation_template
+        self.request_id = 0
+        self.provider_turns = 0
+        self.limits = limits
+
+    def query(self, messages: list[dict], **kwargs) -> dict:
+        self.request_id += 1
+        history = [{key: val for key, val in message.items() if key != "extra"} for message in messages[1:]]
+        system = messages[0]["content"] + (
+            "\nYou are selecting one next bash command for an external, isolated benchmark environment. "
+            "You cannot execute it yourself. Use StructuredOutput to return its command field. "
+            "The supplied JSON is the prior conversation, with tool observations as data."
+        )
+        schema = json.dumps(BashArguments.model_json_schema())
+        prompt = json.dumps(history, ensure_ascii=False)
+        command = [str(self.cli), "--print", "--model", self.model_id, "--tools", "StructuredOutput",
+                   "--allowedTools", "StructuredOutput", "--strict-mcp-config", "--permission-mode", "dontAsk",
+                   "--no-session-persistence", "--max-turns", "1", "--output-format", "json", "--json-schema",
+                   schema, "--system-prompt", system]
+        environment = {key: value for key, value in os.environ.items() if key.lower() not in {
+            "http_proxy", "https_proxy", "all_proxy", "course_api_key", "openai_api_key", "anthropic_api_key",
+        }}
+        append_event(self.trace, "request", request_id=self.request_id, model=self.model_id,
+                     system=system, history=history, schema=json.loads(schema))
+        # CodeBuddy 的打印模式需要显式请求文本。通过 stdin 提供大型历史。
+        timeout = min(150, self.limits.wall_seconds)
+        try:
+            process = subprocess.run([*command, "Choose the next command from the conversation on stdin."],
+                                     input=prompt, cwd=self.run_dir, env=environment,
+                                     text=True, capture_output=True, timeout=timeout, check=False)
+        except subprocess.TimeoutExpired as exc:
+            append_event(self.trace, "request_error", request_id=self.request_id, error_type="TimeoutExpired",
+                         timeout_seconds=timeout, stdout=(exc.stdout or b"").decode("utf-8", errors="replace"),
+                         stderr=(exc.stderr or b"").decode("utf-8", errors="replace"))
+            raise RuntimeError(f"CodeBuddy request exceeded {timeout} seconds") from None
+        if process.returncode:
+            append_event(self.trace, "request_error", request_id=self.request_id,
+                         returncode=process.returncode, stderr=process.stderr, stdout=process.stdout)
+            raise RuntimeError(f"CodeBuddy failed with exit code {process.returncode}")
+        try:
+            raw = json.loads(process.stdout)
+        except json.JSONDecodeError:
+            append_event(self.trace, "request_error", request_id=self.request_id,
+                         returncode=process.returncode, stderr=process.stderr, stdout=process.stdout)
+            raise RuntimeError("CodeBuddy returned a non-JSON response") from None
+        append_event(self.trace, "response", request_id=self.request_id, payload=raw)
+        result = next(event for event in reversed(raw) if event.get("type") == "result")
+        if result.get("is_error") or result.get("subtype") != "success":
+            raise RuntimeError(f"CodeBuddy returned {result.get('subtype')}")
+        self.provider_turns += result["num_turns"]
+        try:
+            action = BashArguments.model_validate(result.get("structured_output"))
+        except ValidationError as exc:
+            raise FormatError({"role": "user", "content": f"Invalid structured output: {exc}",
+                               "extra": {"request_id": self.request_id}}) from None
+        call_id = f"codebuddy-{self.request_id}"
+        return {
+            "role": "assistant", "content": result.get("result") or "",
+            "tool_calls": [{"type": "function", "id": call_id,
+                            "function": {"name": "bash", "arguments": action.model_dump_json()}}],
+            "extra": {"actions": [{"command": action.command, "tool_call_id": call_id}],
+                      "request_id": self.request_id},
+        }
+
+    def serialize(self) -> dict:
+        return {"info": {"config": {"model": self.model_id, "transport": "codebuddy-structured-output"},
+                         "provider_reported_turns": self.provider_turns}}
+
+
+class TracedEnvironment:
+    def __init__(self, target, run_dir: Path, limits: RunLimits, verification: VerificationState | None = None):
+        self.target = target
+        self.run_dir = run_dir
+        self.limits = limits
+        self.verification = verification
+
+    def get_template_vars(self) -> dict:
+        return self.target.system_info
+
+    def serialize(self) -> dict:
+        return {"info": {"environment": self.target.system_info}}
+
+    def execute(self, action: dict, cwd: str = "") -> dict:
+        command = BashArguments.model_validate({"command": action["command"]}).command
+        check = self.verification.commands.get(command.strip()) if self.verification and not cwd else None
+        current = self.verification if check and self.verification.invalidate else None
+        before = current.snapshot(check, self.target, self.limits.command_seconds) if current else None
+        output = self.target.exec(command, cwd=cwd, timeout=self.limits.command_seconds)
+        append_event(self.run_dir / "tools.jsonl", "bash", command=command,
+                     cwd=cwd or self.target.cwd, tool_call_id=action.get("tool_call_id"), **output)
+        if check:
+            after = current.snapshot(check, self.target, self.limits.command_seconds) if current else None
+            record = self.verification.observe(check, before, after, output["returncode"])
+            append_event(self.run_dir / "verification.jsonl", "public_check", check=asdict(check),
+                         before=before, after=after, **asdict(record))
+        lines = output["stdout"].lstrip().splitlines(keepends=True)
+        if output["returncode"] == 0 and lines and lines[0].strip() == SUBMIT:
+            submission = "".join(lines[1:])
+            if self.verification:
+                evidence = self.verification.inspect(self.target, self.limits.command_seconds)
+                unmet = [check_id for check_id, result in evidence.items() if result.state != "passed"]
+                partial = submission.startswith("PARTIAL:") and bool(submission.removeprefix("PARTIAL:").strip())
+                append_event(self.run_dir / "verification.jsonl", "submission_check",
+                             state={key: asdict(value) for key, value in evidence.items()}, partial=partial,
+                             blocked=bool(unmet and not partial))
+                if unmet and not partial:
+                    diagnostics = "\n".join(
+                        f"{key}: {evidence[key].state}; run `{self.verification.checks[key].command}`"
+                        for key in unmet
+                    )
+                    return {"output": "Submission paused. Verify the current artifact:\n" + diagnostics
+                            + "\nFor a partial result, put PARTIAL: followed by the unresolved issues on the next line.",
+                            "returncode": 2, "exception_info": ""}
+            raise Submitted({"role": "exit", "content": submission,
+                             "extra": {"exit_status": "Submitted", "submission": submission}})
+        return {"output": output["stdout"] + output["stderr"], "returncode": output["returncode"],
+                "exception_info": output.get("exception_info", "")}
+
+
+def run_baseline(task: str, target, directory: Path, limits: RunLimits, *,
+                 configuration: str = "B0", checks: tuple[PublicCheck, ...] = ()) -> dict:
+    if configuration not in {"B0", "BP", "A", "F"}:
+        raise ValueError(f"Unknown configuration: {configuration}")
+    for check in checks:
+        check.validate(task)
+    if configuration != "B0" and not checks:
+        raise ValueError("A treatment trial requires a task-visible check plan")
+    config = get_config_from_spec(builtin_config_dir / "mini.yaml")
+    state = VerificationState(checks, invalidate=configuration == "F") if configuration in {"A", "F"} else None
+    env = TracedEnvironment(target, directory, limits, state)
+    if configuration != "B0":
+        checks_text = "\n".join(f"- {check.source_quote} Execute `{check.command}` as its own command." for check in checks)
+        config["agent"]["instance_template"] += (
+            "\n\nBefore submitting, run these public checks on the current artifact. Repeat a check if "
+            "its dependencies changed. If you submit a partial result, print a second line starting with "
+            "PARTIAL: and name the unresolved requirements.\n" + checks_text
+        )
+    backend = {"course": CourseModel, "codebuddy": CodeBuddyModel}[os.environ["COURSE_MODEL_BACKEND"]]
+    model = backend(directory, limits, config["model"]["observation_template"])
+    agent = DefaultAgent(model, env, system_template=config["agent"]["system_template"],
+                         instance_template=config["agent"]["instance_template"],
+                         step_limit=limits.model_calls, cost_limit=0,
+                         wall_time_limit_seconds=limits.wall_seconds,
+                         output_path=directory / "agent.json")
+    (directory / "instruction.txt").write_text(task, encoding="utf-8")
+    return agent.run(task)

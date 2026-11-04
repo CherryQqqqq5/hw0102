@@ -1,0 +1,13 @@
+{
+  "task": "git-multibranch",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "git-multibranch__uo7w9VA/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "git-multibranch__gAEPvqz/result.json"
+  }
+}

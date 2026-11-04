@@ -1,0 +1,9 @@
+{
+  "task": "javascript/transpose",
+  "wall_seconds": 86.68278512498364,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0
+}

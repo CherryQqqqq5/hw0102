@@ -1,0 +1,70 @@
+diff --git a/django/core/management/commands/loaddata.py b/django/core/management/commands/loaddata.py
+index ac97f13161..ac91644105 100644
+--- a/django/core/management/commands/loaddata.py
++++ b/django/core/management/commands/loaddata.py
+@@ -361,7 +361,7 @@ class Command(BaseCommand):
+         current directory.
+         """
+         dirs = []
+-        fixture_dirs = settings.FIXTURE_DIRS
++        fixture_dirs = [os.fspath(fixture_dir) for fixture_dir in settings.FIXTURE_DIRS]
+         if len(fixture_dirs) != len(set(fixture_dirs)):
+             raise ImproperlyConfigured("settings.FIXTURE_DIRS contains duplicates.")
+         for app_config in apps.get_app_configs():
+diff --git a/tests/fixtures/tests.py b/tests/fixtures/tests.py
+index e66007d2d4..cbc6484b10 100644
+--- a/tests/fixtures/tests.py
++++ b/tests/fixtures/tests.py
+@@ -5,17 +5,24 @@ import tempfile
+ import unittest
+ import warnings
+ from io import StringIO
++from pathlib import Path
+ from unittest import mock
+ 
+ from django.apps import apps
+ from django.contrib.sites.models import Site
+ from django.core import management
++from django.core.exceptions import ImproperlyConfigured
+ from django.core.files.temp import NamedTemporaryFile
+ from django.core.management import CommandError
+ from django.core.management.commands.dumpdata import ProxyModelWarning
+ from django.core.serializers.base import ProgressBar
+ from django.db import IntegrityError, connection
+-from django.test import TestCase, TransactionTestCase, skipUnlessDBFeature
++from django.test import (
++    TestCase,
++    TransactionTestCase,
++    override_settings,
++    skipUnlessDBFeature,
++)
+ 
+ from .models import (
+     Article,
+@@ -943,6 +950,26 @@ class FixtureLoadingTests(DumpDataAssertMixin, TestCase):
+             "Who needs more than one database?",
+         )
+ 
++    def test_loaddata_fixture_dirs_duplicates_with_path(self):
++        msg = "settings.FIXTURE_DIRS contains duplicates."
++        for fixture_dirs in (
++            [Path("/fixtures_dir"), "/fixtures_dir"],
++            [Path("/fixtures_dir"), Path("/fixtures_dir")],
++        ):
++            with self.subTest(fixture_dirs=fixture_dirs):
++                with self.assertRaisesMessage(ImproperlyConfigured, msg):
++                    with override_settings(FIXTURE_DIRS=fixture_dirs):
++                        management.call_command(
++                            "loaddata", "fixture1.json", verbosity=0
++                        )
++
++    def test_loaddata_default_fixture_dir_as_path(self):
++        app_dir = Path(apps.get_app_config("fixtures").path, "fixtures")
++        msg = "'%s' is a default fixture directory for the 'fixtures' app " % app_dir
++        with self.assertRaisesMessage(ImproperlyConfigured, msg):
++            with override_settings(FIXTURE_DIRS=[app_dir]):
++                management.call_command("loaddata", "fixture1.json", verbosity=0)
++
+     def test_loaddata_verbosity_three(self):
+         output = StringIO()
+         management.call_command(

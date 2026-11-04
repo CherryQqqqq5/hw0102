@@ -1,0 +1,11 @@
+WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7ffffd306f90>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/datasets/
+WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7ffffd2ff250>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/datasets/
+WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7ffffd2ff4d0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/datasets/
+WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7ffffd2ff750>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/datasets/
+WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x7ffffd2ff9d0>: Failed to establish a new connection: [Errno -3] Temporary failure in name resolution')': /simple/datasets/
+ERROR: Could not find a version that satisfies the requirement datasets==4.0.0 (from versions: none)
+ERROR: No matching distribution found for datasets==4.0.0
+Traceback (most recent call last):
+  File "/app/count_tokens.py", line 2, in <module>
+    from datasets import load_dataset
+ModuleNotFoundError: No module named 'datasets'

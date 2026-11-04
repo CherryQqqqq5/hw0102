@@ -1,0 +1,13 @@
+{
+  "task": "query-optimize",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "query-optimize__5Essxnt/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "query-optimize__ngbZkS9/result.json"
+  }
+}

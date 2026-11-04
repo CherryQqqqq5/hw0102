@@ -1,0 +1,5 @@
+{
+  "stdout": "--- FAIL: TestEncodeVarint (0.00s)\n    --- FAIL: TestEncodeVarint/zero (0.00s)\npanic: Please implement the EncodeVarint function [recovered]\n\tpanic: Please implement the EncodeVarint function\n\ngoroutine 35 [running]:\ntesting.tRunner.func1.2({0x11d080, 0x172b20})\n\t/usr/local/go/src/testing/testing.go:1545 +0x1c4\ntesting.tRunner.func1()\n\t/usr/local/go/src/testing/testing.go:1548 +0x360\npanic({0x11d080?, 0x172b20?})\n\t/usr/local/go/src/runtime/panic.go:914 +0x218\nvariablelengthquantity.EncodeVarint(...)\n\t/exercise/variable_length_quantity.go:4\nvariablelengthquantity.TestEncodeVarint.func1(0x0?)\n\t/exercise/variable_length_quantity_test.go:12 +0x30\ntesting.tRunner(0x400011c9c0, 0x4000102220)\n\t/usr/local/go/src/testing/testing.go:1595 +0xe8\ncreated by testing.(*T).Run in goroutine 34\n\t/usr/local/go/src/testing/testing.go:1648 +0x33c\nFAIL\tvariablelengthquantity\t0.018s\nFAIL\n",
+  "stderr": "",
+  "returncode": 1
+}

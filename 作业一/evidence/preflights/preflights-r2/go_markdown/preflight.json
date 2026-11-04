@@ -1,0 +1,13 @@
+{
+  "task": "go/markdown",
+  "original_starter": {
+    "scoreable": true,
+    "passed": true,
+    "grader_exit_code": 0
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "grader_exit_code": 0
+  }
+}

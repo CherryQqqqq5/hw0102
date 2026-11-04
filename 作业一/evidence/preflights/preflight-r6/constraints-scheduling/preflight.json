@@ -1,0 +1,13 @@
+{
+  "task": "constraints-scheduling",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "constraints-scheduling__t6qteoS/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "constraints-scheduling__sunQUK3/result.json"
+  }
+}

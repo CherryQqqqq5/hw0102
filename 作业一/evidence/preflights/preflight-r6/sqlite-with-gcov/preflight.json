@@ -1,0 +1,13 @@
+{
+  "task": "sqlite-with-gcov",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "sqlite-with-gcov__qgackgG/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "sqlite-with-gcov__2z3fnyq/result.json"
+  }
+}
