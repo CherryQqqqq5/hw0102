@@ -1,0 +1,27 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "javascript/food-chain",
+    "stratum": "javascript",
+    "group": "food-chain",
+    "solution_files": [
+      "food-chain.js"
+    ],
+    "test_files": [
+      "food-chain.spec.js"
+    ],
+    "exclude": null,
+    "split": "D"
+  },
+  "phase": "formal",
+  "configuration": "B0",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096
+  }
+}

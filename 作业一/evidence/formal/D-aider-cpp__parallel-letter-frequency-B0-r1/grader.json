@@ -1,0 +1,5 @@
+{
+  "stdout": "-- The CXX compiler identification is GNU 12.2.0\n-- Detecting CXX compiler ABI info\n-- Detecting CXX compiler ABI info - done\n-- Check for working CXX compiler: /usr/bin/c++ - skipped\n-- Detecting CXX compile features\n-- Detecting CXX compile features - done\n-- Configuring done\n-- Generating done\n-- Build files have been written to: /exercise/parallel-letter-frequency/build\n[ 25%] Building CXX object CMakeFiles/parallel-letter-frequency.dir/parallel_letter_frequency_test.cpp.o\n[ 50%] Building CXX object CMakeFiles/parallel-letter-frequency.dir/parallel_letter_frequency.cpp.o\n[ 75%] Building CXX object CMakeFiles/parallel-letter-frequency.dir/test/tests-main.cpp.o\n[100%] Linking CXX executable parallel-letter-frequency\n[100%] Built target parallel-letter-frequency\n===============================================================================\nAll tests passed (64 assertions in 12 test cases)\n\n[100%] Built target test_parallel-letter-frequency\n",
+  "stderr": "",
+  "returncode": 0
+}

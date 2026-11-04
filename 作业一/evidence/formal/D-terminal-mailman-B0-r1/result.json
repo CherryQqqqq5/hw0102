@@ -1,7 +1,7 @@
 {
   "task": "mailman",
-  "wall_seconds": 561.0791513749864,
-  "scoreable": false,
-  "passed": null,
-  "harbor_result": "mailman__YQgwSgT/result.json"
+  "wall_seconds": 698.5926598330261,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "mailman__KJqz2tX/result.json"
 }

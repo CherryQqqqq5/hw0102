@@ -1,0 +1,386 @@
+{
+  "django__django-15987": [
+    {
+      "check_id": "public-regression",
+      "source_quote": "Fixture dirs duplicates undetected if dir is Path instance",
+      "command": "/opt/miniconda3/envs/testbed/bin/python tests/runtests.py fixtures --parallel=1",
+      "dependencies": [
+        "django/core/management/commands/loaddata.py",
+        "tests/fixtures/tests.py"
+      ],
+      "deliverables": []
+    }
+  ],
+  "pydata__xarray-6599": [
+    {
+      "check_id": "public-regression",
+      "source_quote": "`polyval` with timedelta64 coordinates produces wrong results",
+      "command": "/opt/miniconda3/envs/testbed/bin/python -m pytest -q xarray/tests/test_computation.py -k polyval",
+      "dependencies": [
+        "xarray/core/computation.py",
+        "xarray/tests/test_computation.py"
+      ],
+      "deliverables": []
+    }
+  ],
+  "scikit-learn__scikit-learn-13496": [
+    {
+      "check_id": "public-regression",
+      "source_quote": "Expose warm_start in Isolation forest",
+      "command": "/opt/miniconda3/envs/testbed/bin/python -m pytest -q sklearn/ensemble/tests/test_iforest.py",
+      "dependencies": [
+        "sklearn/ensemble/iforest.py",
+        "sklearn/ensemble/tests/test_iforest.py"
+      ],
+      "deliverables": []
+    }
+  ],
+  "pytest-dev__pytest-7205": [
+    {
+      "check_id": "public-regression",
+      "source_quote": "BytesWarning when using --setup-show with bytes parameter",
+      "command": "/opt/miniconda3/envs/testbed/bin/python -m pytest -q testing/test_setuponly.py",
+      "dependencies": [
+        "src/_pytest/setuponly.py",
+        "testing/test_setuponly.py"
+      ],
+      "deliverables": []
+    }
+  ],
+  "django__django-13346": [
+    {
+      "check_id": "public-regression",
+      "source_quote": "On MySQL, Oracle, and SQLite, __in lookup doesn't work on key transforms.",
+      "command": "/opt/miniconda3/envs/testbed/bin/python tests/runtests.py model_fields.test_jsonfield --parallel=1",
+      "dependencies": [
+        "django/db/models/fields/json.py",
+        "tests/model_fields/test_jsonfield.py"
+      ],
+      "deliverables": []
+    }
+  ],
+  "pydata__xarray-3305": [
+    {
+      "check_id": "public-regression",
+      "source_quote": "DataArray.quantile does not honor `keep_attrs`",
+      "command": "/opt/miniconda3/envs/testbed/bin/python -m pytest -q xarray/tests/test_dataarray.py xarray/tests/test_dataset.py -k quantile",
+      "dependencies": [
+        "xarray/core/dataarray.py",
+        "xarray/core/dataset.py",
+        "xarray/core/variable.py",
+        "xarray/tests/test_dataarray.py",
+        "xarray/tests/test_dataset.py"
+      ],
+      "deliverables": []
+    }
+  ],
+  "scikit-learn__scikit-learn-14496": [
+    {
+      "check_id": "public-regression",
+      "source_quote": "[BUG] Optics float min_samples NN instantiation",
+      "command": "/opt/miniconda3/envs/testbed/bin/python -m pytest -q sklearn/cluster/tests/test_optics.py",
+      "dependencies": [
+        "sklearn/cluster/optics_.py",
+        "sklearn/cluster/tests/test_optics.py"
+      ],
+      "deliverables": []
+    }
+  ],
+  "pytest-dev__pytest-8399": [
+    {
+      "check_id": "public-regression",
+      "source_quote": "Starting v6.2.0, unittest setUpClass fixtures are no longer \"private\"",
+      "command": "/opt/miniconda3/envs/testbed/bin/python -m pytest -q testing/test_unittest.py",
+      "dependencies": [
+        "src/_pytest/unittest.py",
+        "testing/test_unittest.py"
+      ],
+      "deliverables": []
+    }
+  ],
+  "django__django-16082": [
+    {
+      "check_id": "public-regression",
+      "source_quote": "Resolve output_field when combining numeric expressions with MOD operator.",
+      "command": "/opt/miniconda3/envs/testbed/bin/python tests/runtests.py expressions --parallel=1",
+      "dependencies": [
+        "django/db/models/expressions.py",
+        "tests/expressions/tests.py"
+      ],
+      "deliverables": []
+    }
+  ],
+  "pydata__xarray-2905": [
+    {
+      "check_id": "public-regression",
+      "source_quote": "Variable.__setitem__ coercing types on objects with a values property",
+      "command": "/opt/miniconda3/envs/testbed/bin/python -m pytest -q xarray/tests/test_variable.py -k setitem",
+      "dependencies": [
+        "xarray/core/variable.py",
+        "xarray/tests/test_variable.py"
+      ],
+      "deliverables": []
+    }
+  ],
+  "django__django-15554": [
+    {
+      "check_id": "public-regression",
+      "source_quote": "Using multiple FilteredRelation with different filters but for same relation is ignored.",
+      "command": "/opt/miniconda3/envs/testbed/bin/python tests/runtests.py filtered_relation --parallel=1",
+      "dependencies": [
+        "django/db/models/sql/query.py",
+        "tests/filtered_relation/tests.py"
+      ],
+      "deliverables": []
+    }
+  ],
+  "pydata__xarray-4695": [
+    {
+      "check_id": "public-regression",
+      "source_quote": "Naming a dimension \"method\" throws error when calling \".loc\"",
+      "command": "/opt/miniconda3/envs/testbed/bin/python -m pytest -q xarray/tests/test_dataarray.py -k 'loc and not dask'",
+      "dependencies": [
+        "xarray/core/dataarray.py",
+        "xarray/core/dataset.py",
+        "xarray/core/indexing.py",
+        "xarray/tests/test_dataarray.py"
+      ],
+      "deliverables": []
+    }
+  ],
+  "scikit-learn__scikit-learn-10908": [
+    {
+      "check_id": "public-regression",
+      "source_quote": "CountVectorizer's get_feature_names raise not NotFittedError when the vocabulary parameter is provided",
+      "command": "/opt/miniconda3/envs/testbed/bin/python -m pytest -q sklearn/feature_extraction/tests/test_text.py -k vocab",
+      "dependencies": [
+        "sklearn/feature_extraction/text.py",
+        "sklearn/feature_extraction/tests/test_text.py"
+      ],
+      "deliverables": []
+    }
+  ],
+  "pytest-dev__pytest-7571": [
+    {
+      "check_id": "public-regression",
+      "source_quote": "caplog fixture doesn't restore log level after test",
+      "command": "/opt/miniconda3/envs/testbed/bin/python -m pytest -q testing/logging/test_fixture.py",
+      "dependencies": [
+        "src/_pytest/logging.py",
+        "testing/logging/test_fixture.py"
+      ],
+      "deliverables": []
+    }
+  ],
+  "django__django-12050": [
+    {
+      "check_id": "public-regression",
+      "source_quote": "Query.resolve_lookup_value coerces value of type list to tuple",
+      "command": "/opt/miniconda3/envs/testbed/bin/python tests/runtests.py lookup --parallel=1",
+      "dependencies": [
+        "django/db/models/sql/query.py",
+        "tests/lookup/tests.py"
+      ],
+      "deliverables": []
+    }
+  ],
+  "openssl-selfsigned-cert": [
+    {
+      "check_id": "public-artifact",
+      "source_quote": "Save it as `/app/ssl/server.crt`",
+      "command": "test -s /app/ssl/server.crt && test -s /app/ssl/server.key && openssl x509 -in /app/ssl/server.crt -noout",
+      "dependencies": [
+        "/app/ssl/server.crt",
+        "/app/ssl/server.key"
+      ],
+      "deliverables": [
+        "/app/ssl/server.crt",
+        "/app/ssl/server.key"
+      ]
+    }
+  ],
+  "query-optimize": [
+    {
+      "check_id": "public-artifact",
+      "source_quote": "Please save your solution in the file /app/sol.sql",
+      "command": "test -s /app/sol.sql && { printf 'EXPLAIN QUERY PLAN '; cat /app/sol.sql; } | sqlite3 -readonly /app/oewn.sqlite >/dev/null",
+      "dependencies": [
+        "/app/sol.sql"
+      ],
+      "deliverables": [
+        "/app/sol.sql"
+      ]
+    }
+  ],
+  "sqlite-db-truncate": [
+    {
+      "check_id": "public-artifact",
+      "source_quote": "create a JSON file in /app/recover.json",
+      "command": "test -s /app/recover.json && python3 -m json.tool /app/recover.json >/dev/null",
+      "dependencies": [
+        "/app/recover.json"
+      ],
+      "deliverables": [
+        "/app/recover.json"
+      ]
+    }
+  ],
+  "regex-log": [
+    {
+      "check_id": "public-artifact",
+      "source_quote": "Save your regex in /app/regex.txt",
+      "command": "test -s /app/regex.txt && python3 -c 'import re; from pathlib import Path; re.compile(Path(\"/app/regex.txt\").read_text().strip(), re.M)'",
+      "dependencies": [
+        "/app/regex.txt"
+      ],
+      "deliverables": [
+        "/app/regex.txt"
+      ]
+    }
+  ],
+  "video-processing": [
+    {
+      "check_id": "public-artifact",
+      "source_quote": "store it in `/app/output.toml`",
+      "command": "test -s /app/jump_analyzer.py && test -s /app/output.toml && python3 -m py_compile /app/jump_analyzer.py && python3 -c 'import tomllib; d=tomllib.load(open(\"/app/output.toml\", \"rb\")); a=d[\"jump_takeoff_frame_number\"]; b=d[\"jump_land_frame_number\"]; assert type(a) is int and type(b) is int and 0 <= a < b'",
+      "dependencies": [
+        "/app/jump_analyzer.py",
+        "/app/output.toml"
+      ],
+      "deliverables": [
+        "/app/jump_analyzer.py",
+        "/app/output.toml"
+      ]
+    }
+  ],
+  "llm-inference-batching-scheduler": [
+    {
+      "check_id": "public-artifact",
+      "source_quote": "/app/task_file/output_data/plan_b1.jsonl",
+      "command": "test -s /app/task_file/output_data/plan_b1.jsonl && test -s /app/task_file/output_data/plan_b2.jsonl && python3 -m json.tool --json-lines /app/task_file/output_data/plan_b1.jsonl >/dev/null && python3 -m json.tool --json-lines /app/task_file/output_data/plan_b2.jsonl >/dev/null",
+      "dependencies": [
+        "/app/task_file/output_data/plan_b1.jsonl",
+        "/app/task_file/output_data/plan_b2.jsonl"
+      ],
+      "deliverables": [
+        "/app/task_file/output_data/plan_b1.jsonl",
+        "/app/task_file/output_data/plan_b2.jsonl"
+      ]
+    }
+  ],
+  "mailman": [
+    {
+      "check_id": "public-config",
+      "source_quote": "save mailman configuration file in /etc/mailman3/mailman.cfg",
+      "command": "test -s /etc/mailman3/mailman.cfg",
+      "dependencies": [
+        "/etc/mailman3/mailman.cfg"
+      ],
+      "deliverables": []
+    }
+  ],
+  "sparql-university": [
+    {
+      "check_id": "public-artifact",
+      "source_quote": "Save your query in `/app/solution.sparql`",
+      "command": "test -s /app/solution.sparql",
+      "dependencies": [
+        "/app/solution.sparql"
+      ],
+      "deliverables": [
+        "/app/solution.sparql"
+      ]
+    }
+  ],
+  "extract-elf": [
+    {
+      "check_id": "public-artifact",
+      "source_quote": "Write me a program extract.js",
+      "command": "test -s extract.js && node --check extract.js",
+      "dependencies": [
+        "extract.js"
+      ],
+      "deliverables": [
+        "extract.js"
+      ]
+    }
+  ],
+  "fix-git": [
+    {
+      "check_id": "public-branch",
+      "source_quote": "merge them into master",
+      "command": "git rev-parse --verify 'master^{commit}' >/dev/null",
+      "dependencies": [
+        ".git/HEAD",
+        ".git/refs/heads/master"
+      ],
+      "deliverables": []
+    }
+  ],
+  "model-extraction-relu-logits": [
+    {
+      "check_id": "public-artifact",
+      "source_quote": "save this matrix to `/app/stolen_A1.npy`",
+      "command": "test -s /app/steal.py && test -s /app/stolen_A1.npy && python3 -m py_compile /app/steal.py",
+      "dependencies": [
+        "/app/steal.py",
+        "/app/stolen_A1.npy"
+      ],
+      "deliverables": [
+        "/app/steal.py",
+        "/app/stolen_A1.npy"
+      ]
+    }
+  ],
+  "constraints-scheduling": [
+    {
+      "check_id": "public-artifact",
+      "source_quote": "Create `/app/meeting_scheduled.ics`",
+      "command": "test -s /app/meeting_scheduled.ics && grep -q BEGIN:VEVENT /app/meeting_scheduled.ics",
+      "dependencies": [
+        "/app/meeting_scheduled.ics"
+      ],
+      "deliverables": [
+        "/app/meeting_scheduled.ics"
+      ]
+    }
+  ],
+  "tune-mjcf": [
+    {
+      "check_id": "public-artifact",
+      "source_quote": "Tuned mjcf should be saved as /app/model.xml",
+      "command": "test -s /app/model.xml && python3 -c 'import xml.etree.ElementTree as ET; ET.parse(\"/app/model.xml\")'",
+      "dependencies": [
+        "/app/model.xml"
+      ],
+      "deliverables": [
+        "/app/model.xml"
+      ]
+    }
+  ],
+  "password-recovery": [
+    {
+      "check_id": "public-artifact",
+      "source_quote": "Write each matching password you find",
+      "command": "test -s /app/recovered_passwords.txt",
+      "dependencies": [
+        "/app/recovered_passwords.txt"
+      ],
+      "deliverables": [
+        "/app/recovered_passwords.txt"
+      ]
+    }
+  ],
+  "custom-memory-heap-crash": [
+    {
+      "check_id": "public-release",
+      "source_quote": "Release: g++ -std=c++17",
+      "command": "g++ -std=c++17 -o /app/release /app/main.cpp /app/user.cpp -O2 -DNDEBUG -L/usr/local/gcc-custom-release/lib64 -Wl,-Bstatic -lstdc++ -Wl,-Bdynamic -lm",
+      "dependencies": [
+        "/app/user.cpp",
+        "/app/main.cpp"
+      ],
+      "deliverables": []
+    }
+  ]
+}

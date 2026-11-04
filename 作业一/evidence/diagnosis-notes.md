@@ -16,12 +16,34 @@
 
 评分返回奖励 0，智能体以 `TimeExceeded` 终止。原题要求把最终查询写入 `/app/sol.sql`。第 4、5、10 次工具调用触及单次命令时限。第 7 次在约 3.9 秒内成功执行 `/tmp/cand2.sql`，输出 500 行，但运行结束时没有将候选写入规定路径。第 9 次创建并修改的是数据库副本。原题评分确认原数据库未被修改，另有 4 项因 `/app/sol.sql` 不存在而失败。评分器返回了明确的断言结果，验证阶段耗时约 1,650 秒。
 
-可观察偏差是候选查询一直停留在临时路径，后续诊断占用了剩余时间。把第 7 次的候选放入规定路径有机会通过文件存在性检查。第 7 次的退出码与行数不足以证明结果与原查询一致。公开检查可验证文件存在及查询可解析，不能由这条日志推断语义正确。该题没有出现完成声明，提交拦截机制在这条轨迹中没有触发机会。
+第 8 次在约 2.425 秒内运行 `/tmp/v4.sql` 并返回 500 行。第 9 次在带索引的临时副本上对照原查询和该候选，输出 `SAME_ORIG_vs_v4`。把已有候选保存至规定路径可以使原题评分器进入正确性、速度、语句数和长度检查。临时副本上的结果无法证明这四项正式检查均可通过。该题在时限结束时仍未声明完成。
 
 证据目录为 `D-terminal-query-optimize-B0-r1/query-optimize__HmteJbf/`。工具轨迹见 `agent/tools.jsonl`，评分见 `verifier/test-stdout.txt`，智能体及评分器时间分别见该目录的 `result.json`。
 
-## SWE-bench · `pydata__xarray-6599`
+## Terminal-Bench · `llm-inference-batching-scheduler`
 
-候选补丁通过原题评分，智能体以 `TimeExceeded` 终止，未发出完成声明。它在时限前写入了有效产物。该样本用于区分产物通过和完成声明；不能当作官方评分失败或错误完成声明。
+第 6 步因 `align()` 缺少参数退出，第 7 步修复。第 8 步脚本退出码为 0，但两个请求桶在所试的八个参数设置中均报告本地指标失败。以 `lam=1e3` 为例，两个请求桶的顺序执行时间为 `2.8718e8` 和 `3.4576e7`，各超过 `2.7e8` 和 `3.2e7` 的阈值。第 9 次请求发生提供方超时，评分器检查实际留存的产物，得到 1 项通过、5 项失败。首个存在性断言即发现 `plan_b1.jsonl` 缺失，后续测试同样未能载入该文件。提前保存候选能让评分器检查其性能，本地已观察到的性能超限仍需解决。
 
-证据目录为 `D-swe-pydata__xarray-6599-B0-r1/`。正式结果见 `result.json`，提交与终止状态见 `agent.json`，评分见 `swe-official/`。隔离前读取了新版软件包缓存的尝试另行保留。
+证据目录为 `D-terminal-llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__smXBGeY/`。工具、提供方超时和评分分别见 `agent/tools.jsonl`、`agent/model.jsonl` 和 `verifier/test-stdout.txt`。旧尝试另存。
+
+## Terminal-Bench · `mailman`
+
+第 13、14、18 步退出码分别为 `143`、`124`、`124`。第 17 步可见本地邮件直接送达、回复确认后入组。日志中由管道最后一个进程返回的 `EVAL_EXIT=0` 无法判断前序进程是否成功。原题独立评分实际通过直接投递、列表存在和加入／公告／退出三个用例，包含收到公告及确认退出。第 15 步看到订阅策略 `open`，第 16 步观察到 `confirm`，现有记录无法将通过归因于某一项配置改动。
+
+证据目录为 `D-terminal-mailman-B0-r1/mailman__KJqz2tX/`。工具及评分分别见 `agent/tools.jsonl` 和 `verifier/test-stdout.txt`。旧尝试另存。
+
+以上四例由主分析和另一个只读分析会话分别复查工具记录及原题断言。因果判断限于能从轨迹和断言直接识别的环节。
+
+## 跨基准对照
+
+- Aider `go/variable-length-quantity` 的第 3 步本地测试发现，输入 `{0xc0, 0x00}` 得到 `0x40`，预期为 `0x2000`。第 4 步重新实现解码后同套测试返回 0，正式评分通过。见 `D-aider-go__variable-length-quantity-B0-r1/`。
+- SWE-bench `pydata__xarray-6599` 的隔离版在第 11 步实际修改仓库源码，最后以 `TimeExceeded` 终止，官方评测判定补丁通过。先前读取较新版本软件包缓存的运行另存。见 `D-swe-pydata__xarray-6599-B0-r1/`。
+
+| 诊断样本 | 直接观测 | 主要机制 | 伴随因素 | 原题评分 |
+|---|---|---|---|---|
+| `video-processing` | 起跳帧越界 | 语义精度 | 首次写脚本较晚 | 失败 |
+| `query-optimize` | 指定路径无文件 | 产物交付 | 临时数据实验和命令超时 | 失败 |
+| `llm-inference-batching-scheduler` | 首个计划文件缺失，本地性能超限 | 产物交付 | 提供方超时 | 失败 |
+| `mailman` | 三个端到端用例通过 | 服务验证 | 工具及交互超时 | 通过 |
+| `go/variable-length-quantity` | 本地失败后重测通过 | 语义验证与修正 | 四条解码用例初次失败 | 通过 |
+| `pydata__xarray-6599` | 有效补丁已留存 | 产物交付 | 交互超时 | 通过 |

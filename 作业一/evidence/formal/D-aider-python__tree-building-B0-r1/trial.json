@@ -1,0 +1,27 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "python/tree-building",
+    "stratum": "python",
+    "group": "tree-building",
+    "solution_files": [
+      "tree_building.py"
+    ],
+    "test_files": [
+      "tree_building_test.py"
+    ],
+    "exclude": null,
+    "split": "D"
+  },
+  "phase": "formal",
+  "configuration": "B0",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096
+  }
+}

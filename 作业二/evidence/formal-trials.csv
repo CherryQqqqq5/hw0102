@@ -1,0 +1,5 @@
+run_id,benchmark,split,task,arm,repeat,scoreable,passed,exit_status,declared_complete,wall_seconds,grader_seconds,model_calls,model_responses,provider_turns,tool_calls,input_tokens,output_tokens,cached_input_tokens,submission_check_opportunities,stale_at_submission,deliverable_checkpoints,deliverable_reminders,provider_reported_cost_usd
+D-swe-django__django-15987-F-r1,swe,D,django__django-15987,F,1,False,,,False,,,3,2,9,2,9933,395,4608,0,0,0,0,0
+D-swe-pydata__xarray-6599-F-r1,swe,D,pydata__xarray-6599,F,1,False,,,False,,,3,2,12,2,22767,449,9856,0,0,0,0,0
+D-terminal-query-optimize-F-r1,terminal,D,query-optimize,F,1,False,,,False,,,3,2,9,2,9941,210,4864,0,0,0,0,0
+H-swe-django__django-12050-A-r1,swe,H,django__django-12050,A,1,False,,,False,,,3,2,9,2,9277,247,4736,0,0,0,0,0

@@ -1,0 +1,10 @@
+{
+  "task": "javascript/triangle",
+  "wall_seconds": 45.27569054206833,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 2.7847082499647513
+}

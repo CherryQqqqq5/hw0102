@@ -22,6 +22,7 @@ def run_metrics(path: Path, *, complete: bool = True) -> dict:
                 metrics["model_calls"] += 1
             if event["event"] != "response":
                 continue
+            metrics["model_responses"] += 1
             payload = event["payload"]
             if isinstance(payload, list):
                 result = next((item for item in payload if item["type"] == "result"), None)
@@ -47,12 +48,15 @@ def run_metrics(path: Path, *, complete: bool = True) -> dict:
             if not complete and not line.endswith("\n"):
                 continue
             event = json.loads(line)
+            if event["event"] == "deliverable_checkpoint":
+                metrics["deliverable_checkpoints"] += 1
+                metrics["deliverable_reminders"] += bool(event["missing"])
             if event["event"] == "submission_check":
                 states = [value["state"] for value in event["state"].values()]
                 metrics["submission_check_opportunities"] += len(states)
                 metrics["stale_at_submission"] += states.count("stale")
-    keys = ("model_calls", "provider_turns", "tool_calls", "input_tokens", "output_tokens", "cached_input_tokens",
-            "submission_check_opportunities", "stale_at_submission")
+    keys = ("model_calls", "model_responses", "provider_turns", "tool_calls", "input_tokens", "output_tokens", "cached_input_tokens",
+            "submission_check_opportunities", "stale_at_submission", "deliverable_checkpoints", "deliverable_reminders")
     return {key: metrics[key] for key in keys} | {
         "provider_reported_cost_usd": sum(reported_cost) if reported_cost else None,
     }
@@ -84,7 +88,8 @@ def read_runs(root: Path) -> list[dict]:
         submission = info.get("submission", result.get("submission", ""))
         rows.append({
             "run_id": run_dir.name, "benchmark": task["benchmark"], "split": task["split"], "task": task["id"],
-            "arm": trial["configuration"], "scoreable": result.get("scoreable", False),
+            "arm": trial["configuration"], "repeat": int(run_dir.name.rsplit("-r", 1)[-1]),
+            "scoreable": result.get("scoreable", False),
             "passed": result.get("passed"), "exit_status": status,
             "declared_complete": status == "Submitted" and not submission.startswith("PARTIAL:"),
             "wall_seconds": result.get("wall_seconds"), "grader_seconds": grader_seconds(run_dir, result),
@@ -95,15 +100,18 @@ def read_runs(root: Path) -> list[dict]:
 
 def compare(rows: list[dict], split: str, reference: str, treatment: str, repetitions: int) -> dict:
     scores = defaultdict(list)
+    interrupted = set()
     for row in rows:
         if row["split"] == split and row["scoreable"]:
             scores[(row["benchmark"], row["task"], row["arm"])].append(int(row["passed"]))
+            if row["exit_status"] == "ProviderTimeout" and row["arm"] in {reference, treatment}:
+                interrupted.add((row["benchmark"], row["task"]))
     paired = []
     for benchmark, task in sorted({key[:2] for key in scores}):
         first, second = scores[(benchmark, task, reference)], scores[(benchmark, task, treatment)]
         if len(first) == len(second) == repetitions:
             paired.append({"benchmark": benchmark, "task": task, "reference": first, "treatment": second,
-                           "change": mean(second) - mean(first)})
+                           "change": mean(second) - mean(first), "provider_timeout": (benchmark, task) in interrupted})
     counts = Counter()
     strata = defaultdict(list)
     for item in paired:
@@ -126,8 +134,11 @@ def compare(rows: list[dict], split: str, reference: str, treatment: str, repeti
         interval = [samples[250], samples[9749]]
     delta = 100 * mean(row["change"] for row in paired) if paired else None
     rate = mean(mean(row["reference"]) for row in paired) if paired else None
+    stable = [row["change"] for row in paired if not row["provider_timeout"]]
     return {"split": split, "reference": reference, "treatment": treatment, "paired_tasks": len(paired),
             "changes": dict(counts), "delta_percentage_points": delta, "relative_change_percent": delta / rate if rate else None,
+            "pairs_without_provider_timeout": len(stable),
+            "delta_without_provider_timeout_percentage_points": 100 * mean(stable) if stable else None,
             "bootstrap_95_interval_percentage_points": interval, "pairs": paired}
 
 
@@ -164,15 +175,20 @@ def main() -> None:
                          "declared_complete": len(completed),
                          "incorrect_complete_claims": sum(row["passed"] is False for row in completed),
                          "budget_terminations": sum(row["exit_status"] in {"LimitsExceeded", "TimeExceeded"} for row in matches),
+                         "provider_timeouts": sum(row["exit_status"] == "ProviderTimeout" for row in matches),
                          "recorded_wall_seconds": sum(row["wall_seconds"] or 0 for row in matches),
                          "recorded_grader_seconds": sum(timing) if timing else None,
                          "provider_reported_cost_usd": total_cost,
                          "provider_reported_cost_per_success_usd": total_cost / success if total_cost is not None and success else None,
-                         **{key: sum(row[key] for row in matches) for key in ("model_calls", "tool_calls", "input_tokens",
-                             "output_tokens", "cached_input_tokens", "stale_at_submission", "submission_check_opportunities")}})
+                         **{key: sum(row[key] for row in matches) for key in ("model_calls", "model_responses", "tool_calls", "input_tokens",
+                             "output_tokens", "cached_input_tokens", "stale_at_submission", "submission_check_opportunities",
+                             "deliverable_checkpoints", "deliverable_reminders")}})
     args.out.mkdir(parents=True, exist_ok=True)
+    controls = ("B0", "BP", "A")
     result = {"coverage": coverage, "comparisons": [compare(rows, "D", "B0", "F", 1),
-              *[compare(rows, "H", baseline, "F", 3) for baseline in ("B0", "BP", "A")]]}
+              *[compare(rows, "H", baseline, "F", 3) for baseline in controls]],
+              "holdout_by_repeat": [compare([row for row in rows if row["repeat"] == repeat], "H", baseline, "F", 1)
+                                    | {"repeat": repeat} for repeat in (1, 2, 3) for baseline in controls]}
     (args.out / "summary.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
     if rows:
         with (args.out / "trials.csv").open("w", newline="", encoding="utf-8") as handle:

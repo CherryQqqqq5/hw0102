@@ -1,6 +1,7 @@
 import copy
 import json
 import os
+import shlex
 import subprocess
 import time
 from dataclasses import asdict
@@ -12,13 +13,14 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
 from minisweagent.agents.default import DefaultAgent
 from minisweagent.config import builtin_config_dir, get_config_from_spec
-from minisweagent.exceptions import FormatError, Submitted
+from minisweagent.exceptions import FormatError, InterruptAgentFlow, Submitted
 from minisweagent.models.utils.actions_toolcall import BASH_TOOL, format_toolcall_observation_messages
 
 from course_eval.verification import PublicCheck, VerificationState
 
 
 SUBMIT = "COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT"
+DELIVERABLE_CHECKPOINT = 6
 
 
 class BashArguments(BaseModel):
@@ -32,6 +34,10 @@ class RunLimits(BaseModel):
     wall_seconds: int = Field(default=600, gt=0)
     command_seconds: int = Field(default=60, gt=0)
     max_output_tokens: int = Field(default=4096, gt=0)
+
+
+class ProviderTimeout(InterruptAgentFlow):
+    pass
 
 
 def append_event(path: Path, event: str, **data) -> None:
@@ -148,7 +154,9 @@ class CodeBuddyModel(ModelFormatting):
             append_event(self.trace, "request_error", request_id=self.request_id, error_type="TimeoutExpired",
                          timeout_seconds=timeout, stdout=(exc.stdout or b"").decode("utf-8", errors="replace"),
                          stderr=(exc.stderr or b"").decode("utf-8", errors="replace"))
-            raise RuntimeError(f"CodeBuddy request exceeded {timeout} seconds") from None
+            # 提供方超时后不追加请求，保留已执行的操作并交由原评分器检查产物。
+            raise ProviderTimeout({"role": "exit", "content": f"CodeBuddy request exceeded {timeout} seconds",
+                                   "extra": {"exit_status": "ProviderTimeout", "submission": ""}}) from None
         if process.returncode:
             append_event(self.trace, "request_error", request_id=self.request_id,
                          returncode=process.returncode, stderr=process.stderr, stdout=process.stdout)
@@ -189,6 +197,7 @@ class TracedEnvironment:
         self.run_dir = run_dir
         self.limits = limits
         self.verification = verification
+        self.commands_executed = 0
 
     def get_template_vars(self) -> dict:
         return self.target.system_info
@@ -196,12 +205,29 @@ class TracedEnvironment:
     def serialize(self) -> dict:
         return {"info": {"environment": self.target.system_info}}
 
+    def deliverable_reminder(self) -> str:
+        if self.verification is None or self.commands_executed != DELIVERABLE_CHECKPOINT:
+            return ""
+        deliverables = dict.fromkeys(name for check in self.verification.checks.values() for name in check.deliverables)
+        if not deliverables:
+            return ""
+        paths = shlex.join(deliverables)
+        command = f"for file in {paths}; do test -s \"$file\" || printf '%s\\n' \"$file\"; done"
+        probe = self.target.exec(command, timeout=min(5, self.limits.command_seconds))
+        missing = probe["stdout"].splitlines() if probe["returncode"] == 0 else []
+        append_event(self.run_dir / "verification.jsonl", "deliverable_checkpoint",
+                     step=self.commands_executed, missing=missing, **probe)
+        if missing:
+            return "\nRequired deliverables still missing or empty: " + ", ".join(missing) + ". Save a draft before further exploration."
+        return ""
+
     def execute(self, action: dict, cwd: str = "") -> dict:
         command = BashArguments.model_validate({"command": action["command"]}).command
         check = self.verification.commands.get(command.strip()) if self.verification and not cwd else None
         current = self.verification if check and self.verification.invalidate else None
         before = current.snapshot(check, self.target, self.limits.command_seconds) if current else None
         output = self.target.exec(command, cwd=cwd, timeout=self.limits.command_seconds)
+        self.commands_executed += 1
         append_event(self.run_dir / "tools.jsonl", "bash", command=command,
                      cwd=cwd or self.target.cwd, tool_call_id=action.get("tool_call_id"), **output)
         if check:
@@ -229,7 +255,8 @@ class TracedEnvironment:
                             "returncode": 2, "exception_info": ""}
             raise Submitted({"role": "exit", "content": submission,
                              "extra": {"exit_status": "Submitted", "submission": submission}})
-        return {"output": output["stdout"] + output["stderr"], "returncode": output["returncode"],
+        reminder = self.deliverable_reminder()
+        return {"output": output["stdout"] + output["stderr"] + reminder, "returncode": output["returncode"],
                 "exception_info": output.get("exception_info", "")}
 
 
@@ -251,6 +278,12 @@ def run_baseline(task: str, target, directory: Path, limits: RunLimits, *,
             "its dependencies changed. If you submit a partial result, print a second line starting with "
             "PARTIAL: and name the unresolved requirements.\n" + checks_text
         )
+        deliverables = dict.fromkeys(name for check in checks for name in check.deliverables)
+        if deliverables:
+            config["agent"]["instance_template"] += (
+                f"\nBy shell step {DELIVERABLE_CHECKPOINT}, check whether these required deliverables exist and are nonempty: "
+                + ", ".join(deliverables) + ". Save a draft before further exploration if any are missing."
+            )
     backend = {"course": CourseModel, "codebuddy": CodeBuddyModel}[os.environ["COURSE_MODEL_BACKEND"]]
     model = backend(directory, limits, config["model"]["observation_template"])
     agent = DefaultAgent(model, env, system_template=config["agent"]["system_template"],

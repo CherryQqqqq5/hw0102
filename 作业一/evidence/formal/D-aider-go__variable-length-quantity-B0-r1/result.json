@@ -1,0 +1,10 @@
+{
+  "task": "go/variable-length-quantity",
+  "wall_seconds": 78.4955384999048,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 17.566139374976046
+}

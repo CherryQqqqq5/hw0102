@@ -9,15 +9,18 @@ class PublicCheck:
     source_quote: str
     command: str
     dependencies: tuple[str, ...]
+    deliverables: tuple[str, ...] = ()
 
     def validate(self, instruction: str) -> None:
         if not self.source_quote or self.source_quote not in instruction:
             raise ValueError(f"Missing task-visible source for {self.check_id}")
         if not self.command or not self.dependencies:
             raise ValueError(f"Missing command or dependencies for {self.check_id}")
+        if not set(self.deliverables).issubset(self.dependencies):
+            raise ValueError(f"Deliverables must be verification dependencies: {self.check_id}")
         for name in self.dependencies:
             path = PurePosixPath(name)
-            if path.is_absolute() or ".." in path.parts or not path.name:
+            if ".." in path.parts or not path.name or (path.is_absolute() and name not in instruction):
                 raise ValueError(f"Unsafe check dependency: {name}")
 
 

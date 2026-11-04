@@ -1,0 +1,6 @@
+{
+  "engineering_check": "pass",
+  "source": "python/proverb",
+  "model_requests": 0,
+  "formal_benchmark_trial": false
+}

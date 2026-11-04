@@ -1,0 +1,10 @@
+{
+  "task": "java/phone-number",
+  "wall_seconds": 120.88077279098798,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 26.78076604194939
+}

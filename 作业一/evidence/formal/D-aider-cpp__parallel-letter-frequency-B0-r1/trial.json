@@ -1,0 +1,28 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "cpp/parallel-letter-frequency",
+    "stratum": "cpp",
+    "group": "parallel-letter-frequency",
+    "solution_files": [
+      "parallel_letter_frequency.cpp",
+      "parallel_letter_frequency.h"
+    ],
+    "test_files": [
+      "parallel_letter_frequency_test.cpp"
+    ],
+    "exclude": null,
+    "split": "D"
+  },
+  "phase": "formal",
+  "configuration": "B0",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096
+  }
+}

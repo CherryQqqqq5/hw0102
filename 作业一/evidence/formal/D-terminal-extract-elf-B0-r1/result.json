@@ -1,0 +1,7 @@
+{
+  "task": "extract-elf",
+  "wall_seconds": 779.4329280829988,
+  "scoreable": true,
+  "passed": false,
+  "harbor_result": "extract-elf__aa73JRB/result.json"
+}

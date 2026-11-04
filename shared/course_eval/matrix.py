@@ -31,6 +31,8 @@ def main() -> None:
     parser.add_argument("--phase", required=True, choices=("diagnose", "compare", "holdout"))
     parser.add_argument("--checks", type=Path)
     parser.add_argument("--workers", type=int, choices=range(1, 5), default=1)
+    parser.add_argument("--task", action="append", help="Dispatch only these task IDs in the selected phase")
+    parser.add_argument("--repeat", type=int, choices=(1, 2, 3), help="Dispatch one repetition of the holdout phase")
     parser.add_argument("--list", action="store_true")
     args = parser.parse_args()
     manifest = json.loads(args.manifest.read_text())
@@ -73,7 +75,18 @@ def main() -> None:
         if not json.loads(completed.read_text())["scoreable"]:
             raise RuntimeError(f"The run is not scoreable: {run_dir}")
 
-    queue = iter(slots(tasks, args.phase))
+    planned = list(slots(tasks, args.phase))
+    if args.repeat is not None:
+        if args.phase != "holdout":
+            parser.error("--repeat applies only to holdout")
+        planned = [slot for slot in planned if slot[2] == args.repeat]
+    if args.task:
+        wanted = set(args.task)
+        missing = wanted - {task["id"] for task, _, _ in planned}
+        if missing:
+            parser.error(f"Task IDs outside the selected phase: {sorted(missing)}")
+        planned = [slot for slot in planned if slot[0]["id"] in wanted]
+    queue = iter(planned)
     if args.list:
         for slot in queue:
             run_one(*slot)

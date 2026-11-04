@@ -87,7 +87,18 @@ work/.venv/bin/python -m course_eval.summarize --manifest frozen-tasks.json \
   --runs work/vmshare/formal --out work/formal-summary
 ```
 
-在原始运行工作区续跑时，程序会跳过同一模型已取得有效评分的位置。重试前应将未评分的原尝试另行归档。`compare` 和 `holdout` 还需要通过 `--checks` 提供诊断后冻结的公开检查清单，每项包含 `check_id`、`source_quote`、`command` 和 `dependencies`。当前尚未冻结该清单。
+在原始运行工作区续跑时，程序会跳过同一模型已取得有效评分的位置。重试前应将未评分的原尝试另行归档。`compare` 和 `holdout` 使用[冻结的公开检查清单](../作业二/configs/public-checks.json)。每项包括 `check_id`、`source_quote`、`command` 和 `dependencies`，存在明确指定交付路径时可附加 `deliverables`。Aider 的公开检查来自题目可见的原测试套件。
+
+```sh
+work/.venv/bin/python -m course_eval.matrix --manifest frozen-tasks.json \
+  --sources work/datasets --runs work/vmshare/formal --phase compare --workers 3 \
+  --checks '../作业二/configs/public-checks.json'
+work/.venv/bin/python -m course_eval.matrix --manifest frozen-tasks.json \
+  --sources work/datasets --runs work/vmshare/formal --phase holdout --workers 3 \
+  --checks '../作业二/configs/public-checks.json'
+```
+
+`--task` 可重复传入以重跑指定题目，`--repeat` 可选定留出集的某一轮。模型请求超时仍会由原题验收程序检查现有产物，汇总中的 `provider_timeouts` 和配对敏感性统计单列此类运行。
 
 ```sh
 work/.venv/bin/python -m course_eval.check_verification \
