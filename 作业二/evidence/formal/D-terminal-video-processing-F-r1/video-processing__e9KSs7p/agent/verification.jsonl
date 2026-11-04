@@ -1,0 +1,1 @@
+{"event": "deliverable_checkpoint", "time": 1793795406.04142, "step": 6, "missing": ["/app/jump_analyzer.py", "/app/output.toml"], "stdout": "/app/jump_analyzer.py\n/app/output.toml\n", "stderr": "", "returncode": 0}

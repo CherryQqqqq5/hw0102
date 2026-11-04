@@ -1,0 +1,76 @@
+2026-11-04 20:26:26,106 - INFO - Creating container for pytest-dev__pytest-7205...
+2026-11-04 20:26:26,194 - INFO - Container for pytest-dev__pytest-7205 created: aba40d9a11040075fc874692010d9642ef13f2866b985a59208ae11f23e0137b
+2026-11-04 20:26:26,393 - INFO - Container for pytest-dev__pytest-7205 started: aba40d9a11040075fc874692010d9642ef13f2866b985a59208ae11f23e0137b
+2026-11-04 20:26:26,393 - INFO - Intermediate patch for pytest-dev__pytest-7205 written to [本机路径] now applying to container...
+2026-11-04 20:26:26,630 - INFO - >>>>> Applied Patch:
+Checking patch changelog/7205.bugfix.rst...
+Checking patch src/_pytest/setuponly.py...
+Applied patch changelog/7205.bugfix.rst cleanly.
+Applied patch src/_pytest/setuponly.py cleanly.
+
+2026-11-04 20:26:27,605 - INFO - Git diff before:
+diff --git a/src/_pytest/setuponly.py b/src/_pytest/setuponly.py
+index c9cc589ff..7062ef5e0 100644
+--- a/src/_pytest/setuponly.py
++++ b/src/_pytest/setuponly.py
+@@ -1,5 +1,7 @@
+ import pytest
+ 
++from _pytest._io.saferepr import saferepr
++
+ 
+ def pytest_addoption(parser):
+     group = parser.getgroup("debugconfig")
+@@ -66,7 +68,14 @@ def _show_fixture_action(fixturedef, msg):
+             tw.write(" (fixtures used: {})".format(", ".join(deps)))
+ 
+     if hasattr(fixturedef, "cached_param"):
+-        tw.write("[{}]".format(fixturedef.cached_param))
++        # cached_param is a str when it comes from an id, so keep the raw
++        # representation there.  For other objects (e.g. bytes) use
++        # saferepr() to avoid emitting a BytesWarning via implicit str().
++        param = fixturedef.cached_param
++        if isinstance(param, str):
++            tw.write("[{}]".format(param))
++        else:
++            tw.write("[{}]".format(saferepr(param, maxsize=42)))
+ 
+     tw.flush()
+2026-11-04 20:26:27,607 - INFO - Eval script for pytest-dev__pytest-7205 written to [本机路径] copying to container...
+2026-11-04 20:26:54,543 - INFO - Test runtime: 26.76 seconds
+2026-11-04 20:26:54,546 - INFO - Test output for pytest-dev__pytest-7205 written to [本机路径]
+2026-11-04 20:26:54,816 - INFO - Git diff after:
+diff --git a/src/_pytest/setuponly.py b/src/_pytest/setuponly.py
+index c9cc589ff..7062ef5e0 100644
+--- a/src/_pytest/setuponly.py
++++ b/src/_pytest/setuponly.py
+@@ -1,5 +1,7 @@
+ import pytest
+ 
++from _pytest._io.saferepr import saferepr
++
+ 
+ def pytest_addoption(parser):
+     group = parser.getgroup("debugconfig")
+@@ -66,7 +68,14 @@ def _show_fixture_action(fixturedef, msg):
+             tw.write(" (fixtures used: {})".format(", ".join(deps)))
+ 
+     if hasattr(fixturedef, "cached_param"):
+-        tw.write("[{}]".format(fixturedef.cached_param))
++        # cached_param is a str when it comes from an id, so keep the raw
++        # representation there.  For other objects (e.g. bytes) use
++        # saferepr() to avoid emitting a BytesWarning via implicit str().
++        param = fixturedef.cached_param
++        if isinstance(param, str):
++            tw.write("[{}]".format(param))
++        else:
++            tw.write("[{}]".format(saferepr(param, maxsize=42)))
+ 
+     tw.flush()
+2026-11-04 20:26:54,816 - INFO - Grading answer for pytest-dev__pytest-7205...
+2026-11-04 20:26:54,819 - INFO - report: {'pytest-dev__pytest-7205': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['testing/test_setuponly.py::test_show_fixture_action_with_bytes'], 'failure': ['testing/test_setuponly.py::test_show_fixtures_with_parameters[--setup-only]', 'testing/test_setuponly.py::test_show_fixtures_with_parameter_ids[--setup-only]', 'testing/test_setuponly.py::test_show_fixtures_with_parameter_ids_function[--setup-only]', 'testing/test_setuponly.py::test_show_fixtures_with_parameters[--setup-plan]', 'testing/test_setuponly.py::test_show_fixtures_with_parameter_ids[--setup-plan]', 'testing/test_setuponly.py::test_show_fixtures_with_parameter_ids_function[--setup-plan]', 'testing/test_setuponly.py::test_show_fixtures_with_parameters[--setup-show]', 'testing/test_setuponly.py::test_show_fixtures_with_parameter_ids[--setup-show]', 'testing/test_setuponly.py::test_show_fixtures_with_parameter_ids_function[--setup-show]']}, 'PASS_TO_PASS': {'success': ['testing/test_setuponly.py::test_show_only_active_fixtures[--setup-only]', 'testing/test_setuponly.py::test_show_different_scopes[--setup-only]', 'testing/test_setuponly.py::test_show_nested_fixtures[--setup-only]', 'testing/test_setuponly.py::test_show_fixtures_with_autouse[--setup-only]', 'testing/test_setuponly.py::test_show_only_active_fixtures[--setup-plan]', 'testing/test_setuponly.py::test_show_different_scopes[--setup-plan]', 'testing/test_setuponly.py::test_show_nested_fixtures[--setup-plan]', 'testing/test_setuponly.py::test_show_fixtures_with_autouse[--setup-plan]', 'testing/test_setuponly.py::test_show_only_active_fixtures[--setup-show]', 'testing/test_setuponly.py::test_show_different_scopes[--setup-show]', 'testing/test_setuponly.py::test_show_nested_fixtures[--setup-show]', 'testing/test_setuponly.py::test_show_fixtures_with_autouse[--setup-show]', 'testing/test_setuponly.py::test_dynamic_fixture_request', 'testing/test_setuponly.py::test_capturing', 'testing/test_setuponly.py::test_show_fixtures_and_execute_test', 'testing/test_setuponly.py::test_setup_show_with_KeyboardInterrupt_in_test'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for pytest-dev__pytest-7205: resolved: False
+2026-11-04 20:26:54,820 - INFO - Attempting to stop container sweb.eval.pytest-dev__pytest-7205.D-swe-pytest-dev__pytest-7205-F-r1...
+2026-11-04 20:27:11,236 - INFO - Container sweb.eval.pytest-dev__pytest-7205.D-swe-pytest-dev__pytest-7205-F-r1 stopped successfully.
+2026-11-04 20:27:11,242 - INFO - Attempting to remove container sweb.eval.pytest-dev__pytest-7205.D-swe-pytest-dev__pytest-7205-F-r1...
+2026-11-04 20:27:11,749 - INFO - Container sweb.eval.pytest-dev__pytest-7205.D-swe-pytest-dev__pytest-7205-F-r1 removed successfully.

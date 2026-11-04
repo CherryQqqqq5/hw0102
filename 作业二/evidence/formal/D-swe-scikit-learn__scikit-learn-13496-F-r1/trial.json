@@ -1,0 +1,24 @@
+{
+  "task": {
+    "benchmark": "swe",
+    "id": "scikit-learn__scikit-learn-13496",
+    "stratum": "scikit-learn/scikit-learn",
+    "group": "scikit-learn__scikit-learn-13496",
+    "difficulty": "<15 min fix",
+    "image": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13496:latest",
+    "base_commit": "3aefc834dce72e850bff48689bea3c7dff5f3fad",
+    "exclude": null,
+    "split": "D"
+  },
+  "phase": "formal",
+  "configuration": "F",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096
+  }
+}

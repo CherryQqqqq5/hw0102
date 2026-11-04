@@ -5,30 +5,30 @@
       "benchmark": "aider",
       "arm": "F",
       "planned": 10,
-      "started": 0,
-      "scoreable": 0,
-      "success": 0,
-      "success_rate_on_scoreable": null,
+      "started": 4,
+      "scoreable": 2,
+      "success": 2,
+      "success_rate_on_scoreable": 1.0,
       "expected_tasks": 10,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 0,
+      "fully_scored_tasks": 2,
+      "task_mean_success": 1,
+      "all_repeats_successful": 2,
+      "declared_complete": 2,
       "incorrect_complete_claims": 0,
       "budget_terminations": 0,
       "provider_timeouts": 0,
-      "recorded_wall_seconds": 0,
-      "recorded_grader_seconds": null,
+      "recorded_wall_seconds": 332.2968279159395,
+      "recorded_grader_seconds": 47.097235084162094,
       "provider_reported_cost_usd": null,
       "provider_reported_cost_per_success_usd": null,
-      "model_calls": 0,
-      "model_responses": 0,
-      "tool_calls": 0,
-      "input_tokens": 0,
-      "output_tokens": 0,
-      "cached_input_tokens": 0,
+      "model_calls": 18,
+      "model_responses": 18,
+      "tool_calls": 18,
+      "input_tokens": 174065,
+      "output_tokens": 6050,
+      "cached_input_tokens": 139776,
       "stale_at_submission": 0,
-      "submission_check_opportunities": 0,
+      "submission_check_opportunities": 6,
       "deliverable_checkpoints": 0,
       "deliverable_reminders": 0
     },
@@ -37,30 +37,30 @@
       "benchmark": "swe",
       "arm": "F",
       "planned": 10,
-      "started": 2,
-      "scoreable": 0,
-      "success": 0,
-      "success_rate_on_scoreable": null,
+      "started": 5,
+      "scoreable": 4,
+      "success": 2,
+      "success_rate_on_scoreable": 0.5,
       "expected_tasks": 10,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 0,
-      "incorrect_complete_claims": 0,
-      "budget_terminations": 0,
+      "fully_scored_tasks": 4,
+      "task_mean_success": 0.5,
+      "all_repeats_successful": 2,
+      "declared_complete": 3,
+      "incorrect_complete_claims": 1,
+      "budget_terminations": 1,
       "provider_timeouts": 0,
-      "recorded_wall_seconds": 0,
-      "recorded_grader_seconds": null,
-      "provider_reported_cost_usd": 0,
+      "recorded_wall_seconds": 2033.7020523331594,
+      "recorded_grader_seconds": 278.89707516576163,
+      "provider_reported_cost_usd": null,
       "provider_reported_cost_per_success_usd": null,
-      "model_calls": 6,
-      "model_responses": 4,
-      "tool_calls": 4,
-      "input_tokens": 32700,
-      "output_tokens": 844,
-      "cached_input_tokens": 14464,
+      "model_calls": 58,
+      "model_responses": 58,
+      "tool_calls": 58,
+      "input_tokens": 1066495,
+      "output_tokens": 122345,
+      "cached_input_tokens": 926080,
       "stale_at_submission": 0,
-      "submission_check_opportunities": 0,
+      "submission_check_opportunities": 9,
       "deliverable_checkpoints": 0,
       "deliverable_reminders": 0
     },
@@ -69,32 +69,32 @@
       "benchmark": "terminal",
       "arm": "F",
       "planned": 10,
-      "started": 1,
-      "scoreable": 0,
-      "success": 0,
-      "success_rate_on_scoreable": null,
+      "started": 5,
+      "scoreable": 5,
+      "success": 2,
+      "success_rate_on_scoreable": 0.4,
       "expected_tasks": 10,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 0,
-      "incorrect_complete_claims": 0,
+      "fully_scored_tasks": 5,
+      "task_mean_success": 0.4,
+      "all_repeats_successful": 2,
+      "declared_complete": 2,
+      "incorrect_complete_claims": 1,
       "budget_terminations": 0,
-      "provider_timeouts": 0,
-      "recorded_wall_seconds": 0,
-      "recorded_grader_seconds": null,
+      "provider_timeouts": 3,
+      "recorded_wall_seconds": 2857.2734466651455,
+      "recorded_grader_seconds": 1022.869946,
       "provider_reported_cost_usd": 0,
-      "provider_reported_cost_per_success_usd": null,
-      "model_calls": 3,
-      "model_responses": 2,
-      "tool_calls": 2,
-      "input_tokens": 9941,
-      "output_tokens": 210,
-      "cached_input_tokens": 4864,
+      "provider_reported_cost_per_success_usd": 0.0,
+      "model_calls": 38,
+      "model_responses": 35,
+      "tool_calls": 35,
+      "input_tokens": 527215,
+      "output_tokens": 118220,
+      "cached_input_tokens": 383360,
       "stale_at_submission": 0,
-      "submission_check_opportunities": 0,
-      "deliverable_checkpoints": 0,
-      "deliverable_reminders": 0
+      "submission_check_opportunities": 3,
+      "deliverable_checkpoints": 3,
+      "deliverable_reminders": 1
     },
     {
       "split": "H",
@@ -230,29 +230,29 @@
       "arm": "A",
       "planned": 15,
       "started": 1,
-      "scoreable": 0,
-      "success": 0,
-      "success_rate_on_scoreable": null,
+      "scoreable": 1,
+      "success": 1,
+      "success_rate_on_scoreable": 1.0,
       "expected_tasks": 5,
       "fully_scored_tasks": 0,
       "task_mean_success": null,
       "all_repeats_successful": 0,
-      "declared_complete": 0,
+      "declared_complete": 1,
       "incorrect_complete_claims": 0,
       "budget_terminations": 0,
       "provider_timeouts": 0,
-      "recorded_wall_seconds": 0,
-      "recorded_grader_seconds": null,
+      "recorded_wall_seconds": 482.93329879199155,
+      "recorded_grader_seconds": 121.90991616703104,
       "provider_reported_cost_usd": 0,
-      "provider_reported_cost_per_success_usd": null,
-      "model_calls": 3,
-      "model_responses": 2,
-      "tool_calls": 2,
-      "input_tokens": 9277,
-      "output_tokens": 247,
-      "cached_input_tokens": 4736,
+      "provider_reported_cost_per_success_usd": 0.0,
+      "model_calls": 13,
+      "model_responses": 13,
+      "tool_calls": 13,
+      "input_tokens": 137099,
+      "output_tokens": 5074,
+      "cached_input_tokens": 117760,
       "stale_at_submission": 0,
-      "submission_check_opportunities": 0,
+      "submission_check_opportunities": 3,
       "deliverable_checkpoints": 0,
       "deliverable_reminders": 0
     },
@@ -261,28 +261,28 @@
       "benchmark": "swe",
       "arm": "B0",
       "planned": 15,
-      "started": 0,
-      "scoreable": 0,
-      "success": 0,
-      "success_rate_on_scoreable": null,
+      "started": 1,
+      "scoreable": 1,
+      "success": 1,
+      "success_rate_on_scoreable": 1.0,
       "expected_tasks": 5,
       "fully_scored_tasks": 0,
       "task_mean_success": null,
       "all_repeats_successful": 0,
-      "declared_complete": 0,
+      "declared_complete": 1,
       "incorrect_complete_claims": 0,
       "budget_terminations": 0,
       "provider_timeouts": 0,
-      "recorded_wall_seconds": 0,
-      "recorded_grader_seconds": null,
-      "provider_reported_cost_usd": null,
-      "provider_reported_cost_per_success_usd": null,
-      "model_calls": 0,
-      "model_responses": 0,
-      "tool_calls": 0,
-      "input_tokens": 0,
-      "output_tokens": 0,
-      "cached_input_tokens": 0,
+      "recorded_wall_seconds": 491.35682250000536,
+      "recorded_grader_seconds": 79.61989241698757,
+      "provider_reported_cost_usd": 0,
+      "provider_reported_cost_per_success_usd": 0.0,
+      "model_calls": 16,
+      "model_responses": 16,
+      "tool_calls": 16,
+      "input_tokens": 186522,
+      "output_tokens": 9080,
+      "cached_input_tokens": 160896,
       "stale_at_submission": 0,
       "submission_check_opportunities": 0,
       "deliverable_checkpoints": 0,
@@ -293,28 +293,28 @@
       "benchmark": "swe",
       "arm": "BP",
       "planned": 15,
-      "started": 0,
-      "scoreable": 0,
-      "success": 0,
-      "success_rate_on_scoreable": null,
+      "started": 1,
+      "scoreable": 1,
+      "success": 1,
+      "success_rate_on_scoreable": 1.0,
       "expected_tasks": 5,
       "fully_scored_tasks": 0,
       "task_mean_success": null,
       "all_repeats_successful": 0,
-      "declared_complete": 0,
+      "declared_complete": 1,
       "incorrect_complete_claims": 0,
       "budget_terminations": 0,
       "provider_timeouts": 0,
-      "recorded_wall_seconds": 0,
-      "recorded_grader_seconds": null,
-      "provider_reported_cost_usd": null,
-      "provider_reported_cost_per_success_usd": null,
-      "model_calls": 0,
-      "model_responses": 0,
-      "tool_calls": 0,
-      "input_tokens": 0,
-      "output_tokens": 0,
-      "cached_input_tokens": 0,
+      "recorded_wall_seconds": 133.8724417090416,
+      "recorded_grader_seconds": 43.87058629200328,
+      "provider_reported_cost_usd": 0,
+      "provider_reported_cost_per_success_usd": 0.0,
+      "model_calls": 8,
+      "model_responses": 8,
+      "tool_calls": 8,
+      "input_tokens": 63218,
+      "output_tokens": 4045,
+      "cached_input_tokens": 47104,
       "stale_at_submission": 0,
       "submission_check_opportunities": 0,
       "deliverable_checkpoints": 0,
@@ -325,30 +325,30 @@
       "benchmark": "swe",
       "arm": "F",
       "planned": 15,
-      "started": 0,
-      "scoreable": 0,
-      "success": 0,
-      "success_rate_on_scoreable": null,
+      "started": 1,
+      "scoreable": 1,
+      "success": 1,
+      "success_rate_on_scoreable": 1.0,
       "expected_tasks": 5,
       "fully_scored_tasks": 0,
       "task_mean_success": null,
       "all_repeats_successful": 0,
-      "declared_complete": 0,
+      "declared_complete": 1,
       "incorrect_complete_claims": 0,
       "budget_terminations": 0,
       "provider_timeouts": 0,
-      "recorded_wall_seconds": 0,
-      "recorded_grader_seconds": null,
-      "provider_reported_cost_usd": null,
-      "provider_reported_cost_per_success_usd": null,
-      "model_calls": 0,
-      "model_responses": 0,
-      "tool_calls": 0,
-      "input_tokens": 0,
-      "output_tokens": 0,
-      "cached_input_tokens": 0,
+      "recorded_wall_seconds": 163.9009301670594,
+      "recorded_grader_seconds": 48.44059858308174,
+      "provider_reported_cost_usd": 0,
+      "provider_reported_cost_per_success_usd": 0.0,
+      "model_calls": 10,
+      "model_responses": 10,
+      "tool_calls": 10,
+      "input_tokens": 80451,
+      "output_tokens": 4387,
+      "cached_input_tokens": 64768,
       "stale_at_submission": 0,
-      "submission_check_opportunities": 0,
+      "submission_check_opportunities": 3,
       "deliverable_checkpoints": 0,
       "deliverable_reminders": 0
     },
@@ -357,7 +357,7 @@
       "benchmark": "terminal",
       "arm": "A",
       "planned": 15,
-      "started": 0,
+      "started": 1,
       "scoreable": 0,
       "success": 0,
       "success_rate_on_scoreable": null,
@@ -486,14 +486,151 @@
       "split": "D",
       "reference": "B0",
       "treatment": "F",
-      "paired_tasks": 0,
-      "changes": {},
-      "delta_percentage_points": null,
-      "relative_change_percent": null,
-      "pairs_without_provider_timeout": 0,
-      "delta_without_provider_timeout_percentage_points": null,
+      "paired_tasks": 11,
+      "changes": {
+        "both_success": 6,
+        "loss": 2,
+        "both_failure": 3
+      },
+      "delta_percentage_points": -18.181818181818183,
+      "relative_change_percent": -25.0,
+      "pairs_without_provider_timeout": 8,
+      "delta_without_provider_timeout_percentage_points": -25.0,
       "bootstrap_95_interval_percentage_points": null,
-      "pairs": []
+      "pairs": [
+        {
+          "benchmark": "aider",
+          "task": "cpp/linked-list",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "javascript/triangle",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-15987",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "pydata__xarray-6599",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            0
+          ],
+          "change": -1,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "pytest-dev__pytest-7205",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            0
+          ],
+          "change": -1,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "scikit-learn__scikit-learn-13496",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "llm-inference-batching-scheduler",
+          "reference": [
+            0
+          ],
+          "treatment": [
+            0
+          ],
+          "change": 0,
+          "provider_timeout": true
+        },
+        {
+          "benchmark": "terminal",
+          "task": "query-optimize",
+          "reference": [
+            0
+          ],
+          "treatment": [
+            0
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "regex-log",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": true
+        },
+        {
+          "benchmark": "terminal",
+          "task": "sqlite-db-truncate",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "video-processing",
+          "reference": [
+            0
+          ],
+          "treatment": [
+            0
+          ],
+          "change": 0,
+          "provider_timeout": true
+        }
+      ]
     },
     {
       "split": "H",
@@ -540,42 +677,87 @@
       "split": "H",
       "reference": "B0",
       "treatment": "F",
-      "paired_tasks": 0,
-      "changes": {},
-      "delta_percentage_points": null,
-      "relative_change_percent": null,
-      "pairs_without_provider_timeout": 0,
-      "delta_without_provider_timeout_percentage_points": null,
+      "paired_tasks": 1,
+      "changes": {
+        "both_success": 1
+      },
+      "delta_percentage_points": 0,
+      "relative_change_percent": 0.0,
+      "pairs_without_provider_timeout": 1,
+      "delta_without_provider_timeout_percentage_points": 0,
       "bootstrap_95_interval_percentage_points": null,
-      "pairs": [],
+      "pairs": [
+        {
+          "benchmark": "swe",
+          "task": "django__django-12050",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        }
+      ],
       "repeat": 1
     },
     {
       "split": "H",
       "reference": "BP",
       "treatment": "F",
-      "paired_tasks": 0,
-      "changes": {},
-      "delta_percentage_points": null,
-      "relative_change_percent": null,
-      "pairs_without_provider_timeout": 0,
-      "delta_without_provider_timeout_percentage_points": null,
+      "paired_tasks": 1,
+      "changes": {
+        "both_success": 1
+      },
+      "delta_percentage_points": 0,
+      "relative_change_percent": 0.0,
+      "pairs_without_provider_timeout": 1,
+      "delta_without_provider_timeout_percentage_points": 0,
       "bootstrap_95_interval_percentage_points": null,
-      "pairs": [],
+      "pairs": [
+        {
+          "benchmark": "swe",
+          "task": "django__django-12050",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        }
+      ],
       "repeat": 1
     },
     {
       "split": "H",
       "reference": "A",
       "treatment": "F",
-      "paired_tasks": 0,
-      "changes": {},
-      "delta_percentage_points": null,
-      "relative_change_percent": null,
-      "pairs_without_provider_timeout": 0,
-      "delta_without_provider_timeout_percentage_points": null,
+      "paired_tasks": 1,
+      "changes": {
+        "both_success": 1
+      },
+      "delta_percentage_points": 0,
+      "relative_change_percent": 0.0,
+      "pairs_without_provider_timeout": 1,
+      "delta_without_provider_timeout_percentage_points": 0,
       "bootstrap_95_interval_percentage_points": null,
-      "pairs": [],
+      "pairs": [
+        {
+          "benchmark": "swe",
+          "task": "django__django-12050",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        }
+      ],
       "repeat": 1
     },
     {

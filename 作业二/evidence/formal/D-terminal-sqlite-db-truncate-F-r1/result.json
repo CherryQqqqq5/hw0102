@@ -1,0 +1,7 @@
+{
+  "task": "sqlite-db-truncate",
+  "wall_seconds": 295.17318179109134,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "sqlite-db-truncate__xf8vJn6/result.json"
+}

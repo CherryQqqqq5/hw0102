@@ -1,0 +1,5 @@
+{
+  "stdout": "\n> test\n> jest ./*\n\n",
+  "stderr": "PASS ./triangle.spec.js\n  Triangle\n    equilateral triangle\n      ✓ all sides are equal (3 ms)\n      ✓ any side is unequal\n      ✓ no sides are equal\n      ✓ all zero sides is not a triangle\n      ✓ sides may be floats\n    isosceles triangle\n      ✓ last two sides are equal (1 ms)\n      ✓ first two sides are equal\n      ✓ first and last sides are equal (1 ms)\n      ✓ equilateral triangles are also isosceles\n      ✓ no sides are equal (1 ms)\n      ✓ first triangle inequality violation\n      ✓ second triangle inequality violation\n      ✓ third triangle inequality violation (1 ms)\n      ✓ sides may be floats\n    scalene triangle\n      ✓ no sides are equal\n      ✓ all sides are equal (1 ms)\n      ✓ two sides are equal\n      ✓ may not violate triangle inequality\n      ✓ sides may be floats\n\nTest Suites: 1 passed, 1 total\nTests:       19 passed, 19 total\nSnapshots:   0 total\nTime:        2.366 s\nRan all test suites matching /.\\/LICENSE|.\\/babel.config.js|.\\/node_modules|.\\/package-lock.json|.\\/package.json|.\\/triangle.js|.\\/triangle.spec.js/i.\n",
+  "returncode": 0
+}

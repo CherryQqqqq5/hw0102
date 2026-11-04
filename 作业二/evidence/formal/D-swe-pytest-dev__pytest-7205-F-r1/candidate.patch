@@ -1,0 +1,35 @@
+diff --git a/changelog/7205.bugfix.rst b/changelog/7205.bugfix.rst
+new file mode 100644
+index 000000000..c4034d59d
+--- /dev/null
++++ b/changelog/7205.bugfix.rst
+@@ -0,0 +1 @@
++Fix ``BytesWarning`` when using ``--setup-show`` with a ``bytes`` parameter.
+diff --git a/src/_pytest/setuponly.py b/src/_pytest/setuponly.py
+index c9cc589ff..7062ef5e0 100644
+--- a/src/_pytest/setuponly.py
++++ b/src/_pytest/setuponly.py
+@@ -1,5 +1,7 @@
+ import pytest
+ 
++from _pytest._io.saferepr import saferepr
++
+ 
+ def pytest_addoption(parser):
+     group = parser.getgroup("debugconfig")
+@@ -66,7 +68,14 @@ def _show_fixture_action(fixturedef, msg):
+             tw.write(" (fixtures used: {})".format(", ".join(deps)))
+ 
+     if hasattr(fixturedef, "cached_param"):
+-        tw.write("[{}]".format(fixturedef.cached_param))
++        # cached_param is a str when it comes from an id, so keep the raw
++        # representation there.  For other objects (e.g. bytes) use
++        # saferepr() to avoid emitting a BytesWarning via implicit str().
++        param = fixturedef.cached_param
++        if isinstance(param, str):
++            tw.write("[{}]".format(param))
++        else:
++            tw.write("[{}]".format(saferepr(param, maxsize=42)))
+ 
+     tw.flush()
+ 

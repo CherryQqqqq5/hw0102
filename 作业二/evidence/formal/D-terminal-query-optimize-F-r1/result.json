@@ -1,0 +1,7 @@
+{
+  "task": "query-optimize",
+  "wall_seconds": 1234.233740333002,
+  "scoreable": true,
+  "passed": false,
+  "harbor_result": "query-optimize__gpcSe97/result.json"
+}

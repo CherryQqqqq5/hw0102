@@ -113,3 +113,15 @@ work/.venv/bin/python -m course_eval.check_verification \
 python3 -m course_eval.summarize --manifest frozen-tasks.json \
   --runs '../作业一/evidence/formal' --out work/recomputed-hw1
 ```
+
+复算作业二时，在本地工作目录汇合两份作业的正式运行，包含作业一的 B0 轨迹。下列软链接仅用于本地统计。
+
+```sh
+mkdir -p work/combined-formal
+for trial in "$PWD"/../作业{一,二}/evidence/formal/*/trial.json; do
+  run=${trial%/trial.json}
+  ln -s "$run" "work/combined-formal/${run##*/}"
+done
+python3 -m course_eval.summarize --manifest frozen-tasks.json \
+  --runs work/combined-formal --out work/recomputed-hw2
+```
