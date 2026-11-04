@@ -1,0 +1,10 @@
+{
+  "task": "go/connect",
+  "wall_seconds": 133.54998008301482,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 13.034040958969854
+}

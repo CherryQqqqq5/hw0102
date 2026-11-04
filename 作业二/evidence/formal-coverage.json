@@ -107,32 +107,32 @@
       "benchmark": "aider",
       "arm": "A",
       "planned": 15,
-      "started": 7,
-      "scoreable": 7,
-      "success": 7,
+      "started": 15,
+      "scoreable": 15,
+      "success": 15,
       "success_rate_on_scoreable": 1.0,
       "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 7,
+      "fully_scored_tasks": 5,
+      "task_mean_success": 1,
+      "all_repeats_successful": 5,
+      "declared_complete": 15,
       "incorrect_complete_claims": 0,
       "budget_terminations": 0,
       "provider_timeouts": 0,
-      "recorded_wall_seconds": 1103.5937539170263,
-      "recorded_grader_seconds": 146.6724154171534,
+      "recorded_wall_seconds": 2009.6751052509062,
+      "recorded_grader_seconds": 242.87028895807452,
       "provider_reported_cost_usd": 0,
       "provider_reported_cost_per_success_usd": 0.0,
-      "model_calls": 56,
-      "model_responses": 56,
+      "model_calls": 120,
+      "model_responses": 120,
       "model_request_retries": 0,
       "model_request_timeouts": 0,
-      "tool_calls": 56,
-      "input_tokens": 545791,
-      "output_tokens": 31508,
-      "cached_input_tokens": 432512,
+      "tool_calls": 120,
+      "input_tokens": 1185187,
+      "output_tokens": 69888,
+      "cached_input_tokens": 947840,
       "stale_at_submission": 0,
-      "submission_check_opportunities": 14,
+      "submission_check_opportunities": 30,
       "deliverable_checkpoints": 0,
       "deliverable_reminders": 0
     },
@@ -141,30 +141,30 @@
       "benchmark": "aider",
       "arm": "B0",
       "planned": 15,
-      "started": 7,
-      "scoreable": 7,
-      "success": 7,
+      "started": 15,
+      "scoreable": 15,
+      "success": 15,
       "success_rate_on_scoreable": 1.0,
       "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 7,
+      "fully_scored_tasks": 5,
+      "task_mean_success": 1,
+      "all_repeats_successful": 5,
+      "declared_complete": 15,
       "incorrect_complete_claims": 0,
       "budget_terminations": 0,
       "provider_timeouts": 0,
-      "recorded_wall_seconds": 905.038646706962,
-      "recorded_grader_seconds": 138.88248741603456,
+      "recorded_wall_seconds": 1661.0591871670913,
+      "recorded_grader_seconds": 271.137627585209,
       "provider_reported_cost_usd": 0,
       "provider_reported_cost_per_success_usd": 0.0,
-      "model_calls": 37,
-      "model_responses": 37,
+      "model_calls": 79,
+      "model_responses": 79,
       "model_request_retries": 0,
       "model_request_timeouts": 0,
-      "tool_calls": 37,
-      "input_tokens": 284762,
-      "output_tokens": 18384,
-      "cached_input_tokens": 204672,
+      "tool_calls": 79,
+      "input_tokens": 700647,
+      "output_tokens": 59053,
+      "cached_input_tokens": 498560,
       "stale_at_submission": 0,
       "submission_check_opportunities": 0,
       "deliverable_checkpoints": 0,
@@ -175,30 +175,30 @@
       "benchmark": "aider",
       "arm": "BP",
       "planned": 15,
-      "started": 7,
-      "scoreable": 6,
-      "success": 6,
+      "started": 15,
+      "scoreable": 15,
+      "success": 15,
       "success_rate_on_scoreable": 1.0,
       "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 6,
+      "fully_scored_tasks": 5,
+      "task_mean_success": 1,
+      "all_repeats_successful": 5,
+      "declared_complete": 15,
       "incorrect_complete_claims": 0,
       "budget_terminations": 0,
       "provider_timeouts": 0,
-      "recorded_wall_seconds": 1120.0185313328402,
-      "recorded_grader_seconds": 122.72982908203267,
-      "provider_reported_cost_usd": null,
-      "provider_reported_cost_per_success_usd": null,
-      "model_calls": 44,
-      "model_responses": 44,
+      "recorded_wall_seconds": 2038.0270018328447,
+      "recorded_grader_seconds": 250.81330870720558,
+      "provider_reported_cost_usd": 0,
+      "provider_reported_cost_per_success_usd": 0.0,
+      "model_calls": 95,
+      "model_responses": 95,
       "model_request_retries": 0,
       "model_request_timeouts": 0,
-      "tool_calls": 44,
-      "input_tokens": 464118,
-      "output_tokens": 25440,
-      "cached_input_tokens": 369536,
+      "tool_calls": 95,
+      "input_tokens": 983889,
+      "output_tokens": 71308,
+      "cached_input_tokens": 753664,
       "stale_at_submission": 0,
       "submission_check_opportunities": 0,
       "deliverable_checkpoints": 0,
@@ -209,32 +209,32 @@
       "benchmark": "aider",
       "arm": "F",
       "planned": 15,
-      "started": 7,
-      "scoreable": 7,
-      "success": 7,
+      "started": 15,
+      "scoreable": 15,
+      "success": 15,
       "success_rate_on_scoreable": 1.0,
       "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 7,
+      "fully_scored_tasks": 5,
+      "task_mean_success": 1,
+      "all_repeats_successful": 5,
+      "declared_complete": 15,
       "incorrect_complete_claims": 0,
       "budget_terminations": 0,
       "provider_timeouts": 0,
-      "recorded_wall_seconds": 1432.845677959267,
-      "recorded_grader_seconds": 114.26910945819691,
+      "recorded_wall_seconds": 2230.8077902923105,
+      "recorded_grader_seconds": 222.71093200100586,
       "provider_reported_cost_usd": 0,
       "provider_reported_cost_per_success_usd": 0.0,
-      "model_calls": 55,
-      "model_responses": 55,
+      "model_calls": 109,
+      "model_responses": 109,
       "model_request_retries": 0,
       "model_request_timeouts": 0,
-      "tool_calls": 55,
-      "input_tokens": 508385,
-      "output_tokens": 26155,
-      "cached_input_tokens": 409344,
-      "stale_at_submission": 2,
-      "submission_check_opportunities": 14,
+      "tool_calls": 109,
+      "input_tokens": 1024894,
+      "output_tokens": 68941,
+      "cached_input_tokens": 805888,
+      "stale_at_submission": 3,
+      "submission_check_opportunities": 24,
       "deliverable_checkpoints": 0,
       "deliverable_reminders": 0
     },
@@ -243,32 +243,32 @@
       "benchmark": "swe",
       "arm": "A",
       "planned": 15,
-      "started": 6,
-      "scoreable": 6,
-      "success": 6,
+      "started": 15,
+      "scoreable": 15,
+      "success": 15,
       "success_rate_on_scoreable": 1.0,
       "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 5,
+      "fully_scored_tasks": 5,
+      "task_mean_success": 1,
+      "all_repeats_successful": 5,
+      "declared_complete": 12,
       "incorrect_complete_claims": 0,
-      "budget_terminations": 1,
+      "budget_terminations": 3,
       "provider_timeouts": 0,
-      "recorded_wall_seconds": 2534.026342876721,
-      "recorded_grader_seconds": 479.52794612629805,
+      "recorded_wall_seconds": 5556.756458167802,
+      "recorded_grader_seconds": 818.0056145013077,
       "provider_reported_cost_usd": 0,
       "provider_reported_cost_per_success_usd": 0.0,
-      "model_calls": 89,
-      "model_responses": 89,
+      "model_calls": 227,
+      "model_responses": 227,
       "model_request_retries": 0,
       "model_request_timeouts": 0,
-      "tool_calls": 89,
-      "input_tokens": 1592154,
-      "output_tokens": 133607,
-      "cached_input_tokens": 1385728,
+      "tool_calls": 227,
+      "input_tokens": 4535833,
+      "output_tokens": 406855,
+      "cached_input_tokens": 3973120,
       "stale_at_submission": 0,
-      "submission_check_opportunities": 15,
+      "submission_check_opportunities": 36,
       "deliverable_checkpoints": 0,
       "deliverable_reminders": 0
     },
@@ -277,64 +277,64 @@
       "benchmark": "swe",
       "arm": "B0",
       "planned": 15,
-      "started": 6,
-      "scoreable": 6,
-      "success": 5,
-      "success_rate_on_scoreable": 0.8333333333333334,
+      "started": 15,
+      "scoreable": 15,
+      "success": 13,
+      "success_rate_on_scoreable": 0.8666666666666667,
       "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 4,
+      "fully_scored_tasks": 5,
+      "task_mean_success": 0.8666666666666667,
+      "all_repeats_successful": 4,
+      "declared_complete": 10,
+      "incorrect_complete_claims": 0,
+      "budget_terminations": 5,
+      "provider_timeouts": 0,
+      "recorded_wall_seconds": 6719.615554663935,
+      "recorded_grader_seconds": 806.4635502089513,
+      "provider_reported_cost_usd": 0,
+      "provider_reported_cost_per_success_usd": 0.0,
+      "model_calls": 249,
+      "model_responses": 249,
+      "model_request_retries": 0,
+      "model_request_timeouts": 0,
+      "tool_calls": 249,
+      "input_tokens": 5671134,
+      "output_tokens": 485341,
+      "cached_input_tokens": 5004800,
+      "stale_at_submission": 0,
+      "submission_check_opportunities": 0,
+      "deliverable_checkpoints": 0,
+      "deliverable_reminders": 0
+    },
+    {
+      "split": "H",
+      "benchmark": "swe",
+      "arm": "BP",
+      "planned": 15,
+      "started": 15,
+      "scoreable": 15,
+      "success": 15,
+      "success_rate_on_scoreable": 1.0,
+      "expected_tasks": 5,
+      "fully_scored_tasks": 5,
+      "task_mean_success": 1,
+      "all_repeats_successful": 5,
+      "declared_complete": 13,
       "incorrect_complete_claims": 0,
       "budget_terminations": 2,
       "provider_timeouts": 0,
-      "recorded_wall_seconds": 2934.3426394148264,
-      "recorded_grader_seconds": 486.3964214589214,
+      "recorded_wall_seconds": 4410.800069831195,
+      "recorded_grader_seconds": 655.2454855834367,
       "provider_reported_cost_usd": 0,
       "provider_reported_cost_per_success_usd": 0.0,
-      "model_calls": 93,
-      "model_responses": 93,
+      "model_calls": 175,
+      "model_responses": 175,
       "model_request_retries": 0,
       "model_request_timeouts": 0,
-      "tool_calls": 93,
-      "input_tokens": 1876231,
-      "output_tokens": 150200,
-      "cached_input_tokens": 1646464,
-      "stale_at_submission": 0,
-      "submission_check_opportunities": 0,
-      "deliverable_checkpoints": 0,
-      "deliverable_reminders": 0
-    },
-    {
-      "split": "H",
-      "benchmark": "swe",
-      "arm": "BP",
-      "planned": 15,
-      "started": 6,
-      "scoreable": 6,
-      "success": 6,
-      "success_rate_on_scoreable": 1.0,
-      "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 5,
-      "incorrect_complete_claims": 0,
-      "budget_terminations": 1,
-      "provider_timeouts": 0,
-      "recorded_wall_seconds": 1730.2446411661804,
-      "recorded_grader_seconds": 319.17825329315383,
-      "provider_reported_cost_usd": 0,
-      "provider_reported_cost_per_success_usd": 0.0,
-      "model_calls": 63,
-      "model_responses": 63,
-      "model_request_retries": 0,
-      "model_request_timeouts": 0,
-      "tool_calls": 63,
-      "input_tokens": 1104817,
-      "output_tokens": 116152,
-      "cached_input_tokens": 928000,
+      "tool_calls": 175,
+      "input_tokens": 3364231,
+      "output_tokens": 366173,
+      "cached_input_tokens": 2867840,
       "stale_at_submission": 0,
       "submission_check_opportunities": 0,
       "deliverable_checkpoints": 0,
@@ -345,32 +345,32 @@
       "benchmark": "swe",
       "arm": "F",
       "planned": 15,
-      "started": 6,
-      "scoreable": 6,
-      "success": 5,
-      "success_rate_on_scoreable": 0.8333333333333334,
+      "started": 15,
+      "scoreable": 15,
+      "success": 12,
+      "success_rate_on_scoreable": 0.8,
       "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 5,
+      "fully_scored_tasks": 5,
+      "task_mean_success": 0.8,
+      "all_repeats_successful": 4,
+      "declared_complete": 12,
       "incorrect_complete_claims": 0,
-      "budget_terminations": 1,
+      "budget_terminations": 3,
       "provider_timeouts": 0,
-      "recorded_wall_seconds": 1989.7047427080106,
-      "recorded_grader_seconds": 295.26085445901845,
+      "recorded_wall_seconds": 5044.889851123095,
+      "recorded_grader_seconds": 617.7016996289603,
       "provider_reported_cost_usd": 0,
       "provider_reported_cost_per_success_usd": 0.0,
-      "model_calls": 78,
-      "model_responses": 78,
-      "model_request_retries": 0,
-      "model_request_timeouts": 0,
-      "tool_calls": 78,
-      "input_tokens": 1415427,
-      "output_tokens": 128045,
-      "cached_input_tokens": 1226496,
+      "model_calls": 219,
+      "model_responses": 218,
+      "model_request_retries": 1,
+      "model_request_timeouts": 1,
+      "tool_calls": 218,
+      "input_tokens": 4315976,
+      "output_tokens": 378578,
+      "cached_input_tokens": 3768192,
       "stale_at_submission": 0,
-      "submission_check_opportunities": 15,
+      "submission_check_opportunities": 35,
       "deliverable_checkpoints": 0,
       "deliverable_reminders": 0
     },
@@ -379,64 +379,64 @@
       "benchmark": "terminal",
       "arm": "A",
       "planned": 15,
-      "started": 7,
-      "scoreable": 7,
-      "success": 5,
-      "success_rate_on_scoreable": 0.7142857142857143,
+      "started": 15,
+      "scoreable": 15,
+      "success": 13,
+      "success_rate_on_scoreable": 0.8666666666666667,
       "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 4,
+      "fully_scored_tasks": 5,
+      "task_mean_success": 0.8666666666666667,
+      "all_repeats_successful": 3,
+      "declared_complete": 10,
       "incorrect_complete_claims": 1,
-      "budget_terminations": 3,
+      "budget_terminations": 5,
       "provider_timeouts": 0,
-      "recorded_wall_seconds": 3571.104605041095,
-      "recorded_grader_seconds": 468.339408,
+      "recorded_wall_seconds": 6919.1419892910635,
+      "recorded_grader_seconds": 644.459903,
       "provider_reported_cost_usd": 0,
       "provider_reported_cost_per_success_usd": 0.0,
-      "model_calls": 68,
-      "model_responses": 68,
-      "model_request_retries": 0,
-      "model_request_timeouts": 0,
-      "tool_calls": 68,
-      "input_tokens": 963924,
-      "output_tokens": 240409,
-      "cached_input_tokens": 782336,
+      "model_calls": 156,
+      "model_responses": 155,
+      "model_request_retries": 1,
+      "model_request_timeouts": 1,
+      "tool_calls": 155,
+      "input_tokens": 2482764,
+      "output_tokens": 520054,
+      "cached_input_tokens": 2041472,
       "stale_at_submission": 0,
-      "submission_check_opportunities": 8,
-      "deliverable_checkpoints": 5,
-      "deliverable_reminders": 1
+      "submission_check_opportunities": 19,
+      "deliverable_checkpoints": 9,
+      "deliverable_reminders": 3
     },
     {
       "split": "H",
       "benchmark": "terminal",
       "arm": "B0",
       "planned": 15,
-      "started": 7,
-      "scoreable": 6,
-      "success": 3,
-      "success_rate_on_scoreable": 0.5,
+      "started": 15,
+      "scoreable": 15,
+      "success": 10,
+      "success_rate_on_scoreable": 0.6666666666666666,
       "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 2,
-      "incorrect_complete_claims": 0,
-      "budget_terminations": 3,
+      "fully_scored_tasks": 5,
+      "task_mean_success": 0.6666666666666666,
+      "all_repeats_successful": 2,
+      "declared_complete": 9,
+      "incorrect_complete_claims": 1,
+      "budget_terminations": 5,
       "provider_timeouts": 1,
-      "recorded_wall_seconds": 2749.7950125848874,
-      "recorded_grader_seconds": 293.895289,
-      "provider_reported_cost_usd": null,
-      "provider_reported_cost_per_success_usd": null,
-      "model_calls": 48,
-      "model_responses": 47,
-      "model_request_retries": 0,
-      "model_request_timeouts": 1,
-      "tool_calls": 47,
-      "input_tokens": 870432,
-      "output_tokens": 157007,
-      "cached_input_tokens": 701056,
+      "recorded_wall_seconds": 6265.9138922099955,
+      "recorded_grader_seconds": 529.295341,
+      "provider_reported_cost_usd": 0,
+      "provider_reported_cost_per_success_usd": 0.0,
+      "model_calls": 131,
+      "model_responses": 128,
+      "model_request_retries": 2,
+      "model_request_timeouts": 3,
+      "tool_calls": 128,
+      "input_tokens": 2190663,
+      "output_tokens": 418209,
+      "cached_input_tokens": 1746304,
       "stale_at_submission": 0,
       "submission_check_opportunities": 0,
       "deliverable_checkpoints": 0,
@@ -447,30 +447,30 @@
       "benchmark": "terminal",
       "arm": "BP",
       "planned": 15,
-      "started": 8,
-      "scoreable": 7,
-      "success": 4,
-      "success_rate_on_scoreable": 0.5714285714285714,
+      "started": 15,
+      "scoreable": 15,
+      "success": 10,
+      "success_rate_on_scoreable": 0.6666666666666666,
       "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 3,
-      "incorrect_complete_claims": 1,
-      "budget_terminations": 3,
+      "fully_scored_tasks": 5,
+      "task_mean_success": 0.6666666666666666,
+      "all_repeats_successful": 2,
+      "declared_complete": 10,
+      "incorrect_complete_claims": 3,
+      "budget_terminations": 4,
       "provider_timeouts": 1,
-      "recorded_wall_seconds": 3167.590665290132,
-      "recorded_grader_seconds": 392.00268,
-      "provider_reported_cost_usd": null,
-      "provider_reported_cost_per_success_usd": null,
-      "model_calls": 54,
-      "model_responses": 53,
-      "model_request_retries": 0,
-      "model_request_timeouts": 1,
-      "tool_calls": 53,
-      "input_tokens": 771574,
-      "output_tokens": 200128,
-      "cached_input_tokens": 604416,
+      "recorded_wall_seconds": 6259.032850041171,
+      "recorded_grader_seconds": 596.960144,
+      "provider_reported_cost_usd": 0,
+      "provider_reported_cost_per_success_usd": 0.0,
+      "model_calls": 130,
+      "model_responses": 128,
+      "model_request_retries": 1,
+      "model_request_timeouts": 2,
+      "tool_calls": 128,
+      "input_tokens": 2028267,
+      "output_tokens": 473588,
+      "cached_input_tokens": 1620864,
       "stale_at_submission": 0,
       "submission_check_opportunities": 0,
       "deliverable_checkpoints": 0,
@@ -481,33 +481,33 @@
       "benchmark": "terminal",
       "arm": "F",
       "planned": 15,
-      "started": 7,
-      "scoreable": 6,
-      "success": 4,
+      "started": 15,
+      "scoreable": 15,
+      "success": 10,
       "success_rate_on_scoreable": 0.6666666666666666,
       "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 2,
-      "incorrect_complete_claims": 0,
-      "budget_terminations": 3,
+      "fully_scored_tasks": 5,
+      "task_mean_success": 0.6666666666666666,
+      "all_repeats_successful": 3,
+      "declared_complete": 8,
+      "incorrect_complete_claims": 2,
+      "budget_terminations": 6,
       "provider_timeouts": 1,
-      "recorded_wall_seconds": 3206.0507849579444,
-      "recorded_grader_seconds": 473.824206,
-      "provider_reported_cost_usd": null,
-      "provider_reported_cost_per_success_usd": null,
-      "model_calls": 53,
-      "model_responses": 52,
-      "model_request_retries": 0,
-      "model_request_timeouts": 1,
-      "tool_calls": 52,
-      "input_tokens": 763112,
-      "output_tokens": 182962,
-      "cached_input_tokens": 611328,
+      "recorded_wall_seconds": 7114.169554915628,
+      "recorded_grader_seconds": 725.570972,
+      "provider_reported_cost_usd": 0,
+      "provider_reported_cost_per_success_usd": 0.0,
+      "model_calls": 148,
+      "model_responses": 145,
+      "model_request_retries": 2,
+      "model_request_timeouts": 3,
+      "tool_calls": 145,
+      "input_tokens": 2168357,
+      "output_tokens": 523480,
+      "cached_input_tokens": 1743872,
       "stale_at_submission": 0,
-      "submission_check_opportunities": 3,
-      "deliverable_checkpoints": 3,
+      "submission_check_opportunities": 15,
+      "deliverable_checkpoints": 10,
       "deliverable_reminders": 1
     }
   ],
@@ -897,40 +897,785 @@
       "split": "H",
       "reference": "B0",
       "treatment": "F",
-      "paired_tasks": 0,
-      "changes": {},
-      "delta_percentage_points": null,
-      "relative_change_percent": null,
-      "pairs_without_provider_timeout": 0,
-      "delta_without_provider_timeout_percentage_points": null,
-      "bootstrap_95_interval_percentage_points": null,
-      "pairs": []
+      "paired_tasks": 15,
+      "changes": {
+        "both_success": 11,
+        "loss": 2,
+        "gain": 1,
+        "tie_partial": 1
+      },
+      "delta_percentage_points": -2.2222222222222214,
+      "relative_change_percent": -2.63157894736842,
+      "pairs_without_provider_timeout": 13,
+      "delta_without_provider_timeout_percentage_points": 2.5641025641025643,
+      "bootstrap_95_interval_percentage_points": [
+        -8.888888888888888,
+        4.4444444444444455
+      ],
+      "pairs": [
+        {
+          "benchmark": "aider",
+          "task": "cpp/allergies",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "go/connect",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "java/pig-latin",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "javascript/book-store",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "python/list-ops",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-12050",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-15554",
+          "reference": [
+            0,
+            1,
+            0
+          ],
+          "treatment": [
+            0,
+            0,
+            0
+          ],
+          "change": -0.3333333333333333,
+          "provider_timeout": true
+        },
+        {
+          "benchmark": "swe",
+          "task": "pydata__xarray-4695",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "pytest-dev__pytest-7571",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "scikit-learn__scikit-learn-10908",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "constraints-scheduling",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "custom-memory-heap-crash",
+          "reference": [
+            1,
+            0,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0.33333333333333337,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "model-extraction-relu-logits",
+          "reference": [
+            0,
+            1,
+            0
+          ],
+          "treatment": [
+            0,
+            0,
+            0
+          ],
+          "change": -0.3333333333333333,
+          "provider_timeout": true
+        },
+        {
+          "benchmark": "terminal",
+          "task": "password-recovery",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "tune-mjcf",
+          "reference": [
+            0,
+            0,
+            1
+          ],
+          "treatment": [
+            0,
+            1,
+            0
+          ],
+          "change": 0.0,
+          "provider_timeout": false
+        }
+      ]
     },
     {
       "split": "H",
       "reference": "BP",
       "treatment": "F",
-      "paired_tasks": 0,
-      "changes": {},
-      "delta_percentage_points": null,
-      "relative_change_percent": null,
-      "pairs_without_provider_timeout": 0,
-      "delta_without_provider_timeout_percentage_points": null,
-      "bootstrap_95_interval_percentage_points": null,
-      "pairs": []
+      "paired_tasks": 15,
+      "changes": {
+        "both_success": 11,
+        "loss": 2,
+        "both_failure": 1,
+        "gain": 1
+      },
+      "delta_percentage_points": -6.666666666666667,
+      "relative_change_percent": -7.500000000000001,
+      "pairs_without_provider_timeout": 13,
+      "delta_without_provider_timeout_percentage_points": 4.270088556250602e-16,
+      "bootstrap_95_interval_percentage_points": [
+        -22.22222222222222,
+        4.444444444444445
+      ],
+      "pairs": [
+        {
+          "benchmark": "aider",
+          "task": "cpp/allergies",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "go/connect",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "java/pig-latin",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "javascript/book-store",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "python/list-ops",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-12050",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-15554",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            0,
+            0,
+            0
+          ],
+          "change": -1,
+          "provider_timeout": true
+        },
+        {
+          "benchmark": "swe",
+          "task": "pydata__xarray-4695",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "pytest-dev__pytest-7571",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "scikit-learn__scikit-learn-10908",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "constraints-scheduling",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "custom-memory-heap-crash",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "model-extraction-relu-logits",
+          "reference": [
+            0,
+            0,
+            0
+          ],
+          "treatment": [
+            0,
+            0,
+            0
+          ],
+          "change": 0,
+          "provider_timeout": true
+        },
+        {
+          "benchmark": "terminal",
+          "task": "password-recovery",
+          "reference": [
+            1,
+            1,
+            0
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0.33333333333333337,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "tune-mjcf",
+          "reference": [
+            0,
+            1,
+            1
+          ],
+          "treatment": [
+            0,
+            1,
+            0
+          ],
+          "change": -0.3333333333333333,
+          "provider_timeout": false
+        }
+      ]
     },
     {
       "split": "H",
       "reference": "A",
       "treatment": "F",
-      "paired_tasks": 0,
-      "changes": {},
-      "delta_percentage_points": null,
-      "relative_change_percent": null,
-      "pairs_without_provider_timeout": 0,
-      "delta_without_provider_timeout_percentage_points": null,
-      "bootstrap_95_interval_percentage_points": null,
-      "pairs": []
+      "paired_tasks": 15,
+      "changes": {
+        "both_success": 12,
+        "loss": 3
+      },
+      "delta_percentage_points": -13.333333333333334,
+      "relative_change_percent": -13.953488372093023,
+      "pairs_without_provider_timeout": 13,
+      "delta_without_provider_timeout_percentage_points": -2.564102564102564,
+      "bootstrap_95_interval_percentage_points": [
+        -28.888888888888886,
+        0
+      ],
+      "pairs": [
+        {
+          "benchmark": "aider",
+          "task": "cpp/allergies",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "go/connect",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "java/pig-latin",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "javascript/book-store",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "python/list-ops",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-12050",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-15554",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            0,
+            0,
+            0
+          ],
+          "change": -1,
+          "provider_timeout": true
+        },
+        {
+          "benchmark": "swe",
+          "task": "pydata__xarray-4695",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "pytest-dev__pytest-7571",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "scikit-learn__scikit-learn-10908",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "constraints-scheduling",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "custom-memory-heap-crash",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "model-extraction-relu-logits",
+          "reference": [
+            0,
+            1,
+            1
+          ],
+          "treatment": [
+            0,
+            0,
+            0
+          ],
+          "change": -0.6666666666666666,
+          "provider_timeout": true
+        },
+        {
+          "benchmark": "terminal",
+          "task": "password-recovery",
+          "reference": [
+            1,
+            1,
+            1
+          ],
+          "treatment": [
+            1,
+            1,
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "tune-mjcf",
+          "reference": [
+            1,
+            0,
+            1
+          ],
+          "treatment": [
+            0,
+            1,
+            0
+          ],
+          "change": -0.3333333333333333,
+          "provider_timeout": false
+        }
+      ]
     }
   ],
   "holdout_by_repeat": [
@@ -1543,17 +2288,57 @@
       "split": "H",
       "reference": "B0",
       "treatment": "F",
-      "paired_tasks": 4,
+      "paired_tasks": 15,
       "changes": {
-        "both_success": 3,
-        "gain": 1
+        "both_success": 11,
+        "loss": 2,
+        "gain": 2
       },
-      "delta_percentage_points": 25.0,
-      "relative_change_percent": 33.333333333333336,
-      "pairs_without_provider_timeout": 4,
-      "delta_without_provider_timeout_percentage_points": 25.0,
-      "bootstrap_95_interval_percentage_points": null,
+      "delta_percentage_points": 0,
+      "relative_change_percent": 0.0,
+      "pairs_without_provider_timeout": 13,
+      "delta_without_provider_timeout_percentage_points": 15.384615384615385,
+      "bootstrap_95_interval_percentage_points": [
+        -26.666666666666668,
+        20.0
+      ],
       "pairs": [
+        {
+          "benchmark": "aider",
+          "task": "cpp/allergies",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "go/connect",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "java/pig-latin",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
         {
           "benchmark": "aider",
           "task": "javascript/book-store",
@@ -1581,6 +2366,102 @@
         {
           "benchmark": "swe",
           "task": "django__django-12050",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-15554",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            0
+          ],
+          "change": -1,
+          "provider_timeout": true
+        },
+        {
+          "benchmark": "swe",
+          "task": "pydata__xarray-4695",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "pytest-dev__pytest-7571",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "scikit-learn__scikit-learn-10908",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "constraints-scheduling",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "custom-memory-heap-crash",
+          "reference": [
+            0
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 1,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "model-extraction-relu-logits",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            0
+          ],
+          "change": -1,
+          "provider_timeout": true
+        },
+        {
+          "benchmark": "terminal",
+          "task": "password-recovery",
           "reference": [
             1
           ],
@@ -1609,16 +2490,57 @@
       "split": "H",
       "reference": "BP",
       "treatment": "F",
-      "paired_tasks": 3,
+      "paired_tasks": 15,
       "changes": {
-        "both_success": 3
+        "both_success": 13,
+        "loss": 1,
+        "both_failure": 1
       },
-      "delta_percentage_points": 0,
-      "relative_change_percent": 0.0,
-      "pairs_without_provider_timeout": 3,
+      "delta_percentage_points": -6.666666666666667,
+      "relative_change_percent": -7.142857142857143,
+      "pairs_without_provider_timeout": 13,
       "delta_without_provider_timeout_percentage_points": 0,
-      "bootstrap_95_interval_percentage_points": null,
+      "bootstrap_95_interval_percentage_points": [
+        -20.0,
+        0
+      ],
       "pairs": [
+        {
+          "benchmark": "aider",
+          "task": "cpp/allergies",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "go/connect",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "java/pig-latin",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
         {
           "benchmark": "aider",
           "task": "javascript/book-store",
@@ -1632,8 +2554,116 @@
           "provider_timeout": false
         },
         {
+          "benchmark": "aider",
+          "task": "python/list-ops",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
           "benchmark": "swe",
           "task": "django__django-12050",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-15554",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            0
+          ],
+          "change": -1,
+          "provider_timeout": true
+        },
+        {
+          "benchmark": "swe",
+          "task": "pydata__xarray-4695",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "pytest-dev__pytest-7571",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "scikit-learn__scikit-learn-10908",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "constraints-scheduling",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "custom-memory-heap-crash",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "model-extraction-relu-logits",
+          "reference": [
+            0
+          ],
+          "treatment": [
+            0
+          ],
+          "change": 0,
+          "provider_timeout": true
+        },
+        {
+          "benchmark": "terminal",
+          "task": "password-recovery",
           "reference": [
             1
           ],
@@ -1662,17 +2692,57 @@
       "split": "H",
       "reference": "A",
       "treatment": "F",
-      "paired_tasks": 4,
+      "paired_tasks": 15,
       "changes": {
-        "both_success": 3,
+        "both_success": 12,
+        "loss": 2,
         "gain": 1
       },
-      "delta_percentage_points": 25.0,
-      "relative_change_percent": 33.333333333333336,
-      "pairs_without_provider_timeout": 4,
-      "delta_without_provider_timeout_percentage_points": 25.0,
-      "bootstrap_95_interval_percentage_points": null,
+      "delta_percentage_points": -6.666666666666667,
+      "relative_change_percent": -7.142857142857143,
+      "pairs_without_provider_timeout": 13,
+      "delta_without_provider_timeout_percentage_points": 7.6923076923076925,
+      "bootstrap_95_interval_percentage_points": [
+        -26.666666666666668,
+        13.333333333333334
+      ],
       "pairs": [
+        {
+          "benchmark": "aider",
+          "task": "cpp/allergies",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "go/connect",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "java/pig-latin",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
         {
           "benchmark": "aider",
           "task": "javascript/book-store",
@@ -1700,6 +2770,102 @@
         {
           "benchmark": "swe",
           "task": "django__django-12050",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-15554",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            0
+          ],
+          "change": -1,
+          "provider_timeout": true
+        },
+        {
+          "benchmark": "swe",
+          "task": "pydata__xarray-4695",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "pytest-dev__pytest-7571",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "scikit-learn__scikit-learn-10908",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "constraints-scheduling",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "custom-memory-heap-crash",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "model-extraction-relu-logits",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            0
+          ],
+          "change": -1,
+          "provider_timeout": true
+        },
+        {
+          "benchmark": "terminal",
+          "task": "password-recovery",
           "reference": [
             1
           ],
@@ -1728,42 +2894,606 @@
       "split": "H",
       "reference": "B0",
       "treatment": "F",
-      "paired_tasks": 0,
-      "changes": {},
-      "delta_percentage_points": null,
-      "relative_change_percent": null,
-      "pairs_without_provider_timeout": 0,
-      "delta_without_provider_timeout_percentage_points": null,
-      "bootstrap_95_interval_percentage_points": null,
-      "pairs": [],
+      "paired_tasks": 15,
+      "changes": {
+        "both_success": 12,
+        "both_failure": 2,
+        "loss": 1
+      },
+      "delta_percentage_points": -6.666666666666667,
+      "relative_change_percent": -7.6923076923076925,
+      "pairs_without_provider_timeout": 14,
+      "delta_without_provider_timeout_percentage_points": -7.142857142857142,
+      "bootstrap_95_interval_percentage_points": [
+        -20.0,
+        0
+      ],
+      "pairs": [
+        {
+          "benchmark": "aider",
+          "task": "cpp/allergies",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "go/connect",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "java/pig-latin",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "javascript/book-store",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "python/list-ops",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-12050",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-15554",
+          "reference": [
+            0
+          ],
+          "treatment": [
+            0
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "pydata__xarray-4695",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "pytest-dev__pytest-7571",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "scikit-learn__scikit-learn-10908",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "constraints-scheduling",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "custom-memory-heap-crash",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "model-extraction-relu-logits",
+          "reference": [
+            0
+          ],
+          "treatment": [
+            0
+          ],
+          "change": 0,
+          "provider_timeout": true
+        },
+        {
+          "benchmark": "terminal",
+          "task": "password-recovery",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "tune-mjcf",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            0
+          ],
+          "change": -1,
+          "provider_timeout": false
+        }
+      ],
       "repeat": 3
     },
     {
       "split": "H",
       "reference": "BP",
       "treatment": "F",
-      "paired_tasks": 0,
-      "changes": {},
-      "delta_percentage_points": null,
-      "relative_change_percent": null,
-      "pairs_without_provider_timeout": 0,
-      "delta_without_provider_timeout_percentage_points": null,
-      "bootstrap_95_interval_percentage_points": null,
-      "pairs": [],
+      "paired_tasks": 15,
+      "changes": {
+        "both_success": 11,
+        "loss": 2,
+        "both_failure": 1,
+        "gain": 1
+      },
+      "delta_percentage_points": -6.666666666666667,
+      "relative_change_percent": -7.6923076923076925,
+      "pairs_without_provider_timeout": 14,
+      "delta_without_provider_timeout_percentage_points": -7.142857142857142,
+      "bootstrap_95_interval_percentage_points": [
+        -26.666666666666668,
+        13.333333333333334
+      ],
+      "pairs": [
+        {
+          "benchmark": "aider",
+          "task": "cpp/allergies",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "go/connect",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "java/pig-latin",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "javascript/book-store",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "python/list-ops",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-12050",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-15554",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            0
+          ],
+          "change": -1,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "pydata__xarray-4695",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "pytest-dev__pytest-7571",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "scikit-learn__scikit-learn-10908",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "constraints-scheduling",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "custom-memory-heap-crash",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "model-extraction-relu-logits",
+          "reference": [
+            0
+          ],
+          "treatment": [
+            0
+          ],
+          "change": 0,
+          "provider_timeout": true
+        },
+        {
+          "benchmark": "terminal",
+          "task": "password-recovery",
+          "reference": [
+            0
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 1,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "tune-mjcf",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            0
+          ],
+          "change": -1,
+          "provider_timeout": false
+        }
+      ],
       "repeat": 3
     },
     {
       "split": "H",
       "reference": "A",
       "treatment": "F",
-      "paired_tasks": 0,
-      "changes": {},
-      "delta_percentage_points": null,
-      "relative_change_percent": null,
-      "pairs_without_provider_timeout": 0,
-      "delta_without_provider_timeout_percentage_points": null,
-      "bootstrap_95_interval_percentage_points": null,
-      "pairs": [],
+      "paired_tasks": 15,
+      "changes": {
+        "both_success": 12,
+        "loss": 3
+      },
+      "delta_percentage_points": -20.0,
+      "relative_change_percent": -20.0,
+      "pairs_without_provider_timeout": 14,
+      "delta_without_provider_timeout_percentage_points": -14.285714285714285,
+      "bootstrap_95_interval_percentage_points": [
+        -40.0,
+        0
+      ],
+      "pairs": [
+        {
+          "benchmark": "aider",
+          "task": "cpp/allergies",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "go/connect",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "java/pig-latin",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "javascript/book-store",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "python/list-ops",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-12050",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-15554",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            0
+          ],
+          "change": -1,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "pydata__xarray-4695",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "pytest-dev__pytest-7571",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "scikit-learn__scikit-learn-10908",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "constraints-scheduling",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "custom-memory-heap-crash",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "model-extraction-relu-logits",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            0
+          ],
+          "change": -1,
+          "provider_timeout": true
+        },
+        {
+          "benchmark": "terminal",
+          "task": "password-recovery",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "tune-mjcf",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            0
+          ],
+          "change": -1,
+          "provider_timeout": false
+        }
+      ],
       "repeat": 3
     }
   ]

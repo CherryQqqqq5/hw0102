@@ -1,0 +1,10 @@
+{
+  "task": "java/pig-latin",
+  "wall_seconds": 282.43425162509084,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 17.93238504207693
+}

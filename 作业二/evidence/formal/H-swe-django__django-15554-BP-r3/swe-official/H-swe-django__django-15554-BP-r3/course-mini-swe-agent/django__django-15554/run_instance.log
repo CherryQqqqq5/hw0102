@@ -1,0 +1,56 @@
+2026-11-05 01:08:47,819 - INFO - Creating container for django__django-15554...
+2026-11-05 01:08:47,886 - INFO - Container for django__django-15554 created: 7494355069a494e83d1a65fe1438b604ee557479e7ae32595aab2b2a4dd45553
+2026-11-05 01:08:47,985 - INFO - Container for django__django-15554 started: 7494355069a494e83d1a65fe1438b604ee557479e7ae32595aab2b2a4dd45553
+2026-11-05 01:08:47,986 - INFO - Intermediate patch for django__django-15554 written to [本机路径] now applying to container...
+2026-11-05 01:08:48,117 - INFO - >>>>> Applied Patch:
+Checking patch django/db/models/sql/datastructures.py...
+Applied patch django/db/models/sql/datastructures.py cleanly.
+
+2026-11-05 01:08:49,189 - INFO - Git diff before:
+diff --git a/django/db/models/sql/datastructures.py b/django/db/models/sql/datastructures.py
+index 1edf040e82..46767927e5 100644
+--- a/django/db/models/sql/datastructures.py
++++ b/django/db/models/sql/datastructures.py
+@@ -162,7 +162,12 @@ class Join:
+         return hash(self.identity)
+ 
+     def equals(self, other):
+-        # Ignore filtered_relation in equality check.
++        # Two joins with distinct filtered relations must not be considered
++        # equal, otherwise only the first FilteredRelation() would generate a
++        # JOIN. A filtered join can still be reused when resolving the
++        # condition of that filtered relation (both sides aren't filtered).
++        if self.filtered_relation and other.filtered_relation:
++            return self.identity == other.identity
+         return self.identity[:-1] == other.identity[:-1]
+ 
+     def demote(self):
+2026-11-05 01:08:49,189 - INFO - Eval script for django__django-15554 written to [本机路径] copying to container...
+2026-11-05 01:09:01,983 - INFO - Test runtime: 12.73 seconds
+2026-11-05 01:09:01,984 - INFO - Test output for django__django-15554 written to [本机路径]
+2026-11-05 01:09:02,180 - INFO - Git diff after:
+diff --git a/django/db/models/sql/datastructures.py b/django/db/models/sql/datastructures.py
+index 1edf040e82..46767927e5 100644
+--- a/django/db/models/sql/datastructures.py
++++ b/django/db/models/sql/datastructures.py
+@@ -162,7 +162,12 @@ class Join:
+         return hash(self.identity)
+ 
+     def equals(self, other):
+-        # Ignore filtered_relation in equality check.
++        # Two joins with distinct filtered relations must not be considered
++        # equal, otherwise only the first FilteredRelation() would generate a
++        # JOIN. A filtered join can still be reused when resolving the
++        # condition of that filtered relation (both sides aren't filtered).
++        if self.filtered_relation and other.filtered_relation:
++            return self.identity == other.identity
+         return self.identity[:-1] == other.identity[:-1]
+ 
+     def demote(self):
+2026-11-05 01:09:02,181 - INFO - Grading answer for django__django-15554...
+2026-11-05 01:09:02,187 - INFO - report: {'django__django-15554': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['test_multiple (filtered_relation.tests.FilteredRelationTests)'], 'failure': []}, 'PASS_TO_PASS': {'success': ['filtered_relation() not only improves performance but also creates', 'test_aggregate (filtered_relation.tests.FilteredRelationAnalyticalAggregationTests)', 'test_as_subquery (filtered_relation.tests.FilteredRelationTests)', 'test_condition_deeper_relation_name (filtered_relation.tests.FilteredRelationTests)', 'test_condition_outside_relation_name (filtered_relation.tests.FilteredRelationTests)', 'test_deep_nested_foreign_key (filtered_relation.tests.FilteredRelationTests)', 'test_defer (filtered_relation.tests.FilteredRelationTests)', 'test_difference (filtered_relation.tests.FilteredRelationTests)', 'test_eq (filtered_relation.tests.FilteredRelationTests)', 'test_exclude_relation_with_join (filtered_relation.tests.FilteredRelationTests)', 'test_extra (filtered_relation.tests.FilteredRelationTests)', 'test_internal_queryset_alias_mapping (filtered_relation.tests.FilteredRelationTests)', 'test_intersection (filtered_relation.tests.FilteredRelationTests)', 'test_multiple_times (filtered_relation.tests.FilteredRelationTests)', 'test_nested_chained_relations (filtered_relation.tests.FilteredRelationTests)', 'test_nested_foreign_key (filtered_relation.tests.FilteredRelationTests)', 'test_nested_foreign_key_filtered_base_object (filtered_relation.tests.FilteredRelationTests)', 'test_nested_foreign_key_nested_field (filtered_relation.tests.FilteredRelationTests)', 'test_nested_m2m_filtered (filtered_relation.tests.FilteredRelationTests)', 'test_only_not_supported (filtered_relation.tests.FilteredRelationTests)', 'test_relation_name_lookup (filtered_relation.tests.FilteredRelationTests)', 'test_select_for_update (filtered_relation.tests.FilteredRelationTests)', 'test_select_related (filtered_relation.tests.FilteredRelationTests)', 'test_select_related_foreign_key (filtered_relation.tests.FilteredRelationTests)', 'test_select_related_multiple (filtered_relation.tests.FilteredRelationTests)', 'test_select_related_with_empty_relation (filtered_relation.tests.FilteredRelationTests)', 'test_union (filtered_relation.tests.FilteredRelationTests)', 'test_values (filtered_relation.tests.FilteredRelationTests)', 'test_values_list (filtered_relation.tests.FilteredRelationTests)', 'test_with_condition_as_expression_error (filtered_relation.tests.FilteredRelationTests)', 'test_with_empty_relation_name_error (filtered_relation.tests.FilteredRelationTests)', 'test_with_exclude (filtered_relation.tests.FilteredRelationTests)', 'test_with_generic_foreign_key (filtered_relation.tests.FilteredRelationTests)', 'test_with_join (filtered_relation.tests.FilteredRelationTests)', 'test_with_join_and_complex_condition (filtered_relation.tests.FilteredRelationTests)', 'test_with_m2m (filtered_relation.tests.FilteredRelationTests)', 'test_with_m2m_deep (filtered_relation.tests.FilteredRelationTests)', 'test_with_m2m_multijoin (filtered_relation.tests.FilteredRelationTests)', 'test_with_multiple_filter (filtered_relation.tests.FilteredRelationTests)', 'test_with_prefetch_related (filtered_relation.tests.FilteredRelationTests)', 'test_without_join (filtered_relation.tests.FilteredRelationTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-15554: resolved: True
+2026-11-05 01:09:02,187 - INFO - Attempting to stop container sweb.eval.django__django-15554.H-swe-django__django-15554-BP-r3...
+2026-11-05 01:09:17,498 - INFO - Container sweb.eval.django__django-15554.H-swe-django__django-15554-BP-r3 stopped successfully.
+2026-11-05 01:09:17,499 - INFO - Attempting to remove container sweb.eval.django__django-15554.H-swe-django__django-15554-BP-r3...
+2026-11-05 01:09:17,557 - INFO - Container sweb.eval.django__django-15554.H-swe-django__django-15554-BP-r3 removed successfully.

@@ -1,0 +1,44 @@
+diff --git a/django/db/models/sql/datastructures.py b/django/db/models/sql/datastructures.py
+index 1edf040e82..02133b46b0 100644
+--- a/django/db/models/sql/datastructures.py
++++ b/django/db/models/sql/datastructures.py
+@@ -162,8 +162,12 @@ class Join:
+         return hash(self.identity)
+ 
+     def equals(self, other):
+-        # Ignore filtered_relation in equality check.
+-        return self.identity[:-1] == other.identity[:-1]
++        # Ignore filtered_relation if one of them is unset.
++        return self.identity[:-1] == other.identity[:-1] and (
++            self.filtered_relation is None
++            or other.filtered_relation is None
++            or self.filtered_relation == other.filtered_relation
++        )
+ 
+     def demote(self):
+         new = self.relabeled_clone({})
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 54f3258eac..a9ba31f66d 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -804,15 +804,14 @@ class Query(BaseExpression):
+             return alias, False
+ 
+         # Create a new alias for this table.
+-        if alias_list:
++        if filtered_relation:
++            alias = filtered_relation.alias
++        elif alias_list:
+             alias = "%s%d" % (self.alias_prefix, len(self.alias_map) + 1)
+-            alias_list.append(alias)
+         else:
+             # The first occurrence of a table uses the table name directly.
+-            alias = (
+-                filtered_relation.alias if filtered_relation is not None else table_name
+-            )
+-            self.table_map[table_name] = [alias]
++            alias = table_name
++        self.table_map.setdefault(table_name, []).append(alias)
+         self.alias_refcount[alias] = 1
+         return alias, True
+ 

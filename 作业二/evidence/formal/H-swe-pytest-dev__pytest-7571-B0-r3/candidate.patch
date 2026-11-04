@@ -1,0 +1,65 @@
+diff --git a/changelog/7571.bugfix.rst b/changelog/7571.bugfix.rst
+new file mode 100644
+index 000000000..67b8475ac
+--- /dev/null
++++ b/changelog/7571.bugfix.rst
+@@ -0,0 +1,3 @@
++The :fixture:`caplog` fixture now restores the level of its log handler set by
++:meth:`caplog.set_level <_pytest.logging.LogCaptureFixture.set_level>` at the
++end of the test, as documented.
+diff --git a/src/_pytest/logging.py b/src/_pytest/logging.py
+index 11031f2f2..02a4da1cb 100644
+--- a/src/_pytest/logging.py
++++ b/src/_pytest/logging.py
+@@ -344,6 +344,7 @@ class LogCaptureFixture:
+     def __init__(self, item: nodes.Node) -> None:
+         """Creates a new funcarg."""
+         self._item = item
++        self._initial_handler_level = None  # type: Optional[int]
+         # dict of log name -> log level
+         self._initial_logger_levels = {}  # type: Dict[Optional[str], int]
+ 
+@@ -353,6 +354,8 @@ class LogCaptureFixture:
+         This restores the log levels changed by :meth:`set_level`.
+         """
+         # restore log levels
++        if self._initial_handler_level is not None:
++            self.handler.setLevel(self._initial_handler_level)
+         for logger_name, level in self._initial_logger_levels.items():
+             logger = logging.getLogger(logger_name)
+             logger.setLevel(level)
+@@ -434,6 +437,8 @@ class LogCaptureFixture:
+         # save the original log-level to restore it during teardown
+         self._initial_logger_levels.setdefault(logger, logger_obj.level)
+         logger_obj.setLevel(level)
++        if self._initial_handler_level is None:
++            self._initial_handler_level = self.handler.level
+         self.handler.setLevel(level)
+ 
+     @contextmanager
+diff --git a/testing/logging/test_fixture.py b/testing/logging/test_fixture.py
+index da5303302..357e8419c 100644
+--- a/testing/logging/test_fixture.py
++++ b/testing/logging/test_fixture.py
+@@ -274,3 +274,21 @@ def test_log_report_captures_according_to_config_option_upon_failure(testdir):
+         ["*Print message*", "*INFO log message*", "*WARNING log message*"]
+     )
+     assert result.ret == 1
++
++
++def test_change_handler_level_undo(testdir):
++    """Ensure the handler level changed by ``set_level`` is undone at the end of the test."""
++    testdir.makepyfile(
++        """
++        import logging
++
++        def test1(caplog):
++            caplog.set_level(logging.INFO)
++            assert caplog.handler.level == logging.INFO
++
++        def test2(caplog):
++            assert caplog.handler.level == logging.NOTSET
++    """
++    )
++    result = testdir.runpytest()
++    result.assert_outcomes(passed=2)

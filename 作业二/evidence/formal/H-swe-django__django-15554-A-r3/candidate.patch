@@ -1,0 +1,39 @@
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 54f3258eac..1fafb669f5 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -804,7 +804,19 @@ class Query(BaseExpression):
+             return alias, False
+ 
+         # Create a new alias for this table.
+-        if alias_list:
++        filtered_relation_alias = (
++            filtered_relation.alias if filtered_relation is not None else None
++        )
++        if (
++            filtered_relation_alias is not None
++            and filtered_relation_alias not in self.alias_map
++        ):
++            alias = filtered_relation_alias
++            if alias_list:
++                alias_list.append(alias)
++            else:
++                self.table_map[table_name] = [alias]
++        elif alias_list:
+             alias = "%s%d" % (self.alias_prefix, len(self.alias_map) + 1)
+             alias_list.append(alias)
+         else:
+@@ -1027,7 +1039,12 @@ class Query(BaseExpression):
+         reuse_aliases = [
+             a
+             for a, j in self.alias_map.items()
+-            if (reuse is None or a in reuse) and j.equals(join)
++            if (reuse is None or a in reuse)
++            and j.equals(join)
++            and (
++                join.filtered_relation is None
++                or j.filtered_relation == join.filtered_relation
++            )
+         ]
+         if reuse_aliases:
+             if join.table_alias in reuse_aliases:

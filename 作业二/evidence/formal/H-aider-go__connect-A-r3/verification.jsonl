@@ -1,0 +1,2 @@
+{"event": "public_check", "time": 1793812650.475469, "check": {"check_id": "public-suite", "source_quote": "Original tests are available.", "command": "GOPROXY=off go test ./...", "dependencies": ["connect.go", "connect_test.go", "go.mod"], "deliverables": []}, "before": null, "after": null, "state": "passed", "returncode": 0, "snapshot": null}
+{"event": "submission_check", "time": 1793812669.039934, "state": {"public-suite": {"state": "passed", "returncode": 0, "snapshot": null}}, "partial": false, "blocked": false}

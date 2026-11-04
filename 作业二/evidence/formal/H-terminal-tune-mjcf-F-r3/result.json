@@ -1,0 +1,8 @@
+{
+  "task": "tune-mjcf",
+  "wall_seconds": 746.5177148750518,
+  "scoreable": true,
+  "passed": false,
+  "harbor_result": "tune-mjcf__NqBBEZD/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

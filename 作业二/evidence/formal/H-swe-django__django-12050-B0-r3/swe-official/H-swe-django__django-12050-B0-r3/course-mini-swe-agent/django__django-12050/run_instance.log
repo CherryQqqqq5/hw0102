@@ -1,0 +1,88 @@
+2026-11-05 00:03:05,466 - INFO - Creating container for django__django-12050...
+2026-11-05 00:03:05,523 - INFO - Container for django__django-12050 created: 97ef2205b1767aea03e06a9fef912bdcb5031f75a44f76c9a432215c4aceb6bd
+2026-11-05 00:03:05,630 - INFO - Container for django__django-12050 started: 97ef2205b1767aea03e06a9fef912bdcb5031f75a44f76c9a432215c4aceb6bd
+2026-11-05 00:03:05,630 - INFO - Intermediate patch for django__django-12050 written to [本机路径] now applying to container...
+2026-11-05 00:03:05,776 - INFO - >>>>> Applied Patch:
+Checking patch django/db/models/sql/query.py...
+Applied patch django/db/models/sql/query.py cleanly.
+
+2026-11-05 00:03:06,791 - INFO - Git diff before:
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index ea51912e8b..d75e966342 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -1059,21 +1059,14 @@ class Query(BaseExpression):
+         elif isinstance(value, (list, tuple)):
+             # The items of the iterable may be expressions and therefore need
+             # to be resolved independently.
+-            resolved_values = []
+-            for sub_value in value:
+-                if hasattr(sub_value, 'resolve_expression'):
+-                    if isinstance(sub_value, F):
+-                        resolved_values.append(sub_value.resolve_expression(
+-                            self, reuse=can_reuse, allow_joins=allow_joins,
+-                            simple_col=simple_col,
+-                        ))
+-                    else:
+-                        resolved_values.append(sub_value.resolve_expression(
+-                            self, reuse=can_reuse, allow_joins=allow_joins,
+-                        ))
+-                else:
+-                    resolved_values.append(sub_value)
+-            value = tuple(resolved_values)
++            values = (
++                self.resolve_lookup_value(sub_value, can_reuse, allow_joins, simple_col)
++                for sub_value in value
++            )
++            type_ = type(value)
++            if hasattr(type_, '_make'):  # namedtuple
++                return type_(*values)
++            return type_(values)
+         return value
+ 
+     def solve_lookup_type(self, lookup):
+2026-11-05 00:03:06,792 - INFO - Eval script for django__django-12050 written to [本机路径] copying to container...
+2026-11-05 00:03:29,067 - INFO - Test runtime: 22.22 seconds
+2026-11-05 00:03:29,069 - INFO - Test output for django__django-12050 written to [本机路径]
+2026-11-05 00:03:29,289 - INFO - Git diff after:
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index ea51912e8b..d75e966342 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -1059,21 +1059,14 @@ class Query(BaseExpression):
+         elif isinstance(value, (list, tuple)):
+             # The items of the iterable may be expressions and therefore need
+             # to be resolved independently.
+-            resolved_values = []
+-            for sub_value in value:
+-                if hasattr(sub_value, 'resolve_expression'):
+-                    if isinstance(sub_value, F):
+-                        resolved_values.append(sub_value.resolve_expression(
+-                            self, reuse=can_reuse, allow_joins=allow_joins,
+-                            simple_col=simple_col,
+-                        ))
+-                    else:
+-                        resolved_values.append(sub_value.resolve_expression(
+-                            self, reuse=can_reuse, allow_joins=allow_joins,
+-                        ))
+-                else:
+-                    resolved_values.append(sub_value)
+-            value = tuple(resolved_values)
++            values = (
++                self.resolve_lookup_value(sub_value, can_reuse, allow_joins, simple_col)
++                for sub_value in value
++            )
++            type_ = type(value)
++            if hasattr(type_, '_make'):  # namedtuple
++                return type_(*values)
++            return type_(values)
+         return value
+ 
+     def solve_lookup_type(self, lookup):
+2026-11-05 00:03:29,289 - INFO - Grading answer for django__django-12050...
+2026-11-05 00:03:29,294 - INFO - report: {'django__django-12050': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['test_iterable_lookup_value (queries.test_query.TestQuery)'], 'failure': []}, 'PASS_TO_PASS': {'success': ['test_clone_select_related (queries.test_query.TestQuery)', 'test_complex_query (queries.test_query.TestQuery)', 'test_foreign_key (queries.test_query.TestQuery)', 'test_foreign_key_exclusive (queries.test_query.TestQuery)', 'test_foreign_key_f (queries.test_query.TestQuery)', 'test_multiple_fields (queries.test_query.TestQuery)', 'test_negated_nullable (queries.test_query.TestQuery)', 'test_simple_query (queries.test_query.TestQuery)', 'test_simplecol_query (queries.test_query.TestQuery)', 'test_transform (queries.test_query.TestQuery)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-12050: resolved: True
+2026-11-05 00:03:29,294 - INFO - Attempting to stop container sweb.eval.django__django-12050.H-swe-django__django-12050-B0-r3...
+2026-11-05 00:03:44,653 - INFO - Container sweb.eval.django__django-12050.H-swe-django__django-12050-B0-r3 stopped successfully.
+2026-11-05 00:03:44,654 - INFO - Attempting to remove container sweb.eval.django__django-12050.H-swe-django__django-12050-B0-r3...
+2026-11-05 00:03:44,732 - INFO - Container sweb.eval.django__django-12050.H-swe-django__django-12050-B0-r3 removed successfully.

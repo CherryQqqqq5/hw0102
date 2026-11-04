@@ -1,0 +1,25 @@
+{
+  "task": {
+    "benchmark": "swe",
+    "id": "pytest-dev__pytest-7571",
+    "stratum": "pytest-dev/pytest",
+    "group": "pytest-dev__pytest-7571",
+    "difficulty": "15 min - 1 hour",
+    "image": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7571:latest",
+    "base_commit": "422685d0bdc110547535036c1ff398b5e1c44145",
+    "exclude": null,
+    "split": "H"
+  },
+  "phase": "formal",
+  "configuration": "F",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 2
+  }
+}
