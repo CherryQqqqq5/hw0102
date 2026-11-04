@@ -95,3 +95,10 @@ work/.venv/bin/python -m course_eval.check_verification \
 ```
 
 该命令验证检查记录的时效和提交处理，使用真实 Aider 容器，无需模型请求。[作业二工程证据](../作业二/evidence/)
+
+仅从仓库复算作业一逐题成绩与用量时，使用已上传的脱敏记录，无需登录模型服务或启动容器。
+
+```sh
+python3 -m course_eval.summarize --manifest frozen-tasks.json \
+  --runs '../作业一/evidence/formal' --out work/recomputed-hw1
+```
