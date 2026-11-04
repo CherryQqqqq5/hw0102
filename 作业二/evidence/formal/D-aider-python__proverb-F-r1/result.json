@@ -1,0 +1,10 @@
+{
+  "task": "python/proverb",
+  "wall_seconds": 69.17455450003035,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 4.072797166998498
+}

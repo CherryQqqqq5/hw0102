@@ -1,0 +1,3 @@
+{"event": "deliverable_checkpoint", "time": 1793796604.681207, "step": 6, "missing": ["/app/recovered_passwords.txt"], "stdout": "/app/recovered_passwords.txt\n", "stderr": "", "returncode": 0}
+{"event": "public_check", "time": 1793796770.176377, "check": {"check_id": "public-artifact", "source_quote": "Write each matching password you find", "command": "test -s /app/recovered_passwords.txt", "dependencies": ["/app/recovered_passwords.txt"], "deliverables": ["/app/recovered_passwords.txt"]}, "before": null, "after": null, "state": "passed", "returncode": 0, "snapshot": null}
+{"event": "submission_check", "time": 1793796784.3536599, "state": {"public-artifact": {"state": "passed", "returncode": 0, "snapshot": null}}, "partial": false, "blocked": false}

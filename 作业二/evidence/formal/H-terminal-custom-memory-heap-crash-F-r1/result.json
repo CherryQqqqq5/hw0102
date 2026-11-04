@@ -1,0 +1,7 @@
+{
+  "task": "custom-memory-heap-crash",
+  "wall_seconds": 717.648727916996,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "custom-memory-heap-crash__gGZsopa/result.json"
+}

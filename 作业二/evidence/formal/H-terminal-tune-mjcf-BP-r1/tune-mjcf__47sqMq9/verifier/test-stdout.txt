@@ -1,0 +1,53 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.12, pytest-8.4.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 4 items
+
+../tests/test_outputs.py ...F                                            [100%]
+
+=================================== FAILURES ===================================
+_______________________________ test_model_speed _______________________________
+
+    def test_model_speed():
+        """Test that new model is faster than the reference model"""
+        model_path = app_dir / "model.xml"
+        model_ref_path = app_dir / "model_ref.xml"
+    
+        model = mujoco.MjModel.from_xml_path(str(model_path))
+        model_ref = mujoco.MjModel.from_xml_path(str(model_ref_path))
+    
+        times_model = simulation_time(model, n_runs=n_runs)
+        times_model = drop_extreme_percentiles(times_model, 5, 95)
+        times_model_ref = simulation_time(model_ref, n_runs=n_runs)
+        times_model_ref = drop_extreme_percentiles(times_model_ref, 5, 95)
+        speedup = (times_model_ref / times_model).mean().item()
+        act_time_pctg = (times_model / times_model_ref).mean().item()
+    
+        print(f"Avg simulation time: {times_model.mean().item():.4f} secs")
+        print(f"Avg simulation time (ref): {times_model_ref.mean().item():.4f} secs")
+        print(f"Speedup: {speedup:.2f}x")
+        print(f"Time pctg: {act_time_pctg:.2f}")
+    
+>       assert act_time_pctg <= pctg, (
+            f"Time pctg {act_time_pctg * 100:.2f}% (need {pctg * 100:.2f}%)"
+        )
+E       AssertionError: Time pctg 72.86% (need 60.00%)
+E       assert 0.7286062901237003 <= 0.6
+
+/tests/test_outputs.py:111: AssertionError
+----------------------------- Captured stdout call -----------------------------
+Avg simulation time: 1.8115 secs
+Avg simulation time (ref): 2.7709 secs
+Speedup: 1.68x
+Time pctg: 0.73
+==================================== PASSES ====================================
+_______________________________ test_correctness _______________________________
+----------------------------- Captured stdout call -----------------------------
+Final state difference: 0.0000
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_model_ref_unchanged
+PASSED ../tests/test_outputs.py::test_tuned_model_exists
+PASSED ../tests/test_outputs.py::test_correctness
+FAILED ../tests/test_outputs.py::test_model_speed - AssertionError: Time pctg...
+=================== 1 failed, 3 passed in 109.34s (0:01:49) ====================

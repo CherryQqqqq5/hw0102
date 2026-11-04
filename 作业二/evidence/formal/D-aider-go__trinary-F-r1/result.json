@@ -1,0 +1,10 @@
+{
+  "task": "go/trinary",
+  "wall_seconds": 189.19308895792346,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 49.92282858397812
+}
