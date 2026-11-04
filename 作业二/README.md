@@ -13,12 +13,13 @@
 
 ## 证据与对照
 
-- 同一批 16 道有效诊断配对中，B0 通过 13 道，F 通过 11 道，下降 12.5 个百分点。3 对涉及提供方请求超时，单列后余下 13 道的通过率下降 15.4 个百分点。
-- 三套基准各有一道留出题的四种配置均通过，A/F 消融差为 0。`javascript/book-store` 的 F 实际判定一次检查过期并要求复测，A 与 F 的原题评分均通过。留出集已取得 15/180 次有效评分，其余扩展实验继续运行。
-- [五个配对案例](evidence/improvement-cases.md)记录较早交付、语义或性能持续失败、补丁缺失，以及提交检查对等效命令的处理。当前 16 道配对中未出现 0 分转为 1 分。
+- 30 道诊断配对中，B0 通过 26 道，F 通过 24 道，下降 6.7 个百分点。四对涉及提供方请求超时，单列后余下 26 道的通过率下降 7.7 个百分点。
+- 留出集已取得 53/180 次有效评分，首轮 12 道 A/F 配对中，A 通过 11 道，F 通过 9 道。`javascript/book-store` 的 F 实际判定一次检查过期并要求复测，A 与 F 的原题评分均通过。其余留出重复继续运行。
+- [配对案例](evidence/improvement-cases.md)记录较早交付、语义或性能持续失败、补丁缺失，以及提交检查对等效命令的处理。诊断集未出现 0 分转为 1 分。
 - [改造代码](../shared/course_eval/verification.py)和[智能体运行入口](../shared/course_eval/agent.py)实现验证记录、过期判定和提交处理。
 - [验证时效对照](evidence/verification-proverb/)使用真实 Aider 容器，验证了源文件修改后旧检查失效、无关日志变化无需重测，以及恢复源文件并重新验证后接受提交。
 - [请求上限验证](evidence/pilot-aider-budget-deepseek/)和[容器命令超时验证](evidence/terminal-command-timeout-regression/)记录预算终止后的产物保存和命令恢复行为。
+- [嵌套命令回归](evidence/terminal-nested-timeout-regression-v2/)验证超时清理进程树及原题评分，[补跑前的未评分尝试](evidence/formal-nested-timeout-recovery-v1/)保留原始错误。模型请求重试的正式触发记录见 [Rust 配对轨迹](evidence/formal/D-aider-rust__doubly-linked-list-F-r1/)。
 - [冻结的公开检查](configs/public-checks.json)列出各题可见要求、依赖与命令。[正式对照覆盖](evidence/formal-coverage.json)及[逐题成绩](evidence/formal-trials.csv)记录 30 次同题改造对照和 180 次留出评测的当前进度。[作业一基线](../作业一/)
 
 评测依赖、冻结题目清单及运行命令见[共用代码与复现](../shared/)。

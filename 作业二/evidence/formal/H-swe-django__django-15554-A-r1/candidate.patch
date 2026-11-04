@@ -1,0 +1,54 @@
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 54f3258eac..7a2a547cd0 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -1027,7 +1027,12 @@ class Query(BaseExpression):
+         reuse_aliases = [
+             a
+             for a, j in self.alias_map.items()
+-            if (reuse is None or a in reuse) and j.equals(join)
++            if (reuse is None or a in reuse)
++            and j.equals(join)
++            and (
++                join.filtered_relation is None
++                or j.filtered_relation == join.filtered_relation
++            )
+         ]
+         if reuse_aliases:
+             if join.table_alias in reuse_aliases:
+diff --git a/tests/filtered_relation/test_repro_multi.py b/tests/filtered_relation/test_repro_multi.py
+new file mode 100644
+index 0000000000..c0ad9c78e6
+--- /dev/null
++++ b/tests/filtered_relation/test_repro_multi.py
+@@ -0,0 +1,30 @@
++from django.db.models import FilteredRelation, Q
++from django.test import TestCase
++
++from .models import Author, Book, Editor
++
++
++class ReproTests(TestCase):
++    @classmethod
++    def setUpTestData(cls):
++        cls.editor = Editor.objects.create(name="ed")
++        cls.author1 = Author.objects.create(name="Alice")
++        cls.book1 = Book.objects.create(
++            title="Poem by Alice", author=cls.author1, editor=cls.editor
++        )
++        cls.book2 = Book.objects.create(
++            title="Poem by Jane", author=cls.author1, editor=cls.editor
++        )
++
++    def test_multiple_filtered_relation_same_relation(self):
++        qs = Author.objects.alias(
++            book_alice=FilteredRelation(
++                "book", condition=Q(book__title__icontains="alice")
++            ),
++            book_jane=FilteredRelation(
++                "book", condition=Q(book__title__icontains="jane")
++            ),
++        ).filter(book_alice__isnull=False, book_jane__isnull=False)
++        sql = str(qs.query)
++        print("SQL1:", sql)
++        self.assertEqual(sql.count("JOIN"), 2)

@@ -1,0 +1,70 @@
+diff --git a/django/db/models/sql/datastructures.py b/django/db/models/sql/datastructures.py
+index 1edf040e82..9ae8f3b15f 100644
+--- a/django/db/models/sql/datastructures.py
++++ b/django/db/models/sql/datastructures.py
+@@ -161,10 +161,6 @@ class Join:
+     def __hash__(self):
+         return hash(self.identity)
+ 
+-    def equals(self, other):
+-        # Ignore filtered_relation in equality check.
+-        return self.identity[:-1] == other.identity[:-1]
+-
+     def demote(self):
+         new = self.relabeled_clone({})
+         new.join_type = INNER
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 54f3258eac..a89943fac4 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -1027,7 +1027,7 @@ class Query(BaseExpression):
+         reuse_aliases = [
+             a
+             for a, j in self.alias_map.items()
+-            if (reuse is None or a in reuse) and j.equals(join)
++            if (reuse is None or a in reuse) and j == join
+         ]
+         if reuse_aliases:
+             if join.table_alias in reuse_aliases:
+diff --git a/tests/filtered_relation/test_repro.py b/tests/filtered_relation/test_repro.py
+new file mode 100644
+index 0000000000..851f29d216
+--- /dev/null
++++ b/tests/filtered_relation/test_repro.py
+@@ -0,0 +1,36 @@
++from django.db.models import Case, F, FilteredRelation, Q, When
++from django.test import TestCase
++
++from .models import Author, Book, Editor
++
++
++class MultipleFilteredRelationReproTests(TestCase):
++    @classmethod
++    def setUpTestData(cls):
++        cls.editor = Editor.objects.create(name="a")
++        cls.author1 = Author.objects.create(name="Alice")
++        cls.author2 = Author.objects.create(name="Jane")
++        Book.objects.create(title="Poem by Alice", author=cls.author1, editor=cls.editor)
++        Book.objects.create(title="Poem by Jane A", author=cls.author2, editor=cls.editor)
++
++    def test_multiple_filtered_relation_same_relation(self):
++        qs = (
++            Author.objects.annotate(
++                book_alice=FilteredRelation(
++                    "book", condition=Q(book__title__contains="Alice")
++                ),
++                book_jane=FilteredRelation(
++                    "book", condition=Q(book__title__contains="Jane")
++                ),
++            )
++            .annotate(
++                title=Case(
++                    When(book_alice__isnull=True, then=F("book_jane__title")),
++                    default=F("book_alice__title"),
++                )
++            )
++            .order_by("pk", "title")
++            .values_list("name", "title")
++        )
++        print("\nSQL:", qs.query)
++        print("RESULT:", list(qs))

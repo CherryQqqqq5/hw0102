@@ -1,0 +1,28 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "cpp/allergies",
+    "stratum": "cpp",
+    "group": "allergies",
+    "solution_files": [
+      "allergies.cpp",
+      "allergies.h"
+    ],
+    "test_files": [
+      "allergies_test.cpp"
+    ],
+    "exclude": null,
+    "split": "H"
+  },
+  "phase": "formal",
+  "configuration": "A",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096
+  }
+}

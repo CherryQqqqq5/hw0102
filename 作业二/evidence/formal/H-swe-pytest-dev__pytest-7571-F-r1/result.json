@@ -1,0 +1,9 @@
+{
+  "task": "pytest-dev__pytest-7571",
+  "wall_seconds": 245.43702866707463,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 32.15965625003446
+}

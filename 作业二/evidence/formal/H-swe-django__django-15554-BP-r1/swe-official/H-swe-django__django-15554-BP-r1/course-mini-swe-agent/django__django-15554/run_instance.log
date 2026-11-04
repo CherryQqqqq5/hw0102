@@ -1,0 +1,114 @@
+2026-11-04 21:43:09,488 - INFO - Creating container for django__django-15554...
+2026-11-04 21:43:10,315 - INFO - Container for django__django-15554 created: 788918c5f919788276e749f5f8c9b74990294f5b2307ebdb043f89809f0cde6c
+2026-11-04 21:43:11,875 - INFO - Container for django__django-15554 started: 788918c5f919788276e749f5f8c9b74990294f5b2307ebdb043f89809f0cde6c
+2026-11-04 21:43:11,880 - INFO - Intermediate patch for django__django-15554 written to [本机路径] now applying to container...
+2026-11-04 21:43:12,491 - INFO - >>>>> Applied Patch:
+Checking patch django/db/models/sql/query.py...
+Applied patch django/db/models/sql/query.py cleanly.
+
+2026-11-04 21:43:16,712 - INFO - Git diff before:
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 54f3258eac..5d45001b05 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -804,14 +804,20 @@ class Query(BaseExpression):
+             return alias, False
+ 
+         # Create a new alias for this table.
+-        if alias_list:
++        if filtered_relation is not None and filtered_relation.alias is not None:
++            # A filtered relation always uses the alias it was registered with
++            # so that the same relation can be joined multiple times with
++            # different conditions.
++            alias = filtered_relation.alias
++            alias_list = self.table_map.setdefault(table_name, [])
++            if alias not in alias_list:
++                alias_list.append(alias)
++        elif alias_list:
+             alias = "%s%d" % (self.alias_prefix, len(self.alias_map) + 1)
+             alias_list.append(alias)
+         else:
+             # The first occurrence of a table uses the table name directly.
+-            alias = (
+-                filtered_relation.alias if filtered_relation is not None else table_name
+-            )
++            alias = table_name
+             self.table_map[table_name] = [alias]
+         self.alias_refcount[alias] = 1
+         return alias, True
+@@ -1029,6 +1035,17 @@ class Query(BaseExpression):
+             for a, j in self.alias_map.items()
+             if (reuse is None or a in reuse) and j.equals(join)
+         ]
++        if join.filtered_relation is not None:
++            # A filtered join can only reuse the alias registered for the same
++            # filtered relation. Otherwise joins for different conditions of
++            # the same relation would be collapsed into a single join.
++            reuse_aliases = [
++                a
++                for a in reuse_aliases
++                if self.alias_map[a].filtered_relation is not None
++                and self.alias_map[a].filtered_relation.alias
++                == join.filtered_relation.alias
++            ]
+         if reuse_aliases:
+             if join.table_alias in reuse_aliases:
+                 reuse_alias = join.table_alias
+2026-11-04 21:43:16,716 - INFO - Eval script for django__django-15554 written to [本机路径] copying to container...
+2026-11-04 21:43:42,094 - INFO - Test runtime: 25.07 seconds
+2026-11-04 21:43:42,169 - INFO - Test output for django__django-15554 written to [本机路径]
+2026-11-04 21:43:43,370 - INFO - Git diff after:
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 54f3258eac..5d45001b05 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -804,14 +804,20 @@ class Query(BaseExpression):
+             return alias, False
+ 
+         # Create a new alias for this table.
+-        if alias_list:
++        if filtered_relation is not None and filtered_relation.alias is not None:
++            # A filtered relation always uses the alias it was registered with
++            # so that the same relation can be joined multiple times with
++            # different conditions.
++            alias = filtered_relation.alias
++            alias_list = self.table_map.setdefault(table_name, [])
++            if alias not in alias_list:
++                alias_list.append(alias)
++        elif alias_list:
+             alias = "%s%d" % (self.alias_prefix, len(self.alias_map) + 1)
+             alias_list.append(alias)
+         else:
+             # The first occurrence of a table uses the table name directly.
+-            alias = (
+-                filtered_relation.alias if filtered_relation is not None else table_name
+-            )
++            alias = table_name
+             self.table_map[table_name] = [alias]
+         self.alias_refcount[alias] = 1
+         return alias, True
+@@ -1029,6 +1035,17 @@ class Query(BaseExpression):
+             for a, j in self.alias_map.items()
+             if (reuse is None or a in reuse) and j.equals(join)
+         ]
++        if join.filtered_relation is not None:
++            # A filtered join can only reuse the alias registered for the same
++            # filtered relation. Otherwise joins for different conditions of
++            # the same relation would be collapsed into a single join.
++            reuse_aliases = [
++                a
++                for a in reuse_aliases
++                if self.alias_map[a].filtered_relation is not None
++                and self.alias_map[a].filtered_relation.alias
++                == join.filtered_relation.alias
++            ]
+         if reuse_aliases:
+             if join.table_alias in reuse_aliases:
+                 reuse_alias = join.table_alias
+2026-11-04 21:43:43,371 - INFO - Grading answer for django__django-15554...
+2026-11-04 21:43:43,389 - INFO - report: {'django__django-15554': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['test_multiple (filtered_relation.tests.FilteredRelationTests)'], 'failure': []}, 'PASS_TO_PASS': {'success': ['filtered_relation() not only improves performance but also creates', 'test_aggregate (filtered_relation.tests.FilteredRelationAnalyticalAggregationTests)', 'test_as_subquery (filtered_relation.tests.FilteredRelationTests)', 'test_condition_deeper_relation_name (filtered_relation.tests.FilteredRelationTests)', 'test_condition_outside_relation_name (filtered_relation.tests.FilteredRelationTests)', 'test_deep_nested_foreign_key (filtered_relation.tests.FilteredRelationTests)', 'test_defer (filtered_relation.tests.FilteredRelationTests)', 'test_difference (filtered_relation.tests.FilteredRelationTests)', 'test_eq (filtered_relation.tests.FilteredRelationTests)', 'test_exclude_relation_with_join (filtered_relation.tests.FilteredRelationTests)', 'test_extra (filtered_relation.tests.FilteredRelationTests)', 'test_internal_queryset_alias_mapping (filtered_relation.tests.FilteredRelationTests)', 'test_intersection (filtered_relation.tests.FilteredRelationTests)', 'test_multiple_times (filtered_relation.tests.FilteredRelationTests)', 'test_nested_chained_relations (filtered_relation.tests.FilteredRelationTests)', 'test_nested_foreign_key (filtered_relation.tests.FilteredRelationTests)', 'test_nested_foreign_key_filtered_base_object (filtered_relation.tests.FilteredRelationTests)', 'test_nested_foreign_key_nested_field (filtered_relation.tests.FilteredRelationTests)', 'test_nested_m2m_filtered (filtered_relation.tests.FilteredRelationTests)', 'test_only_not_supported (filtered_relation.tests.FilteredRelationTests)', 'test_relation_name_lookup (filtered_relation.tests.FilteredRelationTests)', 'test_select_for_update (filtered_relation.tests.FilteredRelationTests)', 'test_select_related (filtered_relation.tests.FilteredRelationTests)', 'test_select_related_foreign_key (filtered_relation.tests.FilteredRelationTests)', 'test_select_related_multiple (filtered_relation.tests.FilteredRelationTests)', 'test_select_related_with_empty_relation (filtered_relation.tests.FilteredRelationTests)', 'test_union (filtered_relation.tests.FilteredRelationTests)', 'test_values (filtered_relation.tests.FilteredRelationTests)', 'test_values_list (filtered_relation.tests.FilteredRelationTests)', 'test_with_condition_as_expression_error (filtered_relation.tests.FilteredRelationTests)', 'test_with_empty_relation_name_error (filtered_relation.tests.FilteredRelationTests)', 'test_with_exclude (filtered_relation.tests.FilteredRelationTests)', 'test_with_generic_foreign_key (filtered_relation.tests.FilteredRelationTests)', 'test_with_join (filtered_relation.tests.FilteredRelationTests)', 'test_with_join_and_complex_condition (filtered_relation.tests.FilteredRelationTests)', 'test_with_m2m (filtered_relation.tests.FilteredRelationTests)', 'test_with_m2m_deep (filtered_relation.tests.FilteredRelationTests)', 'test_with_m2m_multijoin (filtered_relation.tests.FilteredRelationTests)', 'test_with_multiple_filter (filtered_relation.tests.FilteredRelationTests)', 'test_with_prefetch_related (filtered_relation.tests.FilteredRelationTests)', 'test_without_join (filtered_relation.tests.FilteredRelationTests)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-15554: resolved: True
+2026-11-04 21:43:43,390 - INFO - Attempting to stop container sweb.eval.django__django-15554.H-swe-django__django-15554-BP-r1...
+2026-11-04 21:44:00,751 - INFO - Container sweb.eval.django__django-15554.H-swe-django__django-15554-BP-r1 stopped successfully.
+2026-11-04 21:44:00,758 - INFO - Attempting to remove container sweb.eval.django__django-15554.H-swe-django__django-15554-BP-r1...
+2026-11-04 21:44:01,381 - INFO - Container sweb.eval.django__django-15554.H-swe-django__django-15554-BP-r1 removed successfully.

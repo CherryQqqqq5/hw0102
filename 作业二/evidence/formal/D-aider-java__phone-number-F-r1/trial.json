@@ -1,0 +1,27 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "java/phone-number",
+    "stratum": "java",
+    "group": "phone-number",
+    "solution_files": [
+      "src/main/java/PhoneNumber.java"
+    ],
+    "test_files": [
+      "src/test/java/PhoneNumberTest.java"
+    ],
+    "exclude": null,
+    "split": "D"
+  },
+  "phase": "formal",
+  "configuration": "F",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096
+  }
+}

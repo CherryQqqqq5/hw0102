@@ -1,0 +1,27 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "go/variable-length-quantity",
+    "stratum": "go",
+    "group": "variable-length-quantity",
+    "solution_files": [
+      "variable_length_quantity.go"
+    ],
+    "test_files": [
+      "variable_length_quantity_test.go"
+    ],
+    "exclude": null,
+    "split": "D"
+  },
+  "phase": "formal",
+  "configuration": "F",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096
+  }
+}

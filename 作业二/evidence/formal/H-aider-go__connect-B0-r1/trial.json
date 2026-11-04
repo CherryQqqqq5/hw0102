@@ -1,0 +1,27 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "go/connect",
+    "stratum": "go",
+    "group": "connect",
+    "solution_files": [
+      "connect.go"
+    ],
+    "test_files": [
+      "connect_test.go"
+    ],
+    "exclude": null,
+    "split": "H"
+  },
+  "phase": "formal",
+  "configuration": "B0",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096
+  }
+}

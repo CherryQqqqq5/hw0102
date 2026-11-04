@@ -1,0 +1,27 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "java/pig-latin",
+    "stratum": "java",
+    "group": "pig-latin",
+    "solution_files": [
+      "src/main/java/PigLatinTranslator.java"
+    ],
+    "test_files": [
+      "src/test/java/PigLatinTranslatorTest.java"
+    ],
+    "exclude": null,
+    "split": "H"
+  },
+  "phase": "formal",
+  "configuration": "A",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096
+  }
+}

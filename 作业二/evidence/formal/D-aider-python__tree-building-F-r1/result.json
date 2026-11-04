@@ -1,0 +1,10 @@
+{
+  "task": "python/tree-building",
+  "wall_seconds": 76.2619775000494,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 2.1042900419561192
+}

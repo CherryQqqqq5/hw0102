@@ -1,0 +1,4 @@
+{"event": "submission_check", "time": 1793800466.769235, "state": {"public-artifact": {"state": "pending", "returncode": null, "snapshot": null}}, "partial": false, "blocked": true}
+{"event": "public_check", "time": 1793800480.4847019, "check": {"check_id": "public-artifact", "source_quote": "save this matrix to `/app/stolen_A1.npy`", "command": "test -s /app/steal.py && test -s /app/stolen_A1.npy && python3 -m py_compile /app/steal.py", "dependencies": ["/app/steal.py", "/app/stolen_A1.npy"], "deliverables": ["/app/steal.py", "/app/stolen_A1.npy"]}, "before": null, "after": null, "state": "passed", "returncode": 0, "snapshot": null}
+{"event": "deliverable_checkpoint", "time": 1793800481.089654, "step": 6, "missing": [], "stdout": "", "stderr": "", "returncode": 0}
+{"event": "submission_check", "time": 1793800493.0272179, "state": {"public-artifact": {"state": "passed", "returncode": 0, "snapshot": null}}, "partial": false, "blocked": false}

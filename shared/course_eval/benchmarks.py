@@ -232,7 +232,8 @@ def run_terminal(task: dict, sources: Path, directory: Path, limits: RunLimits,
     path = prepare_terminal_task(task, sources, directory)
     env = os.environ | {"COURSE_RUN_LIMITS": limits.model_dump_json(), "COURSE_CONFIGURATION": configuration,
                         "COURSE_PUBLIC_CHECKS": json.dumps([asdict(check) for check in checks])}
-    return terminal_trial(path, directory, "course_eval.harbor_agent:CourseMiniSweAgent", env)
+    outcome = terminal_trial(path, directory, "course_eval.harbor_agent:CourseMiniSweAgent", env)
+    return outcome | {"command_supervisor": "descendant_tree_v2"}
 
 
 def main() -> None:

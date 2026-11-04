@@ -1,0 +1,26 @@
+{
+  "task": {
+    "benchmark": "terminal",
+    "id": "tune-mjcf",
+    "stratum": "scientific-computing",
+    "group": "tune-mjcf",
+    "difficulty": "medium",
+    "image": "alexgshaw/tune-mjcf:20251031",
+    "cpus": 1,
+    "memory_mb": 2048,
+    "agent_timeout_seconds": 900.0,
+    "exclude": null,
+    "split": "H"
+  },
+  "phase": "formal",
+  "configuration": "A",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096
+  }
+}

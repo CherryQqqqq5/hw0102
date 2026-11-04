@@ -5,425 +5,451 @@
       "benchmark": "aider",
       "arm": "F",
       "planned": 10,
-      "started": 4,
-      "scoreable": 4,
-      "success": 4,
+      "started": 10,
+      "scoreable": 10,
+      "success": 10,
       "success_rate_on_scoreable": 1.0,
       "expected_tasks": 10,
-      "fully_scored_tasks": 4,
+      "fully_scored_tasks": 10,
       "task_mean_success": 1,
-      "all_repeats_successful": 4,
-      "declared_complete": 4,
+      "all_repeats_successful": 10,
+      "declared_complete": 10,
       "incorrect_complete_claims": 0,
       "budget_terminations": 0,
       "provider_timeouts": 0,
-      "recorded_wall_seconds": 590.6644713738933,
-      "recorded_grader_seconds": 101.09286083513871,
+      "recorded_wall_seconds": 2037.8596222907072,
+      "recorded_grader_seconds": 295.7435974610271,
       "provider_reported_cost_usd": 0,
       "provider_reported_cost_per_success_usd": 0.0,
-      "model_calls": 30,
-      "model_responses": 30,
-      "tool_calls": 30,
-      "input_tokens": 244716,
-      "output_tokens": 8848,
-      "cached_input_tokens": 196736,
+      "model_calls": 83,
+      "model_responses": 82,
+      "model_request_retries": 1,
+      "model_request_timeouts": 1,
+      "tool_calls": 82,
+      "input_tokens": 868989,
+      "output_tokens": 48701,
+      "cached_input_tokens": 689536,
+      "stale_at_submission": 0,
+      "submission_check_opportunities": 17,
+      "deliverable_checkpoints": 0,
+      "deliverable_reminders": 0
+    },
+    {
+      "split": "D",
+      "benchmark": "swe",
+      "arm": "F",
+      "planned": 10,
+      "started": 10,
+      "scoreable": 10,
+      "success": 8,
+      "success_rate_on_scoreable": 0.8,
+      "expected_tasks": 10,
+      "fully_scored_tasks": 10,
+      "task_mean_success": 0.8,
+      "all_repeats_successful": 8,
+      "declared_complete": 8,
+      "incorrect_complete_claims": 1,
+      "budget_terminations": 2,
+      "provider_timeouts": 0,
+      "recorded_wall_seconds": 5132.488790251198,
+      "recorded_grader_seconds": 706.4270843339618,
+      "provider_reported_cost_usd": 0,
+      "provider_reported_cost_per_success_usd": 0.0,
+      "model_calls": 163,
+      "model_responses": 163,
+      "model_request_retries": 0,
+      "model_request_timeouts": 0,
+      "tool_calls": 163,
+      "input_tokens": 3091400,
+      "output_tokens": 294308,
+      "cached_input_tokens": 2718848,
+      "stale_at_submission": 0,
+      "submission_check_opportunities": 25,
+      "deliverable_checkpoints": 0,
+      "deliverable_reminders": 0
+    },
+    {
+      "split": "D",
+      "benchmark": "terminal",
+      "arm": "F",
+      "planned": 10,
+      "started": 10,
+      "scoreable": 10,
+      "success": 6,
+      "success_rate_on_scoreable": 0.6,
+      "expected_tasks": 10,
+      "fully_scored_tasks": 10,
+      "task_mean_success": 0.6,
+      "all_repeats_successful": 6,
+      "declared_complete": 5,
+      "incorrect_complete_claims": 1,
+      "budget_terminations": 2,
+      "provider_timeouts": 3,
+      "recorded_wall_seconds": 5022.691742665251,
+      "recorded_grader_seconds": 1138.807622,
+      "provider_reported_cost_usd": 0,
+      "provider_reported_cost_per_success_usd": 0.0,
+      "model_calls": 100,
+      "model_responses": 97,
+      "model_request_retries": 0,
+      "model_request_timeouts": 3,
+      "tool_calls": 97,
+      "input_tokens": 1771514,
+      "output_tokens": 285981,
+      "cached_input_tokens": 1454592,
+      "stale_at_submission": 0,
+      "submission_check_opportunities": 8,
+      "deliverable_checkpoints": 6,
+      "deliverable_reminders": 1
+    },
+    {
+      "split": "H",
+      "benchmark": "aider",
+      "arm": "A",
+      "planned": 15,
+      "started": 5,
+      "scoreable": 5,
+      "success": 5,
+      "success_rate_on_scoreable": 1.0,
+      "expected_tasks": 5,
+      "fully_scored_tasks": 0,
+      "task_mean_success": null,
+      "all_repeats_successful": 0,
+      "declared_complete": 5,
+      "incorrect_complete_claims": 0,
+      "budget_terminations": 0,
+      "provider_timeouts": 0,
+      "recorded_wall_seconds": 890.5224512920249,
+      "recorded_grader_seconds": 131.5121204170864,
+      "provider_reported_cost_usd": 0,
+      "provider_reported_cost_per_success_usd": 0.0,
+      "model_calls": 40,
+      "model_responses": 40,
+      "model_request_retries": 0,
+      "model_request_timeouts": 0,
+      "tool_calls": 40,
+      "input_tokens": 411229,
+      "output_tokens": 26207,
+      "cached_input_tokens": 324736,
       "stale_at_submission": 0,
       "submission_check_opportunities": 9,
       "deliverable_checkpoints": 0,
       "deliverable_reminders": 0
     },
     {
-      "split": "D",
-      "benchmark": "swe",
-      "arm": "F",
-      "planned": 10,
-      "started": 8,
-      "scoreable": 7,
+      "split": "H",
+      "benchmark": "aider",
+      "arm": "B0",
+      "planned": 15,
+      "started": 5,
+      "scoreable": 5,
       "success": 5,
-      "success_rate_on_scoreable": 0.7142857142857143,
-      "expected_tasks": 10,
-      "fully_scored_tasks": 7,
-      "task_mean_success": 0.7142857142857143,
-      "all_repeats_successful": 5,
-      "declared_complete": 6,
-      "incorrect_complete_claims": 1,
-      "budget_terminations": 1,
+      "success_rate_on_scoreable": 1.0,
+      "expected_tasks": 5,
+      "fully_scored_tasks": 0,
+      "task_mean_success": null,
+      "all_repeats_successful": 0,
+      "declared_complete": 5,
+      "incorrect_complete_claims": 0,
+      "budget_terminations": 0,
       "provider_timeouts": 0,
-      "recorded_wall_seconds": 3572.031539667165,
-      "recorded_grader_seconds": 474.62831674993504,
-      "provider_reported_cost_usd": null,
-      "provider_reported_cost_per_success_usd": null,
-      "model_calls": 109,
-      "model_responses": 109,
-      "tool_calls": 109,
-      "input_tokens": 2219608,
-      "output_tokens": 218119,
-      "cached_input_tokens": 1948416,
+      "recorded_wall_seconds": 680.7663598729996,
+      "recorded_grader_seconds": 126.5588138330495,
+      "provider_reported_cost_usd": 0,
+      "provider_reported_cost_per_success_usd": 0.0,
+      "model_calls": 27,
+      "model_responses": 27,
+      "model_request_retries": 0,
+      "model_request_timeouts": 0,
+      "tool_calls": 27,
+      "input_tokens": 214961,
+      "output_tokens": 14329,
+      "cached_input_tokens": 152192,
       "stale_at_submission": 0,
-      "submission_check_opportunities": 18,
+      "submission_check_opportunities": 0,
       "deliverable_checkpoints": 0,
       "deliverable_reminders": 0
     },
     {
-      "split": "D",
-      "benchmark": "terminal",
+      "split": "H",
+      "benchmark": "aider",
+      "arm": "BP",
+      "planned": 15,
+      "started": 5,
+      "scoreable": 5,
+      "success": 5,
+      "success_rate_on_scoreable": 1.0,
+      "expected_tasks": 5,
+      "fully_scored_tasks": 0,
+      "task_mean_success": null,
+      "all_repeats_successful": 0,
+      "declared_complete": 5,
+      "incorrect_complete_claims": 0,
+      "budget_terminations": 0,
+      "provider_timeouts": 0,
+      "recorded_wall_seconds": 981.7344449157827,
+      "recorded_grader_seconds": 118.78056433203164,
+      "provider_reported_cost_usd": 0,
+      "provider_reported_cost_per_success_usd": 0.0,
+      "model_calls": 35,
+      "model_responses": 35,
+      "model_request_retries": 0,
+      "model_request_timeouts": 0,
+      "tool_calls": 35,
+      "input_tokens": 376312,
+      "output_tokens": 20333,
+      "cached_input_tokens": 298880,
+      "stale_at_submission": 0,
+      "submission_check_opportunities": 0,
+      "deliverable_checkpoints": 0,
+      "deliverable_reminders": 0
+    },
+    {
+      "split": "H",
+      "benchmark": "aider",
       "arm": "F",
-      "planned": 10,
+      "planned": 15,
+      "started": 5,
+      "scoreable": 5,
+      "success": 5,
+      "success_rate_on_scoreable": 1.0,
+      "expected_tasks": 5,
+      "fully_scored_tasks": 0,
+      "task_mean_success": null,
+      "all_repeats_successful": 0,
+      "declared_complete": 5,
+      "incorrect_complete_claims": 0,
+      "budget_terminations": 0,
+      "provider_timeouts": 0,
+      "recorded_wall_seconds": 1244.7613467922201,
+      "recorded_grader_seconds": 105.70685837417841,
+      "provider_reported_cost_usd": 0,
+      "provider_reported_cost_per_success_usd": 0.0,
+      "model_calls": 42,
+      "model_responses": 42,
+      "model_request_retries": 0,
+      "model_request_timeouts": 0,
+      "tool_calls": 42,
+      "input_tokens": 413954,
+      "output_tokens": 22240,
+      "cached_input_tokens": 332928,
+      "stale_at_submission": 1,
+      "submission_check_opportunities": 10,
+      "deliverable_checkpoints": 0,
+      "deliverable_reminders": 0
+    },
+    {
+      "split": "H",
+      "benchmark": "swe",
+      "arm": "A",
+      "planned": 15,
+      "started": 4,
+      "scoreable": 3,
+      "success": 3,
+      "success_rate_on_scoreable": 1.0,
+      "expected_tasks": 5,
+      "fully_scored_tasks": 0,
+      "task_mean_success": null,
+      "all_repeats_successful": 0,
+      "declared_complete": 2,
+      "incorrect_complete_claims": 0,
+      "budget_terminations": 1,
+      "provider_timeouts": 0,
+      "recorded_wall_seconds": 1446.0517071678769,
+      "recorded_grader_seconds": 192.19689470913727,
+      "provider_reported_cost_usd": null,
+      "provider_reported_cost_per_success_usd": null,
+      "model_calls": 46,
+      "model_responses": 46,
+      "model_request_retries": 0,
+      "model_request_timeouts": 0,
+      "tool_calls": 46,
+      "input_tokens": 905613,
+      "output_tokens": 96464,
+      "cached_input_tokens": 793728,
+      "stale_at_submission": 0,
+      "submission_check_opportunities": 6,
+      "deliverable_checkpoints": 0,
+      "deliverable_reminders": 0
+    },
+    {
+      "split": "H",
+      "benchmark": "swe",
+      "arm": "B0",
+      "planned": 15,
+      "started": 4,
+      "scoreable": 3,
+      "success": 2,
+      "success_rate_on_scoreable": 0.6666666666666666,
+      "expected_tasks": 5,
+      "fully_scored_tasks": 0,
+      "task_mean_success": null,
+      "all_repeats_successful": 0,
+      "declared_complete": 2,
+      "incorrect_complete_claims": 0,
+      "budget_terminations": 1,
+      "provider_timeouts": 0,
+      "recorded_wall_seconds": 1331.9367229158524,
+      "recorded_grader_seconds": 155.10431041684933,
+      "provider_reported_cost_usd": null,
+      "provider_reported_cost_per_success_usd": null,
+      "model_calls": 46,
+      "model_responses": 46,
+      "model_request_retries": 0,
+      "model_request_timeouts": 0,
+      "tool_calls": 46,
+      "input_tokens": 881655,
+      "output_tokens": 87316,
+      "cached_input_tokens": 764160,
+      "stale_at_submission": 0,
+      "submission_check_opportunities": 0,
+      "deliverable_checkpoints": 0,
+      "deliverable_reminders": 0
+    },
+    {
+      "split": "H",
+      "benchmark": "swe",
+      "arm": "BP",
+      "planned": 15,
+      "started": 4,
+      "scoreable": 4,
+      "success": 4,
+      "success_rate_on_scoreable": 1.0,
+      "expected_tasks": 5,
+      "fully_scored_tasks": 0,
+      "task_mean_success": null,
+      "all_repeats_successful": 0,
+      "declared_complete": 3,
+      "incorrect_complete_claims": 0,
+      "budget_terminations": 1,
+      "provider_timeouts": 0,
+      "recorded_wall_seconds": 1239.25527999911,
+      "recorded_grader_seconds": 156.14265137608163,
+      "provider_reported_cost_usd": 0,
+      "provider_reported_cost_per_success_usd": 0.0,
+      "model_calls": 45,
+      "model_responses": 45,
+      "model_request_retries": 0,
+      "model_request_timeouts": 0,
+      "tool_calls": 45,
+      "input_tokens": 873210,
+      "output_tokens": 104175,
+      "cached_input_tokens": 739840,
+      "stale_at_submission": 0,
+      "submission_check_opportunities": 0,
+      "deliverable_checkpoints": 0,
+      "deliverable_reminders": 0
+    },
+    {
+      "split": "H",
+      "benchmark": "swe",
+      "arm": "F",
+      "planned": 15,
+      "started": 4,
+      "scoreable": 4,
+      "success": 3,
+      "success_rate_on_scoreable": 0.75,
+      "expected_tasks": 5,
+      "fully_scored_tasks": 0,
+      "task_mean_success": null,
+      "all_repeats_successful": 0,
+      "declared_complete": 3,
+      "incorrect_complete_claims": 0,
+      "budget_terminations": 1,
+      "provider_timeouts": 0,
+      "recorded_wall_seconds": 1414.795399459079,
+      "recorded_grader_seconds": 167.52477066707797,
+      "provider_reported_cost_usd": 0,
+      "provider_reported_cost_per_success_usd": 0.0,
+      "model_calls": 53,
+      "model_responses": 53,
+      "model_request_retries": 0,
+      "model_request_timeouts": 0,
+      "tool_calls": 53,
+      "input_tokens": 1006320,
+      "output_tokens": 108287,
+      "cached_input_tokens": 876672,
+      "stale_at_submission": 0,
+      "submission_check_opportunities": 9,
+      "deliverable_checkpoints": 0,
+      "deliverable_reminders": 0
+    },
+    {
+      "split": "H",
+      "benchmark": "terminal",
+      "arm": "A",
+      "planned": 15,
+      "started": 5,
+      "scoreable": 5,
+      "success": 3,
+      "success_rate_on_scoreable": 0.6,
+      "expected_tasks": 5,
+      "fully_scored_tasks": 0,
+      "task_mean_success": null,
+      "all_repeats_successful": 0,
+      "declared_complete": 2,
+      "incorrect_complete_claims": 1,
+      "budget_terminations": 3,
+      "provider_timeouts": 0,
+      "recorded_wall_seconds": 3005.1778230409836,
+      "recorded_grader_seconds": 379.113364,
+      "provider_reported_cost_usd": 0,
+      "provider_reported_cost_per_success_usd": 0.0,
+      "model_calls": 55,
+      "model_responses": 55,
+      "model_request_retries": 0,
+      "model_request_timeouts": 0,
+      "tool_calls": 55,
+      "input_tokens": 849496,
+      "output_tokens": 206118,
+      "cached_input_tokens": 694528,
+      "stale_at_submission": 0,
+      "submission_check_opportunities": 5,
+      "deliverable_checkpoints": 4,
+      "deliverable_reminders": 1
+    },
+    {
+      "split": "H",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "planned": 15,
       "started": 5,
       "scoreable": 5,
       "success": 2,
       "success_rate_on_scoreable": 0.4,
-      "expected_tasks": 10,
-      "fully_scored_tasks": 5,
-      "task_mean_success": 0.4,
-      "all_repeats_successful": 2,
-      "declared_complete": 2,
-      "incorrect_complete_claims": 1,
-      "budget_terminations": 0,
-      "provider_timeouts": 3,
-      "recorded_wall_seconds": 2857.2734466651455,
-      "recorded_grader_seconds": 1022.869946,
-      "provider_reported_cost_usd": 0,
-      "provider_reported_cost_per_success_usd": 0.0,
-      "model_calls": 38,
-      "model_responses": 35,
-      "tool_calls": 35,
-      "input_tokens": 527215,
-      "output_tokens": 118220,
-      "cached_input_tokens": 383360,
-      "stale_at_submission": 0,
-      "submission_check_opportunities": 3,
-      "deliverable_checkpoints": 3,
-      "deliverable_reminders": 1
-    },
-    {
-      "split": "H",
-      "benchmark": "aider",
-      "arm": "A",
-      "planned": 15,
-      "started": 1,
-      "scoreable": 1,
-      "success": 1,
-      "success_rate_on_scoreable": 1.0,
       "expected_tasks": 5,
       "fully_scored_tasks": 0,
       "task_mean_success": null,
       "all_repeats_successful": 0,
       "declared_complete": 1,
       "incorrect_complete_claims": 0,
-      "budget_terminations": 0,
-      "provider_timeouts": 0,
-      "recorded_wall_seconds": 78.06075704202522,
-      "recorded_grader_seconds": 6.327634874964133,
+      "budget_terminations": 3,
+      "provider_timeouts": 1,
+      "recorded_wall_seconds": 2617.2932392929215,
+      "recorded_grader_seconds": 279.161328,
       "provider_reported_cost_usd": 0,
       "provider_reported_cost_per_success_usd": 0.0,
-      "model_calls": 5,
-      "model_responses": 5,
-      "tool_calls": 5,
-      "input_tokens": 34939,
-      "output_tokens": 2280,
-      "cached_input_tokens": 25984,
-      "stale_at_submission": 0,
-      "submission_check_opportunities": 1,
-      "deliverable_checkpoints": 0,
-      "deliverable_reminders": 0
-    },
-    {
-      "split": "H",
-      "benchmark": "aider",
-      "arm": "B0",
-      "planned": 15,
-      "started": 1,
-      "scoreable": 1,
-      "success": 1,
-      "success_rate_on_scoreable": 1.0,
-      "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 1,
-      "incorrect_complete_claims": 0,
-      "budget_terminations": 0,
-      "provider_timeouts": 0,
-      "recorded_wall_seconds": 66.14260166697204,
-      "recorded_grader_seconds": 4.995640499982983,
-      "provider_reported_cost_usd": 0,
-      "provider_reported_cost_per_success_usd": 0.0,
-      "model_calls": 5,
-      "model_responses": 5,
-      "tool_calls": 5,
-      "input_tokens": 35933,
-      "output_tokens": 1748,
-      "cached_input_tokens": 26752,
+      "model_calls": 44,
+      "model_responses": 43,
+      "model_request_retries": 0,
+      "model_request_timeouts": 1,
+      "tool_calls": 43,
+      "input_tokens": 841277,
+      "output_tokens": 150209,
+      "cached_input_tokens": 681344,
       "stale_at_submission": 0,
       "submission_check_opportunities": 0,
-      "deliverable_checkpoints": 0,
-      "deliverable_reminders": 0
-    },
-    {
-      "split": "H",
-      "benchmark": "aider",
-      "arm": "BP",
-      "planned": 15,
-      "started": 1,
-      "scoreable": 1,
-      "success": 1,
-      "success_rate_on_scoreable": 1.0,
-      "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 1,
-      "incorrect_complete_claims": 0,
-      "budget_terminations": 0,
-      "provider_timeouts": 0,
-      "recorded_wall_seconds": 108.94978916598484,
-      "recorded_grader_seconds": 7.480092874960974,
-      "provider_reported_cost_usd": 0,
-      "provider_reported_cost_per_success_usd": 0.0,
-      "model_calls": 6,
-      "model_responses": 6,
-      "tool_calls": 6,
-      "input_tokens": 56840,
-      "output_tokens": 4704,
-      "cached_input_tokens": 40704,
-      "stale_at_submission": 0,
-      "submission_check_opportunities": 0,
-      "deliverable_checkpoints": 0,
-      "deliverable_reminders": 0
-    },
-    {
-      "split": "H",
-      "benchmark": "aider",
-      "arm": "F",
-      "planned": 15,
-      "started": 1,
-      "scoreable": 1,
-      "success": 1,
-      "success_rate_on_scoreable": 1.0,
-      "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 1,
-      "incorrect_complete_claims": 0,
-      "budget_terminations": 0,
-      "provider_timeouts": 0,
-      "recorded_wall_seconds": 96.18494675005786,
-      "recorded_grader_seconds": 5.8961347080767155,
-      "provider_reported_cost_usd": 0,
-      "provider_reported_cost_per_success_usd": 0.0,
-      "model_calls": 7,
-      "model_responses": 7,
-      "tool_calls": 7,
-      "input_tokens": 53039,
-      "output_tokens": 2447,
-      "cached_input_tokens": 43264,
-      "stale_at_submission": 1,
-      "submission_check_opportunities": 2,
-      "deliverable_checkpoints": 0,
-      "deliverable_reminders": 0
-    },
-    {
-      "split": "H",
-      "benchmark": "swe",
-      "arm": "A",
-      "planned": 15,
-      "started": 1,
-      "scoreable": 1,
-      "success": 1,
-      "success_rate_on_scoreable": 1.0,
-      "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 1,
-      "incorrect_complete_claims": 0,
-      "budget_terminations": 0,
-      "provider_timeouts": 0,
-      "recorded_wall_seconds": 482.93329879199155,
-      "recorded_grader_seconds": 121.90991616703104,
-      "provider_reported_cost_usd": 0,
-      "provider_reported_cost_per_success_usd": 0.0,
-      "model_calls": 13,
-      "model_responses": 13,
-      "tool_calls": 13,
-      "input_tokens": 137099,
-      "output_tokens": 5074,
-      "cached_input_tokens": 117760,
-      "stale_at_submission": 0,
-      "submission_check_opportunities": 3,
-      "deliverable_checkpoints": 0,
-      "deliverable_reminders": 0
-    },
-    {
-      "split": "H",
-      "benchmark": "swe",
-      "arm": "B0",
-      "planned": 15,
-      "started": 1,
-      "scoreable": 1,
-      "success": 1,
-      "success_rate_on_scoreable": 1.0,
-      "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 1,
-      "incorrect_complete_claims": 0,
-      "budget_terminations": 0,
-      "provider_timeouts": 0,
-      "recorded_wall_seconds": 491.35682250000536,
-      "recorded_grader_seconds": 79.61989241698757,
-      "provider_reported_cost_usd": 0,
-      "provider_reported_cost_per_success_usd": 0.0,
-      "model_calls": 16,
-      "model_responses": 16,
-      "tool_calls": 16,
-      "input_tokens": 186522,
-      "output_tokens": 9080,
-      "cached_input_tokens": 160896,
-      "stale_at_submission": 0,
-      "submission_check_opportunities": 0,
-      "deliverable_checkpoints": 0,
-      "deliverable_reminders": 0
-    },
-    {
-      "split": "H",
-      "benchmark": "swe",
-      "arm": "BP",
-      "planned": 15,
-      "started": 1,
-      "scoreable": 1,
-      "success": 1,
-      "success_rate_on_scoreable": 1.0,
-      "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 1,
-      "incorrect_complete_claims": 0,
-      "budget_terminations": 0,
-      "provider_timeouts": 0,
-      "recorded_wall_seconds": 133.8724417090416,
-      "recorded_grader_seconds": 43.87058629200328,
-      "provider_reported_cost_usd": 0,
-      "provider_reported_cost_per_success_usd": 0.0,
-      "model_calls": 8,
-      "model_responses": 8,
-      "tool_calls": 8,
-      "input_tokens": 63218,
-      "output_tokens": 4045,
-      "cached_input_tokens": 47104,
-      "stale_at_submission": 0,
-      "submission_check_opportunities": 0,
-      "deliverable_checkpoints": 0,
-      "deliverable_reminders": 0
-    },
-    {
-      "split": "H",
-      "benchmark": "swe",
-      "arm": "F",
-      "planned": 15,
-      "started": 1,
-      "scoreable": 1,
-      "success": 1,
-      "success_rate_on_scoreable": 1.0,
-      "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 1,
-      "incorrect_complete_claims": 0,
-      "budget_terminations": 0,
-      "provider_timeouts": 0,
-      "recorded_wall_seconds": 163.9009301670594,
-      "recorded_grader_seconds": 48.44059858308174,
-      "provider_reported_cost_usd": 0,
-      "provider_reported_cost_per_success_usd": 0.0,
-      "model_calls": 10,
-      "model_responses": 10,
-      "tool_calls": 10,
-      "input_tokens": 80451,
-      "output_tokens": 4387,
-      "cached_input_tokens": 64768,
-      "stale_at_submission": 0,
-      "submission_check_opportunities": 3,
       "deliverable_checkpoints": 0,
       "deliverable_reminders": 0
     },
     {
       "split": "H",
       "benchmark": "terminal",
-      "arm": "A",
+      "arm": "BP",
       "planned": 15,
-      "started": 3,
-      "scoreable": 2,
+      "started": 5,
+      "scoreable": 4,
       "success": 2,
-      "success_rate_on_scoreable": 1.0,
-      "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 1,
-      "incorrect_complete_claims": 0,
-      "budget_terminations": 1,
-      "provider_timeouts": 0,
-      "recorded_wall_seconds": 1048.726649624994,
-      "recorded_grader_seconds": 105.184475,
-      "provider_reported_cost_usd": null,
-      "provider_reported_cost_per_success_usd": null,
-      "model_calls": 28,
-      "model_responses": 28,
-      "tool_calls": 28,
-      "input_tokens": 398283,
-      "output_tokens": 58005,
-      "cached_input_tokens": 328704,
-      "stale_at_submission": 0,
-      "submission_check_opportunities": 3,
-      "deliverable_checkpoints": 2,
-      "deliverable_reminders": 1
-    },
-    {
-      "split": "H",
-      "benchmark": "terminal",
-      "arm": "B0",
-      "planned": 15,
-      "started": 2,
-      "scoreable": 1,
-      "success": 1,
-      "success_rate_on_scoreable": 1.0,
-      "expected_tasks": 5,
-      "fully_scored_tasks": 0,
-      "task_mean_success": null,
-      "all_repeats_successful": 0,
-      "declared_complete": 1,
-      "incorrect_complete_claims": 0,
-      "budget_terminations": 0,
-      "provider_timeouts": 0,
-      "recorded_wall_seconds": 175.69806650001556,
-      "recorded_grader_seconds": 8.616842,
-      "provider_reported_cost_usd": null,
-      "provider_reported_cost_per_success_usd": null,
-      "model_calls": 8,
-      "model_responses": 8,
-      "tool_calls": 8,
-      "input_tokens": 106469,
-      "output_tokens": 6308,
-      "cached_input_tokens": 82816,
-      "stale_at_submission": 0,
-      "submission_check_opportunities": 0,
-      "deliverable_checkpoints": 0,
-      "deliverable_reminders": 0
-    },
-    {
-      "split": "H",
-      "benchmark": "terminal",
-      "arm": "BP",
-      "planned": 15,
-      "started": 3,
-      "scoreable": 2,
-      "success": 1,
       "success_rate_on_scoreable": 0.5,
       "expected_tasks": 5,
       "fully_scored_tasks": 0,
@@ -431,18 +457,20 @@
       "all_repeats_successful": 0,
       "declared_complete": 1,
       "incorrect_complete_claims": 0,
-      "budget_terminations": 1,
-      "provider_timeouts": 0,
-      "recorded_wall_seconds": 1066.7341197920032,
-      "recorded_grader_seconds": 155.26002400000002,
+      "budget_terminations": 2,
+      "provider_timeouts": 1,
+      "recorded_wall_seconds": 2041.0702040001052,
+      "recorded_grader_seconds": 248.89885900000002,
       "provider_reported_cost_usd": null,
       "provider_reported_cost_per_success_usd": null,
-      "model_calls": 18,
-      "model_responses": 18,
-      "tool_calls": 18,
-      "input_tokens": 338580,
-      "output_tokens": 73474,
-      "cached_input_tokens": 271872,
+      "model_calls": 34,
+      "model_responses": 33,
+      "model_request_retries": 0,
+      "model_request_timeouts": 1,
+      "tool_calls": 33,
+      "input_tokens": 551598,
+      "output_tokens": 133279,
+      "cached_input_tokens": 443264,
       "stale_at_submission": 0,
       "submission_check_opportunities": 0,
       "deliverable_checkpoints": 0,
@@ -453,31 +481,33 @@
       "benchmark": "terminal",
       "arm": "F",
       "planned": 15,
-      "started": 2,
-      "scoreable": 2,
-      "success": 2,
-      "success_rate_on_scoreable": 1.0,
+      "started": 5,
+      "scoreable": 5,
+      "success": 3,
+      "success_rate_on_scoreable": 0.6,
       "expected_tasks": 5,
       "fully_scored_tasks": 0,
       "task_mean_success": null,
       "all_repeats_successful": 0,
       "declared_complete": 1,
       "incorrect_complete_claims": 0,
-      "budget_terminations": 1,
-      "provider_timeouts": 0,
-      "recorded_wall_seconds": 1018.1818045000546,
-      "recorded_grader_seconds": 92.545169,
+      "budget_terminations": 3,
+      "provider_timeouts": 1,
+      "recorded_wall_seconds": 3038.7268746659392,
+      "recorded_grader_seconds": 453.476093,
       "provider_reported_cost_usd": 0,
       "provider_reported_cost_per_success_usd": 0.0,
-      "model_calls": 25,
-      "model_responses": 25,
-      "tool_calls": 25,
-      "input_tokens": 443794,
-      "output_tokens": 88887,
-      "cached_input_tokens": 360704,
+      "model_calls": 49,
+      "model_responses": 48,
+      "model_request_retries": 0,
+      "model_request_timeouts": 1,
+      "tool_calls": 48,
+      "input_tokens": 735261,
+      "output_tokens": 171603,
+      "cached_input_tokens": 591360,
       "stale_at_submission": 0,
       "submission_check_opportunities": 2,
-      "deliverable_checkpoints": 1,
+      "deliverable_checkpoints": 3,
       "deliverable_reminders": 1
     }
   ],
@@ -486,17 +516,20 @@
       "split": "D",
       "reference": "B0",
       "treatment": "F",
-      "paired_tasks": 16,
+      "paired_tasks": 30,
       "changes": {
-        "both_success": 11,
+        "both_success": 24,
         "loss": 2,
-        "both_failure": 3
+        "both_failure": 4
       },
-      "delta_percentage_points": -12.5,
-      "relative_change_percent": -15.384615384615385,
-      "pairs_without_provider_timeout": 13,
-      "delta_without_provider_timeout_percentage_points": -15.384615384615385,
-      "bootstrap_95_interval_percentage_points": null,
+      "delta_percentage_points": -6.666666666666667,
+      "relative_change_percent": -7.6923076923076925,
+      "pairs_without_provider_timeout": 26,
+      "delta_without_provider_timeout_percentage_points": -7.6923076923076925,
+      "bootstrap_95_interval_percentage_points": [
+        -16.666666666666664,
+        0
+      ],
       "pairs": [
         {
           "benchmark": "aider",
@@ -512,7 +545,55 @@
         },
         {
           "benchmark": "aider",
+          "task": "cpp/parallel-letter-frequency",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
           "task": "go/trinary",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "go/variable-length-quantity",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "java/phone-number",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "javascript/food-chain",
           "reference": [
             1
           ],
@@ -547,6 +628,30 @@
           "provider_timeout": false
         },
         {
+          "benchmark": "aider",
+          "task": "python/tree-building",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "rust/doubly-linked-list",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": true
+        },
+        {
           "benchmark": "swe",
           "task": "django__django-13346",
           "reference": [
@@ -561,6 +666,30 @@
         {
           "benchmark": "swe",
           "task": "django__django-15987",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-16082",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "pydata__xarray-2905",
           "reference": [
             1
           ],
@@ -608,6 +737,18 @@
         },
         {
           "benchmark": "swe",
+          "task": "pytest-dev__pytest-8399",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
           "task": "scikit-learn__scikit-learn-13496",
           "reference": [
             1
@@ -632,6 +773,30 @@
         },
         {
           "benchmark": "terminal",
+          "task": "extract-elf",
+          "reference": [
+            0
+          ],
+          "treatment": [
+            0
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "fix-git",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
           "task": "llm-inference-batching-scheduler",
           "reference": [
             0
@@ -641,6 +806,30 @@
           ],
           "change": 0,
           "provider_timeout": true
+        },
+        {
+          "benchmark": "terminal",
+          "task": "mailman",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "openssl-selfsigned-cert",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
         },
         {
           "benchmark": "terminal",
@@ -665,6 +854,18 @@
           ],
           "change": 0,
           "provider_timeout": true
+        },
+        {
+          "benchmark": "terminal",
+          "task": "sparql-university",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
         },
         {
           "benchmark": "terminal",
@@ -737,19 +938,68 @@
       "split": "H",
       "reference": "B0",
       "treatment": "F",
-      "paired_tasks": 3,
+      "paired_tasks": 12,
       "changes": {
-        "both_success": 3
+        "both_success": 9,
+        "both_failure": 3
       },
       "delta_percentage_points": 0,
       "relative_change_percent": 0.0,
-      "pairs_without_provider_timeout": 3,
+      "pairs_without_provider_timeout": 11,
       "delta_without_provider_timeout_percentage_points": 0,
       "bootstrap_95_interval_percentage_points": null,
       "pairs": [
         {
           "benchmark": "aider",
+          "task": "cpp/allergies",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "go/connect",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "java/pig-latin",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
           "task": "javascript/book-store",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "python/list-ops",
           "reference": [
             1
           ],
@@ -772,6 +1022,54 @@
           "provider_timeout": false
         },
         {
+          "benchmark": "swe",
+          "task": "django__django-15554",
+          "reference": [
+            0
+          ],
+          "treatment": [
+            0
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "scikit-learn__scikit-learn-10908",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "custom-memory-heap-crash",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "model-extraction-relu-logits",
+          "reference": [
+            0
+          ],
+          "treatment": [
+            0
+          ],
+          "change": 0,
+          "provider_timeout": true
+        },
+        {
           "benchmark": "terminal",
           "task": "password-recovery",
           "reference": [
@@ -779,6 +1077,18 @@
           ],
           "treatment": [
             1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "tune-mjcf",
+          "reference": [
+            0
+          ],
+          "treatment": [
+            0
           ],
           "change": 0,
           "provider_timeout": false
@@ -790,19 +1100,69 @@
       "split": "H",
       "reference": "BP",
       "treatment": "F",
-      "paired_tasks": 3,
+      "paired_tasks": 13,
       "changes": {
-        "both_success": 3
+        "both_success": 10,
+        "loss": 1,
+        "both_failure": 2
       },
-      "delta_percentage_points": 0,
-      "relative_change_percent": 0.0,
-      "pairs_without_provider_timeout": 3,
-      "delta_without_provider_timeout_percentage_points": 0,
+      "delta_percentage_points": -7.6923076923076925,
+      "relative_change_percent": -9.090909090909092,
+      "pairs_without_provider_timeout": 12,
+      "delta_without_provider_timeout_percentage_points": -8.333333333333332,
       "bootstrap_95_interval_percentage_points": null,
       "pairs": [
         {
           "benchmark": "aider",
+          "task": "cpp/allergies",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "go/connect",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "java/pig-latin",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
           "task": "javascript/book-store",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "python/list-ops",
           "reference": [
             1
           ],
@@ -825,6 +1185,66 @@
           "provider_timeout": false
         },
         {
+          "benchmark": "swe",
+          "task": "django__django-15554",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            0
+          ],
+          "change": -1,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "pytest-dev__pytest-7571",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "scikit-learn__scikit-learn-10908",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "custom-memory-heap-crash",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "model-extraction-relu-logits",
+          "reference": [
+            0
+          ],
+          "treatment": [
+            0
+          ],
+          "change": 0,
+          "provider_timeout": true
+        },
+        {
           "benchmark": "terminal",
           "task": "password-recovery",
           "reference": [
@@ -832,6 +1252,18 @@
           ],
           "treatment": [
             1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "tune-mjcf",
+          "reference": [
+            0
+          ],
+          "treatment": [
+            0
           ],
           "change": 0,
           "provider_timeout": false
@@ -843,19 +1275,69 @@
       "split": "H",
       "reference": "A",
       "treatment": "F",
-      "paired_tasks": 3,
+      "paired_tasks": 12,
       "changes": {
-        "both_success": 3
+        "both_success": 9,
+        "loss": 2,
+        "both_failure": 1
       },
-      "delta_percentage_points": 0,
-      "relative_change_percent": 0.0,
-      "pairs_without_provider_timeout": 3,
-      "delta_without_provider_timeout_percentage_points": 0,
+      "delta_percentage_points": -16.666666666666664,
+      "relative_change_percent": -18.18181818181818,
+      "pairs_without_provider_timeout": 11,
+      "delta_without_provider_timeout_percentage_points": -18.181818181818183,
       "bootstrap_95_interval_percentage_points": null,
       "pairs": [
         {
           "benchmark": "aider",
+          "task": "cpp/allergies",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "go/connect",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "java/pig-latin",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
           "task": "javascript/book-store",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "python/list-ops",
           "reference": [
             1
           ],
@@ -878,6 +1360,54 @@
           "provider_timeout": false
         },
         {
+          "benchmark": "swe",
+          "task": "django__django-15554",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            0
+          ],
+          "change": -1,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "scikit-learn__scikit-learn-10908",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "custom-memory-heap-crash",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "model-extraction-relu-logits",
+          "reference": [
+            0
+          ],
+          "treatment": [
+            0
+          ],
+          "change": 0,
+          "provider_timeout": true
+        },
+        {
           "benchmark": "terminal",
           "task": "password-recovery",
           "reference": [
@@ -887,6 +1417,18 @@
             1
           ],
           "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "tune-mjcf",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            0
+          ],
+          "change": -1,
           "provider_timeout": false
         }
       ],
@@ -896,14 +1438,29 @@
       "split": "H",
       "reference": "B0",
       "treatment": "F",
-      "paired_tasks": 0,
-      "changes": {},
-      "delta_percentage_points": null,
+      "paired_tasks": 1,
+      "changes": {
+        "gain": 1
+      },
+      "delta_percentage_points": 100,
       "relative_change_percent": null,
-      "pairs_without_provider_timeout": 0,
-      "delta_without_provider_timeout_percentage_points": null,
+      "pairs_without_provider_timeout": 1,
+      "delta_without_provider_timeout_percentage_points": 100,
       "bootstrap_95_interval_percentage_points": null,
-      "pairs": [],
+      "pairs": [
+        {
+          "benchmark": "terminal",
+          "task": "tune-mjcf",
+          "reference": [
+            0
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 1,
+          "provider_timeout": false
+        }
+      ],
       "repeat": 2
     },
     {
@@ -924,14 +1481,29 @@
       "split": "H",
       "reference": "A",
       "treatment": "F",
-      "paired_tasks": 0,
-      "changes": {},
-      "delta_percentage_points": null,
+      "paired_tasks": 1,
+      "changes": {
+        "gain": 1
+      },
+      "delta_percentage_points": 100,
       "relative_change_percent": null,
-      "pairs_without_provider_timeout": 0,
-      "delta_without_provider_timeout_percentage_points": null,
+      "pairs_without_provider_timeout": 1,
+      "delta_without_provider_timeout_percentage_points": 100,
       "bootstrap_95_interval_percentage_points": null,
-      "pairs": [],
+      "pairs": [
+        {
+          "benchmark": "terminal",
+          "task": "tune-mjcf",
+          "reference": [
+            0
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 1,
+          "provider_timeout": false
+        }
+      ],
       "repeat": 2
     },
     {

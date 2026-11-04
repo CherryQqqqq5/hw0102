@@ -1,0 +1,7 @@
+{
+  "task": "custom-memory-heap-crash",
+  "wall_seconds": 766.2646997499978,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "custom-memory-heap-crash__haNATm9/result.json"
+}

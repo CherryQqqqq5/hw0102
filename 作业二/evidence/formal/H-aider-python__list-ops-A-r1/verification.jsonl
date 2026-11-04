@@ -1,0 +1,2 @@
+{"event": "public_check", "time": 1793798912.001201, "check": {"check_id": "public-suite", "source_quote": "Original tests are available.", "command": "python -m pytest", "dependencies": ["list_ops.py", "list_ops_test.py"], "deliverables": []}, "before": null, "after": null, "state": "passed", "returncode": 0, "snapshot": null}
+{"event": "submission_check", "time": 1793798921.8842628, "state": {"public-suite": {"state": "passed", "returncode": 0, "snapshot": null}}, "partial": false, "blocked": false}

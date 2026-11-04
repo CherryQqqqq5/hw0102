@@ -1,0 +1,27 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "python/list-ops",
+    "stratum": "python",
+    "group": "list-ops",
+    "solution_files": [
+      "list_ops.py"
+    ],
+    "test_files": [
+      "list_ops_test.py"
+    ],
+    "exclude": null,
+    "split": "H"
+  },
+  "phase": "formal",
+  "configuration": "B0",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096
+  }
+}

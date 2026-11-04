@@ -20,6 +20,9 @@ def run_metrics(path: Path, *, complete: bool = True) -> dict:
             event = json.loads(line)
             if event["event"] == "request":
                 metrics["model_calls"] += 1
+                metrics["model_request_retries"] += event.get("attempt", 1) > 1
+            if event["event"] == "request_error" and event.get("error_type") in {"TimeoutExpired", "APITimeoutError"}:
+                metrics["model_request_timeouts"] += 1
             if event["event"] != "response":
                 continue
             metrics["model_responses"] += 1
@@ -55,7 +58,8 @@ def run_metrics(path: Path, *, complete: bool = True) -> dict:
                 states = [value["state"] for value in event["state"].values()]
                 metrics["submission_check_opportunities"] += len(states)
                 metrics["stale_at_submission"] += states.count("stale")
-    keys = ("model_calls", "model_responses", "provider_turns", "tool_calls", "input_tokens", "output_tokens", "cached_input_tokens",
+    keys = ("model_calls", "model_responses", "model_request_retries", "model_request_timeouts",
+            "provider_turns", "tool_calls", "input_tokens", "output_tokens", "cached_input_tokens",
             "submission_check_opportunities", "stale_at_submission", "deliverable_checkpoints", "deliverable_reminders")
     return {key: metrics[key] for key in keys} | {
         "provider_reported_cost_usd": sum(reported_cost) if reported_cost else None,
@@ -89,6 +93,7 @@ def read_runs(root: Path) -> list[dict]:
         rows.append({
             "run_id": run_dir.name, "benchmark": task["benchmark"], "split": task["split"], "task": task["id"],
             "arm": trial["configuration"], "repeat": int(run_dir.name.rsplit("-r", 1)[-1]),
+            "request_retry_allowance": trial["limits"].get("timeout_retries", 0),
             "scoreable": result.get("scoreable", False),
             "passed": result.get("passed"), "exit_status": status,
             "declared_complete": status == "Submitted" and not submission.startswith("PARTIAL:"),
@@ -104,7 +109,7 @@ def compare(rows: list[dict], split: str, reference: str, treatment: str, repeti
     for row in rows:
         if row["split"] == split and row["scoreable"]:
             scores[(row["benchmark"], row["task"], row["arm"])].append(int(row["passed"]))
-            if row["exit_status"] == "ProviderTimeout" and row["arm"] in {reference, treatment}:
+            if (row["exit_status"] == "ProviderTimeout" or row["model_request_timeouts"]) and row["arm"] in {reference, treatment}:
                 interrupted.add((row["benchmark"], row["task"]))
     paired = []
     for benchmark, task in sorted({key[:2] for key in scores}):
@@ -180,8 +185,9 @@ def main() -> None:
                          "recorded_grader_seconds": sum(timing) if timing else None,
                          "provider_reported_cost_usd": total_cost,
                          "provider_reported_cost_per_success_usd": total_cost / success if total_cost is not None and success else None,
-                         **{key: sum(row[key] for row in matches) for key in ("model_calls", "model_responses", "tool_calls", "input_tokens",
-                             "output_tokens", "cached_input_tokens", "stale_at_submission", "submission_check_opportunities",
+                         **{key: sum(row[key] for row in matches) for key in ("model_calls", "model_responses", "model_request_retries",
+                             "model_request_timeouts", "tool_calls", "input_tokens", "output_tokens", "cached_input_tokens",
+                             "stale_at_submission", "submission_check_opportunities",
                              "deliverable_checkpoints", "deliverable_reminders")}})
     args.out.mkdir(parents=True, exist_ok=True)
     controls = ("B0", "BP", "A")

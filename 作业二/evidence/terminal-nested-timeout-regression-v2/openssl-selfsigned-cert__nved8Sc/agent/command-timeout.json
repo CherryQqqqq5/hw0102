@@ -1,0 +1,17 @@
+{
+  "expired_command": {
+    "stdout": "",
+    "stderr": "",
+    "returncode": 124
+  },
+  "nested_timeout": {
+    "stdout": "",
+    "stderr": "",
+    "returncode": 124
+  },
+  "next_command": {
+    "stdout": "ready\n",
+    "stderr": "",
+    "returncode": 0
+  }
+}

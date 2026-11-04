@@ -8,7 +8,7 @@ from dataclasses import asdict
 from pathlib import Path
 from urllib.parse import urlsplit
 
-from openai import OpenAI
+from openai import APITimeoutError, OpenAI
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
 from minisweagent.agents.default import DefaultAgent
@@ -34,6 +34,7 @@ class RunLimits(BaseModel):
     wall_seconds: int = Field(default=600, gt=0)
     command_seconds: int = Field(default=60, gt=0)
     max_output_tokens: int = Field(default=4096, gt=0)
+    timeout_retries: int = Field(default=2, ge=0, le=2)
 
 
 class ProviderTimeout(InterruptAgentFlow):
@@ -46,6 +47,29 @@ def append_event(path: Path, event: str, **data) -> None:
 
 
 class ModelFormatting:
+    def request_with_timeout_recovery(self, send, request_fields: dict, timeout_type: type[Exception],
+                                      timeout_seconds: int):
+        attempt = 1
+        while True:
+            identity = {"request_id": self.request_id, "attempt": attempt}
+            append_event(self.trace, "request", **identity, **request_fields)
+            try:
+                return send(), attempt
+            except timeout_type as exc:
+                diagnostics = {}
+                if isinstance(exc, subprocess.TimeoutExpired):
+                    diagnostics = {"stdout": (exc.stdout or b"").decode("utf-8", errors="replace"),
+                                   "stderr": (exc.stderr or b"").decode("utf-8", errors="replace")}
+                append_event(self.trace, "request_error", **identity, error_type=type(exc).__name__,
+                             timeout_seconds=timeout_seconds, **diagnostics)
+                if not self.timeout_retries_remaining:
+                    raise ProviderTimeout({
+                        "role": "exit", "content": f"Model request exceeded {timeout_seconds} seconds",
+                        "extra": {"exit_status": "ProviderTimeout", "submission": ""},
+                    }) from None
+                self.timeout_retries_remaining -= 1
+                attempt += 1
+
     @staticmethod
     def format_message(**kwargs) -> dict:
         return kwargs
@@ -72,6 +96,7 @@ class CourseModel(ModelFormatting):
         self.observation_template = observation_template
         self.client = OpenAI(base_url=url, api_key=os.environ["COURSE_API_KEY"], timeout=90, max_retries=0)
         self.request_id = 0
+        self.timeout_retries_remaining = limits.timeout_retries
 
     def query(self, messages: list[dict], **kwargs) -> dict:
         self.request_id += 1
@@ -82,16 +107,19 @@ class CourseModel(ModelFormatting):
             "model": self.model_id, "messages": history, "tools": [tool],
             "max_tokens": self.limits.max_output_tokens,
         }
-        append_event(self.trace, "request", request_id=self.request_id, payload=payload)
         try:
-            response = self.client.chat.completions.create(**payload)
+            response, attempt = self.request_with_timeout_recovery(
+                lambda: self.client.chat.completions.create(**payload), {"payload": payload}, APITimeoutError, 90,
+            )
+        except ProviderTimeout:
+            raise
         except Exception as exc:
             append_event(self.trace, "request_error", request_id=self.request_id,
                          error_type=type(exc).__name__, http_status=getattr(exc, "status_code", None))
             # 上游异常可能携带认证信息。轨迹保留状态码和异常类型。
             raise RuntimeError(f"Model request failed: {type(exc).__name__}") from None
         raw = response.model_dump(mode="json", exclude_none=True)
-        append_event(self.trace, "response", request_id=self.request_id, payload=raw)
+        append_event(self.trace, "response", request_id=self.request_id, attempt=attempt, payload=raw)
         choice = response.choices[0]
         message = choice.message.model_dump(mode="json", exclude_none=True)
         actions = []
@@ -124,6 +152,7 @@ class CodeBuddyModel(ModelFormatting):
         self.request_id = 0
         self.provider_turns = 0
         self.limits = limits
+        self.timeout_retries_remaining = limits.timeout_retries
 
     def query(self, messages: list[dict], **kwargs) -> dict:
         self.request_id += 1
@@ -142,32 +171,26 @@ class CodeBuddyModel(ModelFormatting):
         environment = {key: value for key, value in os.environ.items() if key.lower() not in {
             "http_proxy", "https_proxy", "all_proxy", "course_api_key", "openai_api_key", "anthropic_api_key",
         }}
-        append_event(self.trace, "request", request_id=self.request_id, model=self.model_id,
-                     system=system, history=history, schema=json.loads(schema))
         # CodeBuddy 的打印模式需要显式请求文本。通过 stdin 提供大型历史。
         timeout = min(150, self.limits.wall_seconds)
-        try:
-            process = subprocess.run([*command, "Choose the next command from the conversation on stdin."],
-                                     input=prompt, cwd=self.run_dir, env=environment,
-                                     text=True, capture_output=True, timeout=timeout, check=False)
-        except subprocess.TimeoutExpired as exc:
-            append_event(self.trace, "request_error", request_id=self.request_id, error_type="TimeoutExpired",
-                         timeout_seconds=timeout, stdout=(exc.stdout or b"").decode("utf-8", errors="replace"),
-                         stderr=(exc.stderr or b"").decode("utf-8", errors="replace"))
-            # 提供方超时后不追加请求，保留已执行的操作并交由原评分器检查产物。
-            raise ProviderTimeout({"role": "exit", "content": f"CodeBuddy request exceeded {timeout} seconds",
-                                   "extra": {"exit_status": "ProviderTimeout", "submission": ""}}) from None
+        process, attempt = self.request_with_timeout_recovery(
+            lambda: subprocess.run([*command, "Choose the next command from the conversation on stdin."],
+                                   input=prompt, cwd=self.run_dir, env=environment,
+                                   text=True, capture_output=True, timeout=timeout, check=False),
+            {"model": self.model_id, "system": system, "history": history, "schema": json.loads(schema)},
+            subprocess.TimeoutExpired, timeout,
+        )
         if process.returncode:
-            append_event(self.trace, "request_error", request_id=self.request_id,
+            append_event(self.trace, "request_error", request_id=self.request_id, attempt=attempt,
                          returncode=process.returncode, stderr=process.stderr, stdout=process.stdout)
             raise RuntimeError(f"CodeBuddy failed with exit code {process.returncode}")
         try:
             raw = json.loads(process.stdout)
         except json.JSONDecodeError:
-            append_event(self.trace, "request_error", request_id=self.request_id,
+            append_event(self.trace, "request_error", request_id=self.request_id, attempt=attempt,
                          returncode=process.returncode, stderr=process.stderr, stdout=process.stdout)
             raise RuntimeError("CodeBuddy returned a non-JSON response") from None
-        append_event(self.trace, "response", request_id=self.request_id, payload=raw)
+        append_event(self.trace, "response", request_id=self.request_id, attempt=attempt, payload=raw)
         result = next(event for event in reversed(raw) if event.get("type") == "result")
         if result.get("is_error") or result.get("subtype") != "success":
             raise RuntimeError(f"CodeBuddy returned {result.get('subtype')}")

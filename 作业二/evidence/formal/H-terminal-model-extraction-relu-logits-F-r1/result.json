@@ -1,0 +1,7 @@
+{
+  "task": "model-extraction-relu-logits",
+  "wall_seconds": 272.43802683299873,
+  "scoreable": true,
+  "passed": false,
+  "harbor_result": "model-extraction-relu-logits__haRhzWF/result.json"
+}

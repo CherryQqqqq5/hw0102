@@ -1,0 +1,9 @@
+{
+  "task": "pytest-dev__pytest-8399",
+  "wall_seconds": 638.5622959589818,
+  "exit_status": "LimitsExceeded",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 46.35852262505796
+}

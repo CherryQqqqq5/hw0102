@@ -1,0 +1,10 @@
+{
+  "task": "python/list-ops",
+  "wall_seconds": 53.45909029105678,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 1.9290189580060542
+}

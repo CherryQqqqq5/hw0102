@@ -80,7 +80,7 @@ work/.venv/bin/python -m course_eval.matrix --manifest frozen-tasks.json \
 export COURSE_MODEL_BACKEND=codebuddy
 export COURSE_MODEL_ID=deepseek-v4.1-flash
 export COURSE_CODEBUDDY_BIN="$(command -v codebuddy)"
-export COURSE_RUN_LIMITS='{"model_calls":24,"wall_seconds":600}'
+export COURSE_RUN_LIMITS='{"model_calls":24,"wall_seconds":600,"timeout_retries":0}'
 work/.venv/bin/python -m course_eval.matrix --manifest frozen-tasks.json \
   --sources work/datasets --runs work/vmshare/formal --phase diagnose --workers 2
 work/.venv/bin/python -m course_eval.summarize --manifest frozen-tasks.json \
@@ -99,6 +99,15 @@ work/.venv/bin/python -m course_eval.matrix --manifest frozen-tasks.json \
 ```
 
 `--task` 可重复传入以重跑指定题目，`--repeat` 可选定留出集的某一轮。模型请求超时仍会由原题验收程序检查现有产物，汇总中的 `provider_timeouts` 和配对敏感性统计单列此类运行。
+
+首次运行的重试额度为 0。追加阶段新派发的运行将 `timeout_retries` 设为 2，仅在模型请求超时时重发同一请求，每题合计最多两个额外尝试。复跑单题时使用该题 `trial.json` 中的 `limits`。逐题表中 `model_calls` 是实际发送次数，`model_request_timeouts` 与 `model_request_retries` 分别计数。超时尝试可能没有服务报告的词元用量。
+
+Harbor 的命令时限回归可独立复跑。普通和嵌套超时都应返回 124，后续命令检查超时的子进程未继续写文件。
+
+```sh
+work/.venv/bin/python -m scripts.harbor_timeout_probe --manifest frozen-tasks.json \
+  --out work/vmshare/terminal-nested-timeout-regression
+```
 
 ```sh
 work/.venv/bin/python -m course_eval.check_verification \
