@@ -1,0 +1,8 @@
+{
+  "task": "query-optimize",
+  "wall_seconds": 771.1032807499869,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "query-optimize__bwaWFAA/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

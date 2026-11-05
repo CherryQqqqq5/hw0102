@@ -1,0 +1,8 @@
+{
+  "task": "llm-inference-batching-scheduler",
+  "wall_seconds": 459.1648651249707,
+  "scoreable": true,
+  "passed": false,
+  "harbor_result": "llm-inference-batching-scheduler__KaMs9vc/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

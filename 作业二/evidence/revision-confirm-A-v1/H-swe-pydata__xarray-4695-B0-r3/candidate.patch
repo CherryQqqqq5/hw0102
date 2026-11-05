@@ -1,0 +1,38 @@
+diff --git a/xarray/core/dataarray.py b/xarray/core/dataarray.py
+index 32b24ef1..6316afd5 100644
+--- a/xarray/core/dataarray.py
++++ b/xarray/core/dataarray.py
+@@ -196,7 +196,7 @@ class _LocIndexer:
+             # expand the indexer so we can handle Ellipsis
+             labels = indexing.expanded_indexer(key, self.data_array.ndim)
+             key = dict(zip(self.data_array.dims, labels))
+-        return self.data_array.sel(**key)
++        return self.data_array.sel(key)
+ 
+     def __setitem__(self, key, value) -> None:
+         if not utils.is_dict_like(key):
+diff --git a/xarray/tests/test_dataarray.py b/xarray/tests/test_dataarray.py
+index a8c62a2c..6a934fcc 100644
+--- a/xarray/tests/test_dataarray.py
++++ b/xarray/tests/test_dataarray.py
+@@ -1090,6 +1090,20 @@ class TestDataArray:
+         assert_identical(da[:3, :4], da.loc[["a", "b", "c"], np.arange(4)])
+         assert_identical(da[:, :4], da.loc[:, self.ds["y"] < 4])
+ 
++    def test_loc_dim_name_reserved(self):
++        # regression test for GH4695: a dimension named e.g. "method" must
++        # not clash with .sel()'s keyword arguments when indexing via .loc
++        for dim_name in ["method", "drop", "tolerance", "indexers"]:
++            array = DataArray(
++                np.zeros((2, 2)),
++                dims=["dim1", dim_name],
++                coords={"dim1": ["x", "y"], dim_name: ["a", "b"]},
++            )
++            indexer = {"dim1": "x", dim_name: "a"}
++            assert_identical(array.loc[indexer], array[0, 0])
++            array.loc[indexer] = 1.0
++            assert float(array[0, 0]) == 1.0
++
+     def test_loc_datetime64_value(self):
+         # regression test for https://github.com/pydata/xarray/issues/4283
+         t = np.array(["2017-09-05T12", "2017-09-05T15"], dtype="datetime64[ns]")

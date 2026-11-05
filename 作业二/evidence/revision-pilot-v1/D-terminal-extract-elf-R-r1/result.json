@@ -1,0 +1,8 @@
+{
+  "task": "extract-elf",
+  "wall_seconds": 567.8134795830119,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "extract-elf__r7asmAt/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

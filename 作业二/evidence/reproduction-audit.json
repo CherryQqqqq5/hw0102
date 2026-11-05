@@ -1,0 +1,442 @@
+{
+  "historical_configurations": 240,
+  "retry_allowance": {
+    "0": 109,
+    "2": 131
+  },
+  "retry_groups": [
+    {
+      "split": "D",
+      "arm": "B0",
+      "allowance": 0,
+      "count": 30
+    },
+    {
+      "split": "D",
+      "arm": "F",
+      "allowance": 0,
+      "count": 29
+    },
+    {
+      "split": "D",
+      "arm": "F",
+      "allowance": 2,
+      "count": 1
+    },
+    {
+      "split": "H",
+      "arm": "A",
+      "allowance": 0,
+      "count": 13
+    },
+    {
+      "split": "H",
+      "arm": "A",
+      "allowance": 2,
+      "count": 32
+    },
+    {
+      "split": "H",
+      "arm": "B0",
+      "allowance": 0,
+      "count": 12
+    },
+    {
+      "split": "H",
+      "arm": "B0",
+      "allowance": 2,
+      "count": 33
+    },
+    {
+      "split": "H",
+      "arm": "BP",
+      "allowance": 0,
+      "count": 12
+    },
+    {
+      "split": "H",
+      "arm": "BP",
+      "allowance": 2,
+      "count": 33
+    },
+    {
+      "split": "H",
+      "arm": "F",
+      "allowance": 0,
+      "count": 13
+    },
+    {
+      "split": "H",
+      "arm": "F",
+      "allowance": 2,
+      "count": 32
+    }
+  ],
+  "mismatched_pairs": [
+    {
+      "split": "D",
+      "reference": "B0",
+      "treatment": "F",
+      "task": "rust/doubly-linked-list",
+      "repeat": 1,
+      "allowances": [
+        0,
+        2
+      ],
+      "retries": [
+        0,
+        1
+      ],
+      "passed": [
+        true,
+        true
+      ]
+    },
+    {
+      "split": "H",
+      "reference": "B0",
+      "treatment": "F",
+      "task": "scikit-learn__scikit-learn-10908",
+      "repeat": 1,
+      "allowances": [
+        2,
+        0
+      ],
+      "retries": [
+        0,
+        0
+      ],
+      "passed": [
+        true,
+        true
+      ]
+    },
+    {
+      "split": "H",
+      "reference": "BP",
+      "treatment": "F",
+      "task": "tune-mjcf",
+      "repeat": 2,
+      "allowances": [
+        2,
+        0
+      ],
+      "retries": [
+        0,
+        0
+      ],
+      "passed": [
+        true,
+        true
+      ]
+    }
+  ],
+  "timeout_sensitivity": [
+    {
+      "split": "D",
+      "reference": "B0",
+      "treatment": "F",
+      "removed_tasks": [
+        "rust/doubly-linked-list",
+        "llm-inference-batching-scheduler",
+        "regex-log",
+        "video-processing"
+      ],
+      "remaining_tasks": 26,
+      "remaining_delta": -7.6923076923076925
+    },
+    {
+      "split": "H",
+      "reference": "B0",
+      "treatment": "F",
+      "removed_tasks": [
+        "django__django-15554",
+        "model-extraction-relu-logits"
+      ],
+      "remaining_tasks": 13,
+      "remaining_delta": 2.5641025641025643
+    },
+    {
+      "split": "H",
+      "reference": "BP",
+      "treatment": "F",
+      "removed_tasks": [
+        "django__django-15554",
+        "model-extraction-relu-logits"
+      ],
+      "remaining_tasks": 13,
+      "remaining_delta": 4.270088556250602e-16
+    },
+    {
+      "split": "H",
+      "reference": "A",
+      "treatment": "F",
+      "removed_tasks": [
+        "django__django-15554",
+        "model-extraction-relu-logits"
+      ],
+      "remaining_tasks": 13,
+      "remaining_delta": -2.564102564102564
+    }
+  ],
+  "exploratory_A_vs_B0": {
+    "split": "H",
+    "reference": "B0",
+    "treatment": "A",
+    "paired_tasks": 15,
+    "changes": {
+      "both_success": 11,
+      "gain": 4
+    },
+    "delta_percentage_points": 11.111111111111112,
+    "relative_change_percent": 13.157894736842106,
+    "pairs_without_provider_timeout": 14,
+    "delta_without_provider_timeout_percentage_points": 9.523809523809526,
+    "bootstrap_95_interval_percentage_points": [
+      2.2222222222222223,
+      20.0
+    ],
+    "pairs": [
+      {
+        "benchmark": "aider",
+        "task": "cpp/allergies",
+        "reference": [
+          1,
+          1,
+          1
+        ],
+        "treatment": [
+          1,
+          1,
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "aider",
+        "task": "go/connect",
+        "reference": [
+          1,
+          1,
+          1
+        ],
+        "treatment": [
+          1,
+          1,
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "aider",
+        "task": "java/pig-latin",
+        "reference": [
+          1,
+          1,
+          1
+        ],
+        "treatment": [
+          1,
+          1,
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "aider",
+        "task": "javascript/book-store",
+        "reference": [
+          1,
+          1,
+          1
+        ],
+        "treatment": [
+          1,
+          1,
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "aider",
+        "task": "python/list-ops",
+        "reference": [
+          1,
+          1,
+          1
+        ],
+        "treatment": [
+          1,
+          1,
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "swe",
+        "task": "django__django-12050",
+        "reference": [
+          1,
+          1,
+          1
+        ],
+        "treatment": [
+          1,
+          1,
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "swe",
+        "task": "django__django-15554",
+        "reference": [
+          0,
+          1,
+          0
+        ],
+        "treatment": [
+          1,
+          1,
+          1
+        ],
+        "change": 0.6666666666666667,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "swe",
+        "task": "pydata__xarray-4695",
+        "reference": [
+          1,
+          1,
+          1
+        ],
+        "treatment": [
+          1,
+          1,
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "swe",
+        "task": "pytest-dev__pytest-7571",
+        "reference": [
+          1,
+          1,
+          1
+        ],
+        "treatment": [
+          1,
+          1,
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "swe",
+        "task": "scikit-learn__scikit-learn-10908",
+        "reference": [
+          1,
+          1,
+          1
+        ],
+        "treatment": [
+          1,
+          1,
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "terminal",
+        "task": "constraints-scheduling",
+        "reference": [
+          1,
+          1,
+          1
+        ],
+        "treatment": [
+          1,
+          1,
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "terminal",
+        "task": "custom-memory-heap-crash",
+        "reference": [
+          1,
+          0,
+          1
+        ],
+        "treatment": [
+          1,
+          1,
+          1
+        ],
+        "change": 0.33333333333333337,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "terminal",
+        "task": "model-extraction-relu-logits",
+        "reference": [
+          0,
+          1,
+          0
+        ],
+        "treatment": [
+          0,
+          1,
+          1
+        ],
+        "change": 0.3333333333333333,
+        "provider_timeout": true
+      },
+      {
+        "benchmark": "terminal",
+        "task": "password-recovery",
+        "reference": [
+          1,
+          1,
+          1
+        ],
+        "treatment": [
+          1,
+          1,
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "terminal",
+        "task": "tune-mjcf",
+        "reference": [
+          0,
+          0,
+          1
+        ],
+        "treatment": [
+          1,
+          0,
+          1
+        ],
+        "change": 0.3333333333333333,
+        "provider_timeout": false
+      }
+    ]
+  }
+}

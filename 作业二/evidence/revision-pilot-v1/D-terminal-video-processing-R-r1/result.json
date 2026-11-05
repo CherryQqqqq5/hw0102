@@ -1,0 +1,8 @@
+{
+  "task": "video-processing",
+  "wall_seconds": 668.3351809589658,
+  "scoreable": true,
+  "passed": false,
+  "harbor_result": "video-processing__D2uBnYo/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

@@ -1,0 +1,463 @@
+{
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 2
+  },
+  "slots": [
+    {
+      "task": "javascript/book-store",
+      "arm": "A",
+      "repeat": 1
+    },
+    {
+      "task": "javascript/book-store",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "constraints-scheduling",
+      "arm": "A",
+      "repeat": 1
+    },
+    {
+      "task": "constraints-scheduling",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "model-extraction-relu-logits",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "model-extraction-relu-logits",
+      "arm": "A",
+      "repeat": 1
+    },
+    {
+      "task": "pytest-dev__pytest-7571",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "pytest-dev__pytest-7571",
+      "arm": "A",
+      "repeat": 1
+    },
+    {
+      "task": "python/list-ops",
+      "arm": "A",
+      "repeat": 1
+    },
+    {
+      "task": "python/list-ops",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "scikit-learn__scikit-learn-10908",
+      "arm": "A",
+      "repeat": 1
+    },
+    {
+      "task": "scikit-learn__scikit-learn-10908",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "pydata__xarray-4695",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "pydata__xarray-4695",
+      "arm": "A",
+      "repeat": 1
+    },
+    {
+      "task": "java/pig-latin",
+      "arm": "A",
+      "repeat": 1
+    },
+    {
+      "task": "java/pig-latin",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "password-recovery",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "password-recovery",
+      "arm": "A",
+      "repeat": 1
+    },
+    {
+      "task": "django__django-12050",
+      "arm": "A",
+      "repeat": 1
+    },
+    {
+      "task": "django__django-12050",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "cpp/allergies",
+      "arm": "A",
+      "repeat": 1
+    },
+    {
+      "task": "cpp/allergies",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "tune-mjcf",
+      "arm": "A",
+      "repeat": 1
+    },
+    {
+      "task": "tune-mjcf",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "go/connect",
+      "arm": "A",
+      "repeat": 1
+    },
+    {
+      "task": "go/connect",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "custom-memory-heap-crash",
+      "arm": "A",
+      "repeat": 1
+    },
+    {
+      "task": "custom-memory-heap-crash",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "django__django-15554",
+      "arm": "A",
+      "repeat": 1
+    },
+    {
+      "task": "django__django-15554",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "javascript/book-store",
+      "arm": "A",
+      "repeat": 2
+    },
+    {
+      "task": "javascript/book-store",
+      "arm": "B0",
+      "repeat": 2
+    },
+    {
+      "task": "constraints-scheduling",
+      "arm": "B0",
+      "repeat": 2
+    },
+    {
+      "task": "constraints-scheduling",
+      "arm": "A",
+      "repeat": 2
+    },
+    {
+      "task": "model-extraction-relu-logits",
+      "arm": "A",
+      "repeat": 2
+    },
+    {
+      "task": "model-extraction-relu-logits",
+      "arm": "B0",
+      "repeat": 2
+    },
+    {
+      "task": "pytest-dev__pytest-7571",
+      "arm": "B0",
+      "repeat": 2
+    },
+    {
+      "task": "pytest-dev__pytest-7571",
+      "arm": "A",
+      "repeat": 2
+    },
+    {
+      "task": "python/list-ops",
+      "arm": "B0",
+      "repeat": 2
+    },
+    {
+      "task": "python/list-ops",
+      "arm": "A",
+      "repeat": 2
+    },
+    {
+      "task": "scikit-learn__scikit-learn-10908",
+      "arm": "B0",
+      "repeat": 2
+    },
+    {
+      "task": "scikit-learn__scikit-learn-10908",
+      "arm": "A",
+      "repeat": 2
+    },
+    {
+      "task": "pydata__xarray-4695",
+      "arm": "A",
+      "repeat": 2
+    },
+    {
+      "task": "pydata__xarray-4695",
+      "arm": "B0",
+      "repeat": 2
+    },
+    {
+      "task": "java/pig-latin",
+      "arm": "A",
+      "repeat": 2
+    },
+    {
+      "task": "java/pig-latin",
+      "arm": "B0",
+      "repeat": 2
+    },
+    {
+      "task": "password-recovery",
+      "arm": "B0",
+      "repeat": 2
+    },
+    {
+      "task": "password-recovery",
+      "arm": "A",
+      "repeat": 2
+    },
+    {
+      "task": "django__django-12050",
+      "arm": "A",
+      "repeat": 2
+    },
+    {
+      "task": "django__django-12050",
+      "arm": "B0",
+      "repeat": 2
+    },
+    {
+      "task": "cpp/allergies",
+      "arm": "B0",
+      "repeat": 2
+    },
+    {
+      "task": "cpp/allergies",
+      "arm": "A",
+      "repeat": 2
+    },
+    {
+      "task": "tune-mjcf",
+      "arm": "A",
+      "repeat": 2
+    },
+    {
+      "task": "tune-mjcf",
+      "arm": "B0",
+      "repeat": 2
+    },
+    {
+      "task": "go/connect",
+      "arm": "A",
+      "repeat": 2
+    },
+    {
+      "task": "go/connect",
+      "arm": "B0",
+      "repeat": 2
+    },
+    {
+      "task": "custom-memory-heap-crash",
+      "arm": "B0",
+      "repeat": 2
+    },
+    {
+      "task": "custom-memory-heap-crash",
+      "arm": "A",
+      "repeat": 2
+    },
+    {
+      "task": "django__django-15554",
+      "arm": "A",
+      "repeat": 2
+    },
+    {
+      "task": "django__django-15554",
+      "arm": "B0",
+      "repeat": 2
+    },
+    {
+      "task": "javascript/book-store",
+      "arm": "B0",
+      "repeat": 3
+    },
+    {
+      "task": "javascript/book-store",
+      "arm": "A",
+      "repeat": 3
+    },
+    {
+      "task": "constraints-scheduling",
+      "arm": "A",
+      "repeat": 3
+    },
+    {
+      "task": "constraints-scheduling",
+      "arm": "B0",
+      "repeat": 3
+    },
+    {
+      "task": "model-extraction-relu-logits",
+      "arm": "A",
+      "repeat": 3
+    },
+    {
+      "task": "model-extraction-relu-logits",
+      "arm": "B0",
+      "repeat": 3
+    },
+    {
+      "task": "pytest-dev__pytest-7571",
+      "arm": "B0",
+      "repeat": 3
+    },
+    {
+      "task": "pytest-dev__pytest-7571",
+      "arm": "A",
+      "repeat": 3
+    },
+    {
+      "task": "python/list-ops",
+      "arm": "B0",
+      "repeat": 3
+    },
+    {
+      "task": "python/list-ops",
+      "arm": "A",
+      "repeat": 3
+    },
+    {
+      "task": "scikit-learn__scikit-learn-10908",
+      "arm": "A",
+      "repeat": 3
+    },
+    {
+      "task": "scikit-learn__scikit-learn-10908",
+      "arm": "B0",
+      "repeat": 3
+    },
+    {
+      "task": "pydata__xarray-4695",
+      "arm": "A",
+      "repeat": 3
+    },
+    {
+      "task": "pydata__xarray-4695",
+      "arm": "B0",
+      "repeat": 3
+    },
+    {
+      "task": "java/pig-latin",
+      "arm": "B0",
+      "repeat": 3
+    },
+    {
+      "task": "java/pig-latin",
+      "arm": "A",
+      "repeat": 3
+    },
+    {
+      "task": "password-recovery",
+      "arm": "A",
+      "repeat": 3
+    },
+    {
+      "task": "password-recovery",
+      "arm": "B0",
+      "repeat": 3
+    },
+    {
+      "task": "django__django-12050",
+      "arm": "A",
+      "repeat": 3
+    },
+    {
+      "task": "django__django-12050",
+      "arm": "B0",
+      "repeat": 3
+    },
+    {
+      "task": "cpp/allergies",
+      "arm": "A",
+      "repeat": 3
+    },
+    {
+      "task": "cpp/allergies",
+      "arm": "B0",
+      "repeat": 3
+    },
+    {
+      "task": "tune-mjcf",
+      "arm": "A",
+      "repeat": 3
+    },
+    {
+      "task": "tune-mjcf",
+      "arm": "B0",
+      "repeat": 3
+    },
+    {
+      "task": "go/connect",
+      "arm": "A",
+      "repeat": 3
+    },
+    {
+      "task": "go/connect",
+      "arm": "B0",
+      "repeat": 3
+    },
+    {
+      "task": "custom-memory-heap-crash",
+      "arm": "A",
+      "repeat": 3
+    },
+    {
+      "task": "custom-memory-heap-crash",
+      "arm": "B0",
+      "repeat": 3
+    },
+    {
+      "task": "django__django-15554",
+      "arm": "A",
+      "repeat": 3
+    },
+    {
+      "task": "django__django-15554",
+      "arm": "B0",
+      "repeat": 3
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "task": "sparql-university",
+  "wall_seconds": 250.10543104098178,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "sparql-university__WPfqueQ/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

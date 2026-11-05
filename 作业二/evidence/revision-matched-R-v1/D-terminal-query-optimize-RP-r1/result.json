@@ -1,0 +1,8 @@
+{
+  "task": "query-optimize",
+  "wall_seconds": 1084.1186787500046,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "query-optimize__UxkiCNL/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

@@ -1,0 +1,17 @@
+diff --git a/sklearn/feature_extraction/text.py b/sklearn/feature_extraction/text.py
+index 9b1ebd632..a5aa05a7c 100644
+--- a/sklearn/feature_extraction/text.py
++++ b/sklearn/feature_extraction/text.py
+@@ -301,7 +301,11 @@ class VectorizerMixin(object):
+     def _check_vocabulary(self):
+         """Check if vocabulary is empty or missing (not fit-ed)"""
+         msg = "%(name)s - Vocabulary wasn't fitted."
+-        check_is_fitted(self, 'vocabulary_', msg=msg),
++
++        if not hasattr(self, 'vocabulary_'):
++            self._validate_vocabulary()
++
++        check_is_fitted(self, 'vocabulary_', msg=msg)
+ 
+         if len(self.vocabulary_) == 0:
+             raise ValueError("Vocabulary is empty")

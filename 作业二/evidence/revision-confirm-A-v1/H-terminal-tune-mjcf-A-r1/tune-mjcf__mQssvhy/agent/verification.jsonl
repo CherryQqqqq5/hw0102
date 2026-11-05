@@ -1,0 +1,3 @@
+{"event": "deliverable_checkpoint", "time": 1793850976.8473222, "step": 6, "missing": [], "stdout": "", "stderr": "", "returncode": 0}
+{"event": "public_check", "time": 1793851056.180823, "check": {"check_id": "public-artifact", "source_quote": "Tuned mjcf should be saved as /app/model.xml", "command": "test -s /app/model.xml && python3 -c 'import xml.etree.ElementTree as ET; ET.parse(\"/app/model.xml\")'", "dependencies": ["/app/model.xml"], "deliverables": ["/app/model.xml"]}, "before": null, "after": null, "state": "passed", "returncode": 0, "snapshot": null}
+{"event": "submission_check", "time": 1793851121.093489, "state": {"public-artifact": {"state": "passed", "returncode": 0, "snapshot": null}}, "partial": false, "blocked": false}

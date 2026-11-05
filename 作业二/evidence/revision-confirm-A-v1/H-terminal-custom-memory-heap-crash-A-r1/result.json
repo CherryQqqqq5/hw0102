@@ -1,0 +1,8 @@
+{
+  "task": "custom-memory-heap-crash",
+  "wall_seconds": 282.6158048750367,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "custom-memory-heap-crash__QcEzdjM/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

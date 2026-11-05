@@ -1,0 +1,238 @@
+{
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 2
+  },
+  "slots": [
+    {
+      "task": "scikit-learn__scikit-learn-14496",
+      "arm": "RP",
+      "repeat": 1
+    },
+    {
+      "task": "scikit-learn__scikit-learn-14496",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "scikit-learn__scikit-learn-14496",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "python/tree-building",
+      "arm": "RP",
+      "repeat": 1
+    },
+    {
+      "task": "python/tree-building",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "python/tree-building",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "rust/doubly-linked-list",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "rust/doubly-linked-list",
+      "arm": "RP",
+      "repeat": 1
+    },
+    {
+      "task": "rust/doubly-linked-list",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "go/variable-length-quantity",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "go/variable-length-quantity",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "go/variable-length-quantity",
+      "arm": "RP",
+      "repeat": 1
+    },
+    {
+      "task": "fix-git",
+      "arm": "RP",
+      "repeat": 1
+    },
+    {
+      "task": "fix-git",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "fix-git",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "query-optimize",
+      "arm": "RP",
+      "repeat": 1
+    },
+    {
+      "task": "query-optimize",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "query-optimize",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "sparql-university",
+      "arm": "RP",
+      "repeat": 1
+    },
+    {
+      "task": "sparql-university",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "sparql-university",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "mailman",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "mailman",
+      "arm": "RP",
+      "repeat": 1
+    },
+    {
+      "task": "mailman",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "llm-inference-batching-scheduler",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "llm-inference-batching-scheduler",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "llm-inference-batching-scheduler",
+      "arm": "RP",
+      "repeat": 1
+    },
+    {
+      "task": "django__django-16082",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "django__django-16082",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "django__django-16082",
+      "arm": "RP",
+      "repeat": 1
+    },
+    {
+      "task": "cpp/linked-list",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "cpp/linked-list",
+      "arm": "RP",
+      "repeat": 1
+    },
+    {
+      "task": "cpp/linked-list",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "cpp/parallel-letter-frequency",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "cpp/parallel-letter-frequency",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "cpp/parallel-letter-frequency",
+      "arm": "RP",
+      "repeat": 1
+    },
+    {
+      "task": "django__django-13346",
+      "arm": "RP",
+      "repeat": 1
+    },
+    {
+      "task": "django__django-13346",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "django__django-13346",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "pydata__xarray-2905",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "pydata__xarray-2905",
+      "arm": "RP",
+      "repeat": 1
+    },
+    {
+      "task": "pydata__xarray-2905",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "django__django-15987",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "django__django-15987",
+      "arm": "B0",
+      "repeat": 1
+    },
+    {
+      "task": "django__django-15987",
+      "arm": "RP",
+      "repeat": 1
+    }
+  ]
+}

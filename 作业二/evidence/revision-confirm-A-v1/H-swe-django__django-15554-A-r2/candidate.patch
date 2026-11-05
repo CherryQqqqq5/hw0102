@@ -1,0 +1,54 @@
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index 54f3258eac..4feedcd589 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -1324,6 +1324,7 @@ class Query(BaseExpression):
+         allow_joins=True,
+         split_subq=True,
+         check_filterable=True,
++        reuse_with_filtered_relation=False,
+     ):
+         """
+         Build a WhereNode for a single filter clause but don't add it
+@@ -1404,6 +1405,7 @@ class Query(BaseExpression):
+                 alias,
+                 can_reuse=can_reuse,
+                 allow_many=allow_many,
++                reuse_with_filtered_relation=reuse_with_filtered_relation,
+             )
+ 
+             # Prevent iterator from being consumed by check_related_objects()
+@@ -1565,6 +1567,7 @@ class Query(BaseExpression):
+                     current_negated=current_negated,
+                     allow_joins=True,
+                     split_subq=False,
++                    reuse_with_filtered_relation=True,
+                 )
+             target_clause.add(child_clause, connector)
+         return target_clause
+@@ -1716,7 +1719,15 @@ class Query(BaseExpression):
+                 break
+         return path, final_field, targets, names[pos + 1 :]
+ 
+-    def setup_joins(self, names, opts, alias, can_reuse=None, allow_many=True):
++    def setup_joins(
++        self,
++        names,
++        opts,
++        alias,
++        can_reuse=None,
++        allow_many=True,
++        reuse_with_filtered_relation=False,
++    ):
+         """
+         Compute the necessary table joins for the passage through the fields
+         given in 'names'. 'opts' is the Options class for the current model
+@@ -1818,7 +1829,7 @@ class Query(BaseExpression):
+                 nullable,
+                 filtered_relation=filtered_relation,
+             )
+-            reuse = can_reuse if join.m2m else None
++            reuse = can_reuse if join.m2m or reuse_with_filtered_relation else None
+             alias = self.join(connection, reuse=reuse)
+             joins.append(alias)
+             if filtered_relation:

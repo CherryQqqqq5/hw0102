@@ -1,0 +1,10 @@
+{
+  "task": "cpp/parallel-letter-frequency",
+  "wall_seconds": 160.82071191701107,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 21.425268040969968
+}

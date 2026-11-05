@@ -1,0 +1,28 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "javascript/book-store",
+    "stratum": "javascript",
+    "group": "book-store",
+    "solution_files": [
+      "book-store.js"
+    ],
+    "test_files": [
+      "book-store.spec.js"
+    ],
+    "exclude": null,
+    "split": "H"
+  },
+  "phase": "formal",
+  "configuration": "B0",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 2
+  }
+}

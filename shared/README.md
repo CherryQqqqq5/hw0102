@@ -100,7 +100,36 @@ work/.venv/bin/python -m course_eval.matrix --manifest frozen-tasks.json \
 
 `--task` 可重复传入以重跑指定题目，`--repeat` 可选定留出集的某一轮。模型请求超时仍会由原题验收程序检查现有产物，汇总中的 `provider_timeouts` 和配对敏感性统计单列此类运行。
 
-首次运行的重试额度为 0。追加阶段新派发的运行将 `timeout_retries` 设为 2，仅在模型请求超时时重发同一请求，每题合计最多两个额外尝试。复跑单题时使用该题 `trial.json` 中的 `limits`。逐题表中 `model_calls` 是实际发送次数，`model_request_timeouts` 与 `model_request_retries` 分别计数。超时尝试可能没有服务报告的词元用量。
+首次运行的重试额度为 0。追加阶段新派发的运行将 `timeout_retries` 显式设为 2，仅在模型请求超时时重发同一请求，每题合计最多两个额外尝试。缺失 `timeout_retries` 字段统一表示 0，执行程序和统计程序采用相同约定。复跑单题时使用该题 `trial.json` 中的 `limits`，不套用当前环境的另一组额度。原 240 份配置应恢复为 109 份零重试、131 份两次重试。逐题表中 `model_calls` 是实际发送次数，`model_request_timeouts` 与 `model_request_retries` 分别计数。超时尝试可能没有服务报告的词元用量。
+
+| 原实验集合与配置 | 零重试 | 两次重试 |
+|---|---:|---:|
+| D/B0 | 30 | 0 |
+| D/F | 29 | 1 |
+| H/B0 | 12 | 33 |
+| H/BP | 12 | 33 |
+| H/A | 13 | 32 |
+| H/F | 13 | 32 |
+
+H 的 A/F 45 对额度均匹配。其余比较各有一对额度不同：D/B0–F 的 `rust/doubly-linked-list`、H/B0–F 首轮的 `scikit-learn__scikit-learn-10908`、H/BP–F 第二轮的 `tune-mjcf`。这三对双方均通过，只有 Rust 的 F 实际使用了一次重试。
+
+## 抽样范围与公开检查
+
+候选清单包含 SWE-bench 的 500 题、Terminal-Bench 的 89 题和 Aider 的 225 题。元数据及环境预检排除后，清单中未标记排除的候选分别为 447、53、222 题。正式抽样使用固定顺序、分层覆盖及任务组去重，分数来自被选中的 45 题。
+
+- SWE-bench 只保留 `<15 min fix`、`15 min - 1 hour` 两个修复时间标签，并要求官方镜像与 `pass_and_fail` 评分。Requests 仓库因参考补丁也出现证书相关回归而被排除。正式样本来自 Django、xarray、scikit-learn、pytest 四个仓库，偏向较短修复任务。
+- Terminal-Bench 限制为无图形处理器、每题不超过 2 个中央处理器核心和 3072 MB 内存、有预构建镜像、单容器、可离线评分。需运行时下载数据或模型、多容器、依赖无法离线准备、原参考解未通过评分的任务不纳入。
+- Aider 覆盖 C++、Go、Java、JavaScript、Python、Rust 六种语言。排除缺原始文件、不支持的语言、参考解离线编译失败及原始空白实现已经通过的题。D 各语言数量为 2、2、1、2、2、1；H 为前五种语言各一题。
+
+公开检查在正式 F/H 运行前固定。编制者为辅助实验开发的 Codex：依据公开题面、初始仓库可见测试和构建文件，逐题选定命令及依赖；脚本验证题面引用和路径后输出 JavaScript Object Notation（JSON，JavaScript 对象表示法）清单。SWE-bench 使用相关的既有公开回归测试，Terminal 使用交付路径和可执行/格式检查，Aider 使用原题可见测试。规则没有根据隐藏评分答案补入目标输出。该过程包含任务级人工指定式的规则设计，并非通用自动生成检查器；用户提供执行目标与审查意见，逐项测试及运行由程序完成。检查清单覆盖有限，语法或存在性通过不能保证任务语义正确。
+
+检查生成脚本保留逐题命令与依赖选择，可从相同原始材料重建清单。
+
+```sh
+work/.venv/bin/python scripts/build-public-checks.py --sources work/datasets \
+  --manifest frozen-tasks.json --out work/rebuilt-public-checks.json
+cmp work/rebuilt-public-checks.json '../作业二/configs/public-checks.json'
+```
 
 Harbor 的命令时限回归可独立复跑。普通和嵌套超时都应返回 124，后续命令检查超时的子进程未继续写文件。
 
@@ -133,4 +162,103 @@ for trial in "$PWD"/../作业{一,二}/evidence/formal/*/trial.json; do
 done
 python3 -m course_eval.summarize --manifest frozen-tasks.json \
   --runs work/combined-formal --out work/recomputed-hw2
+```
+
+原 240 份重试配置、三对不匹配位置和超时敏感性删除范围可独立检查。
+
+```sh
+work/.venv/bin/python -m course_eval.audit_repro --runs work/combined-formal \
+  --out work/reproduction-audit.json
+```
+
+## 新配置与重复确认
+
+R 与 RP 使用相同的公开检查、阶段性提示、预算反馈、依赖时效和提交控制。R 额外在第八个模型命令或过半交互时限后的首个命令结束时检查一次，并在提交时自动执行尚未通过或过期的公开检查。检查由程序真实执行，避免依赖模型精确复述命令。所有同步检查时间计入原来的软时限及总耗时。`tool_calls` 表示模型选择的命令数，`automatic_checks` 表示程序自动执行的公开检查数；依赖快照等内部操作不计入这两个字段。
+
+A 重复确认使用原 H 的全部十五题、每配置三次。其任务已参与配置选择，结果只用于已见任务的重复确认。B0/A 共90次，全部显式两次超时重试。
+
+```sh
+export COURSE_RUN_LIMITS='{"model_calls":24,"wall_seconds":600,"timeout_retries":2}'
+work/.venv/bin/python -m course_eval.revision --manifest frozen-tasks.json \
+  --sources work/datasets --checks '../作业二/configs/public-checks.json' \
+  --runs work/vmshare/revision-confirm-A-v1 --split H --arms B0 A --repeats 3 --workers 2
+work/.venv/bin/python -m course_eval.revision_summary --runs work/vmshare/revision-confirm-A-v1 \
+  --out work/revision-confirm-A-summary --reference B0 --treatment A
+```
+
+R 的开发比较选取六道既有诊断题：地址提取、查询优化、视频处理、批处理调度、pytest-7205 和 xarray-6599。该批次只有新 R，旧 B0/F 作为开发参考；其 `summary.json` 没有同期配对。开发结果按原题评分净增加一道通过后，执行后续三臂比较。十五题按 D 中各基准的 `order("revision/" + task_id)` 排序取前五题，使用相同预算，任务清单独立保存，原题评分保持不变。
+
+```sh
+work/.venv/bin/python -m course_eval.revision --manifest frozen-tasks.json \
+  --sources work/datasets --checks '../作业二/configs/public-checks.json' \
+  --runs work/vmshare/revision-matched-R-v1 --selection '../作业二/configs/revision-matched-tasks.json' \
+  --split D --arms B0 RP R --workers 2
+work/.venv/bin/python -m course_eval.revision_summary --runs work/vmshare/revision-matched-R-v1 \
+  --out work/revision-R-vs-B0 --reference B0 --treatment R
+work/.venv/bin/python -m course_eval.revision_summary --runs work/vmshare/revision-matched-R-v1 \
+  --out work/revision-R-vs-RP --reference RP --treatment R
+work/.venv/bin/python -m course_eval.revision_summary --runs work/vmshare/revision-matched-R-v1 \
+  --out work/revision-RP-vs-B0 --reference B0 --treatment RP
+```
+
+工程回归不消耗模型请求，在真实 Aider 容器中检查旧配置恢复和自动验证的0/1/0退出码。
+
+```sh
+work/.venv/bin/python -m course_eval.check_revision --runs work/combined-formal \
+  --sources work/datasets --out work/vmshare/revision-engineering
+```
+
+新增记录独立放在各批次目录，批次内的 `run-plan.json` 固定完整位置。用 `revision_summary` 对仓库中的相应批次目录复算，无需访问模型或容器。开发记录、选择配置后的确认和原始留出实验分别统计，不合并为一个独立未见样本分母。
+
+## JSON Lines 检查修复与成组恢复
+
+首版三臂实验的原题成绩有效，完整保存在 `revision-matched-R-v1/`。日志复核发现调度镜像的 Python 3.13.7 对合法文件执行 `python3 -m json.tool --json-lines <file>` 时返回 `I/O operation on closed file`。独立真实容器回归用合成合法记录和非法记录验证了修复，见[回归证据](../作业二/evidence/jsonlines-engineering-v2/)。该回归没有模型调用，不计入正式题目数量。
+
+修复使用标准库 `json.loads` 逐行解析；[第二版检查清单](../作业二/configs/public-checks-v2.json)仅改变调度题的命令，其余44项与首版相同。生成脚本默认重建历史首版，添加以下开关重建第二版。
+
+```sh
+work/.venv/bin/python scripts/build-public-checks.py --sources work/datasets \
+  --manifest frozen-tasks.json --out work/public-checks-v2.json --repair-json-lines
+cmp work/public-checks-v2.json '../作业二/configs/public-checks-v2.json'
+work/.venv/bin/python -m course_eval.check_jsonlines --out work/vmshare/jsonlines-engineering
+```
+
+恢复在读取新结果之前固定为调度题 B0、RP、R 三配置成组运行，消耗预留机械恢复额度3次，新增总数为144次。模型、预算、Agent实现和原题评分不变。修订后的十五题统计统一用新三条替换旧三条，其他14题复用检查命令未变化的原记录；原45次结果完整单列。没有按新旧得分挑选版本。
+
+```sh
+work/.venv/bin/python -m course_eval.revision --manifest frozen-tasks.json \
+  --sources work/datasets --checks '../作业二/configs/public-checks-v2.json' \
+  --runs work/vmshare/revision-jsonlines-recovery-v2 --split D \
+  --task llm-inference-batching-scheduler --arms B0 RP R --workers 2
+work/.venv/bin/python -m course_eval.revision_summary \
+  --runs '../作业二/evidence/revision-matched-R-v1' \
+  --replace-runs '../作业二/evidence/revision-jsonlines-recovery-v2' \
+  --out work/recomputed-matched-v2 --reference B0 --treatment RP
+```
+
+本次旧批45条完整，`--replace-runs` 要求新记录与受影响任务的全部旧运行编号严格一致、全部已评分，且后端、模型与预算一致；否则终止统计。将 `--reference/--treatment` 换成 `B0/R` 或 `RP/R` 可复算另外两组比较。修订表的 `source_batch` 与 `run_id` 共同定位真实记录，[修订汇总](../作业二/evidence/revision-matched-R-v2/)只保存统计，不重复复制原始轨迹。确认和恢复队列各使用两路并发，全局最多四个任务。
+
+RP 的主要正向结果是在读取首轮三臂评分后选定的探索分析。修订比较沿用十四题，不是该选择的独立确认。调度题补跑包含新的模型采样和不同的请求超时情况，不能把新旧成绩差单独归因为解析命令修复。
+
+以下命令逐条核对保存的原题评分与汇总成绩，并检查新增批次是否覆盖完整计划；它读取评分证据，不重新执行模型或评分器。
+
+```sh
+python3 -m course_eval.verify_scores --runs work/combined-formal \
+  '../作业二/evidence/revision-pilot-v1' \
+  '../作业二/evidence/revision-confirm-A-v1' \
+  '../作业二/evidence/revision-matched-R-v1' \
+  '../作业二/evidence/revision-jsonlines-recovery-v2'
+```
+
+累计新增用量包含开发6次、确认90次、首轮三臂45次和检查恢复3次，共144条已评分运行。另有确认第三轮 tune-mjcf 的 A/B0 因同一时段的服务域名解析失败而未评分，归档后按相同条件补跑。因此总计146次尝试，保留被替换的旧三条及两条网络失败成本；修订比较表只包含选入比较的45条。下列命令从可见模型日志复算累计请求、响应、词元、超时和自动检查次数。
+
+```sh
+python3 -m course_eval.revision_usage --runs \
+  '../作业二/evidence/revision-pilot-v1' \
+  '../作业二/evidence/revision-confirm-A-v1' \
+  '../作业二/evidence/revision-matched-R-v1' \
+  '../作业二/evidence/revision-jsonlines-recovery-v2' \
+  '../作业二/evidence/revision-confirm-provider-recovery-v1' \
+  --out work/recomputed-revision-usage.json
+cmp work/recomputed-revision-usage.json '../作业二/evidence/revision-usage.json'
 ```

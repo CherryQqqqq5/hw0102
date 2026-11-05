@@ -1,0 +1,8 @@
+{
+  "task": "query-optimize",
+  "wall_seconds": 901.6008986249799,
+  "scoreable": true,
+  "passed": false,
+  "harbor_result": "query-optimize__VMDhGuk/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

@@ -1,0 +1,25 @@
+{
+  "task": {
+    "benchmark": "swe",
+    "id": "django__django-15987",
+    "stratum": "django/django",
+    "group": "django__django-15987",
+    "difficulty": "<15 min fix",
+    "image": "swebench/sweb.eval.x86_64.django_1776_django-15987:latest",
+    "base_commit": "7e6b537f5b92be152779fc492bb908d27fe7c52a",
+    "exclude": null,
+    "split": "D"
+  },
+  "phase": "formal",
+  "configuration": "B0",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 2
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task": "constraints-scheduling",
+  "wall_seconds": 158.33542445802595,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "constraints-scheduling__VuVNNqU/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

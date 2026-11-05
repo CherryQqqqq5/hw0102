@@ -1,0 +1,46 @@
+2026-11-05 11:47:29,882 - INFO - Creating container for django__django-12050...
+2026-11-05 11:47:29,944 - INFO - Container for django__django-12050 created: d143a08e488df5dc053abce0dc4351ec09f3e5472ddd782d41255045fdd76572
+2026-11-05 11:47:30,078 - INFO - Container for django__django-12050 started: d143a08e488df5dc053abce0dc4351ec09f3e5472ddd782d41255045fdd76572
+2026-11-05 11:47:30,078 - INFO - Intermediate patch for django__django-12050 written to [本机路径] now applying to container...
+2026-11-05 11:47:30,381 - INFO - >>>>> Applied Patch:
+Checking patch django/db/models/sql/query.py...
+Applied patch django/db/models/sql/query.py cleanly.
+
+2026-11-05 11:47:32,172 - INFO - Git diff before:
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index ea51912e8b..90475d6fb9 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -1073,7 +1073,7 @@ class Query(BaseExpression):
+                         ))
+                 else:
+                     resolved_values.append(sub_value)
+-            value = tuple(resolved_values)
++            value = type(value)(resolved_values)
+         return value
+ 
+     def solve_lookup_type(self, lookup):
+2026-11-05 11:47:32,173 - INFO - Eval script for django__django-12050 written to [本机路径] copying to container...
+2026-11-05 11:48:08,129 - INFO - Test runtime: 35.86 seconds
+2026-11-05 11:48:08,131 - INFO - Test output for django__django-12050 written to [本机路径]
+2026-11-05 11:48:08,274 - INFO - Git diff after:
+diff --git a/django/db/models/sql/query.py b/django/db/models/sql/query.py
+index ea51912e8b..90475d6fb9 100644
+--- a/django/db/models/sql/query.py
++++ b/django/db/models/sql/query.py
+@@ -1073,7 +1073,7 @@ class Query(BaseExpression):
+                         ))
+                 else:
+                     resolved_values.append(sub_value)
+-            value = tuple(resolved_values)
++            value = type(value)(resolved_values)
+         return value
+ 
+     def solve_lookup_type(self, lookup):
+2026-11-05 11:48:08,274 - INFO - Grading answer for django__django-12050...
+2026-11-05 11:48:08,278 - INFO - report: {'django__django-12050': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['test_iterable_lookup_value (queries.test_query.TestQuery)'], 'failure': []}, 'PASS_TO_PASS': {'success': ['test_clone_select_related (queries.test_query.TestQuery)', 'test_complex_query (queries.test_query.TestQuery)', 'test_foreign_key (queries.test_query.TestQuery)', 'test_foreign_key_exclusive (queries.test_query.TestQuery)', 'test_foreign_key_f (queries.test_query.TestQuery)', 'test_multiple_fields (queries.test_query.TestQuery)', 'test_negated_nullable (queries.test_query.TestQuery)', 'test_simple_query (queries.test_query.TestQuery)', 'test_simplecol_query (queries.test_query.TestQuery)', 'test_transform (queries.test_query.TestQuery)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-12050: resolved: True
+2026-11-05 11:48:08,278 - INFO - Attempting to stop container sweb.eval.django__django-12050.H-swe-django__django-12050-A-r1...
+2026-11-05 11:48:23,753 - INFO - Container sweb.eval.django__django-12050.H-swe-django__django-12050-A-r1 stopped successfully.
+2026-11-05 11:48:23,754 - INFO - Attempting to remove container sweb.eval.django__django-12050.H-swe-django__django-12050-A-r1...
+2026-11-05 11:48:23,904 - INFO - Container sweb.eval.django__django-12050.H-swe-django__django-12050-A-r1 removed successfully.

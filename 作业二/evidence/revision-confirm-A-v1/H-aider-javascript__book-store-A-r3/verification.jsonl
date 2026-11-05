@@ -1,0 +1,2 @@
+{"event": "public_check", "time": 1793856682.7046661, "check": {"check_id": "public-suite", "source_quote": "Original tests are available.", "command": "/aider/benchmark/npm-test.sh", "dependencies": ["book-store.js", "book-store.spec.js"], "deliverables": []}, "before": null, "after": null, "state": "passed", "returncode": 0, "snapshot": null}
+{"event": "submission_check", "time": 1793856689.943517, "state": {"public-suite": {"state": "passed", "returncode": 0, "snapshot": null}}, "partial": false, "blocked": false}

@@ -1,0 +1,8 @@
+{
+  "task": "fix-git",
+  "wall_seconds": 198.62244762503542,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "fix-git__d8vJmgn/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

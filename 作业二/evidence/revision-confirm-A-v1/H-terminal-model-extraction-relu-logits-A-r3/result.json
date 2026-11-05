@@ -1,0 +1,8 @@
+{
+  "task": "model-extraction-relu-logits",
+  "wall_seconds": 357.72505329106934,
+  "scoreable": true,
+  "passed": false,
+  "harbor_result": "model-extraction-relu-logits__SybuZ5f/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

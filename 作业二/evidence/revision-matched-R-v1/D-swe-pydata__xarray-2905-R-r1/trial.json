@@ -1,0 +1,25 @@
+{
+  "task": {
+    "benchmark": "swe",
+    "id": "pydata__xarray-2905",
+    "stratum": "pydata/xarray",
+    "group": "pydata__xarray-2905",
+    "difficulty": "15 min - 1 hour",
+    "image": "swebench/sweb.eval.x86_64.pydata_1776_xarray-2905:latest",
+    "base_commit": "7c4e2ac83f7b4306296ff9b7b51aaf016e5ad614",
+    "exclude": null,
+    "split": "D"
+  },
+  "phase": "formal",
+  "configuration": "R",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 2
+  }
+}

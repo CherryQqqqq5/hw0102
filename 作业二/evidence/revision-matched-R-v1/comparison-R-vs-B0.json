@@ -1,0 +1,698 @@
+{
+  "plan": {
+    "model": "deepseek-v4.1-flash",
+    "backend": "codebuddy",
+    "limits": {
+      "model_calls": 24,
+      "wall_seconds": 600,
+      "command_seconds": 60,
+      "max_output_tokens": 4096,
+      "timeout_retries": 2
+    },
+    "slots": [
+      {
+        "task": "scikit-learn__scikit-learn-14496",
+        "arm": "RP",
+        "repeat": 1
+      },
+      {
+        "task": "scikit-learn__scikit-learn-14496",
+        "arm": "B0",
+        "repeat": 1
+      },
+      {
+        "task": "scikit-learn__scikit-learn-14496",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "python/tree-building",
+        "arm": "RP",
+        "repeat": 1
+      },
+      {
+        "task": "python/tree-building",
+        "arm": "B0",
+        "repeat": 1
+      },
+      {
+        "task": "python/tree-building",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "rust/doubly-linked-list",
+        "arm": "B0",
+        "repeat": 1
+      },
+      {
+        "task": "rust/doubly-linked-list",
+        "arm": "RP",
+        "repeat": 1
+      },
+      {
+        "task": "rust/doubly-linked-list",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "go/variable-length-quantity",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "go/variable-length-quantity",
+        "arm": "B0",
+        "repeat": 1
+      },
+      {
+        "task": "go/variable-length-quantity",
+        "arm": "RP",
+        "repeat": 1
+      },
+      {
+        "task": "fix-git",
+        "arm": "RP",
+        "repeat": 1
+      },
+      {
+        "task": "fix-git",
+        "arm": "B0",
+        "repeat": 1
+      },
+      {
+        "task": "fix-git",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "query-optimize",
+        "arm": "RP",
+        "repeat": 1
+      },
+      {
+        "task": "query-optimize",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "query-optimize",
+        "arm": "B0",
+        "repeat": 1
+      },
+      {
+        "task": "sparql-university",
+        "arm": "RP",
+        "repeat": 1
+      },
+      {
+        "task": "sparql-university",
+        "arm": "B0",
+        "repeat": 1
+      },
+      {
+        "task": "sparql-university",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "mailman",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "mailman",
+        "arm": "RP",
+        "repeat": 1
+      },
+      {
+        "task": "mailman",
+        "arm": "B0",
+        "repeat": 1
+      },
+      {
+        "task": "llm-inference-batching-scheduler",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "llm-inference-batching-scheduler",
+        "arm": "B0",
+        "repeat": 1
+      },
+      {
+        "task": "llm-inference-batching-scheduler",
+        "arm": "RP",
+        "repeat": 1
+      },
+      {
+        "task": "django__django-16082",
+        "arm": "B0",
+        "repeat": 1
+      },
+      {
+        "task": "django__django-16082",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "django__django-16082",
+        "arm": "RP",
+        "repeat": 1
+      },
+      {
+        "task": "cpp/linked-list",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "cpp/linked-list",
+        "arm": "RP",
+        "repeat": 1
+      },
+      {
+        "task": "cpp/linked-list",
+        "arm": "B0",
+        "repeat": 1
+      },
+      {
+        "task": "cpp/parallel-letter-frequency",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "cpp/parallel-letter-frequency",
+        "arm": "B0",
+        "repeat": 1
+      },
+      {
+        "task": "cpp/parallel-letter-frequency",
+        "arm": "RP",
+        "repeat": 1
+      },
+      {
+        "task": "django__django-13346",
+        "arm": "RP",
+        "repeat": 1
+      },
+      {
+        "task": "django__django-13346",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "django__django-13346",
+        "arm": "B0",
+        "repeat": 1
+      },
+      {
+        "task": "pydata__xarray-2905",
+        "arm": "B0",
+        "repeat": 1
+      },
+      {
+        "task": "pydata__xarray-2905",
+        "arm": "RP",
+        "repeat": 1
+      },
+      {
+        "task": "pydata__xarray-2905",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "django__django-15987",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "django__django-15987",
+        "arm": "B0",
+        "repeat": 1
+      },
+      {
+        "task": "django__django-15987",
+        "arm": "RP",
+        "repeat": 1
+      }
+    ]
+  },
+  "coverage": [
+    {
+      "arm": "B0",
+      "planned": 15,
+      "started": 15,
+      "scored": 15,
+      "passed": 14,
+      "wall_median_seconds": 250.10543104098178,
+      "model_calls": 170,
+      "model_responses": 170,
+      "model_request_retries": 0,
+      "model_request_timeouts": 0,
+      "input_tokens": 3025507,
+      "output_tokens": 434686,
+      "tool_calls": 170,
+      "automatic_checks": 0,
+      "automatic_failures": 0
+    },
+    {
+      "arm": "R",
+      "planned": 15,
+      "started": 15,
+      "scored": 15,
+      "passed": 14,
+      "wall_median_seconds": 198.230374207953,
+      "model_calls": 157,
+      "model_responses": 155,
+      "model_request_retries": 2,
+      "model_request_timeouts": 2,
+      "input_tokens": 3152959,
+      "output_tokens": 321088,
+      "tool_calls": 155,
+      "automatic_checks": 15,
+      "automatic_failures": 1
+    },
+    {
+      "arm": "RP",
+      "planned": 15,
+      "started": 15,
+      "scored": 15,
+      "passed": 15,
+      "wall_median_seconds": 358.96926316595636,
+      "model_calls": 215,
+      "model_responses": 215,
+      "model_request_retries": 0,
+      "model_request_timeouts": 0,
+      "input_tokens": 5042256,
+      "output_tokens": 477026,
+      "tool_calls": 215,
+      "automatic_checks": 0,
+      "automatic_failures": 0
+    }
+  ],
+  "comparison": {
+    "split": "D",
+    "reference": "B0",
+    "treatment": "R",
+    "paired_tasks": 15,
+    "changes": {
+      "both_success": 13,
+      "loss": 1,
+      "gain": 1
+    },
+    "delta_percentage_points": 0,
+    "relative_change_percent": 0.0,
+    "pairs_without_provider_timeout": 14,
+    "delta_without_provider_timeout_percentage_points": 7.142857142857142,
+    "bootstrap_95_interval_percentage_points": [
+      -20.0,
+      20.0
+    ],
+    "pairs": [
+      {
+        "benchmark": "aider",
+        "task": "cpp/linked-list",
+        "reference": [
+          1
+        ],
+        "treatment": [
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "aider",
+        "task": "cpp/parallel-letter-frequency",
+        "reference": [
+          1
+        ],
+        "treatment": [
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "aider",
+        "task": "go/variable-length-quantity",
+        "reference": [
+          1
+        ],
+        "treatment": [
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "aider",
+        "task": "python/tree-building",
+        "reference": [
+          1
+        ],
+        "treatment": [
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "aider",
+        "task": "rust/doubly-linked-list",
+        "reference": [
+          1
+        ],
+        "treatment": [
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "swe",
+        "task": "django__django-13346",
+        "reference": [
+          1
+        ],
+        "treatment": [
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "swe",
+        "task": "django__django-15987",
+        "reference": [
+          1
+        ],
+        "treatment": [
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "swe",
+        "task": "django__django-16082",
+        "reference": [
+          1
+        ],
+        "treatment": [
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "swe",
+        "task": "pydata__xarray-2905",
+        "reference": [
+          1
+        ],
+        "treatment": [
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "swe",
+        "task": "scikit-learn__scikit-learn-14496",
+        "reference": [
+          1
+        ],
+        "treatment": [
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "terminal",
+        "task": "fix-git",
+        "reference": [
+          1
+        ],
+        "treatment": [
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "terminal",
+        "task": "llm-inference-batching-scheduler",
+        "reference": [
+          1
+        ],
+        "treatment": [
+          0
+        ],
+        "change": -1,
+        "provider_timeout": true
+      },
+      {
+        "benchmark": "terminal",
+        "task": "mailman",
+        "reference": [
+          1
+        ],
+        "treatment": [
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "terminal",
+        "task": "query-optimize",
+        "reference": [
+          0
+        ],
+        "treatment": [
+          1
+        ],
+        "change": 1,
+        "provider_timeout": false
+      },
+      {
+        "benchmark": "terminal",
+        "task": "sparql-university",
+        "reference": [
+          1
+        ],
+        "treatment": [
+          1
+        ],
+        "change": 0,
+        "provider_timeout": false
+      }
+    ]
+  },
+  "by_repeat": [
+    {
+      "split": "D",
+      "reference": "B0",
+      "treatment": "R",
+      "paired_tasks": 15,
+      "changes": {
+        "both_success": 13,
+        "loss": 1,
+        "gain": 1
+      },
+      "delta_percentage_points": 0,
+      "relative_change_percent": 0.0,
+      "pairs_without_provider_timeout": 14,
+      "delta_without_provider_timeout_percentage_points": 7.142857142857142,
+      "bootstrap_95_interval_percentage_points": [
+        -20.0,
+        20.0
+      ],
+      "pairs": [
+        {
+          "benchmark": "aider",
+          "task": "cpp/linked-list",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "cpp/parallel-letter-frequency",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "go/variable-length-quantity",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "python/tree-building",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "aider",
+          "task": "rust/doubly-linked-list",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-13346",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-15987",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "django__django-16082",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "pydata__xarray-2905",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "swe",
+          "task": "scikit-learn__scikit-learn-14496",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "fix-git",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "llm-inference-batching-scheduler",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            0
+          ],
+          "change": -1,
+          "provider_timeout": true
+        },
+        {
+          "benchmark": "terminal",
+          "task": "mailman",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "query-optimize",
+          "reference": [
+            0
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 1,
+          "provider_timeout": false
+        },
+        {
+          "benchmark": "terminal",
+          "task": "sparql-university",
+          "reference": [
+            1
+          ],
+          "treatment": [
+            1
+          ],
+          "change": 0,
+          "provider_timeout": false
+        }
+      ],
+      "repeat": 1
+    }
+  ]
+}

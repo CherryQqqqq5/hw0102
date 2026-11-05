@@ -1,0 +1,10 @@
+{
+  "task": "rust/doubly-linked-list",
+  "wall_seconds": 251.67928095906973,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 4.245343458955176
+}

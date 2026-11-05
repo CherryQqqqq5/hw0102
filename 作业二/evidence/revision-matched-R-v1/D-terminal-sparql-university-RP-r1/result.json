@@ -1,0 +1,8 @@
+{
+  "task": "sparql-university",
+  "wall_seconds": 545.0499535830459,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "sparql-university__ynC5ov3/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

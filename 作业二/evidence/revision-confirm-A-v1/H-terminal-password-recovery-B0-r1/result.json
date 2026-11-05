@@ -1,0 +1,8 @@
+{
+  "task": "password-recovery",
+  "wall_seconds": 115.77371974999551,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "password-recovery__tv2jHh6/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

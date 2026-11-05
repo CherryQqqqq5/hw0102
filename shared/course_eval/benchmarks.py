@@ -242,7 +242,7 @@ def main() -> None:
     parser.add_argument("--sources", required=True, type=Path)
     parser.add_argument("--run-dir", required=True, type=Path)
     parser.add_argument("--id", required=True)
-    parser.add_argument("--configuration", choices=("B0", "BP", "A", "F"), default="B0")
+    parser.add_argument("--configuration", choices=("B0", "BP", "A", "F", "R", "RP"), default="B0")
     parser.add_argument("--checks", type=Path, help="Task-visible check plans for repository and terminal tasks")
     parser.add_argument("--pilot", action="store_true")
     args = parser.parse_args()

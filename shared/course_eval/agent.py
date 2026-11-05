@@ -34,7 +34,7 @@ class RunLimits(BaseModel):
     wall_seconds: int = Field(default=600, gt=0)
     command_seconds: int = Field(default=60, gt=0)
     max_output_tokens: int = Field(default=4096, gt=0)
-    timeout_retries: int = Field(default=2, ge=0, le=2)
+    timeout_retries: int = Field(default=0, ge=0, le=2)
 
 
 class ProviderTimeout(InterruptAgentFlow):
@@ -215,12 +215,41 @@ class CodeBuddyModel(ModelFormatting):
 
 
 class TracedEnvironment:
-    def __init__(self, target, run_dir: Path, limits: RunLimits, verification: VerificationState | None = None):
+    def __init__(self, target, run_dir: Path, limits: RunLimits, verification: VerificationState | None = None,
+                 *, automatic_checks: bool = False, budget_feedback: bool = False):
         self.target = target
         self.run_dir = run_dir
         self.limits = limits
         self.verification = verification
         self.commands_executed = 0
+        self.automatic_checks = automatic_checks
+        self.budget_feedback = budget_feedback
+        self.started = time.monotonic()
+        self.midpoint_checked = False
+
+    def run_public_checks(self, reason: str) -> str:
+        results = self.verification.inspect(self.target, self.limits.command_seconds)
+        messages = []
+        for check_id, record in results.items():
+            if record.state == "passed":
+                continue
+            check = self.verification.checks[check_id]
+            before = self.verification.snapshot(check, self.target, self.limits.command_seconds)
+            output = self.target.exec(check.command, timeout=self.limits.command_seconds)
+            after = self.verification.snapshot(check, self.target, self.limits.command_seconds)
+            observed = self.verification.observe(check, before, after, output["returncode"])
+            append_event(self.run_dir / "verification.jsonl", "automatic_public_check", reason=reason,
+                         step=self.commands_executed, check=asdict(check), before=before, after=after,
+                         evidence=asdict(observed), **output)
+            messages.append(f"Public check {check_id}: {observed.state}, exit {output['returncode']}\n"
+                            + output["stdout"] + output["stderr"])
+        return "\n".join(messages)
+
+    def budget_message(self) -> str:
+        seconds = max(0, self.limits.wall_seconds - (time.monotonic() - self.started))
+        remaining = max(0, self.limits.model_calls - self.commands_executed)
+        return (f"\nExecution budget: approximately {seconds:.0f} seconds and {remaining} decisions remaining. "
+                "Save runnable changes at the required paths; use remaining time to validate task semantics and repair failures.")
 
     def get_template_vars(self) -> dict:
         return self.target.system_info
@@ -262,6 +291,7 @@ class TracedEnvironment:
         if output["returncode"] == 0 and lines and lines[0].strip() == SUBMIT:
             submission = "".join(lines[1:])
             if self.verification:
+                automatic_report = self.run_public_checks("submission") if self.automatic_checks else ""
                 evidence = self.verification.inspect(self.target, self.limits.command_seconds)
                 unmet = [check_id for check_id, result in evidence.items() if result.state != "passed"]
                 partial = submission.startswith("PARTIAL:") and bool(submission.removeprefix("PARTIAL:").strip())
@@ -273,27 +303,36 @@ class TracedEnvironment:
                         f"{key}: {evidence[key].state}; run `{self.verification.checks[key].command}`"
                         for key in unmet
                     )
-                    return {"output": "Submission paused. Verify the current artifact:\n" + diagnostics
+                    return {"output": automatic_report + "\nSubmission paused. Verify the current artifact:\n" + diagnostics
                             + "\nFor a partial result, put PARTIAL: followed by the unresolved issues on the next line.",
                             "returncode": 2, "exception_info": ""}
             raise Submitted({"role": "exit", "content": submission,
                              "extra": {"exit_status": "Submitted", "submission": submission}})
         reminder = self.deliverable_reminder()
+        if self.automatic_checks and not self.midpoint_checked and (
+            self.commands_executed >= 8 or time.monotonic() - self.started >= self.limits.wall_seconds / 2
+        ):
+            self.midpoint_checked = True
+            reminder += "\n" + self.run_public_checks("midpoint")
+        if self.budget_feedback:
+            reminder += self.budget_message()
         return {"output": output["stdout"] + output["stderr"] + reminder, "returncode": output["returncode"],
                 "exception_info": output.get("exception_info", "")}
 
 
 def run_baseline(task: str, target, directory: Path, limits: RunLimits, *,
                  configuration: str = "B0", checks: tuple[PublicCheck, ...] = ()) -> dict:
-    if configuration not in {"B0", "BP", "A", "F"}:
+    if configuration not in {"B0", "BP", "A", "F", "R", "RP"}:
         raise ValueError(f"Unknown configuration: {configuration}")
     for check in checks:
         check.validate(task)
     if configuration != "B0" and not checks:
         raise ValueError("A treatment trial requires a task-visible check plan")
     config = get_config_from_spec(builtin_config_dir / "mini.yaml")
-    state = VerificationState(checks, invalidate=configuration == "F") if configuration in {"A", "F"} else None
-    env = TracedEnvironment(target, directory, limits, state)
+    state = (VerificationState(checks, invalidate=configuration in {"F", "R", "RP"})
+             if configuration in {"A", "F", "R", "RP"} else None)
+    env = TracedEnvironment(target, directory, limits, state, automatic_checks=configuration == "R",
+                            budget_feedback=configuration in {"R", "RP"})
     if configuration != "B0":
         checks_text = "\n".join(f"- {check.source_quote} Execute `{check.command}` as its own command." for check in checks)
         config["agent"]["instance_template"] += (
@@ -307,6 +346,15 @@ def run_baseline(task: str, target, directory: Path, limits: RunLimits, *,
                 f"\nBy shell step {DELIVERABLE_CHECKPOINT}, check whether these required deliverables exist and are nonempty: "
                 + ", ".join(deliverables) + ". Save a draft before further exploration if any are missing."
             )
+    if configuration in {"R", "RP"}:
+        config["agent"]["instance_template"] += (
+            "\nWork within the stated execution budget. Produce a runnable candidate early, then improve it. "
+            "Derive a small executable reproducer from the task requirements and verify the requested behavior, "
+            "including boundary conditions and preserved behavior. A syntax check or a test that repeats your "
+            "implementation's assumptions cannot establish semantic correctness. Reserve time to run and repair "
+            "tests; leave the best validated runnable candidate in the required files before time expires. "
+            "If a compound shell command contains a failing step, diagnose that failure even when its final exit code is zero."
+        )
     backend = {"course": CourseModel, "codebuddy": CodeBuddyModel}[os.environ["COURSE_MODEL_BACKEND"]]
     model = backend(directory, limits, config["model"]["observation_template"])
     agent = DefaultAgent(model, env, system_template=config["agent"]["system_template"],

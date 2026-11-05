@@ -1,0 +1,17 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.12, pytest-8.4.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 6 items
+
+../tests/test_outputs.py ......                                          [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_protected_files_not_modified
+PASSED ../tests/test_outputs.py::test_program_compiles_debug
+PASSED ../tests/test_outputs.py::test_program_compiles_release
+PASSED ../tests/test_outputs.py::test_debug_build_runs_without_crash
+PASSED ../tests/test_outputs.py::test_release_build_runs_without_crash
+PASSED ../tests/test_outputs.py::test_no_memory_leaks_with_valgrind
+============================== 6 passed in 27.15s ==============================

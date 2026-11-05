@@ -1,0 +1,8 @@
+{
+  "task": "mailman",
+  "wall_seconds": 639.2630926250713,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "mailman__ZMpjW9i/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

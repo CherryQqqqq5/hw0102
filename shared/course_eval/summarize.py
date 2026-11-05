@@ -103,7 +103,8 @@ def read_runs(root: Path) -> list[dict]:
     return rows
 
 
-def compare(rows: list[dict], split: str, reference: str, treatment: str, repetitions: int) -> dict:
+def compare(rows: list[dict], split: str, reference: str, treatment: str, repetitions: int,
+            *, expected_tasks: int | None = None) -> dict:
     scores = defaultdict(list)
     interrupted = set()
     for row in rows:
@@ -130,7 +131,7 @@ def compare(rows: list[dict], split: str, reference: str, treatment: str, repeti
             counts["both_success" if count == repetitions else "both_failure" if count == 0 else "tie_partial"] += 1
         strata[item["benchmark"]].append(change)
     interval = None
-    expected = 30 if split == "D" else 15
+    expected = expected_tasks if expected_tasks is not None else (30 if split == "D" else 15)
     if len(paired) == expected:
         # 按基准分层重采样题目，保留同题的配置配对和重复结构。
         rng = Random(20261104)

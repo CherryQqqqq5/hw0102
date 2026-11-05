@@ -1,0 +1,51 @@
+{
+  "engineering_check": "pass",
+  "formal_benchmark_trial": false,
+  "model_requests": 0,
+  "fixture": "two synthetic JSON Lines records, then one invalid record",
+  "image": "alexgshaw/llm-inference-batching-scheduler:20251031",
+  "records": [
+    {
+      "name": "runtime",
+      "command": "python3 --version",
+      "stdout": "Python 3.13.7\n",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "name": "write-valid",
+      "command": "printf '%s' '{\"x\":1}\n{\"x\":2}\n' > /app/course-jsonlines-probe.jsonl",
+      "stdout": "",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "name": "old-valid",
+      "command": "python3 -m json.tool --json-lines /app/course-jsonlines-probe.jsonl >/dev/null",
+      "stdout": "",
+      "stderr": "I/O operation on closed file.\n",
+      "returncode": 1
+    },
+    {
+      "name": "repaired-valid",
+      "command": "python3 -c 'import json,sys; from pathlib import Path; [json.loads(line) for name in sys.argv[1:] for line in Path(name).read_text().splitlines()]' /app/course-jsonlines-probe.jsonl",
+      "stdout": "",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "name": "write-invalid",
+      "command": "printf '%s' '{\"x\":1}\nnot-json\n' > /app/course-jsonlines-probe.jsonl",
+      "stdout": "",
+      "stderr": "",
+      "returncode": 0
+    },
+    {
+      "name": "repaired-invalid",
+      "command": "python3 -c 'import json,sys; from pathlib import Path; [json.loads(line) for name in sys.argv[1:] for line in Path(name).read_text().splitlines()]' /app/course-jsonlines-probe.jsonl",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import json,sys; from pathlib import Path; [json.loads(line) for name in sys.argv[1:] for line in Path(name).read_text().splitlines()]\n                                                ~~~~~~~~~~^^^^^^\n  File \"/usr/local/lib/python3.13/json/__init__.py\", line 346, in loads\n    return _default_decoder.decode(s)\n           ~~~~~~~~~~~~~~~~~~~~~~~^^^\n  File \"/usr/local/lib/python3.13/json/decoder.py\", line 345, in decode\n    obj, end = self.raw_decode(s, idx=_w(s, 0).end())\n               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/json/decoder.py\", line 363, in raw_decode\n    raise JSONDecodeError(\"Expecting value\", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n",
+      "returncode": 1
+    }
+  ]
+}

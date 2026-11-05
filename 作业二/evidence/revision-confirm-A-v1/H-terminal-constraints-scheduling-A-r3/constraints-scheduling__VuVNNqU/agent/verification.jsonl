@@ -1,0 +1,5 @@
+{"event": "submission_check", "time": 1793856796.6272829, "state": {"public-artifact": {"state": "pending", "returncode": null, "snapshot": null}}, "partial": false, "blocked": true}
+{"event": "deliverable_checkpoint", "time": 1793856804.348665, "step": 6, "missing": [], "stdout": "", "stderr": "", "returncode": 0}
+{"event": "submission_check", "time": 1793856811.951287, "state": {"public-artifact": {"state": "pending", "returncode": null, "snapshot": null}}, "partial": false, "blocked": true}
+{"event": "public_check", "time": 1793856824.997233, "check": {"check_id": "public-artifact", "source_quote": "Create `/app/meeting_scheduled.ics`", "command": "test -s /app/meeting_scheduled.ics && grep -q BEGIN:VEVENT /app/meeting_scheduled.ics", "dependencies": ["/app/meeting_scheduled.ics"], "deliverables": ["/app/meeting_scheduled.ics"]}, "before": null, "after": null, "state": "passed", "returncode": 0, "snapshot": null}
+{"event": "submission_check", "time": 1793856833.161782, "state": {"public-artifact": {"state": "passed", "returncode": 0, "snapshot": null}}, "partial": false, "blocked": false}

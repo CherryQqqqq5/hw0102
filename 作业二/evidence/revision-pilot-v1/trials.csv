@@ -1,0 +1,7 @@
+run_id,benchmark,split,task,arm,repeat,request_retry_allowance,scoreable,passed,exit_status,declared_complete,wall_seconds,grader_seconds,model_calls,model_responses,model_request_retries,model_request_timeouts,provider_turns,tool_calls,input_tokens,output_tokens,cached_input_tokens,submission_check_opportunities,stale_at_submission,deliverable_checkpoints,deliverable_reminders,provider_reported_cost_usd,automatic_checks,automatic_failures
+D-swe-pydata__xarray-6599-R-r1,swe,D,pydata__xarray-6599,R,1,2,True,False,TimeExceeded,False,707.1191235840088,50.80785654101055,12,12,0,0,75,12,303806,98188,256000,0,0,0,0,0,1,0
+D-swe-pytest-dev__pytest-7205-R-r1,swe,D,pytest-dev__pytest-7205,R,1,2,True,True,Submitted,True,514.0168675410096,32.63857399998233,14,14,0,0,90,14,399186,62527,352384,1,0,0,0,0,2,0
+D-terminal-extract-elf-R-r1,terminal,D,extract-elf,R,1,2,True,True,Submitted,True,567.8134795830119,12.101448,13,13,0,0,75,13,242216,75680,206592,1,0,1,0,0,1,0
+D-terminal-llm-inference-batching-scheduler-R-r1,terminal,D,llm-inference-batching-scheduler,R,1,2,True,False,TimeExceeded,False,726.9162198330741,5.514193,9,7,2,2,41,7,141166,59767,123643,0,0,1,1,0,1,1
+D-terminal-query-optimize-R-r1,terminal,D,query-optimize,R,1,2,True,True,Submitted,True,691.3022640839918,398.466533,9,9,0,0,51,9,116481,16730,93312,1,0,1,0,0,0,0
+D-terminal-video-processing-R-r1,terminal,D,video-processing,R,1,2,True,False,TimeExceeded,False,668.3351809589658,32.250736,16,16,0,0,87,16,539350,78017,458368,0,0,1,0,0,1,0

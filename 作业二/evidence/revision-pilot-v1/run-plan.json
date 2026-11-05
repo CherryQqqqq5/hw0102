@@ -1,0 +1,43 @@
+{
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 2
+  },
+  "slots": [
+    {
+      "task": "query-optimize",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "llm-inference-batching-scheduler",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "video-processing",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "extract-elf",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "pydata__xarray-6599",
+      "arm": "R",
+      "repeat": 1
+    },
+    {
+      "task": "pytest-dev__pytest-7205",
+      "arm": "R",
+      "repeat": 1
+    }
+  ]
+}

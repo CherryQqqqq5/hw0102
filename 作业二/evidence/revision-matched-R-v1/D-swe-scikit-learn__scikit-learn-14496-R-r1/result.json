@@ -1,0 +1,9 @@
+{
+  "task": "scikit-learn__scikit-learn-14496",
+  "wall_seconds": 160.54847087501548,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 35.517874250072055
+}

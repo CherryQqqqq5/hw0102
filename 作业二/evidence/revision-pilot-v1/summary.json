@@ -1,0 +1,93 @@
+{
+  "plan": {
+    "model": "deepseek-v4.1-flash",
+    "backend": "codebuddy",
+    "limits": {
+      "model_calls": 24,
+      "wall_seconds": 600,
+      "command_seconds": 60,
+      "max_output_tokens": 4096,
+      "timeout_retries": 2
+    },
+    "slots": [
+      {
+        "task": "query-optimize",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "llm-inference-batching-scheduler",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "video-processing",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "extract-elf",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "pydata__xarray-6599",
+        "arm": "R",
+        "repeat": 1
+      },
+      {
+        "task": "pytest-dev__pytest-7205",
+        "arm": "R",
+        "repeat": 1
+      }
+    ]
+  },
+  "coverage": [
+    {
+      "arm": "R",
+      "planned": 6,
+      "started": 6,
+      "scored": 6,
+      "passed": 3,
+      "wall_median_seconds": 679.8187225214788,
+      "model_calls": 73,
+      "model_responses": 71,
+      "model_request_retries": 2,
+      "model_request_timeouts": 2,
+      "input_tokens": 1742205,
+      "output_tokens": 390909,
+      "tool_calls": 71,
+      "automatic_checks": 6,
+      "automatic_failures": 1
+    }
+  ],
+  "comparison": {
+    "split": "D",
+    "reference": "B0",
+    "treatment": "R",
+    "paired_tasks": 0,
+    "changes": {},
+    "delta_percentage_points": null,
+    "relative_change_percent": null,
+    "pairs_without_provider_timeout": 0,
+    "delta_without_provider_timeout_percentage_points": null,
+    "bootstrap_95_interval_percentage_points": null,
+    "pairs": []
+  },
+  "by_repeat": [
+    {
+      "split": "D",
+      "reference": "B0",
+      "treatment": "R",
+      "paired_tasks": 0,
+      "changes": {},
+      "delta_percentage_points": null,
+      "relative_change_percent": null,
+      "pairs_without_provider_timeout": 0,
+      "delta_without_provider_timeout_percentage_points": null,
+      "bootstrap_95_interval_percentage_points": null,
+      "pairs": [],
+      "repeat": 1
+    }
+  ]
+}

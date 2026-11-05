@@ -1,0 +1,24 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.12, pytest-8.4.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 6 items
+
+../tests/test_outputs.py ......                                          [100%]
+
+==================================== PASSES ====================================
+___________________ test_compare_golden_vs_solution_runtime ____________________
+----------------------------- Captured stdout call -----------------------------
+Running iteration 0 of 5
+{'iterations': 5, 'golden': {'median_s': 1.4947959580022143, 'min_s': 1.1832994819997111, 'max_s': 1.867826020999928}, 'solution': {'median_s': 1.4126501329956227, 'min_s': 1.1791400680012885, 'max_s': 1.9070501629976206}, 'speedup_solution_vs_golden': 1.0581501555748951}
+___________________ test_solution_contains_single_sql_query ____________________
+----------------------------- Captured stdout call -----------------------------
+✓ Solution file contains exactly one valid SQL SELECT statement
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_compare_golden_vs_my_sql_query_correctness
+PASSED ../tests/test_outputs.py::test_check_for_db_modifications
+PASSED ../tests/test_outputs.py::test_compare_golden_vs_solution_runtime
+PASSED ../tests/test_outputs.py::test_outputs_match_exactly
+PASSED ../tests/test_outputs.py::test_solution_contains_single_sql_query
+PASSED ../tests/test_outputs.py::test_solution_is_small
+======================== 6 passed in 538.44s (0:08:58) =========================

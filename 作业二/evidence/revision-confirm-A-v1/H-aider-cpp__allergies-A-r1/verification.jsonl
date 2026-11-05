@@ -1,0 +1,2 @@
+{"event": "public_check", "time": 1793850615.140843, "check": {"check_id": "public-suite", "source_quote": "Original tests are available.", "command": "/aider/benchmark/cpp-test.sh", "dependencies": ["allergies.cpp", "allergies.h", "allergies_test.cpp"], "deliverables": []}, "before": null, "after": null, "state": "passed", "returncode": 0, "snapshot": null}
+{"event": "submission_check", "time": 1793850623.5627918, "state": {"public-suite": {"state": "passed", "returncode": 0, "snapshot": null}}, "partial": false, "blocked": false}
