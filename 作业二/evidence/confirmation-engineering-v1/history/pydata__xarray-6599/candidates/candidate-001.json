@@ -1,0 +1,15 @@
+{
+  "candidate_id": "candidate-001",
+  "artifact_digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "protected_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "eligible": true,
+  "evidence": {
+    "historical-suite": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "c9621152fd14996b0cd3405f142c2d1c17ea78dff999d63bf1e60748d18da375  xarray/core/computation.py\n6ecb75c9ebc2c072aa5c6a53afed8dad25cfd553f2a8683c14bc69eee70750b4  xarray/tests/test_computation.py\n"
+    }
+  },
+  "saved_elapsed": 30.297468000091612,
+  "files": {}
+}

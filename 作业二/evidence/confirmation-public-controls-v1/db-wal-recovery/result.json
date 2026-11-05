@@ -1,0 +1,52 @@
+{
+  "task": "db-wal-recovery",
+  "original": {
+    "check_id": "public-task",
+    "reason": "original_starter",
+    "state": "failed",
+    "coverage": [
+      "eleven ordered typed JSON records equal the repaired database as read by SQLite on a scratch copy",
+      "original encrypted WAL truth remains for independent grading"
+    ],
+    "artifact_digest": "51fc0b7517d2b9581a20e7762004c3c861ab3e563dcbc7968cdda44d88fdc042",
+    "before": null,
+    "after": null,
+    "seconds": 1.0302976249950007,
+    "stdout": "{\"passed\": false, \"conditions\": [{\"id\": \"required_artifact\", \"passed\": false, \"actual\": {\"error\": \"FileNotFoundError\", \"detail\": \"[Errno 2] No such file or directory: '/app/recovered.json'\"}, \"required\": \"readable artifact satisfying the public format\"}], \"coverage_limit\": \"JSON is compared to the repaired SQLite state; the original encrypted WAL truth remains for independent grading.\"}\n",
+    "stderr": "",
+    "returncode": 1
+  },
+  "reference": {
+    "check_id": "public-task",
+    "reason": "upstream_reference",
+    "state": "passed",
+    "coverage": [
+      "eleven ordered typed JSON records equal the repaired database as read by SQLite on a scratch copy",
+      "original encrypted WAL truth remains for independent grading"
+    ],
+    "artifact_digest": "75a95a98cde0ffc3ad414520736e91c852cf23e0dcabed236373daf8d4f8faa5",
+    "before": "3e0598b7a9e3760216f3fa388d87a8be8acbb2de39ec0ccac580e4652b8480cd  /app/recovered.json\n682055f65aadf6832b01cbadb753086e901ca5f6985c306014682e8bf68774a3  main.db\n",
+    "after": "3e0598b7a9e3760216f3fa388d87a8be8acbb2de39ec0ccac580e4652b8480cd  /app/recovered.json\n682055f65aadf6832b01cbadb753086e901ca5f6985c306014682e8bf68774a3  main.db\n",
+    "seconds": 0.9821784590603784,
+    "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"eleven_ordered_records\", \"passed\": true, \"actual\": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], \"required\": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]}, {\"id\": \"record_fields\", \"passed\": true, \"actual\": \"record structure\", \"required\": \"integer id/value and string name, from the visible SQLite schema\"}, {\"id\": \"readable_repaired_database\", \"passed\": true, \"actual\": {\"sqlite_rows\": 11, \"json_matches_database\": true}, \"required\": \"SQLite reads all 11 rows from the repaired database/WAL and JSON matches them\"}], \"coverage_limit\": \"JSON is compared to the repaired SQLite state; the original encrypted WAL truth remains for independent grading.\"}\n",
+    "stderr": "",
+    "returncode": 0
+  },
+  "scope": {
+    "kind": "files",
+    "artifacts": [
+      "/app/recovered.json",
+      "/app/main.db",
+      "/app/main.db-wal",
+      "/app/main.db-shm"
+    ],
+    "protected": [],
+    "python": "/usr/bin/python3"
+  },
+  "reference_exit_code": 0,
+  "public_runtime": null,
+  "model_requests": 0,
+  "check_command_sha256": "1c52dc15e40441cc49bddb0d85450b4a76c751207e8415c0e5546b1e6eed822f",
+  "formal_benchmark_trial": false,
+  "source": "public task conditions; upstream reference used only as control"
+}

@@ -1,0 +1,29 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.12, pytest-8.4.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 1 item
+
+../tests/test_outputs.py F                                               [100%]
+
+=================================== FAILURES ===================================
+___________________________ test_fibonacci_polyglot ____________________________
+
+    def test_fibonacci_polyglot():
+        """
+        Test that main.rs is a valid polyglot that compiles with both rustc and g++,
+        produces correct Fibonacci numbers, and is contained in a single file.
+        """
+    
+        # Check that main.rs exists (dont require it to be the only file — compilation may leave binaries)
+>       assert os.path.isfile("/app/polyglot/main.rs"), "main.rs not found in /app/polyglot"
+E       AssertionError: main.rs not found in /app/polyglot
+E       assert False
+E        +  where False = <function isfile at 0x7fffff1e7240>('/app/polyglot/main.rs')
+E        +    where <function isfile at 0x7fffff1e7240> = <module 'posixpath' (frozen)>.isfile
+E        +      where <module 'posixpath' (frozen)> = os.path
+
+/tests/test_outputs.py:15: AssertionError
+=========================== short test summary info ============================
+FAILED ../tests/test_outputs.py::test_fibonacci_polyglot - AssertionError: ma...
+============================== 1 failed in 0.19s ===============================

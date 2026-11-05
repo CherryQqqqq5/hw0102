@@ -1,0 +1,20 @@
+{
+  "candidate_id": "candidate-001",
+  "artifact_digest": "b52aa7103023c0904c23149becb996090ebf2099eed31273beb6f6e1d4860766",
+  "protected_digest": "c02fa4e30bd94f3faed339833402fd942b169c1526e3aacfe25b923af1683b27",
+  "eligible": true,
+  "evidence": {
+    "suite": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "21defe08a5cbfe2c9c25eed0b70c2b8d1367e575ea5a2c25165eb56208bd0a4e  proverb.py\n6792db661176bc5dfd4447b8f68209d441797631a3896b880421ceba98895682  proverb_test.py\n"
+    }
+  },
+  "saved_elapsed": 2.077013958012685,
+  "files": {
+    "proverb.py": {
+      "data": "ZGVmIHByb3ZlcmIoKnJoeW1lX2l0ZW1zLCBxdWFsaWZpZXIpOgogICAgcHJpbnQocmh5bWVfaXRlbXMpCiAgICBpZiBub3Qgcmh5bWVfaXRlbXM6CiAgICAgICAgcmV0dXJuIFtdCiAgICBwaHJhc2VzID0gW2YnRm9yIHdhbnQgb2YgYSB7ZWxlbWVudF8xfSB0aGUge2VsZW1lbnRfMn0gd2FzIGxvc3QuJwogICAgICAgICAgICAgICBmb3IgZWxlbWVudF8xLCBlbGVtZW50XzIgaW4gemlwKHJoeW1lX2l0ZW1zLCByaHltZV9pdGVtc1sxOl0pXQogICAgaWYgcXVhbGlmaWVyOgogICAgICAgIHBocmFzZXMuYXBwZW5kKGYnQW5kIGFsbCBmb3IgdGhlIHdhbnQgb2YgYSB7cXVhbGlmaWVyfSB7cmh5bWVfaXRlbXNbMF19LicpCiAgICBlbHNlOgogICAgICAgIHBocmFzZXMuYXBwZW5kKGYnQW5kIGFsbCBmb3IgdGhlIHdhbnQgb2YgYSB7cmh5bWVfaXRlbXNbMF19LicpCiAgICByZXR1cm4gcGhyYXNlcwo=",
+      "mode": 420
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "candidate_id": "candidate-001",
+  "artifact_digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "protected_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "eligible": true,
+  "evidence": {
+    "historical-suite": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "c51373696a6860bd6071cb83aae9b50b79afece716e9a5f58dd9020e476b9397  src/_pytest/setuponly.py\n3ae0ec6d1cee6e86806a4e97e07bccb4f6bf48fb735bc3aab865aa31ce32bf8c  testing/test_setuponly.py\n"
+    }
+  },
+  "saved_elapsed": 7.639176250086166,
+  "files": {}
+}

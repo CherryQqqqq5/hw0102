@@ -1,0 +1,15 @@
+{
+  "task": "java/change",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "grader_exit_code": 1,
+    "grader_seconds": 22.76524000009522
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "grader_exit_code": 0,
+    "grader_seconds": 18.37646095897071
+  }
+}

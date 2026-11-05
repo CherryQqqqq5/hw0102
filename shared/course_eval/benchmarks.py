@@ -28,6 +28,16 @@ AIDER_TESTS = {
 SWE_HIDDEN_CACHES = ("/opt/miniconda3/pkgs", "/root/.cache/pip")
 
 
+def swe_public_dependencies(task):
+    directories = {"django__django-12193": "django-12193", "pytest-dev__pytest-5631": "pytest-5631-py39"}
+    if task["id"] not in directories:
+        return {}
+    root = Path(os.environ.get("COURSE_PUBLIC_DEPS_ROOT", "work/vmshare/confirmation-public-deps"))
+    source = (root / directories[task["id"]]).resolve(strict=True)
+    return {"read_only_mounts": ((str(source), "/opt/course-public-deps"),),
+            "environment": {"PYTHONPATH": "/opt/course-public-deps"}}
+
+
 def write_json(path: Path, value: dict) -> None:
     staged = path.with_name(f".{path.name}.writing")
     staged.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -110,8 +120,12 @@ def run_aider(task: dict, sources: Path, directory: Path, limits: RunLimits,
     checks = checks or (PublicCheck("public-suite", "Original tests are available.", AIDER_TESTS[language], deps),)
     with DockerTarget(image, aider_cwd(task), platform="linux/arm64", memory_mb=2048, cpus=1) as target:
         target.upload_tree(initial)
+        scope = {"kind": "files", "artifacts": files,
+                 "protected": [str(path.relative_to(initial)) for path in initial.rglob("*")
+                               if path.is_file() and str(path.relative_to(initial)) not in files]}
         try:
-            outcome = run_baseline(instruction, target, directory, limits, configuration=configuration, checks=checks)
+            outcome = run_baseline(instruction, target, directory, limits, configuration=configuration,
+                                   checks=checks, scope=scope)
         finally:
             missing = [file for file in files if not target.download_file(file, candidate / file)]
             write_json(directory / "artifact.json", {"missing_required_sources": missing})
@@ -188,11 +202,12 @@ def run_swe(task: dict, sources: Path, directory: Path, limits: RunLimits,
     rows = json.loads((sources / "swe-grader.json").read_text())
     row = next(row for row in rows if row["instance_id"] == task["id"])
     with DockerTarget(task["image"], "/testbed", platform="linux/amd64", memory_mb=3072, cpus=2,
-                      read_only_empty_dirs=SWE_HIDDEN_CACHES) as target:
+                      read_only_empty_dirs=SWE_HIDDEN_CACHES, **swe_public_dependencies(task)) as target:
         head = check_swe_checkout(task, target, directory)
         instruction = row["problem_statement"] + "\n\nFix production code. Preserve existing tests and test configuration."
         try:
-            outcome = run_baseline(instruction, target, directory, limits, configuration=configuration, checks=checks)
+            outcome = run_baseline(instruction, target, directory, limits, configuration=configuration, checks=checks,
+                                   scope={"kind": "repository", "python": "/opt/miniconda3/envs/testbed/bin/python"})
         finally:
             patch = require_tool(target.exec("git add -N -A && git diff --binary " + shlex.quote(head), timeout=30))
             (directory / "candidate.patch").write_text(patch, encoding="utf-8")
@@ -231,7 +246,8 @@ def run_terminal(task: dict, sources: Path, directory: Path, limits: RunLimits,
                  configuration: str, checks: tuple[PublicCheck, ...]) -> dict:
     path = prepare_terminal_task(task, sources, directory)
     env = os.environ | {"COURSE_RUN_LIMITS": limits.model_dump_json(), "COURSE_CONFIGURATION": configuration,
-                        "COURSE_PUBLIC_CHECKS": json.dumps([asdict(check) for check in checks])}
+                        "COURSE_PUBLIC_CHECKS": json.dumps([asdict(check) for check in checks]),
+                        "COURSE_CANDIDATE_SCOPE": json.dumps(task.get("candidate_scope"))}
     outcome = terminal_trial(path, directory, "course_eval.harbor_agent:CourseMiniSweAgent", env)
     return outcome | {"command_supervisor": "descendant_tree_v2"}
 
@@ -242,7 +258,7 @@ def main() -> None:
     parser.add_argument("--sources", required=True, type=Path)
     parser.add_argument("--run-dir", required=True, type=Path)
     parser.add_argument("--id", required=True)
-    parser.add_argument("--configuration", choices=("B0", "BP", "A", "F", "R", "RP"), default="B0")
+    parser.add_argument("--configuration", choices=("B0", "BP", "A", "F", "R", "RP", "C0", "C1"), default="B0")
     parser.add_argument("--checks", type=Path, help="Task-visible check plans for repository and terminal tasks")
     parser.add_argument("--pilot", action="store_true")
     args = parser.parse_args()
@@ -266,9 +282,16 @@ def main() -> None:
                                            "configuration": args.configuration, "status": "started",
                                            "model": os.environ["COURSE_MODEL_ID"],
                                            "backend": os.environ["COURSE_MODEL_BACKEND"],
+                                           "protocol_commit": os.environ.get("COURSE_PROTOCOL_COMMIT"),
                                            "limits": limits.model_dump()})
     run = {"aider": run_aider, "swe": run_swe, "terminal": run_terminal}[task["benchmark"]]
-    outcome = run(task, args.sources.resolve(), args.run_dir.resolve(), limits, args.configuration, checks)
+    try:
+        outcome = run(task, args.sources.resolve(), args.run_dir.resolve(), limits, args.configuration, checks)
+    except Exception as exc:
+        write_json(args.run_dir / "result.json", {"task": task["id"], "wall_seconds": time.monotonic() - started,
+                                                 "scoreable": False, "passed": None,
+                                                 "error_type": type(exc).__name__, "error": str(exc)})
+        raise
     write_json(args.run_dir / "result.json", {"task": task["id"], "wall_seconds": time.monotonic() - started, **outcome})
 
 

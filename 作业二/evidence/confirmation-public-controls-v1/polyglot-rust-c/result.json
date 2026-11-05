@@ -1,0 +1,54 @@
+{
+  "task": "polyglot-rust-c",
+  "original": {
+    "check_id": "public-task",
+    "reason": "original_starter",
+    "state": "failed",
+    "coverage": [
+      "same source compiles as Rust and C++; f(0)=f(1)=1 checked at n=0..10,20,30,40",
+      "larger untested inputs remain unverified"
+    ],
+    "artifact_digest": "b7985fbdc98f2404f3943895cb7bd6e62c85c6256e468071b29c00a0f4678fd3",
+    "before": null,
+    "after": null,
+    "seconds": 2.4465660420246422,
+    "stdout": "{\"passed\": false, \"conditions\": [{\"id\": \"rust_compiles\", \"passed\": false, \"actual\": {\"returncode\": 1, \"stdout\": \"\", \"stderr\": \"error: couldn't read /app/polyglot/main.rs: No such file or directory (os error 2)\\n\\nerror: aborting due to previous error\\n\\n\"}, \"required\": \"compile the same main.rs with the public compiler command\"}, {\"id\": \"cpp_compiles\", \"passed\": false, \"actual\": {\"returncode\": 1, \"stdout\": \"\", \"stderr\": \"cc1plus: fatal error: /app/polyglot/main.rs: No such file or directory\\ncompilation terminated.\\n\"}, \"required\": \"compile the same main.rs with the public compiler command\"}], \"coverage_limit\": \"Both compilers and the listed finite Fibonacci cases are checked; arbitrary larger inputs are unverified.\"}\n",
+    "stderr": "",
+    "returncode": 1
+  },
+  "reference": {
+    "check_id": "public-task",
+    "reason": "upstream_reference",
+    "state": "passed",
+    "coverage": [
+      "same source compiles as Rust and C++; f(0)=f(1)=1 checked at n=0..10,20,30,40",
+      "larger untested inputs remain unverified"
+    ],
+    "artifact_digest": "9cc4e60ef9fad4696df081555b83c4be5532ef17cfa9d541fc929762821d4eb0",
+    "before": "d90ee00f7f347064c5027f504beae56f476c772b3a3f95653fd20dd9f0186435  /app/polyglot/main.rs\n",
+    "after": "d90ee00f7f347064c5027f504beae56f476c772b3a3f95653fd20dd9f0186435  /app/polyglot/main.rs\n",
+    "seconds": 5.823408375028521,
+    "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"rust_compiles\", \"passed\": true, \"actual\": {\"returncode\": 0, \"stdout\": \"\", \"stderr\": \"warning: unnecessary parentheses around `while` condition\\n   --> /app/polyglot/main.rs:108:9\\n    |\\n108 |   while (i < (arg1 as u64)) {\\n    |         ^                 ^\\n    |\\n    = note: `#[warn(unused_parens)]` on by default\\nhelp: remove these parentheses\\n    |\\n108 -   while (i < (arg1 as u64)) {\\n108 +   while i < (arg1 as u64) {\\n    |\\n\\nwarning: 1 warning emitted\\n\\n\"}, \"required\": \"compile the same main.rs with the public compiler command\"}, {\"id\": \"rust_fibonacci\", \"passed\": true, \"actual\": [], \"required\": \"f(0)=f(1)=1 and recurrence for n=0..10,20,30,40; untested n remain unverified\"}, {\"id\": \"cpp_compiles\", \"passed\": true, \"actual\": {\"returncode\": 0, \"stdout\": \"\", \"stderr\": \"/app/polyglot/main.rs:122: warning: \\\"main\\\" redefined\\n  122 | #define main main\\n      | \\n/app/polyglot/main.rs:97: note: this is the location of the previous definition\\n   97 | #define main _main\\n      | \\n/app/polyglot/main.rs: In function \\u2018int mine::_main()\\u2019:\\n/app/polyglot/main.rs:115:1: warning: no return statement in function returning non-void [-Wreturn-type]\\n  115 | }\\n      | ^\\n\"}, \"required\": \"compile the same main.rs with the public compiler command\"}, {\"id\": \"cpp_fibonacci\", \"passed\": true, \"actual\": [], \"required\": \"f(0)=f(1)=1 and recurrence for n=0..10,20,30,40; untested n remain unverified\"}], \"coverage_limit\": \"Both compilers and the listed finite Fibonacci cases are checked; arbitrary larger inputs are unverified.\"}\n",
+    "stderr": "",
+    "returncode": 0
+  },
+  "scope": {
+    "kind": "files",
+    "artifacts": [
+      "/app/polyglot/main.rs"
+    ],
+    "protected": [],
+    "python": "/opt/course-runtime/bin/python3"
+  },
+  "reference_exit_code": 0,
+  "public_runtime": {
+    "source": "python-3.13.12-linux-x86_64.tar.gz",
+    "python": "Python 3.13.12",
+    "seconds": 3.1310151659417897,
+    "all_configurations": true
+  },
+  "model_requests": 0,
+  "check_command_sha256": "aff12c6bdeac0c2747adeb2e24c6be2d31b981730b9dff644f1168754fe23967",
+  "formal_benchmark_trial": false,
+  "source": "public task conditions; upstream reference used only as control"
+}

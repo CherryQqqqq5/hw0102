@@ -1,0 +1,11 @@
+{
+  "engineering_check": "pass",
+  "model_requests": 0,
+  "formal_benchmark_trial": false,
+  "historical_candidate": "work/vmshare/revision-matched-R-v1/D-swe-scikit-learn__scikit-learn-14496-R-r1/candidate.patch",
+  "restores_previously_unseen_tracked_file": true,
+  "removes_previously_unseen_new_file": true,
+  "new_test_configuration_invalidates": true,
+  "restores_after_new_staged_test_and_intent_to_add_source": true,
+  "historical_public_suite_exit": 0
+}

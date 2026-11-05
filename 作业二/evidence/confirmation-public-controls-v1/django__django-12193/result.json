@@ -1,0 +1,17 @@
+{
+  "task": "django__django-12193",
+  "original": {
+    "stdout": "{\"passed\": false, \"conditions\": [{\"id\": \"public-issue\", \"passed\": false, \"actual\": {\"checked\": [true, true, true, true]}, \"required\": {\"checked\": [true, false, true, false]}}]}\n",
+    "stderr": "",
+    "returncode": 1
+  },
+  "reference": {
+    "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"public-issue\", \"passed\": true, \"actual\": {\"checked\": [true, false, true, false]}, \"required\": {\"checked\": [true, false, true, false]}}]}\n",
+    "stderr": "",
+    "returncode": 0
+  },
+  "model_requests": 0,
+  "check_command_sha256": "1ea9ffcabc288e104f77709d30774d02374b848c29b4d3ad3f0cb89234fff96b",
+  "formal_benchmark_trial": false,
+  "source": "public task reproducer; upstream patch control"
+}

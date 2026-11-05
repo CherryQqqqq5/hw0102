@@ -1,0 +1,17 @@
+{
+  "task": "scikit-learn__scikit-learn-11310",
+  "original": {
+    "stdout": "{\"passed\": false, \"conditions\": [{\"id\": \"public-issue\", \"passed\": false, \"actual\": {\"refit_time_\": null}, \"required\": \"nonnegative measured refit duration\"}]}\n",
+    "stderr": "/testbed/sklearn/model_selection/_search.py:734: DeprecationWarning: The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.\n  DeprecationWarning)\n",
+    "returncode": 1
+  },
+  "reference": {
+    "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"public-issue\", \"passed\": true, \"actual\": {\"refit_time_\": 0.000461578369140625}, \"required\": \"nonnegative measured refit duration\"}]}\n",
+    "stderr": "/testbed/sklearn/model_selection/_search.py:735: DeprecationWarning: The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.\n  DeprecationWarning)\n",
+    "returncode": 0
+  },
+  "model_requests": 0,
+  "check_command_sha256": "59dc537cdbb5a7e66043fd6ac6591b13acb55e855bb6098de41df59f83ee05c3",
+  "formal_benchmark_trial": false,
+  "source": "public task reproducer; upstream patch control"
+}

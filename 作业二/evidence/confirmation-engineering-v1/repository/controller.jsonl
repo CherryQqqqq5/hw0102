@@ -1,0 +1,15 @@
+{"event": "candidate_operation", "time": 1793872875.464981, "operation": "initial", "seconds": 1.4993702080100775, "returncode": 0}
+{"event": "candidate_operation", "time": 1793872876.933284, "operation": "capture", "seconds": 1.0801418329356238, "returncode": 0}
+{"event": "candidate_operation", "time": 1793872878.302576, "operation": "original", "seconds": 1.368350625038147, "returncode": 0}
+{"event": "candidate_operation", "time": 1793872895.9945338, "operation": "capture", "seconds": 1.2339075000490993, "returncode": 0}
+{"event": "verification", "time": 1793872895.995927, "step": 0, "remaining_seconds": 157.96815179206897, "check_id": "optics", "reason": "requested", "state": "passed", "coverage": [], "artifact_digest": "30e2ec284092add089fe15daf74cb346b9412f7c51e21debfc76106d80e4bad8", "before": "4263b177c78fab91cdd0863ffd575fff11af698ccf282b065de677cd9868fd03  sklearn/cluster/optics_.py\n75c197afd1767d97915c1fe3eac13fcc143b35aa82a48de6b9832250a9a09bdb  sklearn/cluster/tests/test_optics.py\n", "after": "4263b177c78fab91cdd0863ffd575fff11af698ccf282b065de677cd9868fd03  sklearn/cluster/optics_.py\n75c197afd1767d97915c1fe3eac13fcc143b35aa82a48de6b9832250a9a09bdb  sklearn/cluster/tests/test_optics.py\n", "seconds": 17.692332041915506, "stdout": "........................................                                 [100%]\n40 passed, 1 warning in 13.32s\n", "stderr": "", "returncode": 0}
+{"event": "candidate_operation", "time": 1793872897.4158661, "operation": "capture", "seconds": 1.419008958968334, "returncode": 0}
+{"event": "candidate_saved", "time": 1793872897.8281689, "step": 0, "remaining_seconds": 156.13578504207544, "candidate_id": "candidate-001", "eligible": true}
+{"event": "candidate_operation", "time": 1793872899.903831, "operation": "capture", "seconds": 1.196905207936652, "returncode": 0}
+{"event": "candidate_operation", "time": 1793872900.459003, "operation": "original", "seconds": 0.5543182909023017, "returncode": 0}
+{"event": "candidate_operation", "time": 1793872900.8167858, "operation": "restore", "seconds": 0.3572937499266118, "returncode": 0}
+{"event": "candidate_operation", "time": 1793872901.48633, "operation": "capture", "seconds": 0.6691136669833213, "returncode": 0}
+{"event": "candidate_operation", "time": 1793872902.4133859, "operation": "capture", "seconds": 0.9263903331011534, "returncode": 0}
+{"event": "candidate_restored", "time": 1793872902.581114, "step": 1, "remaining_seconds": 151.38280937506352, "candidate_id": "candidate-001", "artifact_digest": "30e2ec284092add089fe15daf74cb346b9412f7c51e21debfc76106d80e4bad8", "verification": {"optics": {"state": "passed", "returncode": 0, "snapshot": "4263b177c78fab91cdd0863ffd575fff11af698ccf282b065de677cd9868fd03  sklearn/cluster/optics_.py\n75c197afd1767d97915c1fe3eac13fcc143b35aa82a48de6b9832250a9a09bdb  sklearn/cluster/tests/test_optics.py\n"}}}
+{"event": "candidate_operation", "time": 1793872903.777499, "operation": "capture", "seconds": 0.9201214590575546, "returncode": 0}
+{"event": "candidate_operation", "time": 1793872905.185684, "operation": "capture", "seconds": 0.9352525409776717, "returncode": 0}

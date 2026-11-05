@@ -1,0 +1,17 @@
+{
+  "task": "pydata__xarray-4687",
+  "original": {
+    "stdout": "{\"passed\": false, \"conditions\": [{\"id\": \"public-issue\", \"passed\": false, \"actual\": {\"attrs\": {}}, \"required\": {\"foo\": \"bar\"}}]}\n",
+    "stderr": "",
+    "returncode": 1
+  },
+  "reference": {
+    "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"public-issue\", \"passed\": true, \"actual\": {\"attrs\": {\"foo\": \"bar\"}}, \"required\": {\"foo\": \"bar\"}}]}\n",
+    "stderr": "",
+    "returncode": 0
+  },
+  "model_requests": 0,
+  "check_command_sha256": "a23dae09137d887f2ff5bbcdca8ff1a7a74300eec59bec46f05d6b9c078960af",
+  "formal_benchmark_trial": false,
+  "source": "public task reproducer; upstream patch control"
+}

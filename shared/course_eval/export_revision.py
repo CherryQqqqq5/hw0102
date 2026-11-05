@@ -1,4 +1,5 @@
 import argparse
+import base64
 import json
 import re
 from pathlib import Path
@@ -10,9 +11,10 @@ SECRET = re.compile(r"-----BEGIN [A-Z ]*PRIVATE KEY-----|\b(?:gh[pousr]_|github_
 PRIVATE = re.compile(r"[\w.+-]+@smail\.nju\.edu\.cn|huawei-modelarts|/sfs/yuning", re.IGNORECASE)
 LOG_NAMES = {"trial.json", "result.json", "instruction.txt", "model.jsonl", "tools.jsonl", "verification.jsonl",
              "agent.json", "artifact.json", "candidate.patch", "grader.json", "report.json", "test_output.txt",
-             "run_instance.log", "trial.log", "test-stdout.txt", "reward.txt", "checkout.json", "run-plan.json"}
+             "run_instance.log", "trial.log", "test-stdout.txt", "reward.txt", "checkout.json", "run-plan.json",
+             "controller.jsonl", "final-verification.json", "execution-budget.json", "public-runtime.json", "recovery.json"}
 MODEL_FIELDS = {"event", "time", "request_id", "attempt", "model", "system", "history", "schema", "error_type",
-                "timeout_seconds", "returncode", "http_status"}
+                "timeout_seconds", "returncode", "http_status", "protocol_commit"}
 RESULT_FIELDS = {"type", "subtype", "is_error", "num_turns", "total_cost_usd", "usage", "result",
                  "structured_output", "duration_ms", "duration_api_ms"}
 
@@ -51,9 +53,14 @@ def main():
             continue
         if {"starter", "grader-input", "_python", "_deps", "solution", "tests"}.intersection(relative.parts):
             continue
-        if file.name not in LOG_NAMES and "candidate" not in relative.parts:
+        if file.name not in LOG_NAMES and not {"candidate", "candidates"}.intersection(relative.parts):
             continue
         content = file.read_text(encoding="utf-8")
+        if "candidates" in relative.parts:
+            for name, record in json.loads(content)["files"].items():
+                decoded = base64.b64decode(record.get("data", ""), validate=True).decode("utf-8", errors="replace")
+                if SECRET.search(decoded) or PRIVATE.search(decoded) or HOME_PATH.search(decoded):
+                    raise ValueError(f"Sensitive candidate requires review: {relative}: {name}")
         content = PRIVATE_PEM.sub("[REDACTED BENCHMARK PRIVATE KEY]", content)
         content = re.sub(r"-----BEGIN [A-Z ]*PRIVATE KEY-----", "[REDACTED PRIVATE KEY HEADER]", content)
         if file.name == "model.jsonl":

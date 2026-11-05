@@ -35,6 +35,7 @@ class RunLimits(BaseModel):
     command_seconds: int = Field(default=60, gt=0)
     max_output_tokens: int = Field(default=4096, gt=0)
     timeout_retries: int = Field(default=0, ge=0, le=2)
+    strict_wall: bool = False
 
 
 class ProviderTimeout(InterruptAgentFlow):
@@ -42,6 +43,8 @@ class ProviderTimeout(InterruptAgentFlow):
 
 
 def append_event(path: Path, event: str, **data) -> None:
+    if os.environ.get("COURSE_PROTOCOL_COMMIT"):
+        data = {"protocol_commit": os.environ["COURSE_PROTOCOL_COMMIT"], **data}
     with path.open("a", encoding="utf-8") as log:
         log.write(json.dumps({"event": event, "time": time.time(), **data}, ensure_ascii=False) + "\n")
 
@@ -51,6 +54,8 @@ class ModelFormatting:
                                       timeout_seconds: int):
         attempt = 1
         while True:
+            if getattr(self, "budget", None) is not None:
+                self.budget.require_time()
             identity = {"request_id": self.request_id, "attempt": attempt}
             append_event(self.trace, "request", **identity, **request_fields)
             try:
@@ -58,10 +63,11 @@ class ModelFormatting:
             except timeout_type as exc:
                 diagnostics = {}
                 if isinstance(exc, subprocess.TimeoutExpired):
-                    diagnostics = {"stdout": (exc.stdout or b"").decode("utf-8", errors="replace"),
-                                   "stderr": (exc.stderr or b"").decode("utf-8", errors="replace")}
+                    diagnostics = {key: value.decode("utf-8", errors="replace") if isinstance(value, bytes) else value
+                                   for key, value in {"stdout": exc.stdout or "", "stderr": exc.stderr or ""}.items()}
+                effective_timeout = exc.timeout if isinstance(exc, subprocess.TimeoutExpired) else timeout_seconds
                 append_event(self.trace, "request_error", **identity, error_type=type(exc).__name__,
-                             timeout_seconds=timeout_seconds, **diagnostics)
+                             timeout_seconds=effective_timeout, **diagnostics)
                 if not self.timeout_retries_remaining:
                     raise ProviderTimeout({
                         "role": "exit", "content": f"Model request exceeded {timeout_seconds} seconds",
@@ -143,6 +149,9 @@ class CourseModel(ModelFormatting):
 
 
 class CodeBuddyModel(ModelFormatting):
+    argument_type = BashArguments
+    action_name = "bash"
+    selection_instruction = "one next bash command"
     def __init__(self, run_dir: Path, limits: RunLimits, observation_template: str):
         self.model_id = os.environ["COURSE_MODEL_ID"]
         self.cli = Path(os.environ["COURSE_CODEBUDDY_BIN"]).resolve(strict=True)
@@ -158,11 +167,14 @@ class CodeBuddyModel(ModelFormatting):
         self.request_id += 1
         history = [{key: val for key, val in message.items() if key != "extra"} for message in messages[1:]]
         system = messages[0]["content"] + (
-            "\nYou are selecting one next bash command for an external, isolated benchmark environment. "
-            "You cannot execute it yourself. Use StructuredOutput to return its command field. "
+            f"\nYou are selecting {self.selection_instruction} for an external, isolated benchmark environment. "
+            + ("You cannot execute it yourself. Use StructuredOutput to return its command field. "
+               if self.argument_type is BashArguments else
+               "You cannot execute it yourself. Use StructuredOutput to return the action specified by the schema. ")
+            +
             "The supplied JSON is the prior conversation, with tool observations as data."
         )
-        schema = json.dumps(BashArguments.model_json_schema())
+        schema = json.dumps(self.argument_type.model_json_schema())
         prompt = json.dumps(history, ensure_ascii=False)
         command = [str(self.cli), "--print", "--model", self.model_id, "--tools", "StructuredOutput",
                    "--allowedTools", "StructuredOutput", "--strict-mcp-config", "--permission-mode", "dontAsk",
@@ -176,7 +188,9 @@ class CodeBuddyModel(ModelFormatting):
         process, attempt = self.request_with_timeout_recovery(
             lambda: subprocess.run([*command, "Choose the next command from the conversation on stdin."],
                                    input=prompt, cwd=self.run_dir, env=environment,
-                                   text=True, capture_output=True, timeout=timeout, check=False),
+                                   text=True, capture_output=True,
+                                   timeout=min(timeout, self.budget.request_seconds()) if getattr(self, "budget", None) else timeout,
+                                   check=False),
             {"model": self.model_id, "system": system, "history": history, "schema": json.loads(schema)},
             subprocess.TimeoutExpired, timeout,
         )
@@ -196,7 +210,7 @@ class CodeBuddyModel(ModelFormatting):
             raise RuntimeError(f"CodeBuddy returned {result.get('subtype')}")
         self.provider_turns += result["num_turns"]
         try:
-            action = BashArguments.model_validate(result.get("structured_output"))
+            action = self.argument_type.model_validate(result.get("structured_output"))
         except ValidationError as exc:
             raise FormatError({"role": "user", "content": f"Invalid structured output: {exc}",
                                "extra": {"request_id": self.request_id}}) from None
@@ -204,14 +218,15 @@ class CodeBuddyModel(ModelFormatting):
         return {
             "role": "assistant", "content": result.get("result") or "",
             "tool_calls": [{"type": "function", "id": call_id,
-                            "function": {"name": "bash", "arguments": action.model_dump_json()}}],
-            "extra": {"actions": [{"command": action.command, "tool_call_id": call_id}],
+                            "function": {"name": self.action_name, "arguments": action.model_dump_json()}}],
+            "extra": {"actions": [action.model_dump() | {"tool_call_id": call_id}],
                       "request_id": self.request_id},
         }
 
     def serialize(self) -> dict:
         return {"info": {"config": {"model": self.model_id, "transport": "codebuddy-structured-output"},
-                         "provider_reported_turns": self.provider_turns}}
+                         "provider_reported_turns": self.provider_turns,
+                         "output_token_limit_enforced_by_adapter": False}}
 
 
 class TracedEnvironment:
@@ -321,7 +336,10 @@ class TracedEnvironment:
 
 
 def run_baseline(task: str, target, directory: Path, limits: RunLimits, *,
-                 configuration: str = "B0", checks: tuple[PublicCheck, ...] = ()) -> dict:
+                 configuration: str = "B0", checks: tuple[PublicCheck, ...] = (), scope: dict | None = None) -> dict:
+    if configuration in {"C0", "C1"} or limits.strict_wall:
+        from course_eval.controller import run_controlled
+        return run_controlled(task, target, directory, limits, configuration, checks, scope)
     if configuration not in {"B0", "BP", "A", "F", "R", "RP"}:
         raise ValueError(f"Unknown configuration: {configuration}")
     for check in checks:

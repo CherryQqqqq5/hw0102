@@ -1,0 +1,13 @@
+{
+  "task": "scikit-learn__scikit-learn-11310",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "grader_seconds": 28.798935458995402
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "grader_seconds": 28.06449629191775
+  }
+}

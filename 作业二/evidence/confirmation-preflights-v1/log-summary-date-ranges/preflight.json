@@ -1,0 +1,13 @@
+{
+  "task": "log-summary-date-ranges",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "log-summary-date-ranges__Fcy8ac2/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "log-summary-date-ranges__sAmhwo8/result.json"
+  }
+}

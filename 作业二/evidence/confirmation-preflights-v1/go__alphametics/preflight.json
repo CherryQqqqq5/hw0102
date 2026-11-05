@@ -1,0 +1,15 @@
+{
+  "task": "go/alphametics",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "grader_exit_code": 1,
+    "grader_seconds": 20.268943749950267
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "grader_exit_code": 0,
+    "grader_seconds": 17.263400249998085
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "task": "multi-source-data-merger",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "multi-source-data-merger__zkyZcgU/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "multi-source-data-merger__37Bi5C9/result.json"
+  }
+}

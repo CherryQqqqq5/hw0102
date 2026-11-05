@@ -1,0 +1,38 @@
+{
+  "engineering_check": "pass",
+  "model_requests": 0,
+  "formal_benchmark_trial": false,
+  "historical_cases": [
+    {
+      "task": "pydata__xarray-6599",
+      "historical_patch": "work/vmshare/revision-pilot-v1/D-swe-pydata__xarray-6599-R-r1/candidate.patch",
+      "before": "passed",
+      "after": {
+        "state": "stale",
+        "returncode": 0,
+        "snapshot": "c9621152fd14996b0cd3405f142c2d1c17ea78dff999d63bf1e60748d18da375  xarray/core/computation.py\n6ecb75c9ebc2c072aa5c6a53afed8dad25cfd553f2a8683c14bc69eee70750b4  xarray/tests/test_computation.py\n"
+      }
+    },
+    {
+      "task": "pytest-dev__pytest-7205",
+      "historical_patch": "work/vmshare/revision-pilot-v1/D-swe-pytest-dev__pytest-7205-R-r1/candidate.patch",
+      "before": "passed",
+      "after": {
+        "state": "protected_dependency_changed",
+        "returncode": null,
+        "snapshot": null
+      }
+    }
+  ],
+  "initialization_error": {
+    "exit_status": "CandidateOperationError",
+    "submission": "",
+    "controller_error": "Candidate operation failed: bash: line 1: /unavailable-course-python: No such file or directory\n"
+  },
+  "actual_grading_after_error": {
+    "scoreable": true,
+    "passed": false,
+    "grader_exit_code": 1,
+    "grader_seconds": 0.8462847089394927
+  }
+}

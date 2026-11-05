@@ -1,0 +1,17 @@
+{
+  "task": "scikit-learn__scikit-learn-13124",
+  "original": {
+    "stdout": "{\"passed\": false, \"conditions\": [{\"id\": \"public-issue\", \"passed\": false, \"actual\": {\"folds\": [[[\"0\", \"10\"], [\"1\", \"11\"], [\"2\", \"12\"], [\"3\", \"13\"], [\"4\", \"14\"], [\"5\", \"15\"], [\"6\", \"16\"], [\"7\", \"17\"], [\"8\", \"18\"], [\"9\", \"19\"]], [[\"0\", \"10\"], [\"1\", \"11\"], [\"2\", \"12\"], [\"3\", \"13\"], [\"4\", \"14\"], [\"5\", \"15\"], [\"6\", \"16\"], [\"7\", \"17\"], [\"8\", \"18\"], [\"9\", \"19\"]]]}, \"required\": \"different stratified sample partitions across seeds\"}]}\n",
+    "stderr": "",
+    "returncode": 1
+  },
+  "reference": {
+    "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"public-issue\", \"passed\": true, \"actual\": {\"folds\": [[[\"0\", \"14\"], [\"1\", \"17\"], [\"2\", \"11\"], [\"3\", \"16\"], [\"4\", \"13\"], [\"5\", \"19\"], [\"6\", \"18\"], [\"7\", \"15\"], [\"8\", \"10\"], [\"9\", \"12\"]], [[\"0\", \"15\"], [\"1\", \"14\"], [\"2\", \"10\"], [\"3\", \"17\"], [\"4\", \"19\"], [\"5\", \"18\"], [\"6\", \"11\"], [\"7\", \"13\"], [\"8\", \"16\"], [\"9\", \"12\"]]]}, \"required\": \"different stratified sample partitions across seeds\"}]}\n",
+    "stderr": "",
+    "returncode": 0
+  },
+  "model_requests": 0,
+  "check_command_sha256": "0d39eb5cdcaa95610123d45c9c01952690bf34ae01db0f7f042a728d18163cdf",
+  "formal_benchmark_trial": false,
+  "source": "public task reproducer; upstream patch control"
+}

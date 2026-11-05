@@ -1,0 +1,9 @@
+{
+  "terminal/build-pov-ray": "The public instruction requires downloading POV-Ray source archives; Dockerfile installs only retrieval tools and a scene, without source archives or a compiler. Outside the unchanged offline task scope.",
+  "terminal/dna-assembly": "The task requires primer3 oligotm as ground truth, but the original Ubuntu image only copies sequences.fasta and stages no primer3 or Python runtime. Outside the existing offline environment scope before any model call.",
+  "terminal/path-tracing-reverse": "Original no-op and unmodified upstream reference both received zero from the original grader in confirmation-preflights-v1; excluded before any model attempt.",
+  "terminal/raman-fitting": "Original no-op and reference both received zero. Reference attempted scipy==1.16.0 installation in the offline task container and failed; numpy was absent. Preserved in confirmation-preflights-v1.",
+  "terminal/largest-eigenval": "Original reference requires eigenpy==3.10.3 installation and fails in the unchanged offline task environment; both controls received zero. Preserved in confirmation-preflights-v1.",
+  "terminal/sanitize-git-repo": "Seven files in the staged public fixture contain credential-shaped values. Processing would put those values in model prompts and public traces, outside the existing no-secrets-in-prompts contract. Excluded before any model request; its valid preflight remains preserved.",
+  "terminal/bn-fit-modify": "Original no-op and upstream reference both received zero. Reference failed to install R remotes/bnlearn from the network in the unchanged offline environment and produced no required artifacts. Preserved in confirmation-preflights-v1; excluded before any model attempt."
+}

@@ -1,0 +1,13 @@
+{
+  "task": "feal-linear-cryptanalysis",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "feal-linear-cryptanalysis__JqPWWaU/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "feal-linear-cryptanalysis__YQmA8tw/result.json"
+  }
+}

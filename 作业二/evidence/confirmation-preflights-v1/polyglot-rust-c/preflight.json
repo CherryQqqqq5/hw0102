@@ -1,0 +1,13 @@
+{
+  "task": "polyglot-rust-c",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "polyglot-rust-c__rNZdJSB/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "polyglot-rust-c__nrkQYkS/result.json"
+  }
+}

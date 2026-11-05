@@ -1,0 +1,17 @@
+{
+  "task": "django__django-14855",
+  "original": {
+    "stdout": "{\"passed\": false, \"conditions\": [{\"id\": \"public-issue\", \"passed\": false, \"actual\": {\"links\": [\"/admin/course/author/1/change/\"]}, \"required\": \"custom AdminSite URL\"}]}\n",
+    "stderr": "",
+    "returncode": 1
+  },
+  "reference": {
+    "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"public-issue\", \"passed\": true, \"actual\": {\"links\": [\"/custom-admin/course/author/1/change/\"]}, \"required\": \"custom AdminSite URL\"}]}\n",
+    "stderr": "",
+    "returncode": 0
+  },
+  "model_requests": 0,
+  "check_command_sha256": "5e7b7bbb054e3e33be92f1d976c495aabbcb27e7a197036923d0acc616edb75c",
+  "formal_benchmark_trial": false,
+  "source": "public task reproducer; upstream patch control"
+}

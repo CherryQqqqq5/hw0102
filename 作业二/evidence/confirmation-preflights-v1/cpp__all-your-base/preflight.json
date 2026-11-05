@@ -1,0 +1,15 @@
+{
+  "task": "cpp/all-your-base",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "grader_exit_code": 2,
+    "grader_seconds": 3.248340958962217
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "grader_exit_code": 0,
+    "grader_seconds": 13.519606124958955
+  }
+}

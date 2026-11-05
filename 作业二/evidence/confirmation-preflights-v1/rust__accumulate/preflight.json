@@ -1,0 +1,15 @@
+{
+  "task": "rust/accumulate",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "grader_exit_code": 101,
+    "grader_seconds": 3.0980919159483165
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "grader_exit_code": 0,
+    "grader_seconds": 4.165937458048575
+  }
+}

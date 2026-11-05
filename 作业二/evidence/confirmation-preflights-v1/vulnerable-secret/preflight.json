@@ -1,0 +1,13 @@
+{
+  "task": "vulnerable-secret",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "vulnerable-secret__Fk6uuNM/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "vulnerable-secret__5TCVVjr/result.json"
+  }
+}

@@ -3,7 +3,7 @@ import re
 from pathlib import Path
 
 
-PYTEST_COMMAND = re.compile(r"^\s*(?:uv run )?pytest (--ctrf /logs/verifier/ctrf\.json /tests/test_outputs\.py (?:-v )?-rA)$",
+PYTEST_COMMAND = re.compile(r"^\s*(?:uv run |python -m )?pytest (--ctrf /logs/verifier/ctrf\.json /tests/test_outputs\.py (?:-v )?-rA)$",
                             re.MULTILINE)
 PINNED_DEPENDENCY = r"[a-zA-Z0-9_-]+==[0-9.]+"
 COMMON = ("pytest==8.4.1", "pytest-json-ctrf==0.3.5")
@@ -17,15 +17,33 @@ BOOTSTRAP = {
     "exit 1", "fi",
 }
 REWARD = 'if [ $? -eq 0 ]; then\n  echo 1 > /logs/verifier/reward.txt\nelse\n  echo 0 > /logs/verifier/reward.txt\nfi\n'
+DUAL_GRADING = '''# test from original repo
+python -m pytest --ctrf /logs/verifier/original-repo-ctrf.json -rA
+ORIGINAL_EXIT_CODE=$?
+# additional test
+python -m pytest --ctrf /logs/verifier/ctrf.json /tests/test_outputs.py -rA
+ADDITIONAL_EXIT_CODE=$?
+
+if [ $ORIGINAL_EXIT_CODE -eq 0 ] && [ $ADDITIONAL_EXIT_CODE -eq 0 ]; then
+  echo 1 > /logs/verifier/reward.txt
+else
+  echo 0 > /logs/verifier/reward.txt
+fi
+'''
 
 
 def offline_spec(script: str) -> tuple[str, tuple[str, ...], str]:
-    test_command = PYTEST_COMMAND.search(script)
-    if not script.endswith(REWARD) or test_command is None:
-        raise ValueError("The original verifier is outside the supported pytest bootstrap pattern")
-    prefix, suffix = script[:test_command.start()], script[test_command.end():]
-    if suffix.strip() != REWARD.strip():
-        raise ValueError("The original verifier contains additional grading actions")
+    if script.endswith(DUAL_GRADING):
+        prefix = script[:-len(DUAL_GRADING)]
+        arguments = "original-and-additional"
+    else:
+        test_command = PYTEST_COMMAND.search(script)
+        if not script.endswith(REWARD) or test_command is None:
+            raise ValueError("The original verifier is outside the supported pytest bootstrap pattern")
+        prefix, suffix = script[:test_command.start()], script[test_command.end():]
+        if suffix.strip() != REWARD.strip():
+            raise ValueError("The original verifier contains additional grading actions")
+        arguments = test_command.group(1)
     requirements = []
     interpreter = "python"
     for line in prefix.splitlines():
@@ -42,13 +60,14 @@ def offline_spec(script: str) -> tuple[str, tuple[str, ...], str]:
             requirements.append(line.removeprefix("-w "))
         elif interpreter.endswith("3.12") and re.fullmatch(r"uv pip install(?: " + PINNED_DEPENDENCY + r")+", line):
             requirements.extend(line.removeprefix("uv pip install ").split())
-        elif line == "pip install " + " ".join(COMMON):
+        elif line in {"pip install " + " ".join(COMMON),
+                     "pip install " + " ".join(COMMON) + " --break-system-packages"}:
             requirements.extend(COMMON)
         else:
             raise ValueError(f"The verifier contains a task-specific bootstrap step: {line}")
     if not set(COMMON).issubset(requirements):
         raise ValueError("The original verifier does not request the standard pytest dependencies")
-    return interpreter, tuple(sorted(requirements)), test_command.group(1)
+    return interpreter, tuple(sorted(requirements)), arguments
 
 
 def dependency_key(interpreter: str, requirements: tuple[str, ...]) -> str:
@@ -71,6 +90,6 @@ def prepare_offline_verifier(task: Path) -> None:
                    'tar -xzf /tests/_python.tar.gz -C /tests/_python --strip-components=1 || exit 2\n')
     precheck = 'if [ "$PWD" = "/" ]; then exit 2; fi\n' if 'if [ "$PWD" = "/" ]; then' in script else ""
     # 安装步骤移到宿主侧。测试文件、pytest 参数和奖励判定来自原题。
+    grading = DUAL_GRADING if pytest_args == "original-and-additional" else f'{interpreter} -m pytest {pytest_args}\n\n' + REWARD
     test.write_text("#!/bin/bash\n" + precheck + 'test "$(ls /sys/class/net)" = lo || exit 2\n' + unpack
-                    + 'export PYTHONPATH="/tests/_deps${PYTHONPATH:+:$PYTHONPATH}"\n'
-                    + f'{interpreter} -m pytest {pytest_args}\n\n' + REWARD)
+                    + 'export PYTHONPATH="/tests/_deps${PYTHONPATH:+:$PYTHONPATH}"\n' + grading)

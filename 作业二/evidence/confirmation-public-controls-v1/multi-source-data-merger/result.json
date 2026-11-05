@@ -1,0 +1,52 @@
+{
+  "task": "multi-source-data-merger",
+  "original": {
+    "check_id": "public-task",
+    "reason": "original_starter",
+    "state": "failed",
+    "coverage": [
+      "all users, public field mappings, A>B>C field priority, complete conflict values and selected values, output schema and dates"
+    ],
+    "artifact_digest": "9bc685915fb3780de557df1c05d81a29aee5265a2c56928e30e77fc6d8a390fd",
+    "before": null,
+    "after": null,
+    "seconds": 3.714627790963277,
+    "stdout": "{\"passed\": false, \"conditions\": [{\"id\": \"required_artifact\", \"passed\": false, \"actual\": {\"error\": \"FileNotFoundError\", \"detail\": \"[Errno 2] No such file or directory: '/app/merged_users.parquet'\"}, \"required\": \"readable artifact satisfying the public format\"}], \"coverage_limit\": null}\n",
+    "stderr": "",
+    "returncode": 1
+  },
+  "reference": {
+    "check_id": "public-task",
+    "reason": "upstream_reference",
+    "state": "passed",
+    "coverage": [
+      "all users, public field mappings, A>B>C field priority, complete conflict values and selected values, output schema and dates"
+    ],
+    "artifact_digest": "6ef8a552dd9069fad1fbdee6c15645849286219da2c165e0428a365420f3013a",
+    "before": "39c8e4f447c9e56fa2a37cc30adb9f88ac193d7a56ee8faf96906a82fb921e0b  /app/merged_users.parquet\nbce88c8209de60948edbca4c34caea4c8544e2f6f486aa30506d27ed2672a40a  /app/conflicts.json\n75e51e2d3ab0bdba2269d7cf3757576f84f3ee2c13407d2db94289a5958a1778  /data/source_a/users.json\n8e87d16dc47d166edd8e56165955bad265b630d53d02762367c816affb5fa760  /data/source_b/users.csv\n23d1ea51c4170bdba53febb885a0f495e28de525a52667347b2932136b9a72fe  /data/source_c/users.parquet\n",
+    "after": "39c8e4f447c9e56fa2a37cc30adb9f88ac193d7a56ee8faf96906a82fb921e0b  /app/merged_users.parquet\nbce88c8209de60948edbca4c34caea4c8544e2f6f486aa30506d27ed2672a40a  /app/conflicts.json\n75e51e2d3ab0bdba2269d7cf3757576f84f3ee2c13407d2db94289a5958a1778  /data/source_a/users.json\n8e87d16dc47d166edd8e56165955bad265b630d53d02762367c816affb5fa760  /data/source_b/users.csv\n23d1ea51c4170bdba53febb885a0f495e28de525a52667347b2932136b9a72fe  /data/source_c/users.parquet\n",
+    "seconds": 2.379351458977908,
+    "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"parquet_columns\", \"passed\": true, \"actual\": [\"user_id\", \"name\", \"email\", \"created_date\", \"status\"], \"required\": [\"created_date\", \"email\", \"name\", \"user_id\", \"optional: status\"]}, {\"id\": \"priority_merge\", \"passed\": true, \"actual\": [], \"required\": \"all users and mapped fields follow A>B>C priority\"}, {\"id\": \"conflict_report\", \"passed\": true, \"actual\": {\"count\": 3, \"declared\": 3}, \"required\": {\"count\": 3, \"values\": \"all differing source values and selected priority value\"}}, {\"id\": \"parquet_types\", \"passed\": true, \"actual\": {\"id_dtype\": \"int64\", \"dates\": [\"2024-01-15\", \"2024-02-20\", \"2024-03-01\", \"2024-04-01\"]}, \"required\": \"integer user_id; YYYY-MM-DD date strings\"}], \"coverage_limit\": null}\n",
+    "stderr": "",
+    "returncode": 0
+  },
+  "scope": {
+    "kind": "files",
+    "artifacts": [
+      "/app/merged_users.parquet",
+      "/app/conflicts.json"
+    ],
+    "protected": [
+      "/data/source_a/users.json",
+      "/data/source_b/users.csv",
+      "/data/source_c/users.parquet"
+    ],
+    "python": "/usr/local/bin/python3"
+  },
+  "reference_exit_code": 0,
+  "public_runtime": null,
+  "model_requests": 0,
+  "check_command_sha256": "56934e11f8451764fc939a732474d0229398dd2681376d56130f1d7bb1644350",
+  "formal_benchmark_trial": false,
+  "source": "public task conditions; upstream reference used only as control"
+}

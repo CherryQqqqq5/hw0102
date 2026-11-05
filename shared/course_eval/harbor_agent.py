@@ -11,6 +11,7 @@ from minisweagent import __version__
 
 from course_eval.agent import RunLimits, run_baseline
 from course_eval.verification import PublicCheck
+from course_eval.terminal_runtime import prepare_public_runtime
 
 
 # 嵌套 timeout 会建立独立进程组。到达时限时按进程树终止，避免子进程持有输出管道。
@@ -44,6 +45,14 @@ class HarborTarget:
         self.loop = loop
         self.cwd = cwd
         self.system_info = system_info | {"cwd": cwd}
+
+    def upload_file(self, source, destination: str, *, timeout: int = 20) -> None:
+        task = asyncio.run_coroutine_threadsafe(self.environment.upload_file(source, destination), self.loop)
+        try:
+            task.result(timeout=timeout)
+        except TimeoutError:
+            task.cancel()
+            raise
 
     def exec(self, command: str, *, cwd: str = "", timeout: int) -> dict:
         # 先在容器内终止超时命令，保留退出码供智能体判断。外层时限用于传输故障。
@@ -85,5 +94,10 @@ class CourseMiniSweAgent(BaseAgent):
                        for item in json.loads(os.environ.get("COURSE_PUBLIC_CHECKS", "[]")))
         configuration = os.environ.get("COURSE_CONFIGURATION", "B0")
         self.logs_dir.mkdir(parents=True, exist_ok=True)
+        scope = json.loads(os.environ.get("COURSE_CANDIDATE_SCOPE", "null"))
+        runtime = await asyncio.to_thread(prepare_public_runtime, target, scope)
+        if runtime:
+            (self.logs_dir / "public-runtime.json").write_text(json.dumps(runtime, indent=2) + "\n")
         await asyncio.to_thread(run_baseline, instruction, target, self.logs_dir, limits,
-                                configuration=configuration, checks=checks)
+                                configuration=configuration, checks=checks,
+                                scope=scope)

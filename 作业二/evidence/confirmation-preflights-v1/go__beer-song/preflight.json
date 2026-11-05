@@ -1,0 +1,15 @@
+{
+  "task": "go/beer-song",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "grader_exit_code": 1,
+    "grader_seconds": 19.674553958000615
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "grader_exit_code": 0,
+    "grader_seconds": 17.97213550005108
+  }
+}

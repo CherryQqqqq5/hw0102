@@ -1,0 +1,48 @@
+{
+  "task": "prove-plus-comm",
+  "original": {
+    "check_id": "public-task",
+    "reason": "original_starter",
+    "state": "failed",
+    "coverage": [
+      "coqc accepts source; source and delivered object expose the required addition-commutativity theorem without unproven assumptions"
+    ],
+    "artifact_digest": "75ddcd14f7952576ccf5c8af90d79935b62106074b00f1703ce2403a3c81ef8f",
+    "before": null,
+    "after": null,
+    "seconds": 2.9987092920346186,
+    "stdout": "{\"passed\": false, \"conditions\": [{\"id\": \"compiled_proof_present\", \"passed\": false, \"actual\": false, \"required\": \"nonempty /workspace/plus_comm.vo\"}, {\"id\": \"source_compiles\", \"passed\": false, \"actual\": {\"returncode\": 1, \"stdout\": \"\", \"stderr\": \"File \\\"./plus_comm.v\\\", line 14, characters 0-4:\\nError:  (in proof plus_comm): Attempt to save a proof with given up goals. If\\nthis is really what you want to do, use Admitted in place of Qed.\\n\\n\"}, \"required\": \"coqc accepts the completed source proof\"}], \"coverage_limit\": null}\n",
+    "stderr": "",
+    "returncode": 1
+  },
+  "reference": {
+    "check_id": "public-task",
+    "reason": "upstream_reference",
+    "state": "passed",
+    "coverage": [
+      "coqc accepts source; source and delivered object expose the required addition-commutativity theorem without unproven assumptions"
+    ],
+    "artifact_digest": "95980eb09bb6769fc4443d8f0a0e5ec619e3bb4ad1f781d110bcc8b23d223449",
+    "before": "710f482f55cbc5b7fc67c7a17b86823fb4dce1f7de2705d8eb5a119ba35f3e5e  plus_comm.v\naa5535ddadf5ed592930891c9ff9cc9414550f4a2e10af804f71dae039f1f970  plus_comm.vo\n",
+    "after": "710f482f55cbc5b7fc67c7a17b86823fb4dce1f7de2705d8eb5a119ba35f3e5e  plus_comm.v\naa5535ddadf5ed592930891c9ff9cc9414550f4a2e10af804f71dae039f1f970  plus_comm.vo\n",
+    "seconds": 2.8009392500389367,
+    "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"compiled_proof_present\", \"passed\": true, \"actual\": true, \"required\": \"nonempty /workspace/plus_comm.vo\"}, {\"id\": \"source_compiles\", \"passed\": true, \"actual\": {\"returncode\": 0, \"stdout\": \"\", \"stderr\": \"\"}, \"required\": \"coqc accepts the completed source proof\"}, {\"id\": \"source_theorem_closed\", \"passed\": true, \"actual\": {\"returncode\": 0, \"stdout\": \"Welcome to Coq 8.18.0\\nSkipping rcfile loading.\\n[Loading ML file ring_plugin.cmxs (using legacy method) ... done]\\ncourse_public_theorem is defined\\nFetching opaque proofs from disk for plus_comm\\nFetching opaque proofs from disk for Coq.Init.Peano\\nClosed under the global context\\n\", \"stderr\": \"\\nCoq < \\nCoq < \\nCoq < \\nCoq < \\n\"}, \"required\": \"the required forall n m theorem has no unproven assumptions\"}, {\"id\": \"compiled_theorem_closed\", \"passed\": true, \"actual\": {\"returncode\": 0, \"stdout\": \"Welcome to Coq 8.18.0\\nSkipping rcfile loading.\\n[Loading ML file ring_plugin.cmxs (using legacy method) ... done]\\ncourse_public_theorem is defined\\nFetching opaque proofs from disk for plus_comm\\nFetching opaque proofs from disk for Coq.Init.Peano\\nClosed under the global context\\n\", \"stderr\": \"\\nCoq < \\nCoq < \\nCoq < \\nCoq < \\n\"}, \"required\": \"delivered plus_comm.vo contains the required theorem without unproven assumptions\"}], \"coverage_limit\": null}\n",
+    "stderr": "",
+    "returncode": 0
+  },
+  "scope": {
+    "kind": "files",
+    "artifacts": [
+      "/workspace/plus_comm.v",
+      "/workspace/plus_comm.vo"
+    ],
+    "protected": [],
+    "python": "/usr/bin/python3"
+  },
+  "reference_exit_code": 0,
+  "public_runtime": null,
+  "model_requests": 0,
+  "check_command_sha256": "d433dc2a6ace25ba5e74f64c8765e9ce9cee99aeb05fd05f236281fca40437d3",
+  "formal_benchmark_trial": false,
+  "source": "public task conditions; upstream reference used only as control"
+}

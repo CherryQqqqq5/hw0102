@@ -6,7 +6,8 @@ from pathlib import Path
 
 class DockerTarget:
     def __init__(self, image: str, cwd: str | None, *, platform: str, memory_mb: int, cpus: int,
-                 read_only_empty_dirs: tuple[str, ...] = ()):
+                 read_only_empty_dirs: tuple[str, ...] = (), read_only_mounts: tuple[tuple[str, str], ...] = (),
+                 environment: dict[str, str] | None = None):
         host = os.environ["DOCKER_HOST"]
         if not host.startswith("unix://"):
             raise ValueError("The local runner requires an explicit Docker Unix socket")
@@ -16,6 +17,10 @@ class DockerTarget:
         mounts = []
         for directory in read_only_empty_dirs:
             mounts.extend(("--tmpfs", f"{directory}:ro,noexec,nosuid,size=1m"))
+        for source, destination in read_only_mounts:
+            mounts.extend(("--mount", f"type=bind,source={source},target={destination},readonly"))
+        for key, value in (environment or {}).items():
+            mounts.extend(("--env", key + "=" + value))
         self.container = self.docker(
             "run", "-d", "--pull=never", "--platform", platform, "--network", "none",
             "--cpus", str(cpus), "--memory", f"{memory_mb}m", "--pids-limit", "512",
@@ -29,7 +34,8 @@ class DockerTarget:
                 raise RuntimeError(f"Failed to read the container environment: {result}")
             self.system_info = dict(zip(("system", "release", "version", "machine"), fields, strict=True))
             self.system_info.update(image=self.image, cwd=self.cwd, cpus=cpus, memory_mb=memory_mb,
-                                    read_only_empty_dirs=list(read_only_empty_dirs))
+                                    read_only_empty_dirs=list(read_only_empty_dirs),
+                                    read_only_mounts=list(read_only_mounts), environment=environment or {})
         except BaseException:
             self.docker("rm", "-f", self.container)
             raise
@@ -52,6 +58,9 @@ class DockerTarget:
 
     def upload_tree(self, source: Path) -> None:
         self.docker("cp", str(source) + "/.", f"{self.container}:{self.cwd}")
+
+    def upload_file(self, source: Path, destination: str, *, timeout: int = 20) -> None:
+        self.docker("cp", str(source), f"{self.container}:{destination}", timeout=timeout)
 
     def download_file(self, name: str, destination: Path) -> bool:
         path = Path(name)

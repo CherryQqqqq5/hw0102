@@ -1,0 +1,15 @@
+{
+  "task": "javascript/sum-of-multiples",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "grader_exit_code": 1,
+    "grader_seconds": 4.696649124962278
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "grader_exit_code": 0,
+    "grader_seconds": 2.8112620000028983
+  }
+}

@@ -1,5 +1,7 @@
 # 共用评测代码与复现
 
+新增30道独立题目的B0/C0/C1确认实验使用单独的[冻结协议与复现入口](CONFIRMATION.md)。下文保留原45题实验的参数与复算方法。
+
 [冻结清单](frozen-tasks.json)记录 30 道诊断题和 15 道留出题，三套基准各占 10 道和 5 道。[候选范围](candidate-tasks.json)、[题目排除依据](preflight-exclusions.json)和[仓库排除依据](preflight-exclude-strata.json)记录筛选过程。清单中的 `preflight_paths` 从本目录解析，指向[作业一的评分对照](../作业一/evidence/preflights/)。
 
 ## 准备数据和依赖

@@ -1,0 +1,2 @@
+{"event": "candidate_operation", "time": 1793870427.275164, "operation": "initial", "seconds": 0.13313720794394612, "returncode": 127}
+{"event": "controller_error", "time": 1793870427.275712, "error_type": "CandidateOperationError", "detail": "Candidate operation failed: bash: line 1: /unavailable-course-python: No such file or directory\n"}

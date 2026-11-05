@@ -1,0 +1,39 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.12, pytest-8.4.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 1 item
+
+../tests/test_outputs.py .                                               [100%]
+
+==================================== PASSES ====================================
+___________________________ test_fibonacci_polyglot ____________________________
+----------------------------- Captured stderr call -----------------------------
+warning: unnecessary parentheses around `while` condition
+   --> /app/polyglot/main.rs:108:9
+    |
+108 |   while (i < (arg1 as u64)) {
+    |         ^                 ^
+    |
+    = note: `#[warn(unused_parens)]` on by default
+help: remove these parentheses
+    |
+108 -   while (i < (arg1 as u64)) {
+108 +   while i < (arg1 as u64) {
+    |
+
+warning: 1 warning emitted
+
+/app/polyglot/main.rs:122: warning: "main" redefined
+  122 | #define main main
+      | 
+/app/polyglot/main.rs:97: note: this is the location of the previous definition
+   97 | #define main _main
+      | 
+/app/polyglot/main.rs: In function ‘int mine::_main()’:
+/app/polyglot/main.rs:115:1: warning: no return statement in function returning non-void [-Wreturn-type]
+  115 | }
+      | ^
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_fibonacci_polyglot
+============================== 1 passed in 8.17s ===============================

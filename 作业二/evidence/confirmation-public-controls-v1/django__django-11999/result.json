@@ -1,0 +1,17 @@
+{
+  "task": "django__django-11999",
+  "original": {
+    "stdout": "{\"passed\": false, \"conditions\": [{\"id\": \"public-issue\", \"passed\": false, \"actual\": {\"display\": [\"foo\", \"bar\"]}, \"required\": \"overridden display method retained\"}]}\n",
+    "stderr": "",
+    "returncode": 1
+  },
+  "reference": {
+    "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"public-issue\", \"passed\": true, \"actual\": {\"display\": [\"something\", \"something\"]}, \"required\": \"overridden display method retained\"}]}\n",
+    "stderr": "",
+    "returncode": 0
+  },
+  "model_requests": 0,
+  "check_command_sha256": "e802ec76c0f0dc5dc4ccf9a6635fbab1b31deb5e1e9090e17696329c091ee500",
+  "formal_benchmark_trial": false,
+  "source": "public task reproducer; upstream patch control"
+}

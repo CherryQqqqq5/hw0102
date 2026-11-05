@@ -1,0 +1,15 @@
+{
+  "reason": "engineering_after_final_phase",
+  "artifact_digest": "b52aa7103023c0904c23149becb996090ebf2099eed31273beb6f6e1d4860766",
+  "protected_unchanged": true,
+  "restored_candidate": "candidate-001",
+  "valid_verification": true,
+  "evidence": {
+    "suite": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "21defe08a5cbfe2c9c25eed0b70c2b8d1367e575ea5a2c25165eb56208bd0a4e  proverb.py\n6792db661176bc5dfd4447b8f68209d441797631a3896b880421ceba98895682  proverb_test.py\n"
+    }
+  },
+  "elapsed_seconds": 33.54805320792366
+}

@@ -1,0 +1,13 @@
+{
+  "task": "db-wal-recovery",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "db-wal-recovery__MPjcQML/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "db-wal-recovery__hgpZhCZ/result.json"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "task": "python/grep",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "grader_exit_code": 1,
+    "grader_seconds": 1.4569914169842377
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "grader_exit_code": 0,
+    "grader_seconds": 1.4901973749510944
+  }
+}

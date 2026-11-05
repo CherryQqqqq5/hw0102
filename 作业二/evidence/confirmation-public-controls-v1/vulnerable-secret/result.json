@@ -1,0 +1,49 @@
+{
+  "task": "vulnerable-secret",
+  "original": {
+    "check_id": "public-task",
+    "reason": "original_starter",
+    "state": "failed",
+    "coverage": [
+      "FLAG{...} output format; actual secret identity is unverified"
+    ],
+    "artifact_digest": "cf64694d9a9035e31bf8ae86387d8c3e2b04f479e716c026169dbe2d0f781745",
+    "before": null,
+    "after": null,
+    "seconds": 1.0862577089574188,
+    "stdout": "{\"passed\": false, \"conditions\": [{\"id\": \"required_artifact\", \"passed\": false, \"actual\": {\"error\": \"FileNotFoundError\", \"detail\": \"[Errno 2] No such file or directory: '/app/results.txt'\"}, \"required\": \"readable artifact satisfying the public format\"}], \"coverage_limit\": \"Only the public FLAG output format is checked; secret identity is unverified.\"}\n",
+    "stderr": "",
+    "returncode": 1
+  },
+  "reference": {
+    "check_id": "public-task",
+    "reason": "upstream_reference",
+    "state": "passed",
+    "coverage": [
+      "FLAG{...} output format; actual secret identity is unverified"
+    ],
+    "artifact_digest": "4ab204f8d3a4f10b508858ebfcfc75f42b2a803b57b59a2d545a5619dea1cc34",
+    "before": "b3da32d8db58c61c4f8e45b5ffed52d68c86d66ce7b8ff11dba2743a66435d3d  /app/results.txt\nfcc359a326a9238f97a837f303362bc79e5576b8e6386fc297177e144a46289f  vulnerable\n",
+    "after": "b3da32d8db58c61c4f8e45b5ffed52d68c86d66ce7b8ff11dba2743a66435d3d  /app/results.txt\nfcc359a326a9238f97a837f303362bc79e5576b8e6386fc297177e144a46289f  vulnerable\n",
+    "seconds": 0.9379656669916585,
+    "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"flag_output_format\", \"passed\": true, \"actual\": {\"characters\": 37}, \"required\": \"one FLAG{...}; actual secret identity remains unverified\"}], \"coverage_limit\": \"Only the public FLAG output format is checked; secret identity is unverified.\"}\n",
+    "stderr": "",
+    "returncode": 0
+  },
+  "scope": {
+    "kind": "files",
+    "artifacts": [
+      "/app/results.txt"
+    ],
+    "protected": [
+      "/app/vulnerable"
+    ],
+    "python": "/usr/local/bin/python3"
+  },
+  "reference_exit_code": 0,
+  "public_runtime": null,
+  "model_requests": 0,
+  "check_command_sha256": "d005d883cb67e0d719ff4973ccd24aa488f5a4d75a87c459b15aa35d4f832d97",
+  "formal_benchmark_trial": false,
+  "source": "public task conditions; upstream reference used only as control"
+}

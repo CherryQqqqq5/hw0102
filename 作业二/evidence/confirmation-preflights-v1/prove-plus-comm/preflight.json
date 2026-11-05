@@ -1,0 +1,13 @@
+{
+  "task": "prove-plus-comm",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "prove-plus-comm__bmTUee6/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "prove-plus-comm__9mbhgY6/result.json"
+  }
+}

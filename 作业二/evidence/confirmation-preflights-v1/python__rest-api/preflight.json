@@ -1,0 +1,15 @@
+{
+  "task": "python/rest-api",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "grader_exit_code": 1,
+    "grader_seconds": 1.0744678329210728
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "grader_exit_code": 0,
+    "grader_seconds": 1.4938805419951677
+  }
+}

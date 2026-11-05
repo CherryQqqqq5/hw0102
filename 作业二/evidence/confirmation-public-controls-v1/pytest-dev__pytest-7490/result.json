@@ -1,0 +1,17 @@
+{
+  "task": "pytest-dev__pytest-7490",
+  "original": {
+    "stdout": "F                                                                        [100%]\n=================================== FAILURES ===================================\n______________________________ test_public_xfail _______________________________\n\nrequest = <FixtureRequest for <Function test_public_xfail>>\n\n    def test_public_xfail(request):\n        request.node.add_marker(pytest.mark.xfail(reason='public issue'))\n>       assert 0\nE       assert 0\n\n.course-public-check/test_public_issue.py:4: AssertionError\n=========================== short test summary info ============================\nFAILED .course-public-check/test_public_issue.py::test_public_xfail - assert 0\n1 failed in 0.03s\n{\"passed\": false, \"conditions\": [{\"id\": \"public-issue\", \"passed\": false, \"actual\": {\"pytest_exit\": 1, \"reports\": [{\"outcome\": \"failed\", \"xfail\": false}]}, \"required\": \"public reproducer completes with expected outcome\"}]}\n",
+    "stderr": "",
+    "returncode": 1
+  },
+  "reference": {
+    "stdout": "x                                                                        [100%]\n1 xfailed in 0.02s\n{\"passed\": true, \"conditions\": [{\"id\": \"public-issue\", \"passed\": true, \"actual\": {\"pytest_exit\": 0, \"reports\": [{\"outcome\": \"skipped\", \"xfail\": true}]}, \"required\": \"public reproducer completes with expected outcome\"}]}\n",
+    "stderr": "",
+    "returncode": 0
+  },
+  "model_requests": 0,
+  "check_command_sha256": "a3853df2fe5b4abaf7977cb652b0c5b8a867b0922264a600491d180366f0b045",
+  "formal_benchmark_trial": false,
+  "source": "public task reproducer; upstream patch control"
+}

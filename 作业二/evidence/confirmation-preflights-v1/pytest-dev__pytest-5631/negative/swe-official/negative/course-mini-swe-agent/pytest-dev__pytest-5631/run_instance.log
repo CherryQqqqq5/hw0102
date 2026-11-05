@@ -1,0 +1,18 @@
+2026-11-05 18:46:30,823 - INFO - Creating container for pytest-dev__pytest-5631...
+2026-11-05 18:46:30,901 - INFO - Container for pytest-dev__pytest-5631 created: 1f6a070c9063348fbc264c00f5edc3b21ce76dfae9c7fd3145b173fac9e2646f
+2026-11-05 18:46:31,066 - INFO - Container for pytest-dev__pytest-5631 started: 1f6a070c9063348fbc264c00f5edc3b21ce76dfae9c7fd3145b173fac9e2646f
+2026-11-05 18:46:31,066 - INFO - Skipping model patch for pytest-dev__pytest-5631 (--no-patch mode)
+2026-11-05 18:46:31,348 - INFO - Git diff before:
+
+2026-11-05 18:46:31,349 - INFO - Eval script for pytest-dev__pytest-5631 written to work/vmshare/confirmation-preflights-v1/pytest-dev__pytest-5631/negative/swe-official/negative/course-mini-swe-agent/pytest-dev__pytest-5631/eval.sh; copying to container...
+2026-11-05 18:46:43,808 - INFO - Test runtime: 12.39 seconds
+2026-11-05 18:46:43,809 - INFO - Test output for pytest-dev__pytest-5631 written to work/vmshare/confirmation-preflights-v1/pytest-dev__pytest-5631/negative/swe-official/negative/course-mini-swe-agent/pytest-dev__pytest-5631/test_output.txt
+2026-11-05 18:46:43,910 - INFO - Git diff after:
+
+2026-11-05 18:46:43,910 - INFO - Grading answer for pytest-dev__pytest-5631...
+2026-11-05 18:46:43,911 - INFO - report: {'pytest-dev__pytest-5631': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['testing/python/integration.py::TestMockDecoration::test_mock_sentinel_check_against_numpy_like']}, 'PASS_TO_PASS': {'success': ['testing/python/integration.py::test_wrapped_getfslineno', 'testing/python/integration.py::TestMockDecoration::test_wrapped_getfuncargnames', 'testing/python/integration.py::TestMockDecoration::test_getfuncargnames_patching', 'testing/python/integration.py::test_pytestconfig_is_session_scoped', 'testing/python/integration.py::TestOEJSKITSpecials::test_funcarg_non_pycollectobj', 'testing/python/integration.py::TestOEJSKITSpecials::test_autouse_fixture', 'testing/python/integration.py::TestMockDecoration::test_unittest_mock', 'testing/python/integration.py::TestMockDecoration::test_unittest_mock_and_fixture', 'testing/python/integration.py::TestReRunTests::test_rerun', 'testing/python/integration.py::TestNoselikeTestAttribute::test_module_with_global_test', 'testing/python/integration.py::TestNoselikeTestAttribute::test_class_and_method', 'testing/python/integration.py::TestNoselikeTestAttribute::test_unittest_class', 'testing/python/integration.py::TestNoselikeTestAttribute::test_class_with_nasty_getattr', 'testing/python/integration.py::TestParameterize::test_idfn_marker', 'testing/python/integration.py::TestParameterize::test_idfn_fixture'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for pytest-dev__pytest-5631: resolved: False
+2026-11-05 18:46:43,912 - INFO - Attempting to stop container sweb.eval.pytest-dev__pytest-5631.negative...
+2026-11-05 18:46:59,337 - INFO - Container sweb.eval.pytest-dev__pytest-5631.negative stopped successfully.
+2026-11-05 18:46:59,338 - INFO - Attempting to remove container sweb.eval.pytest-dev__pytest-5631.negative...
+2026-11-05 18:46:59,418 - INFO - Container sweb.eval.pytest-dev__pytest-5631.negative removed successfully.

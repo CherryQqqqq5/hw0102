@@ -1,0 +1,13 @@
+{
+  "task": "modernize-scientific-stack",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "harbor_result": "modernize-scientific-stack__TWKZbMv/result.json"
+  },
+  "upstream_reference": {
+    "scoreable": true,
+    "passed": true,
+    "harbor_result": "modernize-scientific-stack__kKtfnnz/result.json"
+  }
+}

@@ -10,6 +10,9 @@ class PublicCheck:
     command: str
     dependencies: tuple[str, ...]
     deliverables: tuple[str, ...] = ()
+    coverage: tuple[str, ...] = ()
+    timeout_seconds: int = 60
+    inconclusive_exit_codes: tuple[int, ...] = ()
 
     def validate(self, instruction: str) -> None:
         if not self.source_quote or self.source_quote not in instruction:
@@ -47,7 +50,9 @@ class VerificationState:
         return output["stdout"] if output["returncode"] == 0 else None
 
     def observe(self, check: PublicCheck, before: str | None, after: str | None, returncode: int) -> Evidence:
-        if returncode != 0:
+        if returncode in check.inconclusive_exit_codes:
+            result = Evidence("unknown", returncode)
+        elif returncode != 0:
             result = Evidence("failed", returncode)
         elif self.invalidate and (before is None or after is None):
             result = Evidence("unknown", returncode)

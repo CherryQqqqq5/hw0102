@@ -1,0 +1,54 @@
+{
+  "task": "feal-linear-cryptanalysis",
+  "original": {
+    "check_id": "public-task",
+    "reason": "original_starter",
+    "state": "failed",
+    "coverage": [
+      "readable output with enough decimal uint64 tokens for the visible decrypt.c output; diagnostic text is allowed; key, plaintext identity and ordering are unverified"
+    ],
+    "artifact_digest": "19f0e20485fd5652618952ea015c9205baa5b4fc4ba6a5f5029f18a10e31766d",
+    "before": null,
+    "after": null,
+    "seconds": 0.9382866249652579,
+    "stdout": "{\"passed\": false, \"conditions\": [{\"id\": \"required_artifact\", \"passed\": false, \"actual\": {\"error\": \"FileNotFoundError\", \"detail\": \"[Errno 2] No such file or directory: '/app/plaintexts.txt'\"}, \"required\": \"readable artifact satisfying the public format\"}], \"coverage_limit\": \"Only readable numeric payload capacity is checked; the task does not prohibit diagnostic text. Key, plaintext truth, ordering and diagnostic disambiguation remain unverified.\"}\n",
+    "stderr": "",
+    "returncode": 1
+  },
+  "reference": {
+    "check_id": "public-task",
+    "reason": "upstream_reference",
+    "state": "passed",
+    "coverage": [
+      "readable output with enough decimal uint64 tokens for the visible decrypt.c output; diagnostic text is allowed; key, plaintext identity and ordering are unverified"
+    ],
+    "artifact_digest": "7081b3ae44efa2d54a66ba3dba24008854c33644cf5640bc0b6064c86663aadb",
+    "before": "51a7965207d49ff5ebf13234acae67cda812710b6396827add32d4adb5da4712  /app/plaintexts.txt\nbbd38d19f976b27e5a5aff23e21ba5f0164335397928ca05220379552dea08da  /app/feal.c\n4c6864e0d3a76626f1a7af1383e6826a85bdd1e7e373215741ece4f50a94ebd2  /app/decrypt.c\n3539f574ecac7b880c0b8c315a7a54cb62dd1720b633ac51de59df2c2e165e33  /app/pairs.txt\na403217d0d4807eea3de5c1b549b9e5ee6d54ed561db40b73362868fc791d513  /app/ciphertexts.txt\n",
+    "after": "51a7965207d49ff5ebf13234acae67cda812710b6396827add32d4adb5da4712  /app/plaintexts.txt\nbbd38d19f976b27e5a5aff23e21ba5f0164335397928ca05220379552dea08da  /app/feal.c\n4c6864e0d3a76626f1a7af1383e6826a85bdd1e7e373215741ece4f50a94ebd2  /app/decrypt.c\n3539f574ecac7b880c0b8c315a7a54cb62dd1720b633ac51de59df2c2e165e33  /app/pairs.txt\na403217d0d4807eea3de5c1b549b9e5ee6d54ed561db40b73362868fc791d513  /app/ciphertexts.txt\n",
+    "seconds": 1.0110779580427334,
+    "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"plaintext_payload_present\", \"passed\": true, \"actual\": {\"uint64_tokens\": 372, \"ciphertext_count\": 100}, \"required\": \"enough decimal uint64 tokens for the public decrypt.c output; actual plaintext identity, ordering and diagnostic disambiguation remain unverified\"}], \"coverage_limit\": \"Only readable numeric payload capacity is checked; the task does not prohibit diagnostic text. Key, plaintext truth, ordering and diagnostic disambiguation remain unverified.\"}\n",
+    "stderr": "",
+    "returncode": 0
+  },
+  "scope": {
+    "kind": "files",
+    "artifacts": [
+      "/app/plaintexts.txt"
+    ],
+    "protected": [
+      "/app/ciphertexts.txt",
+      "/app/decrypt",
+      "/app/decrypt.c",
+      "/app/feal",
+      "/app/feal.c",
+      "/app/pairs.txt"
+    ],
+    "python": "/usr/local/bin/python3"
+  },
+  "reference_exit_code": 0,
+  "public_runtime": null,
+  "model_requests": 0,
+  "check_command_sha256": "51419ae7dc7c7a373c414f6f2be57d659448dccfbd3066d2a7df5bac8b07bc20",
+  "formal_benchmark_trial": false,
+  "source": "public task conditions; upstream reference used only as control"
+}

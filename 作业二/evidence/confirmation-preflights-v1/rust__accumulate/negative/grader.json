@@ -1,0 +1,5 @@
+{
+  "stdout": "",
+  "stderr": "   Compiling accumulate v0.0.0 (/exercise)\nerror: expected identifier, found `)`\n --> src/lib.rs:2:43\n  |\n2 | pub fn map(input: Vec<i32>, _function: ???) -> Vec<i32> {\n  |                                           ^ expected identifier\n\nerror: could not compile `accumulate` (lib) due to 1 previous error\n",
+  "returncode": 101
+}
