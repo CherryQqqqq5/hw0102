@@ -223,7 +223,7 @@ cmp work/public-checks-v2.json '../作业二/configs/public-checks-v2.json'
 work/.venv/bin/python -m course_eval.check_jsonlines --out work/vmshare/jsonlines-engineering
 ```
 
-恢复在读取新结果之前固定为调度题 B0、RP、R 三配置成组运行，消耗预留机械恢复额度3次，新增总数为144次。模型、预算、Agent实现和原题评分不变。修订后的十五题统计统一用新三条替换旧三条，其他14题复用检查命令未变化的原记录；原45次结果完整单列。没有按新旧得分挑选版本。
+恢复在读取新结果之前固定为调度题 B0、RP、R 三配置成组运行，消耗预留机械恢复额度3次。新增有效评分记录为144条，另两条未评分网络失败见下文。模型、预算、Agent实现和原题评分不变。修订后的十五题统计统一用新三条替换旧三条，其他14题复用检查命令未变化的原记录；原45次结果完整单列。没有按新旧得分挑选版本。
 
 ```sh
 work/.venv/bin/python -m course_eval.revision --manifest frozen-tasks.json \
@@ -236,7 +236,7 @@ work/.venv/bin/python -m course_eval.revision_summary \
   --out work/recomputed-matched-v2 --reference B0 --treatment RP
 ```
 
-本次旧批45条完整，`--replace-runs` 要求新记录与受影响任务的全部旧运行编号严格一致、全部已评分，且后端、模型与预算一致；否则终止统计。将 `--reference/--treatment` 换成 `B0/R` 或 `RP/R` 可复算另外两组比较。修订表的 `source_batch` 与 `run_id` 共同定位真实记录，[修订汇总](../作业二/evidence/revision-matched-R-v2/)只保存统计，不重复复制原始轨迹。确认和恢复队列各使用两路并发，全局最多四个任务。
+本次旧批45条完整，`--replace-runs` 要求新记录与受影响任务的全部旧运行编号严格一致、全部已评分，且后端、模型与预算一致；否则终止统计。将 `--reference/--treatment` 换成 `B0/R` 或 `RP/R` 可复算另外两组比较。修订表的 `source_batch` 与 `run_id` 共同定位真实记录，[修订汇总](../作业二/evidence/revision-matched-R-v2/)只保存统计，不重复复制原始轨迹。确认和检查恢复队列重叠时各使用两路；检查恢复结束后，最后一批确认使用四路。全局最多四个任务。
 
 RP 的主要正向结果是在读取首轮三臂评分后选定的探索分析。修订比较沿用十四题，不是该选择的独立确认。调度题补跑包含新的模型采样和不同的请求超时情况，不能把新旧成绩差单独归因为解析命令修复。
 
