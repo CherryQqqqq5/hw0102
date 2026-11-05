@@ -1,0 +1,92 @@
+{
+  "engineering_check": "pass",
+  "model_requests": 0,
+  "formal_benchmark_trial": false,
+  "real_fixture": "python/proverb starter and upstream reference",
+  "comparisons": [
+    {
+      "configuration": "C0",
+      "reason": "engineering_deadline",
+      "artifact_digest": "026faeccba1f963092d3629090a6530599ac399883b906fe669c4c254559b9c2",
+      "protected_unchanged": true,
+      "restored_candidate": null,
+      "valid_verification": false,
+      "evidence": {
+        "suite": {
+          "state": "failed",
+          "returncode": 1,
+          "snapshot": null
+        }
+      },
+      "elapsed_seconds": 3.4365793330362067
+    },
+    {
+      "configuration": "C1",
+      "reason": "engineering_deadline",
+      "artifact_digest": "b52aa7103023c0904c23149becb996090ebf2099eed31273beb6f6e1d4860766",
+      "protected_unchanged": true,
+      "restored_candidate": "candidate-002",
+      "valid_verification": true,
+      "evidence": {
+        "suite": {
+          "state": "passed",
+          "returncode": 0,
+          "snapshot": "21defe08a5cbfe2c9c25eed0b70c2b8d1367e575ea5a2c25165eb56208bd0a4e  proverb.py\n6792db661176bc5dfd4447b8f68209d441797631a3896b880421ceba98895682  proverb_test.py\n"
+        }
+      },
+      "elapsed_seconds": 5.000287333037704
+    },
+    {
+      "configuration": "C1-short-deadline",
+      "reason": "engineering_short_deadline",
+      "artifact_digest": "b52aa7103023c0904c23149becb996090ebf2099eed31273beb6f6e1d4860766",
+      "protected_unchanged": true,
+      "restored_candidate": "candidate-001",
+      "valid_verification": true,
+      "evidence": {
+        "suite": {
+          "state": "passed",
+          "returncode": 0,
+          "snapshot": "21defe08a5cbfe2c9c25eed0b70c2b8d1367e575ea5a2c25165eb56208bd0a4e  proverb.py\n6792db661176bc5dfd4447b8f68209d441797631a3896b880421ceba98895682  proverb_test.py\n"
+        }
+      },
+      "elapsed_seconds": 10.431642292067409
+    },
+    {
+      "configuration": "C1-deadline-final_phase",
+      "reason": "engineering_after_final_phase",
+      "artifact_digest": "b52aa7103023c0904c23149becb996090ebf2099eed31273beb6f6e1d4860766",
+      "protected_unchanged": true,
+      "restored_candidate": "candidate-001",
+      "valid_verification": true,
+      "evidence": {
+        "suite": {
+          "state": "passed",
+          "returncode": 0,
+          "snapshot": "21defe08a5cbfe2c9c25eed0b70c2b8d1367e575ea5a2c25165eb56208bd0a4e  proverb.py\n6792db661176bc5dfd4447b8f68209d441797631a3896b880421ceba98895682  proverb_test.py\n"
+        }
+      },
+      "elapsed_seconds": 33.476152708986774
+    },
+    {
+      "configuration": "C1-deadline-requested",
+      "reason": "engineering_after_requested",
+      "artifact_digest": "b52aa7103023c0904c23149becb996090ebf2099eed31273beb6f6e1d4860766",
+      "protected_unchanged": true,
+      "restored_candidate": "candidate-001",
+      "valid_verification": true,
+      "evidence": {
+        "suite": {
+          "state": "passed",
+          "returncode": 0,
+          "snapshot": "21defe08a5cbfe2c9c25eed0b70c2b8d1367e575ea5a2c25165eb56208bd0a4e  proverb.py\n6792db661176bc5dfd4447b8f68209d441797631a3896b880421ceba98895682  proverb_test.py\n"
+        }
+      },
+      "elapsed_seconds": 32.98816766706295
+    }
+  ],
+  "protected_dependency_change_detected": true,
+  "new_configuration_detected": true,
+  "pending_candidate_upgraded": true,
+  "timeout_then_recovery": true
+}

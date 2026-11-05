@@ -1,0 +1,8 @@
+{
+  "kind": "synthetic_engineering_fixture",
+  "word_count": 150,
+  "sense_count": 900,
+  "query": "original public SQL",
+  "candidate": "manually authored fixture",
+  "real_task_success": false
+}

@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "task": "query",
+  "files": {
+    "oewn.sqlite": "b24417b8482ef46ee9ef2797b23c4cb89590d5ea53e873f1fe42e8e2f2583ddc"
+  },
+  "original_sql": "WITH RECURSIVE t(x) AS (VALUES(1) UNION ALL SELECT x+1 FROM t) SELECT sum(x) FROM t;"
+}

@@ -108,7 +108,9 @@ class CandidateStore:
         request = {"operation": operation, "scope": self.scope, "cwd": self.target.cwd, **fields}
         payload = self.directory / ".controller-input.json"
         payload.write_text(json.dumps(request))
-        command = shlex.join((self.scope.get("python", "python3"), "-c", self.bootstrap, "/.course-controller-input.json"))
+        # Python 3.6的C区域设置会把Git输出及文件名按ASCII处理。
+        command = shlex.join(("env", "LC_ALL=C.UTF-8", self.scope.get("python", "python3"),
+                              "-c", self.bootstrap, "/.course-controller-input.json"))
         try:
             self.target.upload_file(payload.resolve(), "/.course-controller-input.json")
             output = self.target.exec(command, timeout=20)

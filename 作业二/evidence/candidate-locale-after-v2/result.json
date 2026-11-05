@@ -1,0 +1,86 @@
+{
+  "model_requests": 0,
+  "formal_benchmark_trial": false,
+  "cases": [
+    {
+      "task": "django__django-12193",
+      "initial_capture_passed": true,
+      "unicode_candidate_roundtrip": true,
+      "restore_initial_removed_new_file": true,
+      "pending_evidence_preserved": true,
+      "image_id": "sha256:f2f0882bb350e6c7b073569444629513f4c0bd6821f3610d243a26b2b4eae26e"
+    },
+    {
+      "task": "django__django-14855",
+      "initial_capture_passed": true,
+      "unicode_candidate_roundtrip": true,
+      "restore_initial_removed_new_file": true,
+      "pending_evidence_preserved": true,
+      "image_id": "sha256:11c07ee9d97e0d9d7ed2766de8bd3f961825ffa9113bd154a7e8780b459d41cc"
+    },
+    {
+      "task": "django__django-11999",
+      "initial_capture_passed": true,
+      "unicode_candidate_roundtrip": true,
+      "restore_initial_removed_new_file": true,
+      "pending_evidence_preserved": true,
+      "image_id": "sha256:3c7e7f035f611b17f2093ee6409364bc28cce8b9bac266b9590db762d197607e"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-13124",
+      "initial_capture_passed": true,
+      "unicode_candidate_roundtrip": true,
+      "restore_initial_removed_new_file": true,
+      "pending_evidence_preserved": true,
+      "image_id": "sha256:36b429f4c7fa428226090d04d4a019cd3401381637554d162e5f929f3a80f77c"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-11310",
+      "initial_capture_passed": true,
+      "unicode_candidate_roundtrip": true,
+      "restore_initial_removed_new_file": true,
+      "pending_evidence_preserved": true,
+      "image_id": "sha256:9868186e3d37062a178faa15e5860641521c0193d6897aa0053b2d338fd566dd"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-25232",
+      "initial_capture_passed": true,
+      "unicode_candidate_roundtrip": true,
+      "restore_initial_removed_new_file": true,
+      "pending_evidence_preserved": true,
+      "image_id": "sha256:2b2069e2a3f12ddcf3fc1c811468da25f2b349a08ea0dd98a5dbe3eecb0c4ca1"
+    },
+    {
+      "task": "pydata__xarray-4687",
+      "initial_capture_passed": true,
+      "unicode_candidate_roundtrip": true,
+      "restore_initial_removed_new_file": true,
+      "pending_evidence_preserved": true,
+      "image_id": "sha256:2fef5e69c8c0210e5240618a354722aafaddc4137e92b6768d61967bd7f36fd3"
+    },
+    {
+      "task": "pydata__xarray-7393",
+      "initial_capture_passed": true,
+      "unicode_candidate_roundtrip": true,
+      "restore_initial_removed_new_file": true,
+      "pending_evidence_preserved": true,
+      "image_id": "sha256:8d92f63564f3cfa7497bdc9fd4bacb5cfac11459f658621a00ebe3eb55832278"
+    },
+    {
+      "task": "pytest-dev__pytest-7490",
+      "initial_capture_passed": true,
+      "unicode_candidate_roundtrip": true,
+      "restore_initial_removed_new_file": true,
+      "pending_evidence_preserved": true,
+      "image_id": "sha256:9e10d2e75d41e6f6325949d19d6a8a033d1f5d5fd6d4ce53ad483eb8951a417f"
+    },
+    {
+      "task": "pytest-dev__pytest-5631",
+      "initial_capture_passed": true,
+      "unicode_candidate_roundtrip": true,
+      "restore_initial_removed_new_file": true,
+      "pending_evidence_preserved": true,
+      "image_id": "sha256:c76510e12a1765211e064f6e8de09e51ac0f7839f60d72305b374e004308b6a1"
+    }
+  ]
+}

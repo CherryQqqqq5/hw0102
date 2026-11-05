@@ -1,0 +1,22 @@
+{
+  "engineering_checks_passed": true,
+  "checks": [
+    "real query container: database preserved",
+    "synthetic query: exact ordered output verified",
+    "synthetic query: alternating timing pairs",
+    "synthetic query: original database preserved",
+    "synthetic query: no hidden time threshold",
+    "synthetic query: multiple statements rejected",
+    "synthetic query: write attempt rejected",
+    "synthetic query: line comment rejected",
+    "synthetic query: block comment rejected",
+    "synthetic query: missing semicolon rejected",
+    "synthetic query: different output rejected",
+    "synthetic query: quoted comment delimiters accepted",
+    "synthetic query: reference timeout is unknown",
+    "synthetic query: unknown exits 2",
+    "synthetic query: database mutation rejected"
+  ],
+  "model_calls": 0,
+  "real_query_equivalence": "unverified unless reference completed; see container-reference-once.json"
+}

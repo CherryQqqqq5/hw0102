@@ -1,0 +1,294 @@
+{
+  "conditions": [
+    {
+      "id": "scheduler.input_data_unchanged",
+      "passed": true,
+      "status": "pass",
+      "actual": {
+        "changed_files": []
+      },
+      "required": "identical pristine input_data file set and bytes"
+    },
+    {
+      "id": "scheduler.bucket_1.jsonl_schema",
+      "passed": true,
+      "status": "pass",
+      "actual": 800,
+      "required": "one JSON object per line with typed required fields"
+    },
+    {
+      "id": "scheduler.bucket_1.request_coverage",
+      "passed": true,
+      "status": "pass",
+      "actual": {
+        "missing": [],
+        "extra": [],
+        "duplicates": []
+      },
+      "required": "each public request_id appears exactly once in its bucket"
+    },
+    {
+      "id": "scheduler.bucket_1.fixed_dimensions",
+      "passed": true,
+      "status": "pass",
+      "actual": [],
+      "required": {
+        "heads_align": 32,
+        "hidden_align": 4096
+      }
+    },
+    {
+      "id": "scheduler.bucket_1.seq_alignment",
+      "passed": true,
+      "status": "pass",
+      "actual": [],
+      "required": "seq_align is an integer multiple of 64"
+    },
+    {
+      "id": "scheduler.bucket_1.prompt_coverage",
+      "passed": true,
+      "status": "pass",
+      "actual": [],
+      "required": "seq_align >= ceil(prompt_len / 64) * 64"
+    },
+    {
+      "id": "scheduler.bucket_1.batch_shape_consistency",
+      "passed": true,
+      "status": "pass",
+      "actual": [],
+      "required": "identical shape within each bucket-local batch_id"
+    },
+    {
+      "id": "scheduler.bucket_1.cost",
+      "passed": true,
+      "status": "pass",
+      "actual": 293706672473.0,
+      "required": {
+        "operator": "<",
+        "value": 300000000000.0
+      }
+    },
+    {
+      "id": "scheduler.bucket_1.pad_ratio",
+      "passed": true,
+      "status": "pass",
+      "actual": 0.04933472386659429,
+      "required": {
+        "operator": "<",
+        "value": 0.055
+      }
+    },
+    {
+      "id": "scheduler.bucket_1.p95_latency_ms",
+      "passed": true,
+      "status": "pass",
+      "actual": 2038976.6451999997,
+      "required": {
+        "operator": "<",
+        "value": 2100000.0
+      }
+    },
+    {
+      "id": "scheduler.bucket_1.sequential_timecost",
+      "passed": true,
+      "status": "pass",
+      "actual": 252987438.89439997,
+      "required": {
+        "operator": "<",
+        "value": 270000000.0
+      }
+    },
+    {
+      "id": "scheduler.bucket_2.jsonl_schema",
+      "passed": true,
+      "status": "pass",
+      "actual": 800,
+      "required": "one JSON object per line with typed required fields"
+    },
+    {
+      "id": "scheduler.bucket_2.request_coverage",
+      "passed": true,
+      "status": "pass",
+      "actual": {
+        "missing": [],
+        "extra": [],
+        "duplicates": []
+      },
+      "required": "each public request_id appears exactly once in its bucket"
+    },
+    {
+      "id": "scheduler.bucket_2.fixed_dimensions",
+      "passed": true,
+      "status": "pass",
+      "actual": [],
+      "required": {
+        "heads_align": 32,
+        "hidden_align": 4096
+      }
+    },
+    {
+      "id": "scheduler.bucket_2.seq_alignment",
+      "passed": true,
+      "status": "pass",
+      "actual": [],
+      "required": "seq_align is an integer multiple of 64"
+    },
+    {
+      "id": "scheduler.bucket_2.prompt_coverage",
+      "passed": true,
+      "status": "pass",
+      "actual": [],
+      "required": "seq_align >= ceil(prompt_len / 64) * 64"
+    },
+    {
+      "id": "scheduler.bucket_2.batch_shape_consistency",
+      "passed": true,
+      "status": "pass",
+      "actual": [],
+      "required": "identical shape within each bucket-local batch_id"
+    },
+    {
+      "id": "scheduler.bucket_2.cost",
+      "passed": true,
+      "status": "pass",
+      "actual": 43847736405.0,
+      "required": {
+        "operator": "<",
+        "value": 48000000000.0
+      }
+    },
+    {
+      "id": "scheduler.bucket_2.pad_ratio",
+      "passed": true,
+      "status": "pass",
+      "actual": 0.13504888465999904,
+      "required": {
+        "operator": "<",
+        "value": 0.15
+      }
+    },
+    {
+      "id": "scheduler.bucket_2.p95_latency_ms",
+      "passed": true,
+      "status": "pass",
+      "actual": 204292.89919999999,
+      "required": {
+        "operator": "<",
+        "value": 210000.0
+      }
+    },
+    {
+      "id": "scheduler.bucket_2.sequential_timecost",
+      "passed": true,
+      "status": "pass",
+      "actual": 29821878.6412,
+      "required": {
+        "operator": "<",
+        "value": 32000000.0
+      }
+    },
+    {
+      "id": "scheduler.global_shape_cap",
+      "passed": false,
+      "status": "fail",
+      "actual": 13,
+      "required": {
+        "operator": "<=",
+        "value": 8,
+        "scope": "both buckets"
+      }
+    }
+  ],
+  "metrics": {
+    "bucket_1": {
+      "cost": 293706672473.0,
+      "pad_tokens": 23085,
+      "real_tokens": 467926,
+      "pad_ratio": 0.04933472386659429,
+      "p95_latency_ms": 2038976.6451999997,
+      "sequential_timecost": 252987438.89439997,
+      "request_count": 800,
+      "batch_count": 365,
+      "unique_shape_count": 7
+    },
+    "bucket_2": {
+      "cost": 43847736405.0,
+      "pad_tokens": 25264,
+      "real_tokens": 187073,
+      "pad_ratio": 0.13504888465999904,
+      "p95_latency_ms": 204292.89919999999,
+      "sequential_timecost": 29821878.6412,
+      "request_count": 800,
+      "batch_count": 177,
+      "unique_shape_count": 7
+    },
+    "global_unique_shapes": [
+      [
+        64,
+        32,
+        4096
+      ],
+      [
+        128,
+        32,
+        4096
+      ],
+      [
+        192,
+        32,
+        4096
+      ],
+      [
+        256,
+        32,
+        4096
+      ],
+      [
+        320,
+        32,
+        4096
+      ],
+      [
+        384,
+        32,
+        4096
+      ],
+      [
+        512,
+        32,
+        4096
+      ],
+      [
+        576,
+        32,
+        4096
+      ],
+      [
+        640,
+        32,
+        4096
+      ],
+      [
+        704,
+        32,
+        4096
+      ],
+      [
+        1280,
+        32,
+        4096
+      ],
+      [
+        1536,
+        32,
+        4096
+      ],
+      [
+        2048,
+        32,
+        4096
+      ]
+    ]
+  },
+  "passed": false
+}

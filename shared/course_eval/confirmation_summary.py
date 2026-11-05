@@ -8,6 +8,13 @@ from statistics import mean, median
 from course_eval.summarize import compare, read_runs, run_metrics
 
 
+def merge_usage(groups):
+    total = {key: sum(group[key] for group in groups) for key in groups[0] if key != "provider_reported_cost_usd"}
+    reported = [group["provider_reported_cost_usd"] for group in groups if group["provider_reported_cost_usd"] is not None]
+    total["provider_reported_cost_usd"] = sum(reported) if reported else None
+    return total
+
+
 def mechanism(directory):
     events = [json.loads(line) for path in directory.rglob("controller.jsonl") for line in path.read_text().splitlines()]
     checks = [event for event in events if event["event"] == "verification"]
@@ -43,6 +50,7 @@ def main():
     parser.add_argument("--runs", type=Path, required=True)
     parser.add_argument("--plan", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--previous-runs", type=Path, nargs="*", default=[])
     args = parser.parse_args()
     plan = json.loads(args.plan.read_text())
     rows = read_runs(args.runs)
@@ -81,14 +89,18 @@ def main():
               for reference, treatment in (("B0", "C1"), ("C0", "C1"), ("B0", "C0"))]
     archived = args.runs.with_name(args.runs.name + "-attempts")
     formal_usage, mechanical_usage = run_metrics(args.runs), run_metrics(archived)
-    total_usage = {key: formal_usage[key] + mechanical_usage[key] for key in formal_usage if key != "provider_reported_cost_usd"}
-    reported = [value for value in (formal_usage["provider_reported_cost_usd"], mechanical_usage["provider_reported_cost_usd"]) if value is not None]
-    total_usage["provider_reported_cost_usd"] = sum(reported) if reported else None
+    previous_groups = [run_metrics(root) for root in args.previous_runs]
+    previous_rows = [row for root in args.previous_runs for row in read_runs(root)]
+    total_usage = merge_usage([formal_usage, mechanical_usage, *previous_groups])
     result = {"primary_comparison": "C1 versus B0", "mechanism_comparison": "C1 versus C0",
               "interval": "10000 paired task bootstrap samples, stratified by benchmark, seed 20261104",
               "coverage": groupings, "comparisons": comparisons, "benchmark_comparisons": slices,
               "all_attempt_usage": total_usage, "formal_attempt_usage": formal_usage, "mechanical_attempt_usage": mechanical_usage,
               "mechanical_attempt_count": len(list(archived.glob("*/trial.json"))),
+              "previous_attempt_count": len(previous_rows),
+              "previous_scored_count": sum(row["scoreable"] for row in previous_rows),
+              "previous_success_count": sum(row["passed"] is True for row in previous_rows),
+              "previous_attempt_usage": merge_usage(previous_groups) if previous_groups else None,
               "mechanism_boundary": "A failed-check, changed-candidate, passing-check sequence is an observed sequence; causal effect comes from matched arm comparisons."}
     args.out.mkdir(parents=True, exist_ok=True)
     (args.out / "summary.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")

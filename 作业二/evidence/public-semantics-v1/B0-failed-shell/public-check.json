@@ -1,0 +1,38 @@
+{
+  "conditions": [
+    {
+      "actual": {
+        "changed_files": []
+      },
+      "id": "scheduler.input_data_unchanged",
+      "passed": true,
+      "required": "identical pristine input_data file set and bytes"
+    },
+    {
+      "actual": "[Errno 2] No such file or directory: '/app/task_file/output_data/plan_b1.jsonl'",
+      "id": "scheduler.bucket_1.jsonl_schema",
+      "passed": false,
+      "required": "two readable JSON Lines files with valid request and plan records"
+    },
+    {
+      "actual": "[Errno 2] No such file or directory: '/app/task_file/output_data/plan_b2.jsonl'",
+      "id": "scheduler.bucket_2.jsonl_schema",
+      "passed": false,
+      "required": "two readable JSON Lines files with valid request and plan records"
+    },
+    {
+      "actual": 0,
+      "id": "scheduler.global_shape_cap",
+      "passed": true,
+      "required": {
+        "operator": "<=",
+        "scope": "both buckets",
+        "value": 8
+      }
+    }
+  ],
+  "metrics": {
+    "global_unique_shapes": []
+  },
+  "passed": false
+}

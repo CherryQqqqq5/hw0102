@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "FEAL-like cipher broken and deliverable produced. Attack: f is a bijection on 2^32 (inverted byte-wise); post-round mixing reveals R4=C_hi, L4=C_lo^C_hi, so R3=L4 is known. Backward step R2 = R4 ^ f(L4^k3) depends only on k3; forward k1 = (L0 ^ f(R0^k0)) ^ f^-1(R0 ^ R4 ^ f(L4^k3)). Eliminating unknown k1 by matching differences U1^U0 across two pairs gives a meet-in-the-middle over the two 2^20 seed spaces (~5s forward table, ~8s backward scan, 67 candidates), then k2 is derived and all 32 pairs re-encrypted for verification. Recovered seeds: k0=0x68e63 k1=0x62571 k2=0x1f61c k3=0xb74a5 (round keys 0xb24dca68 0x0d14a358 0xa888fa20 0x5cc59c18). /app/plaintexts.txt contains 100 decimal plaintexts and diffs clean against the official `/app/decrypt ciphertexts.txt <seeds>` output. Public check public-task passed; saved as candidate-001 (eligible).",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 9
+    }
+  }
+}

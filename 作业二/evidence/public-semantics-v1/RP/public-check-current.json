@@ -1,0 +1,264 @@
+{
+  "conditions": [
+    {
+      "id": "scheduler.input_data_unchanged",
+      "passed": true,
+      "status": "pass",
+      "actual": {
+        "changed_files": []
+      },
+      "required": "identical pristine input_data file set and bytes"
+    },
+    {
+      "id": "scheduler.bucket_1.jsonl_schema",
+      "passed": true,
+      "status": "pass",
+      "actual": 800,
+      "required": "one JSON object per line with typed required fields"
+    },
+    {
+      "id": "scheduler.bucket_1.request_coverage",
+      "passed": true,
+      "status": "pass",
+      "actual": {
+        "missing": [],
+        "extra": [],
+        "duplicates": []
+      },
+      "required": "each public request_id appears exactly once in its bucket"
+    },
+    {
+      "id": "scheduler.bucket_1.fixed_dimensions",
+      "passed": true,
+      "status": "pass",
+      "actual": [],
+      "required": {
+        "heads_align": 32,
+        "hidden_align": 4096
+      }
+    },
+    {
+      "id": "scheduler.bucket_1.seq_alignment",
+      "passed": true,
+      "status": "pass",
+      "actual": [],
+      "required": "seq_align is an integer multiple of 64"
+    },
+    {
+      "id": "scheduler.bucket_1.prompt_coverage",
+      "passed": true,
+      "status": "pass",
+      "actual": [],
+      "required": "seq_align >= ceil(prompt_len / 64) * 64"
+    },
+    {
+      "id": "scheduler.bucket_1.batch_shape_consistency",
+      "passed": true,
+      "status": "pass",
+      "actual": [],
+      "required": "identical shape within each bucket-local batch_id"
+    },
+    {
+      "id": "scheduler.bucket_1.cost",
+      "passed": true,
+      "status": "pass",
+      "actual": 289024948300.0,
+      "required": {
+        "operator": "<",
+        "value": 300000000000.0
+      }
+    },
+    {
+      "id": "scheduler.bucket_1.pad_ratio",
+      "passed": true,
+      "status": "pass",
+      "actual": 0.05146967682924223,
+      "required": {
+        "operator": "<",
+        "value": 0.055
+      }
+    },
+    {
+      "id": "scheduler.bucket_1.p95_latency_ms",
+      "passed": true,
+      "status": "pass",
+      "actual": 2035891.7415999998,
+      "required": {
+        "operator": "<",
+        "value": 2100000.0
+      }
+    },
+    {
+      "id": "scheduler.bucket_1.sequential_timecost",
+      "passed": true,
+      "status": "pass",
+      "actual": 243115734.8832,
+      "required": {
+        "operator": "<",
+        "value": 270000000.0
+      }
+    },
+    {
+      "id": "scheduler.bucket_2.jsonl_schema",
+      "passed": true,
+      "status": "pass",
+      "actual": 800,
+      "required": "one JSON object per line with typed required fields"
+    },
+    {
+      "id": "scheduler.bucket_2.request_coverage",
+      "passed": true,
+      "status": "pass",
+      "actual": {
+        "missing": [],
+        "extra": [],
+        "duplicates": []
+      },
+      "required": "each public request_id appears exactly once in its bucket"
+    },
+    {
+      "id": "scheduler.bucket_2.fixed_dimensions",
+      "passed": true,
+      "status": "pass",
+      "actual": [],
+      "required": {
+        "heads_align": 32,
+        "hidden_align": 4096
+      }
+    },
+    {
+      "id": "scheduler.bucket_2.seq_alignment",
+      "passed": true,
+      "status": "pass",
+      "actual": [],
+      "required": "seq_align is an integer multiple of 64"
+    },
+    {
+      "id": "scheduler.bucket_2.prompt_coverage",
+      "passed": true,
+      "status": "pass",
+      "actual": [],
+      "required": "seq_align >= ceil(prompt_len / 64) * 64"
+    },
+    {
+      "id": "scheduler.bucket_2.batch_shape_consistency",
+      "passed": true,
+      "status": "pass",
+      "actual": [],
+      "required": "identical shape within each bucket-local batch_id"
+    },
+    {
+      "id": "scheduler.bucket_2.cost",
+      "passed": true,
+      "status": "pass",
+      "actual": 43855481055.0,
+      "required": {
+        "operator": "<",
+        "value": 48000000000.0
+      }
+    },
+    {
+      "id": "scheduler.bucket_2.pad_ratio",
+      "passed": true,
+      "status": "pass",
+      "actual": 0.13784993024113582,
+      "required": {
+        "operator": "<",
+        "value": 0.15
+      }
+    },
+    {
+      "id": "scheduler.bucket_2.p95_latency_ms",
+      "passed": true,
+      "status": "pass",
+      "actual": 195344.25519999999,
+      "required": {
+        "operator": "<",
+        "value": 210000.0
+      }
+    },
+    {
+      "id": "scheduler.bucket_2.sequential_timecost",
+      "passed": true,
+      "status": "pass",
+      "actual": 29348237.3184,
+      "required": {
+        "operator": "<",
+        "value": 32000000.0
+      }
+    },
+    {
+      "id": "scheduler.global_shape_cap",
+      "passed": true,
+      "status": "pass",
+      "actual": 7,
+      "required": {
+        "operator": "<=",
+        "value": 8,
+        "scope": "both buckets"
+      }
+    }
+  ],
+  "metrics": {
+    "bucket_1": {
+      "cost": 289024948300.0,
+      "pad_tokens": 24084,
+      "real_tokens": 467926,
+      "pad_ratio": 0.05146967682924223,
+      "p95_latency_ms": 2035891.7415999998,
+      "sequential_timecost": 243115734.8832,
+      "request_count": 800,
+      "batch_count": 369,
+      "unique_shape_count": 4
+    },
+    "bucket_2": {
+      "cost": 43855481055.0,
+      "pad_tokens": 25788,
+      "real_tokens": 187073,
+      "pad_ratio": 0.13784993024113582,
+      "p95_latency_ms": 195344.25519999999,
+      "sequential_timecost": 29348237.3184,
+      "request_count": 800,
+      "batch_count": 192,
+      "unique_shape_count": 4
+    },
+    "global_unique_shapes": [
+      [
+        64,
+        32,
+        4096
+      ],
+      [
+        256,
+        32,
+        4096
+      ],
+      [
+        512,
+        32,
+        4096
+      ],
+      [
+        704,
+        32,
+        4096
+      ],
+      [
+        1088,
+        32,
+        4096
+      ],
+      [
+        1536,
+        32,
+        4096
+      ],
+      [
+        2048,
+        32,
+        4096
+      ]
+    ]
+  },
+  "passed": true
+}

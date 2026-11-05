@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "model_calls": 0,
+  "checks": [
+    "B0: cached replay outcome",
+    "B0: cached replay shape count",
+    "B0: final CLI exit code",
+    "B0: bucket 1 public formula equivalence",
+    "B0: bucket 2 public formula equivalence",
+    "RP: cached replay outcome",
+    "RP: cached replay shape count",
+    "RP: final CLI exit code",
+    "RP: bucket 1 public formula equivalence",
+    "RP: bucket 2 public formula equivalence",
+    "duplicate_request: rejected by named condition",
+    "missing_request: rejected by named condition",
+    "wrong_heads: rejected by named condition",
+    "unaligned_shape: rejected by named condition",
+    "small_shape: rejected by named condition",
+    "boolean_shape: rejected by named condition",
+    "input byte mutation: rejected"
+  ]
+}

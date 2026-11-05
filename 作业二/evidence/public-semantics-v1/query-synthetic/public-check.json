@@ -1,0 +1,102 @@
+{
+  "conditions": [
+    {
+      "id": "query.database_pristine",
+      "passed": true,
+      "status": "pass",
+      "actual": "b24417b8482ef46ee9ef2797b23c4cb89590d5ea53e873f1fe42e8e2f2583ddc",
+      "required": "b24417b8482ef46ee9ef2797b23c4cb89590d5ea53e873f1fe42e8e2f2583ddc"
+    },
+    {
+      "id": "query.no_comments",
+      "passed": true,
+      "status": "pass",
+      "actual": 0,
+      "required": 0
+    },
+    {
+      "id": "query.semicolon_terminated",
+      "passed": true,
+      "status": "pass",
+      "actual": true,
+      "required": "one complete SQLite query terminated by a semicolon"
+    },
+    {
+      "id": "query.single_readonly_sqlite_query",
+      "passed": true,
+      "status": "pass",
+      "actual": true,
+      "required": "SQLite accepts one result-producing candidate query with writes denied"
+    },
+    {
+      "id": "query.reference_completed",
+      "passed": true,
+      "status": "pass",
+      "actual": 0.06539191701449454,
+      "required": "original public SQL completes within 5 seconds"
+    },
+    {
+      "id": "query.exact_public_output",
+      "passed": true,
+      "status": "pass",
+      "actual": {
+        "ordered_rows_equal": true,
+        "reference_rows": 150,
+        "candidate_rows": 150,
+        "column_names_equal": true
+      },
+      "required": "same column names, values, multiplicities and row order on every measured execution"
+    },
+    {
+      "id": "query.measured_improvement",
+      "passed": true,
+      "status": "pass",
+      "actual": 0.05919902102323249,
+      "required": {
+        "operator": ">",
+        "value": 0,
+        "meaning": "positive median paired seconds saved versus original public SQL"
+      }
+    },
+    {
+      "id": "query.database_unchanged_after_check",
+      "passed": true,
+      "status": "pass",
+      "actual": "b24417b8482ef46ee9ef2797b23c4cb89590d5ea53e873f1fe42e8e2f2583ddc",
+      "required": "b24417b8482ef46ee9ef2797b23c4cb89590d5ea53e873f1fe42e8e2f2583ddc"
+    }
+  ],
+  "metrics": {
+    "candidate_warmup_seconds": 0.00741945905610919,
+    "reference_warmup_seconds": 0.06539191701449454,
+    "reference_row_count": 150,
+    "candidate_row_count": 150,
+    "column_names_equal": true,
+    "timing_pairs": [
+      {
+        "round": 1,
+        "order": [
+          "original",
+          "candidate"
+        ],
+        "original_seconds": 0.0629591669421643,
+        "candidate_seconds": 0.0034388749627396464
+      },
+      {
+        "round": 2,
+        "order": [
+          "candidate",
+          "original"
+        ],
+        "candidate_seconds": 0.0027236249297857285,
+        "original_seconds": 0.06160137499682605
+      }
+    ],
+    "median_paired_seconds_saved": 0.05919902102323249,
+    "original_median_seconds": 0.06228027096949518,
+    "candidate_median_seconds": 0.0030812499462626874,
+    "timing_protocol": "one warmup each; alternating order; fresh read-only connection per execution",
+    "public_numeric_runtime_threshold": null
+  },
+  "passed": true
+}

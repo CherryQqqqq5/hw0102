@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Root cause: PandasMultiIndexingAdapter.__array__ ignored the requested dtype when a MultiIndex level is set, returning pandas' int64 level values, so stack upcast int32 coords to int64. Fix in xarray/core/indexing.py: fall back to self.dtype (from level_coords_dtype) and cast via np.asarray. Public check public-issue passed (stacked coord dtype int32); edge cases (multi-level stack, i1/i2/i4/u2/f4 preservation, stack/unstack roundtrip identical, sel/isel) verified; test_indexes.py + test_indexing.py + test_dataset.py + test_dataarray.py = 1029 passed, 2 skipped. Candidate candidate-001 saved.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 19
+    }
+  }
+}

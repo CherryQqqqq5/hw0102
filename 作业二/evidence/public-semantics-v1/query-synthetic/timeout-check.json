@@ -1,0 +1,55 @@
+{
+  "conditions": [
+    {
+      "id": "query.database_pristine",
+      "passed": true,
+      "status": "pass",
+      "actual": "b24417b8482ef46ee9ef2797b23c4cb89590d5ea53e873f1fe42e8e2f2583ddc",
+      "required": "b24417b8482ef46ee9ef2797b23c4cb89590d5ea53e873f1fe42e8e2f2583ddc"
+    },
+    {
+      "id": "query.no_comments",
+      "passed": true,
+      "status": "pass",
+      "actual": 0,
+      "required": 0
+    },
+    {
+      "id": "query.semicolon_terminated",
+      "passed": true,
+      "status": "pass",
+      "actual": true,
+      "required": "one complete SQLite query terminated by a semicolon"
+    },
+    {
+      "id": "query.single_readonly_sqlite_query",
+      "passed": true,
+      "status": "pass",
+      "actual": true,
+      "required": "SQLite accepts one result-producing candidate query with writes denied"
+    },
+    {
+      "id": "query.reference_completed",
+      "passed": null,
+      "status": "unknown",
+      "actual": {
+        "phase": "reference_warmup",
+        "error_type": "OperationalError",
+        "message": "interrupted"
+      },
+      "required": "each read-only execution completes within 0.01 seconds"
+    },
+    {
+      "id": "query.database_unchanged_after_check",
+      "passed": true,
+      "status": "pass",
+      "actual": "b24417b8482ef46ee9ef2797b23c4cb89590d5ea53e873f1fe42e8e2f2583ddc",
+      "required": "b24417b8482ef46ee9ef2797b23c4cb89590d5ea53e873f1fe42e8e2f2583ddc"
+    }
+  ],
+  "metrics": {
+    "candidate_warmup_seconds": 0.0002358750207349658,
+    "timing_pairs": []
+  },
+  "passed": null
+}

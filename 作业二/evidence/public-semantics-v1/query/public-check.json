@@ -1,0 +1,41 @@
+{
+  "conditions": [
+    {
+      "id": "query.database_pristine",
+      "passed": true,
+      "actual": "89eab7555b6b86a74b8e0ee5a7db7beec0b2575a45cd2b22fe132eae79f5ad5a",
+      "required": "89eab7555b6b86a74b8e0ee5a7db7beec0b2575a45cd2b22fe132eae79f5ad5a"
+    },
+    {
+      "id": "query.no_comments",
+      "passed": true,
+      "actual": 0,
+      "required": 0
+    },
+    {
+      "id": "query.semicolon_terminated",
+      "passed": true,
+      "actual": true,
+      "required": "one complete SQLite query terminated by a semicolon"
+    },
+    {
+      "id": "query.single_readonly_sqlite_query",
+      "passed": false,
+      "actual": {
+        "error_type": "OperationalError",
+        "message": "interrupted"
+      },
+      "required": "one read-only SQLite query; each execution completes within 120 seconds"
+    },
+    {
+      "id": "query.database_unchanged_after_check",
+      "passed": true,
+      "actual": "89eab7555b6b86a74b8e0ee5a7db7beec0b2575a45cd2b22fe132eae79f5ad5a",
+      "required": "89eab7555b6b86a74b8e0ee5a7db7beec0b2575a45cd2b22fe132eae79f5ad5a"
+    }
+  ],
+  "metrics": {
+    "timing_pairs": []
+  },
+  "passed": false
+}

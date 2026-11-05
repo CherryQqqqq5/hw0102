@@ -1,0 +1,11 @@
+{"event": "candidate_operation", "time": 1793879948.5998652, "operation": "initial", "seconds": 1.3196388749638572, "returncode": 0}
+{"event": "candidate_operation", "time": 1793879951.015611, "operation": "capture", "seconds": 2.413108874927275, "returncode": 0}
+{"event": "candidate_operation", "time": 1793879952.811539, "operation": "capture", "seconds": 1.7183954999782145, "returncode": 0}
+{"event": "candidate_operation", "time": 1793879955.184393, "operation": "original", "seconds": 2.3711256249807775, "returncode": 0}
+{"event": "candidate_operation", "time": 1793879957.255618, "operation": "capture", "seconds": 1.8969685829943046, "returncode": 0}
+{"event": "candidate_operation", "time": 1793879959.310598, "operation": "capture", "seconds": 2.0512030420359224, "returncode": 0}
+{"event": "candidate_operation", "time": 1793879959.946516, "operation": "restore", "seconds": 0.6348211249569431, "returncode": 0}
+{"event": "candidate_operation", "time": 1793879960.7485561, "operation": "capture", "seconds": 0.8012309579644352, "returncode": 0}
+{"event": "candidate_operation", "time": 1793879961.892398, "operation": "capture", "seconds": 1.1431705419672653, "returncode": 0}
+{"event": "candidate_operation", "time": 1793879962.377035, "operation": "restore", "seconds": 0.4838370829820633, "returncode": 0}
+{"event": "candidate_operation", "time": 1793879963.122768, "operation": "capture", "seconds": 0.7449034169549122, "returncode": 0}

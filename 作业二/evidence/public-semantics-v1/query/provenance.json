@@ -1,0 +1,6 @@
+{
+  "candidate_source": "new manually authored engineering fixture from original public SQL",
+  "historical_model_candidate": false,
+  "model_calls": 0,
+  "image": "alexgshaw/query-optimize:20251031"
+}

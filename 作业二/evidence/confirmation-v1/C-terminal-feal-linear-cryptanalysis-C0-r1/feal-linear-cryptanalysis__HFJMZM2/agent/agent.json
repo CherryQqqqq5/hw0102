@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Known-plaintext attack complete. solve3.c uses a 32-bit meet-in-the-middle split: B2 = B4 ^ F(A4^K3) (depends only on K3) matched against B2 = K2 ^ F^-1(A4 ^ B1) (depends only on K0 after eliminating K2 between two pairs), then K2 and K1 are derived directly and the full key is confirmed against all 32 pairs. Recovered seeds 68E63 62571 1F61C B74A5 -> round keys B24DCA68 0D14A358 A888FA20 5CC59C18. /app/plaintexts.txt holds 100 decimal uint64 plaintexts, byte-identical to `./decrypt /app/ciphertexts.txt 68E63 62571 1F61C B74A5`; every line re-encrypts to its ciphertext. public-task check passed; candidate-001 saved (digest 8dbb3874e9811de8...). /app/feal.c, /app/decrypt.c, /app/pairs.txt and /app/ciphertexts.txt are unmodified.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 13
+    }
+  }
+}

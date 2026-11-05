@@ -36,7 +36,9 @@ def sequence(tasks):
     return slots
 
 
-def prepare(manifest_path, checks_path, preflights, destination):
+def prepare(manifest_path, checks_path, preflights, destination, attempt_cap=300):
+    if not 270 <= attempt_cap <= 300:
+        raise ValueError("Attempt cap must cover 270 positions and stay within 300")
     manifest = json.loads(manifest_path.read_text())
     tasks = manifest["selected"]
     if Counter(task["benchmark"] for task in tasks) != {"swe": 10, "terminal": 10, "aider": 10}:
@@ -55,7 +57,7 @@ def prepare(manifest_path, checks_path, preflights, destination):
     plan = {"stage": "frozen_before_first_model_request", "created_utc": datetime.now(timezone.utc).isoformat(),
             "seed": SEED, "model": os.environ["COURSE_MODEL_ID"], "backend": os.environ["COURSE_MODEL_BACKEND"],
             "codebuddy_version": subprocess.check_output([os.environ["COURSE_CODEBUDDY_BIN"], "--version"], text=True).strip(),
-            "limits": LIMITS.model_dump(), "workers": 1, "planned_trials": 270, "max_total_attempts": 300,
+            "limits": LIMITS.model_dump(), "workers": 1, "planned_trials": 270, "max_total_attempts": attempt_cap,
             "python_version": sys.version,
             "package_versions": {name: importlib.metadata.version(name) for name in ("mini-swe-agent", "swebench", "harbor", "pydantic")},
             "max_extra_mechanical_attempts_per_slot": 2,
@@ -72,7 +74,7 @@ def execute(args):
     if (digest(args.manifest) != plan["manifest_sha256"] or digest(args.checks) != plan["checks_sha256"]
             or any(digest(Path(__file__).parent / name) != checksum for name, checksum in plan["runtime_sha256"].items())):
         raise ValueError("Frozen protocol or execution code differs")
-    tracked_plan = subprocess.check_output(["git", "show", args.protocol_commit + ":作业二/configs/confirmation-plan-v1.json"],
+    tracked_plan = subprocess.check_output(["git", "show", args.protocol_commit + ":" + args.published_plan],
                                            cwd=args.published_repo)
     if tracked_plan != args.plan.read_bytes():
         raise ValueError("Protocol commit does not contain the exact run plan")
@@ -143,11 +145,13 @@ def main():
     parser.add_argument("--runs", type=Path)
     parser.add_argument("--protocol-commit")
     parser.add_argument("--published-repo", type=Path, default=Path("work/hw0102-publish"))
+    parser.add_argument("--published-plan", default="作业二/configs/confirmation-plan-v1.json")
+    parser.add_argument("--attempt-cap", type=int, default=300)
     parser.add_argument("--recover")
     parser.add_argument("--recovery-reason")
     args = parser.parse_args()
     if args.preflights:
-        prepare(args.manifest, args.checks, args.preflights, args.plan)
+        prepare(args.manifest, args.checks, args.preflights, args.plan, args.attempt_cap)
     else:
         if not args.runs or not args.protocol_commit:
             parser.error("Execution requires --runs and --protocol-commit")

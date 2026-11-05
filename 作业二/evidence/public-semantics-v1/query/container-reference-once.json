@@ -1,0 +1,14 @@
+{
+  "kind": "one_original_reference_execution_in_real_task_container",
+  "sqlite_version": "3.50.4",
+  "python_version": "3.13.12 (main, Mar 24 2026, 22:49:35) [Clang 22.1.1 ]",
+  "timeout_seconds": 120,
+  "database_before": "89eab7555b6b86a74b8e0ee5a7db7beec0b2575a45cd2b22fe132eae79f5ad5a",
+  "reference_completed": null,
+  "status": "unknown",
+  "error_type": "OperationalError",
+  "error": "interrupted",
+  "elapsed_seconds": 120.26672286799294,
+  "database_after": "89eab7555b6b86a74b8e0ee5a7db7beec0b2575a45cd2b22fe132eae79f5ad5a",
+  "database_unchanged": true
+}

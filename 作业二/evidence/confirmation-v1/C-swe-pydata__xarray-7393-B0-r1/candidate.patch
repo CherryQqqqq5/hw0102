@@ -1,0 +1,50 @@
+diff --git a/xarray/core/indexing.py b/xarray/core/indexing.py
+index ba937183..581e0abf 100644
+--- a/xarray/core/indexing.py
++++ b/xarray/core/indexing.py
+@@ -1532,7 +1532,10 @@ class PandasMultiIndexingAdapter(PandasIndexingAdapter):
+ 
+     def __array__(self, dtype: DTypeLike = None) -> np.ndarray:
+         if self.level is not None:
+-            return self.array.get_level_values(self.level).values
++            if dtype is None:
++                dtype = self._dtype
++            array = self.array.get_level_values(self.level).values
++            return np.asarray(array, dtype=dtype)
+         else:
+             return super().__array__(dtype)
+ 
+diff --git a/xarray/tests/test_dataset.py b/xarray/tests/test_dataset.py
+index 6ab4c40c..85df0806 100644
+--- a/xarray/tests/test_dataset.py
++++ b/xarray/tests/test_dataset.py
+@@ -3467,6 +3467,29 @@ class TestDataset:
+         assert_identical(expected, actual)
+         assert list(actual.xindexes) == ["z", "y", "x"]
+ 
++    def test_stack_preserves_dtype(self) -> None:
++        # regression test for GH7393: stacking should not cast index dtypes
++        ds = Dataset(
++            coords={
++                "a": np.array([0, 1], dtype="i4"),
++                "b": np.array([0.0, 1.0], dtype="f4"),
++            }
++        )
++        stacked = ds.stack(z=("a", "b"))
++
++        assert stacked["a"].dtype == ds["a"].dtype
++        assert stacked["b"].dtype == ds["b"].dtype
++        assert stacked["a"].values.dtype == np.dtype("i4")
++        assert stacked["b"].values.dtype == np.dtype("f4")
++
++        for name in ("a", "b"):
++            assert stacked[name].values.dtype == ds[name].values.dtype
++
++        # dtypes are also preserved through a stack / unstack roundtrip
++        unstacked = stacked.unstack("z")
++        assert unstacked["a"].dtype == ds["a"].dtype
++        assert unstacked["b"].dtype == ds["b"].dtype
++
+     @pytest.mark.parametrize(
+         "create_index,expected_keys",
+         [

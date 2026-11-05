@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Fix: PandasMultiIndexingAdapter.__array__ now honors the adapter's declared level dtype via np.asarray(levels, dtype=dtype), so ds.stack() no longer upcasts int32 level coordinates to int64. Public check public-issue passed (dtype int32); candidate-001 saved and eligible. Targeted suites test_indexes/test_indexing/test_dataset/test_dataarray/test_variable: 1489 passed, 63 skipped, 22 xfailed, 25 xpassed. Edge cases verified: set_index/reset_index, sel/isel on levels, concat of stacked datasets, float32/datetime/object levels, stack/unstack roundtrips assert_identical. Only a pre-existing, unrelated h5netcdf complex-dtype backend test failure was observed.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 20
+    }
+  }
+}

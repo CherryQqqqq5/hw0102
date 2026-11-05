@@ -1,0 +1,8 @@
+bucket1: tol=0.05 maxb=4 lat_cut=0.000e+00 singles=0 batches=369 used_shapes=[64, 1088, 1536, 2048]
+   cost=2.8902e+11 (96.3% of thr)  pad=0.0515 (93.6%)  p95=2.0359e+06 (96.9%)  seq=2.4312e+08 (90.0%)  worst=0.969
+bucket2: tol=0.10 maxb=8 lat_cut=0.000e+00 singles=0 batches=192 used_shapes=[64, 256, 512, 704]
+   cost=4.3855e+10 (91.4% of thr)  pad=0.1378 (91.9%)  p95=1.9534e+05 (93.0%)  seq=2.9348e+07 (91.7%)  worst=0.930
+global unique shapes: [64, 256, 512, 704, 1088, 1536, 2048] (count=7)
+wrote /app/task_file/output_data/plan_b1.jsonl (800 records)
+wrote /app/task_file/output_data/plan_b2.jsonl (800 records)
+ALL THRESHOLDS MET WITH MARGIN

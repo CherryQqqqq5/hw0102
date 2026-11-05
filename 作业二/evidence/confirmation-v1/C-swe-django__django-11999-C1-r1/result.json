@@ -1,0 +1,10 @@
+{
+  "task": "django__django-11999",
+  "wall_seconds": 46.185762124951,
+  "exit_status": "CandidateOperationError",
+  "submission": "",
+  "controller_error": "Candidate operation failed: Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n  File \"<course-candidate-io>\", line 172, in <module>\n  File \"<course-candidate-io>\", line 159, in main\n  File \"<course-candidate-io>\", line 100, in initial\n  File \"<course-candidate-io>\", line 60, in names_for\n  File \"<course-candidate-io>\", line 41, in git\n  File \"/opt/miniconda3/envs/testbed/lib/python3.6/subprocess.py\", line 356, in check_output\n    **kwargs).stdout\n  File \"/opt/miniconda3/envs/testbed/lib/python3.6/subprocess.py\", line 425, in run\n    stdout, stderr = process.communicate(input, timeout=timeout)\n  File \"/opt/miniconda3/envs/testbed/lib/python3.6/subprocess.py\", line 850, in communicate\n    stdout = self.stdout.read()\n  File \"/opt/miniconda3/envs/testbed/lib/python3.6/encodings/ascii.py\", line 26, in decode\n    return codecs.ascii_decode(input, self.errors)[0]\nUnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 255476: ordinal not in range(128)\n",
+  "scoreable": true,
+  "passed": false,
+  "grader_seconds": 40.76779337506741
+}

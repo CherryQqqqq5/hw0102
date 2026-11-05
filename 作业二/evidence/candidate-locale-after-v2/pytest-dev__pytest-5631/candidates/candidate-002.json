@@ -1,0 +1,18 @@
+{
+  "candidate_id": "candidate-002",
+  "artifact_digest": "d8af9c2c3b698c1ddbecd1767cccb7e949ae0569d21114f3695f0be569093e76",
+  "protected_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "eligible": false,
+  "evidence": {
+    "engineering": {
+      "state": "pending"
+    }
+  },
+  "saved_elapsed": 6.289499083999544,
+  "files": {
+    "course_路径.txt": {
+      "data": "5YCZ6YCJ5paH5Lu25Y6f5aeL5YaF5a6544CCCg==",
+      "mode": 420
+    }
+  }
+}
