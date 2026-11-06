@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Task complete. Recovered round-key seeds 68e63 62571 1f61c b74a5 via a meet-in-the-middle attack exploiting the invertibility of the F function: given candidate K0 and K3, K1 and K2 are derived in closed form from the two middle-round states, then matched on 4-pair differences (1 match, 1 candidate tried). Deliverable /app/plaintexts.txt contains exactly 100 pure-decimal uint64 lines. Evidence: all 32 pairs.txt entries re-encrypt exactly (0 mismatches); each of the 100 plaintexts re-encrypts to the corresponding ciphertexts.txt value (0 mismatches, 0 extra lines), confirmed both with an independent reimplementation and with the original shipped /app/feal and /app/decrypt binaries (byte-identical output). Public check public-task passed (uint64_tokens=100 vs ciphertext_count=100). Original inputs unmodified.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 13
+    }
+  }
+}

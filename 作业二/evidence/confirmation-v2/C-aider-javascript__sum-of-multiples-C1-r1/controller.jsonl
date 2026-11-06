@@ -1,0 +1,2 @@
+{"event": "candidate_operation", "time": 1793890867.096087, "protocol_commit": "d3e51828421535d077365177395d8a3c84b3684a", "operation": "initial", "seconds": 0.06812383304350078, "returncode": 127}
+{"event": "controller_error", "time": 1793890867.096307, "protocol_commit": "d3e51828421535d077365177395d8a3c84b3684a", "error_type": "CandidateOperationError", "detail": "Candidate operation failed: env: 'python3': No such file or directory\n"}

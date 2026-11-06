@@ -1,88 +1,86 @@
-# 独立确认实验复现
+# 分批确认实验复现
 
-本轮使用30道相对原45题新增的任务，B0、C0、C1各重复三次，共270个位置。主要比较、选择规则、恢复额度及统计单位见[v2实验协议](../作业二/configs/confirmation-protocol-v2.md)。v1在8条有效评分后因Python 3.6文件名解码缺陷停止，7通过/1失败全部保留；v2只修复候选文件助手的UTF-8环境，完整重跑三组，不复用有利成绩。本文件中的命令从`shared/`执行；原384条评分及其复现方法见[共用说明](README.md)。
+本轮为30题×3条件×3轮，共270个主要位置。当前采用[v3协议](../作业二/configs/confirmation-protocol-v3.md)，80条完整非JavaScript记录来自v2，其余190条按修复后的环境执行。全部旧失败与被替换记录保留，详见[运行时修复范围](../作业二/configs/confirmation-runtime-repair-v3.md)。下列命令从`shared/`执行。
 
 ## 环境准备
 
-沿用共用说明中的固定数据修订、Docker镜像、Aider六种语言环境、Terminal离线评分依赖和CodeBuddy登录方式。本轮使用Python 3.13、mini-SWE-agent 2.4.6、SWE-bench 5.0.2、Harbor 0.25.0、Pydantic 2.14.2。完整本机Python版本和镜像内容标识在运行计划及题单中。
+数据修订、容器、语言工具、离线评分依赖和CodeBuddy登录方式见[共用说明](README.md)。本轮使用Python 3.13.12、mini-SWE-agent 2.4.6、SWE-bench 5.0.2、Harbor 0.25.0、Pydantic 2.14.2及CodeBuddy 2.179.3，模型为deepseek-v4.1-flash。完整环境版本与镜像标识在计划和题单中。
 
 ```sh
 export COURSE_MODEL_BACKEND=codebuddy
 export COURSE_MODEL_ID=deepseek-v4.1-flash
 export COURSE_CODEBUDDY_BIN="$(command -v codebuddy)"
 export COURSE_PUBLIC_DEPS_ROOT="$PWD/work/vmshare/confirmation-public-deps"
+export COURSE_AIDER_PUBLIC_PYTHON="$PWD/work/terminal-runtime/python-3.13.12-linux-aarch64.tar.gz"
 export TMPDIR="$PWD/work/process-tmp"
-mkdir -p "$TMPDIR" "$COURSE_PUBLIC_DEPS_ROOT/django-12193"
+mkdir -p "$TMPDIR" "$COURSE_PUBLIC_DEPS_ROOT/django-12193" work/terminal-runtime
 UV_CACHE_DIR="$PWD/work/uv-cache" uv pip install --target "$COURSE_PUBLIC_DEPS_ROOT/django-12193" \
-  --python-version 3.6 --python-platform x86_64-manylinux2014 --only-binary :all: \
-  'psycopg2-binary==2.8.6'
+  --python-version 3.6 --python-platform x86_64-manylinux2014 --only-binary :all: 'psycopg2-binary==2.8.6'
 UV_CACHE_DIR="$PWD/work/uv-cache" uv pip install --target "$COURSE_PUBLIC_DEPS_ROOT/pytest-5631-py39" \
-  --python-version 3.9 --python-platform x86_64-manylinux2014 --only-binary :all: \
-  'numpy==1.23.5'
+  --python-version 3.9 --python-platform x86_64-manylinux2014 --only-binary :all: 'numpy==1.23.5'
+curl -fL -o "$COURSE_AIDER_PUBLIC_PYTHON" \
+  'https://github.com/astral-sh/python-build-standalone/releases/download/20260325/cpython-3.13.12%2B20260325-aarch64-unknown-linux-gnu-install_only.tar.gz'
 work/.venv/bin/python scripts/install-terminal-deps.py '../作业二/configs/confirmation-tasks-v1.json'
 ```
 
-Django-12193和pytest-5631的依赖对所有条件只读挂载。polyglot-rust-c在原镜像中补充共用说明下载的Python 3.13.12独立运行时，三个条件执行同一准备程序，准备时间单列。任务容器保持离线，原题评分条件不变。正式运行一次只执行一个任务，生成与评分不重叠。
+JavaScript运行时采用[固定上游发布](https://github.com/astral-sh/python-build-standalone/releases/tag/20260325)，程序校验下载摘要。三个条件均在执行预算前提供该运行时，并执行原npm脚本以启用xtest和建立依赖链接，再捕获受保护测试。准备耗时单列；原评分器不变。Django与pytest公开依赖对三个条件只读挂载；Terminal的polyglot-rust-c统一使用共用说明中的x86 Python运行时。生成和评分逐项顺序执行。
 
-## 环境与公开检查控制
-
-以下命令只执行初始产物和上游参考产物的工程控制，不调用模型。参考补丁及解法仅留在本机控制目录，不能进入正式任务容器的可读范围。
+## 无模型环境验收
 
 ```sh
 work/.venv/bin/python -m course_eval.confirmation_preflight \
-  --manifest '../作业二/configs/confirmation-tasks-v1.json' \
-  --out work/vmshare/confirmation-preflights
+  --manifest '../作业二/configs/confirmation-tasks-v1.json' --out work/vmshare/confirmation-preflights
 work/.venv/bin/python -m course_eval.check_confirmation_public \
-  --manifest '../作业二/configs/confirmation-tasks-v1.json' \
-  --out work/vmshare/confirmation-swe-public
+  --manifest '../作业二/configs/confirmation-tasks-v1.json' --out work/vmshare/confirmation-swe-public
 work/.venv/bin/python -m course_eval.check_confirmation_terminal \
-  --manifest '../作业二/configs/confirmation-tasks-v1.json' \
-  --out work/vmshare/confirmation-terminal-public
+  --manifest '../作业二/configs/confirmation-tasks-v1.json' --out work/vmshare/confirmation-terminal-public
+work/.venv/bin/python -m course_eval.check_aider_runtime \
+  --manifest '../作业二/configs/confirmation-tasks-v1.json' --out work/vmshare/aider-runtime-recheck
 ```
 
-原题控制必须为初始产物未通过、上游参考通过。公开检查的输出保存具体约束、实测值、返回状态及覆盖范围。FEAL只检查可读整数载荷容量，漏洞利用只检查指定文件和格式，Bottle只检查报告格式及可见测试；这些任务的完整语义正确性由独立原题评分判断。
+原评分控制为初始失败、上游参考通过。上游参考只用于工程控制，不进入模型提示或正式任务可读范围。FEAL仅验证整数载荷容量，漏洞利用仅验证文件及格式，Bottle仅验证报告格式和可见测试；完整正确性继续由原评分判断。
 
-## 冻结与运行
+## 已发布记录复算
 
-已发布的`confirmation-plan-v2.json`保存本轮270个位置、运行顺序、代码与检查摘要。每个正式`trial.json`和可见模型事件记录`protocol_commit`，该提交在v2首个模型请求前产生。v1协议和6319dd7的原始代码可以从Git历史核验。CodeBuddy没有可用的输出词元硬限选项，配置字段`max_output_tokens=4096`不表示服务实际采用该限制。
-
-在原环境继续运行时，将`PROTOCOL_COMMIT`设置为正式记录中的提交号：
-
-```sh
-work/.venv/bin/python -m course_eval.confirmation \
-  --manifest '../作业二/configs/confirmation-tasks-v1.json' \
-  --checks '../作业二/configs/confirmation-public-checks-v1.json' \
-  --plan '../作业二/configs/confirmation-plan-v2.json' \
-  --published-repo .. --protocol-commit "$PROTOCOL_COMMIT" \
-  --published-plan '作业二/configs/confirmation-plan-v2.json' \
-  --runs work/vmshare/confirmation-v2
-```
-
-更换机器或Python微版本时，应重新执行环境控制、生成新计划并在首次请求前提交该计划。新复跑须独立命名，不能改写已发布记录的模型标识、环境版本或代码摘要来通过验证。首次准备计划的命令为：
-
-```sh
-work/.venv/bin/python -m course_eval.confirmation \
-  --manifest '../作业二/configs/confirmation-tasks-v1.json' \
-  --checks '../作业二/configs/confirmation-public-checks-v1.json' \
-  --preflights work/vmshare/confirmation-preflights --plan work/confirmation-plan-v2.json \
-  --attempt-cap 292
-```
-
-程序跳过同一协议下已有完整评分的位置。正常失败仍是有效成绩。只有原评分缺失的机械故障可以在记录原因后使用`--recover <run_id> --recovery-reason <具体原因>`；原目录会保存在相邻的`confirmation-v2-attempts/`中，成本继续统计。每个位置最多两次额外恢复。v2队列尝试上限292，加上v1的8次，累计上限仍为300。
-
-## 从发布证据复算
-
-下列操作读取已脱敏的可见交互和原题评分，无需模型额度或Docker：
+以下操作只读取可见交互和原评分，无需模型或Docker。主要统计必须等待全部270位置取得有效评分。
 
 ```sh
 python3 -m course_eval.confirmation_summary \
-  --runs '../作业二/evidence/confirmation-v2' \
-  --plan '../作业二/configs/confirmation-plan-v2.json' \
-  --previous-runs '../作业二/evidence/confirmation-v1' \
+  --runs '../作业二/evidence/confirmation-v3' \
+  --plan '../作业二/configs/confirmation-plan-v3.json' \
+  --previous-runs '../作业二/evidence/confirmation-v1' '../作业二/evidence/confirmation-v3-previous' \
   --out work/recomputed-confirmation
-python3 -m course_eval.verify_scores --runs '../作业二/evidence/confirmation-v1' '../作业二/evidence/confirmation-v2'
+python3 -m course_eval.verify_scores --runs '../作业二/evidence/confirmation-v3'
 ```
 
-统计要求v2全部270个位置取得原题评分，保留每道题三轮结构，按基准分层对任务进行10000次配对重采样。`all_attempt_usage`包含v1的8次、v2正式与机械失败尝试；`previous_attempt_usage`、`formal_attempt_usage`和`mechanical_attempt_usage`分别给出来源。v1有效失败仍按失败保存，不列入机械未评分数量。费用字段为服务返回值，无法独立确认账号账单。
+统计保留同题三轮结构，按基准分层、以任务为单位进行10000次配对自助重采样。逐题表的source_batch与protocol_commit定位实际来源。主目录包含80条v2复用，不得再将整个v2目录加入累计用量。主比较外为v1的8次，加previous目录中的6条整组替换记录和1条未评分中断记录，共15次。`all_attempt_usage`包含这些尝试；返回词元无法覆盖超时后未返回的用量，费用字段不等同于账单。
 
-`controller.jsonl`、`candidates/`和`final-verification.json`分别记录干预、候选文件及证据、最终版本。候选文件使用Base64编码保存原始字节；导出前对解码后的内容进行敏感标记检查。可见模型交互保留请求、结构化动作、响应及词元统计，剔除服务内部账户元数据。工程控制不纳入正式成功率。
+`confirmation-v2/`保留全部86条历史评分，`confirmation-v2-attempts/`保留中断尝试。它们与主目录、previous目录之间存在明确复用关系，目录数不能直接相加为独立运行数。
+
+## 原运行续跑与全新复跑
+
+原运行续跑必须先将计划中声明的80条旧记录放在运行目录相同位置。调度器核对原提交和预算，缺少声明复用记录时立即失败；不能用新采样伪装旧记录。将PROTOCOL_COMMIT设置为v3正式记录中的提交号后执行：
+
+```sh
+work/.venv/bin/python -m course_eval.confirmation \
+  --manifest '../作业二/configs/confirmation-tasks-v1.json' \
+  --checks '../作业二/configs/confirmation-public-checks-v1.json' \
+  --plan '../作业二/configs/confirmation-plan-v3.json' \
+  --published-repo .. --published-plan '作业二/configs/confirmation-plan-v3.json' \
+  --protocol-commit "$PROTOCOL_COMMIT" --runs work/vmshare/confirmation-v3
+```
+
+v3新队列计数上限285（包含80条复用），加主比较外15次，累计上限仍为300。正常失败保留。只有原评分缺失的机械故障可使用`--recover <run_id> --recovery-reason <具体原因>`，原件归档相邻的`confirmation-v3-attempts/`；每位置最多两次额外恢复。
+
+全新复跑不复用旧采样，重新执行环境验收后生成无来源复用的新计划：
+
+```sh
+work/.venv/bin/python -m course_eval.confirmation \
+  --manifest '../作业二/configs/confirmation-tasks-v1.json' \
+  --checks '../作业二/configs/confirmation-public-checks-v1.json' \
+  --preflights work/vmshare/confirmation-preflights --plan work/confirmation-fresh-plan.json
+```
+
+在首次模型请求前将新计划和代码提交，再使用对应发布路径运行；独立命名新结果。不要修改旧计划中的版本或摘要来适配新机器。CodeBuddy没有实际采用通用字段max_output_tokens=4096，采样种子、内部推理预算及模型别名更新也无法固定。
+
+`controller.jsonl`、`candidates/`与`final-verification.json`记录干预、文件字节和最终版本证据。可见模型交互保留请求、动作、响应和返回用量，服务内部账户元数据剔除。候选导出前对解码内容进行敏感标记检查；工程控制不计入任务成功率。

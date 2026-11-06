@@ -11,6 +11,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 from course_eval.agent import RunLimits, run_baseline
+from course_eval.aider_runtime import prepare_aider_runtime
 from course_eval.docker_target import DockerTarget
 from course_eval.inventory import REVISIONS
 from course_eval.terminal_setup import prepare_offline_verifier
@@ -120,6 +121,10 @@ def run_aider(task: dict, sources: Path, directory: Path, limits: RunLimits,
     checks = checks or (PublicCheck("public-suite", "Original tests are available.", AIDER_TESTS[language], deps),)
     with DockerTarget(image, aider_cwd(task), platform="linux/arm64", memory_mb=2048, cpus=1) as target:
         target.upload_tree(initial)
+        if limits.strict_wall:
+            runtime = prepare_aider_runtime(target, language)
+            if runtime:
+                write_json(directory / "public-runtime.json", runtime)
         scope = {"kind": "files", "artifacts": files,
                  "protected": [str(path.relative_to(initial)) for path in initial.rglob("*")
                                if path.is_file() and str(path.relative_to(initial)) not in files]}

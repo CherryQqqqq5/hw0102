@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Completed plus_comm.v: base case closed with `rewrite <- plus_n_O`; inductive case uses `rewrite IH` then `rewrite <- plus_n_Sm` (order matters so the induction hypothesis has a matching subterm). coqc compiles cleanly, plus_comm.vo generated, and Print Assumptions reports the theorem is closed under the global context (no admits/axioms). public-task passed all four conditions; verified version saved as candidate-001.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 10
+    }
+  }
+}

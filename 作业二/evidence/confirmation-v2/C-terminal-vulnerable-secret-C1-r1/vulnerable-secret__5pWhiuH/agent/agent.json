@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Flag extracted and deliverable in place: /app/results.txt contains FLAG{b4ff3r_0v3rfl0w_m4st3r_k3y_2024} (single line, 37 bytes). Recovered from the binary's own output by overflowing gets() with 64 bytes plus dword 1 at frame offset 0x40, taking the \"Authentication bypassed!\" branch which ptrace-checks then XOR-decodes the .data secret with 0x42. Secret identity independently confirmed by decoding the encoded bytes at file offset 0x3060 directly from /app/vulnerable, matching results.txt exactly. Public check public-task passed (flag_output_format ok). Candidate candidate-001 saved with passing evidence; /app/vulnerable unmodified.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 9
+    }
+  }
+}

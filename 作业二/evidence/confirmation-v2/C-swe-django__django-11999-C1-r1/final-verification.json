@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "b0dc418ba4fc4fdf504920961f6a8fd1c9587b9aae5e4ccc94694e7dd0d69299",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-issue": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "2cb090051e0e94fa1a93e06a74e6dfa736665eada7bc6d63ccfcc3a8f14e3fa6  django/db/models/fields/__init__.py\n"
+    }
+  },
+  "elapsed_seconds": 214.57801920804195
+}

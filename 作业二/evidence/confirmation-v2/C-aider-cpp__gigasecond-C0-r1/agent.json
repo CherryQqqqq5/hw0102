@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Implementation complete and verified. gigasecond.h declares `boost::posix_time::ptime advance(const boost::posix_time::ptime& start);` and gigasecond.cpp returns `start + boost::posix_time::seconds(1000000000)`. public-suite passed (5 assertions in 5 test cases, returncode 0). Saved as candidate-001 (eligible=true). Extra boundary dates — leap day 2000-02-29, year-end rollover, and the 2100 non-leap window — cross-checked against Python's proleptic Gregorian calendar and match exactly; earlier \"failures\" were errors in my hand-written expected strings, not the code. Test and build files left untouched.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 11
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "task": "javascript/sum-of-multiples",
+  "wall_seconds": 1.9394804170588031,
+  "exit_status": "CandidateOperationError",
+  "submission": "",
+  "controller_error": "Candidate operation failed: env: 'python3': No such file or directory\n",
+  "scoreable": true,
+  "passed": false,
+  "grader_exit_code": 1,
+  "grader_seconds": 1.5029627499170601
+}

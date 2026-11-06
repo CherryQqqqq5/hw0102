@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "ChangeCalculator implemented with DP (min-coin) solution; public-suite check passed (candidate-001 eligible) and standalone harness covering all 13 disabled tests plus extra edge cases passed. Submitting.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 11
+    }
+  }
+}

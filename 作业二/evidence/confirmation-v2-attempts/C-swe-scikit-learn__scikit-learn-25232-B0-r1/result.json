@@ -1,0 +1,10 @@
+{
+  "scoreable": false,
+  "passed": null,
+  "task": "scikit-learn__scikit-learn-25232",
+  "wall_seconds": null,
+  "error_type": "InterruptedExecution",
+  "error": "Runner and model processes absent; no submission, finalization or grader result was saved",
+  "observed_utc": "2026-11-06T02:00:37.196964+00:00",
+  "candidate_preserved": true
+}

@@ -1,0 +1,8 @@
+{
+  "task": "feal-linear-cryptanalysis",
+  "wall_seconds": 486.33991929201875,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "feal-linear-cryptanalysis__pPVT3dk/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

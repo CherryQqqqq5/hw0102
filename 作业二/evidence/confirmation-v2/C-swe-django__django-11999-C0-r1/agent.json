@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Final fix submitted: django/db/models/fields/__init__.py contribute_to_class() now skips setting get_FOO_display when the name is present in cls.__dict__, so user-defined overrides are retained. Verified via public-issue check (passed, display value 'something') and model_fields/model_meta/proxy_models/basic suites; candidate-001 saved.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 14
+    }
+  }
+}

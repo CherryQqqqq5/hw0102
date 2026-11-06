@@ -1,0 +1,9 @@
+{
+  "task": "pytest-dev__pytest-7490",
+  "wall_seconds": 473.27052391599864,
+  "exit_status": "Submitted",
+  "submission": "Submit the saved candidate-002 fix. src/_pytest/skipping.py: in pytest_runtest_makereport, when a call-phase report has no cached xfail evaluation (xfailed is None) and --runxfail is not set, re-evaluate xfail marks so a marker added dynamically during the test (request.node.add_marker(pytest.mark.xfail)) is honored and a failing test is reported as xfailed. Public check public-issue passed (test reported as xfailed, exit 0); all 79 testing/test_skipping.py tests pass including test_errors_in_xfail_skip_expressions (re-evaluation limited to call phase); edge cases verified: dynamic run=False, raises match/mismatch, fixture-added mark, non-strict XPASS, strict XPASS, static xfail, false-condition xfail, and --runxfail still reports failure. Only unrelated test_reports.py chained-exceptions failure is a pre-existing pkg_resources DeprecationWarning under this environment (reproduced with the patch stashed).",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 30.05990816594567
+}

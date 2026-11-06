@@ -1,0 +1,9 @@
+{
+  "task": "scikit-learn__scikit-learn-11310",
+  "wall_seconds": 197.890610500006,
+  "exit_status": "Submitted",
+  "submission": "Submitting the verified, saved candidate-001. Changes to sklearn/model_selection/_search.py: added `import time`; in BaseSearchCV.fit the refit of best_estimator_ is timed with refit_start_time/refit_end_time and stored as self.refit_time_ (only when refit is truthy); `refit_time_` documented in both GridSearchCV and RandomizedSearchCV docstrings. Public check public-issue passed (refit_time_ ~0.00049s, nonnegative); reproducer showed nonnegative refit_time_ for GridSearchCV and RandomizedSearchCV and absence when refit=False; test_search.py results identical to the unpatched baseline (3 pre-existing pytest API incompatibilities).",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 27.23346733301878
+}

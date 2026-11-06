@@ -1,0 +1,9 @@
+{
+  "task": "pytest-dev__pytest-5631",
+  "wall_seconds": 236.16734608402476,
+  "exit_status": "Submitted",
+  "submission": "Final state: src/_pytest/compat.py num_mock_patch_args now uses `any(p.new is sentinel for sentinel in sentinels)` instead of `p.new in sentinels`, avoiding elementwise __eq__ on numpy arrays that raised \"truth value of an array is ambiguous\". Public check public-issue passed (1 passed, exit 0) with final artifact digest 2b6181002efba00234133242fe78040699d5fef6547b0c402b2d6c1bf9100187. Reproducer with @patch(new=np.array([...])) collects and runs under the py3.9 testbed env, including the stacked case mixing an array-new patch and a plain mock patch. Existing tests unchanged: testing/test_compat.py and testing/python/integration.py mock/arg subset = 13 passed, 4 skipped; acceptance_test.py failures (9) confirmed pre-existing on the unpatched baseline. Candidate candidate-002 saved as the best feasible version.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 27.723172166966833
+}

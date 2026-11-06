@@ -1,0 +1,10 @@
+{
+  "task": "rust/accumulate",
+  "wall_seconds": 62.26531533407979,
+  "exit_status": "Submitted",
+  "submission": "Generic map<T, U, F: FnMut(T) -> U> implemented with a for-loop and manual Vec::push (no std map/collect). Public suite passed 12/12 including recursion, type changes, and mutating closures. Saved as candidate-001.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 3.2198765000794083
+}

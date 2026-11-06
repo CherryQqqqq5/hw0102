@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Recovered all four 20-bit seeds via meet-in-the-middle (split after round 2); all 32 known pairs re-encrypt with 0 mismatches; /app/plaintexts.txt has 100 pure-decimal uint64 plaintexts from decrypting /app/ciphertexts.txt; public-task passed.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 13
+    }
+  }
+}

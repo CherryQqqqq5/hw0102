@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Recovered 11 records by XOR-decrypting the corrupted WAL with key 0x42, replaying it into SQLite, and writing /app/recovered.json. public-task check passed; candidate-001 saved.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 10
+    }
+  }
+}

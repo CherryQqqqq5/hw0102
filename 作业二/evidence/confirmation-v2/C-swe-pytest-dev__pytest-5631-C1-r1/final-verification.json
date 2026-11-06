@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "2b6181002efba00234133242fe78040699d5fef6547b0c402b2d6c1bf9100187",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-issue": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "caf07e9c5ef8874ef675a6c5bd6fd6b84ee1e9253cac85b67ad320d4e285323c  src/_pytest/compat.py\n"
+    }
+  },
+  "elapsed_seconds": 205.26282741699833
+}

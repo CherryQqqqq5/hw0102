@@ -1,0 +1,10 @@
+{
+  "task": "python/grep",
+  "wall_seconds": 123.23161608399823,
+  "exit_status": "Submitted",
+  "submission": "Submitting with schema-clean fields. grep.py implements all flags (-n, -l, -i, -v, -x), filename prefixes only for multiple files, -l taking precedence over -n, fixed-string (non-regex) matching, and fixed-string -x comparison. Public check public-suite passed 25/25 with unchanged grep.py/grep_test.py digests; candidate-001 saved as eligible with that evidence. Boundary cases verified manually: empty pattern, empty file, missing trailing newline, no matches, and -l ordering/precedence.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 0.8623297079466283
+}

@@ -1,0 +1,9 @@
+{
+  "task": "scikit-learn__scikit-learn-13124",
+  "wall_seconds": 214.77365937503055,
+  "exit_status": "Submitted",
+  "submission": "Fix complete and verified. Root cause: in StratifiedKFold._make_test_folds, `rng = self.random_state` forwarded the same integer seed to every per-class KFold, so each class received an identical permutation (fixing pairs like 1↔11, 2↔12) and only the batch order changed. Fix: `rng = check_random_state(self.random_state)` so all per-class KFold instances draw from one shared RandomState, giving distinct permutations per class.\n\nVerification evidence:\n- public-issue check passed (seed 0 vs seed 1 produce different stratified partitions).\n- Reproducer: seeds 1 and 2 now yield different partitions; each test fold still has one sample per class 0/1, train/test disjoint and covering.\n- Edge cases: int seed deterministic across repeated split() calls; multiclass imbalance (20/25/15) keeps ~1/n_splits per class per fold with every sample tested exactly once; RepeatedStratifiedKFold yields diverse but stratified repeats; shuffle=False independent of random_state; docstring example unchanged.\n- sklearn/model_selection/tests/test_split.py: 61 passed. Diff is a single line in sklearn/model_selection/_split.py; no tests or test config modified.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 25.44282866595313
+}

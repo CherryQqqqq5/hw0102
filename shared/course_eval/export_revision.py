@@ -8,7 +8,7 @@ from pathlib import Path
 HOME_PATH = re.compile(r"/Users/cherry[^\s\"'`<>\\]*")
 PRIVATE_PEM = re.compile(r"-----BEGIN ([A-Z ]*PRIVATE KEY)-----.*?-----END \1-----", re.DOTALL)
 SECRET = re.compile(r"-----BEGIN [A-Z ]*PRIVATE KEY-----|\b(?:gh[pousr]_|github_pat_|sk-(?:proj-)?)[A-Za-z0-9_-]{30,}|\b(?:AKIA|ASIA)[A-Z0-9]{16}\b|\bAKID[A-Za-z0-9]{28,}")
-PRIVATE = re.compile(r"[\w.+-]+@smail\.nju\.edu\.cn|huawei-modelarts|/sfs/yuning", re.IGNORECASE)
+PRIVATE = re.compile(r"@smail\.nju\.edu\.cn|huawei-modelarts|/sfs/yuning", re.IGNORECASE)
 LOG_NAMES = {"trial.json", "result.json", "instruction.txt", "model.jsonl", "tools.jsonl", "verification.jsonl",
              "agent.json", "artifact.json", "candidate.patch", "grader.json", "report.json", "test_output.txt",
              "run_instance.log", "trial.log", "test-stdout.txt", "reward.txt", "checkout.json", "run-plan.json",

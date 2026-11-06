@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Deliverable /app/results.txt contains FLAG{b4ff3r_0v3rfl0w_m4st3r_k3y_2024}. Derivation: the .data blob at 0x404060 is a NUL/0x42-terminated XOR-0x42 obfuscated string; decoding yields FLAG{...}. Confirmed dynamically: 64-byte filler + 0x00000001 at rsp+0x40 trips the auth-bypass cmp at 0x4012f7, reaches the 0x401200 routine, and prints \"Access granted! Secret: FLAG{b4ff3r_0v3rfl0w_m4st3r_k3y_2024}\". public-task check passed (state=passed, digest 4ab204f8...); candidate-001 saved with unchanged hashes for /app/results.txt (b3da32d8...) and /app/vulnerable (fcc359a3...).",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 13
+    }
+  }
+}

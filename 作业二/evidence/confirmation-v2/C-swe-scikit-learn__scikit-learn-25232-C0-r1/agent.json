@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Candidate-001 was saved and the public-issue check passed. Implementation adds fill_value to IterativeImputer (docstring, __init__/self.fill_value, _parameter_constraints as no_validation, forwarded to inner SimpleImputer), plus robust valid_mask handling when fill_value=np.nan. Reproducer and targeted iterative imputer tests pass.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 21
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "model_requests": 0,
+  "formal_benchmark_trial": false,
+  "cases": [
+    {
+      "task": "cpp/all-your-base",
+      "initialization": "passed",
+      "runtime": null,
+      "image_id": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14"
+    },
+    {
+      "task": "cpp/gigasecond",
+      "initialization": "passed",
+      "runtime": null,
+      "image_id": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14"
+    },
+    {
+      "task": "go/alphametics",
+      "initialization": "passed",
+      "runtime": null,
+      "image_id": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c"
+    },
+    {
+      "task": "go/beer-song",
+      "initialization": "passed",
+      "runtime": null,
+      "image_id": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c"
+    },
+    {
+      "task": "java/change",
+      "initialization": "passed",
+      "runtime": null,
+      "image_id": "sha256:a8b889d675595ed6b2a7fe925a4a046e47d9bcb34d34ccaf5bb2988a9b5b552d"
+    },
+    {
+      "task": "javascript/sum-of-multiples",
+      "initialization": "passed",
+      "runtime": {
+        "source": "python-3.13.12-linux-aarch64.tar.gz",
+        "sha256": "31c6e61eed48ca4e156d0e473025a792338641109e8277a63518ded438390c96",
+        "python": "Python 3.13.12",
+        "seconds": 5.479611749993637,
+        "all_configurations": true,
+        "public_helper_initialized_before_snapshot": true,
+        "starter_test_returncode": 1
+      },
+      "image_id": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+      "public_starter_returncode": 1,
+      "public_reference_returncode": 0,
+      "original_starter": {
+        "scoreable": true,
+        "passed": false,
+        "grader_exit_code": 1,
+        "grader_seconds": 2.1062990420032293
+      },
+      "original_reference": {
+        "scoreable": true,
+        "passed": true,
+        "grader_exit_code": 0,
+        "grader_seconds": 1.6000674169044942
+      }
+    },
+    {
+      "task": "javascript/house",
+      "initialization": "passed",
+      "runtime": {
+        "source": "python-3.13.12-linux-aarch64.tar.gz",
+        "sha256": "31c6e61eed48ca4e156d0e473025a792338641109e8277a63518ded438390c96",
+        "python": "Python 3.13.12",
+        "seconds": 5.011692582978867,
+        "all_configurations": true,
+        "public_helper_initialized_before_snapshot": true,
+        "starter_test_returncode": 1
+      },
+      "image_id": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+      "public_starter_returncode": 1,
+      "public_reference_returncode": 0,
+      "original_starter": {
+        "scoreable": true,
+        "passed": false,
+        "grader_exit_code": 1,
+        "grader_seconds": 1.8836078330641612
+      },
+      "original_reference": {
+        "scoreable": true,
+        "passed": true,
+        "grader_exit_code": 0,
+        "grader_seconds": 1.616266708006151
+      }
+    },
+    {
+      "task": "python/rest-api",
+      "initialization": "passed",
+      "runtime": null,
+      "image_id": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555"
+    },
+    {
+      "task": "python/grep",
+      "initialization": "passed",
+      "runtime": null,
+      "image_id": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555"
+    },
+    {
+      "task": "rust/accumulate",
+      "initialization": "passed",
+      "runtime": null,
+      "image_id": "sha256:de357a92e50590e84cfb36bb68dbbd6ee739bdba6f3535a7a5b5890d9a07805e"
+    }
+  ]
+}

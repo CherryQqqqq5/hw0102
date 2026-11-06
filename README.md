@@ -2,7 +2,7 @@
 
 邱昱宁 · 231880296
 
-新增确认v2的运行计划包含30题、B0/C0/C1各三轮，共270个位置。v1在8条有效评分后因候选文件助手的文件名编码缺陷停止，7通过/1失败全部保留；修复经10个原镜像的真实回归通过，v2完整重跑三组。原报告和下述384条评分作为已完成的历史实验保留；新实验取得完整评分后单独更新主要结果。[v2协议](作业二/configs/confirmation-protocol-v2.md) · [运行计划](作业二/configs/confirmation-plan-v2.json) · [版本边界](作业二/configs/confirmation-locale-repair-v2.md) · [复现说明](shared/CONFIRMATION.md)
+当前分批确认计划含30题、B0/C0/C1各三轮，共270个主要位置。v2已保存86条评分和1条中断记录；JavaScript缺少控制器运行时的故障完成真实修复验收后，v3保留全部80条非JavaScript完整记录（含7条失败），两个受影响任务首轮三条件整组替换，再完成其余位置。所有旧失败与消耗保留。原报告和下述384条历史评分继续可读；主要新结果在全部位置完成后更新。[v3协议](作业二/configs/confirmation-protocol-v3.md) · [来源计划](作业二/configs/confirmation-plan-v3.json) · [修复范围](作业二/configs/confirmation-runtime-repair-v3.md) · [复现说明](shared/CONFIRMATION.md)
 
 | 目录 | 报告与材料 | 实验范围 |
 |---|---|---|

@@ -15,7 +15,8 @@ from course_eval.confirmation_selection import SEED, order
 
 
 RUNTIME_FILES = ("agent.py", "benchmarks.py", "candidate_io.py", "controller.py", "docker_target.py",
-                 "harbor_agent.py", "verification.py", "terminal_setup.py", "terminal_runtime.py", "terminal-no-network.yaml", "confirmation.py")
+                 "harbor_agent.py", "verification.py", "terminal_setup.py", "terminal_runtime.py", "aider_runtime.py",
+                 "terminal-no-network.yaml", "confirmation.py")
 LIMITS = RunLimits(model_calls=24, wall_seconds=600, command_seconds=60, timeout_retries=2, strict_wall=True)
 
 
@@ -115,10 +116,13 @@ def execute(args):
                                  "COURSE_PROTOCOL_COMMIT": args.protocol_commit}
     for slot in plan["slots"]:
         directory = args.runs / slot["run_id"]
+        if slot.get("source_protocol_commit") and not directory.exists():
+            raise ValueError("Declared reused record is missing: " + slot["run_id"])
         if directory.exists():
             result = json.loads((directory / "result.json").read_text())
             trial = json.loads((directory / "trial.json").read_text())
-            if (not result["scoreable"] or trial.get("protocol_commit") != args.protocol_commit
+            expected_commit = slot.get("source_protocol_commit", args.protocol_commit)
+            if (not result["scoreable"] or trial.get("protocol_commit") != expected_commit
                     or trial["limits"] != plan["limits"]):
                 raise ValueError("Unscored or mismatched position requires diagnosis: " + slot["run_id"])
             continue

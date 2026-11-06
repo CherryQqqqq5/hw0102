@@ -1,0 +1,3 @@
+{"event": "candidate_operation", "time": 1793930760.2646248, "operation": "initial", "seconds": 0.29776845790911466, "returncode": 0}
+{"event": "candidate_operation", "time": 1793930760.429628, "operation": "capture", "seconds": 0.16415924998000264, "returncode": 0}
+{"event": "candidate_operation", "time": 1793930762.600271, "operation": "capture", "seconds": 0.12109729193616658, "returncode": 0}

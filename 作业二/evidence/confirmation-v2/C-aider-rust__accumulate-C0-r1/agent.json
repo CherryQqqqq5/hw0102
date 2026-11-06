@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Implemented generic map<T, U, F: FnMut(T) -> U> in src/lib.rs. public-suite passed (12/12 tests incl. ignored). Candidate candidate-001 saved and verified.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 6
+    }
+  }
+}

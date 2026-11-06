@@ -1,0 +1,9 @@
+{
+  "task": "django__django-11999",
+  "wall_seconds": 187.75385433295742,
+  "exit_status": "Submitted",
+  "submission": "Final fix submitted: django/db/models/fields/__init__.py contribute_to_class() now skips setting get_FOO_display when the name is present in cls.__dict__, so user-defined overrides are retained. Verified via public-issue check (passed, display value 'something') and model_fields/model_meta/proxy_models/basic suites; candidate-001 saved.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 39.430703083984554
+}

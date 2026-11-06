@@ -1,0 +1,9 @@
+{
+  "task": "scikit-learn__scikit-learn-11310",
+  "wall_seconds": 198.6508426250657,
+  "exit_status": "Submitted",
+  "submission": "Submitting saved candidate-001. sklearn/model_selection/_search.py now wraps the best_estimator_ refit in BaseSearchCV._fit_and_score-final-refit with time() calls and records self.refit_time_ as a nonnegative float duration, plus docstring attribute entries for GridSearchCV and RandomizedSearchCV. Verified: public check public-issue passed (refit_time_=0.000496s); reproducer with n_jobs=2 gives refit_time_ >= 0; refit=False leaves the attribute absent; multi-metric refit and RandomizedSearchCV both yield nonnegative refit_time_; existing sklearn/model_selection/tests/test_search.py suite passes (51 passed, 3 deselected for pre-existing pytest.raises(message=...) incompatibility unrelated to the change); py_compile OK. Only _search.py was modified.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 27.41044304193929
+}

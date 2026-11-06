@@ -1,0 +1,7 @@
+# JavaScript运行时与原评分回归
+
+原v2的house、sum-of-multiples在C0/C1首次模型请求前因缺少python3初始化失败。这里的工程控制为六种语言的10个Aider任务逐一验证候选初始化，两道JavaScript额外验证公开测试和独立原题评分：初始代码失败，上游参考通过，候选保护状态保持可信。模型请求数为0。
+
+修复为三个条件提供同一ARM Python运行时，并在受保护快照之前执行原公开npm脚本的初始准备。原脚本会启用xtest并建立依赖链接；第一次回归因此检测到保护状态失效，其记录保留在相邻aider-runtime-v3-before目录。最终回归不放宽保护规则，完成准备后再保存原测试内容。
+
+result.json保存10项实际初始化结果及两组原评分；各任务子目录保存控制器操作，JavaScript的negative/positive目录保存原评分输出。上游参考文件留在本机，不随本目录复制。复现命令见shared/CONFIRMATION.md。

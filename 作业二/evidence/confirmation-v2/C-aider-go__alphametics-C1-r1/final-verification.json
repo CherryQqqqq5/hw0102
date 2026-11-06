@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "21a4908385db437e04328ed74d6945d4200718d6aa4da8783de9fbc4d5e018e3",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-suite": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "17b8e4ec37e188b6f546958656c23ea04a26f300f697cff757cdf422539d9601  alphametics.go\neb22bd718a4fafc450ea9701ec2f81e7f6dafbfe48d4b8cbe66650248836657f  alphametics_test.go\n77917406d81852eb56b58e8d8846a595f9cf1ca87533f939c6cd1eb6fdce3596  go.mod\n"
+    }
+  },
+  "elapsed_seconds": 171.698437166051
+}

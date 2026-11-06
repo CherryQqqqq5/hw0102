@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting candidate-001: dynamic-programming change calculator with minimum-coin results, exact error messages for negative and unrepresentable totals. Public check passed; all 13 original scenarios (including disabled ones) validated via temp harness.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 8
+    }
+  }
+}

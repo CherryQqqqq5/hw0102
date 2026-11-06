@@ -1,0 +1,8 @@
+{
+  "engineering_check": "failed",
+  "model_requests": 0,
+  "formal_benchmark_trial": false,
+  "observed_failure": "The upstream npm helper enabled xtest after the protected snapshot; the changed test bytes correctly invalidated trust",
+  "repair": "Initialize the same upstream public helper for all JavaScript conditions before capturing protected files",
+  "final_regression": "../aider-runtime-v3-final/result.json"
+}

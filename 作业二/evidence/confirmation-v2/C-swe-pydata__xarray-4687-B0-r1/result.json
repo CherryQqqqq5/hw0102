@@ -1,0 +1,9 @@
+{
+  "task": "pydata__xarray-4687",
+  "wall_seconds": 692.2256349170348,
+  "exit_status": "TimeExceeded",
+  "submission": "",
+  "scoreable": true,
+  "passed": false,
+  "grader_seconds": 87.06023408309557
+}

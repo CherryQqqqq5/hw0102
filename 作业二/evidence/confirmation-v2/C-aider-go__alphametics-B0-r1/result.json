@@ -1,0 +1,10 @@
+{
+  "task": "go/alphametics",
+  "wall_seconds": 96.74548979196697,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 20.92372050008271
+}

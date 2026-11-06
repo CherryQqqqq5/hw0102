@@ -1,0 +1,10 @@
+{
+  "task": "go/beer-song",
+  "wall_seconds": 139.79572641593404,
+  "exit_status": "Submitted",
+  "submission": "Bonus-points reflection: I kept a small amount of deliberate structure — Verse handles the two irregular verses (0 and 1) with explicit strings, while the 2–99 range shares one fmt.Sprintf template, and a tiny bottleWord helper supplies just the singular/plural noun. This avoids the duplication that plagued my first draft (where the helper returned \"7 bottles\" and the template appended \"bottles\" again) without drowning the code in conditionals. I chose not to introduce polymorphism/verse types: in Go that would mean an interface or a map of formatter funcs for three cases, which hides the actual lyrics behind indirection and makes the output harder to eyeball against the spec. Readability won: a reader can compare the switch arms directly with the problem statement's text. The experiment was mildly instructive — the duplication that mattered wasn't the repeated lyric phrasing but the mismatched responsibility between helper and template; once the noun-only helper was defined, both duplication and bugginess dropped together. I also validated semantics beyond the visible suite in a throwaway module (Verse(99), Verses(0,0) exact text, Verse(-1)/Verses(100,99)/Verses(-1,0) error cases, and Song() suffix/line counts), so the final artifact is verified rather than merely passing supplied tests.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 19.787545791012235
+}

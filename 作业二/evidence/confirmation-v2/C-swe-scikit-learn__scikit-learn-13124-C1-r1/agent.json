@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submit candidate-001: StratifiedKFold._make_test_folds uses check_random_state(self.random_state) so seeds produce different stratified partitions, plus docstring correction for `shuffle`. Public check public-issue passed; full sklearn/model_selection/tests/test_split.py (61 tests) passed; reproducer confirms seed 1 vs 2 give different fold partitions, multiclass stratification preserved, shuffle=False unchanged/deterministic.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 11
+    }
+  }
+}

@@ -58,6 +58,9 @@ def main():
         raise ValueError("Primary comparison requires every frozen position to be scored")
     for row in rows:
         row.update(mechanism(args.runs / row["run_id"]))
+        slot = next(slot for slot in plan["slots"] if slot["run_id"] == row["run_id"])
+        row["source_batch"] = slot.get("source_batch", args.runs.name)
+        row["protocol_commit"] = json.loads((args.runs / row["run_id"] / "trial.json").read_text())["protocol_commit"]
     groupings = []
     for benchmark in ("all", "swe", "terminal", "aider"):
         for arm in ("B0", "C0", "C1"):

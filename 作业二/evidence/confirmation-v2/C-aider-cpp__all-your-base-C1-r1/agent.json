@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Solution verified and saved as candidate-001. convert() rejects input/output bases < 2 and any digit >= input_base with std::invalid_argument, accumulates digits positionally into unsigned long long, then emits output-base digits by repeated division; empty/zero input returns an empty vector. Public suite passed 17/17 assertions, exit code 0.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 6
+    }
+  }
+}
