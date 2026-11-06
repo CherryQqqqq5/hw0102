@@ -132,8 +132,15 @@ def read_csv(*args,**kwargs):
 pd.read_csv=read_csv
 parsers.read_csv=read_csv
 readers.read_csv=read_csv
-runpy.run_path('/app/analyze_climate_modern.py',run_name='__main__')
-Path(sys.argv[1]).write_text(json.dumps(observed))
+metadata=Path(sys.argv[1])
+sys.argv=['/app/analyze_climate_modern.py']
+try:
+    runpy.run_path(sys.argv[0],run_name='__main__')
+except SystemExit as error:
+    if error.code not in (None,0):
+        raise
+finally:
+    metadata.write_text(json.dumps(observed))
 """
 
 

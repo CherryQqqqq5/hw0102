@@ -1,6 +1,6 @@
 # 创智复测与历史记录复算
 
-本轮为30题×3条件×3轮，采用[创智v4协议](../作业二/configs/confirmation-protocol-boyue-v4.md)，全部270位置使用同一新服务执行。原CodeBuddy v3在265条评分后因429额度耗尽停止，另有1次未评分和4个未启动位置；旧记录及前序尝试均保留，不复用为创智成绩。环境修复范围见[运行时记录](../作业二/configs/confirmation-runtime-repair-v3.md)。下列命令从`shared/`执行。
+本轮为30题×3条件×3轮，采用[创智v5协议](../作业二/configs/confirmation-protocol-boyue-v5.md)，270位置使用同一创智服务执行。v5修复科学计算公开探针的命令行与正常退出记录，以及Harbor外层时限与内部预算的竞争；首轮该题三条件整组替换，33条未受影响记录全部复用，237条新运行。原3次尝试保留和计费，详见[探针与时限修复](../作业二/configs/confirmation-probe-repair-v5.md)。原CodeBuddy v3因429停止，保存265评分、1次未评分和4个未启动位置；其成绩和费用单独保留。下列命令从`shared/`执行。
 
 ## 环境准备
 
@@ -55,37 +55,40 @@ work/.venv/bin/python -m course_eval.check_aider_runtime \
 
 ```sh
 python3 -m course_eval.confirmation_summary \
-  --runs '../作业二/evidence/confirmation-boyue-v4' \
-  --plan '../作业二/configs/confirmation-plan-boyue-v4.json' \
+  --runs '../作业二/evidence/confirmation-boyue-v5' \
+  --plan '../作业二/configs/confirmation-plan-boyue-v5.json' \
+  --previous-runs '../作业二/evidence/confirmation-boyue-v5-previous' \
   --out work/recomputed-confirmation
-python3 -m course_eval.verify_scores --runs '../作业二/evidence/confirmation-boyue-v4'
+python3 -m course_eval.verify_scores --runs '../作业二/evidence/confirmation-boyue-v5'
+python3 -m course_eval.verify_scores --allow-unscored \
+  --runs '../作业二/evidence/confirmation-boyue-v5-previous'
 ```
 
-统计保留同题三轮结构，按基准分层、以任务为单位进行10000次配对自助重采样。创智主比较全部为新运行，`all_attempt_usage`包含其归档机械恢复，合成接口准备另列。返回词元无法覆盖超时后未返回的用量，费用字段不等同于账单。
+统计保留同题三轮结构，按基准分层、以任务为单位进行10000次配对自助重采样。创智主比较为33条原协议复用及237条新运行，`all_attempt_usage`包含归档机械恢复及3条前序。完整v4与v5存在33条来源复用，不能重复加总；合成接口准备另列。返回词元无法覆盖超时后未返回的用量，费用字段不等同于账单。
 
 CodeBuddy旧成本读取`confirmation-v3/`、`confirmation-v1/`和`confirmation-v3-previous/`，共281次尝试、279评分。`confirmation-v2/`保留全部86条历史评分，`confirmation-v2-attempts/`保留中断尝试；两者与v3及previous存在复用，不能再次相加。旧v3未完成270位置，完整矩阵统计器会按规则拒绝计算主配对结论。
 
 ## 原运行续跑与全新复跑
 
-创智原运行续跑核对既有位置的协议提交、模型及预算；已评分位置不再次执行。将PROTOCOL_COMMIT设置为v4正式记录中的提交号后执行：
+创智原运行续跑核对既有位置的协议提交、模型及预算；已评分位置不再次执行。将PROTOCOL_COMMIT设置为v5新增正式记录中的提交号后执行：
 
 ```sh
 work/.venv/bin/python -m course_eval.confirmation \
   --manifest '../作业二/configs/confirmation-tasks-v1.json' \
-  --checks '../作业二/configs/confirmation-public-checks-v1.json' \
-  --plan '../作业二/configs/confirmation-plan-boyue-v4.json' \
-  --published-repo .. --published-plan '作业二/configs/confirmation-plan-boyue-v4.json' \
-  --protocol-commit "$PROTOCOL_COMMIT" --runs work/vmshare/confirmation-boyue-v4
+  --checks '../作业二/configs/confirmation-public-checks-v2.json' \
+  --plan '../作业二/configs/confirmation-plan-boyue-v5.json' \
+  --published-repo .. --published-plan '作业二/configs/confirmation-plan-boyue-v5.json' \
+  --protocol-commit "$PROTOCOL_COMMIT" --runs work/vmshare/confirmation-boyue-v5
 ```
 
-创智批次上限300次正式尝试，含270主位置及最多30次机械恢复；正常失败保留。只有原评分缺失的机械故障可使用`--recover <run_id> --recovery-reason <具体原因>`，原件归档相邻的`confirmation-boyue-v4-attempts/`；每位置最多两次额外恢复。429额度耗尽不作超时重试。
+创智累计上限300次正式尝试，含270主位置、3次前序及最多27次额外机械恢复；v5队列上限297。内部600秒、24次决策保持；Terminal的Harbor外层630秒覆盖环境识别及日志收尾。正常失败保留。只有原评分缺失的机械故障可使用`--recover <run_id> --recovery-reason <具体原因>`，原件归档相邻的`confirmation-boyue-v5-attempts/`；每位置最多两次额外恢复。429额度耗尽不作超时重试。
 
 全新复跑不复用旧采样，重新执行环境验收后生成无来源复用的新计划：
 
 ```sh
 work/.venv/bin/python -m course_eval.confirmation \
   --manifest '../作业二/configs/confirmation-tasks-v1.json' \
-  --checks '../作业二/configs/confirmation-public-checks-v1.json' \
+  --checks '../作业二/configs/confirmation-public-checks-v2.json' \
   --preflights work/vmshare/confirmation-preflights --plan work/confirmation-fresh-plan.json
 ```
 

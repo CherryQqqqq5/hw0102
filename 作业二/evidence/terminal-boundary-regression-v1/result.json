@@ -1,0 +1,52 @@
+{
+  "formal_benchmark_trial": false,
+  "model_requests": 0,
+  "data": "synthetic command-line candidate with real public climate CSV; actual Harbor deadline and original OpenSSL grader",
+  "public_probe_cases": [
+    {
+      "case": "old_argparse",
+      "expected_passed": false,
+      "observed_passed": false
+    },
+    {
+      "case": "new_argparse",
+      "expected_passed": true,
+      "observed_passed": true
+    },
+    {
+      "case": "old_system_exit_zero",
+      "expected_passed": false,
+      "observed_passed": false
+    },
+    {
+      "case": "new_system_exit_zero",
+      "expected_passed": true,
+      "observed_passed": true
+    },
+    {
+      "case": "new_nonzero_exit",
+      "expected_passed": false,
+      "observed_passed": false
+    }
+  ],
+  "deadline_cases": [
+    {
+      "case": "old_outer_deadline",
+      "outcome": {
+        "scoreable": false,
+        "passed": null,
+        "harbor_result": "openssl-selfsigned-cert__f7BF8vf/result.json"
+      },
+      "original_reward": 0.0
+    },
+    {
+      "case": "new_cleanup_grace",
+      "outcome": {
+        "scoreable": true,
+        "passed": false,
+        "harbor_result": "openssl-selfsigned-cert__YsbLpDg/result.json"
+      },
+      "original_reward": 0.0
+    }
+  ]
+}

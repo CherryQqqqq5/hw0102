@@ -1,0 +1,55 @@
+{
+  "new_requests_before_freeze": 0,
+  "reused_positions": 33,
+  "previous_attempts": 3,
+  "previous_scored": 2,
+  "evidence_files_compared": 453,
+  "all_preserved_attempt_usage": {
+    "model_calls": 505,
+    "model_responses": 484,
+    "model_request_retries": 13,
+    "model_request_timeouts": 21,
+    "provider_turns": 0,
+    "tool_calls": 420,
+    "input_tokens": 6428615,
+    "output_tokens": 305043,
+    "cached_input_tokens": 5714432,
+    "submission_check_opportunities": 0,
+    "stale_at_submission": 0,
+    "deliverable_checkpoints": 0,
+    "deliverable_reminders": 0,
+    "usage_unreturned_requests": 21,
+    "usage_missing_input_responses": 0,
+    "usage_missing_output_responses": 0,
+    "usage_missing_cache_responses": 0,
+    "provider_reported_cost_usd": null
+  },
+  "score_checks": [
+    {
+      "runs": "work/vmshare/confirmation-boyue-v5",
+      "score_records_verified": 33,
+      "by_benchmark": {
+        "aider": 18,
+        "swe": 9,
+        "terminal": 6
+      },
+      "unscored_records_preserved": [],
+      "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+    },
+    {
+      "runs": "work/vmshare/confirmation-boyue-v5-previous",
+      "score_records_verified": 2,
+      "by_benchmark": {
+        "terminal": 2
+      },
+      "unscored_records_preserved": [
+        "C-terminal-modernize-scientific-stack-C0-r1"
+      ],
+      "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+    }
+  ],
+  "runtime_and_published_plan": "pass",
+  "only_affected_check_changed": true,
+  "actual_engineering_regressions": "pass",
+  "engineering_model_requests": 0
+}

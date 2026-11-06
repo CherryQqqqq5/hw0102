@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "agent_backend": "codex_subagent",
+  "evidence_mode": "SOURCE_GROUNDED",
+  "packet_trust_boundary": "brief-only",
+  "source_checked": ["confirmation_terminal_checks.py", "benchmarks.py", "check_terminal_boundary.py", "fixtures/climate_cli.py", "confirmation_probe_repair.py", "confirmation.py", "controller.py", "harbor_agent.py", "confirmation_summary.py", "v4/v5 plans and v1/v2 checks", "all seven regression cases", "33 reused and 3 previous trial/result records", "installed Harbor single_step.py"],
+  "commands_run": ["read-only source inspection", "JSON and byte comparisons", "frozen digest comparison", "AST parse of five target Python files"],
+  "blocking_findings": [],
+  "findings": ["Internal 600-second budget and 24 decisions remain; only outer Harbor grace changes", "Nonzero candidate exit 7 remains a failed public check", "The original unscored reward-1 timeout remains unscored", "33 reused records include 23 passes and all 10 failures", "297 queue attempts plus 3 prior attempts preserve cumulative 300"],
+  "residual_limits": ["Deadline regression uses real Harbor with a 5-second scaled internal budget", "30-second outer grace remains bounded and can still expire", "Cost must include v5-previous, never all v4 in addition to v5", "Parent must finish original/reference controls and commit the exact plan before further model requests"],
+  "model_requests": 0,
+  "files_edited_by_reviewer": false
+}

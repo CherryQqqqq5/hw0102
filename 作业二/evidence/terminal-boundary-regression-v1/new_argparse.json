@@ -1,0 +1,69 @@
+{
+  "case": "new_argparse",
+  "execution": {
+    "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"modern_python_execution\", \"passed\": true, \"actual\": {\"returncode\": 0, \"stdout\": \"Station 101 mean temperature: -15.5\\u00b0C\\nStation 102 mean temperature: 30.3\\u00b0C\\n\", \"stderr\": \"\"}, \"required\": \"runs under current Python without deprecated-API warnings\"}, {\"id\": \"pathlib_paths\", \"passed\": true, \"actual\": true, \"required\": \"calls pathlib.Path using its imported name or alias\"}, {\"id\": \"pandas_utf8_input\", \"passed\": true, \"actual\": [{\"path\": \"/app/climate_analyzer/sample_data/climate_data.csv\", \"encoding\": \"utf-8\"}], \"required\": \"reads the original CSV with pandas using UTF-8, including its UTF-8 default\"}, {\"id\": \"both_station_means\", \"passed\": true, \"actual\": [\"Station 101 mean temperature: -15.5\\u00b0C\", \"Station 102 mean temperature: 30.3\\u00b0C\"], \"required\": [\"Station 101 mean temperature: -15.5\\u00b0C\", \"Station 102 mean temperature: 30.3\\u00b0C\"]}, {\"id\": \"dependency_file\", \"passed\": true, \"actual\": [{\"file\": \"/app/requirements.txt\", \"valid\": true, \"constrained_packages\": [\"numpy\", \"pandas\", \"scipy\"]}], \"required\": \"requirements.txt OR pyproject.toml specifies numpy, pandas and matplotlib or scipy with >=, == or ~= constraints\"}], \"coverage_limit\": null}\n",
+    "stderr": "",
+    "returncode": 0
+  },
+  "judgment": {
+    "passed": true,
+    "conditions": [
+      {
+        "id": "modern_python_execution",
+        "passed": true,
+        "actual": {
+          "returncode": 0,
+          "stdout": "Station 101 mean temperature: -15.5\u00b0C\nStation 102 mean temperature: 30.3\u00b0C\n",
+          "stderr": ""
+        },
+        "required": "runs under current Python without deprecated-API warnings"
+      },
+      {
+        "id": "pathlib_paths",
+        "passed": true,
+        "actual": true,
+        "required": "calls pathlib.Path using its imported name or alias"
+      },
+      {
+        "id": "pandas_utf8_input",
+        "passed": true,
+        "actual": [
+          {
+            "path": "/app/climate_analyzer/sample_data/climate_data.csv",
+            "encoding": "utf-8"
+          }
+        ],
+        "required": "reads the original CSV with pandas using UTF-8, including its UTF-8 default"
+      },
+      {
+        "id": "both_station_means",
+        "passed": true,
+        "actual": [
+          "Station 101 mean temperature: -15.5\u00b0C",
+          "Station 102 mean temperature: 30.3\u00b0C"
+        ],
+        "required": [
+          "Station 101 mean temperature: -15.5\u00b0C",
+          "Station 102 mean temperature: 30.3\u00b0C"
+        ]
+      },
+      {
+        "id": "dependency_file",
+        "passed": true,
+        "actual": [
+          {
+            "file": "/app/requirements.txt",
+            "valid": true,
+            "constrained_packages": [
+              "numpy",
+              "pandas",
+              "scipy"
+            ]
+          }
+        ],
+        "required": "requirements.txt OR pyproject.toml specifies numpy, pandas and matplotlib or scipy with >=, == or ~= constraints"
+      }
+    ],
+    "coverage_limit": null
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "case": "old_system_exit_zero",
+  "execution": {
+    "stdout": "{\"passed\": false, \"conditions\": [{\"id\": \"required_artifact\", \"passed\": false, \"actual\": {\"error\": \"FileNotFoundError\", \"detail\": \"[Errno 2] No such file or directory: '/app/.course-public-check/climate-0pgd15zz/read_csv.json'\"}, \"required\": \"readable artifact satisfying the public format\"}], \"coverage_limit\": null}\n",
+    "stderr": "",
+    "returncode": 1
+  },
+  "judgment": {
+    "passed": false,
+    "conditions": [
+      {
+        "id": "required_artifact",
+        "passed": false,
+        "actual": {
+          "error": "FileNotFoundError",
+          "detail": "[Errno 2] No such file or directory: '/app/.course-public-check/climate-0pgd15zz/read_csv.json'"
+        },
+        "required": "readable artifact satisfying the public format"
+      }
+    ],
+    "coverage_limit": null
+  }
+}

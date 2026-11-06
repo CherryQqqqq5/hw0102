@@ -228,13 +228,17 @@ def prepare_terminal_task(task: dict, sources: Path, directory: Path, *, oracle:
     return path
 
 
-def terminal_trial(path: Path, directory: Path, agent: str, env: dict[str, str]) -> dict:
+def terminal_trial(path: Path, directory: Path, agent: str, env: dict[str, str],
+                   *, agent_timeout_seconds: float | None = None) -> dict:
     cli = os.environ["COURSE_HARBOR_BIN"]
-    process = subprocess.run([
+    command = [
         cli, "trials", "start", "--path", str(path), "--agent", agent,
         "--env", "docker", "--trials-dir", str(directory),
         "--extra-docker-compose", str(Path(__file__).with_name("terminal-no-network.yaml").resolve()),
-    ], env=env, text=True, capture_output=True, timeout=2700, check=False)
+    ]
+    if agent_timeout_seconds is not None:
+        command.extend(("--agent-timeout", str(agent_timeout_seconds)))
+    process = subprocess.run(command, env=env, text=True, capture_output=True, timeout=2700, check=False)
     (directory / "harbor.stdout").write_text(process.stdout, encoding="utf-8")
     (directory / "harbor.stderr").write_text(process.stderr, encoding="utf-8")
     process.check_returncode()
@@ -253,7 +257,10 @@ def run_terminal(task: dict, sources: Path, directory: Path, limits: RunLimits,
     env = os.environ | {"COURSE_RUN_LIMITS": limits.model_dump_json(), "COURSE_CONFIGURATION": configuration,
                         "COURSE_PUBLIC_CHECKS": json.dumps([asdict(check) for check in checks]),
                         "COURSE_CANDIDATE_SCOPE": json.dumps(task.get("candidate_scope"))}
-    outcome = terminal_trial(path, directory, "course_eval.harbor_agent:CourseMiniSweAgent", env)
+    # 内部预算终止模型和工具；外层额外覆盖环境识别与日志收尾，避免抢先取消线程。
+    timeout = limits.wall_seconds + 30 if limits.strict_wall else None
+    outcome = terminal_trial(path, directory, "course_eval.harbor_agent:CourseMiniSweAgent", env,
+                             agent_timeout_seconds=timeout)
     return outcome | {"command_supervisor": "descendant_tree_v2"}
 
 
