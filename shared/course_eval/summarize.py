@@ -21,7 +21,7 @@ def run_metrics(path: Path, *, complete: bool = True) -> dict:
             if event["event"] == "request":
                 metrics["model_calls"] += 1
                 metrics["model_request_retries"] += event.get("attempt", 1) > 1
-            if event["event"] == "request_error" and event.get("error_type") in {"TimeoutExpired", "APITimeoutError"}:
+            if event["event"] == "request_error" and event.get("error_type") in {"TimeoutExpired", "APITimeoutError", "BoyueTimeout"}:
                 metrics["model_request_timeouts"] += 1
             if event["event"] != "response":
                 continue
@@ -30,19 +30,32 @@ def run_metrics(path: Path, *, complete: bool = True) -> dict:
             if isinstance(payload, list):
                 result = next((item for item in payload if item["type"] == "result"), None)
                 if result is None:
+                    metrics["usage_missing_input_responses"] += 1
+                    metrics["usage_missing_output_responses"] += 1
+                    metrics["usage_missing_cache_responses"] += 1
                     continue
                 usage = result.get("usage") or {}
-                metrics["input_tokens"] += usage.get("input_tokens", 0)
-                metrics["output_tokens"] += usage.get("output_tokens", 0)
-                metrics["cached_input_tokens"] += usage.get("cache_read_input_tokens", 0)
+                input_tokens = usage.get("input_tokens")
+                output_tokens = usage.get("output_tokens")
+                cached_tokens = usage.get("cache_read_input_tokens")
                 metrics["provider_turns"] += result.get("num_turns", 0)
                 if result.get("total_cost_usd") is not None:
                     reported_cost.append(result["total_cost_usd"])
             else:
                 usage = payload.get("usage") or {}
-                metrics["input_tokens"] += usage.get("prompt_tokens", 0)
-                metrics["output_tokens"] += usage.get("completion_tokens", 0)
-                metrics["cached_input_tokens"] += (usage.get("prompt_tokens_details") or {}).get("cached_tokens", 0)
+                input_tokens = usage.get("prompt_tokens")
+                output_tokens = usage.get("completion_tokens")
+                cached_tokens = (usage.get("prompt_tokens_details") or {}).get("cached_tokens")
+                if cached_tokens is None:
+                    cached_tokens = usage.get("prompt_cache_hit_tokens")
+            for name, missing, value in (("input_tokens", "usage_missing_input_responses", input_tokens),
+                                         ("output_tokens", "usage_missing_output_responses", output_tokens),
+                                         ("cached_input_tokens", "usage_missing_cache_responses", cached_tokens)):
+                if value is None:
+                    metrics[missing] += 1
+                else:
+                    metrics[name] += value
+    metrics["usage_unreturned_requests"] = metrics["model_calls"] - metrics["model_responses"]
     for log in path.rglob("tools.jsonl"):
         with log.open() as handle:
             metrics["tool_calls"] += sum(1 for line in handle if line.strip())
@@ -60,7 +73,9 @@ def run_metrics(path: Path, *, complete: bool = True) -> dict:
                 metrics["stale_at_submission"] += states.count("stale")
     keys = ("model_calls", "model_responses", "model_request_retries", "model_request_timeouts",
             "provider_turns", "tool_calls", "input_tokens", "output_tokens", "cached_input_tokens",
-            "submission_check_opportunities", "stale_at_submission", "deliverable_checkpoints", "deliverable_reminders")
+            "submission_check_opportunities", "stale_at_submission", "deliverable_checkpoints", "deliverable_reminders",
+            "usage_unreturned_requests", "usage_missing_input_responses", "usage_missing_output_responses",
+            "usage_missing_cache_responses")
     return {key: metrics[key] for key in keys} | {
         "provider_reported_cost_usd": sum(reported_cost) if reported_cost else None,
     }

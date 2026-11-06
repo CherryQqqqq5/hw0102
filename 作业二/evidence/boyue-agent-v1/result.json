@@ -1,0 +1,65 @@
+{
+  "engineering_check": "pass",
+  "formal_benchmark_trial": false,
+  "data": "synthetic five-byte file task",
+  "cases": [
+    {
+      "arm": "B0",
+      "actual_synthetic_artifact_correct": true,
+      "execution_budget": {
+        "limit_seconds": 120,
+        "elapsed_seconds": 19.912155624944717,
+        "strict": true,
+        "configuration": "B0"
+      },
+      "outcome": {
+        "exit_status": "Submitted",
+        "submission": ""
+      }
+    },
+    {
+      "arm": "C0",
+      "actual_synthetic_artifact_correct": true,
+      "execution_budget": {
+        "limit_seconds": 120,
+        "elapsed_seconds": 24.827918000053614,
+        "strict": true,
+        "configuration": "C0"
+      },
+      "outcome": {
+        "exit_status": "Submitted",
+        "submission": ""
+      }
+    },
+    {
+      "arm": "C1",
+      "actual_synthetic_artifact_correct": true,
+      "execution_budget": {
+        "limit_seconds": 120,
+        "elapsed_seconds": 21.91243787505664,
+        "strict": true,
+        "configuration": "C1"
+      },
+      "outcome": {
+        "exit_status": "Submitted",
+        "submission": ""
+      }
+    }
+  ],
+  "usage": {
+    "model_calls": 11,
+    "model_responses": 11,
+    "model_request_retries": 0,
+    "model_request_timeouts": 0,
+    "provider_turns": 0,
+    "tool_calls": 10,
+    "input_tokens": 19630,
+    "output_tokens": 2026,
+    "cached_input_tokens": 13312,
+    "submission_check_opportunities": 0,
+    "stale_at_submission": 0,
+    "deliverable_checkpoints": 0,
+    "deliverable_reminders": 0,
+    "provider_reported_cost_usd": null
+  }
+}

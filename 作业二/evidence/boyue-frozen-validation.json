@@ -1,0 +1,26 @@
+{
+  "frozen_plan_and_runtime": "pass",
+  "exact_published_provider_payloads": "pass",
+  "usage_scope": "returned token counts only; missing counters denote unknown consumption",
+  "preparation_usage": {
+    "model_calls": 18,
+    "model_responses": 17,
+    "model_request_retries": 0,
+    "model_request_timeouts": 1,
+    "provider_turns": 0,
+    "tool_calls": 16,
+    "input_tokens": 23244,
+    "output_tokens": 2603,
+    "cached_input_tokens": 15360,
+    "submission_check_opportunities": 0,
+    "stale_at_submission": 0,
+    "deliverable_checkpoints": 0,
+    "deliverable_reminders": 0,
+    "usage_unreturned_requests": 1,
+    "usage_missing_input_responses": 0,
+    "usage_missing_output_responses": 0,
+    "usage_missing_cache_responses": 0,
+    "provider_reported_cost_usd": null
+  },
+  "formal_requests_before_freeze": 0
+}

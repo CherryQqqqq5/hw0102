@@ -14,7 +14,8 @@ LOG_NAMES = {"trial.json", "result.json", "instruction.txt", "model.jsonl", "too
              "run_instance.log", "trial.log", "test-stdout.txt", "reward.txt", "checkout.json", "run-plan.json",
              "controller.jsonl", "final-verification.json", "execution-budget.json", "public-runtime.json", "recovery.json"}
 MODEL_FIELDS = {"event", "time", "request_id", "attempt", "model", "system", "history", "schema", "error_type",
-                "timeout_seconds", "returncode", "http_status", "protocol_commit"}
+                "timeout_seconds", "returncode", "http_status", "protocol_commit", "transport",
+                "provider_diagnostics", "call_id", "ok", "timeout", "response_body", "retry_after", "seconds"}
 RESULT_FIELDS = {"type", "subtype", "is_error", "num_turns", "total_cost_usd", "usage", "result",
                  "structured_output", "duration_ms", "duration_api_ms"}
 
@@ -30,13 +31,13 @@ def sanitize_model(content):
                 record["payload"] = [{key: value for key, value in item.items() if key in RESULT_FIELDS}
                                      for item in payload if item.get("type") == "result"]
             else:
-                record["payload"] = {"usage": payload.get("usage"), "choices": [
-                    {"message": {key: value for key, value in item["message"].items()
-                                 if key in {"role", "content", "tool_calls"}}} for item in payload["choices"]]}
+                record["payload"] = payload
         elif original["event"] == "request" and "payload" in original:
             record["payload"] = original["payload"]
         elif original["event"] == "request_error" and "getaddrinfo ENOTFOUND wb.tencentbuddy.com" in original.get("stderr", ""):
             record["diagnostic"] = {"category": "name_resolution", "message": "getaddrinfo ENOTFOUND wb.tencentbuddy.com"}
+        elif original["event"] == "request_error" and "429 额度已用尽" in original.get("stderr", ""):
+            record["diagnostic"] = {"category": "quota_exhausted", "message": "429 额度已用尽"}
         records.append(json.dumps(record, ensure_ascii=False))
     return "\n".join(records) + "\n"
 

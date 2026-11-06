@@ -1,4 +1,3 @@
-import copy
 import json
 import os
 import shlex
@@ -6,17 +5,15 @@ import subprocess
 import time
 from dataclasses import asdict
 from pathlib import Path
-from urllib.parse import urlsplit
-
-from openai import APITimeoutError, OpenAI
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
 from minisweagent.agents.default import DefaultAgent
 from minisweagent.config import builtin_config_dir, get_config_from_spec
 from minisweagent.exceptions import FormatError, InterruptAgentFlow, Submitted
-from minisweagent.models.utils.actions_toolcall import BASH_TOOL, format_toolcall_observation_messages
+from minisweagent.models.utils.actions_toolcall import format_toolcall_observation_messages
 
 from course_eval.verification import PublicCheck, VerificationState
+from course_eval.boyue_transport import BoyueTimeout, BoyueTransport, BoyueTransportError
 
 
 SUBMIT = "COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT"
@@ -62,6 +59,8 @@ class ModelFormatting:
                 return send(), attempt
             except timeout_type as exc:
                 diagnostics = {}
+                if isinstance(exc, BoyueTimeout):
+                    diagnostics = {"provider_diagnostics": exc.diagnostics}
                 if isinstance(exc, subprocess.TimeoutExpired):
                     diagnostics = {key: value.decode("utf-8", errors="replace") if isinstance(value, bytes) else value
                                    for key, value in {"stdout": exc.stdout or "", "stderr": exc.stderr or ""}.items()}
@@ -91,53 +90,62 @@ class ModelFormatting:
 
 
 class CourseModel(ModelFormatting):
+    argument_type = BashArguments
+    action_name = "bash"
+
     def __init__(self, run_dir: Path, limits: RunLimits, observation_template: str):
         self.limits = limits
         self.model_id = os.environ["COURSE_MODEL_ID"]
-        url = os.environ["COURSE_API_BASE_URL"]
-        parsed = urlsplit(url)
-        if parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.query or parsed.fragment:
-            raise ValueError("COURSE_API_BASE_URL must be an HTTPS base URL without credentials or query parameters")
         self.trace = run_dir / "model.jsonl"
         self.observation_template = observation_template
-        self.client = OpenAI(base_url=url, api_key=os.environ["COURSE_API_KEY"], timeout=90, max_retries=0)
+        self.transport = BoyueTransport()
         self.request_id = 0
         self.timeout_retries_remaining = limits.timeout_retries
 
     def query(self, messages: list[dict], **kwargs) -> dict:
         self.request_id += 1
         history = [{key: val for key, val in message.items() if key != "extra"} for message in messages]
-        tool = copy.deepcopy(BASH_TOOL)
-        tool["function"]["parameters"]["additionalProperties"] = False
+        tool = {"type": "function", "function": {"name": self.action_name,
+                "description": "Execute one action in the isolated benchmark environment.",
+                "parameters": self.argument_type.model_json_schema()}}
         payload = {
             "model": self.model_id, "messages": history, "tools": [tool],
-            "max_tokens": self.limits.max_output_tokens,
+            "max_tokens": self.limits.max_output_tokens, "reasoning_effort": "max",
+            "stream": False, "tool_choice": "auto",
         }
+        timeout = min(150, self.limits.wall_seconds)
         try:
             response, attempt = self.request_with_timeout_recovery(
-                lambda: self.client.chat.completions.create(**payload), {"payload": payload}, APITimeoutError, 90,
+                lambda: self.transport.send(payload, min(timeout, self.budget.request_seconds())
+                                            if getattr(self, "budget", None) else timeout),
+                {"payload": payload}, BoyueTimeout, timeout,
             )
         except ProviderTimeout:
             raise
-        except Exception as exc:
+        except BoyueTransportError as exc:
             append_event(self.trace, "request_error", request_id=self.request_id,
-                         error_type=type(exc).__name__, http_status=getattr(exc, "status_code", None))
-            # 上游异常可能携带认证信息。轨迹保留状态码和异常类型。
-            raise RuntimeError(f"Model request failed: {type(exc).__name__}") from None
-        raw = response.model_dump(mode="json", exclude_none=True)
-        append_event(self.trace, "response", request_id=self.request_id, attempt=attempt, payload=raw)
-        choice = response.choices[0]
-        message = choice.message.model_dump(mode="json", exclude_none=True)
+                         **exc.diagnostics)
+            raise
+        raw = response.payload
+        append_event(self.trace, "response", request_id=self.request_id, attempt=attempt, payload=raw,
+                     transport=response.model_dump(exclude={"payload"}, exclude_none=True))
         actions = []
         try:
-            for call in choice.message.tool_calls or []:
-                if call.type != "function" or call.function.name != "bash":
-                    raise ValueError("Only the bash function is available")
-                args = BashArguments.model_validate_json(call.function.arguments)
-                actions.append({"command": args.command, "tool_call_id": call.id})
-            if not actions:
-                raise ValueError("Return at least one bash tool call")
-        except (ValidationError, ValueError) as exc:
+            if len(raw["choices"]) != 1:
+                raise ValueError("Exactly one response choice is required")
+            choice = raw["choices"][0]
+            if choice["finish_reason"] not in {"tool_calls", "stop"}:
+                raise ValueError("Incomplete model response: " + str(choice["finish_reason"]))
+            message = choice["message"]
+            calls = message.get("tool_calls") or []
+            if len(calls) != 1:
+                raise ValueError("Return exactly one structured tool action")
+            call = calls[0]
+            if call["type"] != "function" or call["function"]["name"] != self.action_name:
+                raise ValueError("Only the registered action function is available")
+            args = self.argument_type.model_validate_json(call["function"]["arguments"])
+            actions.append(args.model_dump() | {"tool_call_id": call["id"]})
+        except (ValidationError, ValueError, KeyError, TypeError) as exc:
             raise FormatError({"role": "user", "content": str(exc),
                                "extra": {"request_id": self.request_id, "response": raw}}) from None
         message["extra"] = {"actions": actions, "request_id": self.request_id}
@@ -145,7 +153,9 @@ class CourseModel(ModelFormatting):
 
     def serialize(self) -> dict:
         return {"info": {"config": {"model": self.model_id, "transport": "chat-completions",
-                                    "max_output_tokens": self.limits.max_output_tokens}}}
+                                    "max_output_tokens": self.limits.max_output_tokens,
+                                    "reasoning_effort": "max", "endpoint": "https://apicz.boyuerichdata.com/v1",
+                                    "native_actions": self.action_name, "sdk_retries": 0}}}
 
 
 class CodeBuddyModel(ModelFormatting):

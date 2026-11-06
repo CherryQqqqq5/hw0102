@@ -1,0 +1,24 @@
+{
+  "engineering_check": "pass",
+  "formal_benchmark_trial": false,
+  "actual_short_deadline_request": true,
+  "timeout_propagated": true,
+  "execution_seconds": 2.8320714999921623,
+  "usage": {
+    "model_calls": 1,
+    "model_responses": 0,
+    "model_request_retries": 0,
+    "model_request_timeouts": 1,
+    "provider_turns": 0,
+    "tool_calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cached_input_tokens": 0,
+    "submission_check_opportunities": 0,
+    "stale_at_submission": 0,
+    "deliverable_checkpoints": 0,
+    "deliverable_reminders": 0,
+    "provider_reported_cost_usd": null
+  },
+  "unreturned_usage": "unknown"
+}

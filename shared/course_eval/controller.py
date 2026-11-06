@@ -14,7 +14,7 @@ from minisweagent.agents.default import DefaultAgent
 from minisweagent.config import builtin_config_dir, get_config_from_spec
 from minisweagent.exceptions import Submitted, TimeExceeded
 
-from course_eval.agent import CodeBuddyModel, SUBMIT, TracedEnvironment, append_event
+from course_eval.agent import CodeBuddyModel, CourseModel, SUBMIT, TracedEnvironment, append_event
 from course_eval.verification import Evidence, VerificationState
 
 
@@ -42,6 +42,11 @@ class ControlModel(CodeBuddyModel):
     argument_type = ControlAction
     action_name = "action"
     selection_instruction = "one structured action (bash, verify, save, restore, submit)"
+
+
+class CourseControlModel(CourseModel):
+    argument_type = ControlAction
+    action_name = "action"
 
 
 class Budget:
@@ -373,8 +378,8 @@ Every model request, retry, command, verification and candidate operation shares
 def run_controlled(task, target, directory, limits, configuration, checks, scope):
     if configuration not in {"B0", "C0", "C1"}:
         raise ValueError("Strict confirmation supports only B0/C0/C1")
-    if os.environ["COURSE_MODEL_BACKEND"] != "codebuddy":
-        raise ValueError("The frozen controller currently uses the CodeBuddy transport")
+    if os.environ["COURSE_MODEL_BACKEND"] not in {"codebuddy", "course"}:
+        raise ValueError("Unsupported confirmation backend")
     budget = Budget(limits.wall_seconds)
     try:
         return _run_controlled(task, target, directory, limits, configuration, checks, scope, budget)
@@ -395,16 +400,18 @@ def _run_controlled(task, target, directory, limits, configuration, checks, scop
     target = BoundedTarget(target, budget)
     config = get_config_from_spec(builtin_config_dir / "mini.yaml")
     template = config["agent"]["instance_template"]
+    baseline_model, control_model = {"codebuddy": (CodeBuddyModel, ControlModel),
+                                     "course": (CourseModel, CourseControlModel)}[os.environ["COURSE_MODEL_BACKEND"]]
     if configuration == "B0":
         environment = TracedEnvironment(target, directory, limits)
-        model = CodeBuddyModel(directory, limits, config["model"]["observation_template"])
+        model = baseline_model(directory, limits, config["model"]["observation_template"])
     else:
         if not checks or scope is None:
             raise ValueError("Controller requires public checks and an explicit candidate scope")
         for check in checks:
             check.validate(task)
         environment = ControlledEnvironment(target, directory, limits, checks, scope, budget, configuration == "C1")
-        model = ControlModel(directory, limits, config["model"]["observation_template"])
+        model = control_model(directory, limits, config["model"]["observation_template"])
         template += CONTROL_PROMPT + "\nRegistered checks:\n" + json.dumps([
             {"check_id": check.check_id, "source_quote": check.source_quote, "coverage": check.coverage,
              "dependencies": check.dependencies, "deliverables": check.deliverables,

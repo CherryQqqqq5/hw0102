@@ -1,0 +1,44 @@
+{
+  "engineering_check": "pass",
+  "formal_benchmark_trial": false,
+  "data": "synthetic random nonce in a network-disabled container",
+  "cases": [
+    {
+      "arm": "B0",
+      "two_request_tool_roundtrip": true,
+      "reasoning_preserved": true,
+      "exact_synthetic_value": true,
+      "execution_seconds": 11.152722917031497
+    },
+    {
+      "arm": "C0",
+      "two_request_tool_roundtrip": true,
+      "reasoning_preserved": true,
+      "exact_synthetic_value": true,
+      "execution_seconds": 12.408069417113438
+    },
+    {
+      "arm": "C1",
+      "two_request_tool_roundtrip": true,
+      "reasoning_preserved": true,
+      "exact_synthetic_value": true,
+      "execution_seconds": 24.25206850003451
+    }
+  ],
+  "usage": {
+    "model_calls": 6,
+    "model_responses": 6,
+    "model_request_retries": 0,
+    "model_request_timeouts": 0,
+    "provider_turns": 0,
+    "tool_calls": 6,
+    "input_tokens": 3614,
+    "output_tokens": 577,
+    "cached_input_tokens": 2048,
+    "submission_check_opportunities": 0,
+    "stale_at_submission": 0,
+    "deliverable_checkpoints": 0,
+    "deliverable_reminders": 0,
+    "provider_reported_cost_usd": null
+  }
+}

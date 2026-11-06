@@ -83,6 +83,7 @@ def main():
                 "repair_chain_and_original_pass_trials": sum(row["changed_candidate_repair_chains"] > 0 and row["passed"] for row in matches),
                 **{key: sum(row[key] or 0 for row in matches) for key in ("model_calls", "model_responses", "input_tokens",
                    "output_tokens", "cached_input_tokens", "model_request_retries", "model_request_timeouts", "wall_seconds",
+                   "usage_unreturned_requests", "usage_missing_input_responses", "usage_missing_output_responses", "usage_missing_cache_responses",
                    "grader_seconds", "public_checks", "public_check_seconds", "candidate_operation_seconds", "automatic_checks", "failed_public_checks", "unknown_public_checks", "changed_candidate_repair_chains",
                    "restored_final_candidate", "controller_errors")}})
     comparisons = [compare(rows, "C", reference, treatment, 3, expected_tasks=30)
@@ -96,6 +97,7 @@ def main():
     previous_rows = [row for root in args.previous_runs for row in read_runs(root)]
     total_usage = merge_usage([formal_usage, mechanical_usage, *previous_groups])
     result = {"primary_comparison": "C1 versus B0", "mechanism_comparison": "C1 versus C0",
+              "token_usage_scope": "Only returned token counts are summed; missing response and usage counters denote unknown consumption.",
               "interval": "10000 paired task bootstrap samples, stratified by benchmark, seed 20261104",
               "coverage": groupings, "comparisons": comparisons, "benchmark_comparisons": slices,
               "all_attempt_usage": total_usage, "formal_attempt_usage": formal_usage, "mechanical_attempt_usage": mechanical_usage,

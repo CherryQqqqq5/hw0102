@@ -11,12 +11,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from course_eval.agent import RunLimits
+from course_eval.boyue_transport import BoyueTransport
 from course_eval.confirmation_selection import SEED, order
 
 
 RUNTIME_FILES = ("agent.py", "benchmarks.py", "candidate_io.py", "controller.py", "docker_target.py",
                  "harbor_agent.py", "verification.py", "terminal_setup.py", "terminal_runtime.py", "aider_runtime.py",
-                 "terminal-no-network.yaml", "confirmation.py")
+                 "terminal-no-network.yaml", "confirmation.py", "boyue_transport.py", "boyue_rpc.py")
 LIMITS = RunLimits(model_calls=24, wall_seconds=600, command_seconds=60, timeout_retries=2, strict_wall=True)
 
 
@@ -55,10 +56,21 @@ def prepare(manifest_path, checks_path, preflights, destination, attempt_cap=300
             raise ValueError("Invalid original grader controls: " + task["id"])
         if not checks.get(task["id"]):
             raise ValueError("Missing frozen public check: " + task["id"])
+    backend = os.environ["COURSE_MODEL_BACKEND"]
+    provider = {}
+    if backend == "codebuddy":
+        provider["codebuddy_version"] = subprocess.check_output(
+            [os.environ["COURSE_CODEBUDDY_BIN"], "--version"], text=True).strip()
+    elif backend == "course":
+        provider["provider_profile"] = BoyueTransport().metadata()
+        if provider["provider_profile"]["runtime_sha256"] != digest(Path(__file__).with_name("boyue_rpc.py")):
+            raise ValueError("Remote provider entry point differs from the local source")
+    else:
+        raise ValueError("Unsupported confirmation backend")
+    limits = RunLimits.model_validate_json(os.environ.get("COURSE_RUN_LIMITS", LIMITS.model_dump_json()))
     plan = {"stage": "frozen_before_first_model_request", "created_utc": datetime.now(timezone.utc).isoformat(),
             "seed": SEED, "model": os.environ["COURSE_MODEL_ID"], "backend": os.environ["COURSE_MODEL_BACKEND"],
-            "codebuddy_version": subprocess.check_output([os.environ["COURSE_CODEBUDDY_BIN"], "--version"], text=True).strip(),
-            "limits": LIMITS.model_dump(), "workers": 1, "planned_trials": 270, "max_total_attempts": attempt_cap,
+            **provider, "limits": limits.model_dump(), "workers": 1, "planned_trials": 270, "max_total_attempts": attempt_cap,
             "python_version": sys.version,
             "package_versions": {name: importlib.metadata.version(name) for name in ("mini-swe-agent", "swebench", "harbor", "pydantic")},
             "max_extra_mechanical_attempts_per_slot": 2,
@@ -81,9 +93,12 @@ def execute(args):
         raise ValueError("Protocol commit does not contain the exact run plan")
     if os.environ["COURSE_MODEL_ID"] != plan["model"] or os.environ["COURSE_MODEL_BACKEND"] != plan["backend"]:
         raise ValueError("Model configuration differs from frozen protocol")
-    version = subprocess.check_output([os.environ["COURSE_CODEBUDDY_BIN"], "--version"], text=True).strip()
-    if version != plan["codebuddy_version"]:
-        raise ValueError("CodeBuddy version changed")
+    if plan["backend"] == "codebuddy":
+        version = subprocess.check_output([os.environ["COURSE_CODEBUDDY_BIN"], "--version"], text=True).strip()
+        if version != plan["codebuddy_version"]:
+            raise ValueError("CodeBuddy version changed")
+    elif BoyueTransport().metadata() != plan["provider_profile"]:
+        raise ValueError("Remote provider runtime changed")
     if sys.version != plan["python_version"] or any(importlib.metadata.version(name) != version
                                                    for name, version in plan["package_versions"].items()):
         raise ValueError("Frozen Python runtime dependencies changed")

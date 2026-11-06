@@ -1,0 +1,15 @@
+{
+  "reason": "engineering_deadline",
+  "artifact_digest": "026faeccba1f963092d3629090a6530599ac399883b906fe669c4c254559b9c2",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": false,
+  "evidence": {
+    "suite": {
+      "state": "failed",
+      "returncode": 1,
+      "snapshot": null
+    }
+  },
+  "elapsed_seconds": 2.1244534580037
+}
