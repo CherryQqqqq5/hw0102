@@ -2,7 +2,7 @@
 
 邱昱宁 · 231880296
 
-当前使用CodeBuddy 2.179.3的`hy4flash-free`执行独立免费复测：冻结30题，B0/C0/C1各三轮，共270位置。首题密码分析首轮B0/C0通过、C1失败，均有有效原评分；C1未形成指定明文文件，完整保留。三个条件共27次CLI调用、45条实际模型用量均经零积分核验，单段输出最大4096，恢复11次完整动作。其余矩阵正在执行，完整比较尚未形成。[免费v5协议](作业二/configs/confirmation-protocol-hy4flash-free-v5.md) · [冻结计划](作业二/configs/confirmation-plan-hy4flash-free-v5.json) · [成熟来源与修复](作业二/configs/hy4flash-cli-recovery-20261116.md) · [首轮原件](作业二/evidence/confirmation-hy4flash-free-v5/) · [首轮计费核验](作业二/evidence/hy4flash-first-triplet-billing.json)
+CodeBuddy 2.179.3的`hy4flash-free`独立复测现已停止：冻结30题、B0/C0/C1各三轮共270位置，当前7条有效原评分（6通过、1失败）、1未评分、262未启动。Django11999/B0第4请求因域名解析失败没有实际模型计费回执，费用保持未知，按规则停止。107个返回数组的137条真实模型用量均核验零积分，恢复21次完整动作；完整比较及新版终稿尚未形成。[免费v5协议](作业二/configs/confirmation-protocol-hy4flash-free-v5.md) · [冻结计划](作业二/configs/confirmation-plan-hy4flash-free-v5.json) · [成熟来源与修复](作业二/configs/hy4flash-cli-recovery-20261116.md) · [本轮结果与停止依据](作业二/evidence/hy4flash-v5-result-20261116.md) · [费用与原评分复算](作业二/evidence/hy4flash-v5-stopped-summary.json) · [八次原件](作业二/evidence/confirmation-hy4flash-free-v5/)
 
 此前CodeBuddy及Boyue的有效评分、未评分、原始失败和用量独立保留，免费服务的成绩不与它们混算。下列两份报告及384条评分属于已完成的历史实验，完整新矩阵结束后更新。历史CodeBuddy确认及JavaScript运行时修复见[原协议](作业二/configs/confirmation-protocol-v3.md)与[原修复说明](作业二/configs/confirmation-runtime-repair-v3.md)。
 

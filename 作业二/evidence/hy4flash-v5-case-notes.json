@@ -1,7 +1,7 @@
 {
   "batch": "confirmation-hy4flash-free-v5",
   "protocol_commit": "32b5ef17552b0a64a94511c5ff0e24834308d7b4",
-  "status": "case_notes_before_complete_matrix",
+  "status": "stopped_partial_matrix_case_notes",
   "cases": [
     {
       "title": "密码分析首轮：持续探索未形成可交付明文",
@@ -13,6 +13,27 @@
         {"run_id": "C-terminal-feal-linear-cryptanalysis-C0-r1", "passed": true},
         {"run_id": "C-terminal-feal-linear-cryptanalysis-C1-r1", "passed": false}
       ]
+    },
+    {
+      "title": "xarray首轮：相同正确补丁与自动验证成本",
+      "observations": "B0、C0、C1均通过原题，int32及float32两项修复测试和原有保持测试均通过。三组修改PandasMultiIndexingAdapter.__array__以保留请求的数据类型，C0与C1的candidate.patch逐字节相同。C1第15步自动公开验证通过，第19步主动复测通过，提交时有效验证为true；C0一次主动验证通过。B0以TimeExceeded结束，原题仍确认补丁正确。内部执行分别594.942、435.631、371.753秒；候选操作在C0/C1分别4.482、15.644秒，检查分别2.014、4.122秒。",
+      "interpretation": "本轮三个条件均能形成正确修复，自动验证确有执行且带来可测开销，未增加此轮通过次数。C1没有失败检查后改版通过链，也未在最终阶段恢复候选，不能将既有正确补丁记为控制器修复收益。单轮耗时同时受模型采样、命令选择和环境准备影响，完整三轮配对用于判断总体效率与稳定性。B0的执行终止状态与独立原题通过分别保留。",
+      "evidence": "confirmation-hy4flash-free-v5/C-swe-pydata__xarray-7393-{B0,C0,C1}-r1/{result.json,candidate.patch,execution-budget.json,controller.jsonl,final-verification.json}; 各自swe-official目录的report.json及run_instance.log。",
+      "scores": [
+        {"run_id": "C-swe-pydata__xarray-7393-B0-r1", "passed": true},
+        {"run_id": "C-swe-pydata__xarray-7393-C0-r1", "passed": true},
+        {"run_id": "C-swe-pydata__xarray-7393-C1-r1", "passed": true}
+      ]
+    },
+    {
+      "title": "Django11999：公开失败反馈之后完成保留自定义显示方法的修复",
+      "observations": "C1第11步自动公开检查发现显示值为foo、bar，应保留用户自定义的something。此时尚无候选补丁；第12次请求已包含该失败反馈，随后的第12次执行修改Field.contribute_to_class，仅在类没有对应显示方法时生成get_FIELD_display。第13步主动公开复测显示两个something，第14次执行运行model_fields测试，第16次执行提交。最终公开验证有效，原题独立评分通过，内部368.379秒。",
+      "interpretation": "该轨迹具备失败检查、模型可见反馈、代码修改、公开复测及原题通过的完整过程证据。失败检查针对未修改的初始状态，不能将其称为纠正了已有错误补丁；也不能单凭过程链估计控制器的净收益。同题B0随后因DNS故障缺少真实模型计费回执而未评分，C0尚未启动，因此当前没有完整三条件配对。",
+      "evidence": "confirmation-hy4flash-free-v5/C-swe-django__django-11999-C1-r1/{controller.jsonl,model.jsonl,tools.jsonl,candidate.patch,final-verification.json,result.json}; swe-official目录的report.json与run_instance.log；同题B0的未评分result.json及脱敏DNS诊断。",
+      "scores": [
+        {"run_id": "C-swe-django__django-11999-C1-r1", "passed": true}
+      ],
+      "unscored": ["C-swe-django__django-11999-B0-r1"]
     }
   ]
 }
