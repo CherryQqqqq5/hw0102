@@ -207,7 +207,7 @@ class CodeBuddyModel(ModelFormatting):
                                 "CODEBUDDY_BIG_SLOW_MODEL": FREE_MODEL_ID})
             environment.pop("CODEBUDDY_FALLBACK_MODEL", None)
         # CodeBuddy 的打印模式需要显式请求文本。通过 stdin 提供大型历史。
-        timeout = min(150, self.limits.wall_seconds)
+        timeout = self.limits.wall_seconds if self.model_id == FREE_MODEL_ID else min(150, self.limits.wall_seconds)
         process, attempt = self.request_with_timeout_recovery(
             lambda: subprocess.run([*command, "Choose the next command from the conversation on stdin."],
                                    input=prompt, cwd=self.run_dir, env=environment,
