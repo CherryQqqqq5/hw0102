@@ -16,7 +16,8 @@ LOG_NAMES = {"trial.json", "result.json", "instruction.txt", "model.jsonl", "too
 MODEL_FIELDS = {"event", "time", "request_id", "attempt", "model", "system", "history", "schema", "error_type",
                 "timeout_seconds", "returncode", "http_status", "protocol_commit", "transport",
                 "provider_diagnostics", "call_id", "ok", "timeout", "response_body", "retry_after", "seconds",
-                "request_model", "provider_model", "credit", "usage_records", "detail"}
+                "request_model", "provider_model", "credit", "usage_records", "detail",
+                "configured_max_output_tokens", "local_cli_errors"}
 RESULT_FIELDS = {"type", "subtype", "is_error", "num_turns", "total_cost_usd", "usage", "result",
                  "structured_output", "duration_ms", "duration_api_ms"}
 
@@ -33,14 +34,17 @@ def sanitize_model(content):
                 for item in payload:
                     if item.get("type") == "result":
                         safe.append({key: value for key, value in item.items() if key in RESULT_FIELDS})
-                    elif (item.get("type") in {"reasoning", "function_call"}
+                    elif (item.get("type") in {"reasoning", "function_call", "model-usage"}
                           or (item.get("type") == "message" and item.get("role") == "assistant")
                           or any(key in item.get("providerData", {}) for key in ("model", "requestModelId", "rawUsage"))):
                         provider = item.get("providerData", {})
-                        safe.append({"type": item["type"], "role": item.get("role"),
+                        kept = {"type": item["type"], "role": item.get("role"), "status": item.get("status"),
                                      "providerData": {key: provider[key] for key in (
-                                         "requestModelId", "requestModelName", "model", "messageId", "rawUsage")
-                                         if key in provider}})
+                                         "requestModelId", "requestModelName", "model", "messageId", "rawUsage",
+                                         "conversationRequestId", "agent", "skipRun", "error") if key in provider}}
+                        if item.get("type") == "function_call" and item.get("name") == "StructuredOutput":
+                            kept.update({"name": item["name"], "arguments": item.get("arguments")})
+                        safe.append(kept)
                 record["payload"] = safe
             else:
                 record["payload"] = payload

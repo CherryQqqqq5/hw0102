@@ -9,7 +9,7 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
 from minisweagent.agents.default import DefaultAgent
 from minisweagent.config import builtin_config_dir, get_config_from_spec
-from minisweagent.exceptions import FormatError, InterruptAgentFlow, Submitted
+from minisweagent.exceptions import FormatError, InterruptAgentFlow, Submitted, TimeExceeded
 from minisweagent.models.utils.actions_toolcall import format_toolcall_observation_messages
 
 from course_eval.verification import PublicCheck, VerificationState
@@ -177,6 +177,13 @@ class CodeBuddyModel(ModelFormatting):
         self.timeout_retries_remaining = limits.timeout_retries
 
     def query(self, messages: list[dict], **kwargs) -> dict:
+        # v2仅剩14秒仍发起请求导致费用未知；三条件共同留60秒完整请求窗口。
+        if self.model_id == FREE_MODEL_ID and getattr(self, "budget", None) is not None:
+            if self.budget.request_seconds() < 60:
+                append_event(self.run_dir / "controller.jsonl", "free_request_window_exhausted",
+                             remaining_seconds=self.budget.request_seconds(), required_seconds=60)
+                raise TimeExceeded({"role": "exit", "content": "Insufficient time for a complete free-model request",
+                                    "extra": {"exit_status": "TimeExceeded", "submission": ""}})
         self.request_id += 1
         history = [{key: val for key, val in message.items() if key != "extra"} for message in messages[1:]]
         system = messages[0]["content"] + (
@@ -230,6 +237,10 @@ class CodeBuddyModel(ModelFormatting):
                          returncode=process.returncode, stderr=process.stderr, stdout=process.stdout)
             raise RuntimeError("CodeBuddy returned a non-JSON response") from None
         append_event(self.trace, "response", request_id=self.request_id, attempt=attempt, payload=raw)
+        return self.process_response(raw)
+
+    def process_response(self, raw: list[dict]) -> dict:
+        local_errors = []
         if self.model_id == FREE_MODEL_ID:
             try:
                 billing = verify_free_response(raw)
@@ -237,15 +248,38 @@ class CodeBuddyModel(ModelFormatting):
                 append_event(self.trace, "billing_error", request_id=self.request_id, detail=str(exc))
                 raise RuntimeError("Free model billing validation failed") from exc
             append_event(self.trace, "billing_verified", request_id=self.request_id, **billing)
-        result = next(event for event in reversed(raw) if event.get("type") == "result")
+            local_errors = billing["local_cli_errors"]
+            if local_errors:
+                append_event(self.trace, "local_cli_error", request_id=self.request_id,
+                             local_cli_errors=local_errors)
+        results = [event for event in raw if event.get("type") == "result"]
+        if len(results) != 1:
+            raise RuntimeError("CodeBuddy must return exactly one final result")
+        result, = results
         if result.get("is_error") or result.get("subtype") != "success":
+            if self.model_id == FREE_MODEL_ID and result.get("subtype") == "error_max_turns":
+                raise FormatError({"role": "user", "content":
+                                   "Output ended at the CLI turn limit. Return one complete, shorter structured action.",
+                                   "extra": {"request_id": self.request_id}})
             raise RuntimeError(f"CodeBuddy returned {result.get('subtype')}")
         self.provider_turns += result["num_turns"]
         try:
             action = self.argument_type.model_validate(result.get("structured_output"))
-        except ValidationError as exc:
+            if local_errors:
+                last_error = max(index for index, event in enumerate(raw)
+                                 if event.get("providerData", {}).get("skipRun") is True)
+                calls = [event for event in raw[last_error + 1:]
+                         if event.get("type") == "function_call" and event.get("name") == "StructuredOutput"]
+                if len(calls) != 1:
+                    raise ValueError("Truncation recovery did not produce exactly one new structured action")
+                recovered = self.argument_type.model_validate_json(calls[0].get("arguments"))
+                if recovered != action:
+                    raise ValueError("The recovered tool action differs from the final structured output")
+        except (ValidationError, ValueError) as exc:
             raise FormatError({"role": "user", "content": f"Invalid structured output: {exc}",
                                "extra": {"request_id": self.request_id}}) from None
+        if local_errors:
+            append_event(self.trace, "truncation_recovered", request_id=self.request_id)
         call_id = f"codebuddy-{self.request_id}"
         return {
             "role": "assistant", "content": result.get("result") or "",
