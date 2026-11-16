@@ -1,0 +1,10 @@
+{
+  "task": "rust/accumulate",
+  "wall_seconds": 59.55222254199907,
+  "exit_status": "Submitted",
+  "submission": "Generic manual accumulate/map implementation passes all original tests and the public-suite verification.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 1.1465362079907209
+}

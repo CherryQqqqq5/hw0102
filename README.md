@@ -2,9 +2,9 @@
 
 邱昱宁 · 231880296
 
-CodeBuddy 2.179.3的`hy4flash-free`独立复测正在运行：冻结30题、B0/C0/C1各三轮共270位置，2026-11-16本次检查点有12条有效原评分（11通过、1失败）。Django首轮三组均通过目标缺陷测试及30项原有回归，Go的beer-song三组也通过，队列已进入C++ all-your-base。当前十二条原评分包含155请求/155响应、208条自身零积分证明，单段输出最大4096；历史缺回执另列。完整比较及新版终稿尚未形成。[阶段结果](作业二/evidence/hy4flash-v7-progress-20261116.md) · [费用与原评分复算](作业二/evidence/hy4flash-v7-12-score-verification.json) · [当前v7协议](作业二/configs/CONFIRMATION_HY4FLASH_PROTOCOL_V7.md) · [精确计划](作业二/configs/confirmation-plan-hy4flash-free-v7.json) · [原评分证据](作业二/evidence/confirmation-hy4flash-free-v7/)
+CodeBuddy 2.179.3的`hy4flash-free`独立复测已因新增费用未知停止：冻结30题、B0/C0/C1各三轮共270位置，当前27条有效原评分（26通过、1失败），另1未评分、242未启动。Go alphametics基线第4请求等待520.607秒后超时，stdout/stderr均为空，缺少实际计费回执；没有重试或切换型号。主目录275个返回数组的350条实际模型用量均为免费身份及积分0，新增缺回执费用继续未知。完整比较及新版完整报告未形成。[停止记录](作业二/evidence/hy4flash-v7-stop-20261117.md) · [费用与原评分汇总](作业二/evidence/hy4flash-v7-stopped-summary.json) · [v7协议](作业二/configs/CONFIRMATION_HY4FLASH_PROTOCOL_V7.md) · [精确计划](作业二/configs/confirmation-plan-hy4flash-free-v7.json) · [全部28次主记录](作业二/evidence/confirmation-hy4flash-free-v7/)
 
-新运行固定继承显式代理，并按CodeBuddy源码的错误模板处理含空格的本地工具名；16项真实回放与费用负例通过。7条v5有效原评分含1失败逐位置保留，263位置新执行，六次未评分前序独立保存，累计300上限保持；三次历史缺回执费用仍未知。新增型号不符、费用未知或非零立即停止。网络根因的五轮交错连接对照为原环境3/5成功、修复后5/5成功，实际模型通路已取得原评分。[网络根因](作业二/configs/codebuddy-network-root-cause-20261116.md) · [真实网络对照](作业二/evidence/codebuddy-network-route-check-20261116.json) · [v5停止依据](作业二/evidence/hy4flash-v5-result-20261116.md) · [v6未评分原件](作业二/evidence/confirmation-hy4flash-free-v6/)
+v7固定显式代理及本地工具错误分类，16项真实回放与费用负例通过。7条v5有效原评分含1失败逐位置保留，20个新增位置取得原评分，六条前序未评分独立保存。按来源去重的累计318请求/314响应，四次费用未知保持；累计300次任务尝试上限保持。27条原评分、全部返回费用和冻结源码已在脱敏导出上复算。课程队列和虚拟机已停止。[六条前序](作业二/evidence/confirmation-hy4flash-free-v7-previous/) · [无模型复算方法](作业二/evidence/hy4flash-v7-stop-20261117.md#证据与无模型调用复算) · [历史网络根因](作业二/configs/codebuddy-network-root-cause-20261116.md)
 
 此前CodeBuddy及Boyue的有效评分、未评分、原始失败和用量独立保留，免费服务的成绩不与它们混算。下列两份报告及384条评分属于已完成的历史实验，完整新矩阵结束后更新。历史CodeBuddy确认及JavaScript运行时修复见[原协议](作业二/configs/confirmation-protocol-v3.md)与[原修复说明](作业二/configs/confirmation-runtime-repair-v3.md)。
 

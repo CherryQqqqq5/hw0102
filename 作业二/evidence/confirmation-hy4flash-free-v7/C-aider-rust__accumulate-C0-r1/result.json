@@ -1,0 +1,10 @@
+{
+  "task": "rust/accumulate",
+  "wall_seconds": 55.490927000006195,
+  "exit_status": "Submitted",
+  "submission": "Implemented generic FnMut-based map in src/lib.rs using a manual loop; all 12 tests pass and public-suite verification passed.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 1.1775426249951124
+}

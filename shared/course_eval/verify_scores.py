@@ -4,13 +4,18 @@ from collections import Counter
 from pathlib import Path
 
 
-def verify(root: Path) -> dict:
+def verify(root: Path, *, allow_unscored: bool = False) -> dict:
     counts = Counter()
     positions = set()
+    unscored = []
     for path in sorted(root.glob("*/trial.json")):
         trial = json.loads(path.read_text())
         result = json.loads((path.parent / "result.json").read_text())
         task = trial["task"]
+        if allow_unscored and result["scoreable"] is False:
+            assert result["passed"] is None, path.parent
+            unscored.append(path.parent.name)
+            continue
         assert result["scoreable"] is True, path.parent
         assert isinstance(result["passed"], bool), path.parent
         if task["benchmark"] == "swe":
@@ -52,14 +57,16 @@ def verify(root: Path) -> dict:
             trial = json.loads(path.read_text())
             assert all(trial[key] == plan[key] for key in ("model", "backend", "limits")), path
     return {"runs": str(root), "score_records_verified": sum(counts.values()), "by_benchmark": dict(counts),
+            "unscored_records_preserved": unscored,
             "check": "saved original grader decisions agree with result.json; graders were not re-executed"}
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--runs", type=Path, nargs="+", required=True)
+    parser.add_argument("--allow-unscored", action="store_true", help="List preserved unscored attempts separately; never count them as failures")
     args = parser.parse_args()
-    print(json.dumps([verify(root) for root in args.runs], ensure_ascii=False, indent=2))
+    print(json.dumps([verify(root, allow_unscored=args.allow_unscored) for root in args.runs], ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
