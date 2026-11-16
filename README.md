@@ -2,7 +2,7 @@
 
 邱昱宁 · 231880296
 
-当前使用CodeBuddy 2.179.3的`hy4flash-free`执行独立免费复测：冻结30题，B0/C0/C1各三轮，共270位置。修复本地错误分类和4096截断后，首题密码分析B0已取得原评分通过，真实模型回复均完成零积分核验；其余矩阵正在执行，完整比较尚未形成。[免费v5协议](作业二/configs/confirmation-protocol-hy4flash-free-v5.md) · [冻结计划](作业二/configs/confirmation-plan-hy4flash-free-v5.json) · [成熟来源与修复](作业二/configs/hy4flash-cli-recovery-20261116.md) · [首题原件](作业二/evidence/confirmation-hy4flash-free-v5/C-terminal-feal-linear-cryptanalysis-B0-r1/)
+当前使用CodeBuddy 2.179.3的`hy4flash-free`执行独立免费复测：冻结30题，B0/C0/C1各三轮，共270位置。首题密码分析首轮B0/C0通过、C1失败，均有有效原评分；C1未形成指定明文文件，完整保留。三个条件共27次CLI调用、45条实际模型用量均经零积分核验，单段输出最大4096，恢复11次完整动作。其余矩阵正在执行，完整比较尚未形成。[免费v5协议](作业二/configs/confirmation-protocol-hy4flash-free-v5.md) · [冻结计划](作业二/configs/confirmation-plan-hy4flash-free-v5.json) · [成熟来源与修复](作业二/configs/hy4flash-cli-recovery-20261116.md) · [首轮原件](作业二/evidence/confirmation-hy4flash-free-v5/) · [首轮计费核验](作业二/evidence/hy4flash-first-triplet-billing.json)
 
 此前CodeBuddy及Boyue的有效评分、未评分、原始失败和用量独立保留，免费服务的成绩不与它们混算。下列两份报告及384条评分属于已完成的历史实验，完整新矩阵结束后更新。历史CodeBuddy确认及JavaScript运行时修复见[原协议](作业二/configs/confirmation-protocol-v3.md)与[原修复说明](作业二/configs/confirmation-runtime-repair-v3.md)。
 
@@ -16,7 +16,7 @@
 
 第一版对应成绩为14/15、15/15、14/15。修订统一替换了受公开检查命令缺陷影响的调度题三条记录，原记录与成本全部保留。正向差值扩大来自基线的新采样失败，改造配置通过数未增加。[记录选择与案例](作业二/evidence/revision-cases.md)
 
-正式评测通过 CodeBuddy 使用 `deepseek-v4.1-flash`。原 F 方案的负结果、A 的独立重复确认及新增 R/RP 分批报告。模型、预算、原题评分、智能体终止和服务故障分别记录；原始240条正式成绩保留。
+历史正式评测通过 CodeBuddy 使用 `deepseek-v4.1-flash`。原 F 方案的负结果、A 的独立重复确认及新增 R/RP 分批报告。模型、预算、原题评分、智能体终止和服务故障分别记录；原始240条正式成绩保留。
 
 此前146次尝试中，144次取得原题评分，另2次网络失败完整归档并计入成本。该历史阶段累计384条已评分记录。A 的90次重复确认结果为41/45对B0的42/45，原正向增益未复现；该结论与新三臂探索结果分别呈现。该阶段新增累计请求1,580次、有效响应1,567次，输入词元29,551,616、输出词元3,864,026。[累计用量](作业二/evidence/revision-usage.json)
 

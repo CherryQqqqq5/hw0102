@@ -1,0 +1,14 @@
+{
+  "requests": 27,
+  "responses": 27,
+  "runtime_accepted_responses": 27,
+  "offline_verified_zero_credit_responses": 27,
+  "actual_model_usage_records": 45,
+  "local_cli_errors_with_own_usage_proof": 16,
+  "recovered_actions": 11,
+  "largest_model_output_tokens": 4096,
+  "reported_credit_for_returned_responses": 0,
+  "missing_responses": 0,
+  "missing_response_credit": 0,
+  "scope": "Actual per-message provider identity and credit; CLI total_cost_usd is not billing evidence"
+}

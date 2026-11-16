@@ -1,0 +1,18 @@
+{
+  "batch": "confirmation-hy4flash-free-v5",
+  "protocol_commit": "32b5ef17552b0a64a94511c5ff0e24834308d7b4",
+  "status": "case_notes_before_complete_matrix",
+  "cases": [
+    {
+      "title": "密码分析首轮：持续探索未形成可交付明文",
+      "observations": "同题首轮B0、C0原评分通过，C1原奖励0且评分无异常。C1读取原程序后检验中间关系、尝试安装离线环境没有的z3-solver并探索密钥映射；公开检查在第5步指出plaintexts.txt缺失。后续动作继续分析，中间C程序命令返回124，最后仍未生成该文件，也没有保存公开通过候选。内部543.743秒后因新请求窗口不足结束，原评分FileNotFoundError与最终公开检查一致。",
+      "interpretation": "这是完整有效失败：C1发现缺少产物后未完成攻击与解密，候选恢复机制没有可用版本。B0/C0当轮成功说明该冻结环境存在可行解，单轮差异仍不足以估计控制器效果；三轮完整配对用于判断稳定性。实际九次CLI响应、22条原生模型用量均经零积分校验，七次截断恢复未消除推理路线与交付的缺口。",
+      "evidence": "confirmation-hy4flash-free-v5/C-terminal-feal-linear-cryptanalysis-C1-r1/feal-linear-cryptanalysis__GeaUScC/agent/{tools.jsonl,controller.jsonl,final-verification.json,execution-budget.json,model.jsonl}; 同目录verifier/test-stdout.txt与result.json；B0、C0同名首轮原评分。",
+      "scores": [
+        {"run_id": "C-terminal-feal-linear-cryptanalysis-B0-r1", "passed": true},
+        {"run_id": "C-terminal-feal-linear-cryptanalysis-C0-r1", "passed": true},
+        {"run_id": "C-terminal-feal-linear-cryptanalysis-C1-r1", "passed": false}
+      ]
+    }
+  ]
+}
