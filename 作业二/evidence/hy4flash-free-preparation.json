@@ -1,0 +1,365 @@
+{
+  "paid_alias_mistake": {
+    "event": "response",
+    "payload": [
+      {
+        "type": "reasoning",
+        "role": null,
+        "providerData": {
+          "requestModelId": "hy4std",
+          "requestModelName": "Hy4",
+          "model": "hy4",
+          "messageId": "01a1e3a2db1276cc8501fe302efdfa49"
+        }
+      },
+      {
+        "type": "message",
+        "role": "assistant",
+        "providerData": {
+          "requestModelId": "hy4std",
+          "requestModelName": "Hy4",
+          "model": "hy4",
+          "messageId": "01a1e3a2db1276cc8501fe302efdfa49",
+          "rawUsage": {
+            "prompt_tokens": 3115,
+            "completion_tokens": 221,
+            "total_tokens": 3336,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 218,
+              "rejected_prediction_tokens": 0,
+              "cached_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": 0,
+              "cached_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 3115,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 0,
+            "prompt_cache_write_tokens": 0,
+            "completion_thinking_tokens": 218,
+            "credit": 0.55,
+            "cached_tokens": 0,
+            "quota": null
+          }
+        }
+      },
+      {
+        "type": "result",
+        "subtype": "success",
+        "is_error": false,
+        "result": "OK",
+        "duration_ms": 5545,
+        "duration_api_ms": 5544,
+        "num_turns": 3,
+        "total_cost_usd": 0,
+        "usage": {
+          "input_tokens": 3115,
+          "output_tokens": 221,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": null,
+          "server_tool_use": null,
+          "service_tier": null
+        }
+      }
+    ]
+  },
+  "verified_free_route": {
+    "event": "response",
+    "payload": [
+      {
+        "type": "reasoning",
+        "role": null,
+        "providerData": {
+          "requestModelId": "hy4flash-free",
+          "requestModelName": "Hy4 flash",
+          "model": "hy4-flash-free",
+          "messageId": "01a1e3a49fcd7daa90a339409a560186"
+        }
+      },
+      {
+        "type": "message",
+        "role": "assistant",
+        "providerData": {
+          "requestModelId": "hy4flash-free",
+          "requestModelName": "Hy4 flash",
+          "model": "hy4-flash-free",
+          "messageId": "01a1e3a49fcd7daa90a339409a560186",
+          "rawUsage": {
+            "prompt_tokens": 3115,
+            "completion_tokens": 49,
+            "total_tokens": 3164,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 46,
+              "rejected_prediction_tokens": 0,
+              "cached_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "accepted_prediction_tokens": 0,
+              "audio_tokens": 0,
+              "reasoning_tokens": 0,
+              "rejected_prediction_tokens": 0,
+              "cached_tokens": 0
+            },
+            "prompt_cache_hit_tokens": 0,
+            "prompt_cache_miss_tokens": 3115,
+            "cache_read_input_tokens": 0,
+            "cache_creation_input_tokens": 0,
+            "prompt_cache_write_tokens": 0,
+            "completion_thinking_tokens": 46,
+            "credit": 0,
+            "cached_tokens": 0,
+            "quota": {
+              "model": "hy4-flash",
+              "percent": 0,
+              "reset_at": "1794906979",
+              "shared_models": [
+                "hy4free"
+              ]
+            }
+          }
+        }
+      },
+      {
+        "type": "result",
+        "subtype": "success",
+        "is_error": false,
+        "result": "OK",
+        "duration_ms": 2339,
+        "duration_api_ms": 2339,
+        "num_turns": 3,
+        "total_cost_usd": 0,
+        "usage": {
+          "input_tokens": 3115,
+          "output_tokens": 49,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "cache_creation": null,
+          "server_tool_use": null,
+          "service_tier": null
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "stage": "metadata_only",
+    "model_generation_requests": 0,
+    "observed_utc": "2026-11-16T09:14:27.251335+00:00",
+    "builtins_disabled": true,
+    "cli_version": "2.179.3",
+    "models_count": 16,
+    "model_ids": [
+      "hy4std",
+      "hy4flash-free",
+      "hy4flash",
+      "deepseek-v4.1-flash",
+      "glm-5.3",
+      "glm-5.3-flash",
+      "glm-5.2",
+      "space-bunny",
+      "minimax-m3.1-flash",
+      "minimax-m2.7",
+      "kimi-k3.1-pro",
+      "kimi-k3-1",
+      "kimi-k2.8-preview",
+      "deepseek-v4-pro",
+      "step-5-preview",
+      "mimo-v2.6-pro"
+    ],
+    "hy4_models": [
+      {
+        "aliases": [
+          "hy4free"
+        ],
+        "credits": "x0.29 credits",
+        "descriptionEn": "Tencent · Latest flagship model with agentic and multimodal expertise and up to 960K input",
+        "descriptionZh": "Tencent · 最新旗舰模型，擅长智能体任务与多模态理解，最大输入 960K",
+        "id": "hy4std",
+        "labels": [
+          "enterprise:selfhost"
+        ],
+        "name": "Hy4",
+        "relatedModels": {
+          "builtin-lite": "wb-lite",
+          "lite": "hy4std",
+          "reasoning": "hy4std"
+        },
+        "metadata_keys": [
+          "aliases",
+          "credits",
+          "descriptionEn",
+          "descriptionZh",
+          "disabledMultimodal",
+          "id",
+          "labels",
+          "maxAllowedSize",
+          "maxInputTokens",
+          "maxOutputTokens",
+          "name",
+          "onlyReasoning",
+          "reasoning",
+          "relatedModels",
+          "supportsImages",
+          "supportsReasoning",
+          "supportsToolCall",
+          "temperature",
+          "top_p",
+          "vendor"
+        ]
+      },
+      {
+        "aliases": [
+          "hy3",
+          "hy3-x",
+          "hy4flash-dev"
+        ],
+        "credits": "x0.00 credits",
+        "descriptionEn": "A leaner, more efficient everyday workhorse, ideal for high-volume, large-scale tasks such as daily office work.",
+        "descriptionZh": "更轻量、更高效的日常主力模型。适合日常办公等高频、规模化场景",
+        "id": "hy4flash-free",
+        "labels": [
+          "enterprise:selfhost"
+        ],
+        "name": "Hy4 flash",
+        "relatedModels": {
+          "builtin-lite": "wb-lite",
+          "lite": "hy4flash-free",
+          "reasoning": "hy4flash-free"
+        },
+        "metadata_keys": [
+          "aliases",
+          "credits",
+          "descriptionEn",
+          "descriptionZh",
+          "disabledMultimodal",
+          "id",
+          "isDefault",
+          "labels",
+          "maxAllowedSize",
+          "maxInputTokens",
+          "maxOutputTokens",
+          "name",
+          "onlyReasoning",
+          "reasoning",
+          "relatedModels",
+          "supportsImages",
+          "supportsReasoning",
+          "supportsToolCall",
+          "temperature",
+          "top_p",
+          "vendor"
+        ]
+      },
+      {
+        "credits": "x0.03 credits",
+        "descriptionEn": "A leaner, more efficient everyday workhorse, ideal for high-volume, large-scale tasks such as daily office work.",
+        "descriptionZh": "更轻量、更高效的日常主力模型。适合日常办公等高频、规模化场景",
+        "id": "hy4flash",
+        "labels": [
+          "enterprise:selfhost"
+        ],
+        "name": "Hy4 flash",
+        "relatedModels": {
+          "builtin-lite": "wb-lite",
+          "lite": "hy4flash",
+          "reasoning": "hy4flash"
+        },
+        "metadata_keys": [
+          "credits",
+          "descriptionEn",
+          "descriptionZh",
+          "disabledMultimodal",
+          "id",
+          "isDefault",
+          "labels",
+          "maxAllowedSize",
+          "maxInputTokens",
+          "maxOutputTokens",
+          "name",
+          "onlyReasoning",
+          "reasoning",
+          "relatedModels",
+          "supportsImages",
+          "supportsReasoning",
+          "supportsToolCall",
+          "temperature",
+          "top_p",
+          "vendor"
+        ]
+      }
+    ],
+    "elapsed_seconds": 8.008
+  },
+  "interface_summary": {
+    "interface_checks_passed": true,
+    "actual_model_requests": 2,
+    "credit": 0,
+    "records": [
+      {
+        "interface": "bash",
+        "action": {
+          "command": "printf ready",
+          "tool_call_id": "codebuddy-1"
+        },
+        "billing": {
+          "event": "billing_verified",
+          "time": 1794820860.539752,
+          "request_id": 1,
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "credit": 0,
+          "usage_records": 1
+        }
+      },
+      {
+        "interface": "control",
+        "action": {
+          "operation": "submit",
+          "command": null,
+          "check_id": null,
+          "candidate_id": null,
+          "note": "free-route-smoke",
+          "tool_call_id": "codebuddy-1"
+        },
+        "billing": {
+          "event": "billing_verified",
+          "time": 1794820867.63935,
+          "request_id": 1,
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "credit": 0,
+          "usage_records": 1
+        }
+      }
+    ],
+    "usage": {
+      "model_calls": 2,
+      "model_responses": 2,
+      "model_request_retries": 0,
+      "model_request_timeouts": 0,
+      "provider_turns": 8,
+      "tool_calls": 0,
+      "input_tokens": 6995,
+      "output_tokens": 390,
+      "cached_input_tokens": 0,
+      "submission_check_opportunities": 0,
+      "stale_at_submission": 0,
+      "deliverable_checkpoints": 0,
+      "deliverable_reminders": 0,
+      "usage_unreturned_requests": 0,
+      "usage_missing_input_responses": 0,
+      "usage_missing_output_responses": 0,
+      "usage_missing_cache_responses": 0,
+      "provider_reported_cost_usd": 0
+    }
+  }
+}

@@ -15,7 +15,8 @@ LOG_NAMES = {"trial.json", "result.json", "instruction.txt", "model.jsonl", "too
              "controller.jsonl", "final-verification.json", "execution-budget.json", "public-runtime.json", "recovery.json"}
 MODEL_FIELDS = {"event", "time", "request_id", "attempt", "model", "system", "history", "schema", "error_type",
                 "timeout_seconds", "returncode", "http_status", "protocol_commit", "transport",
-                "provider_diagnostics", "call_id", "ok", "timeout", "response_body", "retry_after", "seconds"}
+                "provider_diagnostics", "call_id", "ok", "timeout", "response_body", "retry_after", "seconds",
+                "request_model", "provider_model", "credit", "usage_records", "detail"}
 RESULT_FIELDS = {"type", "subtype", "is_error", "num_turns", "total_cost_usd", "usage", "result",
                  "structured_output", "duration_ms", "duration_api_ms"}
 
@@ -28,8 +29,19 @@ def sanitize_model(content):
         if original["event"] == "response":
             payload = original["payload"]
             if isinstance(payload, list):
-                record["payload"] = [{key: value for key, value in item.items() if key in RESULT_FIELDS}
-                                     for item in payload if item.get("type") == "result"]
+                safe = []
+                for item in payload:
+                    if item.get("type") == "result":
+                        safe.append({key: value for key, value in item.items() if key in RESULT_FIELDS})
+                    elif (item.get("type") in {"reasoning", "function_call"}
+                          or (item.get("type") == "message" and item.get("role") == "assistant")
+                          or any(key in item.get("providerData", {}) for key in ("model", "requestModelId", "rawUsage"))):
+                        provider = item.get("providerData", {})
+                        safe.append({"type": item["type"], "role": item.get("role"),
+                                     "providerData": {key: provider[key] for key in (
+                                         "requestModelId", "requestModelName", "model", "messageId", "rawUsage")
+                                         if key in provider}})
+                record["payload"] = safe
             else:
                 record["payload"] = payload
         elif original["event"] == "request" and "payload" in original:

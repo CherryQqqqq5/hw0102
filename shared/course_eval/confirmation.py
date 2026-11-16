@@ -17,7 +17,8 @@ from course_eval.confirmation_selection import SEED, order
 
 RUNTIME_FILES = ("agent.py", "benchmarks.py", "candidate_io.py", "controller.py", "docker_target.py",
                  "harbor_agent.py", "verification.py", "terminal_setup.py", "terminal_runtime.py", "aider_runtime.py",
-                 "terminal-no-network.yaml", "confirmation.py", "boyue_transport.py", "boyue_rpc.py")
+                 "terminal-no-network.yaml", "confirmation.py", "boyue_transport.py", "boyue_rpc.py",
+                 "codebuddy_free.py")
 LIMITS = RunLimits(model_calls=24, wall_seconds=600, command_seconds=60, timeout_retries=2, strict_wall=True)
 
 

@@ -14,6 +14,7 @@ from minisweagent.models.utils.actions_toolcall import format_toolcall_observati
 
 from course_eval.verification import PublicCheck, VerificationState
 from course_eval.boyue_transport import BoyueTimeout, BoyueTransport, BoyueTransportError
+from course_eval.codebuddy_free import FREE_MODEL_ID, verify_free_response
 
 
 SUBMIT = "COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT"
@@ -67,6 +68,8 @@ class ModelFormatting:
                 effective_timeout = exc.timeout if isinstance(exc, subprocess.TimeoutExpired) else timeout_seconds
                 append_event(self.trace, "request_error", **identity, error_type=type(exc).__name__,
                              timeout_seconds=effective_timeout, **diagnostics)
+                if getattr(self, "model_id", None) == FREE_MODEL_ID:
+                    raise RuntimeError("Free model request timed out before billing could be verified") from exc
                 if not self.timeout_retries_remaining:
                     raise ProviderTimeout({
                         "role": "exit", "content": f"Model request exceeded {timeout_seconds} seconds",
@@ -190,9 +193,19 @@ class CodeBuddyModel(ModelFormatting):
                    "--allowedTools", "StructuredOutput", "--strict-mcp-config", "--permission-mode", "dontAsk",
                    "--no-session-persistence", "--max-turns", "1", "--output-format", "json", "--json-schema",
                    schema, "--system-prompt", system]
+        if self.model_id == FREE_MODEL_ID:
+            command += ["--setting-sources", "", "--settings", '{"disableAllHooks":true}',
+                        "--mcp-config", '{"mcpServers":{}}']
         environment = {key: value for key, value in os.environ.items() if key.lower() not in {
             "http_proxy", "https_proxy", "all_proxy", "course_api_key", "openai_api_key", "anthropic_api_key",
         }}
+        if self.model_id == FREE_MODEL_ID:
+            environment.update({"NODE_OPTIONS": "--use-bundled-ca", "CODEBUDDY_MAX_RETRIES": "0",
+                                "CODEBUDDY_MODEL_401_MAX_RETRIES": "0", "CODEBUDDY_RETRY_WATCHDOG": "0",
+                                "CODEBUDDY_MODEL": FREE_MODEL_ID,
+                                "CODEBUDDY_SMALL_FAST_MODEL": FREE_MODEL_ID,
+                                "CODEBUDDY_BIG_SLOW_MODEL": FREE_MODEL_ID})
+            environment.pop("CODEBUDDY_FALLBACK_MODEL", None)
         # CodeBuddy 的打印模式需要显式请求文本。通过 stdin 提供大型历史。
         timeout = min(150, self.limits.wall_seconds)
         process, attempt = self.request_with_timeout_recovery(
@@ -215,6 +228,13 @@ class CodeBuddyModel(ModelFormatting):
                          returncode=process.returncode, stderr=process.stderr, stdout=process.stdout)
             raise RuntimeError("CodeBuddy returned a non-JSON response") from None
         append_event(self.trace, "response", request_id=self.request_id, attempt=attempt, payload=raw)
+        if self.model_id == FREE_MODEL_ID:
+            try:
+                billing = verify_free_response(raw)
+            except (ValidationError, ValueError, TypeError) as exc:
+                append_event(self.trace, "billing_error", request_id=self.request_id, detail=str(exc))
+                raise RuntimeError("Free model billing validation failed") from exc
+            append_event(self.trace, "billing_verified", request_id=self.request_id, **billing)
         result = next(event for event in reversed(raw) if event.get("type") == "result")
         if result.get("is_error") or result.get("subtype") != "success":
             raise RuntimeError(f"CodeBuddy returned {result.get('subtype')}")
