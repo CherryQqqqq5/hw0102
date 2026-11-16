@@ -1,0 +1,122 @@
+{
+  "status": "stopped_at_declared_decision_boundary",
+  "requested_model": "hy4flash-free",
+  "verified_provider_model": "hy4-flash-free",
+  "planned_primary_positions": 270,
+  "primary_scored_positions": 0,
+  "primary_result_ready": false,
+  "batches": [
+    {
+      "batch": "confirmation-hy4flash-free-v1",
+      "attempts": 1,
+      "scored": 0,
+      "requests": 6,
+      "responses": 5,
+      "zero_credit_verified_responses": 5,
+      "reported_credit_for_returned_responses": 0,
+      "missing_response_credit": null,
+      "errors": [
+        {
+          "request_id": 6,
+          "error_type": "TimeoutExpired",
+          "timeout_seconds": 150
+        }
+      ],
+      "budgets": [
+        {
+          "limit_seconds": 600,
+          "elapsed_seconds": 408.0570410420187,
+          "strict": true,
+          "configuration": "B0"
+        }
+      ],
+      "usage": {
+        "model_calls": 6,
+        "model_responses": 5,
+        "model_request_retries": 0,
+        "model_request_timeouts": 1,
+        "provider_turns": 25,
+        "tool_calls": 5,
+        "input_tokens": 46930,
+        "output_tokens": 33247,
+        "cached_input_tokens": 0,
+        "submission_check_opportunities": 0,
+        "stale_at_submission": 0,
+        "deliverable_checkpoints": 0,
+        "deliverable_reminders": 0,
+        "usage_unreturned_requests": 1,
+        "usage_missing_input_responses": 0,
+        "usage_missing_output_responses": 0,
+        "usage_missing_cache_responses": 0,
+        "provider_reported_cost_usd": 0
+      }
+    },
+    {
+      "batch": "confirmation-hy4flash-free-v2",
+      "attempts": 1,
+      "scored": 0,
+      "requests": 10,
+      "responses": 9,
+      "zero_credit_verified_responses": 9,
+      "reported_credit_for_returned_responses": 0,
+      "missing_response_credit": null,
+      "errors": [
+        {
+          "request_id": 10,
+          "error_type": "TimeoutExpired",
+          "timeout_seconds": 14.32300595799461
+        }
+      ],
+      "budgets": [
+        {
+          "limit_seconds": 600,
+          "elapsed_seconds": 600.0495637079875,
+          "strict": true,
+          "configuration": "B0"
+        }
+      ],
+      "usage": {
+        "model_calls": 10,
+        "model_responses": 9,
+        "model_request_retries": 0,
+        "model_request_timeouts": 1,
+        "provider_turns": 44,
+        "tool_calls": 9,
+        "input_tokens": 129295,
+        "output_tokens": 74594,
+        "cached_input_tokens": 0,
+        "submission_check_opportunities": 0,
+        "stale_at_submission": 0,
+        "deliverable_checkpoints": 0,
+        "deliverable_reminders": 0,
+        "usage_unreturned_requests": 1,
+        "usage_missing_input_responses": 0,
+        "usage_missing_output_responses": 0,
+        "usage_missing_cache_responses": 0,
+        "provider_reported_cost_usd": 0
+      }
+    }
+  ],
+  "formal_requests": 16,
+  "formal_zero_credit_responses": 14,
+  "formal_missing_responses": 2,
+  "preparation_zero_credit_responses": 3,
+  "paid_alias_mistake_credit": 0.55,
+  "free_model_current_capabilities": {
+    "reasoning": {
+      "canDisableThinking": false,
+      "defaultEffort": "high",
+      "summary": "auto",
+      "supportedEfforts": [
+        "high"
+      ]
+    },
+    "onlyReasoning": true,
+    "maxOutputTokens": 64000
+  },
+  "available_output_limit_control": "CODEBUDDY_CODE_MAX_OUTPUT_TOKENS",
+  "current_limit_boundary": "RunLimits.max_output_tokens=4096 was recorded but not forwarded to the CLI; current catalog limit is 64000.",
+  "scientific_boundary": "Two attempts reached no original grader result. Returned responses prove free route use; no task success or treatment effect has been established.",
+  "billing_boundary": "Only returned provider credit fields are verified. Two missing responses remain unknown; the 0.55-credit alias mistake remains visible.",
+  "new_model_requests_in_analysis": 0
+}
