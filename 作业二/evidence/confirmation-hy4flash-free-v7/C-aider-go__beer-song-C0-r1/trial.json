@@ -1,0 +1,34 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "go/beer-song",
+    "stratum": "go",
+    "group": "beer-song",
+    "solution_files": [
+      "beer_song.go"
+    ],
+    "test_files": [
+      "beer_song_test.go"
+    ],
+    "exclude": null,
+    "split": "C",
+    "image_id": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+    "image_digests": [
+      "nju-course-aider@sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c"
+    ]
+  },
+  "phase": "formal",
+  "configuration": "C0",
+  "status": "started",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 0,
+    "strict_wall": true
+  }
+}

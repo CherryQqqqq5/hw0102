@@ -2,7 +2,7 @@
 
 邱昱宁 · 231880296
 
-CodeBuddy 2.179.3的`hy4flash-free`独立复测正在运行：冻结30题、B0/C0/C1各三轮共270位置，2026-11-16本次检查点有10条有效原评分（9通过、1失败）。Django首轮三组均通过目标缺陷测试及30项原有回归，Go的beer-song基线也通过，后续继续运行。当前十条原评分包含139请求/139响应、191条自身零积分证明，单段输出最大4096；历史缺回执另列。完整比较及新版终稿尚未形成。[阶段结果](作业二/evidence/hy4flash-v7-progress-20261116.md) · [当前v7协议](作业二/configs/CONFIRMATION_HY4FLASH_PROTOCOL_V7.md) · [精确计划](作业二/configs/confirmation-plan-hy4flash-free-v7.json) · [来源与费用核验](作业二/configs/hy4flash-v7-resume-validation.json) · [原评分证据](作业二/evidence/confirmation-hy4flash-free-v7/)
+CodeBuddy 2.179.3的`hy4flash-free`独立复测正在运行：冻结30题、B0/C0/C1各三轮共270位置，2026-11-16本次检查点有12条有效原评分（11通过、1失败）。Django首轮三组均通过目标缺陷测试及30项原有回归，Go的beer-song三组也通过，队列已进入C++ all-your-base。当前十二条原评分包含155请求/155响应、208条自身零积分证明，单段输出最大4096；历史缺回执另列。完整比较及新版终稿尚未形成。[阶段结果](作业二/evidence/hy4flash-v7-progress-20261116.md) · [费用与原评分复算](作业二/evidence/hy4flash-v7-12-score-verification.json) · [当前v7协议](作业二/configs/CONFIRMATION_HY4FLASH_PROTOCOL_V7.md) · [精确计划](作业二/configs/confirmation-plan-hy4flash-free-v7.json) · [原评分证据](作业二/evidence/confirmation-hy4flash-free-v7/)
 
 新运行固定继承显式代理，并按CodeBuddy源码的错误模板处理含空格的本地工具名；16项真实回放与费用负例通过。7条v5有效原评分含1失败逐位置保留，263位置新执行，六次未评分前序独立保存，累计300上限保持；三次历史缺回执费用仍未知。新增型号不符、费用未知或非零立即停止。网络根因的五轮交错连接对照为原环境3/5成功、修复后5/5成功，实际模型通路已取得原评分。[网络根因](作业二/configs/codebuddy-network-root-cause-20261116.md) · [真实网络对照](作业二/evidence/codebuddy-network-route-check-20261116.json) · [v5停止依据](作业二/evidence/hy4flash-v5-result-20261116.md) · [v6未评分原件](作业二/evidence/confirmation-hy4flash-free-v6/)
 

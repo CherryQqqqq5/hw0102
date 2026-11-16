@@ -1,0 +1,28 @@
+{
+  "completed_positions": 12,
+  "billing": {
+    "requests": 155,
+    "responses": 155,
+    "runtime_accepted_responses": 155,
+    "offline_verified_zero_credit_responses": 155,
+    "actual_model_usage_records": 208,
+    "local_cli_errors_with_own_usage_proof": 49,
+    "recovered_actions": 33,
+    "largest_model_output_tokens": 4096,
+    "reported_credit_for_returned_responses": 0,
+    "missing_responses": 0,
+    "missing_response_credit": 0,
+    "scope": "Actual per-message provider identity and credit; CLI total_cost_usd is not billing evidence"
+  },
+  "original_scores": {
+    "runs": "work/hw0102-publish/作业二/evidence/confirmation-hy4flash-free-v7",
+    "score_records_verified": 12,
+    "by_benchmark": {
+      "aider": 3,
+      "swe": 6,
+      "terminal": 3
+    },
+    "unscored_records_preserved": [],
+    "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+  }
+}
