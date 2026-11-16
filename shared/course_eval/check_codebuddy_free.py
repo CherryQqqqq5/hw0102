@@ -30,6 +30,10 @@ class FreeResponseChecks(unittest.TestCase):
         events = [json.loads(line) for line in path.read_text().splitlines()]
         cls.tool_recovered, = [event["payload"] for event in events
                               if event["event"] == "response" and event["request_id"] == 6]
+        path = Path("work/vmshare/confirmation-hy4flash-free-v6/C-swe-django__django-11999-B0-r1/model.jsonl")
+        events = [json.loads(line) for line in path.read_text().splitlines()]
+        cls.spaced_tool_recovered, = [event["payload"] for event in events
+                                     if event["event"] == "response" and event["request_id"] == 14]
 
     def model(self):
         directory = Path(tempfile.mkdtemp(prefix="response-replay-", dir=self.root))
@@ -106,6 +110,33 @@ class FreeResponseChecks(unittest.TestCase):
                 local["providerData"]["error"]["isNetworkError"] = True
             else:
                 local["providerData"]["error"]["message"] = "Unrecognized provider failure"
+            with self.subTest(change=change), self.assertRaises(ValueError):
+                verify_free_response(modified)
+
+    def test_real_spaced_tool_name_keeps_independent_billing(self):
+        for payload in (self.spaced_tool_recovered, json.loads(sanitize_model(json.dumps({
+                "event": "response", "payload": self.spaced_tool_recovered})))["payload"]):
+            proof = verify_free_response(payload)
+            self.assertEqual(proof["usage_records"], 3)
+            self.assertEqual(len(proof["local_cli_errors"]), 2)
+            self.assertEqual(len({error["model_message_id"] for error in proof["local_cli_errors"]}), 2)
+            self.model().process_response(payload)
+
+    def test_spaced_tool_name_cannot_weaken_model_receipts(self):
+        for change in ("credit", "missing", "message", "model", "network"):
+            modified = copy.deepcopy(self.spaced_tool_recovered)
+            billed = [item for item in modified if "rawUsage" in item.get("providerData", {})][-1]
+            if change == "credit":
+                billed["providerData"]["rawUsage"]["credit"] = 0.1
+            elif change == "missing":
+                del billed["providerData"]["rawUsage"]
+            elif change == "message":
+                billed["providerData"]["messageId"] = "unrelated-message"
+            elif change == "model":
+                billed["providerData"]["model"] = "hy4-flash"
+            else:
+                local = [item for item in modified if item.get("providerData", {}).get("skipRun")][-1]
+                local["providerData"]["error"]["isNetworkError"] = True
             with self.subTest(change=change), self.assertRaises(ValueError):
                 verify_free_response(modified)
 

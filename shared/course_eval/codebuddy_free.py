@@ -33,7 +33,7 @@ class LocalTurnError(BaseModel):
 
 class LocalToolNotFoundError(BaseModel):
     model_config = ConfigDict(extra="forbid", strict=True)
-    message: str = Field(pattern=r'^Tool "[A-Za-z0-9_.:/-]{1,128}" does not exist in the current tool set\.$')
+    message: str = Field(pattern=r'^Tool "[^\r\n]{1,128}" does not exist in the current tool set\.$')
     isNetworkError: Literal[False]
     networkErrorAutoRetry: Literal[False]
     isStreamTimeout: Literal[False]
