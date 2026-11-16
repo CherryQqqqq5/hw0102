@@ -1,0 +1,40 @@
+{
+  "batch": "confirmation-hy4flash-free-v7",
+  "protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185",
+  "status": "running_partial_matrix_case_notes",
+  "cases": [
+    {
+      "title": "密码分析首轮：持续探索未形成可交付明文",
+      "observations": "同题首轮B0、C0原评分通过，C1原奖励0且评分无异常。C1读取原程序后检验中间关系、尝试安装离线环境没有的z3-solver并探索密钥映射；公开检查在第5步指出plaintexts.txt缺失。后续动作继续分析，中间C程序命令返回124，最后仍未生成该文件，也没有保存公开通过候选。内部543.743秒后因新请求窗口不足结束，原评分FileNotFoundError与最终公开检查一致。",
+      "interpretation": "这是完整有效失败：C1发现缺少产物后未完成攻击与解密，候选恢复机制没有可用版本。B0/C0当轮成功说明该冻结环境存在可行解，单轮差异仍不足以估计控制器效果；三轮完整配对用于判断稳定性。实际九次CLI响应、22条原生模型用量均经零积分校验，七次截断恢复未消除推理路线与交付的缺口。",
+      "evidence": "confirmation-hy4flash-free-v7/C-terminal-feal-linear-cryptanalysis-C1-r1/feal-linear-cryptanalysis__GeaUScC/agent/{tools.jsonl,controller.jsonl,final-verification.json,execution-budget.json,model.jsonl}; 同目录verifier/test-stdout.txt与result.json；B0、C0同名首轮原评分。三条来源均为v5/32b5ef1。",
+      "scores": [
+        {"run_id": "C-terminal-feal-linear-cryptanalysis-B0-r1", "passed": true},
+        {"run_id": "C-terminal-feal-linear-cryptanalysis-C0-r1", "passed": true},
+        {"run_id": "C-terminal-feal-linear-cryptanalysis-C1-r1", "passed": false}
+      ]
+    },
+    {
+      "title": "xarray首轮：相同正确补丁与自动验证成本",
+      "observations": "B0、C0、C1均通过原题，int32及float32两项修复测试和原有保持测试均通过。三组修改PandasMultiIndexingAdapter.__array__以保留请求的数据类型，C0与C1的candidate.patch逐字节相同。C1第15步自动公开验证通过，第19步主动复测通过，提交时有效验证为true；C0一次主动验证通过。B0以TimeExceeded结束，原题仍确认补丁正确。内部执行分别594.942、435.631、371.753秒；候选操作在C0/C1分别4.482、15.644秒，检查分别2.014、4.122秒。",
+      "interpretation": "本轮三个条件均能形成正确修复，自动验证确有执行且带来可测开销，未增加此轮通过次数。C1没有失败检查后改版通过链，也未在最终阶段恢复候选，不能将既有正确补丁记为控制器修复收益。单轮耗时同时受模型采样、命令选择和环境准备影响，完整三轮配对用于判断总体效率与稳定性。B0的执行终止状态与独立原题通过分别保留。",
+      "evidence": "confirmation-hy4flash-free-v7/C-swe-pydata__xarray-7393-{B0,C0,C1}-r1/{result.json,candidate.patch,execution-budget.json,controller.jsonl,final-verification.json}; 各自swe-official目录的report.json及run_instance.log。三条来源均为v5/32b5ef1。",
+      "scores": [
+        {"run_id": "C-swe-pydata__xarray-7393-B0-r1", "passed": true},
+        {"run_id": "C-swe-pydata__xarray-7393-C0-r1", "passed": true},
+        {"run_id": "C-swe-pydata__xarray-7393-C1-r1", "passed": true}
+      ]
+    },
+    {
+      "title": "Django11999：三组均通过，反馈修复链与执行成本分别保留",
+      "observations": "C1第11步自动公开检查发现显示值为foo、bar，应保留用户自定义的something。此时尚无候选补丁；第12次请求已包含该失败反馈，随后的第12次执行修改Field.contribute_to_class，仅在类没有对应显示方法时生成get_FIELD_display。第13步主动公开复测显示两个something，第14次执行运行model_fields测试，第16次执行提交。最终公开验证有效，原题独立评分通过，内部368.379秒。",
+      "interpretation": "B0、C0、C1首轮均通过目标缺陷测试和30项原有回归。内部执行分别568.973、254.755、368.379秒，真实请求分别18、11、16次，全部免费型号及零积分。B0修改ModelBase，在字段注册后恢复非字段属性；C0与C1修改Field.contribute_to_class，分别使用当前类字典和hasattr判断现有显示方法。C0一次主动公开检查通过，候选操作4.343秒；C1一条初始失败反馈后的修复链，候选操作17.209秒。该过程链支持方法确有执行，本轮未增加原题通过数，C0更快。三组补丁不同，原评分覆盖范围之外的继承语义未另行验证。C1来自旧网络协议，B0/C0来自v7；主比较标记来源，预先声明的29题辅助分析排除该整题。",
+      "evidence": "confirmation-hy4flash-free-v7/C-swe-django__django-11999-{B0,C0,C1}-r1/{controller.jsonl,model.jsonl,tools.jsonl,candidate.patch,final-verification.json,result.json}; swe-official目录的report.json与run_instance.log。B0/C0协议8430f57，C1复用来源v5/32b5ef1；对应逐条费用及耗时见hy4flash-v7-first-three-triplets.json。",
+      "scores": [
+        {"run_id": "C-swe-django__django-11999-B0-r1", "passed": true},
+        {"run_id": "C-swe-django__django-11999-C0-r1", "passed": true},
+        {"run_id": "C-swe-django__django-11999-C1-r1", "passed": true}
+      ]
+    }
+  ]
+}

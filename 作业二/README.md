@@ -2,7 +2,7 @@
 
 邱昱宁 · 231880296　｜　[阅读实验报告](231880296_邱昱宁_作业二.pdf)
 
-当前独立确认使用hy4flash-free，30道题、三个条件各三轮；C0/C1共用公开检查、验证入口、候选工具和提示，C1增加程序控制。2026-11-16检查点为8/270有效原评分（7通过、1失败），新增Django基线通过目标测试和30项回归，真实用量均为免费型号及积分0。队列已进入共享工具组，完整统计与新版报告待270位置齐备后更新。[当前v7协议](configs/CONFIRMATION_HY4FLASH_PROTOCOL_V7.md) · [精确来源计划](configs/confirmation-plan-hy4flash-free-v7.json) · [新增原评分](evidence/confirmation-hy4flash-free-v7/) · [共用说明](../shared/CONFIRMATION.md)
+当前独立确认使用hy4flash-free，30道题、三个条件各三轮；C0/C1共用公开检查、验证入口、候选工具和提示，C1增加程序控制。2026-11-16检查点为10/270有效原评分（9通过、1失败），Django首轮三组及Go的beer-song基线通过。前三题首轮B0/C0/C1为3/3、3/3、2/3，完整统计与新版报告待270位置齐备后更新。[阶段结果与限制](evidence/hy4flash-v7-progress-20261116.md) · [当前v7协议](configs/CONFIRMATION_HY4FLASH_PROTOCOL_V7.md) · [精确来源计划](configs/confirmation-plan-hy4flash-free-v7.json) · [原评分](evidence/confirmation-hy4flash-free-v7/) · [共用说明](../shared/CONFIRMATION.md)
 
 下列报告、数值和案例呈现已完成的历史实验。旧CodeBuddy、创智及各次未评分尝试单独保留，成绩与费用不并入当前免费模型主比较。[历史v3协议](configs/confirmation-protocol-v3.md) · [历史来源计划](configs/confirmation-plan-v3.json) · [原v2记录](evidence/confirmation-v2/)
 

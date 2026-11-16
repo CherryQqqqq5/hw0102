@@ -1,0 +1,31 @@
+{
+  "task": {
+    "benchmark": "swe",
+    "id": "pydata__xarray-7393",
+    "stratum": "pydata/xarray",
+    "group": "pydata__xarray-7393",
+    "difficulty": "15 min - 1 hour",
+    "image": "swebench/sweb.eval.x86_64.pydata_1776_xarray-7393:latest",
+    "base_commit": "41fef6f1352be994cd90056d47440fe9aa4c068f",
+    "exclude": null,
+    "split": "C",
+    "image_id": "sha256:8d92f63564f3cfa7497bdc9fd4bacb5cfac11459f658621a00ebe3eb55832278",
+    "image_digests": [
+      "swebench/sweb.eval.x86_64.pydata_1776_xarray-7393@sha256:8d92f63564f3cfa7497bdc9fd4bacb5cfac11459f658621a00ebe3eb55832278"
+    ]
+  },
+  "phase": "formal",
+  "configuration": "B0",
+  "status": "started",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "protocol_commit": "32b5ef17552b0a64a94511c5ff0e24834308d7b4",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 0,
+    "strict_wall": true
+  }
+}

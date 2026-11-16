@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submit completed FEAL known-plaintext attack. Recovered seeds 68e63 62571 1f61c b74a5; validated all 32 pairs and all 100 decrypted ciphertexts by re-encryption; public check passed; /app/plaintexts.txt contains 100 decimal plaintexts.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 12
+    }
+  }
+}
