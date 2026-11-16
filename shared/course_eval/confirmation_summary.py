@@ -107,6 +107,16 @@ def main():
               "previous_success_count": sum(row["passed"] is True for row in previous_rows),
               "previous_attempt_usage": merge_usage(previous_groups) if previous_groups else None,
               "mechanism_boundary": "A failed-check, changed-candidate, passing-check sequence is an observed sequence; causal effect comes from matched arm comparisons."}
+    excluded = plan.get("transport_sensitivity_excluded_task")
+    if excluded:
+        selected = [row for row in rows if row["task"] != excluded]
+        expected_tasks = len({row["task"] for row in selected})
+        assert expected_tasks == 29 and len(selected) == 261
+        result["transport_sensitivity"] = {
+            "excluded_task": excluded, "tasks": expected_tasks, "scored_positions": len(selected),
+            "scope": "Predeclared exclusion of the task whose first repeat mixes old and repaired network policies; does not replace the 30-task primary comparison",
+            "comparisons": [compare(selected, "C", reference, treatment, 3, expected_tasks=expected_tasks)
+                            for reference, treatment in (("B0", "C1"), ("C0", "C1"), ("B0", "C0"))]}
     args.out.mkdir(parents=True, exist_ok=True)
     (args.out / "summary.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
     (args.out / "trials.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2) + "\n")

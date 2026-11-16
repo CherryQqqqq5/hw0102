@@ -2,7 +2,9 @@
 
 邱昱宁 · 231880296　｜　[阅读实验报告](231880296_邱昱宁_作业二.pdf)
 
-新增确认使用30道新题，每题三个条件各三轮。C0/C1共用检查、验证入口、候选工具和提示，C1增加程序控制。v3主比较保留80条v2完整非JavaScript记录，并运行190条新位置；两道JavaScript的运行时修复按首轮三条件整组替换，所有原评分及消耗保留。当前报告仍呈现已完成的历史实验，新主结果待270位置齐备后更新。[v3协议](configs/confirmation-protocol-v3.md) · [来源计划](configs/confirmation-plan-v3.json) · [原v2记录](evidence/confirmation-v2/) · [复现命令](../shared/CONFIRMATION.md)
+当前独立确认使用hy4flash-free，30道题、三个条件各三轮；C0/C1共用公开检查、验证入口、候选工具和提示，C1增加程序控制。2026-11-16检查点为8/270有效原评分（7通过、1失败），新增Django基线通过目标测试和30项回归，真实用量均为免费型号及积分0。队列已进入共享工具组，完整统计与新版报告待270位置齐备后更新。[当前v7协议](configs/CONFIRMATION_HY4FLASH_PROTOCOL_V7.md) · [精确来源计划](configs/confirmation-plan-hy4flash-free-v7.json) · [新增原评分](evidence/confirmation-hy4flash-free-v7/) · [共用说明](../shared/CONFIRMATION.md)
+
+下列报告、数值和案例呈现已完成的历史实验。旧CodeBuddy、创智及各次未评分尝试单独保留，成绩与费用不并入当前免费模型主比较。[历史v3协议](configs/confirmation-protocol-v3.md) · [历史来源计划](configs/confirmation-plan-v3.json) · [原v2记录](evidence/confirmation-v2/)
 
 十五道已见诊断题的同预算比较中，阶段反馈配置 RP 通过15道，原生基线 B0 通过13道，增加13.3个百分点；加入自动检查的 R 通过14道，增加6.7个百分点。配置使用同一模型、原题评分、每题24次决策及600秒软时限，均允许两次额外请求超时重试。
 

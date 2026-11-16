@@ -1,4 +1,8 @@
-# 创智复测与历史记录复算
+# 免费模型独立确认与历史记录复算
+
+当前正式评测仅使用CodeBuddy 2.179.3的hy4flash-free，实际身份与每个messageId的rawUsage.credit=0逐条核验；新增费用未知、非零或型号不符立即停止。当前源码与精确计划对应[免费v7协议](../作业二/configs/CONFIRMATION_HY4FLASH_PROTOCOL_V7.md)和[冻结计划](../作业二/configs/confirmation-plan-hy4flash-free-v7.json)，包含7条旧来源有效原评分及六次独立前序。复算已上传原评分及费用无需模型请求；正式新调用须遵循当前协议和授权。
+
+以下创智命令和版本说明属于已停止的历史批次，仅用于解释其记录与原执行方式；当前没有创智调用授权。
 
 本轮为30题×3条件×3轮，采用[创智v5协议](../作业二/configs/confirmation-protocol-boyue-v5.md)，270位置使用同一创智服务执行。v5修复科学计算公开探针的命令行与正常退出记录，以及Harbor外层时限与内部预算的竞争；首轮该题三条件整组替换，33条未受影响记录全部复用，237条新运行。原3次尝试保留和计费，详见[探针与时限修复](../作业二/configs/confirmation-probe-repair-v5.md)。原CodeBuddy v3因429停止，保存265评分、1次未评分和4个未启动位置；其成绩和费用单独保留。下列命令从`shared/`执行。
 
