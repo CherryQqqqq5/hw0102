@@ -1,0 +1,226 @@
+{
+  "status": "stopped_after_v3_full_response_billing_validation_failure",
+  "requested_model": "hy4flash-free",
+  "verified_provider_model": "hy4-flash-free",
+  "planned_primary_positions": 270,
+  "primary_scored_positions": 0,
+  "primary_result_ready": false,
+  "batches": [
+    {
+      "batch": "confirmation-hy4flash-free-v1",
+      "attempts": 1,
+      "scored": 0,
+      "requests": 6,
+      "responses": 5,
+      "zero_credit_verified_responses": 5,
+      "billing_rejected_cli_request_ids": [],
+      "visible_provider_usage_records": 5,
+      "visible_provider_reported_credit": 0.0,
+      "reported_credit_for_returned_responses": 0,
+      "missing_response_credit": null,
+      "errors": [
+        {
+          "request_id": 6,
+          "error_type": "TimeoutExpired",
+          "timeout_seconds": 150
+        }
+      ],
+      "budgets": [
+        {
+          "limit_seconds": 600,
+          "elapsed_seconds": 408.0570410420187,
+          "strict": true,
+          "configuration": "B0"
+        }
+      ],
+      "usage": {
+        "model_calls": 6,
+        "model_responses": 5,
+        "model_request_retries": 0,
+        "model_request_timeouts": 1,
+        "provider_turns": 25,
+        "tool_calls": 5,
+        "input_tokens": 46930,
+        "output_tokens": 33247,
+        "cached_input_tokens": 0,
+        "submission_check_opportunities": 0,
+        "stale_at_submission": 0,
+        "deliverable_checkpoints": 0,
+        "deliverable_reminders": 0,
+        "usage_unreturned_requests": 1,
+        "usage_missing_input_responses": 0,
+        "usage_missing_output_responses": 0,
+        "usage_missing_cache_responses": 0,
+        "provider_reported_cost_usd": 0
+      }
+    },
+    {
+      "batch": "confirmation-hy4flash-free-v2",
+      "attempts": 1,
+      "scored": 0,
+      "requests": 10,
+      "responses": 9,
+      "zero_credit_verified_responses": 9,
+      "billing_rejected_cli_request_ids": [],
+      "visible_provider_usage_records": 9,
+      "visible_provider_reported_credit": 0.0,
+      "reported_credit_for_returned_responses": 0,
+      "missing_response_credit": null,
+      "errors": [
+        {
+          "request_id": 10,
+          "error_type": "TimeoutExpired",
+          "timeout_seconds": 14.32300595799461
+        }
+      ],
+      "budgets": [
+        {
+          "limit_seconds": 600,
+          "elapsed_seconds": 600.0495637079875,
+          "strict": true,
+          "configuration": "B0"
+        }
+      ],
+      "usage": {
+        "model_calls": 10,
+        "model_responses": 9,
+        "model_request_retries": 0,
+        "model_request_timeouts": 1,
+        "provider_turns": 44,
+        "tool_calls": 9,
+        "input_tokens": 129295,
+        "output_tokens": 74594,
+        "cached_input_tokens": 0,
+        "submission_check_opportunities": 0,
+        "stale_at_submission": 0,
+        "deliverable_checkpoints": 0,
+        "deliverable_reminders": 0,
+        "usage_unreturned_requests": 1,
+        "usage_missing_input_responses": 0,
+        "usage_missing_output_responses": 0,
+        "usage_missing_cache_responses": 0,
+        "provider_reported_cost_usd": 0
+      }
+    },
+    {
+      "batch": "confirmation-hy4flash-free-v3",
+      "attempts": 1,
+      "scored": 0,
+      "requests": 2,
+      "responses": 2,
+      "zero_credit_verified_responses": 1,
+      "billing_rejected_cli_request_ids": [
+        2
+      ],
+      "visible_provider_usage_records": 3,
+      "visible_provider_reported_credit": 0.0,
+      "reported_credit_for_returned_responses": 0,
+      "missing_response_credit": null,
+      "errors": [],
+      "budgets": [
+        {
+          "limit_seconds": 600,
+          "elapsed_seconds": 46.03322800001479,
+          "strict": true,
+          "configuration": "B0"
+        }
+      ],
+      "usage": {
+        "model_calls": 2,
+        "model_responses": 2,
+        "model_request_retries": 0,
+        "model_request_timeouts": 0,
+        "provider_turns": 13,
+        "tool_calls": 1,
+        "input_tokens": 26144,
+        "output_tokens": 4855,
+        "cached_input_tokens": 8192,
+        "submission_check_opportunities": 0,
+        "stale_at_submission": 0,
+        "deliverable_checkpoints": 0,
+        "deliverable_reminders": 0,
+        "usage_unreturned_requests": 0,
+        "usage_missing_input_responses": 0,
+        "usage_missing_output_responses": 0,
+        "usage_missing_cache_responses": 0,
+        "provider_reported_cost_usd": 0
+      }
+    }
+  ],
+  "formal_requests": 18,
+  "formal_zero_credit_responses": 15,
+  "formal_billing_rejected_returned_calls": 1,
+  "formal_missing_responses": 2,
+  "preparation_zero_credit_responses": 3,
+  "output_cap_probe": {
+    "mode": "ANALYZE",
+    "new_model_requests": 0,
+    "actual_cli_requests": 1,
+    "requested_model": "hy4flash-free",
+    "requested_max_output_tokens": 4096,
+    "billing": {
+      "request_model": "hy4flash-free",
+      "provider_model": "hy4-flash-free",
+      "credit": 0,
+      "usage_records": 3
+    },
+    "completion_tokens": [
+      4096,
+      4096,
+      2893
+    ],
+    "cli_subtype": "success",
+    "cli_is_error": false,
+    "usage": {
+      "input_tokens": 9773,
+      "output_tokens": 11085,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 6144,
+      "cache_creation": null,
+      "server_tool_use": null,
+      "service_tier": null
+    },
+    "result_characters": 41,
+    "requested_sequence_complete": false,
+    "local_cli_errors": [
+      {
+        "skipRun": true,
+        "error": {
+          "message": "Max turns (1) exceeded",
+          "isNetworkError": false,
+          "networkErrorAutoRetry": false,
+          "isStreamTimeout": false,
+          "isRetryable": false
+        },
+        "agent": "cli",
+        "conversationRequestId": "01a1e3ea7550723ab72dd6fe5caf9ae3"
+      }
+    ],
+    "local_error_source": "Installed SDK raises MaxTurnsExceededError before another agent turn; CLI serializes it as skipRun/incomplete",
+    "strict_runtime_accepts_original_array": false,
+    "runtime_billing_guard_changed": false,
+    "original_format_failure": "Native debug/startup text preceded the JSON response array",
+    "non_json_prefix_characters": 8,
+    "non_json_suffix_characters": 1,
+    "native_config_log_available": false,
+    "status": "verified_provider_zero_credit_4096_boundary_with_local_turn_error"
+  },
+  "paid_alias_mistake_credit": 0.55,
+  "free_model_current_capabilities": {
+    "reasoning": {
+      "canDisableThinking": false,
+      "defaultEffort": "high",
+      "summary": "auto",
+      "supportedEfforts": [
+        "high"
+      ]
+    },
+    "onlyReasoning": true,
+    "maxOutputTokens": 64000
+  },
+  "available_output_limit_control": "CODEBUDDY_CODE_MAX_OUTPUT_TOKENS",
+  "current_limit_boundary": "The adapter now forwards 4096. Actual cap probe records were 4096, 4096, 2893; formal v3 provider records were 230, 4096, 529. The ceiling applies per provider response, not per whole CLI invocation.",
+  "scientific_boundary": "Three attempts reached no original grader result. V3 stopped before the second action after a local incomplete assistant event failed full-array billing validation. No task score or treatment effect has been established.",
+  "billing_boundary": "Visible provider credit fields are zero. V3 has one returned CLI array rejected by the unchanged strict guard because a local MaxTurns error lacks identity. This differs from the two historical requests with no response. The 0.55-credit alias mistake remains visible.",
+  "new_model_requests_in_analysis": 0
+}
