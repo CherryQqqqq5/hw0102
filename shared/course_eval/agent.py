@@ -201,6 +201,7 @@ class CodeBuddyModel(ModelFormatting):
         }}
         if self.model_id == FREE_MODEL_ID:
             environment.update({"NODE_OPTIONS": "--use-bundled-ca", "CODEBUDDY_MAX_RETRIES": "0",
+                                "CODEBUDDY_CODE_MAX_OUTPUT_TOKENS": str(self.limits.max_output_tokens),
                                 "CODEBUDDY_MODEL_401_MAX_RETRIES": "0", "CODEBUDDY_RETRY_WATCHDOG": "0",
                                 "CODEBUDDY_MODEL": FREE_MODEL_ID,
                                 "CODEBUDDY_SMALL_FAST_MODEL": FREE_MODEL_ID,
@@ -214,7 +215,8 @@ class CodeBuddyModel(ModelFormatting):
                                    text=True, capture_output=True,
                                    timeout=min(timeout, self.budget.request_seconds()) if getattr(self, "budget", None) else timeout,
                                    check=False),
-            {"model": self.model_id, "system": system, "history": history, "schema": json.loads(schema)},
+            {"model": self.model_id, "system": system, "history": history, "schema": json.loads(schema),
+             "configured_max_output_tokens": self.limits.max_output_tokens if self.model_id == FREE_MODEL_ID else None},
             subprocess.TimeoutExpired, timeout,
         )
         if process.returncode:
@@ -256,7 +258,8 @@ class CodeBuddyModel(ModelFormatting):
     def serialize(self) -> dict:
         return {"info": {"config": {"model": self.model_id, "transport": "codebuddy-structured-output"},
                          "provider_reported_turns": self.provider_turns,
-                         "output_token_limit_enforced_by_adapter": False}}
+                         "output_token_limit_enforced_by_adapter": self.model_id == FREE_MODEL_ID,
+                         "configured_max_output_tokens": self.limits.max_output_tokens if self.model_id == FREE_MODEL_ID else None}}
 
 
 class TracedEnvironment:
