@@ -1,0 +1,66 @@
+{
+  "stage": "frozen_resume_ready",
+  "new_model_requests": 0,
+  "source_scores": {
+    "runs": "work/vmshare/confirmation-hy4flash-free-v5",
+    "score_records_verified": 7,
+    "by_benchmark": {
+      "swe": 4,
+      "terminal": 3
+    },
+    "unscored_records_preserved": [
+      "C-swe-django__django-11999-B0-r1"
+    ],
+    "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+  },
+  "reused_positions": 7,
+  "preserved_valid_failures": 1,
+  "new_positions": 263,
+  "previous_attempts": 5,
+  "evidence_files_compared": 141,
+  "usage_source_partitions_match": true,
+  "all_free_formal_usage_before_resume": {
+    "model_calls": 132,
+    "model_responses": 129,
+    "model_request_retries": 0,
+    "model_request_timeouts": 2,
+    "provider_turns": 745,
+    "tool_calls": 117,
+    "input_tokens": 3125726,
+    "output_tokens": 413594,
+    "cached_input_tokens": 472320,
+    "submission_check_opportunities": 0,
+    "stale_at_submission": 0,
+    "deliverable_checkpoints": 0,
+    "deliverable_reminders": 0,
+    "usage_unreturned_requests": 3,
+    "usage_missing_input_responses": 0,
+    "usage_missing_output_responses": 0,
+    "usage_missing_cache_responses": 0,
+    "provider_reported_cost_usd": 0
+  },
+  "billing_validator_unchanged": true,
+  "reused_original_scores": {
+    "runs": "work/vmshare/confirmation-hy4flash-free-v6",
+    "score_records_verified": 7,
+    "by_benchmark": {
+      "swe": 4,
+      "terminal": 3
+    },
+    "unscored_records_preserved": [],
+    "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+  },
+  "previous_original_scores": {
+    "runs": "work/vmshare/confirmation-hy4flash-free-v6-previous",
+    "score_records_verified": 0,
+    "by_benchmark": {},
+    "unscored_records_preserved": [
+      "v1__C-terminal-feal-linear-cryptanalysis-B0-r1",
+      "v2__C-terminal-feal-linear-cryptanalysis-B0-r1",
+      "v3__C-terminal-feal-linear-cryptanalysis-B0-r1",
+      "v4__C-terminal-feal-linear-cryptanalysis-B0-r1",
+      "v5__C-swe-django__django-11999-B0-r1"
+    ],
+    "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+  }
+}
