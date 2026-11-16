@@ -2,7 +2,9 @@
 
 邱昱宁 · 231880296
 
-当前分批确认计划含30题、B0/C0/C1各三轮，共270个主要位置。v2已保存86条评分和1条中断记录；JavaScript缺少控制器运行时的故障完成真实修复验收后，v3保留全部80条非JavaScript完整记录（含7条失败），两个受影响任务首轮三条件整组替换，再完成其余位置。所有旧失败与消耗保留。原报告和下述384条历史评分继续可读；主要新结果在全部位置完成后更新。[v3协议](作业二/configs/confirmation-protocol-v3.md) · [来源计划](作业二/configs/confirmation-plan-v3.json) · [修复范围](作业二/configs/confirmation-runtime-repair-v3.md) · [复现说明](shared/CONFIRMATION.md)
+当前使用CodeBuddy 2.179.3的`hy4flash-free`执行独立免费复测：冻结30题，B0/C0/C1各三轮，共270位置。修复本地错误分类和4096截断后，首题密码分析B0已取得原评分通过，真实模型回复均完成零积分核验；其余矩阵正在执行，完整比较尚未形成。[免费v5协议](作业二/configs/confirmation-protocol-hy4flash-free-v5.md) · [冻结计划](作业二/configs/confirmation-plan-hy4flash-free-v5.json) · [成熟来源与修复](作业二/configs/hy4flash-cli-recovery-20261116.md) · [首题原件](作业二/evidence/confirmation-hy4flash-free-v5/C-terminal-feal-linear-cryptanalysis-B0-r1/)
+
+此前CodeBuddy及Boyue的有效评分、未评分、原始失败和用量独立保留，免费服务的成绩不与它们混算。下列两份报告及384条评分属于已完成的历史实验，完整新矩阵结束后更新。历史CodeBuddy确认及JavaScript运行时修复见[原协议](作业二/configs/confirmation-protocol-v3.md)与[原修复说明](作业二/configs/confirmation-runtime-repair-v3.md)。
 
 | 目录 | 报告与材料 | 实验范围 |
 |---|---|---|

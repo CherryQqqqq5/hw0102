@@ -1,0 +1,11 @@
+[
+  {
+    "runs": "work/hw0102-publish/作业二/evidence/confirmation-hy4flash-free-v5",
+    "score_records_verified": 1,
+    "by_benchmark": {
+      "terminal": 1
+    },
+    "unscored_records_preserved": [],
+    "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+  }
+]
