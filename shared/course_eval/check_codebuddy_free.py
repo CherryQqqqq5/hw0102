@@ -24,6 +24,10 @@ class FreeResponseChecks(unittest.TestCase):
         events = [json.loads(line) for line in path.read_text().splitlines()]
         cls.recovered, = [event["payload"] for event in events
                          if event["event"] == "response" and event["request_id"] == 2]
+        path, = Path("work/vmshare/confirmation-hy4flash-free-v4").rglob("model.jsonl")
+        events = [json.loads(line) for line in path.read_text().splitlines()]
+        cls.tool_recovered, = [event["payload"] for event in events
+                              if event["event"] == "response" and event["request_id"] == 6]
 
     def model(self):
         directory = Path(tempfile.mkdtemp(prefix="response-replay-", dir=self.root))
@@ -44,6 +48,40 @@ class FreeResponseChecks(unittest.TestCase):
         self.assertEqual(proof["usage_records"], 3)
         with self.assertRaises(FormatError):
             self.model().process_response(self.truncated)
+
+    def test_real_local_tool_error_recovers_after_model_billing(self):
+        for payload in (self.tool_recovered, json.loads(sanitize_model(json.dumps({"event": "response", "payload": self.tool_recovered})))["payload"]):
+            proof = verify_free_response(payload)
+            self.assertEqual(proof["credit"], 0)
+            self.assertEqual(proof["usage_records"], 3)
+            self.assertEqual(len(proof["local_cli_errors"]), 2)
+            self.model().process_response(payload)
+
+    def test_tool_error_cannot_cover_nonzero_or_unknown_model_billing(self):
+        for change in ("credit", "missing", "network", "message"):
+            modified = copy.deepcopy(self.tool_recovered)
+            billed = next(item for item in modified if "rawUsage" in item.get("providerData", {}))
+            local = next(item for item in modified if item.get("providerData", {}).get("error", {}).get("isRetryable"))
+            if change == "credit":
+                billed["providerData"]["rawUsage"]["credit"] = 1.0
+            elif change == "missing":
+                del billed["providerData"]["rawUsage"]
+            elif change == "network":
+                local["providerData"]["error"]["isNetworkError"] = True
+            else:
+                local["providerData"]["error"]["message"] = "Unrecognized provider failure"
+            with self.subTest(change=change), self.assertRaises(ValueError):
+                verify_free_response(modified)
+
+    def test_each_local_error_requires_its_own_prior_usage(self):
+        modified = copy.deepcopy(self.tool_recovered)
+        index = next(index for index, item in enumerate(modified)
+                     if item.get("providerData", {}).get("error", {}).get("isRetryable"))
+        self.assertEqual(modified[index - 1]["type"], "model-usage")
+        del modified[index - 1]
+        for payload in (modified, json.loads(sanitize_model(json.dumps({"event": "response", "payload": modified})))["payload"]):
+            with self.assertRaises(ValueError):
+                verify_free_response(payload)
 
     def test_insufficient_remaining_request_window_makes_no_call(self):
         model = self.model()
