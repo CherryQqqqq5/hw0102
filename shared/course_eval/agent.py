@@ -176,6 +176,23 @@ class CodeBuddyModel(ModelFormatting):
         self.limits = limits
         self.timeout_retries_remaining = limits.timeout_retries
 
+    def process_environment(self) -> dict[str, str]:
+        environment = {key: value for key, value in os.environ.items() if key.lower() not in {
+            "course_api_key", "openai_api_key", "anthropic_api_key",
+        }}
+        if self.model_id == FREE_MODEL_ID:
+            environment.update({"NODE_OPTIONS": "--use-bundled-ca", "CODEBUDDY_MAX_RETRIES": "0",
+                                "CODEBUDDY_CODE_MAX_OUTPUT_TOKENS": str(self.limits.max_output_tokens),
+                                "CODEBUDDY_MODEL_401_MAX_RETRIES": "0", "CODEBUDDY_RETRY_WATCHDOG": "0",
+                                "CODEBUDDY_MODEL": FREE_MODEL_ID,
+                                "CODEBUDDY_SMALL_FAST_MODEL": FREE_MODEL_ID,
+                                "CODEBUDDY_BIG_SLOW_MODEL": FREE_MODEL_ID,
+                                "CODEBUDDY_DISABLE_PROXY_CONFIG_FILE": "1"})
+            # 显式继承代理，避免SDK将其标为system后自动转直连或关闭TLS校验。
+            environment.pop("WORKBUDDY_PROXY_SOURCE", None)
+            environment.pop("CODEBUDDY_FALLBACK_MODEL", None)
+        return environment
+
     def query(self, messages: list[dict], **kwargs) -> dict:
         # v2仅剩14秒仍发起请求导致费用未知；三条件共同留60秒完整请求窗口。
         if self.model_id == FREE_MODEL_ID and getattr(self, "budget", None) is not None:
@@ -203,17 +220,7 @@ class CodeBuddyModel(ModelFormatting):
         if self.model_id == FREE_MODEL_ID:
             command += ["--setting-sources", "", "--settings", '{"disableAllHooks":true}',
                         "--mcp-config", '{"mcpServers":{}}']
-        environment = {key: value for key, value in os.environ.items() if key.lower() not in {
-            "http_proxy", "https_proxy", "all_proxy", "course_api_key", "openai_api_key", "anthropic_api_key",
-        }}
-        if self.model_id == FREE_MODEL_ID:
-            environment.update({"NODE_OPTIONS": "--use-bundled-ca", "CODEBUDDY_MAX_RETRIES": "0",
-                                "CODEBUDDY_CODE_MAX_OUTPUT_TOKENS": str(self.limits.max_output_tokens),
-                                "CODEBUDDY_MODEL_401_MAX_RETRIES": "0", "CODEBUDDY_RETRY_WATCHDOG": "0",
-                                "CODEBUDDY_MODEL": FREE_MODEL_ID,
-                                "CODEBUDDY_SMALL_FAST_MODEL": FREE_MODEL_ID,
-                                "CODEBUDDY_BIG_SLOW_MODEL": FREE_MODEL_ID})
-            environment.pop("CODEBUDDY_FALLBACK_MODEL", None)
+        environment = self.process_environment()
         # CodeBuddy 的打印模式需要显式请求文本。通过 stdin 提供大型历史。
         timeout = self.limits.wall_seconds if self.model_id == FREE_MODEL_ID else min(150, self.limits.wall_seconds)
         process, attempt = self.request_with_timeout_recovery(
@@ -223,18 +230,31 @@ class CodeBuddyModel(ModelFormatting):
                                    timeout=min(timeout, self.budget.request_seconds()) if getattr(self, "budget", None) else timeout,
                                    check=False),
             {"model": self.model_id, "system": system, "history": history, "schema": json.loads(schema),
-             "configured_max_output_tokens": self.limits.max_output_tokens if self.model_id == FREE_MODEL_ID else None},
+             "configured_max_output_tokens": self.limits.max_output_tokens if self.model_id == FREE_MODEL_ID else None,
+             "proxy_environment_configured": any(environment.get(key) for key in (
+                 "HTTPS_PROXY", "https_proxy", "HTTP_PROXY", "http_proxy")),
+             "proxy_config_file_disabled": environment.get("CODEBUDDY_DISABLE_PROXY_CONFIG_FILE") == "1"},
             subprocess.TimeoutExpired, timeout,
         )
+        return self.process_completed_process(process, attempt)
+
+    def process_completed_process(self, process: subprocess.CompletedProcess, attempt: int) -> dict:
+        if not process.stdout.strip() and "getaddrinfo ENOTFOUND " in process.stderr:
+            append_event(self.trace, "request_error", request_id=self.request_id, attempt=attempt,
+                         returncode=process.returncode, stderr=process.stderr, stdout=process.stdout,
+                         failure_category="dns_resolution", billing_status="unknown")
+            raise RuntimeError("CodeBuddy DNS resolution failed; provider billing remains unknown")
         if process.returncode:
             append_event(self.trace, "request_error", request_id=self.request_id, attempt=attempt,
-                         returncode=process.returncode, stderr=process.stderr, stdout=process.stdout)
+                         returncode=process.returncode, stderr=process.stderr, stdout=process.stdout,
+                         failure_category="cli_exit", billing_status="unknown")
             raise RuntimeError(f"CodeBuddy failed with exit code {process.returncode}")
         try:
             raw = json.loads(process.stdout)
         except json.JSONDecodeError:
             append_event(self.trace, "request_error", request_id=self.request_id, attempt=attempt,
-                         returncode=process.returncode, stderr=process.stderr, stdout=process.stdout)
+                         returncode=process.returncode, stderr=process.stderr, stdout=process.stdout,
+                         failure_category="invalid_cli_json", billing_status="unknown")
             raise RuntimeError("CodeBuddy returned a non-JSON response") from None
         append_event(self.trace, "response", request_id=self.request_id, attempt=attempt, payload=raw)
         return self.process_response(raw)

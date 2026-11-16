@@ -1,0 +1,129 @@
+{
+  "destination": "https://wb.tencentbuddy.com",
+  "method": "HEAD",
+  "authenticated": false,
+  "model_requests": 0,
+  "records": [
+    {
+      "repeat": 1,
+      "environment": "old_proxy_removed",
+      "returncode": 28,
+      "result": {
+        "http_code": "000",
+        "peer": "",
+        "lookup_seconds": 0.0,
+        "total_seconds": 3.005599
+      },
+      "error": "curl: (28) Resolving timed out after 3005 milliseconds"
+    },
+    {
+      "repeat": 1,
+      "environment": "fixed_proxy_preserved",
+      "returncode": 0,
+      "result": {
+        "http_code": "404",
+        "peer": "127.0.0.1",
+        "lookup_seconds": 9.3e-05,
+        "total_seconds": 0.186532
+      },
+      "error": ""
+    },
+    {
+      "repeat": 2,
+      "environment": "old_proxy_removed",
+      "returncode": 28,
+      "result": {
+        "http_code": "000",
+        "peer": "",
+        "lookup_seconds": 0.0,
+        "total_seconds": 3.003453
+      },
+      "error": "curl: (28) Resolving timed out after 3003 milliseconds"
+    },
+    {
+      "repeat": 2,
+      "environment": "fixed_proxy_preserved",
+      "returncode": 0,
+      "result": {
+        "http_code": "404",
+        "peer": "127.0.0.1",
+        "lookup_seconds": 0.000131,
+        "total_seconds": 0.183305
+      },
+      "error": ""
+    },
+    {
+      "repeat": 3,
+      "environment": "old_proxy_removed",
+      "returncode": 0,
+      "result": {
+        "http_code": "404",
+        "peer": "120.53.78.52",
+        "lookup_seconds": 2.273148,
+        "total_seconds": 2.506529
+      },
+      "error": ""
+    },
+    {
+      "repeat": 3,
+      "environment": "fixed_proxy_preserved",
+      "returncode": 0,
+      "result": {
+        "http_code": "404",
+        "peer": "127.0.0.1",
+        "lookup_seconds": 9.8e-05,
+        "total_seconds": 0.181423
+      },
+      "error": ""
+    },
+    {
+      "repeat": 4,
+      "environment": "old_proxy_removed",
+      "returncode": 0,
+      "result": {
+        "http_code": "404",
+        "peer": "120.53.78.52",
+        "lookup_seconds": 0.004065,
+        "total_seconds": 0.256333
+      },
+      "error": ""
+    },
+    {
+      "repeat": 4,
+      "environment": "fixed_proxy_preserved",
+      "returncode": 0,
+      "result": {
+        "http_code": "404",
+        "peer": "127.0.0.1",
+        "lookup_seconds": 0.0001,
+        "total_seconds": 0.183999
+      },
+      "error": ""
+    },
+    {
+      "repeat": 5,
+      "environment": "old_proxy_removed",
+      "returncode": 0,
+      "result": {
+        "http_code": "404",
+        "peer": "120.53.78.52",
+        "lookup_seconds": 0.003382,
+        "total_seconds": 0.256953
+      },
+      "error": ""
+    },
+    {
+      "repeat": 5,
+      "environment": "fixed_proxy_preserved",
+      "returncode": 0,
+      "result": {
+        "http_code": "404",
+        "peer": "127.0.0.1",
+        "lookup_seconds": 8.3e-05,
+        "total_seconds": 0.187339
+      },
+      "error": ""
+    }
+  ],
+  "scope": "Real HTTP connectivity under old and fixed child environments; no inference or billing claim"
+}

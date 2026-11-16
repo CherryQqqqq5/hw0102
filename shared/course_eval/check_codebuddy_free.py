@@ -1,5 +1,7 @@
 import copy
 import json
+import os
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -32,6 +34,40 @@ class FreeResponseChecks(unittest.TestCase):
     def model(self):
         directory = Path(tempfile.mkdtemp(prefix="response-replay-", dir=self.root))
         return CodeBuddyModel(directory, RunLimits(), "{{output}}")
+
+    def test_cli_child_preserves_existing_proxy_and_free_route(self):
+        model = self.model()
+        environment = model.process_environment()
+        proxy_keys = [key for key in os.environ if key.lower() in {"http_proxy", "https_proxy", "all_proxy", "no_proxy"}]
+        self.assertTrue(proxy_keys)
+        for key in proxy_keys:
+            self.assertEqual(environment[key], os.environ[key])
+        self.assertEqual(environment["CODEBUDDY_DISABLE_PROXY_CONFIG_FILE"], "1")
+        self.assertNotIn("WORKBUDDY_PROXY_SOURCE", environment)
+        for key in ("CODEBUDDY_MODEL", "CODEBUDDY_SMALL_FAST_MODEL", "CODEBUDDY_BIG_SLOW_MODEL"):
+            self.assertEqual(environment[key], "hy4flash-free")
+        self.assertEqual(environment["CODEBUDDY_CODE_MAX_OUTPUT_TOKENS"], "4096")
+        self.assertNotIn("CODEBUDDY_FALLBACK_MODEL", environment)
+        child = subprocess.run(["node", "-e", "process.stdout.write(JSON.stringify({proxy:!!process.env.HTTPS_PROXY,source:process.env.WORKBUDDY_PROXY_SOURCE??null,configDisabled:process.env.CODEBUDDY_DISABLE_PROXY_CONFIG_FILE}))"],
+                               env=environment, capture_output=True, text=True, check=True)
+        self.assertEqual(json.loads(child.stdout), {"proxy": True, "source": None, "configDisabled": "1"})
+
+    def test_real_zero_exit_dns_failure_keeps_billing_unknown(self):
+        path, = Path("work/vmshare/confirmation-hy4flash-free-v5/C-swe-django__django-11999-B0-r1").rglob("model.jsonl")
+        events = [json.loads(line) for line in path.read_text().splitlines()]
+        error, = [event for event in events if event["event"] == "request_error"]
+        process = subprocess.CompletedProcess(["codebuddy"], error["returncode"], error["stdout"], error["stderr"])
+        model = self.model()
+        model.request_id = error["request_id"]
+        with self.assertRaisesRegex(RuntimeError, "DNS.*unknown"):
+            model.process_completed_process(process, 1)
+        replay = [json.loads(line) for line in model.trace.read_text().splitlines()]
+        self.assertEqual([event["event"] for event in replay], ["request_error"])
+        self.assertEqual(replay[0]["failure_category"], "dns_resolution")
+        self.assertEqual(replay[0]["billing_status"], "unknown")
+        exported = json.loads(sanitize_model(model.trace.read_text()))
+        self.assertEqual(exported["billing_status"], "unknown")
+        self.assertEqual(exported["diagnostic"]["category"], "name_resolution")
 
     def test_real_recovered_response_and_action(self):
         proof = verify_free_response(self.recovered)
