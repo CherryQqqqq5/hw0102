@@ -2,7 +2,7 @@
 
 邱昱宁 · 231880296　｜　[阅读实验报告](231880296_邱昱宁_作业二.pdf)
 
-hy4flash-free的轮数异常响应准备验证出现新增费用未知，已立即停止。相同FEAL输入返回1783词元完整动作、实际积分0；原生读取用例因补丁模块引用错误而无响应。当前a52932ce已按实际导出表修正，8项本地检查和22项费用回归通过，修正后真实验证未进行。旧9笔加新增1笔共10笔费用未知保持；有效原评分90/270、82通过8失败不变，三组仍为29/30、28/30、25/30，仍缺180评分。完整新报告尚未生成。[停止报告](evidence/hy4flash-v11-stop-20261117.md) · [本次汇总](evidence/hy4flash-v11-stopped-summary.json) · [当前补丁](configs/codebuddy-terminal-response-v11.patch) · [原评分与费用](evidence/hy4flash-v10-stopped-summary.json)
+hy4flash-free修正客户端已通过真实轮数异常响应、4096截断及短动作恢复，三次输出329/4096/202、实际积分0、各一个原生请求，无内部追加。当前固定新计划并继续原180位置，先核验FEAL/C0第二轮独立评分。原90/270、82通过8失败保持，三组29/30、28/30、25/30；旧10笔未知费用保持，新未知或非零立即停。完整新三轮报告待完成。[当前协议](configs/confirmation-protocol-v12.md) · [真实准备验证](evidence/hy4flash-v12-preparation.json) · [来源验证](evidence/hy4flash-v12-resume-validation.json) · [原评分与费用](evidence/hy4flash-v10-stopped-summary.json)
 
 下列报告、数值和案例呈现已完成的历史实验。旧CodeBuddy、创智及各次未评分尝试单独保留，成绩与费用不并入当前免费模型主比较。[历史v3协议](configs/confirmation-protocol-v3.md) · [历史来源计划](configs/confirmation-plan-v3.json) · [原v2记录](evidence/confirmation-v2/)
 

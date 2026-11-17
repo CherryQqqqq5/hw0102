@@ -1,6 +1,6 @@
 # 共用评测代码与复现
 
-当前轮数异常响应补丁a52932ce按实际模块导出修正，8项本地检查和22项费用回归通过；修正后真实模型验证未进行。此前准备的第二请求因错误模块引用无计费响应，已立即停止，未知费用合计10笔。原90条评分含8失败保持，仍缺180评分。[停止报告](../作业二/evidence/hy4flash-v11-stop-20261117.md) · [当前补丁](../作业二/configs/codebuddy-terminal-response-v11.patch) · [原正式协议](../作业二/configs/confirmation-protocol-v10.md)
+当前客户端a52932ce通过三次真实免费接口验证：轮数异常失败响应、4096截断拒绝执行及短动作恢复，实际积分均0。按[新协议](../作业二/configs/confirmation-protocol-v12.md)继续180位置，原90评分含8失败和10笔历史未知费用保持，新未知/非零即停。[准备验证](../作业二/evidence/hy4flash-v12-preparation.json) · [当前补丁](../作业二/configs/codebuddy-terminal-response-v11.patch)
 
 新增30道独立题目的B0/C0/C1确认实验使用单独的[冻结协议与复现入口](CONFIRMATION.md)。下文保留原45题实验的参数与复算方法。
 

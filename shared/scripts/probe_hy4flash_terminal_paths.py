@@ -1,7 +1,6 @@
 import hashlib
 import json
 import subprocess
-import time
 from datetime import datetime
 from pathlib import Path
 
@@ -12,19 +11,14 @@ from course_eval.codebuddy_free import verify_free_response
 from course_eval.controller import Budget, ControlModel
 
 
-root = Path("work/codebuddy-single-turn-probe-v11")
-events = [json.loads(line) for line in (root / "model.jsonl").read_text().splitlines()]
-first_request, = [event for event in events if event["event"] == "request"]
-first_response, = [event for event in events if event["event"] == "response"]
-assert not any(event["event"] in {"request_error", "billing_error"} for event in events)
-assert verify_free_response(first_response["payload"])["credit"] == 0
-model = ControlModel(root, RunLimits(model_calls=4, wall_seconds=600,
+root = Path("work/codebuddy-single-turn-probe-v12")
+root.mkdir(exist_ok=True)
+assert not (root / "model.jsonl").exists()
+model = ControlModel(root, RunLimits(model_calls=3, wall_seconds=600,
     max_output_tokens=4096, strict_wall=True), "{{output}}")
 model.budget = Budget(600)
-model.budget.deadline -= time.time() - first_request["time"]
-model.request_id = 1
 headless = model.cli.parents[1] / "dist/codebuddy-headless.js"
-assert hashlib.sha256(headless.read_bytes()).hexdigest() == "cf1edc0d2fc5cf2cb9ee680f381ba379967a27e408b387e3714ca4b9349a2cb2"
+assert hashlib.sha256(headless.read_bytes()).hexdigest() == "a52932ce3d059342d46c71ec8234da9e3c5f9b8b903260475d667d31d1d2085b"
 records = []
 
 
@@ -54,8 +48,8 @@ def record(name, action=None, format_error=None):
         "max_turns_failure_json_emitted": serialized_turn_errors, "transport_diagnostic": diagnostic}
     records.append(item)
     (root / "summary.json").write_text(json.dumps({"scope": "Bounded interface probes; no benchmark commands executed or benchmark scores",
-        "actual_cli_requests": len(records), "max_preparation_cli_requests": 4,
-        "historical_unknown_cli_requests": 9, "shared_wall_seconds": 600,
+        "actual_cli_requests": len(records), "max_preparation_cli_requests": 3,
+        "historical_unknown_cli_requests": 10, "shared_wall_seconds": 600,
         "client_sha256": hashlib.sha256(headless.read_bytes()).hexdigest(), "records": records},
         ensure_ascii=False, indent=2) + "\n")
     print(json.dumps({key: item[key] for key in ("case", "request_id", "completion_tokens",
@@ -63,7 +57,6 @@ def record(name, action=None, format_error=None):
     return item
 
 
-record("matched-input-full-action")
 model.request_id += 1
 prompt = "Call Read exactly once on receipt-input.txt in the current directory. After reading, report its content. Do not use other tools or read other paths."
 command = [str(model.cli), "--print", "--model", "hy4flash-free", "--tools", "Read", "--allowedTools", "Read",

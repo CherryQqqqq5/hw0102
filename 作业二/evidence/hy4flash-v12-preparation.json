@@ -1,0 +1,192 @@
+{
+  "scope": "Bounded interface probes; no benchmark commands executed or benchmark scores",
+  "actual_cli_requests": 3,
+  "max_preparation_cli_requests": 3,
+  "historical_unknown_cli_requests": 10,
+  "shared_wall_seconds": 600,
+  "client_sha256": "a52932ce3d059342d46c71ec8234da9e3c5f9b8b903260475d667d31d1d2085b",
+  "records": [
+    {
+      "case": "native-read-max-turns",
+      "request_id": 1,
+      "validation": "Live request",
+      "billing": {
+        "request_model": "hy4flash-free",
+        "provider_model": "hy4-flash-free",
+        "credit": 0,
+        "usage_records": 1,
+        "local_cli_errors": [
+          {
+            "skipRun": true,
+            "error": {
+              "message": "Max turns (1) exceeded",
+              "isNetworkError": false,
+              "networkErrorAutoRetry": false,
+              "isStreamTimeout": false,
+              "isRetryable": false
+            },
+            "agent": "cli",
+            "conversationRequestId": "01a1e9e7e0f172c787e155c4ead1e591",
+            "model_message_id": "01a1e9e7e1a97800b520ba930980c4de"
+          }
+        ]
+      },
+      "completion_tokens": [
+        329
+      ],
+      "terminal_subtype": "error_max_turns",
+      "action": null,
+      "format_error_messages": [
+        {
+          "role": "user",
+          "content": "Output ended at the CLI turn limit. Return one complete, shorter structured action.",
+          "extra": {
+            "request_id": 1
+          }
+        }
+      ],
+      "max_turns_failure_json_emitted": 1,
+      "transport_diagnostic": {
+        "cli_pid": 34472,
+        "log_status": "read",
+        "log_name": "codebuddy-single-turn-probe-v12__d94f58d60ff785bd0bab9475977205fc.log",
+        "stage": "model_stream_completed_before_cli_exit",
+        "model_requests_sent": 1,
+        "streams_started": 1,
+        "first_raw_chunks": 1,
+        "completed_streams": 1,
+        "retry_notices": 0,
+        "truncation_retries": 0,
+        "structured_output_retries": 0,
+        "event_loop_ticks": 0,
+        "last_event_loop_tick": null,
+        "source_line_numbers": [
+          551,
+          578,
+          579,
+          590
+        ],
+        "billing_status": "unknown",
+        "scope": "Client transport diagnostics only; no model billing inference"
+      }
+    },
+    {
+      "case": "truncated-4096",
+      "request_id": 2,
+      "validation": "Live request",
+      "billing": {
+        "request_model": "hy4flash-free",
+        "provider_model": "hy4-flash-free",
+        "credit": 0,
+        "usage_records": 1,
+        "local_cli_errors": []
+      },
+      "completion_tokens": [
+        4096
+      ],
+      "terminal_subtype": "success",
+      "action": null,
+      "format_error_messages": [
+        {
+          "role": "user",
+          "content": "The last model output reached the token limit and its action may be incomplete. Return one complete, shorter structured action.",
+          "extra": {
+            "request_id": 2
+          }
+        }
+      ],
+      "max_turns_failure_json_emitted": 0,
+      "transport_diagnostic": {
+        "cli_pid": 34769,
+        "log_status": "read",
+        "log_name": "codebuddy-single-turn-probe-v12__d94f58d60ff785bd0bab9475977205fc.log",
+        "stage": "model_stream_completed_before_cli_exit",
+        "model_requests_sent": 1,
+        "streams_started": 1,
+        "first_raw_chunks": 1,
+        "completed_streams": 1,
+        "retry_notices": 0,
+        "truncation_retries": 0,
+        "structured_output_retries": 0,
+        "event_loop_ticks": 0,
+        "last_event_loop_tick": null,
+        "source_line_numbers": [
+          1217,
+          1246,
+          1247,
+          1260
+        ],
+        "billing_status": "unknown",
+        "scope": "Client transport diagnostics only; no model billing inference"
+      }
+    },
+    {
+      "case": "outer-recovery-4096",
+      "request_id": 3,
+      "validation": "Live request",
+      "billing": {
+        "request_model": "hy4flash-free",
+        "provider_model": "hy4-flash-free",
+        "credit": 0,
+        "usage_records": 1,
+        "local_cli_errors": []
+      },
+      "completion_tokens": [
+        202
+      ],
+      "terminal_subtype": "success",
+      "action": {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "id": "codebuddy-3",
+            "function": {
+              "name": "action",
+              "arguments": "{\"operation\":\"bash\",\"command\":\"printf COURSE_SINGLE_TURN_OK\",\"check_id\":null,\"candidate_id\":null,\"note\":\"\"}"
+            }
+          }
+        ],
+        "extra": {
+          "actions": [
+            {
+              "operation": "bash",
+              "command": "printf COURSE_SINGLE_TURN_OK",
+              "check_id": null,
+              "candidate_id": null,
+              "note": "",
+              "tool_call_id": "codebuddy-3"
+            }
+          ],
+          "request_id": 3
+        }
+      },
+      "format_error_messages": [],
+      "max_turns_failure_json_emitted": 0,
+      "transport_diagnostic": {
+        "cli_pid": 34970,
+        "log_status": "read",
+        "log_name": "codebuddy-single-turn-probe-v12__d94f58d60ff785bd0bab9475977205fc.log",
+        "stage": "model_stream_completed_before_cli_exit",
+        "model_requests_sent": 1,
+        "streams_started": 1,
+        "first_raw_chunks": 1,
+        "completed_streams": 1,
+        "retry_notices": 0,
+        "truncation_retries": 0,
+        "structured_output_retries": 0,
+        "event_loop_ticks": 0,
+        "last_event_loop_tick": null,
+        "source_line_numbers": [
+          1889,
+          1916,
+          1917,
+          1928
+        ],
+        "billing_status": "unknown",
+        "scope": "Client transport diagnostics only; no model billing inference"
+      }
+    }
+  ]
+}

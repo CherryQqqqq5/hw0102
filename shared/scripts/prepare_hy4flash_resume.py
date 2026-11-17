@@ -20,20 +20,20 @@ def copy_evidence(source, destination):
 
 root = Path("work/vmshare")
 source = root / "confirmation-hy4flash-free-v10"
-destination = root / "confirmation-hy4flash-free-v11"
-previous = root / "confirmation-hy4flash-free-v11-previous"
-plan_path = Path("work/confirmation-plan-hy4flash-free-v11.json")
+destination = root / "confirmation-hy4flash-free-v12"
+previous = root / "confirmation-hy4flash-free-v12-previous"
+plan_path = Path("work/confirmation-plan-hy4flash-free-v12.json")
 assert not destination.exists() and not previous.exists() and not plan_path.exists()
 source_plan = json.loads(Path("work/confirmation-plan-hy4flash-free-v10.json").read_text())
-probe = json.loads(Path("work/codebuddy-single-turn-probe-v11/summary.json").read_text())
-assert [record["case"] for record in probe["records"]] == ["matched-input-full-action", "native-read-max-turns",
+probe = json.loads(Path("work/codebuddy-single-turn-probe-v12/summary.json").read_text())
+assert [record["case"] for record in probe["records"]] == ["native-read-max-turns",
     "truncated-4096", "outer-recovery-4096"]
-assert probe["actual_cli_requests"] == 4
-assert probe["records"][1]["terminal_subtype"] == "error_max_turns"
-assert probe["records"][1]["max_turns_failure_json_emitted"] == 1
-assert probe["records"][2]["completion_tokens"] == [4096]
+assert probe["actual_cli_requests"] == 3
+assert probe["records"][0]["terminal_subtype"] == "error_max_turns"
+assert probe["records"][0]["max_turns_failure_json_emitted"] == 1
+assert probe["records"][1]["completion_tokens"] == [4096]
 assert all(record["billing"]["credit"] == 0 for record in probe["records"])
-audit_free_billing(Path("work/codebuddy-single-turn-probe-v11"))
+audit_free_billing(Path("work/codebuddy-single-turn-probe-v12"))
 rows = read_runs(source)
 reused = [row for row in rows if row["scoreable"]]
 unscored = [row for row in rows if not row["scoreable"]]
@@ -84,16 +84,17 @@ plan.update(reused_positions=90, new_positions=180, preserved_previous_attempts=
             network_policy={"inherit_proxy_environment": True, "proxy_config_file_disabled": True,
                             "sdk_proxy_source": "env", "new_request_unknown_or_nonzero_credit": "stop"},
             historical_unknown_cost="Preserved as unknown; never replaced by new request receipts",
-            historical_unknown_cli_requests={"formal": 8, "preparation": 1, "total": 9,
-                "preparation_trace": "work/codebuddy-single-turn-probe-v9/truncated-64/model.jsonl"},
+            historical_unknown_cli_requests={"formal": 8, "preparation": 2, "total": 10,
+                "preparation_traces": ["work/codebuddy-single-turn-probe-v9/truncated-64/model.jsonl",
+                    "work/codebuddy-single-turn-probe-v11/model.jsonl"]},
             transport_sensitivity_excluded_task="django__django-11999",
             diagnostic_policy={"cli_pid_recorded": True, "timeout_reads_own_workspace_sdk_log": True,
                                "sdk_log_never_proves_billing": True, "model_arguments_and_timeouts_unchanged": True},
             mechanical_recovery={"scope": "Serialize recognized MaxTurns failure after native stream and history processing settle; preserve actual provider records",
                 "environment": {"COURSE_CODEBUDDY_EXTERNAL_RECOVERY": "1"},
                 "outer_recovery": "Only after actual zero-credit receipt; charged to existing 24 decisions and 600 seconds",
-                "preparation_evidence": "work/codebuddy-single-turn-probe-v11/summary.json",
-                "preparation_cli_requests": 4, "preparation_scores": 0},
+                "preparation_evidence": "work/codebuddy-single-turn-probe-v12/summary.json",
+                "preparation_cli_requests": 3, "preparation_scores": 0},
             resumed_unscored_run_id=unscored[0]["run_id"], resumed_position_total_attempt_number=3)
 plan_path.write_text(json.dumps(plan, indent=2) + "\n")
 verification = {"stage": "frozen_resume_ready", "new_model_requests": 0,
@@ -105,7 +106,7 @@ verification = {"stage": "frozen_resume_ready", "new_model_requests": 0,
                 "local_timeout_diagnostics": "PID-scoped phases; known terminal-error serialization added in opt-in client patch; all fifteen execution-source files unchanged",
                 "reused_original_scores": verify(destination),
                 "previous_original_scores": verify(previous, allow_unscored=True)}
-Path("work/hy4flash-v11-resume-validation.json").write_text(json.dumps(verification, ensure_ascii=False, indent=2) + "\n")
+Path("work/hy4flash-v12-resume-validation.json").write_text(json.dumps(verification, ensure_ascii=False, indent=2) + "\n")
 print(json.dumps({key: verification[key] for key in (
     "stage", "new_model_requests", "reused_positions", "preserved_valid_failures", "new_positions",
     "previous_attempts", "evidence_files_compared", "usage_source_partitions_match")}, ensure_ascii=False))
