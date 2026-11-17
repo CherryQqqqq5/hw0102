@@ -14,13 +14,14 @@ parser.add_argument("--previous-runs", type=Path, required=True)
 parser.add_argument("--mechanical-runs", type=Path)
 parser.add_argument("--summary", type=Path, required=True)
 parser.add_argument("--plan", type=Path, required=True)
+parser.add_argument("--runtime", type=Path, default=Path("course_eval"))
 args = parser.parse_args()
 summary = json.loads(args.summary.read_text())
 if "mechanical_billing" in summary and args.mechanical_runs is None:
     parser.error("This summary requires --mechanical-runs to preserve archived unknown costs")
 plan = json.loads(args.plan.read_text())
 for name, expected in plan["runtime_sha256"].items():
-    assert hashlib.sha256((Path("course_eval") / name).read_bytes()).hexdigest() == expected, name
+    assert hashlib.sha256((args.runtime / name).read_bytes()).hexdigest() == expected, name
 assert audit_free_billing(args.runs, require_runtime_acceptance=False) == summary["current_billing"]
 assert audit_free_billing(args.previous_runs, require_runtime_acceptance=False) == summary["previous_billing"]
 if args.mechanical_runs is not None:

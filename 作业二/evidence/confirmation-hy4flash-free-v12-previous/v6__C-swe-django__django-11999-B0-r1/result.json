@@ -1,0 +1,8 @@
+{
+  "task": "django__django-11999",
+  "wall_seconds": 336.0276170829893,
+  "scoreable": false,
+  "passed": null,
+  "error_type": "RuntimeError",
+  "error": "Free model billing validation failed"
+}

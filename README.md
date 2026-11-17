@@ -2,9 +2,9 @@
 
 邱昱宁 · 231880296
 
-2026年11月17日，修正客户端a52932ce完成三次真实准备验证：轮数异常输出失败响应及零积分回执，长动作达到4096后由外层拒绝执行，随后202词元返回完整短动作。三次输出329/4096/202、各一个原生请求、实际积分0，无内部追加。当前冻结新计划，先执行原FEAL/C0第二轮并继续180位置。原有效评分90/270、82通过8失败保持。[当前协议](作业二/configs/confirmation-protocol-v12.md) · [真实接口验证](作业二/evidence/hy4flash-v12-preparation.json) · [来源核验](作业二/evidence/hy4flash-v12-resume-validation.json)
+2026年11月17日，修正客户端完成真实轮数异常响应、4096截断及短动作恢复验证后，新增5条独立原评分。当前95/270条有效评分，84通过、11失败；三组B0/C0/C1分别30/32、28/31、26/32，完整配对比较尚未完成。新增FEAL三组均有效失败，xarray-7393的基线和改造组均通过且补丁相同，改造组请求和耗时更多。[本轮结果与停止说明](作业二/evidence/hy4flash-v12-stop-20261117.md) · [逐位置评分与费用](作业二/evidence/hy4flash-v12-stopped-summary.json) · [当前协议](作业二/configs/confirmation-protocol-v12.md)
 
-旧10笔费用未知保持，新费用不明或非零立即停止。原正式来源1019请求/1011响应、1220条实际免费零积分用量及八项真实失败保持，1358份来源逐字节核验通过；原计费校验器及十五执行源码保持。两份课程报告仍为历史版本，完整新三轮报告待完成。[原90评分与费用](作业二/evidence/hy4flash-v10-stopped-summary.json) · [补丁版本及验证边界](作业二/configs/codebuddy-external-recovery-patch.json)
+xarray-7393/C0第二轮第21请求的标准输出恰好在131072字节截断，未取得实际计费回执，队列立即停止。旧10加新增1共11笔未知费用保留；正式来源1088请求/1079响应及1292条实际免费零积分用量已复核。停止后普通文件接收修复通过真实响应的本地传输回放及22项回归，尚未实际模型验证，原费用校验不变。冻结v12运行源码与停止后修复分开保存；两份课程报告仍为历史完整实验版本。[本地传输验证](作业二/evidence/hy4flash-v12-stdout-replay.json) · [真实准备验证](作业二/evidence/hy4flash-v12-preparation.json) · [免费接口调查](作业二/evidence/free-api-options-20261117.md)
 
 此前CodeBuddy及Boyue的有效评分、未评分、原始失败和用量独立保留，免费服务的成绩不与它们混算。下列两份报告及384条评分属于已完成的历史实验，完整新矩阵结束后更新。历史CodeBuddy确认及JavaScript运行时修复见[原协议](作业二/configs/confirmation-protocol-v3.md)与[原修复说明](作业二/configs/confirmation-runtime-repair-v3.md)。
 

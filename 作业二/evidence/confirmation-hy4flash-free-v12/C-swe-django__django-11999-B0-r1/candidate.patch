@@ -1,0 +1,17 @@
+diff --git a/django/db/models/base.py b/django/db/models/base.py
+index 0a5e5ff673..defa425d6d 100755
+--- a/django/db/models/base.py
++++ b/django/db/models/base.py
+@@ -304,6 +304,12 @@ class ModelBase(type):
+                         field.mti_inherited = True
+                     new_class.add_to_class(field.name, field)
+ 
++        # Add back any non-field attributes that were overwritten by
++        # contribute_to_class() methods, e.g. get_FOO_display().
++        for obj_name, obj in attrs.items():
++            if obj_name not in contributable_attrs:
++                new_class.add_to_class(obj_name, obj)
++
+         # Copy indexes so that index names are unique when models extend an
+         # abstract model.
+         new_class._meta.indexes = [copy.deepcopy(idx) for idx in new_class._meta.indexes]

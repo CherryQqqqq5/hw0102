@@ -1,0 +1,27 @@
+{
+  "candidate_id": "candidate-001",
+  "artifact_digest": "b12fb5ae8fe57b43b2871948560354e722fe28040cfd0bc71448fde988921f0f",
+  "protected_digest": "1bba8d5e5cbbeadae8e08a6a03ec89d31b7acae5a042afc4f083b7f80e4930e0",
+  "eligible": false,
+  "evidence": {
+    "public-task": {
+      "state": "pending",
+      "returncode": null,
+      "snapshot": null
+    }
+  },
+  "saved_elapsed": 78.06615100000636,
+  "files": {
+    "/app/analyze_climate_modern.py": {
+      "data": "IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiJNb2Rlcm5pemVkIFB5dGhvbiAzIGNsaW1hdGUgYW5hbHlzaXMgc2NyaXB0LiIiIgoKaW1wb3J0IGNvbmZpZ3BhcnNlcgpmcm9tIHBhdGhsaWIgaW1wb3J0IFBhdGgKCmltcG9ydCBwYW5kYXMgYXMgcGQKCgpCQVNFX0RJUiA9IFBhdGgoX19maWxlX18pLnJlc29sdmUoKS5wYXJlbnQKREFUQV9GSUxFID0gQkFTRV9ESVIgLyAiY2xpbWF0ZV9hbmFseXplciIgLyAic2FtcGxlX2RhdGEiIC8gImNsaW1hdGVfZGF0YS5jc3YiCkNPTkZJR19GSUxFID0gQkFTRV9ESVIgLyAiY2xpbWF0ZV9hbmFseXplciIgLyAiY29uZmlnLmluaSIKU1RBVElPTl9JRFMgPSAoMTAxLCAxMDIpCgoKZGVmIGxvYWRfY29uZmlnKGNvbmZpZ19wYXRoOiBQYXRoID0gQ09ORklHX0ZJTEUpIC0+IGNvbmZpZ3BhcnNlci5Db25maWdQYXJzZXI6CiAgICAiIiJSZWFkIHRoZSBsZWdhY3kgSU5JIGNvbmZpZ3VyYXRpb24gd2l0aCBQeXRob24gMydzIGNvbmZpZ3BhcnNlci4iIiIKICAgIGNvbmZpZyA9IGNvbmZpZ3BhcnNlci5Db25maWdQYXJzZXIoKQogICAgaWYgY29uZmlnX3BhdGguZXhpc3RzKCk6CiAgICAgICAgY29uZmlnLnJlYWQoY29uZmlnX3BhdGgsIGVuY29kaW5nPSJ1dGYtOCIpCiAgICByZXR1cm4gY29uZmlnCgoKZGVmIGxvYWRfY2xpbWF0ZV9kYXRhKGNzdl9wYXRoOiBQYXRoID0gREFUQV9GSUxFKSAtPiBwZC5EYXRhRnJhbWU6CiAgICAiIiJMb2FkIGNsaW1hdGUgb2JzZXJ2YXRpb25zIGZyb20gYSBVVEYtOCBDU1YgdXNpbmcgbW9kZXJuIHBhbmRhcyBBUElzLiIiIgogICAgZGF0YSA9IHBkLnJlYWRfY3N2KGNzdl9wYXRoLCBlbmNvZGluZz0idXRmLTgiLCBwYXJzZV9kYXRlcz1bImRhdGUiXSkKICAgIGRhdGFbInN0YXRpb25faWQiXSA9IHBkLnRvX251bWVyaWMoZGF0YVsic3RhdGlvbl9pZCJdLCBlcnJvcnM9InJhaXNlIikuYXN0eXBlKGludCkKICAgIGRhdGFbInRlbXBlcmF0dXJlIl0gPSBwZC50b19udW1lcmljKGRhdGFbInRlbXBlcmF0dXJlIl0sIGVycm9ycz0iY29lcmNlIikKICAgIHJldHVybiBkYXRhLmRyb3BuYShzdWJzZXQ9WyJ0ZW1wZXJhdHVyZSJdKQoKCmRlZiBwcmludF9zdGF0aW9uX21lYW5zKGRhdGE6IHBkLkRhdGFGcmFtZSkgLT4gTm9uZToKICAgICIiIlByaW50IHRoZSBtZWFuIHRlbXBlcmF0dXJlIGZvciBlYWNoIHJlcXVlc3RlZCBzdGF0aW9uLiIiIgogICAgZm9yIHN0YXRpb25faWQgaW4gU1RBVElPTl9JRFM6CiAgICAgICAgdGVtcGVyYXR1cmVzID0gZGF0YS5sb2NbZGF0YVsic3RhdGlvbl9pZCJdID09IHN0YXRpb25faWQsICJ0ZW1wZXJhdHVyZSJdCiAgICAgICAgaWYgdGVtcGVyYXR1cmVzLmVtcHR5OgogICAgICAgICAgICBjb250aW51ZQogICAgICAgIHByaW50KGYiU3RhdGlvbiB7c3RhdGlvbl9pZH0gbWVhbiB0ZW1wZXJhdHVyZToge3RlbXBlcmF0dXJlcy5tZWFuKCk6LjFmfcKwQyIpCgoKZGVmIG1haW4oKSAtPiBOb25lOgogICAgbG9hZF9jb25maWcoKQogICAgZGF0YSA9IGxvYWRfY2xpbWF0ZV9kYXRhKCkKICAgIHByaW50X3N0YXRpb25fbWVhbnMoZGF0YSkKCgppZiBfX25hbWVfXyA9PSAiX19tYWluX18iOgogICAgbWFpbigpCg==",
+      "mode": 511
+    },
+    "/app/requirements.txt": {
+      "data": "bnVtcHk+PTEuMjQKcGFuZGFzPj0yLjAKbWF0cGxvdGxpYj49My43Cg==",
+      "mode": 438
+    },
+    "/app/pyproject.toml": {
+      "missing": true
+    }
+  }
+}

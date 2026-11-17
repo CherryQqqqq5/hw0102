@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Final submission: StratifiedKFold now uses a single check_random_state instance shared across class-specific KFolds, so different seeds change sample partitions while preserving stratification. Public check passed, 61 split tests passed, and semantic edge-case checks passed.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 14
+    }
+  }
+}

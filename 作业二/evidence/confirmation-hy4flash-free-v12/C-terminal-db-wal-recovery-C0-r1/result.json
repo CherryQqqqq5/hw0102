@@ -1,0 +1,8 @@
+{
+  "task": "db-wal-recovery",
+  "wall_seconds": 258.1831702500058,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "db-wal-recovery__zaN82j9/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

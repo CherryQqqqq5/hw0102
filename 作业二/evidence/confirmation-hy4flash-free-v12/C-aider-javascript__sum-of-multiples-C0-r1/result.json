@@ -1,0 +1,10 @@
+{
+  "task": "javascript/sum-of-multiples",
+  "wall_seconds": 109.98036654197494,
+  "exit_status": "Submitted",
+  "submission": "Submit verified sum-of-multiples implementation: public suite passed and edge cases passed.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 1.7904309169971384
+}

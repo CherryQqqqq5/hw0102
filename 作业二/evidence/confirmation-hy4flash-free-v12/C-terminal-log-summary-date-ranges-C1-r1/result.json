@@ -1,0 +1,8 @@
+{
+  "task": "log-summary-date-ranges",
+  "wall_seconds": 158.79455720901024,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "log-summary-date-ranges__PSKrao7/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

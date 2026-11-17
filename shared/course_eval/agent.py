@@ -3,6 +3,7 @@ import json
 import os
 import shlex
 import subprocess
+import tempfile
 import time
 from dataclasses import asdict
 from datetime import datetime
@@ -239,7 +240,9 @@ class CodeBuddyModel(ModelFormatting):
 
     def run_cli(self, command: list[str], prompt: str, environment: dict[str, str], timeout: float):
         started = datetime.now().astimezone()
-        with subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+        # Node.js在POSIX管道上异步写入；强制退出前可能丢失响应末尾及计费回执。
+        with tempfile.TemporaryFile(mode="w+", encoding="utf-8", dir=self.run_dir) as output, \
+             subprocess.Popen(command, stdin=subprocess.PIPE, stdout=output, stderr=subprocess.PIPE,
                               cwd=self.run_dir, env=environment, text=True) as process:
             append_event(self.trace, "cli_process_started", request_id=self.request_id,
                          provider_diagnostics={"cli_pid": process.pid, "output_format": "json",
@@ -247,10 +250,12 @@ class CodeBuddyModel(ModelFormatting):
                             "sdk_first_token_timeout_ms": environment.get("CODEBUDDY_FIRST_TOKEN_TIMEOUT_MS", "1200000"),
                             "sdk_stream_idle_timeout_ms": environment.get("CODEBUDDY_STREAM_TIMEOUT_MS", "1200000")})
             try:
-                stdout, stderr = process.communicate(prompt, timeout=timeout)
+                _, stderr = process.communicate(prompt, timeout=timeout)
             except subprocess.TimeoutExpired as exc:
                 process.kill()
-                exc.output, exc.stderr = process.communicate()
+                _, exc.stderr = process.communicate()
+                output.seek(0)
+                exc.output = output.read()
                 name = self.run_dir.name + "__" + hashlib.md5(str(self.run_dir).encode()).hexdigest() + ".log"
                 home = Path(environment.get("CODEBUDDY_CONFIG_DIR") or str(Path.home() / ".codebuddy"))
                 log = home / "logs" / started.strftime("%Y-%m-%d") / name
@@ -260,7 +265,8 @@ class CodeBuddyModel(ModelFormatting):
                 process.kill()
                 process.wait()
                 raise
-            return subprocess.CompletedProcess(command, process.returncode, stdout, stderr)
+            output.seek(0)
+            return subprocess.CompletedProcess(command, process.returncode, output.read(), stderr)
 
     def query(self, messages: list[dict], **kwargs) -> dict:
         # v2仅剩14秒仍发起请求导致费用未知；三条件共同留60秒完整请求窗口。

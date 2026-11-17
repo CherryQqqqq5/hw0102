@@ -1,0 +1,25 @@
+{
+  "case_id": "codebuddy-stdout-pipe-truncation",
+  "source_batch": "confirmation-hy4flash-free-v12",
+  "source_run_id": "C-swe-pydata__xarray-7393-C0-r2",
+  "request_id": 21,
+  "observed": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout_utf8_bytes": 131072,
+    "complete_json": false,
+    "actual_current_billing_receipt": false,
+    "billing_status": "unknown"
+  },
+  "replay": {
+    "command": "source work/course-hy4flash-env.sh && work/.venv/bin/python work/check_codebuddy_stdout_transport.py",
+    "input": "Returned response 20, with standard JSON whitespace only",
+    "fixture_bytes": 2715699,
+    "old_pipe_bytes": 65536,
+    "regular_file_bytes": 2715699,
+    "parsed_values_and_actual_billing_unchanged": true,
+    "model_calls": 0
+  },
+  "required_behavior": "Capture CLI stdout in a workspace-local regular file; retain timeout diagnostics and reject missing or nonzero actual model fees",
+  "validation_boundary": "Local transport regression passed; no live client request after the new unknown-fee stop"
+}
