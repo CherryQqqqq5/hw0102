@@ -1,0 +1,42 @@
+{
+  "task": {
+    "benchmark": "terminal",
+    "id": "prove-plus-comm",
+    "stratum": "software-engineering",
+    "group": "prove-plus-comm",
+    "difficulty": "easy",
+    "image": "alexgshaw/prove-plus-comm:20251031",
+    "cpus": 1,
+    "memory_mb": 2048,
+    "agent_timeout_seconds": 900.0,
+    "exclude": null,
+    "split": "C",
+    "candidate_scope": {
+      "kind": "files",
+      "artifacts": [
+        "/workspace/plus_comm.v",
+        "/workspace/plus_comm.vo"
+      ],
+      "protected": [],
+      "python": "/usr/bin/python3"
+    },
+    "image_id": "sha256:e26741d01681a9da1beeff8b7b7b65fe2b921b8b122a306a3707a81ebd051f73",
+    "image_digests": [
+      "alexgshaw/prove-plus-comm@sha256:e26741d01681a9da1beeff8b7b7b65fe2b921b8b122a306a3707a81ebd051f73"
+    ]
+  },
+  "phase": "formal",
+  "configuration": "C1",
+  "status": "started",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "protocol_commit": "fadb4083ac1bbf63bec97095d0702943a40f92ff",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 0,
+    "strict_wall": true
+  }
+}

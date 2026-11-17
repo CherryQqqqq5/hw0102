@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "0c7b5ea746d0984d2c6e034c35ca4f58505ffa258477a5cd3625e63b9cd6093d",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": false,
+  "evidence": {
+    "public-suite": {
+      "state": "pending",
+      "returncode": null,
+      "snapshot": null
+    }
+  },
+  "elapsed_seconds": 79.31025516599766
+}

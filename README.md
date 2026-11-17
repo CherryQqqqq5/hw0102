@@ -2,9 +2,9 @@
 
 邱昱宁 · 231880296
 
-2026年11月17日免费复测接电续跑新增25条原评分，当前53/270有效评分（49通过、4失败），另1未评分、216未启动。分布搜索题C0第7请求超时且无实际计费回执，队列停止；主目录512个响应、619条实际用量均核验免费身份和积分0，新增及历史共六笔缺回执费用继续未知。完整比较及新版完整报告未形成。[本次续跑结果](作业二/evidence/hy4flash-v7-recovery2-20261117.md) · [费用与评分汇总](作业二/evidence/hy4flash-v7-recovery2-stopped-summary.json) · [v7协议](作业二/configs/CONFIRMATION_HY4FLASH_PROTOCOL_V7.md) · [精确计划](作业二/configs/confirmation-plan-hy4flash-free-v7.json) · [54次主记录](作业二/evidence/confirmation-hy4flash-free-v7/)
+2026年11月17日，hy4flash-free完成首轮90/270条原评分，82通过、8失败；B0为29/30、C0为28/30、C1为25/30。本次诊断修复后新增37条有效评分，第二轮首题第9请求在600秒内部截止前未完成，缺少计费回执，队列按新增费用未知停止。当前另1条未评分、179条未启动，完整三轮比较及新版完整报告尚未形成。[首轮结果与停止记录](作业二/evidence/hy4flash-v8-20261117.md) · [费用与评分汇总](作业二/evidence/hy4flash-v8-stopped-summary.json) · [v8协议](作业二/configs/CONFIRMATION_HY4FLASH_PROTOCOL_V8.md) · [精确计划](作业二/configs/confirmation-plan-hy4flash-free-v8.json) · [91次主记录](作业二/evidence/confirmation-hy4flash-free-v8/)
 
-v7固定显式代理及本地工具错误分类，16项真实回放与费用负例通过。原28条有效评分及费用保持，本次Go alphametics/C0恢复通过；新增三条有效失败保留，累计四条失败。来源去重累计567请求/561响应、692条实际零积分用量，六笔费用未知保持；累计300次任务尝试上限不变。53条原评分、全部返回费用和15份冻结源码已复算。本次已核实外接电源及防系统睡眠断言，仍出现无输出请求超时，阻塞层未能由现有记录确定。[恢复归档](作业二/evidence/confirmation-hy4flash-free-v7-attempts/) · [六条前序](作业二/evidence/confirmation-hy4flash-free-v7-previous/) · [前次恢复及合盖记录](作业二/evidence/hy4flash-v7-recovery1-20261117.md) · [原停止检查点](作业二/evidence/hy4flash-v7-stop-20261117.md)
+90个已评分位置的947请求全部返回，1120条实际用量均严格核验免费身份、积分0和4096输出上限。含新未评分及九条前序，来源去重累计1017请求/1010响应、1219条实际零积分用量，旧六笔加新增一笔费用未知继续保留。原53条评分及八条累计真实失败均保持，779份来源证据、原评分和15份冻结源码已复核。新增进程诊断通过19项本地回归，真实运行区分了旧“无首块”与新“4096结束后第二段未完成”；客户端诊断不充当计费证明。用户保证持续供电和开盖，接电不作为继续条件。[九条前序](作业二/evidence/confirmation-hy4flash-free-v8-previous/) · [新超时诊断](作业二/evidence/hy4flash-v8-timeout-diagnostics.json) · [旧无输出诊断](作业二/configs/codebuddy-empty-timeout-diagnosis-20261117.md) · [前次停止记录](作业二/evidence/hy4flash-v7-recovery2-20261117.md)
 
 此前CodeBuddy及Boyue的有效评分、未评分、原始失败和用量独立保留，免费服务的成绩不与它们混算。下列两份报告及384条评分属于已完成的历史实验，完整新矩阵结束后更新。历史CodeBuddy确认及JavaScript运行时修复见[原协议](作业二/configs/confirmation-protocol-v3.md)与[原修复说明](作业二/configs/confirmation-runtime-repair-v3.md)。
 

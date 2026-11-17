@@ -1,0 +1,5 @@
+{
+  "reason": "Explicit user retry on 2026-11-17. Preserve prior timeout and unknown cost. Same frozen free model and per-message zero-credit checks. First task recovery.",
+  "time_utc": "2026-11-17T02:10:56.450238+00:00",
+  "protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+}

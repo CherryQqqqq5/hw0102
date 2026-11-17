@@ -1,0 +1,10 @@
+{
+  "task": "go/alphametics",
+  "wall_seconds": 393.10223175000283,
+  "exit_status": "Submitted",
+  "submission": "Verified solver passes the registered public suite; submitting the current implementation.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 12.785447083006147
+}

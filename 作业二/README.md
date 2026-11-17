@@ -2,7 +2,7 @@
 
 邱昱宁 · 231880296　｜　[阅读实验报告](231880296_邱昱宁_作业二.pdf)
 
-接电续跑新增25条有效原评分，当前53/270评分（49通过4失败），另1未评分、216未启动；原生基线B0、共享工具组C0、控制组C1分别18/18、16/17、15/18。分布搜索题C0第7请求无输出超时且费用未知，已停止派发；本次有外接电源和防系统睡眠断言。主目录619条已返回实际用量均为免费型号、零积分，累计六笔缺回执费用继续未知。第二、三轮尚未开始，完整统计及新版最终报告未生成。[本次续跑结果](evidence/hy4flash-v7-recovery2-20261117.md) · [费用与评分汇总](evidence/hy4flash-v7-recovery2-stopped-summary.json) · [冻结协议](configs/CONFIRMATION_HY4FLASH_PROTOCOL_V7.md) · [主记录](evidence/confirmation-hy4flash-free-v7/) · [恢复归档](evidence/confirmation-hy4flash-free-v7-attempts/) · [前次合盖记录](evidence/hy4flash-v7-recovery1-20261117.md) · [共用说明](../shared/CONFIRMATION.md)
+hy4flash-free首轮90条原评分已齐，B0通过29/30、C0通过28/30、C1通过25/30，共82通过、8失败；本次新增37条有效评分。第二轮FEAL/C0第9请求内部第一段达到4096输出上限，第二段开始接收数据但在题目600秒截止前未结束，命令行没有交出完整响应与计费回执，已按新增费用未知停止。当前90/270条评分、1条未评分、179条未启动；完整三轮统计及新版最终报告未生成。来源去重1017请求/1010响应、1219条实际用量均免费零积分；旧六笔与新增一笔缺回执费用继续未知。用户保证持续供电并保持开盖，接电不作为继续条件。[首轮结果与停止记录](evidence/hy4flash-v8-20261117.md) · [费用与评分汇总](evidence/hy4flash-v8-stopped-summary.json) · [冻结协议](configs/CONFIRMATION_HY4FLASH_PROTOCOL_V8.md) · [主记录](evidence/confirmation-hy4flash-free-v8/) · [九条前序](evidence/confirmation-hy4flash-free-v8-previous/) · [新超时诊断](evidence/hy4flash-v8-timeout-diagnostics.json) · [共用说明](../shared/CONFIRMATION.md)
 
 下列报告、数值和案例呈现已完成的历史实验。旧CodeBuddy、创智及各次未评分尝试单独保留，成绩与费用不并入当前免费模型主比较。[历史v3协议](configs/confirmation-protocol-v3.md) · [历史来源计划](configs/confirmation-plan-v3.json) · [原v2记录](evidence/confirmation-v2/)
 

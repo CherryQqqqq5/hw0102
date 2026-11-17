@@ -1,0 +1,10 @@
+{
+  "task": "javascript/house",
+  "wall_seconds": 70.58487258301466,
+  "exit_status": "Submitted",
+  "submission": "House.verse and House.verses implemented; original visible suite passed 14/14 via public-suite verification.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 1.8165608330164105
+}

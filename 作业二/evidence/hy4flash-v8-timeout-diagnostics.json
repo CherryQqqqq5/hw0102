@@ -1,0 +1,27 @@
+{
+  "run_id": "C-terminal-feal-linear-cryptanalysis-C0-r2",
+  "request_id": 9,
+  "source_log_name": "agent__f4d6b58a754ff17b7b24e2ff19e29614.log",
+  "cli_pid": 5927,
+  "completed_native_call": {
+    "source_line": 8177,
+    "event_name": "agent.model_call.completed",
+    "model": "hy4flash-free",
+    "step": 1,
+    "attempt_no": 1,
+    "output_tokens": 4096,
+    "finish_reason": "length",
+    "duration_ms": 25664
+  },
+  "latest_native_stage_at_outer_timeout": "stream_started_without_completion",
+  "native_requests_sent": 2,
+  "native_streams_started": 2,
+  "native_streams_completed": 1,
+  "outer_timeout_seconds": 63.775112083007116,
+  "error_time_cst": "2026-11-17T19:36:25.804368+08:00",
+  "stdout_characters": 0,
+  "stderr_characters": 0,
+  "billing_status": "unknown",
+  "actual_model_credit": null,
+  "scope": "Selected task-scoped client diagnostics only; native log completion does not prove billing. Full SDK logs are not exported."
+}

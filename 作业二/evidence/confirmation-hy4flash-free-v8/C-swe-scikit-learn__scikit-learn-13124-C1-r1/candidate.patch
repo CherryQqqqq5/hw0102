@@ -1,0 +1,17 @@
+diff --git a/sklearn/model_selection/_split.py b/sklearn/model_selection/_split.py
+index 24394f869..e967abb5b 100644
+--- a/sklearn/model_selection/_split.py
++++ b/sklearn/model_selection/_split.py
+@@ -621,6 +621,12 @@ class StratifiedKFold(_BaseKFold):
+ 
+     def _make_test_folds(self, X, y=None):
+         rng = self.random_state
++        if self.shuffle:
++            # A single RandomState instance must be shared by the per-class
++            # KFold splitters. If an integer seed were passed directly to each
++            # splitter, every class would be permuted in the same way and
++            # shuffling would only reorder the resulting folds.
++            rng = check_random_state(self.random_state)
+         y = np.asarray(y)
+         type_of_target_y = type_of_target(y)
+         allowed_target_types = ('binary', 'multiclass')
