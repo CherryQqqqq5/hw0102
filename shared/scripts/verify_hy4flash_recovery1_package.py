@@ -8,17 +8,19 @@ from zipfile import ZipFile
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--recovery", type=int, choices=(1, 2, 3, 4, 5), default=1)
+parser.add_argument("--recovery", type=int, choices=(1, 2, 3, 4, 5, 6), default=1)
 args = parser.parse_args()
-if args.recovery == 4:
-    stem = "hy4flash-v9-repair"
-    archive_path = Path("outputs/作业一二_hy4flash_v9截断修复停止证据_20261117.zip")
+if args.recovery in (4, 6):
+    earlier = args.recovery == 4
+    stem = "hy4flash-v9-repair" if earlier else "hy4flash-v11"
+    label = "v9截断修复" if earlier else "v11序列化修复"
+    archive_path = Path(f"outputs/作业一二_hy4flash_{label}停止证据_20261117.zip")
     published = Path("work/hw0102-publish")
-    destination = Path("work/verified-hy4flash-v9-repair-package")
+    destination = Path(f"work/verified-{stem}-package")
     destination.mkdir(exist_ok=False)
     summary_name = f"作业二/evidence/{stem}-stopped-summary.json"
     summary = json.loads((published / summary_name).read_text())
-    historical_name = "作业一二_hy4flash_v8首轮停止证据_20261117.zip"
+    historical_name = "作业一二_hy4flash_v8首轮停止证据_20261117.zip" if earlier else "作业一二_hy4flash_v10原题验证停止证据_20261117.zip"
     with ZipFile(archive_path) as archive:
         assert archive.testzip() is None
         names = archive.namelist()
@@ -31,22 +33,61 @@ if args.recovery == 4:
             assert archive.read(relative) == (Path("outputs") / Path(relative).name).read_bytes()
         assert archive.read("history/" + historical_name) == (Path("outputs") / historical_name).read_bytes()
         archive.extractall(destination)
-    frozen = destination / "history/v8"
+    version = 8 if earlier else 10
+    frozen = destination / f"history/v{version}"
     with ZipFile(destination / "history" / historical_name) as archive:
         assert archive.testzip() is None
         assert all(not Path(name).is_absolute() and ".." not in Path(name).parts for name in archive.namelist())
         archive.extractall(frozen)
     shared = (frozen / "shared").resolve()
     command = [str(Path("work/.venv/bin/python").absolute()), "scripts/verify_free_stopped_run.py",
-        "--runs", "../作业二/evidence/confirmation-hy4flash-free-v8",
-        "--previous-runs", "../作业二/evidence/confirmation-hy4flash-free-v8-previous",
-        "--summary", "../作业二/evidence/hy4flash-v8-stopped-summary.json",
-        "--plan", "../作业二/configs/confirmation-plan-hy4flash-free-v8.json"]
+        "--runs", f"../作业二/evidence/confirmation-hy4flash-free-v{version}",
+        "--previous-runs", f"../作业二/evidence/confirmation-hy4flash-free-v{version}-previous",
+        "--summary", f"../作业二/evidence/hy4flash-v{version}-stopped-summary.json",
+        "--plan", f"../作业二/configs/confirmation-plan-hy4flash-free-v{version}.json"]
     process = subprocess.run(command, cwd=shared, env=os.environ | {"PYTHONPATH": str(shared)},
                              capture_output=True, text=True, check=True)
     verification = json.loads(process.stdout)
     assert verification["scored"] == 90 and verification["passed"] == 82
-    assert verification["new_missing_receipts"] + verification["historical_missing_receipts"] == 7
+    assert verification["new_missing_receipts"] + verification["historical_missing_receipts"] == (7 if earlier else 8)
+    if not earlier:
+        from course_eval.codebuddy_free import verify_free_response
+
+        probe_log = destination / "作业二/evidence/codebuddy-single-turn-probe-v11/model.jsonl"
+        events = [json.loads(line) for line in probe_log.read_text().splitlines()]
+        responses = [event for event in events if event["event"] == "response"]
+        errors = [event for event in events if event["event"] == "request_error"]
+        assert sum(event["event"] == "request" for event in events) == 2
+        assert len(responses) == len(errors) == 1
+        assert verify_free_response(responses[0]["payload"])["credit"] == 0
+        assert errors[0]["request_id"] == 2 and errors[0]["billing_status"] == "unknown"
+        assert summary["failure"]["actual_model_credit"] is None
+        assert summary["total_unknown_cli_requests"] == 10
+        assert summary["corrected_client_live_validation"] is False and summary["formal_v11_launched"] is False
+        assert summary["new_model_requests_after_stop"] == summary["new_formal_positions"] == 0
+        patch = json.loads((destination / "作业二/configs/codebuddy-external-recovery-patch.json").read_text())
+        assert hashlib.sha256((destination / "shared/course_eval/codebuddy_free.py").read_bytes()).hexdigest() == patch["billing_validator_sha256"]
+        assert patch["patched_sha256"].startswith("a52932ce")
+        replay = json.loads((destination / "作业二/evidence/hy4flash-v11-render-replay.json").read_text())
+        assert replay["actual_export_maps_verified"] and replay["failed_cf1edc0d_namespace_rejected"]
+        assert verify_free_response(replay["fixed"]["payload"])["credit"] == 0
+        for name in ("missing_receipt", "paid_receipt"):
+            try:
+                verify_free_response(replay[name]["payload"])
+            except ValueError:
+                pass
+            else:
+                raise AssertionError("Offline replay weakened actual fee validation: " + name)
+        result = {"archive": str(archive_path), "bytes": archive_path.stat().st_size, "members": len(names),
+            "integrity": "passed", "historical_reports_match": True, "v10_archive_preserved_byte_for_byte": True,
+            "frozen_v10_recomputation": verification, "new_preparation_requests": 2,
+            "new_returned_zero_credit_responses": 1, "new_missing_receipts_preserved": 1,
+            "total_unknown_cli_requests": 10, "actual_export_map_regression_verified": True,
+            "corrected_client_live_validation": False,
+            "scope": "Serialization repair preparation stop; no new formal score and no completed 270-position matrix"}
+        Path(f"work/{stem}-package-verification.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
+        print(json.dumps(result, ensure_ascii=False))
+        raise SystemExit(0)
     probe_log = destination / "作业二/evidence/codebuddy-single-turn-probe-v9/truncated-64/model.jsonl"
     events = [json.loads(line) for line in probe_log.read_text().splitlines()]
     assert sum(event["event"] == "request" for event in events) == 1

@@ -1,0 +1,36 @@
+diff --git a/work/codebuddy-terminal-response-v11/codebuddy-headless.formatted.js b/work/codebuddy-terminal-response-v11/codebuddy-headless.failed-cf1edc0d.js
+index bb557a4..4f9995b 100644
+--- a/work/codebuddy-terminal-response-v11/codebuddy-headless.formatted.js
++++ b/work/codebuddy-terminal-response-v11/codebuddy-headless.failed-cf1edc0d.js
+@@ -1504,3 +1504,30 @@ ${this.usage()}`),ec=1}await (0,rU.hU)(2e3),process.exit(ec)}getCleanupArgs(){le
+         }
+-        await this.waitForResultCompletion(eA, ep);
++        try {
++          await this.waitForResultCompletion(eA, ep);
++        } catch (error) {
++          if (
++            process.env.COURSE_CODEBUDDY_EXTERNAL_RECOVERY !== "1" ||
++            ec !== "json" ||
++            !eb.isMaxTurnsExceededError(error)
++          ) {
++            throw error;
++          }
++          // 等待原生流和历史处理完成，只输出已有回执，不补造计费字段。
++          await eb.getStreamPhysicalCompletion(ep);
++          await eb.waitForSessionResultProcessing(eA, ep);
++          const events = this.toSerializableArray(eA);
++          const terminal = events[events.length - 1];
++          terminal.subtype = "error_max_turns";
++          terminal.is_error = true;
++          terminal.result = eb.ErrorUtils.getErrorMessage(error);
++          terminal.errors = [...(terminal.errors ?? []), terminal.result];
++          delete terminal.structured_output;
++          ev.Context.getResponse().setHeader(
++            eE.HttpHeaders.CONTENT_TYPE,
++            this.jsonView.contentType,
++          );
++          this.logger.info("[CourseTerminalResponse] serialized_max_turns_history");
++          await this.jsonView.render(events, el);
++          return;
++        }
+       }

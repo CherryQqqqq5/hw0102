@@ -2,9 +2,9 @@
 
 邱昱宁 · 231880296
 
-2026年11月17日，两次真实免费准备验证完成后，FEAL/C0第二轮第2次请求stdout空、缺少实际计费回执，已立即停止。有效原评分保持90/270，82通过、8失败，仍缺180评分。准备输出4096/151词元、实际积分0且无内部追加；原题暴露客户端等待轮数异常后未执行响应序列化的另一输出缺口，原题验证未通过。[本次停止报告](作业二/evidence/hy4flash-v10-stop-20261117.md) · [评分与费用汇总](作业二/evidence/hy4flash-v10-stopped-summary.json) · [冻结协议](作业二/configs/confirmation-protocol-v10.md)
+2026年11月17日，轮数异常响应补丁的真实准备验证出现新的缺回执请求，已立即停止。首次相同FEAL输入返回1783词元完整动作、实际积分0；原生读取用例触发轮数异常后，错误的模块引用再次阻断输出，新增费用未知。当前a52932ce补丁已按真实导出表修正，8项本地检查和22项费用回归通过，修正后尚未再次真实验证。有效原评分保持90/270、82通过8失败，仍缺180评分。[停止报告](作业二/evidence/hy4flash-v11-stop-20261117.md) · [本次汇总](作业二/evidence/hy4flash-v11-stopped-summary.json) · [当前补丁](作业二/configs/codebuddy-terminal-response-v11.patch)
 
-本轮新增4次请求，3次有实际零积分证明，1次未知。旧8笔加新增1笔，共9次命令行请求费用未知；正式来源去重1019请求/1011响应、1220条实际免费零积分用量。八条真实失败及1347份原始来源保持，21项回归通过，原计费校验器逐字节保持。两份课程报告仍为历史版本，完整新三轮报告未生成。[原90评分与费用](作业二/evidence/hy4flash-v8-stopped-summary.json) · [来源与恢复验证](作业二/evidence/hy4flash-v10-resume-validation.json) · [准备验证范围](作业二/evidence/hy4flash-recovery-validation-v10.json)
+本轮新增2次请求，1次有实际零积分证明、1次未知；旧9笔加新增1笔，共10次命令行请求费用未知。原正式来源1019请求/1011响应、1220条已返回实际免费零积分用量及八项真实失败保持。原计费校验器逐字节保持，本轮没有正式新评分，也未完成4096及原题的真实复核。两份课程报告仍为历史版本，完整新三轮报告未生成。[原90评分与费用](作业二/evidence/hy4flash-v10-stopped-summary.json) · [补丁版本及验证边界](作业二/configs/codebuddy-external-recovery-patch.json)
 
 此前CodeBuddy及Boyue的有效评分、未评分、原始失败和用量独立保留，免费服务的成绩不与它们混算。下列两份报告及384条评分属于已完成的历史实验，完整新矩阵结束后更新。历史CodeBuddy确认及JavaScript运行时修复见[原协议](作业二/configs/confirmation-protocol-v3.md)与[原修复说明](作业二/configs/confirmation-runtime-repair-v3.md)。
 

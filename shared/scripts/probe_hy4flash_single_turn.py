@@ -1,6 +1,5 @@
 import hashlib
 import json
-import time
 from datetime import datetime
 from pathlib import Path
 
@@ -8,38 +7,29 @@ from minisweagent.exceptions import FormatError
 
 from course_eval.agent import CodeBuddyModel, RunLimits
 from course_eval.codebuddy_free import verify_free_response
-from course_eval.controller import Budget
+from course_eval.controller import Budget, ControlModel
 
 
-root = Path("work/codebuddy-single-turn-probe-v10")
-root.mkdir(exist_ok=True)
-model = CodeBuddyModel(root, RunLimits(model_calls=2, wall_seconds=600,
+root = Path("work/codebuddy-single-turn-probe-v11")
+root.mkdir(exist_ok=False)
+model = ControlModel(root, RunLimits(model_calls=2, wall_seconds=600,
     max_output_tokens=4096, strict_wall=True), "{{output}}")
 model.budget = Budget(600)
-existing = [json.loads(line) for line in model.trace.read_text().splitlines()] if model.trace.exists() else []
-if existing:
-    request, = [event for event in existing if event["event"] == "request"]
-    assert request["request_id"] == 1
-    model.budget.deadline -= time.time() - request["time"]
-    model.request_id = 1
-    replay_dir = root.with_name(root.name + "-recorded-replay")
-    replay_dir.mkdir(exist_ok=False)
-    replay_model = CodeBuddyModel(replay_dir, model.limits, "{{output}}")
-    replay_model.request_id = 1
 headless = model.cli.parents[1] / "dist/codebuddy-headless.js"
-assert hashlib.sha256(headless.read_bytes()).hexdigest() == "13a753853deca12c96eba94598a855f76f45f89ae7b790b2d7b2f68932cdb111"
+assert hashlib.sha256(headless.read_bytes()).hexdigest() == "cf1edc0d2fc5cf2cb9ee680f381ba379967a27e408b387e3714ca4b9349a2cb2"
 assert hashlib.sha256(Path("course_eval/codebuddy_free.py").read_bytes()).hexdigest() == "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28"
-messages = [{"role": "system", "content": "Select one structured bash command; do not execute it."},
-    {"role": "user", "content": "Return one StructuredOutput action. Its command must be echo followed by every literal integer from 1 through 6000 in ascending order, separated by single spaces. Include all 6000 integers literally in the command field. Do not use ellipses, loops, scripts, generators, substitutions, repetition expressions, or abbreviations."}]
+source_root = Path("work/vmshare/confirmation-hy4flash-free-v10/C-terminal-feal-linear-cryptanalysis-C0-r2")
+source_log, = source_root.rglob("model.jsonl")
+source_events = [json.loads(line) for line in source_log.read_text().splitlines()]
+source_request, = [event for event in source_events if event["event"] == "request" and event["request_id"] == 2]
+assert model.argument_type.model_json_schema() == source_request["schema"]
+messages = [{"role": "system", "content": source_request["system"].rsplit("\nYou are selecting", 1)[0]},
+    *source_request["history"]]
 records = []
-for name in ("truncated-4096", "outer-recovery-4096"):
+for name in ("matched-4096-max-turns", "outer-recovery-4096"):
     format_error = None
     try:
-        if name == "truncated-4096" and existing:
-            saved_response, = [event for event in existing if event["event"] == "response"]
-            action = replay_model.process_response(saved_response["payload"])
-        else:
-            action = model.query(messages)
+        action = model.query(messages)
     except FormatError as exc:
         format_error = exc
         action = None
@@ -59,22 +49,26 @@ for name in ("truncated-4096", "outer-recovery-4096"):
     assert diagnostic["truncation_retries"] == diagnostic["structured_output_retries"] == 0, diagnostic
     assert len({item["messageId"] for item in usage}) == 1, usage
     assert all(0 <= item["rawUsage"]["completion_tokens"] <= 4096 for item in usage), usage
-    if name == "truncated-4096":
+    if name == "matched-4096-max-turns":
+        sent, = [event for event in current if event["event"] == "request"]
+        assert all(sent[key] == source_request[key] for key in ("system", "history", "schema"))
         assert format_error is not None, "The real response did not exercise truncation recovery"
         assert any(item["rawUsage"]["completion_tokens"] == 4096 for item in usage), usage
+        terminal, = [event for event in response["payload"] if event.get("type") == "result"]
+        assert terminal["subtype"] == "error_max_turns" and terminal["is_error"] is True, terminal["subtype"]
         messages.extend(format_error.messages)
-        messages.append({"role": "user", "content": "The truncation exercise is complete. Replace the long command with exactly one short StructuredOutput action whose command is printf COURSE_SINGLE_TURN_OK."})
+        messages.append({"role": "user", "content": "The interface truncation exercise is complete. Return exactly one short StructuredOutput action: operation is bash and command is printf COURSE_SINGLE_TURN_OK. Do not continue solving the benchmark in this interface probe."})
     else:
         assert format_error is None, "The shorter recovery action was still invalid"
         assert action["extra"]["actions"][0]["command"] == "printf COURSE_SINGLE_TURN_OK"
     records.append({"case": name, "max_output_tokens": 4096, "action": action,
-        "validation": "Actual first receipt replayed after generic output-cap repair"
-            if name == "truncated-4096" and existing else "Live request",
+        "validation": "Live request",
         "format_error_messages": list(format_error.messages) if format_error else [],
         "billing": proof, "completion_tokens": [item["rawUsage"]["completion_tokens"] for item in usage],
         "transport_diagnostic": diagnostic})
-    (root / "summary.json").write_text(json.dumps({"scope": "Synthetic interface probes; not benchmark scores",
-        "actual_cli_requests": len(records), "historical_unknown_cli_requests": 8,
+    (root / "summary.json").write_text(json.dumps({"scope": "Matched original failing request and short interface recovery; no commands executed and no benchmark scores",
+        "matched_source_request": {"batch": source_root.parent.name, "run_id": source_root.name, "request_id": 2},
+        "actual_cli_requests": len(records), "historical_unknown_cli_requests": 9,
         "max_preparation_cli_requests": 2, "shared_wall_seconds": 600,
         "client_sha256": hashlib.sha256(headless.read_bytes()).hexdigest(), "records": records},
         ensure_ascii=False, indent=2) + "\n")

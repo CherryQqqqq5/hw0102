@@ -1,0 +1,9 @@
+{
+  "check": "upstream and range-formatted JavaScript have identical normalized Babel syntax trees",
+  "status": "passed",
+  "upstream_ast": "e1415d4054b2913687952e5e1f27db17c87bae054cdf3ed62d9d03e27a065693",
+  "formatted_ast": "e1415d4054b2913687952e5e1f27db17c87bae054cdf3ed62d9d03e27a065693",
+  "normalization": "Prettier's own JavaScript AST massage used by --debug-check",
+  "standard_debug_check": "Prettier CLI failed to serialize a BigInt; this check retains BigInt values explicitly",
+  "model_calls": 0
+}

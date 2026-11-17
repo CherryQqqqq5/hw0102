@@ -8,10 +8,10 @@ from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--recovery", type=int, choices=(1, 2, 3, 4, 5), default=1)
+parser.add_argument("--recovery", type=int, choices=(1, 2, 3, 4, 5, 6), default=1)
 args = parser.parse_args()
 root = Path("work/hw0102-publish")
-label = {1: "恢复补充证据", 2: "接电续跑停止证据", 3: "_v8首轮停止证据", 4: "_v9截断修复停止证据", 5: "_v10原题验证停止证据"}[args.recovery]
+label = {1: "恢复补充证据", 2: "接电续跑停止证据", 3: "_v8首轮停止证据", 4: "_v9截断修复停止证据", 5: "_v10原题验证停止证据", 6: "_v11序列化修复停止证据"}[args.recovery]
 output = Path(f"outputs/作业一二_hy4flash{label}_20261117.zip")
 staged = output.with_suffix(".zip.part")
 tracked = [os.fsdecode(name) for name in subprocess.check_output(
@@ -43,6 +43,13 @@ if args.recovery == 5:
                     "作业二/evidence/hy4flash-recovery-validation-v10.json",
                     "作业一/231880296_邱昱宁_作业一.pdf", "作业二/231880296_邱昱宁_作业二.pdf"}]
     historical = Path("outputs/作业一二_hy4flash_v9截断修复停止证据_20261117.zip")
+if args.recovery == 6:
+    names = [name for name in tracked if name == "README.md"
+        or name.startswith(("shared/", "作业二/configs/", "作业二/evidence/hy4flash-v11-",
+                            "作业二/evidence/codebuddy-single-turn-probe-v11/"))
+        or name in {"作业一/README.md", "作业二/README.md",
+                    "作业一/231880296_邱昱宁_作业一.pdf", "作业二/231880296_邱昱宁_作业二.pdf"}]
+    historical = Path("outputs/作业一二_hy4flash_v10原题验证停止证据_20261117.zip")
 
 
 def load_file(name):
@@ -57,11 +64,11 @@ with ZipFile(staged, "w") as archive:
     with ThreadPoolExecutor(max_workers=8) as executor:
         for info, payload in executor.map(load_file, names):
             archive.writestr(info, payload, compress_type=ZIP_DEFLATED, compresslevel=6)
-    if args.recovery in (4, 5):
+    if args.recovery in (4, 5, 6):
         archive.write(historical, "history/" + historical.name)
 with ZipFile(staged) as archive:
     assert archive.testzip() is None
 staged.replace(output)
-print(json.dumps({"archive": str(output), "files": len(names) + (args.recovery in (4, 5)), "bytes": output.stat().st_size,
+print(json.dumps({"archive": str(output), "files": len(names) + (args.recovery in (4, 5, 6)), "bytes": output.stat().st_size,
                   "published_commit": commit,
                   "scope": "Shared code, configurations, all free-batch sources and recovery evidence; earlier full historical package remains separate"}, ensure_ascii=False))

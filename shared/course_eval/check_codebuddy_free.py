@@ -301,6 +301,28 @@ class FreeResponseChecks(unittest.TestCase):
             with self.subTest(change=change), self.assertRaisesRegex(RuntimeError, "billing validation"):
                 self.model().process_response(modified)
 
+    def test_serialized_terminal_failure_preserves_fee_before_recovery(self):
+        # 只变更已录制回执的终止元数据，检查原实际费用证明仍先于恢复。
+        payload = copy.deepcopy(self.free)
+        terminal, = [event for event in payload if event.get("type") == "result"]
+        terminal.update(subtype="error_max_turns", is_error=True)
+        terminal.pop("structured_output", None)
+        self.assertEqual(verify_free_response(payload), verify_free_response(self.free))
+        model = self.model()
+        with self.assertRaises(FormatError):
+            model.process_response(payload)
+        recorded = [json.loads(line) for line in model.trace.read_text().splitlines()]
+        self.assertEqual(recorded[0]["event"], "billing_verified")
+        for change in ("missing", "nonzero"):
+            modified = copy.deepcopy(payload)
+            billed = next(event for event in modified if "rawUsage" in event.get("providerData", {}))
+            if change == "missing":
+                del billed["providerData"]["rawUsage"]
+            else:
+                billed["providerData"]["rawUsage"]["credit"] = 0.1
+            with self.subTest(change=change), self.assertRaisesRegex(RuntimeError, "billing validation"):
+                self.model().process_response(modified)
+
 
 if __name__ == "__main__":
     unittest.main()

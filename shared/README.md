@@ -1,6 +1,6 @@
 # 共用评测代码与复现
 
-免费客户端的真实4096工具参数截断及151词元外层短动作恢复通过，21项回归通过。原FEAL/C0第二轮第2次请求在客户端等待轮数异常后未返回计费响应，已立即停止；该响应序列化缺口尚未修复。原90条评分保持，九次缺回执费用未知，仍缺180评分。[停止报告](../作业二/evidence/hy4flash-v10-stop-20261117.md) · [当前冻结协议](../作业二/configs/confirmation-protocol-v10.md) · [准备验证范围](../作业二/evidence/hy4flash-recovery-validation-v10.json)
+当前轮数异常响应补丁a52932ce按实际模块导出修正，8项本地检查和22项费用回归通过；修正后真实模型验证未进行。此前准备的第二请求因错误模块引用无计费响应，已立即停止，未知费用合计10笔。原90条评分含8失败保持，仍缺180评分。[停止报告](../作业二/evidence/hy4flash-v11-stop-20261117.md) · [当前补丁](../作业二/configs/codebuddy-terminal-response-v11.patch) · [原正式协议](../作业二/configs/confirmation-protocol-v10.md)
 
 新增30道独立题目的B0/C0/C1确认实验使用单独的[冻结协议与复现入口](CONFIRMATION.md)。下文保留原45题实验的参数与复算方法。
 
