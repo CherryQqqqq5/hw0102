@@ -1,0 +1,47 @@
+{
+  "scope": "One actual matched interface request; no returned benchmark action executed or original score",
+  "source_batch": "confirmation-hy4flash-free-v12",
+  "source_run_id": "C-swe-pydata__xarray-7393-C0-r2",
+  "source_request_id": 21,
+  "actual_cli_requests": 1,
+  "historical_unknown_cli_requests": 11,
+  "stdout_utf8_bytes": 169448,
+  "complete_json_and_terminal_event": true,
+  "billing": {
+    "request_model": "hy4flash-free",
+    "provider_model": "hy4-flash-free",
+    "credit": 0,
+    "usage_records": 1,
+    "local_cli_errors": []
+  },
+  "action": {
+    "role": "assistant",
+    "content": "The fix passes the public check and the broader suites. I’ll make one small style adjustment so the new line matches the project’s formatting conventions, then re-verify and save the final candidate.",
+    "tool_calls": [
+      {
+        "type": "function",
+        "id": "codebuddy-1",
+        "function": {
+          "name": "action",
+          "arguments": "{\"operation\":\"bash\",\"command\":\"cd /testbed && python3 - <<'PY'\\nfrom pathlib import Path\\npath = Path('xarray/core/indexing.py')\\ntext = path.read_text()\\nold = '            return np.asarray(self.array.get_level_values(self.level).values, dtype=dtype)\\\\n'\\nnew = '''            return np.asarray(\\n                self.array.get_level_values(self.level).values, dtype=dtype\\n            )\\n'''\\nif old not in text:\\n    raise SystemExit('target line not found')\\npath.write_text(text.replace(old, new, 1))\\nPY\\nnl -ba xarray/core/indexing.py | sed -n '1531,1542p'\\nawk 'length > 88 {print FNR \\\":\\\" length \\\":\\\" $0}' xarray/core/indexing.py | grep '^153[0-9]:' || true\\nprintf '\\\\n--- reproducer ---\\\\n'\\n/opt/miniconda3/envs/testbed/bin/python - <<'PY'\\nimport numpy as np\\nimport xarray as xr\\nds = xr.Dataset(coords={'a': np.array([0], dtype='i4')})\\nstacked = ds.stack(b=('a',))\\nassert ds['a'].values.dtype == stacked['a'].values.dtype == np.dtype('int32')\\nprint('int32 stack dtype preserved:', True)\\nPY\",\"check_id\":null,\"candidate_id\":null,\"note\":\"Format the dtype-preserving MultiIndex adapter change and re-run the minimal reproducer.\"}"
+        }
+      }
+    ],
+    "extra": {
+      "actions": [
+        {
+          "operation": "bash",
+          "command": "cd /testbed && python3 - <<'PY'\nfrom pathlib import Path\npath = Path('xarray/core/indexing.py')\ntext = path.read_text()\nold = '            return np.asarray(self.array.get_level_values(self.level).values, dtype=dtype)\\n'\nnew = '''            return np.asarray(\n                self.array.get_level_values(self.level).values, dtype=dtype\n            )\n'''\nif old not in text:\n    raise SystemExit('target line not found')\npath.write_text(text.replace(old, new, 1))\nPY\nnl -ba xarray/core/indexing.py | sed -n '1531,1542p'\nawk 'length > 88 {print FNR \":\" length \":\" $0}' xarray/core/indexing.py | grep '^153[0-9]:' || true\nprintf '\\n--- reproducer ---\\n'\n/opt/miniconda3/envs/testbed/bin/python - <<'PY'\nimport numpy as np\nimport xarray as xr\nds = xr.Dataset(coords={'a': np.array([0], dtype='i4')})\nstacked = ds.stack(b=('a',))\nassert ds['a'].values.dtype == stacked['a'].values.dtype == np.dtype('int32')\nprint('int32 stack dtype preserved:', True)\nPY",
+          "check_id": null,
+          "candidate_id": null,
+          "note": "Format the dtype-preserving MultiIndex adapter change and re-run the minimal reproducer.",
+          "tool_call_id": "codebuddy-1"
+        }
+      ],
+      "request_id": 1
+    }
+  },
+  "format_error": null,
+  "model_requests_after_new_unknown": 0,
+  "agent_sha256": "9655b07236f183ce75d38e56b4eb1046a143d82c5f0c1d8bf25833ecf899a5f9"
+}
