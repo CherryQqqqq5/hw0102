@@ -277,6 +277,30 @@ class FreeResponseChecks(unittest.TestCase):
         self.assertEqual(exported["diagnostic"]["message"], saved["stderr"].strip())
         self.assertEqual(exported["billing_status"], "unknown")
 
+    def test_real_capped_structured_success_requires_outer_recovery(self):
+        path = Path("evals/regression_cases/codebuddy-capped-structured-success/model.jsonl")
+        events = [json.loads(line) for line in path.read_text().splitlines()]
+        payload, = [event["payload"] for event in events if event["event"] == "response"]
+        final, = [event for event in payload if event.get("type") == "result"]
+        self.assertEqual(final["subtype"], "success")
+        self.assertTrue(final["structured_output"]["command"].endswith(" 689"))
+        self.assertEqual(verify_free_response(payload)["credit"], 0)
+        model = self.model()
+        with self.assertRaises(FormatError):
+            model.process_response(payload)
+        recorded = [json.loads(line) for line in model.trace.read_text().splitlines()]
+        self.assertEqual([event["event"] for event in recorded], ["billing_verified", "output_cap_reached"])
+        self.assertEqual(recorded[-1]["completion_tokens"], 4096)
+        for change in ("missing", "nonzero"):
+            modified = copy.deepcopy(payload)
+            billed = next(event for event in modified if "rawUsage" in event.get("providerData", {}))
+            if change == "missing":
+                del billed["providerData"]["rawUsage"]
+            else:
+                billed["providerData"]["rawUsage"]["credit"] = 0.1
+            with self.subTest(change=change), self.assertRaisesRegex(RuntimeError, "billing validation"):
+                self.model().process_response(modified)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -341,6 +341,21 @@ class CodeBuddyModel(ModelFormatting):
             if local_errors:
                 append_event(self.trace, "local_cli_error", request_id=self.request_id,
                              local_cli_errors=local_errors)
+            # SDK可能把截断的工具参数补成合法JSON；最后一段达到上限时不执行动作。
+            last_usage = [event["providerData"]["rawUsage"] for event in raw
+                          if "rawUsage" in event.get("providerData", {})][-1]
+            completion_tokens = last_usage.get("completion_tokens")
+            if not isinstance(completion_tokens, int) or isinstance(completion_tokens, bool):
+                raise RuntimeError("Free model returned no valid completion-token count")
+            if completion_tokens > self.limits.max_output_tokens:
+                raise RuntimeError("Free model exceeded the configured output limit")
+            if completion_tokens == self.limits.max_output_tokens:
+                append_event(self.trace, "output_cap_reached", request_id=self.request_id,
+                             configured_max_output_tokens=self.limits.max_output_tokens,
+                             completion_tokens=completion_tokens)
+                raise FormatError({"role": "user", "content":
+                    "The last model output reached the token limit and its action may be incomplete. Return one complete, shorter structured action.",
+                    "extra": {"request_id": self.request_id}})
         results = [event for event in raw if event.get("type") == "result"]
         if len(results) != 1:
             raise RuntimeError("CodeBuddy must return exactly one final result")

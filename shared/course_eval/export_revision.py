@@ -17,7 +17,7 @@ MODEL_FIELDS = {"event", "time", "request_id", "attempt", "model", "system", "hi
                 "timeout_seconds", "returncode", "http_status", "protocol_commit", "transport",
                 "provider_diagnostics", "call_id", "ok", "timeout", "response_body", "retry_after", "seconds",
                 "request_model", "provider_model", "credit", "usage_records", "detail",
-                "configured_max_output_tokens", "local_cli_errors", "failure_category", "billing_status",
+                "configured_max_output_tokens", "completion_tokens", "local_cli_errors", "failure_category", "billing_status",
                 "proxy_environment_configured", "proxy_config_file_disabled"}
 RESULT_FIELDS = {"type", "subtype", "is_error", "num_turns", "total_cost_usd", "usage", "result",
                  "structured_output", "duration_ms", "duration_api_ms"}
