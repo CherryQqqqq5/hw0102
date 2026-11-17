@@ -1,9 +1,11 @@
+import hashlib
 import json
 import os
 import shlex
 import subprocess
 import time
 from dataclasses import asdict
+from datetime import datetime
 from pathlib import Path
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
@@ -65,6 +67,8 @@ class ModelFormatting:
                 if isinstance(exc, subprocess.TimeoutExpired):
                     diagnostics = {key: value.decode("utf-8", errors="replace") if isinstance(value, bytes) else value
                                    for key, value in {"stdout": exc.stdout or "", "stderr": exc.stderr or ""}.items()}
+                    if hasattr(exc, "provider_diagnostics"):
+                        diagnostics["provider_diagnostics"] = exc.provider_diagnostics
                 effective_timeout = exc.timeout if isinstance(exc, subprocess.TimeoutExpired) else timeout_seconds
                 append_event(self.trace, "request_error", **identity, error_type=type(exc).__name__,
                              timeout_seconds=effective_timeout, **diagnostics)
@@ -193,6 +197,66 @@ class CodeBuddyModel(ModelFormatting):
             environment.pop("CODEBUDDY_FALLBACK_MODEL", None)
         return environment
 
+    @staticmethod
+    def inspect_cli_log(path: Path, child_pid: int) -> dict:
+        # 只提取本次子进程的阶段和存活记录；客户端日志不能证明模型费用。
+        if not path.exists():
+            return {"cli_pid": child_pid, "log_status": "missing", "billing_status": "unknown"}
+        lines = path.read_text(errors="replace").splitlines()
+        marker = f"[pid={child_pid}]"
+        stages = {"model_requests_sent": "Sending request:", "streams_started": "qua.start:",
+                  "first_raw_chunks": "First raw chunk received:",
+                  "completed_streams": "Stream completed:", "retry_notices": "backing off and retrying:",
+                  "event_loop_ticks": "[WorkflowMemProbe] tick"}
+        counts = {name: 0 for name in stages}
+        stage = "before_model_request"
+        last_tick = None
+        source_lines = []
+        for index, line in enumerate(lines, 1):
+            if marker not in line or not line.startswith("["):
+                continue
+            for name, text in stages.items():
+                if text not in line:
+                    continue
+                counts[name] += 1
+                source_lines.append(index)
+                if name == "model_requests_sent":
+                    stage = "awaiting_first_stream_chunk"
+                elif name == "first_raw_chunks":
+                    stage = "stream_started_without_completion"
+                elif name == "completed_streams":
+                    stage = "model_stream_completed_before_cli_exit"
+                if name == "event_loop_ticks":
+                    last_tick = line.split("]", 1)[0].removeprefix("[")
+        return {"cli_pid": child_pid, "log_status": "read", "log_name": path.name,
+                "stage": stage, **counts, "last_event_loop_tick": last_tick,
+                "source_line_numbers": source_lines, "billing_status": "unknown",
+                "scope": "Client transport diagnostics only; no model billing inference"}
+
+    def run_cli(self, command: list[str], prompt: str, environment: dict[str, str], timeout: float):
+        started = datetime.now().astimezone()
+        with subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                              cwd=self.run_dir, env=environment, text=True) as process:
+            append_event(self.trace, "cli_process_started", request_id=self.request_id,
+                         provider_diagnostics={"cli_pid": process.pid, "output_format": "json",
+                            "sdk_first_token_timeout_ms": environment.get("CODEBUDDY_FIRST_TOKEN_TIMEOUT_MS", "1200000"),
+                            "sdk_stream_idle_timeout_ms": environment.get("CODEBUDDY_STREAM_TIMEOUT_MS", "1200000")})
+            try:
+                stdout, stderr = process.communicate(prompt, timeout=timeout)
+            except subprocess.TimeoutExpired as exc:
+                process.kill()
+                exc.output, exc.stderr = process.communicate()
+                name = self.run_dir.name + "__" + hashlib.md5(str(self.run_dir).encode()).hexdigest() + ".log"
+                home = Path(environment.get("CODEBUDDY_CONFIG_DIR") or str(Path.home() / ".codebuddy"))
+                log = home / "logs" / started.strftime("%Y-%m-%d") / name
+                exc.provider_diagnostics = self.inspect_cli_log(log, process.pid)
+                raise
+            except BaseException:
+                process.kill()
+                process.wait()
+                raise
+            return subprocess.CompletedProcess(command, process.returncode, stdout, stderr)
+
     def query(self, messages: list[dict], **kwargs) -> dict:
         # v2仅剩14秒仍发起请求导致费用未知；三条件共同留60秒完整请求窗口。
         if self.model_id == FREE_MODEL_ID and getattr(self, "budget", None) is not None:
@@ -224,11 +288,9 @@ class CodeBuddyModel(ModelFormatting):
         # CodeBuddy 的打印模式需要显式请求文本。通过 stdin 提供大型历史。
         timeout = self.limits.wall_seconds if self.model_id == FREE_MODEL_ID else min(150, self.limits.wall_seconds)
         process, attempt = self.request_with_timeout_recovery(
-            lambda: subprocess.run([*command, "Choose the next command from the conversation on stdin."],
-                                   input=prompt, cwd=self.run_dir, env=environment,
-                                   text=True, capture_output=True,
-                                   timeout=min(timeout, self.budget.request_seconds()) if getattr(self, "budget", None) else timeout,
-                                   check=False),
+            lambda: self.run_cli([*command, "Choose the next command from the conversation on stdin."],
+                                prompt, environment,
+                                min(timeout, self.budget.request_seconds()) if getattr(self, "budget", None) else timeout),
             {"model": self.model_id, "system": system, "history": history, "schema": json.loads(schema),
              "configured_max_output_tokens": self.limits.max_output_tokens if self.model_id == FREE_MODEL_ID else None,
              "proxy_environment_configured": any(environment.get(key) for key in (

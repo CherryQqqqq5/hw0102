@@ -1,0 +1,5 @@
+[11/17/2026, 3:35:07 PM.991] [Info] [pid=92565] [ModelProvider] Sending request: model=hy4flash-free
+[11/17/2026, 3:35:10 PM.123] [Info] [pid=92565] [ModelProvider] First raw chunk received: elapsed=2133ms, bytes=653
+[11/17/2026, 3:35:16 PM.056] [Info] [pid=92565] [ModelProvider] Stream completed: elapsed=8066ms
+[11/17/2026, 3:35:21 PM.309] [Info] [pid=92775] [ModelProvider] Sending request: model=hy4flash-free
+[11/17/2026, 3:41:50 PM.549] [Info] [pid=92775] [cbc-kw=WORKFLOW] [WorkflowMemProbe] tick runId=(none) | cpuPercent=0.1

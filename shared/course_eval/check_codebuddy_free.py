@@ -2,6 +2,7 @@ import copy
 import json
 import os
 import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -218,6 +219,49 @@ class FreeResponseChecks(unittest.TestCase):
             self.assertEqual(verify_free_response(exported), original)
         exported = json.loads(sanitize_model(json.dumps({"event": "response", "payload": self.recovered})))["payload"]
         self.model().process_response(exported)
+
+    def test_timeout_log_keeps_processes_and_billing_separate(self):
+        path = Path("evals/regression_cases/codebuddy-timeout-before-first-chunk.log")
+        failed = CodeBuddyModel.inspect_cli_log(path, 92775)
+        self.assertEqual(failed["stage"], "awaiting_first_stream_chunk")
+        self.assertEqual(failed["model_requests_sent"], 1)
+        self.assertEqual(failed["first_raw_chunks"], 0)
+        self.assertEqual(failed["event_loop_ticks"], 1)
+        completed = CodeBuddyModel.inspect_cli_log(path, 92565)
+        self.assertEqual(completed["stage"], "model_stream_completed_before_cli_exit")
+        for record in (failed, completed):
+            self.assertEqual(record["billing_status"], "unknown")
+            self.assertNotIn("credit", record)
+
+    def test_pending_later_native_request_is_not_hidden_by_earlier_completion(self):
+        model = self.model()
+        source = Path("evals/regression_cases/codebuddy-timeout-before-first-chunk.log").read_text()
+        # 真实日志的受控PID变体，覆盖同一CLI内前次完成、后次等待的情况。
+        path = model.run_dir / "multiple-native.log"
+        path.write_text(source.replace("pid=92775", "pid=92565"))
+        record = model.inspect_cli_log(path, 92565)
+        self.assertEqual(record["model_requests_sent"], 2)
+        self.assertEqual(record["completed_streams"], 1)
+        self.assertEqual(record["stage"], "awaiting_first_stream_chunk")
+
+    def test_timeout_never_accepts_even_a_complete_recorded_zero_credit_payload(self):
+        model = self.model()
+        model.request_id = 1
+        payload = (self.root / "hy4flash-free-smoke-exactroute.stdout.json").resolve()
+        command = [sys.executable, "-c",
+                   "import pathlib,sys,time; sys.stdin.read(); print(pathlib.Path(sys.argv[1]).read_text(),flush=True); time.sleep(2)",
+                   str(payload)]
+        with self.assertRaisesRegex(RuntimeError, "before billing could be verified"):
+            model.request_with_timeout_recovery(
+                lambda: model.run_cli(command, "recorded-payload transport regression", model.process_environment(), 0.5),
+                {"model": "hy4flash-free"}, subprocess.TimeoutExpired, 0.5)
+        events = [json.loads(line) for line in model.trace.read_text().splitlines()]
+        self.assertEqual([item["event"] for item in events], ["request", "cli_process_started", "request_error"])
+        error = events[-1]
+        self.assertEqual(json.loads(error["stdout"]), self.free)
+        self.assertEqual(error["provider_diagnostics"]["billing_status"], "unknown")
+        exported = json.loads(sanitize_model(json.dumps(error)))
+        self.assertEqual(exported["provider_diagnostics"], error["provider_diagnostics"])
 
 
 if __name__ == "__main__":

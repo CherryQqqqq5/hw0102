@@ -1,0 +1,2110 @@
+{
+  "stage": "frozen_before_first_model_request",
+  "created_utc": "2026-11-17T08:32:13.320797+00:00",
+  "seed": "nju-course-independent-confirmation-20261105-v1",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "codebuddy_version": "2.179.3",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 0,
+    "strict_wall": true
+  },
+  "workers": 1,
+  "planned_trials": 270,
+  "max_total_attempts": 291,
+  "python_version": "3.13.12 | packaged by Anaconda, Inc. | (main, Feb 24 2026, 16:07:20) [Clang 20.1.8 ]",
+  "package_versions": {
+    "mini-swe-agent": "2.4.6",
+    "swebench": "5.0.2",
+    "harbor": "0.25.0",
+    "pydantic": "2.14.2"
+  },
+  "max_extra_mechanical_attempts_per_slot": 2,
+  "manifest_sha256": "c647cd998ce71c4340204902409e7fe745e32af9c2374988cfca4b0330b540b2",
+  "checks_sha256": "5c5e36b7a4d1642167b259586feaf87fb442a2d9b733e6ae8a9f65cc940dafdd",
+  "runtime_sha256": {
+    "agent.py": "733f031feb9b22b1c9a6882795fc640f3d3ccb955a1b24f0e664374e1e9a25be",
+    "benchmarks.py": "baded0f0e276a1ed7ecd94fd84b04c3a9ed3451ee80a6c304ce8eaa6fb3b8b0b",
+    "candidate_io.py": "307457f8eeff702f1a8f7b9f43bb69138bec908a9f8783ae5795c45fe1c1802c",
+    "controller.py": "a61fa6abbb5620f7510744c18e843eda7d719fb321b9b89843ac460e4448840e",
+    "docker_target.py": "13a058213101f32af01608275fadc876fc6c961059a9460ec5dda13dc6f2d585",
+    "harbor_agent.py": "f689d4739b6cfa2452e447682b69a544ba7be4090f1088e1b8c2d67cdf994017",
+    "verification.py": "5ae7a4eb9753740e0f5385b99655fe5d144bf49ec6ef8ca0784a930f5308c424",
+    "terminal_setup.py": "482b08db8cf2fe66ea113820084bc16a6e89e4b8d9ac96f0415768c8cb76db4b",
+    "terminal_runtime.py": "ecdea8dfbc3ab5f438028361f3525b237af60ef3dac6f65ff79322a5b47a84ea",
+    "aider_runtime.py": "da14339b906790802c4b869b9c3e93e23144b6d8435c95d4d40670966da42472",
+    "terminal-no-network.yaml": "17ceef0a82e7dfb63d9f5ce974350f392dd8a323eac174ec69d28a90c7de8388",
+    "confirmation.py": "ff9e72133a605aa690f8e591033bee63515047688bca16b5ae0ae7a447605794",
+    "boyue_transport.py": "b0854599f7292c7569f78d128dc103f3076efa01b87593cec870ef4d0758dd7d",
+    "boyue_rpc.py": "b95f8b7a8153f7b907e6edf13186e5d48196d1595695fb4d107f7e8208ca9684",
+    "codebuddy_free.py": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28"
+  },
+  "slots": [
+    {
+      "task": "feal-linear-cryptanalysis",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-terminal-feal-linear-cryptanalysis-B0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "32b5ef17552b0a64a94511c5ff0e24834308d7b4"
+    },
+    {
+      "task": "feal-linear-cryptanalysis",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-terminal-feal-linear-cryptanalysis-C0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "32b5ef17552b0a64a94511c5ff0e24834308d7b4"
+    },
+    {
+      "task": "feal-linear-cryptanalysis",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-terminal-feal-linear-cryptanalysis-C1-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "32b5ef17552b0a64a94511c5ff0e24834308d7b4"
+    },
+    {
+      "task": "pydata__xarray-7393",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-swe-pydata__xarray-7393-C0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "32b5ef17552b0a64a94511c5ff0e24834308d7b4"
+    },
+    {
+      "task": "pydata__xarray-7393",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-swe-pydata__xarray-7393-C1-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "32b5ef17552b0a64a94511c5ff0e24834308d7b4"
+    },
+    {
+      "task": "pydata__xarray-7393",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-swe-pydata__xarray-7393-B0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "32b5ef17552b0a64a94511c5ff0e24834308d7b4"
+    },
+    {
+      "task": "django__django-11999",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-swe-django__django-11999-C1-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "32b5ef17552b0a64a94511c5ff0e24834308d7b4"
+    },
+    {
+      "task": "django__django-11999",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-swe-django__django-11999-B0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "django__django-11999",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-swe-django__django-11999-C0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "go/beer-song",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-aider-go__beer-song-B0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "go/beer-song",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-aider-go__beer-song-C0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "go/beer-song",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-aider-go__beer-song-C1-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "cpp/all-your-base",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-aider-cpp__all-your-base-C0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "cpp/all-your-base",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-aider-cpp__all-your-base-C1-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "cpp/all-your-base",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-aider-cpp__all-your-base-B0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "polyglot-rust-c",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-terminal-polyglot-rust-c-C1-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "polyglot-rust-c",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-terminal-polyglot-rust-c-B0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "polyglot-rust-c",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-terminal-polyglot-rust-c-C0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "rust/accumulate",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-aider-rust__accumulate-B0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "rust/accumulate",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-aider-rust__accumulate-C0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "rust/accumulate",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-aider-rust__accumulate-C1-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "python/rest-api",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-aider-python__rest-api-C0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "python/rest-api",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-aider-python__rest-api-C1-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "python/rest-api",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-aider-python__rest-api-B0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-13124",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-swe-scikit-learn__scikit-learn-13124-C1-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-13124",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-swe-scikit-learn__scikit-learn-13124-B0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-13124",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-swe-scikit-learn__scikit-learn-13124-C0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "go/alphametics",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-aider-go__alphametics-B0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "go/alphametics",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-aider-go__alphametics-C0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "go/alphametics",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-aider-go__alphametics-C1-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "python/grep",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-aider-python__grep-C0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "python/grep",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-aider-python__grep-C1-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "python/grep",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-aider-python__grep-B0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "modernize-scientific-stack",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-terminal-modernize-scientific-stack-C1-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "modernize-scientific-stack",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-terminal-modernize-scientific-stack-B0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "modernize-scientific-stack",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-terminal-modernize-scientific-stack-C0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "django__django-14855",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-swe-django__django-14855-B0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "django__django-14855",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-swe-django__django-14855-C0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "django__django-14855",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-swe-django__django-14855-C1-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "vulnerable-secret",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-terminal-vulnerable-secret-C0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "vulnerable-secret",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-terminal-vulnerable-secret-C1-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "vulnerable-secret",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-terminal-vulnerable-secret-B0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "django__django-12193",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-swe-django__django-12193-C1-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "django__django-12193",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-swe-django__django-12193-B0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "django__django-12193",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-swe-django__django-12193-C0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "javascript/sum-of-multiples",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-aider-javascript__sum-of-multiples-B0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "javascript/sum-of-multiples",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-aider-javascript__sum-of-multiples-C0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "javascript/sum-of-multiples",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-aider-javascript__sum-of-multiples-C1-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "javascript/house",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-aider-javascript__house-C0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "javascript/house",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-aider-javascript__house-C1-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "javascript/house",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-aider-javascript__house-B0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "distribution-search",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-terminal-distribution-search-C1-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "distribution-search",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-terminal-distribution-search-B0-r1",
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+    },
+    {
+      "task": "distribution-search",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-terminal-distribution-search-C0-r1"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-11310",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-swe-scikit-learn__scikit-learn-11310-B0-r1"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-11310",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-swe-scikit-learn__scikit-learn-11310-C0-r1"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-11310",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-swe-scikit-learn__scikit-learn-11310-C1-r1"
+    },
+    {
+      "task": "pytest-dev__pytest-5631",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-swe-pytest-dev__pytest-5631-C0-r1"
+    },
+    {
+      "task": "pytest-dev__pytest-5631",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-swe-pytest-dev__pytest-5631-C1-r1"
+    },
+    {
+      "task": "pytest-dev__pytest-5631",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-swe-pytest-dev__pytest-5631-B0-r1"
+    },
+    {
+      "task": "log-summary-date-ranges",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-terminal-log-summary-date-ranges-C1-r1"
+    },
+    {
+      "task": "log-summary-date-ranges",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-terminal-log-summary-date-ranges-B0-r1"
+    },
+    {
+      "task": "log-summary-date-ranges",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-terminal-log-summary-date-ranges-C0-r1"
+    },
+    {
+      "task": "cpp/gigasecond",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-aider-cpp__gigasecond-B0-r1"
+    },
+    {
+      "task": "cpp/gigasecond",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-aider-cpp__gigasecond-C0-r1"
+    },
+    {
+      "task": "cpp/gigasecond",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-aider-cpp__gigasecond-C1-r1"
+    },
+    {
+      "task": "pytest-dev__pytest-7490",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-swe-pytest-dev__pytest-7490-C0-r1"
+    },
+    {
+      "task": "pytest-dev__pytest-7490",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-swe-pytest-dev__pytest-7490-C1-r1"
+    },
+    {
+      "task": "pytest-dev__pytest-7490",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-swe-pytest-dev__pytest-7490-B0-r1"
+    },
+    {
+      "task": "fix-code-vulnerability",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-terminal-fix-code-vulnerability-C1-r1"
+    },
+    {
+      "task": "fix-code-vulnerability",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-terminal-fix-code-vulnerability-B0-r1"
+    },
+    {
+      "task": "fix-code-vulnerability",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-terminal-fix-code-vulnerability-C0-r1"
+    },
+    {
+      "task": "java/change",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-aider-java__change-B0-r1"
+    },
+    {
+      "task": "java/change",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-aider-java__change-C0-r1"
+    },
+    {
+      "task": "java/change",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-aider-java__change-C1-r1"
+    },
+    {
+      "task": "db-wal-recovery",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-terminal-db-wal-recovery-C0-r1"
+    },
+    {
+      "task": "db-wal-recovery",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-terminal-db-wal-recovery-C1-r1"
+    },
+    {
+      "task": "db-wal-recovery",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-terminal-db-wal-recovery-B0-r1"
+    },
+    {
+      "task": "pydata__xarray-4687",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-swe-pydata__xarray-4687-C1-r1"
+    },
+    {
+      "task": "pydata__xarray-4687",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-swe-pydata__xarray-4687-B0-r1"
+    },
+    {
+      "task": "pydata__xarray-4687",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-swe-pydata__xarray-4687-C0-r1"
+    },
+    {
+      "task": "prove-plus-comm",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-terminal-prove-plus-comm-B0-r1"
+    },
+    {
+      "task": "prove-plus-comm",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-terminal-prove-plus-comm-C0-r1"
+    },
+    {
+      "task": "prove-plus-comm",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-terminal-prove-plus-comm-C1-r1"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-25232",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-swe-scikit-learn__scikit-learn-25232-C0-r1"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-25232",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-swe-scikit-learn__scikit-learn-25232-C1-r1"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-25232",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-swe-scikit-learn__scikit-learn-25232-B0-r1"
+    },
+    {
+      "task": "multi-source-data-merger",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 1,
+      "run_id": "C-terminal-multi-source-data-merger-C1-r1"
+    },
+    {
+      "task": "multi-source-data-merger",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 1,
+      "run_id": "C-terminal-multi-source-data-merger-B0-r1"
+    },
+    {
+      "task": "multi-source-data-merger",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 1,
+      "run_id": "C-terminal-multi-source-data-merger-C0-r1"
+    },
+    {
+      "task": "feal-linear-cryptanalysis",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-terminal-feal-linear-cryptanalysis-C0-r2"
+    },
+    {
+      "task": "feal-linear-cryptanalysis",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-terminal-feal-linear-cryptanalysis-C1-r2"
+    },
+    {
+      "task": "feal-linear-cryptanalysis",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-terminal-feal-linear-cryptanalysis-B0-r2"
+    },
+    {
+      "task": "pydata__xarray-7393",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-swe-pydata__xarray-7393-C1-r2"
+    },
+    {
+      "task": "pydata__xarray-7393",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-swe-pydata__xarray-7393-B0-r2"
+    },
+    {
+      "task": "pydata__xarray-7393",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-swe-pydata__xarray-7393-C0-r2"
+    },
+    {
+      "task": "django__django-11999",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-swe-django__django-11999-B0-r2"
+    },
+    {
+      "task": "django__django-11999",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-swe-django__django-11999-C0-r2"
+    },
+    {
+      "task": "django__django-11999",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-swe-django__django-11999-C1-r2"
+    },
+    {
+      "task": "go/beer-song",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-aider-go__beer-song-C0-r2"
+    },
+    {
+      "task": "go/beer-song",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-aider-go__beer-song-C1-r2"
+    },
+    {
+      "task": "go/beer-song",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-aider-go__beer-song-B0-r2"
+    },
+    {
+      "task": "cpp/all-your-base",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-aider-cpp__all-your-base-C1-r2"
+    },
+    {
+      "task": "cpp/all-your-base",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-aider-cpp__all-your-base-B0-r2"
+    },
+    {
+      "task": "cpp/all-your-base",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-aider-cpp__all-your-base-C0-r2"
+    },
+    {
+      "task": "polyglot-rust-c",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-terminal-polyglot-rust-c-B0-r2"
+    },
+    {
+      "task": "polyglot-rust-c",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-terminal-polyglot-rust-c-C0-r2"
+    },
+    {
+      "task": "polyglot-rust-c",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-terminal-polyglot-rust-c-C1-r2"
+    },
+    {
+      "task": "rust/accumulate",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-aider-rust__accumulate-C0-r2"
+    },
+    {
+      "task": "rust/accumulate",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-aider-rust__accumulate-C1-r2"
+    },
+    {
+      "task": "rust/accumulate",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-aider-rust__accumulate-B0-r2"
+    },
+    {
+      "task": "python/rest-api",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-aider-python__rest-api-C1-r2"
+    },
+    {
+      "task": "python/rest-api",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-aider-python__rest-api-B0-r2"
+    },
+    {
+      "task": "python/rest-api",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-aider-python__rest-api-C0-r2"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-13124",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-swe-scikit-learn__scikit-learn-13124-B0-r2"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-13124",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-swe-scikit-learn__scikit-learn-13124-C0-r2"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-13124",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-swe-scikit-learn__scikit-learn-13124-C1-r2"
+    },
+    {
+      "task": "go/alphametics",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-aider-go__alphametics-C0-r2"
+    },
+    {
+      "task": "go/alphametics",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-aider-go__alphametics-C1-r2"
+    },
+    {
+      "task": "go/alphametics",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-aider-go__alphametics-B0-r2"
+    },
+    {
+      "task": "python/grep",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-aider-python__grep-C1-r2"
+    },
+    {
+      "task": "python/grep",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-aider-python__grep-B0-r2"
+    },
+    {
+      "task": "python/grep",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-aider-python__grep-C0-r2"
+    },
+    {
+      "task": "modernize-scientific-stack",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-terminal-modernize-scientific-stack-B0-r2"
+    },
+    {
+      "task": "modernize-scientific-stack",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-terminal-modernize-scientific-stack-C0-r2"
+    },
+    {
+      "task": "modernize-scientific-stack",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-terminal-modernize-scientific-stack-C1-r2"
+    },
+    {
+      "task": "django__django-14855",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-swe-django__django-14855-C0-r2"
+    },
+    {
+      "task": "django__django-14855",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-swe-django__django-14855-C1-r2"
+    },
+    {
+      "task": "django__django-14855",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-swe-django__django-14855-B0-r2"
+    },
+    {
+      "task": "vulnerable-secret",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-terminal-vulnerable-secret-C1-r2"
+    },
+    {
+      "task": "vulnerable-secret",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-terminal-vulnerable-secret-B0-r2"
+    },
+    {
+      "task": "vulnerable-secret",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-terminal-vulnerable-secret-C0-r2"
+    },
+    {
+      "task": "django__django-12193",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-swe-django__django-12193-B0-r2"
+    },
+    {
+      "task": "django__django-12193",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-swe-django__django-12193-C0-r2"
+    },
+    {
+      "task": "django__django-12193",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-swe-django__django-12193-C1-r2"
+    },
+    {
+      "task": "javascript/sum-of-multiples",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-aider-javascript__sum-of-multiples-C0-r2"
+    },
+    {
+      "task": "javascript/sum-of-multiples",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-aider-javascript__sum-of-multiples-C1-r2"
+    },
+    {
+      "task": "javascript/sum-of-multiples",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-aider-javascript__sum-of-multiples-B0-r2"
+    },
+    {
+      "task": "javascript/house",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-aider-javascript__house-C1-r2"
+    },
+    {
+      "task": "javascript/house",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-aider-javascript__house-B0-r2"
+    },
+    {
+      "task": "javascript/house",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-aider-javascript__house-C0-r2"
+    },
+    {
+      "task": "distribution-search",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-terminal-distribution-search-B0-r2"
+    },
+    {
+      "task": "distribution-search",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-terminal-distribution-search-C0-r2"
+    },
+    {
+      "task": "distribution-search",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-terminal-distribution-search-C1-r2"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-11310",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-swe-scikit-learn__scikit-learn-11310-C0-r2"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-11310",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-swe-scikit-learn__scikit-learn-11310-C1-r2"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-11310",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-swe-scikit-learn__scikit-learn-11310-B0-r2"
+    },
+    {
+      "task": "pytest-dev__pytest-5631",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-swe-pytest-dev__pytest-5631-C1-r2"
+    },
+    {
+      "task": "pytest-dev__pytest-5631",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-swe-pytest-dev__pytest-5631-B0-r2"
+    },
+    {
+      "task": "pytest-dev__pytest-5631",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-swe-pytest-dev__pytest-5631-C0-r2"
+    },
+    {
+      "task": "log-summary-date-ranges",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-terminal-log-summary-date-ranges-B0-r2"
+    },
+    {
+      "task": "log-summary-date-ranges",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-terminal-log-summary-date-ranges-C0-r2"
+    },
+    {
+      "task": "log-summary-date-ranges",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-terminal-log-summary-date-ranges-C1-r2"
+    },
+    {
+      "task": "cpp/gigasecond",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-aider-cpp__gigasecond-C0-r2"
+    },
+    {
+      "task": "cpp/gigasecond",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-aider-cpp__gigasecond-C1-r2"
+    },
+    {
+      "task": "cpp/gigasecond",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-aider-cpp__gigasecond-B0-r2"
+    },
+    {
+      "task": "pytest-dev__pytest-7490",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-swe-pytest-dev__pytest-7490-C1-r2"
+    },
+    {
+      "task": "pytest-dev__pytest-7490",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-swe-pytest-dev__pytest-7490-B0-r2"
+    },
+    {
+      "task": "pytest-dev__pytest-7490",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-swe-pytest-dev__pytest-7490-C0-r2"
+    },
+    {
+      "task": "fix-code-vulnerability",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-terminal-fix-code-vulnerability-B0-r2"
+    },
+    {
+      "task": "fix-code-vulnerability",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-terminal-fix-code-vulnerability-C0-r2"
+    },
+    {
+      "task": "fix-code-vulnerability",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-terminal-fix-code-vulnerability-C1-r2"
+    },
+    {
+      "task": "java/change",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-aider-java__change-C0-r2"
+    },
+    {
+      "task": "java/change",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-aider-java__change-C1-r2"
+    },
+    {
+      "task": "java/change",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-aider-java__change-B0-r2"
+    },
+    {
+      "task": "db-wal-recovery",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-terminal-db-wal-recovery-C1-r2"
+    },
+    {
+      "task": "db-wal-recovery",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-terminal-db-wal-recovery-B0-r2"
+    },
+    {
+      "task": "db-wal-recovery",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-terminal-db-wal-recovery-C0-r2"
+    },
+    {
+      "task": "pydata__xarray-4687",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-swe-pydata__xarray-4687-B0-r2"
+    },
+    {
+      "task": "pydata__xarray-4687",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-swe-pydata__xarray-4687-C0-r2"
+    },
+    {
+      "task": "pydata__xarray-4687",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-swe-pydata__xarray-4687-C1-r2"
+    },
+    {
+      "task": "prove-plus-comm",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-terminal-prove-plus-comm-C0-r2"
+    },
+    {
+      "task": "prove-plus-comm",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-terminal-prove-plus-comm-C1-r2"
+    },
+    {
+      "task": "prove-plus-comm",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-terminal-prove-plus-comm-B0-r2"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-25232",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-swe-scikit-learn__scikit-learn-25232-C1-r2"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-25232",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-swe-scikit-learn__scikit-learn-25232-B0-r2"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-25232",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-swe-scikit-learn__scikit-learn-25232-C0-r2"
+    },
+    {
+      "task": "multi-source-data-merger",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 2,
+      "run_id": "C-terminal-multi-source-data-merger-B0-r2"
+    },
+    {
+      "task": "multi-source-data-merger",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 2,
+      "run_id": "C-terminal-multi-source-data-merger-C0-r2"
+    },
+    {
+      "task": "multi-source-data-merger",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 2,
+      "run_id": "C-terminal-multi-source-data-merger-C1-r2"
+    },
+    {
+      "task": "feal-linear-cryptanalysis",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-terminal-feal-linear-cryptanalysis-C1-r3"
+    },
+    {
+      "task": "feal-linear-cryptanalysis",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-terminal-feal-linear-cryptanalysis-B0-r3"
+    },
+    {
+      "task": "feal-linear-cryptanalysis",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-terminal-feal-linear-cryptanalysis-C0-r3"
+    },
+    {
+      "task": "pydata__xarray-7393",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-swe-pydata__xarray-7393-B0-r3"
+    },
+    {
+      "task": "pydata__xarray-7393",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-swe-pydata__xarray-7393-C0-r3"
+    },
+    {
+      "task": "pydata__xarray-7393",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-swe-pydata__xarray-7393-C1-r3"
+    },
+    {
+      "task": "django__django-11999",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-swe-django__django-11999-C0-r3"
+    },
+    {
+      "task": "django__django-11999",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-swe-django__django-11999-C1-r3"
+    },
+    {
+      "task": "django__django-11999",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-swe-django__django-11999-B0-r3"
+    },
+    {
+      "task": "go/beer-song",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-aider-go__beer-song-C1-r3"
+    },
+    {
+      "task": "go/beer-song",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-aider-go__beer-song-B0-r3"
+    },
+    {
+      "task": "go/beer-song",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-aider-go__beer-song-C0-r3"
+    },
+    {
+      "task": "cpp/all-your-base",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-aider-cpp__all-your-base-B0-r3"
+    },
+    {
+      "task": "cpp/all-your-base",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-aider-cpp__all-your-base-C0-r3"
+    },
+    {
+      "task": "cpp/all-your-base",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-aider-cpp__all-your-base-C1-r3"
+    },
+    {
+      "task": "polyglot-rust-c",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-terminal-polyglot-rust-c-C0-r3"
+    },
+    {
+      "task": "polyglot-rust-c",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-terminal-polyglot-rust-c-C1-r3"
+    },
+    {
+      "task": "polyglot-rust-c",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-terminal-polyglot-rust-c-B0-r3"
+    },
+    {
+      "task": "rust/accumulate",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-aider-rust__accumulate-C1-r3"
+    },
+    {
+      "task": "rust/accumulate",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-aider-rust__accumulate-B0-r3"
+    },
+    {
+      "task": "rust/accumulate",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-aider-rust__accumulate-C0-r3"
+    },
+    {
+      "task": "python/rest-api",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-aider-python__rest-api-B0-r3"
+    },
+    {
+      "task": "python/rest-api",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-aider-python__rest-api-C0-r3"
+    },
+    {
+      "task": "python/rest-api",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-aider-python__rest-api-C1-r3"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-13124",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-swe-scikit-learn__scikit-learn-13124-C0-r3"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-13124",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-swe-scikit-learn__scikit-learn-13124-C1-r3"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-13124",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-swe-scikit-learn__scikit-learn-13124-B0-r3"
+    },
+    {
+      "task": "go/alphametics",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-aider-go__alphametics-C1-r3"
+    },
+    {
+      "task": "go/alphametics",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-aider-go__alphametics-B0-r3"
+    },
+    {
+      "task": "go/alphametics",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-aider-go__alphametics-C0-r3"
+    },
+    {
+      "task": "python/grep",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-aider-python__grep-B0-r3"
+    },
+    {
+      "task": "python/grep",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-aider-python__grep-C0-r3"
+    },
+    {
+      "task": "python/grep",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-aider-python__grep-C1-r3"
+    },
+    {
+      "task": "modernize-scientific-stack",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-terminal-modernize-scientific-stack-C0-r3"
+    },
+    {
+      "task": "modernize-scientific-stack",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-terminal-modernize-scientific-stack-C1-r3"
+    },
+    {
+      "task": "modernize-scientific-stack",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-terminal-modernize-scientific-stack-B0-r3"
+    },
+    {
+      "task": "django__django-14855",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-swe-django__django-14855-C1-r3"
+    },
+    {
+      "task": "django__django-14855",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-swe-django__django-14855-B0-r3"
+    },
+    {
+      "task": "django__django-14855",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-swe-django__django-14855-C0-r3"
+    },
+    {
+      "task": "vulnerable-secret",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-terminal-vulnerable-secret-B0-r3"
+    },
+    {
+      "task": "vulnerable-secret",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-terminal-vulnerable-secret-C0-r3"
+    },
+    {
+      "task": "vulnerable-secret",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-terminal-vulnerable-secret-C1-r3"
+    },
+    {
+      "task": "django__django-12193",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-swe-django__django-12193-C0-r3"
+    },
+    {
+      "task": "django__django-12193",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-swe-django__django-12193-C1-r3"
+    },
+    {
+      "task": "django__django-12193",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-swe-django__django-12193-B0-r3"
+    },
+    {
+      "task": "javascript/sum-of-multiples",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-aider-javascript__sum-of-multiples-C1-r3"
+    },
+    {
+      "task": "javascript/sum-of-multiples",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-aider-javascript__sum-of-multiples-B0-r3"
+    },
+    {
+      "task": "javascript/sum-of-multiples",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-aider-javascript__sum-of-multiples-C0-r3"
+    },
+    {
+      "task": "javascript/house",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-aider-javascript__house-B0-r3"
+    },
+    {
+      "task": "javascript/house",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-aider-javascript__house-C0-r3"
+    },
+    {
+      "task": "javascript/house",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-aider-javascript__house-C1-r3"
+    },
+    {
+      "task": "distribution-search",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-terminal-distribution-search-C0-r3"
+    },
+    {
+      "task": "distribution-search",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-terminal-distribution-search-C1-r3"
+    },
+    {
+      "task": "distribution-search",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-terminal-distribution-search-B0-r3"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-11310",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-swe-scikit-learn__scikit-learn-11310-C1-r3"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-11310",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-swe-scikit-learn__scikit-learn-11310-B0-r3"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-11310",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-swe-scikit-learn__scikit-learn-11310-C0-r3"
+    },
+    {
+      "task": "pytest-dev__pytest-5631",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-swe-pytest-dev__pytest-5631-B0-r3"
+    },
+    {
+      "task": "pytest-dev__pytest-5631",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-swe-pytest-dev__pytest-5631-C0-r3"
+    },
+    {
+      "task": "pytest-dev__pytest-5631",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-swe-pytest-dev__pytest-5631-C1-r3"
+    },
+    {
+      "task": "log-summary-date-ranges",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-terminal-log-summary-date-ranges-C0-r3"
+    },
+    {
+      "task": "log-summary-date-ranges",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-terminal-log-summary-date-ranges-C1-r3"
+    },
+    {
+      "task": "log-summary-date-ranges",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-terminal-log-summary-date-ranges-B0-r3"
+    },
+    {
+      "task": "cpp/gigasecond",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-aider-cpp__gigasecond-C1-r3"
+    },
+    {
+      "task": "cpp/gigasecond",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-aider-cpp__gigasecond-B0-r3"
+    },
+    {
+      "task": "cpp/gigasecond",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-aider-cpp__gigasecond-C0-r3"
+    },
+    {
+      "task": "pytest-dev__pytest-7490",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-swe-pytest-dev__pytest-7490-B0-r3"
+    },
+    {
+      "task": "pytest-dev__pytest-7490",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-swe-pytest-dev__pytest-7490-C0-r3"
+    },
+    {
+      "task": "pytest-dev__pytest-7490",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-swe-pytest-dev__pytest-7490-C1-r3"
+    },
+    {
+      "task": "fix-code-vulnerability",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-terminal-fix-code-vulnerability-C0-r3"
+    },
+    {
+      "task": "fix-code-vulnerability",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-terminal-fix-code-vulnerability-C1-r3"
+    },
+    {
+      "task": "fix-code-vulnerability",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-terminal-fix-code-vulnerability-B0-r3"
+    },
+    {
+      "task": "java/change",
+      "benchmark": "aider",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-aider-java__change-C1-r3"
+    },
+    {
+      "task": "java/change",
+      "benchmark": "aider",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-aider-java__change-B0-r3"
+    },
+    {
+      "task": "java/change",
+      "benchmark": "aider",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-aider-java__change-C0-r3"
+    },
+    {
+      "task": "db-wal-recovery",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-terminal-db-wal-recovery-B0-r3"
+    },
+    {
+      "task": "db-wal-recovery",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-terminal-db-wal-recovery-C0-r3"
+    },
+    {
+      "task": "db-wal-recovery",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-terminal-db-wal-recovery-C1-r3"
+    },
+    {
+      "task": "pydata__xarray-4687",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-swe-pydata__xarray-4687-C0-r3"
+    },
+    {
+      "task": "pydata__xarray-4687",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-swe-pydata__xarray-4687-C1-r3"
+    },
+    {
+      "task": "pydata__xarray-4687",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-swe-pydata__xarray-4687-B0-r3"
+    },
+    {
+      "task": "prove-plus-comm",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-terminal-prove-plus-comm-C1-r3"
+    },
+    {
+      "task": "prove-plus-comm",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-terminal-prove-plus-comm-B0-r3"
+    },
+    {
+      "task": "prove-plus-comm",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-terminal-prove-plus-comm-C0-r3"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-25232",
+      "benchmark": "swe",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-swe-scikit-learn__scikit-learn-25232-B0-r3"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-25232",
+      "benchmark": "swe",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-swe-scikit-learn__scikit-learn-25232-C0-r3"
+    },
+    {
+      "task": "scikit-learn__scikit-learn-25232",
+      "benchmark": "swe",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-swe-scikit-learn__scikit-learn-25232-C1-r3"
+    },
+    {
+      "task": "multi-source-data-merger",
+      "benchmark": "terminal",
+      "arm": "C0",
+      "repeat": 3,
+      "run_id": "C-terminal-multi-source-data-merger-C0-r3"
+    },
+    {
+      "task": "multi-source-data-merger",
+      "benchmark": "terminal",
+      "arm": "C1",
+      "repeat": 3,
+      "run_id": "C-terminal-multi-source-data-merger-C1-r3"
+    },
+    {
+      "task": "multi-source-data-merger",
+      "benchmark": "terminal",
+      "arm": "B0",
+      "repeat": 3,
+      "run_id": "C-terminal-multi-source-data-merger-B0-r3"
+    }
+  ],
+  "reused_positions": 53,
+  "new_positions": 217,
+  "preserved_previous_attempts": [
+    {
+      "source_batch": "confirmation-hy4flash-free-v1",
+      "source_run_id": "C-terminal-feal-linear-cryptanalysis-B0-r1",
+      "preserved_run_id": "v1__C-terminal-feal-linear-cryptanalysis-B0-r1"
+    },
+    {
+      "source_batch": "confirmation-hy4flash-free-v2",
+      "source_run_id": "C-terminal-feal-linear-cryptanalysis-B0-r1",
+      "preserved_run_id": "v2__C-terminal-feal-linear-cryptanalysis-B0-r1"
+    },
+    {
+      "source_batch": "confirmation-hy4flash-free-v3",
+      "source_run_id": "C-terminal-feal-linear-cryptanalysis-B0-r1",
+      "preserved_run_id": "v3__C-terminal-feal-linear-cryptanalysis-B0-r1"
+    },
+    {
+      "source_batch": "confirmation-hy4flash-free-v4",
+      "source_run_id": "C-terminal-feal-linear-cryptanalysis-B0-r1",
+      "preserved_run_id": "v4__C-terminal-feal-linear-cryptanalysis-B0-r1"
+    },
+    {
+      "source_batch": "confirmation-hy4flash-free-v5",
+      "source_run_id": "C-swe-django__django-11999-B0-r1",
+      "preserved_run_id": "v5__C-swe-django__django-11999-B0-r1"
+    },
+    {
+      "source_batch": "confirmation-hy4flash-free-v6",
+      "source_run_id": "C-swe-django__django-11999-B0-r1",
+      "preserved_run_id": "v6__C-swe-django__django-11999-B0-r1"
+    },
+    {
+      "source_batch": "confirmation-hy4flash-free-v7-attempts",
+      "source_run_id": "C-aider-go__alphametics-B0-r1-attempt1",
+      "preserved_run_id": "v7-attempt1__C-aider-go__alphametics-B0-r1"
+    },
+    {
+      "source_batch": "confirmation-hy4flash-free-v7-attempts",
+      "source_run_id": "C-aider-go__alphametics-C0-r1-attempt1",
+      "preserved_run_id": "v7-attempt1__C-aider-go__alphametics-C0-r1"
+    },
+    {
+      "source_batch": "confirmation-hy4flash-free-v7",
+      "source_run_id": "C-terminal-distribution-search-C0-r1",
+      "preserved_run_id": "v7__C-terminal-distribution-search-C0-r1"
+    }
+  ],
+  "cumulative_attempt_cap": 300,
+  "network_policy": {
+    "inherit_proxy_environment": true,
+    "proxy_config_file_disabled": true,
+    "sdk_proxy_source": "env",
+    "new_request_unknown_or_nonzero_credit": "stop"
+  },
+  "historical_unknown_cost": "Preserved as unknown; never replaced by new request receipts",
+  "transport_sensitivity_excluded_task": "django__django-11999",
+  "diagnostic_policy": {
+    "cli_pid_recorded": true,
+    "timeout_reads_own_workspace_sdk_log": true,
+    "sdk_log_never_proves_billing": true,
+    "model_arguments_and_timeouts_unchanged": true
+  },
+  "resumed_unscored_run_id": "C-terminal-distribution-search-C0-r1",
+  "resumed_position_total_attempt_number": 2
+}

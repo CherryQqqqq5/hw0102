@@ -1,0 +1,31 @@
+{
+  "cli_pid": 92775,
+  "log_status": "read",
+  "log_name": "agent__a3a3d3d3dfb5a696981effd580a9be79.log",
+  "stage": "awaiting_first_stream_chunk",
+  "model_requests_sent": 1,
+  "streams_started": 0,
+  "first_raw_chunks": 0,
+  "completed_streams": 0,
+  "retry_notices": 0,
+  "event_loop_ticks": 13,
+  "last_event_loop_tick": "11/17/2026, 3:41:50 PM.549",
+  "source_line_numbers": [
+    4979,
+    5013,
+    5015,
+    5016,
+    5017,
+    5018,
+    5019,
+    5020,
+    5021,
+    5022,
+    5023,
+    5024,
+    5025,
+    5026
+  ],
+  "billing_status": "unknown",
+  "scope": "Client transport diagnostics only; no model billing inference"
+}

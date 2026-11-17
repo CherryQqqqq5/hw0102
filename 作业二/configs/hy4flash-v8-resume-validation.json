@@ -1,0 +1,73 @@
+{
+  "stage": "frozen_resume_ready",
+  "new_model_requests": 0,
+  "source_scores": {
+    "runs": "work/vmshare/confirmation-hy4flash-free-v7",
+    "score_records_verified": 53,
+    "by_benchmark": {
+      "aider": 24,
+      "swe": 15,
+      "terminal": 14
+    },
+    "unscored_records_preserved": [
+      "C-terminal-distribution-search-C0-r1"
+    ],
+    "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+  },
+  "reused_positions": 53,
+  "preserved_valid_failures": 4,
+  "new_positions": 217,
+  "previous_attempts": 9,
+  "evidence_files_compared": 779,
+  "usage_source_partitions_match": true,
+  "all_free_formal_usage_before_resume": {
+    "model_calls": 567,
+    "model_responses": 561,
+    "model_request_retries": 0,
+    "model_request_timeouts": 4,
+    "provider_turns": 3160,
+    "tool_calls": 448,
+    "input_tokens": 10348464,
+    "output_tokens": 1289652,
+    "cached_input_tokens": 1523008,
+    "submission_check_opportunities": 0,
+    "stale_at_submission": 0,
+    "deliverable_checkpoints": 0,
+    "deliverable_reminders": 0,
+    "usage_unreturned_requests": 6,
+    "usage_missing_input_responses": 0,
+    "usage_missing_output_responses": 0,
+    "usage_missing_cache_responses": 0,
+    "provider_reported_cost_usd": 0
+  },
+  "actual_model_identity_and_credit_rules_unchanged": true,
+  "local_timeout_diagnostics": "PID-scoped SDK phase extraction; no billing inference and unchanged invocation arguments",
+  "reused_original_scores": {
+    "runs": "work/vmshare/confirmation-hy4flash-free-v8",
+    "score_records_verified": 53,
+    "by_benchmark": {
+      "aider": 24,
+      "swe": 15,
+      "terminal": 14
+    },
+    "unscored_records_preserved": [],
+    "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+  },
+  "previous_original_scores": {
+    "runs": "work/vmshare/confirmation-hy4flash-free-v8-previous",
+    "score_records_verified": 0,
+    "by_benchmark": {},
+    "unscored_records_preserved": [
+      "v1__C-terminal-feal-linear-cryptanalysis-B0-r1",
+      "v2__C-terminal-feal-linear-cryptanalysis-B0-r1",
+      "v3__C-terminal-feal-linear-cryptanalysis-B0-r1",
+      "v4__C-terminal-feal-linear-cryptanalysis-B0-r1",
+      "v5__C-swe-django__django-11999-B0-r1",
+      "v6__C-swe-django__django-11999-B0-r1",
+      "v7-attempt1__C-aider-go__alphametics-B0-r1",
+      "v7-attempt1__C-aider-go__alphametics-C0-r1",
+      "v7__C-terminal-distribution-search-C0-r1"
+    ],
+    "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+  }
+}
