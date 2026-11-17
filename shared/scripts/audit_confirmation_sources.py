@@ -215,9 +215,13 @@ def main():
     same_usage(selected_usage, summary["all_attempt_usage"])
     assert summary["previous_attempt_count"] == 6 and summary["previous_scored_count"] == 0
     free_billing = audit_free_billing(current)
-    mechanical_billing = audit_free_billing(mechanical)
+    # 恢复前缺失回执继续未知，主矩阵仍逐回复严格验证零费用。
+    mechanical_billing = audit_free_billing(mechanical, require_runtime_acceptance=False)
     previous_billing = [audit_free_billing(directory, require_runtime_acceptance=False) for directory in free_previous]
     assert sum(item["missing_responses"] for item in previous_billing) == 3
+    assert (free_billing["missing_responses"] + mechanical_billing["missing_responses"]
+            + sum(item["missing_responses"] for item in previous_billing)
+            == selected_usage["usage_unreturned_requests"])
     preparation_usage = merge_usage([run_metrics(root / name) for name in
         ("boyue-interface-v1", "boyue-agent-v1", "boyue-timeout-v1")])
     assert preparation_usage["model_calls"] == 18 and preparation_usage["model_responses"] == 17

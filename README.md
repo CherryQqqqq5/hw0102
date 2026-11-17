@@ -2,9 +2,9 @@
 
 邱昱宁 · 231880296
 
-CodeBuddy 2.179.3的`hy4flash-free`独立复测已因新增费用未知停止：冻结30题、B0/C0/C1各三轮共270位置，当前27条有效原评分（26通过、1失败），另1未评分、242未启动。Go alphametics基线第4请求等待520.607秒后超时，stdout/stderr均为空，缺少实际计费回执；没有重试或切换型号。主目录275个返回数组的350条实际模型用量均为免费身份及积分0，新增缺回执费用继续未知。完整比较及新版完整报告未形成。[停止记录](作业二/evidence/hy4flash-v7-stop-20261117.md) · [费用与原评分汇总](作业二/evidence/hy4flash-v7-stopped-summary.json) · [v7协议](作业二/configs/CONFIRMATION_HY4FLASH_PROTOCOL_V7.md) · [精确计划](作业二/configs/confirmation-plan-hy4flash-free-v7.json) · [全部28次主记录](作业二/evidence/confirmation-hy4flash-free-v7/)
+用户2026-11-17明确要求再试一次后，Go alphametics基线恢复并通过原评分，6请求/7条实际模型用量均免费积分0；随后C0共享工具组第8请求跨越合盖睡眠，客户端报安全连接建立前断开，缺少计费回执，队列再次停止。当前28/270有效原评分（27通过、1失败），另1未评分、241未启动。主目录285个返回数组、364条实际用量均核验免费身份和积分0，五次当前及历史缺回执费用仍未知。完整比较及新版完整报告未形成。[本次恢复及睡眠证据](作业二/evidence/hy4flash-v7-recovery1-20261117.md) · [费用与评分汇总](作业二/evidence/hy4flash-v7-recovery1-stopped-summary.json) · [v7协议](作业二/configs/CONFIRMATION_HY4FLASH_PROTOCOL_V7.md) · [精确计划](作业二/configs/confirmation-plan-hy4flash-free-v7.json) · [29次主记录](作业二/evidence/confirmation-hy4flash-free-v7/)
 
-v7固定显式代理及本地工具错误分类，16项真实回放与费用负例通过。7条v5有效原评分含1失败逐位置保留，20个新增位置取得原评分，六条前序未评分独立保存。按来源去重的累计318请求/314响应，四次费用未知保持；累计300次任务尝试上限保持。27条原评分、全部返回费用和冻结源码已在脱敏导出上复算。课程队列和虚拟机已停止。[六条前序](作业二/evidence/confirmation-hy4flash-free-v7-previous/) · [无模型复算方法](作业二/evidence/hy4flash-v7-stop-20261117.md#证据与无模型调用复算) · [历史网络根因](作业二/configs/codebuddy-network-root-cause-20261116.md)
+v7固定显式代理及本地工具错误分类，16项真实回放与费用负例通过。7条v5有效原评分含1失败逐位置保留，21个新增位置取得原评分，六条前序及恢复前原基线未评分分别保存。累计332请求/327响应，五次费用未知保持；累计300次任务尝试上限不变。28条原评分、全部返回费用和15份冻结源码已在脱敏导出上复算。系统日志记录请求发出约2秒后发生合盖睡眠，现有防空闲睡眠不能保证合盖后持续运行。[恢复归档](作业二/evidence/confirmation-hy4flash-free-v7-attempts/) · [六条前序](作业二/evidence/confirmation-hy4flash-free-v7-previous/) · [前次停止检查点](作业二/evidence/hy4flash-v7-stop-20261117.md)
 
 此前CodeBuddy及Boyue的有效评分、未评分、原始失败和用量独立保留，免费服务的成绩不与它们混算。下列两份报告及384条评分属于已完成的历史实验，完整新矩阵结束后更新。历史CodeBuddy确认及JavaScript运行时修复见[原协议](作业二/configs/confirmation-protocol-v3.md)与[原修复说明](作业二/configs/confirmation-runtime-repair-v3.md)。
 
