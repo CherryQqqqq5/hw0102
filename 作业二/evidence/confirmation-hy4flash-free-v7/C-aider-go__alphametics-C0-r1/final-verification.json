@@ -1,15 +1,15 @@
 {
-  "reason": "agent_exit",
-  "artifact_digest": "20a2cd0bab691caaef93ab8332f8a09cfb86c850bc7e518e7119e4fc49140e61",
+  "reason": "submission",
+  "artifact_digest": "cf73228176cbc9c13455296772e386c321430beb937d7660827dc82eab8f5685",
   "protected_unchanged": true,
   "restored_candidate": null,
-  "valid_verification": false,
+  "valid_verification": true,
   "evidence": {
     "public-suite": {
-      "state": "pending",
-      "returncode": null,
-      "snapshot": null
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "016f4da173a66d1fb80f3d3e4c05f2a5931fb3de5d993a4fcd2cb726f9c91f23  alphametics.go\neb22bd718a4fafc450ea9701ec2f81e7f6dafbfe48d4b8cbe66650248836657f  alphametics_test.go\n77917406d81852eb56b58e8d8846a595f9cf1ca87533f939c6cd1eb6fdce3596  go.mod\n"
     }
   },
-  "elapsed_seconds": 319.79371979198186
+  "elapsed_seconds": 379.8745289159997
 }

@@ -1,0 +1,5 @@
+2026-11-17 15:32:18 +0800 Assertions          	PID 40105(caffeinate) Summary PreventUserIdleSystemSleep "caffeinate command-line tool" 01:20:05  id:0x0x100009eea [System: PrevIdle PrevDisp PrevSleep DeclUser IntPrevDisp kCPU kDisp]          
+2026-11-17 15:32:18 +0800 Assertions          	PID 40105(caffeinate) Summary PreventSystemSleep "caffeinate command-line tool" 01:20:05  id:0x0x700009eeb [System: PrevIdle PrevDisp PrevSleep DeclUser IntPrevDisp kCPU kDisp]          
+2026-11-17 15:42:11 +0800 Assertions          	PID 40105(caffeinate) ClientDied PreventUserIdleSystemSleep "caffeinate command-line tool" 01:29:59  id:0x0x100009eea [System: PrevIdle PrevDisp PrevSleep DeclUser IntPrevDisp kCPU kDisp]          
+2026-11-17 15:42:11 +0800 Assertions          	PID 40105(caffeinate) ClientDied PreventSystemSleep "caffeinate command-line tool" 01:29:59  id:0x0x700009eeb [System: PrevIdle PrevDisp DeclUser IntPrevDisp kDisp]          
+2026-11-17 15:43:58 +0800 Assertions          	Summary- [System: PrevIdle PrevDisp DeclUser IntPrevDisp kDisp] Using AC(Charge: 89)          

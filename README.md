@@ -2,9 +2,9 @@
 
 邱昱宁 · 231880296
 
-用户2026-11-17明确要求再试一次后，Go alphametics基线恢复并通过原评分，6请求/7条实际模型用量均免费积分0；随后C0共享工具组第8请求跨越合盖睡眠，客户端报安全连接建立前断开，缺少计费回执，队列再次停止。当前28/270有效原评分（27通过、1失败），另1未评分、241未启动。主目录285个返回数组、364条实际用量均核验免费身份和积分0，五次当前及历史缺回执费用仍未知。完整比较及新版完整报告未形成。[本次恢复及睡眠证据](作业二/evidence/hy4flash-v7-recovery1-20261117.md) · [费用与评分汇总](作业二/evidence/hy4flash-v7-recovery1-stopped-summary.json) · [v7协议](作业二/configs/CONFIRMATION_HY4FLASH_PROTOCOL_V7.md) · [精确计划](作业二/configs/confirmation-plan-hy4flash-free-v7.json) · [29次主记录](作业二/evidence/confirmation-hy4flash-free-v7/)
+2026年11月17日免费复测接电续跑新增25条原评分，当前53/270有效评分（49通过、4失败），另1未评分、216未启动。分布搜索题C0第7请求超时且无实际计费回执，队列停止；主目录512个响应、619条实际用量均核验免费身份和积分0，新增及历史共六笔缺回执费用继续未知。完整比较及新版完整报告未形成。[本次续跑结果](作业二/evidence/hy4flash-v7-recovery2-20261117.md) · [费用与评分汇总](作业二/evidence/hy4flash-v7-recovery2-stopped-summary.json) · [v7协议](作业二/configs/CONFIRMATION_HY4FLASH_PROTOCOL_V7.md) · [精确计划](作业二/configs/confirmation-plan-hy4flash-free-v7.json) · [54次主记录](作业二/evidence/confirmation-hy4flash-free-v7/)
 
-v7固定显式代理及本地工具错误分类，16项真实回放与费用负例通过。7条v5有效原评分含1失败逐位置保留，21个新增位置取得原评分，六条前序及恢复前原基线未评分分别保存。累计332请求/327响应，五次费用未知保持；累计300次任务尝试上限不变。28条原评分、全部返回费用和15份冻结源码已在脱敏导出上复算。系统日志记录请求发出约2秒后发生合盖睡眠，现有防空闲睡眠不能保证合盖后持续运行。[恢复归档](作业二/evidence/confirmation-hy4flash-free-v7-attempts/) · [六条前序](作业二/evidence/confirmation-hy4flash-free-v7-previous/) · [前次停止检查点](作业二/evidence/hy4flash-v7-stop-20261117.md)
+v7固定显式代理及本地工具错误分类，16项真实回放与费用负例通过。原28条有效评分及费用保持，本次Go alphametics/C0恢复通过；新增三条有效失败保留，累计四条失败。来源去重累计567请求/561响应、692条实际零积分用量，六笔费用未知保持；累计300次任务尝试上限不变。53条原评分、全部返回费用和15份冻结源码已复算。本次已核实外接电源及防系统睡眠断言，仍出现无输出请求超时，阻塞层未能由现有记录确定。[恢复归档](作业二/evidence/confirmation-hy4flash-free-v7-attempts/) · [六条前序](作业二/evidence/confirmation-hy4flash-free-v7-previous/) · [前次恢复及合盖记录](作业二/evidence/hy4flash-v7-recovery1-20261117.md) · [原停止检查点](作业二/evidence/hy4flash-v7-stop-20261117.md)
 
 此前CodeBuddy及Boyue的有效评分、未评分、原始失败和用量独立保留，免费服务的成绩不与它们混算。下列两份报告及384条评分属于已完成的历史实验，完整新矩阵结束后更新。历史CodeBuddy确认及JavaScript运行时修复见[原协议](作业二/configs/confirmation-protocol-v3.md)与[原修复说明](作业二/configs/confirmation-runtime-repair-v3.md)。
 

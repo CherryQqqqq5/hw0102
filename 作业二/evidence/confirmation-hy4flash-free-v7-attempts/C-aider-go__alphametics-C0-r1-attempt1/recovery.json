@@ -1,0 +1,5 @@
+{
+  "reason": "User authorized continuation with AC power and lid open; prior C0 request crossed confirmed clamshell sleep; retain its unknown billing and all scored outcomes",
+  "time_utc": "2026-11-17T06:12:14.049681+00:00",
+  "protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185"
+}

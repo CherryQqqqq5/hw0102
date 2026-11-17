@@ -2,7 +2,7 @@
 
 邱昱宁 · 231880296　｜　[阅读实验报告](231880296_邱昱宁_作业二.pdf)
 
-用户要求再次尝试后，Go alphametics基线原评分通过；后续C0第8请求因安全连接建立前断开且费用未知停止，系统同时记录了合盖睡眠与维护唤醒。当前28/270有效原评分（27通过1失败），另1未评分、241未启动；B0/C0/C1分别10/10、9/9、8/9，矩阵未完整，第二、三轮未开始。当前主目录364条已返回实际用量均免费积分0，当前及历史五次缺回执费用继续未知；完整统计及新版最终报告未生成。[恢复与睡眠记录](evidence/hy4flash-v7-recovery1-20261117.md) · [费用与评分汇总](evidence/hy4flash-v7-recovery1-stopped-summary.json) · [冻结协议](configs/CONFIRMATION_HY4FLASH_PROTOCOL_V7.md) · [主记录](evidence/confirmation-hy4flash-free-v7/) · [恢复归档](evidence/confirmation-hy4flash-free-v7-attempts/) · [共用说明](../shared/CONFIRMATION.md)
+接电续跑新增25条有效原评分，当前53/270评分（49通过4失败），另1未评分、216未启动；原生基线B0、共享工具组C0、控制组C1分别18/18、16/17、15/18。分布搜索题C0第7请求无输出超时且费用未知，已停止派发；本次有外接电源和防系统睡眠断言。主目录619条已返回实际用量均为免费型号、零积分，累计六笔缺回执费用继续未知。第二、三轮尚未开始，完整统计及新版最终报告未生成。[本次续跑结果](evidence/hy4flash-v7-recovery2-20261117.md) · [费用与评分汇总](evidence/hy4flash-v7-recovery2-stopped-summary.json) · [冻结协议](configs/CONFIRMATION_HY4FLASH_PROTOCOL_V7.md) · [主记录](evidence/confirmation-hy4flash-free-v7/) · [恢复归档](evidence/confirmation-hy4flash-free-v7-attempts/) · [前次合盖记录](evidence/hy4flash-v7-recovery1-20261117.md) · [共用说明](../shared/CONFIRMATION.md)
 
 下列报告、数值和案例呈现已完成的历史实验。旧CodeBuddy、创智及各次未评分尝试单独保留，成绩与费用不并入当前免费模型主比较。[历史v3协议](configs/confirmation-protocol-v3.md) · [历史来源计划](configs/confirmation-plan-v3.json) · [原v2记录](evidence/confirmation-v2/)
 

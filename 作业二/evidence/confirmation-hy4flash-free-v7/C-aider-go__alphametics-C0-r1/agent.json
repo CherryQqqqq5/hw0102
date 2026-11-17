@@ -1,10 +1,10 @@
 {
   "info": {
-    "exit_status": "RuntimeError",
-    "submission": "",
+    "exit_status": "Submitted",
+    "submission": "Verified solver passes the registered public suite; submitting the current implementation.",
     "model_stats": {
       "instance_cost": 0.0,
-      "api_calls": 8
+      "api_calls": 11
     }
   }
 }
