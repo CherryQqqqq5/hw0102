@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "9764bc19a0335dc0fd893a2b9228196feb3a46224ca2873cdb98d9c861825e33",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-issue": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "cc7ce7a9ff376b0ed0de55bb52cde98c35a8799b63265438545efa36558cedb4  sklearn/model_selection/_search.py\n"
+    }
+  },
+  "elapsed_seconds": 203.05066370900022
+}

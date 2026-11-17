@@ -1,0 +1,2 @@
+{"event": "billing_verified", "time": 1794921219.69758, "request_id": 1, "request_model": "hy4flash-free", "provider_model": "hy4-flash-free", "credit": 0, "usage_records": 1, "local_cli_errors": []}
+{"event": "output_cap_reached", "time": 1794921219.6984892, "request_id": 1, "configured_max_output_tokens": 4096, "completion_tokens": 4096}

@@ -1,0 +1,44 @@
+{
+  "task": {
+    "benchmark": "terminal",
+    "id": "db-wal-recovery",
+    "stratum": "file-operations",
+    "group": "db-wal-recovery",
+    "difficulty": "medium",
+    "image": "alexgshaw/db-wal-recovery:20251031",
+    "cpus": 1,
+    "memory_mb": 2048,
+    "agent_timeout_seconds": 900.0,
+    "exclude": null,
+    "split": "C",
+    "candidate_scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/recovered.json",
+        "/app/main.db",
+        "/app/main.db-wal",
+        "/app/main.db-shm"
+      ],
+      "protected": [],
+      "python": "/usr/bin/python3"
+    },
+    "image_id": "sha256:0e33ea5ec823975d1bd6c3778395c9f94251dd88f571146057bff6adb7e4594e",
+    "image_digests": [
+      "alexgshaw/db-wal-recovery@sha256:0e33ea5ec823975d1bd6c3778395c9f94251dd88f571146057bff6adb7e4594e"
+    ]
+  },
+  "phase": "formal",
+  "configuration": "B0",
+  "status": "started",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "protocol_commit": "fadb4083ac1bbf63bec97095d0702943a40f92ff",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 0,
+    "strict_wall": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task": "django__django-14855",
+  "wall_seconds": 352.9916254589916,
+  "exit_status": "Submitted",
+  "submission": "Final submission: current_app propagation fix in django/contrib/admin/helpers.py; public check and 607 admin tests pass.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 63.40805550001096
+}

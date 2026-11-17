@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Finalizing verified candidate: /app/dist.npy passed shape, positivity, normalization, and both KL constraints; candidate saved as candidate-001.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 7
+    }
+  }
+}

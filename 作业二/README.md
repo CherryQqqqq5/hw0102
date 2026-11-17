@@ -2,7 +2,7 @@
 
 邱昱宁 · 231880296　｜　[阅读实验报告](231880296_邱昱宁_作业二.pdf)
 
-hy4flash-free已通过修复客户端的真实接口验证：两次请求输出4096/151词元，各一个原生调用、实际积分0。截断参数补成合法JSON的行为已由适配器拒绝，真实回执回放及外层简短动作恢复通过；21项回归通过。当前按新冻结计划准备执行FEAL/C0第二轮和其余180位置。原90/270评分含82通过8失败保持，B0/C0/C1为29/30、28/30、25/30，完整三轮及新版最终报告待完成。八次历史缺回执请求保持未知，新调用费用不明或非零立即停止。[当前协议](configs/confirmation-protocol-v10.md) · [真实准备验证](evidence/hy4flash-recovery-validation-v10.json) · [来源验证](evidence/hy4flash-v10-resume-validation.json) · [原首轮结果](evidence/hy4flash-v8-20261117.md)
+hy4flash-free的两次真实准备输出4096/151词元、实际积分0，截断工具参数的外层恢复验证通过；原FEAL/C0第二轮第2次请求缺少实际计费回执，已立即停止。客户端等待轮数异常后拒绝响应序列化的输出缺口尚未修复，原题未取得评分。有效成绩保持90/270、82通过8失败，B0/C0/C1为29/30、28/30、25/30，仍缺180评分，完整新报告未生成。本轮4次请求中3次实际零积分、1次未知，旧8笔加新1笔共9笔未知保持；21项回归与1347份来源比较通过，计费校验器保持。[停止报告](evidence/hy4flash-v10-stop-20261117.md) · [本次汇总](evidence/hy4flash-v10-stopped-summary.json) · [真实准备验证](evidence/hy4flash-recovery-validation-v10.json) · [冻结协议](configs/confirmation-protocol-v10.md)
 
 下列报告、数值和案例呈现已完成的历史实验。旧CodeBuddy、创智及各次未评分尝试单独保留，成绩与费用不并入当前免费模型主比较。[历史v3协议](configs/confirmation-protocol-v3.md) · [历史来源计划](configs/confirmation-plan-v3.json) · [原v2记录](evidence/confirmation-v2/)
 

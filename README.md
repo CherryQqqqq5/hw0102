@@ -2,9 +2,9 @@
 
 邱昱宁 · 231880296
 
-2026年11月17日，修复后的免费客户端完成两次真实接口请求：输出4096及151词元，各一个原生调用、无内部追加，实际免费积分均0。首段截断参数被客户端补成合法结构，新增适配器处理已通过真实回执回放，外层第二次实际请求返回完整短动作。当前准备执行原FEAL/C0第二轮，并继续剩余180位置。已有有效原评分90/270，82通过、8失败，B0/C0/C1为29/30、28/30、25/30。[当前冻结协议](作业二/configs/confirmation-protocol-v10.md) · [准备验证](作业二/evidence/hy4flash-recovery-validation-v10.json) · [原首轮结果](作业二/evidence/hy4flash-v8-20261117.md)
+2026年11月17日，两次真实免费准备验证完成后，FEAL/C0第二轮第2次请求stdout空、缺少实际计费回执，已立即停止。有效原评分保持90/270，82通过、8失败，仍缺180评分。准备输出4096/151词元、实际积分0且无内部追加；原题暴露客户端等待轮数异常后未执行响应序列化的另一输出缺口，原题验证未通过。[本次停止报告](作业二/evidence/hy4flash-v10-stop-20261117.md) · [评分与费用汇总](作业二/evidence/hy4flash-v10-stopped-summary.json) · [冻结协议](作业二/configs/confirmation-protocol-v10.md)
 
-原正式记录去重1017请求/1010响应、1219条实际免费零积分证明保持，八条真实失败保留。七次正式及一次准备缺回执请求保留为历史未知；新调用费用不明或非零立即停止，不按客户端日志结清费用。21项回归及1347份来源文件比较通过，计费校验器保持原内容。原接口、4096上限及600秒预算保持，实际客户端文件摘要纳入新计划。[原90评分与费用](作业二/evidence/hy4flash-v8-stopped-summary.json) · [来源与恢复验证](作业二/evidence/hy4flash-v10-resume-validation.json) · [补丁版本与验证边界](作业二/configs/codebuddy-external-recovery-patch.json)
+本轮新增4次请求，3次有实际零积分证明，1次未知。旧8笔加新增1笔，共9次命令行请求费用未知；正式来源去重1019请求/1011响应、1220条实际免费零积分用量。八条真实失败及1347份原始来源保持，21项回归通过，原计费校验器逐字节保持。两份课程报告仍为历史版本，完整新三轮报告未生成。[原90评分与费用](作业二/evidence/hy4flash-v8-stopped-summary.json) · [来源与恢复验证](作业二/evidence/hy4flash-v10-resume-validation.json) · [准备验证范围](作业二/evidence/hy4flash-recovery-validation-v10.json)
 
 此前CodeBuddy及Boyue的有效评分、未评分、原始失败和用量独立保留，免费服务的成绩不与它们混算。下列两份报告及384条评分属于已完成的历史实验，完整新矩阵结束后更新。历史CodeBuddy确认及JavaScript运行时修复见[原协议](作业二/configs/confirmation-protocol-v3.md)与[原修复说明](作业二/configs/confirmation-runtime-repair-v3.md)。
 

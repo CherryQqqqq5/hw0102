@@ -1,0 +1,8 @@
+{
+  "task": "go/alphametics",
+  "wall_seconds": 606.2416855000192,
+  "scoreable": false,
+  "passed": null,
+  "error_type": "RuntimeError",
+  "error": "Free model request timed out before billing could be verified"
+}
