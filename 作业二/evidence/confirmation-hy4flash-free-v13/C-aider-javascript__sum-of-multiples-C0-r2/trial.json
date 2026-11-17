@@ -1,0 +1,34 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "javascript/sum-of-multiples",
+    "stratum": "javascript",
+    "group": "sum-of-multiples",
+    "solution_files": [
+      "sum-of-multiples.js"
+    ],
+    "test_files": [
+      "sum-of-multiples.spec.js"
+    ],
+    "exclude": null,
+    "split": "C",
+    "image_id": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+    "image_digests": [
+      "nju-course-aider@sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7"
+    ]
+  },
+  "phase": "formal",
+  "configuration": "C0",
+  "status": "started",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "protocol_commit": "abad82197a3b7833478261a0360f2eae873efdaa",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 0,
+    "strict_wall": true
+  }
+}

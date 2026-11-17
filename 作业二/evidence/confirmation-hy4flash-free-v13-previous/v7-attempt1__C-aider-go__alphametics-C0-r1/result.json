@@ -1,0 +1,8 @@
+{
+  "task": "go/alphametics",
+  "wall_seconds": 320.18448433300364,
+  "scoreable": false,
+  "passed": null,
+  "error_type": "RuntimeError",
+  "error": "CodeBuddy returned a non-JSON response"
+}

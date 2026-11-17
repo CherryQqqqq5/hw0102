@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Generic manual accumulate/map implementation passes all original tests and the public-suite verification.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 4
+    }
+  }
+}

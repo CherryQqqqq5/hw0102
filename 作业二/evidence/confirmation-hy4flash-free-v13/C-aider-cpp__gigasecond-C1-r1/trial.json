@@ -1,0 +1,35 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "cpp/gigasecond",
+    "stratum": "cpp",
+    "group": "gigasecond",
+    "solution_files": [
+      "gigasecond.cpp",
+      "gigasecond.h"
+    ],
+    "test_files": [
+      "gigasecond_test.cpp"
+    ],
+    "exclude": null,
+    "split": "C",
+    "image_id": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+    "image_digests": [
+      "nju-course-aider@sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14"
+    ]
+  },
+  "phase": "formal",
+  "configuration": "C1",
+  "status": "started",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "protocol_commit": "fadb4083ac1bbf63bec97095d0702943a40f92ff",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 0,
+    "strict_wall": true
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "codebuddy_version": "2.179.3",
+  "parent_sha256": "a52932ce3d059342d46c71ec8234da9e3c5f9b8b903260475d667d31d1d2085b",
+  "formatted_parent_sha256": "abfbb476da94d2b82c43399e0ad321076d86e7d42d6625a3f3581515a4a44918",
+  "patched_sha256": "fbd46d708a36187a5c3a636a4d6e4c433304bfda440d6812ce569fb9425bf416",
+  "billing_validator_sha256": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+  "opt_in_environment": {
+    "COURSE_CODEBUDDY_EXTERNAL_RECOVERY": "1"
+  },
+  "patch": "hy4flash-v13-empty-stream.patch",
+  "local_dispatch_validation": "passed",
+  "live_provider_validation_after_patch": false,
+  "new_model_calls_after_stop": 0
+}

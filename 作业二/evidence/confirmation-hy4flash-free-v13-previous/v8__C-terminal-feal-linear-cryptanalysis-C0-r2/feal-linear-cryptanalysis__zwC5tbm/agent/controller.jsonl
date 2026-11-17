@@ -1,0 +1,2 @@
+{"event": "candidate_operation", "time": 1794914788.820752, "protocol_commit": "fadb4083ac1bbf63bec97095d0702943a40f92ff", "operation": "initial", "seconds": 3.097606374998577, "returncode": 0}
+{"event": "finalization_deadline_exhausted", "time": 1794915385.847617, "protocol_commit": "fadb4083ac1bbf63bec97095d0702943a40f92ff", "step": 6, "remaining_seconds": 0.0}

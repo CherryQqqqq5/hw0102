@@ -1,0 +1,5 @@
+{
+  "stdout": "\n> test\n> jest ./*\n\n",
+  "stderr": "PASS ./sum-of-multiples.spec.js\n  Sum Of Multiples\n    ✓ no multiples within limit (2 ms)\n    ✓ one factor has multiples within limit\n    ✓ more than one multiple within limit\n    ✓ more than one factor with multiples within limit\n    ✓ each multiple is only counted once\n    ✓ a much larger limit\n    ✓ three factors\n    ✓ factors not relatively prime\n    ✓ some pairs of factors relatively prime and some not\n    ✓ one factor is a multiple of another\n    ✓ much larger factors\n    ✓ all numbers are multiples of 1\n    ✓ no factors means an empty sum (1 ms)\n    ✓ the only multiple of 0 is 0\n    ✓ the factor 0 does not affect the sum of multiples of other factors\n    ✓ solutions using include-exclude must extend to cardinality greater than 3 (3 ms)\n\nTest Suites: 1 passed, 1 total\nTests:       16 passed, 16 total\nSnapshots:   0 total\nTime:        0.538 s\nRan all test suites matching /.\\/LICENSE|.\\/babel.config.js|.\\/node_modules|.\\/package-lock.json|.\\/package.json|.\\/sum-of-multiples.js|.\\/sum-of-multiples.spec.js/i.\n",
+  "returncode": 0
+}

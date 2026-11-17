@@ -6,7 +6,7 @@ import subprocess
 import tempfile
 import time
 from dataclasses import asdict
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
@@ -238,6 +238,12 @@ class CodeBuddyModel(ModelFormatting):
                 "source_line_numbers": source_lines, "billing_status": "unknown",
                 "scope": "Client transport diagnostics only; no model billing inference"}
 
+    def cli_log_path(self, environment: dict[str, str], started: datetime) -> Path:
+        # SDK按UTC归档日志；本地午夜后仍需读取前一UTC日期目录。
+        name = self.run_dir.name + "__" + hashlib.md5(str(self.run_dir).encode()).hexdigest() + ".log"
+        home = Path(environment.get("CODEBUDDY_CONFIG_DIR") or str(Path.home() / ".codebuddy"))
+        return home / "logs" / started.astimezone(timezone.utc).strftime("%Y-%m-%d") / name
+
     def run_cli(self, command: list[str], prompt: str, environment: dict[str, str], timeout: float):
         started = datetime.now().astimezone()
         # Node.js在POSIX管道上异步写入；强制退出前可能丢失响应末尾及计费回执。
@@ -256,10 +262,7 @@ class CodeBuddyModel(ModelFormatting):
                 _, exc.stderr = process.communicate()
                 output.seek(0)
                 exc.output = output.read()
-                name = self.run_dir.name + "__" + hashlib.md5(str(self.run_dir).encode()).hexdigest() + ".log"
-                home = Path(environment.get("CODEBUDDY_CONFIG_DIR") or str(Path.home() / ".codebuddy"))
-                log = home / "logs" / started.strftime("%Y-%m-%d") / name
-                exc.provider_diagnostics = self.inspect_cli_log(log, process.pid)
+                exc.provider_diagnostics = self.inspect_cli_log(self.cli_log_path(environment, started), process.pid)
                 raise
             except BaseException:
                 process.kill()

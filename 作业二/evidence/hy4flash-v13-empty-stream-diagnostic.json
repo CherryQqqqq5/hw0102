@@ -1,0 +1,135 @@
+{
+  "source_run_id": "C-aider-javascript__house-C1-r2",
+  "request_id": 7,
+  "cli_pid": 39694,
+  "local_error": {
+    "skipRun": true,
+    "error": {
+      "message": "Empty stream: upstream ended the turn with finish_reason=error after emitting reasoning but no text or tool call (chunks=3, bytes=1206, elapsed=92134ms)",
+      "isNetworkError": false,
+      "networkErrorAutoRetry": false,
+      "isStreamTimeout": true,
+      "isRetryable": true
+    },
+    "agent": "cli",
+    "conversationRequestId": "01a1eab6384b76f4abf06b40067607b9"
+  },
+  "own_prior_billing_records": 0,
+  "later_model_billing": {
+    "request_model": "hy4flash-free",
+    "provider_model": "hy4-flash-free",
+    "credit": 0,
+    "usage_records": 1,
+    "local_cli_errors": []
+  },
+  "first_failed_native_credit": null,
+  "provider_diagnostics": {
+    "cli_pid": 39694,
+    "log_status": "read",
+    "log_name": "C-aider-javascript__house-C1-r2__cc45533871c55c3466da83757767646c.log",
+    "stage": "model_stream_completed_before_cli_exit",
+    "model_requests_sent": 2,
+    "streams_started": 2,
+    "first_raw_chunks": 2,
+    "completed_streams": 1,
+    "retry_notices": 0,
+    "truncation_retries": 0,
+    "structured_output_retries": 0,
+    "event_loop_ticks": 3,
+    "last_event_loop_tick": "11/18/2026, 2:14:22 AM.317",
+    "source_line_numbers": [
+      4541,
+      4570,
+      4571,
+      4581,
+      4583,
+      4584,
+      4689,
+      4694,
+      4695,
+      4704
+    ],
+    "billing_status": "unknown",
+    "scope": "Client transport diagnostics only; no model billing inference"
+  },
+  "recovery_log_lines": [
+    {
+      "source_line": 4585,
+      "text": "[ModelProvider]  [cbc-kw=MODEL_REQUEST] [ModelProvider] finish_reason=\"error\" with no substantive model output (reasoning-only), treating as retryable empty stream: agent=cli, requestId=01a1eab638d9702db6d9965751394b2e, chunks=3, bytes=1206, elapsed=92132ms"
+    },
+    {
+      "source_line": 4587,
+      "text": "[ModelProvider]  {\"model\":\"hy4flash-free\",\"step\":1,\"attempt_no\":1,\"time_to_first_token_ms\":2158,\"finish_reason\":\"error\",\"error_category\":\"network\",\"error_subcategory\":\"network_empty_stream\",\"retryable\":true,\"event_id\":\"01a1eab7-a0d6-73ec-8a81-855071ce8209\",\"event_name\":\"agent.model_call.completed\",\"service\":\"agent-cli\",\"msg\":\"Agent model call completed\",\"result\":\"failed\",\"duration_ms\":92157,\"stage\":\"error\",\"conversation_id\":\"01a1eab6-36e4-7e47-a1ef-3ffa7ea273cb\",\"conversation_request_id\":\"01a1eab6384b76f4abf06b40067607b9\",\"conversation_message_id\":\"01a1eab638d9702db6d9965751394b2e\",\"trace_id\":\"f2554d42e880fc91e78de7fa5cf4f0a7\",\"error_type\":\"unknown\",\"error_summary_omitted\":true,\"raw\":\"[cbc-kw=MODEL_REQUEST] model call completed | model=hy4flash-free | attempt=1\"}"
+    },
+    {
+      "source_line": 4588,
+      "text": "[Interruption] Catch block entered, error: Empty stream: upstream ended the turn with finish_reason=error after emitting reasoning but no text or tool call (chunks=3, bytes=1206, elapsed=92134ms)"
+    },
+    {
+      "source_line": 4591,
+      "text": "[Interruption] Handling error from \"model_streaming\", willAutoRetry=true"
+    },
+    {
+      "source_line": 4592,
+      "text": "[SessionRunStateMachine] transition | sessionId=01a1eab6-36e4-7e47-a1ef-3ffa7ea273cb | event=RETRYING | from=model_streaming | to=retrying | lifecycle=retrying | busy=true | queueBusy=true | elapsedSinceLastTransitionMs=90000 | reason=interruption-auto-retry"
+    },
+    {
+      "source_line": 4594,
+      "text": "[SessionRunStateMachine] transition | sessionId=01a1eab6-36e4-7e47-a1ef-3ffa7ea273cb | event=RUN_FAILED | from=retrying | to=idle | lifecycle=idle | busy=false | queueBusy=false | elapsedSinceLastTransitionMs=2 | reason=stream-completed-error"
+    },
+    {
+      "source_line": 4595,
+      "text": "[AgentService] stream loop failed: Empty stream: upstream ended the turn with finish_reason=error after emitting reasoning but no text or tool call (chunks=3, bytes=1206, elapsed=92134ms)"
+    },
+    {
+      "source_line": 4597,
+      "text": "[EmptyStreamError: Empty stream: upstream ended the turn with finish_reason=error after emitting reasoning but no text or tool call (chunks=3, bytes=1206, elapsed=92134ms)]  [cbc-kw=SESSION_LIFECYCLE] Failed to handle run result:"
+    },
+    {
+      "source_line": 4598,
+      "text": "[SessionRunStateMachine] transition | sessionId=01a1eab6-36e4-7e47-a1ef-3ffa7ea273cb | event=RUN_FAILED | from=preparing | to=idle | lifecycle=idle | busy=false | queueBusy=false | elapsedSinceLastTransitionMs=1 | reason=handle-run-result-error: Empty stream: upstream ended the turn with finish_reason=error after emitting reasoning but no text or tool call (chunks=3, bytes=1206, elapsed=92134ms)"
+    },
+    {
+      "source_line": 4600,
+      "text": "[SessionManager] await result.completed ERROR — session=01a1eab6-36e4-7e47-a1ef-3ffa7ea273cb, error=Empty stream: upstream ended the turn with finish_reason=error after emitting reasoning but no text or tool call (chunks=3, bytes=1206, elapsed=92134ms)"
+    },
+    {
+      "source_line": 4601,
+      "text": "[SessionManager][Gate] willRetry=true reason=streamTimeout session=01a1eab6-36e4-7e47-a1ef-3ffa7ea273cb"
+    },
+    {
+      "source_line": 4602,
+      "text": "[SessionManager][Gate] resolve willRetry=true session=01a1eab6-36e4-7e47-a1ef-3ffa7ea273cb"
+    },
+    {
+      "source_line": 4603,
+      "text": "[SessionManager] Skipping telemetry report — auto-retry in progress, session=01a1eab6-36e4-7e47-a1ef-3ffa7ea273cb, error=Empty stream: upstream ended the turn with finish_reason=error after emitting reasoning but no text or tool call (chunks=3, bytes=1206, elapsed=92134ms)"
+    },
+    {
+      "source_line": 4621,
+      "text": "[Interruption] finish_reason=error with no output, auto-retrying (attempt 1/3, delay 1000ms), sessionId: 01a1eab6-36e4-7e47-a1ef-3ffa7ea273cb"
+    },
+    {
+      "source_line": 4622,
+      "text": "[SessionRunStateMachine] transition | sessionId=01a1eab6-36e4-7e47-a1ef-3ffa7ea273cb | event=RETRYING | from=idle | to=retrying | lifecycle=retrying | busy=true | queueBusy=true | elapsedSinceLastTransitionMs=0 | reason=recovery-backoff"
+    },
+    {
+      "source_line": 4625,
+      "text": "[Interruption] Resuming reasoning-only empty stream from 2 chars of streamed reasoning, sessionId: 01a1eab6-36e4-7e47-a1ef-3ffa7ea273cb"
+    },
+    {
+      "source_line": 4628,
+      "text": "[cbc-kw=SESSION_LIFECYCLE] [SessionRunStateMachine] ignored invalid transition | sessionId=01a1eab6-36e4-7e47-a1ef-3ffa7ea273cb | event=RUN_ACCEPTED | current=retrying | lifecycle=retrying | busy=true | queueBusy=true | previousEvent=RETRYING | previousFrom=idle | previousTo=retrying"
+    },
+    {
+      "source_line": 4650,
+      "text": "[SessionRunStateMachine] transition | sessionId=01a1eab6-36e4-7e47-a1ef-3ffa7ea273cb | event=AGENT_STARTED | from=retrying | to=agent_running | lifecycle=running | busy=true | queueBusy=true | elapsedSinceLastTransitionMs=1025"
+    },
+    {
+      "source_line": 4757,
+      "text": "[SessionManager][Gate] resolve willRetry=false session=01a1eab6-36e4-7e47-a1ef-3ffa7ea273cb"
+    }
+  ],
+  "strict_boundary": "A later zero-credit native model reply cannot prove the first failed native attempt was free",
+  "real_model_requests_in_diagnosis": 0
+}

@@ -1,0 +1,35 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "rust/accumulate",
+    "stratum": "rust",
+    "group": "accumulate",
+    "solution_files": [
+      "src/lib.rs",
+      "Cargo.toml"
+    ],
+    "test_files": [
+      "tests/accumulate.rs"
+    ],
+    "exclude": null,
+    "split": "C",
+    "image_id": "sha256:de357a92e50590e84cfb36bb68dbbd6ee739bdba6f3535a7a5b5890d9a07805e",
+    "image_digests": [
+      "nju-course-aider@sha256:de357a92e50590e84cfb36bb68dbbd6ee739bdba6f3535a7a5b5890d9a07805e"
+    ]
+  },
+  "phase": "formal",
+  "configuration": "C0",
+  "status": "started",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "protocol_commit": "abad82197a3b7833478261a0360f2eae873efdaa",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 0,
+    "strict_wall": true
+  }
+}

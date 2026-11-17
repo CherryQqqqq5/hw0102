@@ -1,0 +1,20 @@
+{
+  "candidate_id": "candidate-001",
+  "artifact_digest": "4ab204f8d3a4f10b508858ebfcfc75f42b2a803b57b59a2d545a5619dea1cc34",
+  "protected_digest": "7673c070ec8ab417517af1c6f8d25f28469e708fc69a8e90b6cd75461f48bb0d",
+  "eligible": true,
+  "evidence": {
+    "public-task": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "b3da32d8db58c61c4f8e45b5ffed52d68c86d66ce7b8ff11dba2743a66435d3d  /app/results.txt\nfcc359a326a9238f97a837f303362bc79e5576b8e6386fc297177e144a46289f  vulnerable\n"
+    }
+  },
+  "saved_elapsed": 64.59045916696778,
+  "files": {
+    "/app/results.txt": {
+      "data": "RkxBR3tiNGZmM3JfMHYzcmZsMHdfbTRzdDNyX2szeV8yMDI0fQo=",
+      "mode": 438
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "model_calls": 0,
+  "checks": 5,
+  "scope": "Actual SDK recovery functions with recorded error metadata; isolated dispatch validation, not live provider validation",
+  "disabled_empty_stream_and_timeout_recovery": true,
+  "unset_function_body_unchanged": true,
+  "recorded_failure_preserved": true
+}

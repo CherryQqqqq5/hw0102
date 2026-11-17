@@ -42,7 +42,7 @@ def sanitize_model(content):
                         kept = {"type": item["type"], "role": item.get("role"), "status": item.get("status"),
                                      "providerData": {key: provider[key] for key in (
                                          "requestModelId", "requestModelName", "model", "messageId", "rawUsage",
-                                         "conversationRequestId", "agent", "skipRun", "error") if key in provider}}
+                                         "conversationRequestId", "agent", "skipRun", "error", "isPartialAborted") if key in provider}}
                         if item.get("type") == "function_call" and item.get("name") == "StructuredOutput":
                             kept.update({"name": item["name"], "arguments": item.get("arguments")})
                         safe.append(kept)

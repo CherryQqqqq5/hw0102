@@ -2,9 +2,9 @@
 
 邱昱宁 · 231880296
 
-2026年11月17日，修正客户端完成真实轮数异常响应、4096截断及短动作恢复验证后，新增5条独立原评分。当前95/270条有效评分，84通过、11失败；三组B0/C0/C1分别30/32、28/31、26/32，完整配对比较尚未完成。新增FEAL三组均有效失败，xarray-7393的基线和改造组均通过且补丁相同，改造组请求和耗时更多。[本轮结果与停止说明](作业二/evidence/hy4flash-v12-stop-20261117.md) · [逐位置评分与费用](作业二/evidence/hy4flash-v12-stopped-summary.json) · [当前协议](作业二/configs/confirmation-protocol-v12.md)
+2026年11月18日，本轮新增43条独立原评分，当前138/270条有效评分，115通过、23失败；B0/C0/C1分别40/46、39/46、36/46，仍缺132条。Django 12193三组原题均失败，C0/C1公开检查通过，显示检查覆盖缺口；这些负面结果完整保留。[本轮结果与停止说明](作业二/evidence/hy4flash-v13-stop-20261118.md) · [逐位置评分与费用](作业二/evidence/hy4flash-v13-stopped-summary.json) · [当前协议](作业二/configs/confirmation-protocol-v13.md)
 
-xarray-7393/C0第二轮第21请求的标准输出恰好在131072字节截断，未取得实际计费回执，队列立即停止。旧10加新增1共11笔未知费用保留；正式来源1088请求/1079响应及1292条实际免费零积分用量已复核。停止后普通文件接收修复通过真实响应的本地传输回放及22项回归，尚未实际模型验证，原费用校验不变。冻结v12运行源码与停止后修复分开保存；两份课程报告仍为历史完整实验版本。[本地传输验证](作业二/evidence/hy4flash-v12-stdout-replay.json) · [真实准备验证](作业二/evidence/hy4flash-v12-preparation.json) · [免费接口调查](作业二/evidence/free-api-options-20261117.md)
+普通文件接收经真实169448字节响应及恢复原题评分验证。随后house/C1第二轮第7次调用首个原生请求以空流错误结束且无自身费用，客户端内部重试的第二个回复积分0；后次回执不能结清首次，队列立即停止。旧11加新1共12笔未知保留，正式来源1497请求/1488响应、1707条已知实际零积分用量复核。停止后关闭课程客户端空流/流超时内部恢复的本地验证通过，修复后未调用模型；原费用校验不变。冻结v13运行源码与停止后修复分开保存，两份课程报告仍为历史完整实验版本。[真实接收验证](作业二/evidence/hy4flash-v13-stdout-preparation.json) · [故障诊断](作业二/evidence/hy4flash-v13-empty-stream-diagnostic.json) · [局部修复验证](作业二/evidence/hy4flash-v13-recovery-validation.json) · [备用免费接口配置](作业二/evidence/free-channel-setup-20261118.md)
 
 此前CodeBuddy及Boyue的有效评分、未评分、原始失败和用量独立保留，免费服务的成绩不与它们混算。下列两份报告及384条评分属于已完成的历史实验，完整新矩阵结束后更新。历史CodeBuddy确认及JavaScript运行时修复见[原协议](作业二/configs/confirmation-protocol-v3.md)与[原修复说明](作业二/configs/confirmation-runtime-repair-v3.md)。
 

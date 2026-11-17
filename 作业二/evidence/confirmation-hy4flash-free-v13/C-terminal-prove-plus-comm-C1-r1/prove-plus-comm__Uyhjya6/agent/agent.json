@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "plus_comm.v proof completed, compiled to plus_comm.vo, and public-task verification passed.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 5
+    }
+  }
+}

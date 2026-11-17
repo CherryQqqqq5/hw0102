@@ -3,7 +3,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from audit_confirmation_sources import audit_free_billing
+from audit_confirmation_sources import audit_free_billing, audit_stopped_billing
 from course_eval.summarize import read_runs
 from course_eval.verify_scores import verify
 
@@ -22,7 +22,10 @@ if "mechanical_billing" in summary and args.mechanical_runs is None:
 plan = json.loads(args.plan.read_text())
 for name, expected in plan["runtime_sha256"].items():
     assert hashlib.sha256((args.runtime / name).read_bytes()).hexdigest() == expected, name
-assert audit_free_billing(args.runs, require_runtime_acceptance=False) == summary["current_billing"]
+if summary["current_billing"].get("returned_unverified_responses"):
+    assert audit_stopped_billing(args.runs) == summary["current_billing"]
+else:
+    assert audit_free_billing(args.runs, require_runtime_acceptance=False) == summary["current_billing"]
 assert audit_free_billing(args.previous_runs, require_runtime_acceptance=False) == summary["previous_billing"]
 if args.mechanical_runs is not None:
     assert audit_free_billing(args.mechanical_runs, require_runtime_acceptance=False) == summary["mechanical_billing"]
@@ -46,6 +49,7 @@ print(json.dumps({"status": "verified_preserved_partial_run", "scored": len(scor
                   "responses": summary["current_billing"]["responses"],
                   "verified_actual_model_records": summary["current_billing"]["actual_model_usage_records"],
                   "new_missing_receipts": summary["current_billing"]["missing_responses"],
+                  "returned_unverified_responses": summary["current_billing"].get("returned_unverified_responses", 0),
                   "historical_missing_receipts": summary["previous_billing"]["missing_responses"],
                   "recovery_archive_missing_receipts": summary["mechanical_billing"]["missing_responses"] if args.mechanical_runs is not None else 0,
                   "new_model_requests": 0}, ensure_ascii=False))

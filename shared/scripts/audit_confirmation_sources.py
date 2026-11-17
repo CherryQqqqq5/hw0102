@@ -102,20 +102,87 @@ def audit_free_preparation(probe_root, interface_root):
             "scope": "Two interface calls, one 4096 cap probe and one initial exact-route connectivity call; excludes paid alias mistake"}
 
 
+def audit_stopped_billing(directory):
+    requests = responses = accepted = records = local_errors = recovered = rejected = 0
+    rejected_requests = []
+    for log in sorted(directory.rglob("model.jsonl")):
+        events = [json.loads(line) for line in log.read_text().splitlines()]
+        sent = {item["request_id"]: item for item in events if item["event"] == "request"}
+        returned = {item["request_id"]: item for item in events if item["event"] == "response"}
+        verified = {item["request_id"]: item for item in events if item["event"] == "billing_verified"}
+        failed = {item["request_id"] for item in events if item["event"] == "billing_error"}
+        assert len(sent) == sum(item["event"] == "request" for item in events)
+        assert len(returned) == sum(item["event"] == "response" for item in events)
+        assert returned.keys() <= sent.keys() and verified.keys() <= returned.keys()
+        assert all(item["model"] == "hy4flash-free" for item in sent.values())
+        for request_id, response in returned.items():
+            try:
+                proof = verify_free_response(response["payload"])
+            except ValueError:
+                # 保留整次响应的拒绝结果；后续实际用量只证明其自身费用。
+                assert request_id in failed and request_id not in verified, (log, request_id)
+                result = json.loads((log.parent / "result.json").read_text())
+                assert result["scoreable"] is False and result["passed"] is None
+                known = [item for item in response["payload"] if "rawUsage" in item.get("providerData", {})]
+                own = verify_free_response(known) if known else None
+                records += own["usage_records"] if own else 0
+                rejected += 1
+                rejected_requests.append({"run_id": log.parent.name, "request_id": request_id,
+                    "whole_response_billing": "unknown", "later_known_zero_credit_records": own["usage_records"] if own else 0})
+            else:
+                assert request_id in verified and request_id not in failed, (log, request_id)
+                assert {key: verified[request_id][key] for key in proof} == proof
+                records += proof["usage_records"]
+                local_errors += len(proof["local_cli_errors"])
+        assert failed == {item["request_id"] for item in rejected_requests if item["run_id"] == log.parent.name}
+        requests += len(sent)
+        responses += len(returned)
+        accepted += len(verified)
+        recovered += sum(item["event"] == "truncation_recovered" for item in events)
+    return {"requests": requests, "responses": responses, "runtime_accepted_responses": accepted,
+        "offline_verified_zero_credit_responses": responses - rejected, "actual_model_usage_records": records,
+        "local_cli_errors_with_own_usage_proof": local_errors, "recovered_actions": recovered,
+        "largest_model_output_tokens": None,
+        "reported_credit_for_returned_responses": None if rejected else 0,
+        "missing_responses": requests - responses, "missing_response_credit": None if requests != responses else 0,
+        "returned_unverified_responses": rejected, "returned_unverified_requests": rejected_requests,
+        "total_unknown_cli_requests": requests - responses + rejected,
+        "scope": "Strict whole-response rejection preserved; known zero-credit native records do not settle unknown attempts"}
+
+
+def audit_free_recovery_preparation(probe_root, interface_root):
+    initial = audit_free_preparation(probe_root, interface_root)
+    directories = [probe_root.parent / name for name in (
+        "codebuddy-single-turn-probe-v9", "codebuddy-single-turn-probe-v10",
+        "codebuddy-single-turn-probe-v11", "codebuddy-single-turn-probe-v12", "codebuddy-stdout-probe-v13")]
+    checks = [{"source": str(directory), **audit_free_billing(directory, require_runtime_acceptance=False)}
+              for directory in directories]
+    assert all(directory.is_dir() for directory in directories)
+    usage = merge_usage([initial["usage"], *map(run_metrics, directories)])
+    missing = sum(item["missing_responses"] for item in checks)
+    assert missing == usage["usage_unreturned_requests"] == 2
+    return {"usage": usage, "actual_model_usage_records": initial["actual_model_usage_records"]
+            + sum(item["actual_model_usage_records"] for item in checks),
+            "missing_responses": missing, "missing_response_credit": None,
+            "reported_credit_for_returned_responses": 0, "initial_preparation": initial,
+            "recovery_preparation": checks,
+            "scope": "Unique initial and v9-v13 live preparation sources; excludes recorded replays and paid alias mistake; two historical missing receipts stay unknown"}
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--evidence-root", type=Path, default=Path("work/vmshare"))
-    parser.add_argument("--plan", type=Path, default=Path("work/confirmation-plan-hy4flash-free-v7.json"))
+    parser.add_argument("--plan", type=Path, default=Path("work/confirmation-plan-hy4flash-free-v13.json"))
     parser.add_argument("--runtime", type=Path, default=Path("course_eval"))
     parser.add_argument("--probe-root", type=Path, default=Path("work/codebuddy-quota-probe"))
-    parser.add_argument("--summary", type=Path, default=Path("work/confirmation-hy4flash-free-v7-summary/summary.json"))
-    parser.add_argument("--out", type=Path, default=Path("work/confirmation-hy4flash-free-v7-source-audit.json"))
-    parser.add_argument("--protocol-commit", default="8430f57529f77271ab12dcaf443061b7ce8b1185")
+    parser.add_argument("--summary", type=Path, default=Path("work/confirmation-hy4flash-free-v13-summary/summary.json"))
+    parser.add_argument("--out", type=Path, default=Path("work/confirmation-hy4flash-free-v13-source-audit.json"))
+    parser.add_argument("--protocol-commit", default="abad82197a3b7833478261a0360f2eae873efdaa")
     args = parser.parse_args()
     plan = json.loads(args.plan.read_text())
     summary = json.loads(args.summary.read_text())
     root = args.evidence_root
-    current = root / "confirmation-hy4flash-free-v7"
+    current = root / args.plan.stem.replace("confirmation-plan-", "confirmation-")
     stopped, earlier = root / "confirmation-v3", root / "confirmation-v2"
     rows = read_runs(current)
     slots = {slot["run_id"]: slot for slot in plan["slots"]}
@@ -126,15 +193,13 @@ def main():
     assert plan["backend"] == "codebuddy" and plan["model"] == "hy4flash-free"
     assert plan["limits"]["max_output_tokens"] == 4096 and plan["limits"]["timeout_retries"] == 0
     free_reused = {slot["run_id"] for slot in slots.values() if slot.get("source_protocol_commit")}
-    assert len(free_reused) == plan["reused_positions"] == 7
+    assert len(free_reused) == plan["reused_positions"]
     free_compared_files = 0
     for row in rows:
         slot = slots[row["run_id"]]
         trial = json.loads((current / row["run_id"] / "trial.json").read_text())
         expected = slot.get("source_protocol_commit", args.protocol_commit)
         if row["run_id"] in free_reused:
-            assert slot["source_batch"] == "confirmation-hy4flash-free-v5"
-            assert expected == "32b5ef17552b0a64a94511c5ff0e24834308d7b4"
             free_compared_files += compare_files(current / row["run_id"], root / slot["source_batch"] / row["run_id"])
         assert trial["protocol_commit"] == expected, row["run_id"]
         assert trial["task"]["id"] == slot["task"] and trial["configuration"] == slot["arm"]
@@ -198,27 +263,29 @@ def main():
     original_boyue_usage = merge_usage([run_metrics(boyue_source), run_metrics(boyue_mechanical),
         *[run_metrics(boyue_stopped / row["run_id"]) for row in boyue_rows if row["run_id"] not in boyue_reused]])
     same_usage(boyue_usage, original_boyue_usage)
-    free_previous = [root / "confirmation-hy4flash-free-v7-previous"]
+    free_previous = [current.with_name(current.name + "-previous")]
     free_previous_rows = [row for directory in free_previous for row in read_runs(directory)]
-    assert len(free_previous_rows) == 6 and not any(row["scoreable"] for row in free_previous_rows)
+    assert len(free_previous_rows) == len(plan["preserved_previous_attempts"])
+    assert not any(row["scoreable"] for row in free_previous_rows)
     for item in plan["preserved_previous_attempts"]:
         free_compared_files += compare_files(root / item["source_batch"] / item["source_run_id"],
                                              free_previous[0] / item["preserved_run_id"])
     selected_usage = merge_usage([run_metrics(current), run_metrics(mechanical), *map(run_metrics, free_previous)])
-    original_free_usage = merge_usage([run_metrics(root / "confirmation-hy4flash-free-v5"),
-                                      *[run_metrics(root / item["source_batch"] / item["source_run_id"])
-                                        for item in plan["preserved_previous_attempts"]
-                                        if item["source_batch"] != "confirmation-hy4flash-free-v5"],
+    source_batches = {slots[run_id]["source_batch"] for run_id in free_reused}
+    assert len(source_batches) == 1
+    source_batch, = source_batches
+    original_free_usage = merge_usage([run_metrics(root / source_batch),
+                                      run_metrics(root / (source_batch + "-previous")),
                                       run_metrics(mechanical),
                                       *[run_metrics(current / row["run_id"]) for row in rows if row["run_id"] not in free_reused]])
     same_usage(selected_usage, original_free_usage)
     same_usage(selected_usage, summary["all_attempt_usage"])
-    assert summary["previous_attempt_count"] == 6 and summary["previous_scored_count"] == 0
+    assert summary["previous_attempt_count"] == len(free_previous_rows) and summary["previous_scored_count"] == 0
     free_billing = audit_free_billing(current)
     # 恢复前缺失回执继续未知，主矩阵仍逐回复严格验证零费用。
     mechanical_billing = audit_free_billing(mechanical, require_runtime_acceptance=False)
     previous_billing = [audit_free_billing(directory, require_runtime_acceptance=False) for directory in free_previous]
-    assert sum(item["missing_responses"] for item in previous_billing) == 3
+    assert sum(item["missing_responses"] for item in previous_billing) == plan["historical_unknown_cli_requests"]["formal"]
     assert (free_billing["missing_responses"] + mechanical_billing["missing_responses"]
             + sum(item["missing_responses"] for item in previous_billing)
             == selected_usage["usage_unreturned_requests"])
@@ -239,7 +306,7 @@ def main():
     assert all(json.loads((path.parent / "result.json").read_text())["scoreable"] is False for path in archived_trials)
     result = {"batch": current.name, "protocol_commit": args.protocol_commit,
               "primary_positions": len(rows), "reused_positions": len(free_reused), "new_positions": len(rows) - len(free_reused),
-              "free_previous_attempts": 6, "free_previous_scored": 0,
+              "free_previous_attempts": len(free_previous_rows), "free_previous_scored": 0,
               "free_billing": free_billing, "mechanical_free_billing": mechanical_billing,
               "previous_free_billing": previous_billing,
               "boyue_main_scored_preserved": sum(row["scoreable"] for row in boyue_rows),
@@ -252,7 +319,7 @@ def main():
               "all_attempt_usage": selected_usage, "codebuddy_attempt_usage": old_selected_usage,
               "boyue_attempt_usage": boyue_usage,
               "boyue_preparation_usage": preparation_usage,
-              "free_preparation": audit_free_preparation(args.probe_root, root / "hy4flash-interface-v1"),
+              "free_preparation": audit_free_recovery_preparation(args.probe_root, root / "hy4flash-interface-v1"),
               "scope": "Complete independent free matrix and actual zero-credit receipts; preserved separate historical providers and nonduplicating source partitions; no model or grader rerun"}
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")

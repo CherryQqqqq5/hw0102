@@ -5,6 +5,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from minisweagent.exceptions import FormatError, TimeExceeded
@@ -39,6 +40,21 @@ class FreeResponseChecks(unittest.TestCase):
     def model(self):
         directory = Path(tempfile.mkdtemp(prefix="response-replay-", dir=self.root))
         return CodeBuddyModel(directory, RunLimits(), "{{output}}")
+
+    def test_cli_log_directory_uses_utc_day(self):
+        model = self.model()
+        started = datetime(2026, 11, 18, 2, 14, tzinfo=timezone(timedelta(hours=8)))
+        path = model.cli_log_path({"CODEBUDDY_CONFIG_DIR": str(self.root)}, started)
+        self.assertEqual(path.parent, self.root / "logs" / "2026-11-17")
+
+    def test_real_empty_stream_then_zero_credit_keeps_first_attempt_unknown(self):
+        path = Path("work/vmshare/confirmation-hy4flash-free-v13/C-aider-javascript__house-C1-r2/model.jsonl")
+        events = [json.loads(line) for line in path.read_text().splitlines()]
+        response, = [event["payload"] for event in events if event["event"] == "response" and event["request_id"] == 7]
+        with self.assertRaises(ValueError):
+            verify_free_response(response)
+        later = [event for event in response if "rawUsage" in event.get("providerData", {})]
+        self.assertEqual(verify_free_response(later)["credit"], 0)
 
     def test_cli_child_preserves_existing_proxy_and_free_route(self):
         model = self.model()

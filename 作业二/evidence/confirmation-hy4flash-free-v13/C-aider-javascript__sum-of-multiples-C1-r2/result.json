@@ -1,0 +1,10 @@
+{
+  "task": "javascript/sum-of-multiples",
+  "wall_seconds": 55.72074099996826,
+  "exit_status": "Submitted",
+  "submission": "Implemented sum(factors, limit) with Set-based deduplication and zero/negative factor handling; public suite passed.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 1.8234949170146137
+}

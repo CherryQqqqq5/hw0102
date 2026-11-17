@@ -1,0 +1,8 @@
+{
+  "task": "javascript/house",
+  "wall_seconds": 175.52088283299236,
+  "scoreable": false,
+  "passed": null,
+  "error_type": "RuntimeError",
+  "error": "Free model billing validation failed"
+}
