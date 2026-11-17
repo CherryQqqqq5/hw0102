@@ -2,9 +2,9 @@
 
 邱昱宁 · 231880296
 
-2026年11月17日，hy4flash-free完成首轮90/270条原评分，82通过、8失败；B0为29/30、C0为28/30、C1为25/30。本次诊断修复后新增37条有效评分，第二轮首题第9请求在600秒内部截止前未完成，缺少计费回执，队列按新增费用未知停止。当前另1条未评分、179条未启动，完整三轮比较及新版完整报告尚未形成。[首轮结果与停止记录](作业二/evidence/hy4flash-v8-20261117.md) · [费用与评分汇总](作业二/evidence/hy4flash-v8-stopped-summary.json) · [v8协议](作业二/configs/CONFIRMATION_HY4FLASH_PROTOCOL_V8.md) · [精确计划](作业二/configs/confirmation-plan-hy4flash-free-v8.json) · [91次主记录](作业二/evidence/confirmation-hy4flash-free-v8/)
+2026年11月17日，4096截断的客户端内部恢复路径已定位并完成本地源码修改；真实准备探针没有返回计费回执，已按新增费用未知停止。新客户端尚未进行真实模型验证，剩余180个正式位置未启动。有效原评分保持90/270，82通过、8失败；B0为29/30、C0为28/30、C1为25/30，另1条未评分、179条未启动。[修复与停止报告](作业二/evidence/hy4flash-v9-repair-stop-20261117.md) · [本次汇总](作业二/evidence/hy4flash-v9-repair-stopped-summary.json) · [客户端补丁](作业二/configs/codebuddy-external-recovery.patch) · [原首轮结果](作业二/evidence/hy4flash-v8-20261117.md)
 
-90个已评分位置的947请求全部返回，1120条实际用量均严格核验免费身份、积分0和4096输出上限。含新未评分及九条前序，来源去重累计1017请求/1010响应、1219条实际零积分用量，旧六笔加新增一笔费用未知继续保留。原53条评分及八条累计真实失败均保持，779份来源证据、原评分和15份冻结源码已复核。新增进程诊断通过19项本地回归，真实运行区分了旧“无首块”与新“4096结束后第二段未完成”；客户端诊断不充当计费证明。用户保证持续供电和开盖，接电不作为继续条件。[九条前序](作业二/evidence/confirmation-hy4flash-free-v8-previous/) · [新超时诊断](作业二/evidence/hy4flash-v8-timeout-diagnostics.json) · [旧无输出诊断](作业二/configs/codebuddy-empty-timeout-diagnosis-20261117.md) · [前次停止记录](作业二/evidence/hy4flash-v7-recovery2-20261117.md)
+原正式记录去重1017请求/1010响应、1219条实际免费零积分证明保持，八条真实失败保留。旧七次加本次一次，共八次命令行请求缺回执费用未知；探针中的四次原生完成仅为客户端诊断，不按日志推断费用。当前修复通过20项本地回归、语法和启动检查，计费校验器保持原内容；原接口、4096上限及600秒预算保持。已验收v8证据包中的冻结运行时代码用于原90评分复核，当前shared包含待真实验证的修复。[原90评分与费用](作业二/evidence/hy4flash-v8-stopped-summary.json) · [九条前序](作业二/evidence/confirmation-hy4flash-free-v8-previous/) · [补丁版本与验证边界](作业二/configs/codebuddy-external-recovery-patch.json)
 
 此前CodeBuddy及Boyue的有效评分、未评分、原始失败和用量独立保留，免费服务的成绩不与它们混算。下列两份报告及384条评分属于已完成的历史实验，完整新矩阵结束后更新。历史CodeBuddy确认及JavaScript运行时修复见[原协议](作业二/configs/confirmation-protocol-v3.md)与[原修复说明](作业二/configs/confirmation-runtime-repair-v3.md)。
 

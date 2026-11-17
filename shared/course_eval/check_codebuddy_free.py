@@ -53,9 +53,9 @@ class FreeResponseChecks(unittest.TestCase):
             self.assertEqual(environment[key], "hy4flash-free")
         self.assertEqual(environment["CODEBUDDY_CODE_MAX_OUTPUT_TOKENS"], "4096")
         self.assertNotIn("CODEBUDDY_FALLBACK_MODEL", environment)
-        child = subprocess.run(["node", "-e", "process.stdout.write(JSON.stringify({proxy:!!process.env.HTTPS_PROXY,source:process.env.WORKBUDDY_PROXY_SOURCE??null,configDisabled:process.env.CODEBUDDY_DISABLE_PROXY_CONFIG_FILE}))"],
+        child = subprocess.run(["node", "-e", "process.stdout.write(JSON.stringify({proxy:!!process.env.HTTPS_PROXY,source:process.env.WORKBUDDY_PROXY_SOURCE??null,configDisabled:process.env.CODEBUDDY_DISABLE_PROXY_CONFIG_FILE,recovery:process.env.COURSE_CODEBUDDY_EXTERNAL_RECOVERY}))"],
                                env=environment, capture_output=True, text=True, check=True)
-        self.assertEqual(json.loads(child.stdout), {"proxy": True, "source": None, "configDisabled": "1"})
+        self.assertEqual(json.loads(child.stdout), {"proxy": True, "source": None, "configDisabled": "1", "recovery": "1"})
 
     def test_real_zero_exit_dns_failure_keeps_billing_unknown(self):
         path, = Path("work/vmshare/confirmation-hy4flash-free-v5/C-swe-django__django-11999-B0-r1").rglob("model.jsonl")
@@ -262,6 +262,20 @@ class FreeResponseChecks(unittest.TestCase):
         self.assertEqual(error["provider_diagnostics"]["billing_status"], "unknown")
         exported = json.loads(sanitize_model(json.dumps(error)))
         self.assertEqual(exported["provider_diagnostics"], error["provider_diagnostics"])
+
+    def test_real_turn_limit_without_response_remains_unknown(self):
+        saved = json.loads(Path("evals/regression_cases/codebuddy-truncation-probe-no-receipt.json").read_text())
+        model = self.model()
+        process = subprocess.CompletedProcess(["codebuddy"], saved["returncode"], saved["stdout"], saved["stderr"])
+        with self.assertRaisesRegex(RuntimeError, "non-JSON"):
+            model.process_completed_process(process, 1)
+        events = [json.loads(line) for line in model.trace.read_text().splitlines()]
+        self.assertEqual([event["event"] for event in events], ["request_error"])
+        self.assertEqual(events[0]["failure_category"], "local_cli_turn_limit_without_receipt")
+        self.assertEqual(events[0]["billing_status"], "unknown")
+        exported = json.loads(sanitize_model(model.trace.read_text()))
+        self.assertEqual(exported["diagnostic"]["message"], saved["stderr"].strip())
+        self.assertEqual(exported["billing_status"], "unknown")
 
 
 if __name__ == "__main__":

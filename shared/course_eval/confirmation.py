@@ -62,6 +62,8 @@ def prepare(manifest_path, checks_path, preflights, destination, attempt_cap=300
     if backend == "codebuddy":
         provider["codebuddy_version"] = subprocess.check_output(
             [os.environ["COURSE_CODEBUDDY_BIN"], "--version"], text=True).strip()
+        provider["codebuddy_headless_sha256"] = digest(
+            Path(os.environ["COURSE_CODEBUDDY_BIN"]).resolve().parents[1] / "dist/codebuddy-headless.js")
     elif backend == "course":
         provider["provider_profile"] = BoyueTransport().metadata()
         if provider["provider_profile"]["runtime_sha256"] != digest(Path(__file__).with_name("boyue_rpc.py")):
@@ -98,6 +100,9 @@ def execute(args):
         version = subprocess.check_output([os.environ["COURSE_CODEBUDDY_BIN"], "--version"], text=True).strip()
         if version != plan["codebuddy_version"]:
             raise ValueError("CodeBuddy version changed")
+        bundle = Path(os.environ["COURSE_CODEBUDDY_BIN"]).resolve().parents[1] / "dist/codebuddy-headless.js"
+        if digest(bundle) != plan.get("codebuddy_headless_sha256"):
+            raise ValueError("Frozen CodeBuddy headless bundle changed or lacks a recorded digest")
     elif BoyueTransport().metadata() != plan["provider_profile"]:
         raise ValueError("Remote provider runtime changed")
     if sys.version != plan["python_version"] or any(importlib.metadata.version(name) != version

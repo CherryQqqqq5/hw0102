@@ -2,7 +2,7 @@
 
 邱昱宁 · 231880296　｜　[阅读实验报告](231880296_邱昱宁_作业二.pdf)
 
-hy4flash-free首轮90条原评分已齐，B0通过29/30、C0通过28/30、C1通过25/30，共82通过、8失败；本次新增37条有效评分。第二轮FEAL/C0第9请求内部第一段达到4096输出上限，第二段开始接收数据但在题目600秒截止前未结束，命令行没有交出完整响应与计费回执，已按新增费用未知停止。当前90/270条评分、1条未评分、179条未启动；完整三轮统计及新版最终报告未生成。来源去重1017请求/1010响应、1219条实际用量均免费零积分；旧六笔与新增一笔缺回执费用继续未知。用户保证持续供电并保持开盖，接电不作为继续条件。[首轮结果与停止记录](evidence/hy4flash-v8-20261117.md) · [费用与评分汇总](evidence/hy4flash-v8-stopped-summary.json) · [冻结协议](configs/CONFIRMATION_HY4FLASH_PROTOCOL_V8.md) · [主记录](evidence/confirmation-hy4flash-free-v8/) · [九条前序](evidence/confirmation-hy4flash-free-v8-previous/) · [新超时诊断](evidence/hy4flash-v8-timeout-diagnostics.json) · [共用说明](../shared/CONFIRMATION.md)
+hy4flash-free保持90/270条原评分，82通过、8失败；B0为29/30、C0为28/30、C1为25/30。客户端截断恢复已加入课程专用本地修改，原动作接口和实际计费校验保持；20项本地回归通过，修改后的真实模型调用尚未验证。准备探针触发新的缺回执费用未知，后续180位置未启动；旧七次加本次一次，共八次命令行请求费用未知，1219条原实际零积分证明保持。完整三轮统计及新版最终报告未生成。[修复与停止报告](evidence/hy4flash-v9-repair-stop-20261117.md) · [本次汇总](evidence/hy4flash-v9-repair-stopped-summary.json) · [客户端补丁](configs/codebuddy-external-recovery.patch) · [原首轮结果](evidence/hy4flash-v8-20261117.md) · [原90评分与费用](evidence/hy4flash-v8-stopped-summary.json)
 
 下列报告、数值和案例呈现已完成的历史实验。旧CodeBuddy、创智及各次未评分尝试单独保留，成绩与费用不并入当前免费模型主比较。[历史v3协议](configs/confirmation-protocol-v3.md) · [历史来源计划](configs/confirmation-plan-v3.json) · [原v2记录](evidence/confirmation-v2/)
 

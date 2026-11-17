@@ -55,6 +55,8 @@ def sanitize_model(content):
             record["diagnostic"] = {"category": "name_resolution", "message": "getaddrinfo ENOTFOUND wb.tencentbuddy.com"}
         elif original["event"] == "request_error" and "429 额度已用尽" in original.get("stderr", ""):
             record["diagnostic"] = {"category": "quota_exhausted", "message": "429 额度已用尽"}
+        elif original["event"] == "request_error" and original.get("stderr", "").strip() == "Max turns (1) exceeded":
+            record["diagnostic"] = {"category": "local_cli_turn_limit", "message": "Max turns (1) exceeded"}
         records.append(json.dumps(record, ensure_ascii=False))
     return "\n".join(records) + "\n"
 

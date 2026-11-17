@@ -1,0 +1,10 @@
+{
+  "source": "codebuddy-single-turn-probe-v9/truncated-64/model.jsonl",
+  "scope": "Recorded real CLI failure; not a model billing receipt",
+  "time": 1794918038.879248,
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "Max turns (1) exceeded\n",
+  "native_requests_observed_in_client_log": 4,
+  "actual_model_credit": null
+}

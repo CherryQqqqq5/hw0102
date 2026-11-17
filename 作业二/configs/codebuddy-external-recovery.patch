@@ -1,0 +1,10 @@
+--- a/dist/codebuddy-headless.js
++++ b/dist/codebuddy-headless.js
+@@ -1839 +1839 @@
+-  (this.maxRetries = 4),
++  (this.maxRetries = process.env.COURSE_CODEBUDDY_EXTERNAL_RECOVERY === "1" ? 1 : 4),
+@@ -5161,0 +5162,4 @@
++  if (process.env.COURSE_CODEBUDDY_EXTERNAL_RECOVERY === "1") {
++    this.logger.info("[TruncationRecovery] delegated_to_outer_budget");
++    return;
++  }

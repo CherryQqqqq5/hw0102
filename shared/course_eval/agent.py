@@ -191,10 +191,12 @@ class CodeBuddyModel(ModelFormatting):
                                 "CODEBUDDY_MODEL": FREE_MODEL_ID,
                                 "CODEBUDDY_SMALL_FAST_MODEL": FREE_MODEL_ID,
                                 "CODEBUDDY_BIG_SLOW_MODEL": FREE_MODEL_ID,
-                                "CODEBUDDY_DISABLE_PROXY_CONFIG_FILE": "1"})
+                                "CODEBUDDY_DISABLE_PROXY_CONFIG_FILE": "1",
+                                "COURSE_CODEBUDDY_EXTERNAL_RECOVERY": "1"})
             # 显式继承代理，避免SDK将其标为system后自动转直连或关闭TLS校验。
             environment.pop("WORKBUDDY_PROXY_SOURCE", None)
             environment.pop("CODEBUDDY_FALLBACK_MODEL", None)
+            environment.pop("CODEBUDDY_FORCE_LITE_WB_BUNDLE", None)
         return environment
 
     @staticmethod
@@ -207,6 +209,8 @@ class CodeBuddyModel(ModelFormatting):
         stages = {"model_requests_sent": "Sending request:", "streams_started": "qua.start:",
                   "first_raw_chunks": "First raw chunk received:",
                   "completed_streams": "Stream completed:", "retry_notices": "backing off and retrying:",
+                  "truncation_retries": "[TruncationRecovery] retry_started",
+                  "structured_output_retries": "Structured output not captured, retry ",
                   "event_loop_ticks": "[WorkflowMemProbe] tick"}
         counts = {name: 0 for name in stages}
         stage = "before_model_request"
@@ -239,6 +243,7 @@ class CodeBuddyModel(ModelFormatting):
                               cwd=self.run_dir, env=environment, text=True) as process:
             append_event(self.trace, "cli_process_started", request_id=self.request_id,
                          provider_diagnostics={"cli_pid": process.pid, "output_format": "json",
+                            "external_recovery": environment.get("COURSE_CODEBUDDY_EXTERNAL_RECOVERY") == "1",
                             "sdk_first_token_timeout_ms": environment.get("CODEBUDDY_FIRST_TOKEN_TIMEOUT_MS", "1200000"),
                             "sdk_stream_idle_timeout_ms": environment.get("CODEBUDDY_STREAM_TIMEOUT_MS", "1200000")})
             try:
@@ -316,7 +321,9 @@ class CodeBuddyModel(ModelFormatting):
         except json.JSONDecodeError:
             append_event(self.trace, "request_error", request_id=self.request_id, attempt=attempt,
                          returncode=process.returncode, stderr=process.stderr, stdout=process.stdout,
-                         failure_category="invalid_cli_json", billing_status="unknown")
+                         failure_category="local_cli_turn_limit_without_receipt"
+                            if process.stderr.strip() == "Max turns (1) exceeded" else "invalid_cli_json",
+                         billing_status="unknown")
             raise RuntimeError("CodeBuddy returned a non-JSON response") from None
         append_event(self.trace, "response", request_id=self.request_id, attempt=attempt, payload=raw)
         return self.process_response(raw)

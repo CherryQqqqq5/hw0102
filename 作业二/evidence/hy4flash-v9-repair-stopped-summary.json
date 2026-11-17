@@ -1,0 +1,229 @@
+{
+  "status": "stopped_new_unknown_billing_during_repair_probe",
+  "recorded_utc": "2026-11-17T12:46:05.751177+00:00",
+  "formal_batch": "confirmation-hy4flash-free-v8",
+  "formal_protocol_commit": "fadb4083ac1bbf63bec97095d0702943a40f92ff",
+  "planned_primary_positions": 270,
+  "valid_original_scores": 90,
+  "passed": 82,
+  "failed": 8,
+  "remaining_scores": 180,
+  "unscored_positions": [
+    "C-terminal-feal-linear-cryptanalysis-C0-r2"
+  ],
+  "unstarted_positions": 179,
+  "arm_scores": {
+    "B0": {
+      "scored": 30,
+      "passed": 29
+    },
+    "C0": {
+      "scored": 30,
+      "passed": 28
+    },
+    "C1": {
+      "scored": 30,
+      "passed": 25
+    }
+  },
+  "new_formal_positions": 0,
+  "current_billing": {
+    "requests": 956,
+    "responses": 955,
+    "runtime_accepted_responses": 955,
+    "offline_verified_zero_credit_responses": 955,
+    "actual_model_usage_records": 1137,
+    "local_cli_errors_with_own_usage_proof": 149,
+    "recovered_actions": 106,
+    "largest_model_output_tokens": null,
+    "reported_credit_for_returned_responses": 0,
+    "missing_responses": 1,
+    "missing_response_credit": null,
+    "scope": "Actual per-message provider identity and credit; CLI total_cost_usd is not billing evidence"
+  },
+  "previous_billing": {
+    "requests": 61,
+    "responses": 55,
+    "runtime_accepted_responses": 52,
+    "offline_verified_zero_credit_responses": 55,
+    "actual_model_usage_records": 82,
+    "local_cli_errors_with_own_usage_proof": 24,
+    "recovered_actions": 13,
+    "largest_model_output_tokens": null,
+    "reported_credit_for_returned_responses": 0,
+    "missing_responses": 6,
+    "missing_response_credit": null,
+    "scope": "Actual per-message provider identity and credit; CLI total_cost_usd is not billing evidence"
+  },
+  "all_free_formal_attempt_usage": {
+    "model_calls": 1017,
+    "model_responses": 1010,
+    "model_request_retries": 0,
+    "model_request_timeouts": 5,
+    "provider_turns": 5614,
+    "tool_calls": 806,
+    "input_tokens": 19879915,
+    "output_tokens": 2126087,
+    "cached_input_tokens": 2744768,
+    "submission_check_opportunities": 0,
+    "stale_at_submission": 0,
+    "deliverable_checkpoints": 0,
+    "deliverable_reminders": 0,
+    "usage_unreturned_requests": 7,
+    "usage_missing_input_responses": 0,
+    "usage_missing_output_responses": 0,
+    "usage_missing_cache_responses": 0,
+    "provider_reported_cost_usd": 0
+  },
+  "probe": {
+    "scope": "Synthetic interface probe, not a benchmark score",
+    "cli_requests": 1,
+    "responses": 0,
+    "runtime_verified_responses": 0,
+    "missing_billing_receipts": 1,
+    "actual_model_credit": null,
+    "request_time_unix": 1794918021.977371,
+    "error_time_unix": 1794918038.879248,
+    "elapsed_seconds": 16.90187692642212,
+    "max_output_tokens": 64,
+    "stderr": "Max turns (1) exceeded\n",
+    "diagnostic": {
+      "cli_pid": 13636,
+      "log_status": "read",
+      "log_name": "truncated-64__43396111675f98ae2b73ba798f25cd90.log",
+      "stage": "model_stream_completed_before_cli_exit",
+      "model_requests_sent": 4,
+      "streams_started": 4,
+      "first_raw_chunks": 4,
+      "completed_streams": 4,
+      "retry_notices": 0,
+      "truncation_retries": 3,
+      "structured_output_retries": 0,
+      "event_loop_ticks": 0,
+      "last_event_loop_tick": null,
+      "source_line_numbers": [
+        558,
+        643,
+        644,
+        649,
+        671,
+        790,
+        795,
+        796,
+        801,
+        823,
+        910,
+        925,
+        926,
+        931,
+        953,
+        1049,
+        1061,
+        1062,
+        1067
+      ],
+      "billing_status": "unknown",
+      "scope": "Client transport diagnostics only; no model billing inference"
+    },
+    "native_completion_diagnostics": [
+      {
+        "source_line": 653,
+        "model": "hy4flash-free",
+        "step": 1,
+        "attempt_no": 1,
+        "output_tokens": 64,
+        "finish_reason": "length",
+        "duration_ms": 1425
+      },
+      {
+        "source_line": 805,
+        "model": "hy4flash-free",
+        "step": 2,
+        "attempt_no": 1,
+        "output_tokens": 64,
+        "finish_reason": "length",
+        "duration_ms": 1115
+      },
+      {
+        "source_line": 935,
+        "model": "hy4flash-free",
+        "step": 3,
+        "attempt_no": 1,
+        "output_tokens": 64,
+        "finish_reason": "length",
+        "duration_ms": 1358
+      },
+      {
+        "source_line": 1071,
+        "model": "hy4flash-free",
+        "step": 4,
+        "attempt_no": 1,
+        "output_tokens": 64,
+        "finish_reason": "length",
+        "duration_ms": 1369
+      }
+    ]
+  },
+  "old_unknown_cli_requests": 7,
+  "new_unknown_cli_requests": 1,
+  "total_unknown_cli_requests": 8,
+  "fee_scope": "1219 actual zero-credit model records remain verified in the formal evidence. Four native probe completions are client diagnostics only and do not settle credit.",
+  "patch": {
+    "codebuddy_version": "2.179.3",
+    "bundle": "dist/codebuddy-headless.js",
+    "upstream_sha256": "abe2d02f74f208b4ea7a0c8621fb7c7cf5822ef6d88af7cf413a6de820a987a4",
+    "formatted_upstream_sha256": "7498edb3da6fe35842c5f2a60dffddd55fc373444df4ea70130c3bedb73710e6",
+    "patched_sha256": "13a753853deca12c96eba94598a855f76f45f89ae7b790b2d7b2f68932cdb111",
+    "formatter": "prettier@3.10.1",
+    "format_ranges_utf16_on_upstream_in_order": [
+      [
+        15949372,
+        15949425
+      ],
+      [
+        7629905,
+        7629940
+      ]
+    ],
+    "manual_patch_hunks": 2,
+    "trailing_newline_added": true,
+    "opt_in_environment": {
+      "COURSE_CODEBUDDY_EXTERNAL_RECOVERY": "1"
+    },
+    "active_interface": "Original builtin StructuredOutput and JSON response",
+    "automatic_native_truncation_recovery": "delegated to external budgeted loop",
+    "automatic_builtin_schema_recovery": "disabled after first unsuccessful native turn",
+    "billing_validator_sha256": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+    "native_model_calls_after_new_unknown_receipt": 0,
+    "live_validation_of_patched_client": "not run: new unknown billing stop occurred before patch"
+  },
+  "format_validation": {
+    "check": "upstream and range-formatted JavaScript have identical normalized Babel syntax trees",
+    "status": "passed",
+    "upstream_ast": "aebc5397b704bf099fc6bfad8ba04828a9e8a4212b110bacb7f24c2aaedd0880",
+    "formatted_ast": "aebc5397b704bf099fc6bfad8ba04828a9e8a4212b110bacb7f24c2aaedd0880",
+    "normalization": "Prettier's own JavaScript AST massage used by --debug-check",
+    "standard_debug_check": "Prettier CLI failed to serialize a BigInt; this check retains BigInt values explicitly",
+    "model_calls": 0
+  },
+  "original_score_verification": {
+    "runs": "work/vmshare/confirmation-hy4flash-free-v8",
+    "score_records_verified": 90,
+    "by_benchmark": {
+      "aider": 30,
+      "swe": 30,
+      "terminal": 30
+    },
+    "unscored_records_preserved": [
+      "C-terminal-feal-linear-cryptanalysis-C0-r2"
+    ],
+    "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+  },
+  "old_scores_and_costs_unchanged": true,
+  "fee_validator_unchanged": true,
+  "formal_v9_launched": false,
+  "primary_result_ready": false,
+  "patched_client_live_validation": false,
+  "new_model_requests_after_stop": 0,
+  "removed_failed_path": "MCP output transport removed from the active runtime; prototype source and failure preserved separately"
+}
