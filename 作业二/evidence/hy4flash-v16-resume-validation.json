@@ -1,0 +1,79 @@
+{
+  "stage": "frozen_resume_ready",
+  "new_model_requests": 0,
+  "source_scores": {
+    "runs": "work/vmshare/confirmation-hy4flash-free-v15",
+    "score_records_verified": 260,
+    "by_benchmark": {
+      "aider": 90,
+      "swe": 86,
+      "terminal": 84
+    },
+    "unscored_records_preserved": [
+      "C-swe-pydata__xarray-4687-B0-r3"
+    ],
+    "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+  },
+  "reused_positions": 260,
+  "preserved_valid_failures": 58,
+  "new_positions": 10,
+  "previous_attempts": 15,
+  "evidence_files_compared": 3622,
+  "usage_source_partitions_match": true,
+  "all_free_formal_usage_before_resume": {
+    "model_calls": 2765,
+    "model_responses": 2755,
+    "model_request_retries": 0,
+    "model_request_timeouts": 6,
+    "provider_turns": 13993,
+    "tool_calls": 2033,
+    "input_tokens": 47510712,
+    "output_tokens": 5077243,
+    "cached_input_tokens": 2841280,
+    "submission_check_opportunities": 0,
+    "stale_at_submission": 0,
+    "deliverable_checkpoints": 0,
+    "deliverable_reminders": 0,
+    "usage_unreturned_requests": 10,
+    "usage_missing_input_responses": 0,
+    "usage_missing_output_responses": 0,
+    "usage_missing_cache_responses": 0,
+    "provider_reported_cost_usd": 0
+  },
+  "actual_model_identity_and_credit_rules_unchanged": true,
+  "local_timeout_diagnostics": "Shared admission floor changed from 60 to 150 seconds; only agent.py differs among fifteen execution files. SDK, actual billing rules and original graders unchanged; upstream queue/network origin remains unresolved",
+  "reused_original_scores": {
+    "runs": "work/vmshare/confirmation-hy4flash-free-v16",
+    "score_records_verified": 260,
+    "by_benchmark": {
+      "aider": 90,
+      "swe": 86,
+      "terminal": 84
+    },
+    "unscored_records_preserved": [],
+    "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+  },
+  "previous_original_scores": {
+    "runs": "work/vmshare/confirmation-hy4flash-free-v16-previous",
+    "score_records_verified": 0,
+    "by_benchmark": {},
+    "unscored_records_preserved": [
+      "v10__C-terminal-feal-linear-cryptanalysis-C0-r2",
+      "v12__C-swe-pydata__xarray-7393-C0-r2",
+      "v13__C-aider-javascript__house-C1-r2",
+      "v14__C-swe-django__django-11999-B0-r3",
+      "v15__C-swe-pydata__xarray-4687-B0-r3",
+      "v1__C-terminal-feal-linear-cryptanalysis-B0-r1",
+      "v2__C-terminal-feal-linear-cryptanalysis-B0-r1",
+      "v3__C-terminal-feal-linear-cryptanalysis-B0-r1",
+      "v4__C-terminal-feal-linear-cryptanalysis-B0-r1",
+      "v5__C-swe-django__django-11999-B0-r1",
+      "v6__C-swe-django__django-11999-B0-r1",
+      "v7-attempt1__C-aider-go__alphametics-B0-r1",
+      "v7-attempt1__C-aider-go__alphametics-C0-r1",
+      "v7__C-terminal-distribution-search-C0-r1",
+      "v8__C-terminal-feal-linear-cryptanalysis-C0-r2"
+    ],
+    "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+  }
+}

@@ -12,7 +12,7 @@ from minisweagent.exceptions import FormatError, TimeExceeded
 
 from course_eval.agent import CodeBuddyModel, RunLimits
 from course_eval.codebuddy_free import verify_free_response
-from course_eval.controller import Budget
+from course_eval.controller import Budget, ControlModel
 from course_eval.export_revision import sanitize_model
 
 
@@ -37,9 +37,9 @@ class FreeResponseChecks(unittest.TestCase):
         cls.spaced_tool_recovered, = [event["payload"] for event in events
                                      if event["event"] == "response" and event["request_id"] == 14]
 
-    def model(self):
+    def model(self, model_type=CodeBuddyModel):
         directory = Path(tempfile.mkdtemp(prefix="response-replay-", dir=self.root))
-        return CodeBuddyModel(directory, RunLimits(), "{{output}}")
+        return model_type(directory, RunLimits(), "{{output}}")
 
     def test_cli_log_directory_uses_utc_day(self):
         model = self.model()
@@ -173,6 +173,32 @@ class FreeResponseChecks(unittest.TestCase):
         with self.assertRaises(TimeExceeded):
             model.query([{"role": "system", "content": "Unused"}, {"role": "user", "content": "Unused"}])
         self.assertFalse(model.trace.exists())
+
+    def test_real_late_request_window_stops_before_starting_process(self):
+        diagnostic = json.loads(Path("work/codebuddy-first-response-v15/diagnostic.json").read_text())
+        for model_type in (CodeBuddyModel, ControlModel):
+            with self.subTest(model_type=model_type.__name__):
+                model = self.model(model_type)
+                model.cli = Path("/usr/bin/false")
+                model.budget = Budget(diagnostic["effective_request_timeout_seconds"])
+                with self.assertRaises(TimeExceeded):
+                    model.query([{"role": "system", "content": "Budget boundary check"},
+                                 {"role": "user", "content": "Do not send a model request"}])
+                self.assertFalse(model.trace.exists())
+                self.assertEqual(model.request_id, 0)
+
+    def test_sufficient_request_window_reaches_local_process(self):
+        for model_type in (CodeBuddyModel, ControlModel):
+            with self.subTest(model_type=model_type.__name__):
+                model = self.model(model_type)
+                model.cli = Path("/usr/bin/false")
+                model.budget = Budget(151)
+                with self.assertRaisesRegex(RuntimeError, "CodeBuddy failed with exit code 1"):
+                    model.query([{"role": "system", "content": "Local process boundary check"},
+                                 {"role": "user", "content": "No model endpoint is used"}])
+                events = [json.loads(line) for line in model.trace.read_text().splitlines()]
+                self.assertEqual(sum(event["event"] == "request" for event in events), 1)
+                self.assertFalse(any(event["event"] == "billing_verified" for event in events))
 
     def test_paid_and_missing_billing_still_stop(self):
         with self.assertRaises(ValueError):

@@ -1,0 +1,76 @@
+{
+  "phase": "DEBUG",
+  "model_requests": 0,
+  "previous_original_scores": 260,
+  "completed_cli_responses": 2659,
+  "latency_median_seconds": 13.148297786712646,
+  "latency_p95_seconds": 33.40844702720642,
+  "latency_p99_seconds": 54.46905751228333,
+  "latency_max_seconds": 87.00371408462524,
+  "responses_over_60_seconds": 22,
+  "responses_over_150_seconds": 0,
+  "prior_admission_floor_seconds": 60,
+  "failed_call_available_seconds": 73.07826291699894,
+  "sdk_first_token_timeout_ms": 1200000,
+  "outer_execution_limit_seconds": 600,
+  "proxy_environment": [
+    {
+      "variable": "HTTPS_PROXY",
+      "scheme": "http",
+      "host": "127.0.0.1",
+      "port": 7890,
+      "credentials_present": false
+    },
+    {
+      "variable": "https_proxy",
+      "scheme": "http",
+      "host": "127.0.0.1",
+      "port": 7890,
+      "credentials_present": false
+    },
+    {
+      "variable": "HTTP_PROXY",
+      "scheme": "http",
+      "host": "127.0.0.1",
+      "port": 7890,
+      "credentials_present": false
+    },
+    {
+      "variable": "http_proxy",
+      "scheme": "http",
+      "host": "127.0.0.1",
+      "port": 7890,
+      "credentials_present": false
+    },
+    {
+      "variable": "ALL_PROXY",
+      "scheme": "http",
+      "host": "127.0.0.1",
+      "port": 7890,
+      "credentials_present": false
+    },
+    {
+      "variable": "all_proxy",
+      "scheme": "http",
+      "host": "127.0.0.1",
+      "port": 7890,
+      "credentials_present": false
+    }
+  ],
+  "dns_addresses": [
+    "120.53.78.52",
+    "120.53.82.59",
+    "43.144.166.38"
+  ],
+  "unauthenticated_http_read": {
+    "http_code": 200,
+    "time_namelookup": 0.000109,
+    "time_connect": 0.000343,
+    "time_appconnect": 0.095193,
+    "time_starttransfer": 0.14474,
+    "time_total": 0.144914
+  },
+  "network_check_scope": "Current unauthenticated reachability only; no inference, credentials or historical root-cause claim",
+  "confirmed_local_cause": "The adapter admitted a late request with only 73 seconds left while the SDK first-token deadline was 1200 seconds; outer timeout killed a still-waiting client before any response or billing",
+  "unresolved_upstream_cause": "Client records cannot distinguish upstream queueing from historical network latency"
+}

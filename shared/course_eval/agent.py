@@ -22,6 +22,7 @@ from course_eval.codebuddy_free import FREE_MODEL_ID, verify_free_response
 
 SUBMIT = "COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT"
 DELIVERABLE_CHECKPOINT = 6
+FREE_REQUEST_MIN_SECONDS = 150
 
 
 class BashArguments(BaseModel):
@@ -272,11 +273,11 @@ class CodeBuddyModel(ModelFormatting):
             return subprocess.CompletedProcess(command, process.returncode, output.read(), stderr)
 
     def query(self, messages: list[dict], **kwargs) -> dict:
-        # v2仅剩14秒仍发起请求导致费用未知；三条件共同留60秒完整请求窗口。
+        # 剩73秒时等待首响应直至截止；三条件共同预留150秒，避免临近截止再请求。
         if self.model_id == FREE_MODEL_ID and getattr(self, "budget", None) is not None:
-            if self.budget.request_seconds() < 60:
+            if self.budget.request_seconds() < FREE_REQUEST_MIN_SECONDS:
                 append_event(self.run_dir / "controller.jsonl", "free_request_window_exhausted",
-                             remaining_seconds=self.budget.request_seconds(), required_seconds=60)
+                             remaining_seconds=self.budget.request_seconds(), required_seconds=FREE_REQUEST_MIN_SECONDS)
                 raise TimeExceeded({"role": "exit", "content": "Insufficient time for a complete free-model request",
                                     "extra": {"exit_status": "TimeExceeded", "submission": ""}})
         self.request_id += 1

@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "model_calls": 0,
+  "boundary_test_backend": "/usr/bin/false (real local non-network process)",
+  "request_window_min_seconds": 150,
+  "previous_request_window_min_seconds": 60,
+  "real_failed_73_second_window_rejected_before_request": true,
+  "sufficient_151_second_window_admitted_to_local_process": true,
+  "baseline_and_control_model_tested": true,
+  "existing_missing_paid_and_truncation_checks_passed": true,
+  "regression_command": "python -m unittest course_eval.check_codebuddy_free -q",
+  "regression_exit_code": 0,
+  "regression_log": "regression.txt",
+  "changed_frozen_runtime_files": [
+    "agent.py"
+  ],
+  "agent_sha256": "bacfdf773c84eaa7470d62d48a9c42cea58d8d1542c9e481697f3b2424c919b0",
+  "client_sha256": "52115e9cf04a8cd91d5d48511b96032d06a4fbf2460d1a14e302c8251907f03c",
+  "billing_validator_sha256": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+  "billing_rules_unchanged": true,
+  "old_unknown_cli_requests_preserved": 13,
+  "upstream_queue_or_network_cause_resolved": false,
+  "live_matched_original_recovery_verified": false,
+  "scope": "Offline budget-boundary and actual recorded response regression; no new provider response, no original grade"
+}

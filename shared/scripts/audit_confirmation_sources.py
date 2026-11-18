@@ -333,6 +333,7 @@ def main():
     historical = plan["historical_unknown_cli_requests"]
     assert sum(item["missing_responses"] for item in previous_billing) == historical["formal_missing_responses"]
     assert sum(item["returned_unverified_responses"] for item in previous_billing) == historical["formal_returned_unverified"]
+    assert sum(item["returned_known_zero_local_metadata_rejections"] for item in previous_billing) == historical.get("formal_known_zero_local_metadata_rejections", 0)
     assert sum(item["total_unknown_cli_requests"] for item in previous_billing) == historical["formal"]
     assert (free_billing["missing_responses"] + mechanical_billing["missing_responses"]
             + sum(item["missing_responses"] for item in previous_billing)

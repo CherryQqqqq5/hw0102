@@ -26,6 +26,7 @@ parser.add_argument("--version", type=int, required=True)
 validation = parser.add_mutually_exclusive_group(required=True)
 validation.add_argument("--probe", type=Path)
 validation.add_argument("--local-validation", type=Path)
+validation.add_argument("--deadline-validation", type=Path)
 args = parser.parse_args()
 assert args.version == args.source_version + 1
 source = root / f"confirmation-hy4flash-free-v{args.source_version}"
@@ -40,6 +41,14 @@ if args.probe:
     assert probe["actual_cli_requests"] == 1 and probe["historical_unknown_cli_requests"] == source_summary["total_unknown_cli_requests"]
     assert probe["complete_json_and_terminal_event"] and probe["billing"]["credit"] == 0
     audit_free_billing(args.probe)
+elif args.deadline_validation:
+    probe = json.loads(args.deadline_validation.read_text())
+    assert probe["status"] == "passed" and probe["model_calls"] == 0
+    assert probe["real_failed_73_second_window_rejected_before_request"]
+    assert probe["sufficient_151_second_window_admitted_to_local_process"]
+    assert probe["billing_rules_unchanged"] and probe["request_window_min_seconds"] == 150
+    assert probe["client_sha256"] == source_plan["codebuddy_headless_sha256"]
+    assert probe["old_unknown_cli_requests_preserved"] == source_summary["total_unknown_cli_requests"] == 13
 else:
     probe = json.loads(args.local_validation.read_text())
     assert probe["status"] == "passed" and probe["model_calls"] == 0
@@ -69,7 +78,7 @@ assert all(plan[key] == source_plan[key] for key in (
     "seed", "model", "backend", "codebuddy_version", "limits", "manifest_sha256", "checks_sha256",
     "python_version", "package_versions"))
 assert [name for name in plan["runtime_sha256"]
-        if plan["runtime_sha256"][name] != source_plan["runtime_sha256"][name]] == (["agent.py"] if args.probe else [])
+        if plan["runtime_sha256"][name] != source_plan["runtime_sha256"][name]] == (["agent.py"] if args.probe or args.deadline_validation else [])
 assert plan["runtime_sha256"]["agent.py"] == probe["agent_sha256"]
 assert plan["codebuddy_headless_sha256"] == probe["client_sha256"]
 destination.mkdir()
@@ -117,6 +126,12 @@ plan.update(reused_positions=len(reused), new_positions=270 - len(reused), prese
                 "preparation_evidence": str(args.probe / "summary.json") if args.probe else str(args.local_validation),
                 "preparation_cli_requests": 1 if args.probe else 0, "preparation_scores": 0},
             resumed_unscored_run_id=unscored[0]["run_id"], resumed_position_total_attempt_number=2)
+if args.deadline_validation:
+    plan["request_window_min_seconds"] = probe["request_window_min_seconds"]
+    plan["mechanical_recovery"].update(
+        scope="Raise all three conditions' shared request admission window from 60 to 150 seconds; keep the 600-second execution limit, original grades, SDK and billing validator unchanged",
+        preparation_evidence=str(args.deadline_validation))
+    plan["comparison_limitations"] = "260 reused scores used the prior 60-second admission floor; the final 10 positions use 150 seconds. Preserve this runtime-policy boundary in every complete comparison"
 plan_path.write_text(json.dumps(plan, indent=2) + "\n")
 verification = {"stage": "frozen_resume_ready", "new_model_requests": 0,
                 "source_scores": source_scores, "reused_positions": len(reused),
@@ -127,6 +142,8 @@ verification = {"stage": "frozen_resume_ready", "new_model_requests": 0,
                 "local_timeout_diagnostics": ("UTC-day and PID-scoped phases; agent.py diagnostic path and the explicitly recorded SDK stream recovery changed; billing validator and other fourteen frozen execution files unchanged" if args.probe else "Actual two-request/two-stream/two-receipt coverage and local parent identity matched; local SDK metadata-only repair; all fifteen runtime files unchanged; the separate evidence exporter additionally retains callId"),
                 "reused_original_scores": verify(destination),
                 "previous_original_scores": verify(previous, allow_unscored=True)}
+if args.deadline_validation:
+    verification["local_timeout_diagnostics"] = "Shared admission floor changed from 60 to 150 seconds; only agent.py differs among fifteen execution files. SDK, actual billing rules and original graders unchanged; upstream queue/network origin remains unresolved"
 Path(f"work/hy4flash-v{args.version}-resume-validation.json").write_text(json.dumps(verification, ensure_ascii=False, indent=2) + "\n")
 print(json.dumps({key: verification[key] for key in (
     "stage", "new_model_requests", "reused_positions", "preserved_valid_failures", "new_positions",
