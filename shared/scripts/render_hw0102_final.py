@@ -158,6 +158,15 @@ def baseline_report(confirmation_batch: str | None = None) -> None:
                       "不能作为有效失败或零费用填入成绩。客户端截断、轮数异常及输出传输修复按来源版本记录。"
                       "作业二给出三条件配对比较、成本、失败案例和解释限制。"),
             paragraph(audit.get("comparison_limitations", "各来源执行版本分别保留。")),
+            heading("推理耗尽而未形成工具动作"),
+            paragraph("免费B0的90次原评分中，20次以RepeatedFormatError退出，其中19次原题失败、1次仍通过。"
+                      "polyglot-rust-c第二轮的三次实际请求，各输出4096个推理词元，合计12288，均没有工具动作，原题失败。"
+                      "后两次请求只在原题后增加短动作错误提示，保存历史分别为2、3条user消息，没有失败原生assistant状态。"
+                      "此处错误发生在工具执行之前，重复提醒仍受相同输出上限约束，后续结果验证没有机会处理未生成的候选。"),
+            paragraph("同题第一轮第2个命令行客户端（Command-Line Interface，CLI）请求包含4096、4096、3650三段原生输出，最终形成动作，记录truncation_recovered且原题通过。"
+                      "首轮B0为29/30，第二、三轮为19/30和20/30；客户端续接与外层恢复的版本变化同时发生，不能只归因于模型能力或某一控制模块。"
+                      "改进假设是在相同总预算内保留原生状态、限制续接并给动作保留额度；本轮只分析原记录，没有运行新恢复方案。"
+                      "这组补充案例不并入原30道诊断题的4条失败分类，完整逐段用量及请求历史角色见作业二的course-execution-failure-analysis-20261118.json。"),
             paragraph(f"本次基线已返回输入{new_baseline['input_tokens']:,}、输出{new_baseline['output_tokens']:,}词元，"
                       f"运行总用时中位数{new_baseline['median_wall_seconds']:.1f}秒。"
                       f"完整逐位置成绩及来源见作业二/evidence/{confirmation_batch}-summary/，"

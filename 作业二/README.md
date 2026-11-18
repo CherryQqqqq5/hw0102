@@ -2,7 +2,7 @@
 
 邱昱宁 · 231880296　｜　[阅读实验报告](231880296_邱昱宁_作业二.pdf)
 
-当前11页报告已补充实质改造函数定位、绝对次数/百分点/相对百分比公式，以及Django11999的真实反馈修复过程，共六组轨迹分析。[课程逐项核查](evidence/course-rubric-audit-20261118.md)说明已满足的可见要求及评分细表缺失等限制。本次仅本地整理与文档更新，新增模型请求及原评分执行均为0。
+当前13页报告按Safari核读的[真实4.3评分表](evidence/course-grading-tables-20261118.md)补强动机15、实现25、对照25、案例消融20及复现15五项材料。新增分轮成功率与成本、首轮内部续接与后两轮外层恢复的来源差异、52次格式终止及37条末段纯推理耗尽，完整案例共七组。[课程逐项核查](evidence/course-rubric-audit-20261118.md)与[逐条离线分析](evidence/course-execution-failure-analysis-20261118.json)区分实测、原因假设及未执行的新方案。所有原评分与费用保持，本次新增模型请求及原评分执行均0。
 
 hy4flash-free 固定270位置已全部完成，207通过、63失败，B0/C0/C1为68/90、71/90、68/90。C1/B0差值0.0个百分点，95%区间[-7.8，6.7]；C1/C0差值-3.3个百分点，区间[-8.9，2.2]。本轮未支持程序控制稳定提高原评分通过率。[完整结果](evidence/hy4flash-v16-results-20261118.md) · [三轮统计](evidence/confirmation-hy4flash-free-v16-summary/summary.json) · [原评分与费用](evidence/confirmation-hy4flash-free-v16-source-audit.json) · [当前协议](configs/confirmation-protocol-hy4flash-free-v16.md)
 

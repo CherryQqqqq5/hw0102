@@ -15,7 +15,7 @@ mkdir -p work/datasets work/parquet work/process-tmp work/vmshare/aider work/ter
 uv venv --python 3.13 work/.venv
 UV_CACHE_DIR="$PWD/work/uv-cache" TMPDIR="$PWD/work/process-tmp" \
   uv pip install --python work/.venv/bin/python \
-  'mini-swe-agent==2.4.6' 'swebench==5.0.2' 'harbor==0.25.0' 'docker==7.1.0'
+  'mini-swe-agent==2.4.6' 'swebench==5.0.2' 'harbor==0.25.0' 'docker==7.1.0' 'jsonschema==4.26.0'
 
 curl -fL -o work/datasets/swe-verified.parquet \
   https://huggingface.co/datasets/SWE-bench/SWE-bench_Verified/resolve/78f471bf655a3137b2e8a75af1501690ec009ec3/data/test-00000-of-00001.parquet

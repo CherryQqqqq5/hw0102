@@ -80,6 +80,7 @@ def task_success_tables(rows):
 
 def render():
     summary, rows, narrative = load()
+    execution = json.loads((WORK / "course-execution-failure-analysis-20261118.json").read_text())
     by_group = {(item["benchmark"], item["arm"]): item for item in summary["coverage"]}
     total = {arm: by_group["all", arm] for arm in ARMS}
     main, control, information = summary["comparisons"]
@@ -198,6 +199,32 @@ def render():
                   "29题辅助分析针对此前声明的网络来源差异，不覆盖后续全部客户端版本变化；"
                   "这些工程变化及服务端不可固定因素仍构成控制效果解释的限制。"),
         paragraph(audit.get("comparison_limitations", "各来源客户端版本及预算处理按冻结协议保留。")),
+        heading("执行协议变化与无动作终止"),
+        paragraph("完整270条保留所有原评分，汇总比较同时包含客户端恢复方式变化。第一轮90条使用的客户端可在一次外层决策内续接截断输出；"
+                  "v10/v12协议复用首轮后，将截断恢复交给外层FormatError，关闭原内置截断续接和结构化追加路径。"
+                  "原生每段4096上限相同，单次决策内可获得的续接次数、历史状态和实际用量口径仍不同。"
+                  "后两轮还存在已定位工具错误的内部处理，不能简单将一次CLI请求等同于一个原生模型回复。"),
+        table([["轮次", "条件", "原题通过", "格式终止", "CLI请求", "原生用量", "输出词元"],
+               *[[item["repeat"], item["arm"], f"{item['passed']}/30", item["format_exits"], item["model_calls"],
+                  item["native_usage_records"], f"{item['output_tokens']:,}"] for item in execution["rounds"]]],
+              [38, 38, 73, 70, 70, 83, width - 372]),
+        paragraph("首轮B0/C0/C1分别29/28/25次通过，后两轮合计39/43/43次通过；格式终止由首轮1次增至后两轮28/23次。"
+                  "该并行变化支持把恢复方式作为重要混杂检查，不能单凭跨轮差值断言恢复改动导致全部失分。"
+                  "相同协议提交的配对位置可作来源检查；它仍未统一任务组成、模型内部采样和全部客户端条件。"
+                  "以下整体配对区间描述已保存的混合来源记录，不能解释成严格同一执行策略下的因果效应。"),
+        table([["同原协议提交的事后子集", "位置对数", "对照通过", "改造通过"],
+               *[[f"{item['treatment']} / {item['reference']}", item["task_repeat_pairs"], item["reference_passed"], item["treatment_passed"]]
+                 for item in execution["protocol_matched_descriptive_pairs"]]], [220, 90, 90, width - 400]),
+        paragraph("这里的一个位置对是一题某轮的两条件，子集按既有protocol_commit匹配，各比较排除位置不同；"
+                  "不是预先固定的新测试集，也未统一提供方内部状态。不以该子集替代全部原记录或推断显著性。"),
+        paragraph(f"52次RepeatedFormatError中48次原题失败、4次仍通过，分别保留。{execution['last_native_reasoning_only_4096_tail_and_original_failed']}条失败的最后三次CLI响应，"
+                  "其最后一段原生输出均为4096个推理词元、无工具动作，占63条失败的58.7%。"
+                  "若严格要求三次CLI响应各仅一段原生输出，则为36条；另1条xarray请求含2003+4096词元，不能把整次响应记成4096。"
+                  "这些记录定位了动作产生之前的执行瓶颈，尚未证明修复后能够挽救多少原题。"),
+        paragraph("polyglot-rust-c/B0第二轮仅三次请求，各输出4096个推理词元，累计12288且无动作。后续请求历史依次只有1、2、3条user消息，"
+                  "没有失败原生assistant消息或reasoning_content，实际增加的是短动作错误提示。第一轮同题第2个CLI请求含4096、4096、3650三段，"
+                  "保存truncation_recovered并最终通过原题。该同题跨版本对照说明状态续接与决策预算发生变化，不能当作预算一致的恢复收益。"
+                  "应优先研究同总预算下的原生历史保留与受限续接；本轮未运行该新方案，未放宽截断动作或真实费用校验。"),
         heading("五、任务成功率与机制消融"),
         table([["基准", "B0", "C0", "C1"],
                *[[label, *[rate(by_group[key, arm]) for arm in ARMS]] for key, label in LABELS.items()],
@@ -317,6 +344,10 @@ def render():
                   "同一来源复用记录不重复计数。历史与本轮合计覆盖75道不同任务。"
                   "历史失败、工程控制和机械未评分尝试分别保留。"),
         heading("九、结论与适用范围"), paragraph(narrative["conclusion"]),
+        paragraph("代码与真实响应的离线检查还定位两项实现缺陷：C0/C1动作接口的71份submit返回在发送的JSON Schema中合法，但携带其他动作字段时被本地ControlAction拒绝；"
+                  "C1自动调度在24条轨迹的37次请求中注入重复空检查反馈。前者以保存的发送Schema和原动作分别运行标准Schema验证与本地验证器，"
+                  "后者按新请求末尾的实际反馈计数。部分动作先受4096截断保护拒绝，71不能直接当作实际Schema报错次数；"
+                  "37也不能直接当作净新增请求或失分。改进方向是统一动作分支契约、仅反馈新检查结果，冻结原运行与分数保持。"),
         paragraph("检查器按每道公开任务编制，包含人工规则设计，尚未验证自动生成检查器的能力。软件修复任务集中于四个仓库的较短修复，"
                   "Terminal限于可离线、单容器和当前资源能承载的任务，Aider覆盖六种语言。"
                   "除已披露的接口修复外，公开条件与方法在旧提供方运行前固定；免费复测前已读取旧服务结果，模型训练暴露情况未知。"
