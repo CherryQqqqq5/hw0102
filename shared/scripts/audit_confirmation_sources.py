@@ -1,4 +1,5 @@
 import argparse
+import copy
 import hashlib
 import json
 import math
@@ -102,8 +103,38 @@ def audit_free_preparation(probe_root, interface_root):
             "scope": "Two interface calls, one 4096 cap probe and one initial exact-route connectivity call; excludes paid alias mistake"}
 
 
-def audit_stopped_billing(directory):
-    requests = responses = accepted = records = local_errors = recovered = rejected = 0
+def audit_local_tool_identity_rejection(payload):
+    corrected = copy.deepcopy(payload)
+    changes = []
+    for index, item in enumerate(corrected):
+        provider = item.get("providerData", {})
+        if item.get("type") != "function_call_result" or provider.get("model") != "hy4flash-free":
+            continue
+        if "rawUsage" in provider:
+            raise ValueError("A provider usage record cannot be reclassified as a local result")
+        parents = [parent for parent in corrected[:index]
+                   if parent.get("type") == "function_call" and parent.get("callId") == item.get("callId")
+                   and all(parent.get("providerData", {}).get(key) == provider.get(key)
+                           for key in ("messageId", "conversationRequestId", "requestModelId"))]
+        if len(parents) != 1 or not all(provider.get(key) for key in (
+                "messageId", "conversationRequestId", "requestModelId")):
+            raise ValueError("The local result has no unique matching actual model call")
+        parent = parents[0]["providerData"]
+        changes.append({"message_id": provider["messageId"], "field": "function_call_result.providerData.model",
+                        "original": provider["model"], "parent_actual_model": parent.get("model")})
+        provider["model"] = parent.get("model")
+    if not changes:
+        raise ValueError("No recognized local tool-result identity defect")
+    # 只重放本地元数据关联；原生模型事件和实际用量逐项保持，原响应仍为拒绝状态。
+    assert [item for item in corrected if item.get("type") != "function_call_result"] == [
+        item for item in payload if item.get("type") != "function_call_result"]
+    proof = verify_free_response(corrected)
+    return {"actual_native_billing": proof, "local_identity_changes": changes,
+            "original_whole_response_accepted": False, "classification": "known_zero_native_billing_local_metadata_rejected"}
+
+
+def audit_stopped_billing(directory, *, require_runtime_acceptance=True):
+    requests = responses = accepted = records = local_errors = recovered = rejected = known_local = 0
     rejected_requests = []
     for log in sorted(directory.rglob("model.jsonl")):
         events = [json.loads(line) for line in log.read_text().splitlines()]
@@ -127,14 +158,25 @@ def audit_stopped_billing(directory):
                 own = verify_free_response(known) if known else None
                 records += own["usage_records"] if own else 0
                 rejected += 1
+                try:
+                    local_identity = audit_local_tool_identity_rejection(response["payload"])
+                except (ValueError, TypeError):
+                    local_identity = None
+                else:
+                    known_local += 1
                 rejected_requests.append({"run_id": log.parent.name, "request_id": request_id,
-                    "whole_response_billing": "unknown", "later_known_zero_credit_records": own["usage_records"] if own else 0})
+                    "whole_response_billing": "known_zero_native_local_metadata_rejected" if local_identity else "unknown",
+                    "later_known_zero_credit_records": own["usage_records"] if own else 0,
+                    **({"local_identity_evidence": local_identity} if local_identity else {})})
             else:
-                assert request_id in verified and request_id not in failed, (log, request_id)
-                assert {key: verified[request_id][key] for key in proof} == proof
+                if require_runtime_acceptance:
+                    assert request_id not in failed, (log, request_id)
+                    assert request_id in verified, (log, request_id)
+                    assert {key: verified[request_id][key] for key in proof} == proof
                 records += proof["usage_records"]
                 local_errors += len(proof["local_cli_errors"])
-        assert failed == {item["request_id"] for item in rejected_requests if item["run_id"] == log.parent.name}
+        if require_runtime_acceptance:
+            assert failed == {item["request_id"] for item in rejected_requests if item["run_id"] == log.parent.name}
         requests += len(sent)
         responses += len(returned)
         accepted += len(verified)
@@ -146,15 +188,18 @@ def audit_stopped_billing(directory):
         "reported_credit_for_returned_responses": None if rejected else 0,
         "missing_responses": requests - responses, "missing_response_credit": None if requests != responses else 0,
         "returned_unverified_responses": rejected, "returned_unverified_requests": rejected_requests,
-        "total_unknown_cli_requests": requests - responses + rejected,
-        "scope": "Strict whole-response rejection preserved; known zero-credit native records do not settle unknown attempts"}
+        "returned_unknown_responses": rejected - known_local,
+        "returned_known_zero_local_metadata_rejections": known_local,
+        "total_unknown_cli_requests": requests - responses + rejected - known_local,
+        "scope": "Strict whole-response rejection preserved; actual native receipts are distinguished from a verified local-only identity defect; later zero credit does not settle unknown attempts"}
 
 
 def audit_free_recovery_preparation(probe_root, interface_root):
     initial = audit_free_preparation(probe_root, interface_root)
     directories = [probe_root.parent / name for name in (
         "codebuddy-single-turn-probe-v9", "codebuddy-single-turn-probe-v10",
-        "codebuddy-single-turn-probe-v11", "codebuddy-single-turn-probe-v12", "codebuddy-stdout-probe-v13")]
+        "codebuddy-single-turn-probe-v11", "codebuddy-single-turn-probe-v12", "codebuddy-stdout-probe-v13",
+        "codebuddy-empty-stream-probe-v14")]
     checks = [{"source": str(directory), **audit_free_billing(directory, require_runtime_acceptance=False)}
               for directory in directories]
     assert all(directory.is_dir() for directory in directories)
@@ -166,7 +211,7 @@ def audit_free_recovery_preparation(probe_root, interface_root):
             "missing_responses": missing, "missing_response_credit": None,
             "reported_credit_for_returned_responses": 0, "initial_preparation": initial,
             "recovery_preparation": checks,
-            "scope": "Unique initial and v9-v13 live preparation sources; excludes recorded replays and paid alias mistake; two historical missing receipts stay unknown"}
+            "scope": "Unique initial and v9-v14 live preparation sources; excludes recorded replays and paid alias mistake; two historical missing receipts stay unknown"}
 
 
 def main():
@@ -284,8 +329,11 @@ def main():
     free_billing = audit_free_billing(current)
     # 恢复前缺失回执继续未知，主矩阵仍逐回复严格验证零费用。
     mechanical_billing = audit_free_billing(mechanical, require_runtime_acceptance=False)
-    previous_billing = [audit_free_billing(directory, require_runtime_acceptance=False) for directory in free_previous]
-    assert sum(item["missing_responses"] for item in previous_billing) == plan["historical_unknown_cli_requests"]["formal"]
+    previous_billing = [audit_stopped_billing(directory, require_runtime_acceptance=False) for directory in free_previous]
+    historical = plan["historical_unknown_cli_requests"]
+    assert sum(item["missing_responses"] for item in previous_billing) == historical["formal_missing_responses"]
+    assert sum(item["returned_unverified_responses"] for item in previous_billing) == historical["formal_returned_unverified"]
+    assert sum(item["total_unknown_cli_requests"] for item in previous_billing) == historical["formal"]
     assert (free_billing["missing_responses"] + mechanical_billing["missing_responses"]
             + sum(item["missing_responses"] for item in previous_billing)
             == selected_usage["usage_unreturned_requests"])

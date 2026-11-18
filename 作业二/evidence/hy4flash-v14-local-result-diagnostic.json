@@ -1,0 +1,58 @@
+{
+  "source_run_id": "C-swe-django__django-11999-B0-r3",
+  "request_id": 5,
+  "cli_pid": 77016,
+  "failure_category": "local_tool_result_overwrites_actual_model_with_configured_alias",
+  "strict_original_response_accepted": false,
+  "original_score": null,
+  "provider_diagnostics": {
+    "cli_pid": 77016,
+    "log_status": "read",
+    "log_name": "C-swe-django__django-11999-B0-r3__bf94b3dd05c6a725707fbdeafb790aac.log",
+    "stage": "model_stream_completed_before_cli_exit",
+    "model_requests_sent": 2,
+    "streams_started": 2,
+    "first_raw_chunks": 2,
+    "completed_streams": 2,
+    "retry_notices": 0,
+    "truncation_retries": 0,
+    "structured_output_retries": 0,
+    "event_loop_ticks": 1,
+    "last_event_loop_tick": "11/18/2026, 2:45:41 PM.314",
+    "source_line_numbers": [
+      3451,
+      3480,
+      3481,
+      3493,
+      3597,
+      3604,
+      3605,
+      3610,
+      3615
+    ],
+    "billing_status": "unknown",
+    "scope": "Client transport diagnostics only; no model billing inference"
+  },
+  "observed_native_message_ids": [
+    "01a1ed66ff4f74fdb91051589d501717",
+    "01a1ed6733697b1a9afd12c7ddd51bdd"
+  ],
+  "actual_native_billing": {
+    "request_model": "hy4flash-free",
+    "provider_model": "hy4-flash-free",
+    "credit": 0,
+    "usage_records": 2,
+    "local_cli_errors": []
+  },
+  "native_requests_with_unmatched_usage": 0,
+  "local_result": {
+    "type": "function_call_result",
+    "model": "hy4flash-free",
+    "parent_model": "hy4-flash-free",
+    "same_call_id": true,
+    "same_message_id": true,
+    "same_conversation_request_id": true
+  },
+  "billing_boundary": "Two sent and completed native requests each have their own actual free zero-credit receipt; original whole response stays rejected because the local tool result contains an alias",
+  "real_model_requests_in_diagnosis": 0
+}

@@ -45,6 +45,8 @@ def sanitize_model(content):
                                          "conversationRequestId", "agent", "skipRun", "error", "isPartialAborted") if key in provider}}
                         if item.get("type") == "function_call" and item.get("name") == "StructuredOutput":
                             kept.update({"name": item["name"], "arguments": item.get("arguments")})
+                        if item.get("type") in {"function_call", "function_call_result"} and "callId" in item:
+                            kept["callId"] = item["callId"]
                         safe.append(kept)
                 record["payload"] = safe
             else:

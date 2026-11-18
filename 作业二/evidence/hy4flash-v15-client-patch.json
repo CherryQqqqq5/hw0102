@@ -1,0 +1,68 @@
+{
+  "codebuddy_version": "2.179.3",
+  "bundle": "dist/codebuddy-headless.js",
+  "upstream_sha256": "abe2d02f74f208b4ea7a0c8621fb7c7cf5822ef6d88af7cf413a6de820a987a4",
+  "formatted_upstream_sha256": "7498edb3da6fe35842c5f2a60dffddd55fc373444df4ea70130c3bedb73710e6",
+  "patched_sha256": "52115e9cf04a8cd91d5d48511b96032d06a4fbf2460d1a14e302c8251907f03c",
+  "formatter": "prettier@3.10.1",
+  "format_ranges_utf16_on_upstream_in_order": [
+    [
+      15949372,
+      15949425
+    ],
+    [
+      7629905,
+      7629940
+    ]
+  ],
+  "manual_patch_hunks": 5,
+  "trailing_newline_added": true,
+  "opt_in_environment": {
+    "COURSE_CODEBUDDY_EXTERNAL_RECOVERY": "1"
+  },
+  "active_interface": "Original builtin StructuredOutput and JSON response",
+  "automatic_native_truncation_recovery": "delegated to external budgeted loop",
+  "automatic_builtin_schema_recovery": "disabled after first unsuccessful native turn",
+  "billing_validator_sha256": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+  "native_model_calls_between_v13_stop_and_v14_authorization": 0,
+  "automatic_empty_stream_and_timeout_recovery": "disabled for external recovery opt-in; isolated failure dispatch and normal live transport verified; live empty-stream fault not forced",
+  "empty_stream_patch": {
+    "parent_sha256": "a52932ce3d059342d46c71ec8234da9e3c5f9b8b903260475d667d31d1d2085b",
+    "formatted_parent_sha256": "abfbb476da94d2b82c43399e0ad321076d86e7d42d6625a3f3581515a4a44918",
+    "patch": "work/hw0102-publish/作业二/evidence/hy4flash-v13-empty-stream.patch",
+    "local_validation": "5 actual-function dispatch checks, 8 render checks and 24 adapter regressions passed",
+    "normal_live_transport_validated": true,
+    "forced_empty_stream_fault_live_validated": false
+  },
+  "live_validation_of_patched_client": "v14: one matched original house request returned complete terminal JSON and one actual free zero-credit native receipt; invalid save/check_id action rejected and preserved. Recovered original house score and later formal truncation handling verified separately",
+  "last_live_validated_client_sha256": "fbd46d708a36187a5c3a636a4d6e4c433304bfda440d6812ce569fb9425bf416",
+  "local_result_identity_patch": {
+    "parent_sha256": "fbd46d708a36187a5c3a636a4d6e4c433304bfda440d6812ce569fb9425bf416",
+    "scope": "Only local function_call_result model metadata inherits the exact parent function_call identity; callId, messageId and conversationRequestId must match",
+    "actual_model_events_and_usage_unchanged": true,
+    "original_response_rejection_and_unscored_attempt_preserved": true,
+    "local_validation": "6 actual SDK assignment checks, 14 billing/replay checks, 24 unchanged adapter regressions and syntax/version checks passed",
+    "live_fixed_client_verified": false,
+    "validation_evidence": "work/codebuddy-local-result-v14/validation.json",
+    "diagnostic_evidence": "work/codebuddy-local-result-v14/diagnostic.json",
+    "new_unknown_native_fees": 0,
+    "historical_unknown_cli_requests": 12,
+    "new_model_requests_in_diagnosis_or_repair": 0
+  },
+  "output_cap_adapter_policy": "After unchanged actual billing verification, reject a final native segment reaching 4096 as FormatError; SDK-repaired partial JSON is not executable",
+  "validation_evidence": "work/codebuddy-empty-stream-probe-v14/summary.json",
+  "validation_boundary": "v14 normal live transport and actual zero-credit receipt are verified; empty-stream fault dispatch remains isolated source evidence. v12 terminal/truncation live evidence refers to parent a52932ce. Interface probes do not establish method benefit; original scores and control state are reported separately",
+  "terminal_response_patch": {
+    "parent_sha256": "13a753853deca12c96eba94598a855f76f45f89ae7b790b2d7b2f68932cdb111",
+    "formatted_parent_sha256": "7a56d994bea797dc1ce3c284ba9a3a95596cdf5b90433cbe4b081903a995ae4f",
+    "format_range_utf16_on_parent": [5592454, 5595250],
+    "failed_probe_client_sha256": "cf1edc0d2fc5cf2cb9ee680f381ba379967a27e408b387e3714ca4b9349a2cb2",
+    "patch": "work/codebuddy-terminal-response-v11.patch",
+    "actual_compatibility_module": 895,
+    "compatibility_exports": {"IN": "isMaxTurnsExceededError", "QL": "getStreamPhysicalCompletion"},
+    "history_module": 96829,
+    "history_export": "waitForSessionResultProcessing",
+    "local_validation": "Eight isolated method and actual-export-map checks; 22 adapter regressions; syntax and CLI version passed",
+    "new_model_requests_after_stop": 0
+  }
+}

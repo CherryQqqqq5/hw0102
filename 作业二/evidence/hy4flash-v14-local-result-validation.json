@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "billing_checks": 14,
+  "model_calls": 0,
+  "benchmark_actions": 0,
+  "scope": "Offline replay only; original response and historical rejection remain unchanged",
+  "actual_native_receipts": [
+    {
+      "model": "hy4-flash-free",
+      "messageId": "01a1ed66ff4f74fdb91051589d501717",
+      "credit": 0,
+      "completion_tokens": 2069
+    },
+    {
+      "model": "hy4-flash-free",
+      "messageId": "01a1ed6733697b1a9afd12c7ddd51bdd",
+      "credit": 0,
+      "completion_tokens": 4096
+    }
+  ],
+  "corrected_local_metadata_proof": {
+    "request_model": "hy4flash-free",
+    "provider_model": "hy4-flash-free",
+    "credit": 0,
+    "usage_records": 2,
+    "local_cli_errors": [
+      {
+        "skipRun": true,
+        "error": {
+          "message": "Tool \"functions.StructuredOutput\" does not exist in the current tool set.",
+          "isNetworkError": false,
+          "networkErrorAutoRetry": false,
+          "isStreamTimeout": false,
+          "isRetryable": true
+        },
+        "agent": "cli",
+        "conversationRequestId": "01a1ed66febd757f89a791d05ce48200",
+        "model_message_id": "01a1ed66ff4f74fdb91051589d501717"
+      }
+    ]
+  },
+  "billing_validator_sha256": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+  "client_sha256": "52115e9cf04a8cd91d5d48511b96032d06a4fbf2460d1a14e302c8251907f03c",
+  "agent_sha256": "e9e22414dc8b0fd5afd00330dfadef3df1d44e7248149fc9affbc6f302418b21",
+  "actual_native_events_unchanged": true,
+  "final_4096_segment_rejected": true,
+  "old_true_unknown_still_rejected": true,
+  "live_fixed_client_verified": false
+}

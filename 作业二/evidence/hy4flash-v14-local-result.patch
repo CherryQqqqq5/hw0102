@@ -1,0 +1,24 @@
+--- formatted-parent
++++ patched-client
+@@ -5381,7 +5381,20 @@
+     ...ef,
+     ...ey.providerData,
+     messageId: ey.providerData.messageId ?? ef.messageId ?? eA.messageId ?? "",
+-    model: ec.model || eA.telemetry?.modelId || "",
++    // 本地工具结果沿用同一调用的实际模型身份，不从调用别名制造身份。
++    model:
++      process.env.COURSE_CODEBUDDY_EXTERNAL_RECOVERY === "1" &&
++      ey.type === "function_call_result"
++        ? (eA.history.findLast(
++            (item) =>
++              item.type === "function_call" &&
++              item.callId === ey.callId &&
++              item.providerData?.messageId ===
++                (ey.providerData.messageId ?? ef.messageId ?? eA.messageId ?? "") &&
++              item.providerData?.conversationRequestId ===
++                (ey.providerData.conversationRequestId ?? eu),
++          )?.providerData.model ?? (ec.model || eA.telemetry?.modelId || ""))
++        : ec.model || eA.telemetry?.modelId || "",
+     requestModelId: ep,
+     requestModelName: eh,
+     ...(ed ? { traceId: ed } : {}),
