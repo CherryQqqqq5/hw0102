@@ -1,0 +1,10 @@
+{
+  "task": "cpp/all-your-base",
+  "wall_seconds": 196.77070045797154,
+  "exit_status": "Submitted",
+  "submission": "Verified candidate-001 passes all public tests and edge-case checks.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 8.638472750026267
+}

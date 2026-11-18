@@ -1,0 +1,10 @@
+{
+  "task": "javascript/sum-of-multiples",
+  "wall_seconds": 160.851067666983,
+  "exit_status": "Submitted",
+  "submission": "Implementation complete: sum(factors, limit) deduplicates positive multiples below limit; public suite, lint, and custom edge cases all pass.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 1.7691182080016006
+}

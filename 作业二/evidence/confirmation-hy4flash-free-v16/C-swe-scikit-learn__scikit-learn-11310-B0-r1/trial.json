@@ -1,0 +1,31 @@
+{
+  "task": {
+    "benchmark": "swe",
+    "id": "scikit-learn__scikit-learn-11310",
+    "stratum": "scikit-learn/scikit-learn",
+    "group": "scikit-learn__scikit-learn-11310",
+    "difficulty": "<15 min fix",
+    "image": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-11310:latest",
+    "base_commit": "553b5fb8f84ba05c8397f26dd079deece2b05029",
+    "exclude": null,
+    "split": "C",
+    "image_id": "sha256:9868186e3d37062a178faa15e5860641521c0193d6897aa0053b2d338fd566dd",
+    "image_digests": [
+      "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-11310@sha256:9868186e3d37062a178faa15e5860641521c0193d6897aa0053b2d338fd566dd"
+    ]
+  },
+  "phase": "formal",
+  "configuration": "B0",
+  "status": "started",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "protocol_commit": "fadb4083ac1bbf63bec97095d0702943a40f92ff",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 0,
+    "strict_wall": true
+  }
+}

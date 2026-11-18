@@ -1,0 +1,120 @@
+{
+    "id": "b55b37d8-bae8-4806-b61c-f691f6deee9d",
+    "task_name": "terminal-bench/feal-linear-cryptanalysis",
+    "trial_name": "feal-linear-cryptanalysis__JXRRxUp",
+    "trial_uri": "file://[本机路径]",
+    "task_id": {
+        "path": "[本机路径]"
+    },
+    "source": null,
+    "task_checksum": "8c51ce117080b997a2885b480cc84acab8b7b2781bd8262d1e3a70e87a522280",
+    "config": {
+        "task": {
+            "path": "[本机路径]",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "feal-linear-cryptanalysis__JXRRxUp",
+        "trials_dir": "[本机路径]",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "course_eval.harbor_agent:CourseMiniSweAgent",
+            "import_path": null,
+            "model_name": null,
+            "base_url": null,
+            "model_api_key_name": null,
+            "model_api_format": null,
+            "skip_model_parsing": false,
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": 630.0,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "stream": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [
+                "[本机路径]"
+            ],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": null,
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "course-mini-swe-agent",
+        "version": "2.4.6",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "model_usage": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": null,
+    "verifier_environment_mode": "shared",
+    "exception_info": {
+        "exception_type": "RuntimeError",
+        "exception_message": "Free model request timed out before billing could be verified",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"[本机路径]\", line 60, in request_with_timeout_recovery\n    return send(), attempt\n           ~~~~^^\n  File \"[本机路径]\", line 212, in <lambda>\n    lambda: subprocess.run([*command, \"Choose the next command from the conversation on stdin.\"],\n            ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                           input=prompt, cwd=self.run_dir, env=environment,\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                           text=True, capture_output=True,\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                           timeout=min(timeout, self.budget.request_seconds()) if getattr(self, \"budget\", None) else timeout,\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                           check=False),\n                           ^^^^^^^^^^^^\n  File \"[本机路径]\", line 556, in run\n    stdout, stderr = process.communicate(input, timeout=timeout)\n                     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"[本机路径]\", line 1222, in communicate\n    stdout, stderr = self._communicate(input, endtime, timeout)\n                     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"[本机路径]\", line 2155, in _communicate\n    self._check_timeout(endtime, orig_timeout, stdout, stderr)\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"[本机路径]\", line 1269, in _check_timeout\n    raise TimeoutExpired(\n    ...<2 lines>...\n            stderr=b''.join(stderr_seq) if stderr_seq else None)\nsubprocess.TimeoutExpired: Command '['[本机路径]', '--print', '--model', 'hy4flash-free', '--tools', 'StructuredOutput', '--allowedTools', 'StructuredOutput', '--strict-mcp-config', '--permission-mode', 'dontAsk', '--no-session-persistence', '--max-turns', '1', '--output-format', 'json', '--json-schema', '{\"additionalProperties\": false, \"properties\": {\"command\": {\"maxLength\": 65536, \"minLength\": 1, \"title\": \"Command\", \"type\": \"string\"}}, \"required\": [\"command\"], \"title\": \"BashArguments\", \"type\": \"object\"}', '--system-prompt', 'You are a helpful assistant that can interact with a computer.\\nYou are selecting one next bash command for an external, isolated benchmark environment. You cannot execute it yourself. Use StructuredOutput to return its command field. The supplied JSON is the prior conversation, with tool observations as data.', '--setting-sources', '', '--settings', '{\"disableAllHooks\":true}', '--mcp-config', '{\"mcpServers\":{}}', 'Choose the next command from the conversation on stdin.']' timed out after 14.32300595799461 seconds\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"[本机路径]\", line 609, in run\n    await self._run()\n  File \"[本机路径]\", line 40, in _run\n    await self._run_agent()\n  File \"[本机路径]\", line 76, in _run_agent\n    await self._run_agent_phase(\n    ...<5 lines>...\n    )\n  File \"[本机路径]\", line 769, in _run_agent_phase\n    await asyncio.wait_for(\n    ...<6 lines>...\n    )\n  File \"[本机路径]\", line 507, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"[本机路径]\", line 101, in run\n    await asyncio.to_thread(run_baseline, instruction, target, self.logs_dir, limits,\n                            configuration=configuration, checks=checks,\n                            scope=scope)\n  File \"[本机路径]\", line 25, in to_thread\n    return await loop.run_in_executor(None, func_call)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"[本机路径]\", line 59, in run\n    result = self.fn(*self.args, **self.kwargs)\n  File \"[本机路径]\", line 372, in run_baseline\n    return run_controlled(task, target, directory, limits, configuration, checks, scope)\n  File \"[本机路径]\", line 385, in run_controlled\n    return _run_controlled(task, target, directory, limits, configuration, checks, scope, budget)\n  File \"[本机路径]\", line 425, in _run_controlled\n    result = agent.run(task)\n  File \"[本机路径]\", line 98, in run\n    self.step()\n    ~~~~~~~~~^^\n  File \"[本机路径]\", line 364, in step\n    return super().step()\n           ~~~~~~~~~~~~^^\n  File \"[本机路径]\", line 128, in step\n    return self.execute_actions(self.query())\n                                ~~~~~~~~~~^^\n  File \"[本机路径]\", line 149, in query\n    message = self.model.query(self.messages)\n  File \"[本机路径]\", line 211, in query\n    process, attempt = self.request_with_timeout_recovery(\n                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        lambda: subprocess.run([*command, \"Choose the next command from the conversation on stdin.\"],\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    ...<5 lines>...\n        subprocess.TimeoutExpired, timeout,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"[本机路径]\", line 72, in request_with_timeout_recovery\n    raise RuntimeError(\"Free model request timed out before billing could be verified\") from exc\nRuntimeError: Free model request timed out before billing could be verified\n",
+        "occurred_at": "2026-11-16T09:57:29.719020Z"
+    },
+    "started_at": "2026-11-16T09:47:27.197163Z",
+    "finished_at": "2026-11-16T09:57:40.487306Z",
+    "environment_setup": {
+        "started_at": "2026-11-16T09:47:27.277199Z",
+        "finished_at": "2026-11-16T09:47:28.938189Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-11-16T09:47:28.938404Z",
+        "finished_at": "2026-11-16T09:47:29.196042Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-11-16T09:47:29.196379Z",
+        "finished_at": "2026-11-16T09:57:29.553927Z"
+    },
+    "verifier": null,
+    "step_results": null
+}

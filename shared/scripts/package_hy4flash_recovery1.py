@@ -8,11 +8,11 @@ from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--recovery", type=int, choices=(1, 2, 3, 4, 5, 6, 7, 8, 9), default=1)
+parser.add_argument("--recovery", type=int, choices=(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), default=1)
 args = parser.parse_args()
 root = Path("work/hw0102-publish")
-label = {1: "恢复补充证据", 2: "接电续跑停止证据", 3: "_v8首轮停止证据", 4: "_v9截断修复停止证据", 5: "_v10原题验证停止证据", 6: "_v11序列化修复停止证据", 7: "_v12评分与输出修复停止证据", 8: "_v13评分与空流修复停止证据", 9: "_v15_260条评分与停止证据"}[args.recovery]
-date = "20261118" if args.recovery in (8, 9) else "20261117"
+label = {1: "恢复补充证据", 2: "接电续跑停止证据", 3: "_v8首轮停止证据", 4: "_v9截断修复停止证据", 5: "_v10原题验证停止证据", 6: "_v11序列化修复停止证据", 7: "_v12评分与输出修复停止证据", 8: "_v13评分与空流修复停止证据", 9: "_v15_260条评分与停止证据", 10: "_v16_完整270条评分与报告"}[args.recovery]
+date = "20261118" if args.recovery in (8, 9, 10) else "20261117"
 output = Path(f"outputs/作业一二_hy4flash{label}_{date}.zip")
 staged = output.with_suffix(".zip.part")
 tracked = [os.fsdecode(name) for name in subprocess.check_output(
@@ -85,18 +85,29 @@ if args.recovery == 9:
         or name in {"作业一/README.md", "作业二/README.md", "作业二/evidence/free-channel-setup-20261118.md",
                     "作业一/231880296_邱昱宁_作业一.pdf", "作业二/231880296_邱昱宁_作业二.pdf"}]
     historical = Path("outputs/作业一二_hy4flash_v13评分与空流修复停止证据_20261118.zip")
+if args.recovery == 10:
+    trials = json.loads((root / "作业二/evidence/confirmation-hy4flash-free-v16-summary/trials.json").read_text())
+    assert len(trials) == 270 and all(row["scoreable"] for row in trials)
+    names = [name for name in tracked if name == "README.md"
+        or name.startswith(("shared/", "frozen-runtime/v15/", "frozen-runtime/v16/", "作业二/configs/",
+                            "作业二/evidence/hy4flash-v16-", "作业二/evidence/confirmation-hy4flash-free-v16",
+                            "作业二/evidence/preparation-free/"))
+        or name in {"作业一/README.md", "作业二/README.md", "作业二/evidence/free-channel-setup-20261118.md",
+                    "作业一/231880296_邱昱宁_作业一.pdf", "作业二/231880296_邱昱宁_作业二.pdf"}]
+    historical = Path("outputs/作业一二_hy4flash_v15_260条评分与停止证据_20261118.zip")
 
 
 with ZipFile(staged, "w") as archive:
-    archive.comment = f"Free evaluation recovery evidence; published commit {commit}; incomplete 270-position matrix".encode()
+    scope = "complete 270-position matrix; historical unknown fees preserved" if args.recovery == 10 else "incomplete 270-position matrix"
+    archive.comment = f"Free evaluation evidence; published commit {commit}; {scope}".encode()
     with ThreadPoolExecutor(max_workers=8) as executor:
         for info, payload in executor.map(load_file, names):
             archive.writestr(info, payload, compress_type=ZIP_DEFLATED, compresslevel=6)
-    if args.recovery in (4, 5, 6, 7, 8, 9):
+    if args.recovery in (4, 5, 6, 7, 8, 9, 10):
         archive.write(historical, "history/" + historical.name)
 with ZipFile(staged) as archive:
     assert archive.testzip() is None
 staged.replace(output)
-print(json.dumps({"archive": str(output), "files": len(names) + (args.recovery in (4, 5, 6, 7, 8, 9)), "bytes": output.stat().st_size,
+print(json.dumps({"archive": str(output), "files": len(names) + (args.recovery in (4, 5, 6, 7, 8, 9, 10)), "bytes": output.stat().st_size,
                   "published_commit": commit,
                   "scope": "Shared code, configurations, all free-batch sources and recovery evidence; earlier full historical package remains separate"}, ensure_ascii=False))

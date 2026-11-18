@@ -1,0 +1,10 @@
+{
+  "task": "go/beer-song",
+  "wall_seconds": 177.95304900000338,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 13.659228249976877
+}

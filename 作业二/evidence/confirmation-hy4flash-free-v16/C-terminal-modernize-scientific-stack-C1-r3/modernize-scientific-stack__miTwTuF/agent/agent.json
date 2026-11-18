@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Final submission after public-task verification passed; modernized script and requirements file are in place.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 5
+    }
+  }
+}

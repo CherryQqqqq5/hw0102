@@ -140,6 +140,7 @@ def baseline_report(confirmation_batch: str | None = None) -> None:
                       "每条实际服务回复均验证免费模型身份及零积分；未评分和历史未知费用单独保留，"
                       "不能作为有效失败或零费用填入成绩。客户端截断、轮数异常及输出传输修复按来源版本记录。"
                       "作业二给出三条件配对比较、成本、失败案例和解释限制。"),
+            paragraph(audit.get("comparison_limitations", "各来源执行版本分别保留。")),
             paragraph(f"本次基线已返回输入{new_baseline['input_tokens']:,}、输出{new_baseline['output_tokens']:,}词元，"
                       f"运行总用时中位数{new_baseline['median_wall_seconds']:.1f}秒。"
                       f"完整逐位置成绩及来源见作业二/evidence/{confirmation_batch}-summary/，"

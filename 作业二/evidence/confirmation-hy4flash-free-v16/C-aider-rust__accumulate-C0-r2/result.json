@@ -1,0 +1,10 @@
+{
+  "task": "rust/accumulate",
+  "wall_seconds": 55.103824833000544,
+  "exit_status": "Submitted",
+  "submission": "Implemented generic FnMut(T) -> U accumulate/map in src/lib.rs using an explicit loop; full test suite passes.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 2.1132906670100056
+}

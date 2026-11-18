@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "aa302ef413493f531b97d22aefab17ddeaef53e35ad33b9ed78908cc6febfa96",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-issue": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "bfe0c2c714e666b39f074cc66184232fa4b25b0f58ace1b491ded520c4b68141  xarray/core/computation.py\n"
+    }
+  },
+  "elapsed_seconds": 503.829892208043
+}

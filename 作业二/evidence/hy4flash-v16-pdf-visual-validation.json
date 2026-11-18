@@ -1,0 +1,16 @@
+{
+  "scope": "Only the two newly generated course report PDFs, explicitly authorized by the user",
+  "reviewer": "parent Codex",
+  "artifact_operation_marked_before_first_authoring": true,
+  "expected_outputs": 2,
+  "pages": {"assignment_1": 5, "assignment_2": 11},
+  "render_engine": "Poppler pdftoppm",
+  "all_pages_reviewed_in_contact_sheets": true,
+  "detail_pages_reviewed": ["assignment_1/page_5", "assignment_2/page_6", "assignment_2/page_9"],
+  "final_observed_text_clipping": false,
+  "final_observed_table_overlap": false,
+  "final_observed_missing_glyphs": false,
+  "task_table_percentage_wrapping_corrected": true,
+  "older_reports_preserved_in": "history/作业一二_hy4flash_v15_260条评分与停止证据_20261118.zip",
+  "new_model_or_grader_calls": 0
+}

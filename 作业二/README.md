@@ -2,11 +2,11 @@
 
 邱昱宁 · 231880296　｜　[阅读实验报告](231880296_邱昱宁_作业二.pdf)
 
-hy4flash-free 固定270位置已取得260条独立原评分，202通过、58失败，B0/C0/C1为67/86、69/87、66/87。xarray-4687/B0/r3第24次调用在剩余73.08秒时发出，截止前未收到首个响应和实际费用回执，立即停止；旧12笔加新增1笔共13笔真实未知费用保留。尚缺10条，完整新三轮报告待完成。[补充报告](evidence/hy4flash-v15-stop-20261118.md) · [原评分与费用](evidence/hy4flash-v15-stopped-summary.json) · [260条轨迹分析](evidence/hy4flash-v15-scored-trials.json) · [当前协议](configs/confirmation-protocol-hy4flash-free-v15.md)
+hy4flash-free 固定270位置已全部完成，207通过、63失败，B0/C0/C1为68/90、71/90、68/90。C1/B0差值0.0个百分点，95%区间[-7.8，6.7]；C1/C0差值-3.3个百分点，区间[-8.9，2.2]。本轮未支持程序控制稳定提高原评分通过率。[完整结果](evidence/hy4flash-v16-results-20261118.md) · [三轮统计](evidence/confirmation-hy4flash-free-v16-summary/summary.json) · [原评分与费用](evidence/confirmation-hy4flash-free-v16-source-audit.json) · [当前协议](configs/confirmation-protocol-hy4flash-free-v16.md)
 
-本地工具结果身份修复已真实验收，11个响应均有自身零费用证明，4096上限及两次完整动作恢复被实际执行；该原题评分失败保留。独立的历史本地元数据拒绝具有两笔完整原生零积分回执，原整次拒绝及未评分状态保持，不计入13笔真实未知。Django12193的C0/C1三轮均公开检查通过而原题失败；单轮正向案例和重复波动见补充报告。15份v15执行源码冻结，费用校验器保持。[真实验收](evidence/hy4flash-v15-local-result-live-validation.json) · [停止诊断](evidence/hy4flash-v15-first-response-diagnostic.json) · [备用接口配置](evidence/free-channel-setup-20261118.md)
+新增10条完整原评分，109实际响应、119原生用量均有自身零积分回执。新150秒请求门限在scikit-learn基线剩137.75秒时实际阻止下一请求，现有补丁通过原评分；600秒执行预算及费用校验保持。旧13笔真实未知、1笔原生费用已知零的本地元数据拒绝和15前序均保留。260旧评分与最后10新窗口版本差异写入报告，Django反例、单轮正向、重复波动及全部63失败如实呈现。[逐题三轮表](evidence/confirmation-hy4flash-free-v16-summary/trials.csv) · [轨迹解释](evidence/confirmation-hy4flash-free-v16-analysis.json) · [客户端修复](evidence/hy4flash-v16-deadline-validation.json)
 
-下列报告、数值和案例呈现已完成的历史实验。旧CodeBuddy、创智及各次未评分尝试单独保留，成绩与费用不并入当前免费模型主比较。[历史v3协议](configs/confirmation-protocol-v3.md) · [历史来源计划](configs/confirmation-plan-v3.json) · [原v2记录](evidence/confirmation-v2/)
+以下内容记录方法形成阶段的历史实验。旧CodeBuddy、创智及各次未评分尝试单独保留，成绩与费用不并入当前免费模型主比较。[历史v3协议](configs/confirmation-protocol-v3.md) · [历史来源计划](configs/confirmation-plan-v3.json) · [原v2记录](evidence/confirmation-v2/)
 
 十五道已见诊断题的同预算比较中，阶段反馈配置 RP 通过15道，原生基线 B0 通过13道，增加13.3个百分点；加入自动检查的 R 通过14道，增加6.7个百分点。配置使用同一模型、原题评分、每题24次决策及600秒软时限，均允许两次额外请求超时重试。
 

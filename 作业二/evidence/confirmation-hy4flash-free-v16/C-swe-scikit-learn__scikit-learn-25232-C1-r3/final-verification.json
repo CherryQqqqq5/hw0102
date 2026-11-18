@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "8b8faa4616ae0602bff25983bd919f6050d0289ed5f6434873178f5aa914eb12",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-issue": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "ff76590238375fb09d7c15010a1541542164c08c502ee6277be67508ddb6efb6  sklearn/impute/_iterative.py\n"
+    }
+  },
+  "elapsed_seconds": 434.6739937499515
+}

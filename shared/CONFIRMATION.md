@@ -1,20 +1,22 @@
 # 免费模型独立确认与历史记录复算
 
-当前正式评测仅使用CodeBuddy 2.179.3的hy4flash-free，实际身份与每个原生消息的rawUsage.credit=0逐条核验。v15停止于260/270、202通过58失败，B0/C0/C1为67/86、69/87、66/87；最后xarray-4687/B0/r3没有首响应和实际费用回执，新增1笔加旧12笔共13笔真实未知，所有新调用已停止。另1笔本地元数据拒绝的历史响应有完整自身原生零费用，原拒绝和未评分仍保留。[当前协议](../作业二/configs/confirmation-protocol-hy4flash-free-v15.md) · [冻结计划](../作业二/configs/confirmation-plan-hy4flash-free-v15.json) · [补充报告](../作业二/evidence/hy4flash-v15-stop-20261118.md)
+完整免费复测使用CodeBuddy 2.179.3的hy4flash-free，实际身份与每个原生消息的rawUsage.credit=0逐条核验。v16已完成270/270、207通过63失败，B0/C0/C1为68/90、71/90、68/90。新增109实际响应和119原生用量均零积分，旧13真实未知、1笔原生费用已知零的本地元数据拒绝及15前序均保留。150秒准入与旧来源版本差异明确报告，当前无运行队列。[当前协议](../作业二/configs/confirmation-protocol-hy4flash-free-v16.md) · [冻结计划](../作业二/configs/confirmation-plan-hy4flash-free-v16.json) · [完整结果](../作业二/evidence/hy4flash-v16-results-20261118.md)
 
 在本目录使用已安装项目依赖执行下面的只读复算，不发模型请求、不重跑原评分器：
 
 ```sh
 PYTHONPATH="$PWD:$PWD/scripts" python3 scripts/verify_free_stopped_run.py \
-  --runs '../作业二/evidence/confirmation-hy4flash-free-v15' \
-  --previous-runs '../作业二/evidence/confirmation-hy4flash-free-v15-previous' \
-  --summary '../作业二/evidence/hy4flash-v15-stopped-summary.json' \
-  --plan '../作业二/configs/confirmation-plan-hy4flash-free-v15.json' \
-  --runtime '../frozen-runtime/v15/course_eval' \
-  --trials '../作业二/evidence/hy4flash-v15-scored-trials.json'
+  --runs '../作业二/evidence/confirmation-hy4flash-free-v16' \
+  --previous-runs '../作业二/evidence/confirmation-hy4flash-free-v16-previous' \
+  --summary '../作业二/evidence/confirmation-hy4flash-free-v16-summary/summary.json' \
+  --plan '../作业二/configs/confirmation-plan-hy4flash-free-v16.json' \
+  --runtime '../frozen-runtime/v16/course_eval' \
+  --trials '../作业二/evidence/confirmation-hy4flash-free-v16-summary/trials.json' \
+  --source-audit '../作业二/evidence/confirmation-hy4flash-free-v16-source-audit.json' \
+  --preparation-root '../作业二/evidence/preparation-free'
 ```
 
-该命令核对260条原评分、逐位置实际费用、全部前序拒绝与未知、15份执行源码和逐条轨迹分析。不同来源客户端版本保留在trial与冻结目录中；完整270位置统计器继续拒绝不完整矩阵。继续执行需要在保留13笔真实未知的前提下取得新明确授权，或取得本次缺失的实际费用证明，不能直接执行历史续跑命令。现有两份命名PDF为此前已完成的历史报告，新结果以补充报告呈现。
+该命令核对270条原评分、全部主响应的实际费用、13历史未知与1本地元数据拒绝、15份冻结源码、逐题轨迹和配对区间。原评分器和模型均不重跑。报告已更新为作业一5页、作业二11页；旧报告和停止证据包按原字节保存在历史包。完整270矩阵已完成，新实验需要新的明确授权，不能直接执行下方历史续跑命令。
 
 以下创智命令和版本说明属于已停止的历史批次，仅用于解释其记录与原执行方式；当前没有创智调用授权。
 

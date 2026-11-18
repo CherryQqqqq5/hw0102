@@ -354,6 +354,9 @@ def main():
     archived_trials = list(mechanical.glob("*/trial.json"))
     assert all(json.loads((path.parent / "result.json").read_text())["scoreable"] is False for path in archived_trials)
     result = {"batch": current.name, "protocol_commit": args.protocol_commit,
+              "request_window_min_seconds": plan.get("request_window_min_seconds", 60),
+              "comparison_limitations": (f"本次复用{plan['reused_positions']}条旧评分，新增{plan['new_positions']}位置将请求准入从60提高到150秒；600秒执行预算保持。来源版本和请求准入策略不同，完整矩阵不能解释为所有位置使用完全相同的客户端预算处理。"
+                                         if plan.get("request_window_min_seconds") == 150 else "各来源执行版本分别保留。"),
               "primary_positions": len(rows), "reused_positions": len(free_reused), "new_positions": len(rows) - len(free_reused),
               "free_previous_attempts": len(free_previous_rows), "free_previous_scored": 0,
               "free_billing": free_billing, "mechanical_free_billing": mechanical_billing,

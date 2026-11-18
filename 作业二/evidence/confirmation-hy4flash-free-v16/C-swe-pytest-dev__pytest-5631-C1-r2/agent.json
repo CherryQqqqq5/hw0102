@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting final fix: `num_mock_patch_args` now compares patch replacement objects to mock DEFAULT sentinels by identity, avoiding NumPy array equality ambiguity. Public check passed; targeted reproducer, mock-decoration tests, and edge cases passed. Broader suite failures were reproduced on baseline and are unrelated environment issues.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 18
+    }
+  }
+}

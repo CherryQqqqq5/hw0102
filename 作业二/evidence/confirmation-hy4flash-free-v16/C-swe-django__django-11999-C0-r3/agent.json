@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Verified fix: Field.contribute_to_class() no longer overwrites a locally defined get_FIELD_display() override; public check passed.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 22
+    }
+  }
+}

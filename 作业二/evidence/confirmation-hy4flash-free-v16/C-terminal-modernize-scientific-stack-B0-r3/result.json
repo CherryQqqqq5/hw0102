@@ -1,0 +1,8 @@
+{
+  "task": "modernize-scientific-stack",
+  "wall_seconds": 79.08430354204029,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "modernize-scientific-stack__FqPzzAv/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

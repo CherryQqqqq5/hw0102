@@ -1,5 +1,6 @@
 import argparse
 import hashlib
+import io
 import json
 import os
 import subprocess
@@ -8,8 +9,84 @@ from zipfile import ZipFile
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--recovery", type=int, choices=(1, 2, 3, 4, 5, 6, 7, 8, 9), default=1)
+parser.add_argument("--recovery", type=int, choices=(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), default=1)
 args = parser.parse_args()
+if args.recovery == 10:
+    archive_path = Path("outputs/作业一二_hy4flash_v16_完整270条评分与报告_20261118.zip")
+    published = Path("work/hw0102-publish")
+    destination = Path("work/verified-hy4flash-v16-package")
+    destination.mkdir(exist_ok=False)
+    historical_name = "作业一二_hy4flash_v15_260条评分与停止证据_20261118.zip"
+    batch = "confirmation-hy4flash-free-v16"
+    with ZipFile(archive_path) as archive:
+        assert archive.testzip() is None
+        names = archive.namelist()
+        assert len(names) == len(set(names))
+        assert all(not name.startswith(("/", "../", ".git/", "work/"))
+                   and ".." not in Path(name).parts and "/.env" not in name for name in names)
+        for assignment in ("一", "二"):
+            relative = f"作业{assignment}/231880296_邱昱宁_作业{assignment}.pdf"
+            assert archive.read(relative) == (published / relative).read_bytes()
+            assert archive.read(relative) == (Path("outputs") / Path(relative).name).read_bytes()
+        history = archive.read("history/" + historical_name)
+        assert history == (Path("outputs") / historical_name).read_bytes()
+        for group, count in ((batch, 270), (batch + "-previous", 15)):
+            prefix = "作业二/evidence/" + group + "/"
+            assert sum(name.startswith(prefix) and name.endswith("/trial.json")
+                       and len(Path(name).parts) == 5 for name in names) == count
+        archive.extractall(destination)
+    plan = json.loads((destination / f"作业二/configs/confirmation-plan-hy4flash-free-v16.json").read_text())
+    compared = 0
+    with ZipFile(io.BytesIO(history)) as old:
+        def compare_source(directory, prefix):
+            actual = {path.relative_to(directory).as_posix(): path.read_bytes()
+                      for path in directory.rglob("*") if path.is_file()}
+            expected = {name.removeprefix(prefix): old.read(name)
+                        for name in old.namelist() if name.startswith(prefix) and not name.endswith("/")}
+            assert actual == expected, str(directory)
+            return len(actual)
+
+        for slot in plan["slots"]:
+            if slot.get("source_batch"):
+                assert slot["source_batch"] == "confirmation-hy4flash-free-v15"
+                compared += compare_source(destination / "作业二/evidence" / batch / slot["run_id"],
+                    f"作业二/evidence/{slot['source_batch']}/{slot['run_id']}/")
+        old_names = set(old.namelist())
+        for item in plan["preserved_previous_attempts"]:
+            prefix = f"作业二/evidence/confirmation-hy4flash-free-v15-previous/{item['preserved_run_id']}/"
+            if prefix + "trial.json" not in old_names:
+                assert item["source_batch"] == "confirmation-hy4flash-free-v15"
+                prefix = f"作业二/evidence/{item['source_batch']}/{item['source_run_id']}/"
+            compared += compare_source(destination / "作业二/evidence" / (batch + "-previous") / item["preserved_run_id"], prefix)
+    assert compared == 3622
+    shared = (destination / "shared").resolve()
+    command = [str(Path("work/.venv/bin/python").absolute()), "scripts/verify_free_stopped_run.py",
+        "--runs", "../作业二/evidence/" + batch,
+        "--previous-runs", "../作业二/evidence/" + batch + "-previous",
+        "--summary", "../作业二/evidence/" + batch + "-summary/summary.json",
+        "--plan", "../作业二/configs/confirmation-plan-hy4flash-free-v16.json",
+        "--runtime", "../frozen-runtime/v16/course_eval",
+        "--trials", "../作业二/evidence/" + batch + "-summary/trials.json",
+        "--source-audit", "../作业二/evidence/" + batch + "-source-audit.json",
+        "--preparation-root", "../作业二/evidence/preparation-free"]
+    process = subprocess.run(command, cwd=shared,
+        env=os.environ | {"PYTHONPATH": str(shared) + os.pathsep + str(shared / "scripts")},
+        capture_output=True, text=True, check=True)
+    verification = json.loads(process.stdout)
+    assert verification["scored"] == 270 and verification["historical_unknown_cli_requests"] == 13
+    assert verification["historical_known_zero_local_metadata_rejections"] == 1
+    assert hashlib.sha256((shared / "course_eval/codebuddy_free.py").read_bytes()).hexdigest() == "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28"
+    result = {"archive": str(archive_path), "bytes": archive_path.stat().st_size, "members": len(names),
+        "integrity": "passed", "current_report_files_match": True, "v15_archive_preserved_byte_for_byte": True,
+        "historical_reports_preserved_inside_v15_archive": True, "source_files_compared_byte_for_byte": compared,
+        "original_scores_verified": 270, "genuine_failures_preserved": verification["failed"],
+        "historical_unscored_attempts_preserved": 15, "total_unknown_cli_requests": 13,
+        "known_zero_local_metadata_rejection_preserved": 1, "billing_validator_unchanged": True,
+        "extracted_package_verification": verification, "new_model_or_grader_calls": 0,
+        "scope": "Complete 270-position free-model scores; historical unknown fees and runtime-policy differences preserved"}
+    Path("work/hy4flash-v16-package-verification.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
+    print(json.dumps(result, ensure_ascii=False))
+    raise SystemExit(0)
 if args.recovery == 9:
     archive_path = Path("outputs/作业一二_hy4flash_v15_260条评分与停止证据_20261118.zip")
     published = Path("work/hw0102-publish")

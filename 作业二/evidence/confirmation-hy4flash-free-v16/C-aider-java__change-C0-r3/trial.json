@@ -1,0 +1,34 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "java/change",
+    "stratum": "java",
+    "group": "change",
+    "solution_files": [
+      "src/main/java/ChangeCalculator.java"
+    ],
+    "test_files": [
+      "src/test/java/ChangeCalculatorTest.java"
+    ],
+    "exclude": null,
+    "split": "C",
+    "image_id": "sha256:a8b889d675595ed6b2a7fe925a4a046e47d9bcb34d34ccaf5bb2988a9b5b552d",
+    "image_digests": [
+      "nju-course-aider@sha256:a8b889d675595ed6b2a7fe925a4a046e47d9bcb34d34ccaf5bb2988a9b5b552d"
+    ]
+  },
+  "phase": "formal",
+  "configuration": "C0",
+  "status": "started",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "protocol_commit": "081a796c7bceca10e390fa983c18173289c4fe7a",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 0,
+    "strict_wall": true
+  }
+}

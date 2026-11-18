@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "5553d51c22f67ff44de1184dcd82f8a1aa96a01bf55973dea7af8339cc8d0120",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-task": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "37a0df428f426a4c2f0d44f36ba51d377a0d8ed93721cc54dce046192dc8dc5f  /app/results.txt\nfcc359a326a9238f97a837f303362bc79e5576b8e6386fc297177e144a46289f  vulnerable\n"
+    }
+  },
+  "elapsed_seconds": 97.06583945799503
+}

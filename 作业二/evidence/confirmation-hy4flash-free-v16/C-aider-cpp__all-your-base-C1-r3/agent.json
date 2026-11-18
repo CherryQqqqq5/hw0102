@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Implemented all_your_base::convert with validation and arbitrary-length repeated-division conversion; original C++ test suite passed all 17 assertions.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 4
+    }
+  }
+}

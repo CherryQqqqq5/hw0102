@@ -1,0 +1,448 @@
+{
+  "batch": "confirmation-hy4flash-free-v16",
+  "protocol_commit": "84d7e94b0592d7d07c0afc2fd452e6bf23d49aa4",
+  "request_window_min_seconds": 150,
+  "comparison_limitations": "本次复用260条旧评分，新增10位置将请求准入从60提高到150秒；600秒执行预算保持。来源版本和请求准入策略不同，完整矩阵不能解释为所有位置使用完全相同的客户端预算处理。",
+  "primary_positions": 270,
+  "reused_positions": 260,
+  "new_positions": 10,
+  "free_previous_attempts": 15,
+  "free_previous_scored": 0,
+  "free_billing": {
+    "requests": 2745,
+    "responses": 2745,
+    "runtime_accepted_responses": 2745,
+    "offline_verified_zero_credit_responses": 2745,
+    "actual_model_usage_records": 2974,
+    "local_cli_errors_with_own_usage_proof": 405,
+    "recovered_actions": 145,
+    "largest_model_output_tokens": 4096,
+    "reported_credit_for_returned_responses": 0,
+    "missing_responses": 0,
+    "missing_response_credit": 0,
+    "scope": "Actual per-message provider identity and credit; CLI total_cost_usd is not billing evidence"
+  },
+  "mechanical_free_billing": {
+    "requests": 0,
+    "responses": 0,
+    "runtime_accepted_responses": 0,
+    "offline_verified_zero_credit_responses": 0,
+    "actual_model_usage_records": 0,
+    "local_cli_errors_with_own_usage_proof": 0,
+    "recovered_actions": 0,
+    "largest_model_output_tokens": null,
+    "reported_credit_for_returned_responses": 0,
+    "missing_responses": 0,
+    "missing_response_credit": 0,
+    "scope": "Actual per-message provider identity and credit; CLI total_cost_usd is not billing evidence"
+  },
+  "previous_free_billing": [
+    {
+      "requests": 129,
+      "responses": 119,
+      "runtime_accepted_responses": 114,
+      "offline_verified_zero_credit_responses": 117,
+      "actual_model_usage_records": 164,
+      "local_cli_errors_with_own_usage_proof": 43,
+      "recovered_actions": 23,
+      "largest_model_output_tokens": null,
+      "reported_credit_for_returned_responses": null,
+      "missing_responses": 10,
+      "missing_response_credit": null,
+      "returned_unverified_responses": 2,
+      "returned_unverified_requests": [
+        {
+          "run_id": "v13__C-aider-javascript__house-C1-r2",
+          "request_id": 7,
+          "whole_response_billing": "unknown",
+          "later_known_zero_credit_records": 1
+        },
+        {
+          "run_id": "v14__C-swe-django__django-11999-B0-r3",
+          "request_id": 5,
+          "whole_response_billing": "known_zero_native_local_metadata_rejected",
+          "later_known_zero_credit_records": 2,
+          "local_identity_evidence": {
+            "actual_native_billing": {
+              "request_model": "hy4flash-free",
+              "provider_model": "hy4-flash-free",
+              "credit": 0,
+              "usage_records": 2,
+              "local_cli_errors": [
+                {
+                  "skipRun": true,
+                  "error": {
+                    "message": "Tool \"functions.StructuredOutput\" does not exist in the current tool set.",
+                    "isNetworkError": false,
+                    "networkErrorAutoRetry": false,
+                    "isStreamTimeout": false,
+                    "isRetryable": true
+                  },
+                  "agent": "cli",
+                  "conversationRequestId": "01a1ed66febd757f89a791d05ce48200",
+                  "model_message_id": "01a1ed66ff4f74fdb91051589d501717"
+                }
+              ]
+            },
+            "local_identity_changes": [
+              {
+                "message_id": "01a1ed6733697b1a9afd12c7ddd51bdd",
+                "field": "function_call_result.providerData.model",
+                "original": "hy4flash-free",
+                "parent_actual_model": "hy4-flash-free"
+              }
+            ],
+            "original_whole_response_accepted": false,
+            "classification": "known_zero_native_billing_local_metadata_rejected"
+          }
+        }
+      ],
+      "returned_unknown_responses": 1,
+      "returned_known_zero_local_metadata_rejections": 1,
+      "total_unknown_cli_requests": 11,
+      "scope": "Strict whole-response rejection preserved; actual native receipts are distinguished from a verified local-only identity defect; later zero credit does not settle unknown attempts"
+    }
+  ],
+  "boyue_main_scored_preserved": 178,
+  "boyue_previous_attempts": 3,
+  "boyue_previous_scored": 2,
+  "codebuddy_scored_records_preserved": 279,
+  "codebuddy_attempts_preserved": 281,
+  "mechanical_attempts": 0,
+  "evidence_files_compared": 5197,
+  "runtime_matches_frozen_plan": true,
+  "original_score_checks_by_batch": [
+    {
+      "runs": "work/vmshare/confirmation-hy4flash-free-v16",
+      "score_records_verified": 270,
+      "by_benchmark": {
+        "aider": 90,
+        "swe": 90,
+        "terminal": 90
+      },
+      "unscored_records_preserved": [],
+      "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+    },
+    {
+      "runs": "work/vmshare/confirmation-boyue-v5",
+      "score_records_verified": 178,
+      "by_benchmark": {
+        "aider": 60,
+        "swe": 60,
+        "terminal": 58
+      },
+      "unscored_records_preserved": [
+        "C-terminal-multi-source-data-merger-C0-r2"
+      ],
+      "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+    },
+    {
+      "runs": "work/vmshare/confirmation-boyue-v4",
+      "score_records_verified": 35,
+      "by_benchmark": {
+        "aider": 18,
+        "swe": 9,
+        "terminal": 8
+      },
+      "unscored_records_preserved": [
+        "C-terminal-modernize-scientific-stack-C0-r1"
+      ],
+      "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+    },
+    {
+      "runs": "work/vmshare/confirmation-boyue-v5-previous",
+      "score_records_verified": 2,
+      "by_benchmark": {
+        "terminal": 2
+      },
+      "unscored_records_preserved": [
+        "C-terminal-modernize-scientific-stack-C0-r1"
+      ],
+      "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+    },
+    {
+      "runs": "work/vmshare/confirmation-v3",
+      "score_records_verified": 265,
+      "by_benchmark": {
+        "aider": 90,
+        "swe": 88,
+        "terminal": 87
+      },
+      "unscored_records_preserved": [
+        "C-swe-scikit-learn__scikit-learn-25232-C0-r3"
+      ],
+      "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+    },
+    {
+      "runs": "work/vmshare/confirmation-v1",
+      "score_records_verified": 8,
+      "by_benchmark": {
+        "swe": 5,
+        "terminal": 3
+      },
+      "unscored_records_preserved": [],
+      "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+    },
+    {
+      "runs": "work/vmshare/confirmation-v3-previous",
+      "score_records_verified": 6,
+      "by_benchmark": {
+        "aider": 6
+      },
+      "unscored_records_preserved": [
+        "C-swe-scikit-learn__scikit-learn-25232-B0-r1"
+      ],
+      "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+    },
+    {
+      "runs": "work/vmshare/confirmation-hy4flash-free-v16-previous",
+      "score_records_verified": 0,
+      "by_benchmark": {},
+      "unscored_records_preserved": [
+        "v10__C-terminal-feal-linear-cryptanalysis-C0-r2",
+        "v12__C-swe-pydata__xarray-7393-C0-r2",
+        "v13__C-aider-javascript__house-C1-r2",
+        "v14__C-swe-django__django-11999-B0-r3",
+        "v15__C-swe-pydata__xarray-4687-B0-r3",
+        "v1__C-terminal-feal-linear-cryptanalysis-B0-r1",
+        "v2__C-terminal-feal-linear-cryptanalysis-B0-r1",
+        "v3__C-terminal-feal-linear-cryptanalysis-B0-r1",
+        "v4__C-terminal-feal-linear-cryptanalysis-B0-r1",
+        "v5__C-swe-django__django-11999-B0-r1",
+        "v6__C-swe-django__django-11999-B0-r1",
+        "v7-attempt1__C-aider-go__alphametics-B0-r1",
+        "v7-attempt1__C-aider-go__alphametics-C0-r1",
+        "v7__C-terminal-distribution-search-C0-r1",
+        "v8__C-terminal-feal-linear-cryptanalysis-C0-r2"
+      ],
+      "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+    }
+  ],
+  "all_attempt_usage": {
+    "model_calls": 2874,
+    "model_responses": 2864,
+    "model_request_retries": 0,
+    "model_request_timeouts": 6,
+    "provider_turns": 14517,
+    "tool_calls": 2109,
+    "input_tokens": 49829818,
+    "output_tokens": 5316400,
+    "cached_input_tokens": 2860224,
+    "submission_check_opportunities": 0,
+    "stale_at_submission": 0,
+    "deliverable_checkpoints": 0,
+    "deliverable_reminders": 0,
+    "usage_unreturned_requests": 10,
+    "usage_missing_input_responses": 0,
+    "usage_missing_output_responses": 0,
+    "usage_missing_cache_responses": 0,
+    "provider_reported_cost_usd": 0
+  },
+  "codebuddy_attempt_usage": {
+    "model_calls": 3299,
+    "model_responses": 3273,
+    "model_request_retries": 15,
+    "model_request_timeouts": 25,
+    "provider_turns": 16742,
+    "tool_calls": 2509,
+    "input_tokens": 48405495,
+    "output_tokens": 4591648,
+    "cached_input_tokens": 42215296,
+    "submission_check_opportunities": 0,
+    "stale_at_submission": 0,
+    "deliverable_checkpoints": 0,
+    "deliverable_reminders": 0,
+    "usage_unreturned_requests": 26,
+    "usage_missing_input_responses": 0,
+    "usage_missing_output_responses": 0,
+    "usage_missing_cache_responses": 0,
+    "provider_reported_cost_usd": 0
+  },
+  "boyue_attempt_usage": {
+    "model_calls": 2639,
+    "model_responses": 2594,
+    "model_request_retries": 29,
+    "model_request_timeouts": 43,
+    "provider_turns": 0,
+    "tool_calls": 2203,
+    "input_tokens": 33546884,
+    "output_tokens": 1453126,
+    "cached_input_tokens": 29990144,
+    "submission_check_opportunities": 0,
+    "stale_at_submission": 0,
+    "deliverable_checkpoints": 0,
+    "deliverable_reminders": 0,
+    "usage_unreturned_requests": 45,
+    "usage_missing_input_responses": 0,
+    "usage_missing_output_responses": 0,
+    "usage_missing_cache_responses": 0,
+    "provider_reported_cost_usd": null
+  },
+  "boyue_preparation_usage": {
+    "model_calls": 18,
+    "model_responses": 17,
+    "model_request_retries": 0,
+    "model_request_timeouts": 1,
+    "provider_turns": 0,
+    "tool_calls": 16,
+    "input_tokens": 23244,
+    "output_tokens": 2603,
+    "cached_input_tokens": 15360,
+    "submission_check_opportunities": 0,
+    "stale_at_submission": 0,
+    "deliverable_checkpoints": 0,
+    "deliverable_reminders": 0,
+    "usage_unreturned_requests": 1,
+    "usage_missing_input_responses": 0,
+    "usage_missing_output_responses": 0,
+    "usage_missing_cache_responses": 0,
+    "provider_reported_cost_usd": null
+  },
+  "free_preparation": {
+    "usage": {
+      "model_calls": 14,
+      "model_responses": 12,
+      "model_request_retries": 0,
+      "model_request_timeouts": 0,
+      "provider_turns": 56,
+      "tool_calls": 0,
+      "input_tokens": 98824,
+      "output_tokens": 26837,
+      "cached_input_tokens": 6144,
+      "submission_check_opportunities": 0,
+      "stale_at_submission": 0,
+      "deliverable_checkpoints": 0,
+      "deliverable_reminders": 0,
+      "usage_unreturned_requests": 2,
+      "usage_missing_input_responses": 0,
+      "usage_missing_output_responses": 0,
+      "usage_missing_cache_responses": 0,
+      "provider_reported_cost_usd": 0
+    },
+    "actual_model_usage_records": 14,
+    "missing_responses": 2,
+    "missing_response_credit": null,
+    "reported_credit_for_returned_responses": 0,
+    "initial_preparation": {
+      "usage": {
+        "model_calls": 4,
+        "model_responses": 4,
+        "model_request_retries": 0,
+        "model_request_timeouts": 0,
+        "provider_turns": 20,
+        "tool_calls": 0,
+        "input_tokens": 19883,
+        "output_tokens": 11524,
+        "cached_input_tokens": 6144,
+        "submission_check_opportunities": 0,
+        "stale_at_submission": 0,
+        "deliverable_checkpoints": 0,
+        "deliverable_reminders": 0,
+        "usage_unreturned_requests": 0,
+        "usage_missing_input_responses": 0,
+        "usage_missing_output_responses": 0,
+        "usage_missing_cache_responses": 0,
+        "provider_reported_cost_usd": 0
+      },
+      "limited_preparation_calls": 3,
+      "initial_connectivity_calls": 1,
+      "actual_model_usage_records": 6,
+      "reported_credit_for_returned_responses": 0,
+      "scope": "Two interface calls, one 4096 cap probe and one initial exact-route connectivity call; excludes paid alias mistake"
+    },
+    "recovery_preparation": [
+      {
+        "source": "work/codebuddy-single-turn-probe-v9",
+        "requests": 1,
+        "responses": 0,
+        "runtime_accepted_responses": 0,
+        "offline_verified_zero_credit_responses": 0,
+        "actual_model_usage_records": 0,
+        "local_cli_errors_with_own_usage_proof": 0,
+        "recovered_actions": 0,
+        "largest_model_output_tokens": null,
+        "reported_credit_for_returned_responses": 0,
+        "missing_responses": 1,
+        "missing_response_credit": null,
+        "scope": "Actual per-message provider identity and credit; CLI total_cost_usd is not billing evidence"
+      },
+      {
+        "source": "work/codebuddy-single-turn-probe-v10",
+        "requests": 2,
+        "responses": 2,
+        "runtime_accepted_responses": 2,
+        "offline_verified_zero_credit_responses": 2,
+        "actual_model_usage_records": 2,
+        "local_cli_errors_with_own_usage_proof": 0,
+        "recovered_actions": 0,
+        "largest_model_output_tokens": null,
+        "reported_credit_for_returned_responses": 0,
+        "missing_responses": 0,
+        "missing_response_credit": 0,
+        "scope": "Actual per-message provider identity and credit; CLI total_cost_usd is not billing evidence"
+      },
+      {
+        "source": "work/codebuddy-single-turn-probe-v11",
+        "requests": 2,
+        "responses": 1,
+        "runtime_accepted_responses": 1,
+        "offline_verified_zero_credit_responses": 1,
+        "actual_model_usage_records": 1,
+        "local_cli_errors_with_own_usage_proof": 0,
+        "recovered_actions": 0,
+        "largest_model_output_tokens": null,
+        "reported_credit_for_returned_responses": 0,
+        "missing_responses": 1,
+        "missing_response_credit": null,
+        "scope": "Actual per-message provider identity and credit; CLI total_cost_usd is not billing evidence"
+      },
+      {
+        "source": "work/codebuddy-single-turn-probe-v12",
+        "requests": 3,
+        "responses": 3,
+        "runtime_accepted_responses": 3,
+        "offline_verified_zero_credit_responses": 3,
+        "actual_model_usage_records": 3,
+        "local_cli_errors_with_own_usage_proof": 1,
+        "recovered_actions": 0,
+        "largest_model_output_tokens": null,
+        "reported_credit_for_returned_responses": 0,
+        "missing_responses": 0,
+        "missing_response_credit": 0,
+        "scope": "Actual per-message provider identity and credit; CLI total_cost_usd is not billing evidence"
+      },
+      {
+        "source": "work/codebuddy-stdout-probe-v13",
+        "requests": 1,
+        "responses": 1,
+        "runtime_accepted_responses": 1,
+        "offline_verified_zero_credit_responses": 1,
+        "actual_model_usage_records": 1,
+        "local_cli_errors_with_own_usage_proof": 0,
+        "recovered_actions": 0,
+        "largest_model_output_tokens": null,
+        "reported_credit_for_returned_responses": 0,
+        "missing_responses": 0,
+        "missing_response_credit": 0,
+        "scope": "Actual per-message provider identity and credit; CLI total_cost_usd is not billing evidence"
+      },
+      {
+        "source": "work/codebuddy-empty-stream-probe-v14",
+        "requests": 1,
+        "responses": 1,
+        "runtime_accepted_responses": 1,
+        "offline_verified_zero_credit_responses": 1,
+        "actual_model_usage_records": 1,
+        "local_cli_errors_with_own_usage_proof": 0,
+        "recovered_actions": 0,
+        "largest_model_output_tokens": null,
+        "reported_credit_for_returned_responses": 0,
+        "missing_responses": 0,
+        "missing_response_credit": 0,
+        "scope": "Actual per-message provider identity and credit; CLI total_cost_usd is not billing evidence"
+      }
+    ],
+    "scope": "Unique initial and v9-v14 live preparation sources; excludes recorded replays and paid alias mistake; two historical missing receipts stay unknown"
+  },
+  "scope": "Complete independent free matrix and actual zero-credit receipts; preserved separate historical providers and nonduplicating source partitions; no model or grader rerun"
+}

@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "90d4fc7750e42aba81650dbde2f1e70fa51bf4d1612156edbf91134645fb20bd",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-issue": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "8761711a6363f4861681b0420f4d061fcd8c0105856da60bd04e3ff5285a05a4  django/contrib/postgres/forms/array.py\n"
+    }
+  },
+  "elapsed_seconds": 205.8537548329914
+}

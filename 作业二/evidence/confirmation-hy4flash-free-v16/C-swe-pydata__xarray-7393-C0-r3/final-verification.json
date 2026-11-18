@@ -1,0 +1,15 @@
+{
+  "reason": "agent_exit",
+  "artifact_digest": "ca3fdfe6943d9c4da596e9372c5b256e07ee0a9fcb329db8bfb2ba846e03de88",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": false,
+  "evidence": {
+    "public-issue": {
+      "state": "stale",
+      "returncode": 0,
+      "snapshot": "6c483cf584c56a9c80173d87b4bac5033045e00dcf3f48193f5742eb8b2fa87e  xarray/core/indexes.py\n"
+    }
+  },
+  "elapsed_seconds": 384.37791633297456
+}

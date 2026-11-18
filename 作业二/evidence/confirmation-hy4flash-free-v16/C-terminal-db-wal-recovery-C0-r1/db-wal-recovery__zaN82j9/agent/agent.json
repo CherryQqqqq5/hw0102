@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Public verification passed; /app/recovered.json and main.db contain all 11 ordered records.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 11
+    }
+  }
+}

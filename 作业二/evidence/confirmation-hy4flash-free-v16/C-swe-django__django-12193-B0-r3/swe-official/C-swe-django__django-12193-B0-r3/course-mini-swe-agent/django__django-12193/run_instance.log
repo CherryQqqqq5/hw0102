@@ -1,0 +1,72 @@
+2026-11-18 17:03:19,036 - INFO - Creating container for django__django-12193...
+2026-11-18 17:03:19,102 - INFO - Container for django__django-12193 created: 8742e9d8aab50eb6bf78e6c11b3cd0a1fbd0531af8c3f8d1a44789067beefb0c
+2026-11-18 17:03:19,249 - INFO - Container for django__django-12193 started: 8742e9d8aab50eb6bf78e6c11b3cd0a1fbd0531af8c3f8d1a44789067beefb0c
+2026-11-18 17:03:19,250 - INFO - Intermediate patch for django__django-12193 written to [本机路径] now applying to container...
+2026-11-18 17:03:19,453 - INFO - >>>>> Applied Patch:
+Checking patch django/contrib/postgres/forms/array.py...
+Checking patch django/forms/widgets.py...
+Applied patch django/contrib/postgres/forms/array.py cleanly.
+Applied patch django/forms/widgets.py cleanly.
+
+2026-11-18 17:03:20,634 - INFO - Git diff before:
+diff --git a/django/contrib/postgres/forms/array.py b/django/contrib/postgres/forms/array.py
+index 2e19cd574a..18cfccf39c 100644
+--- a/django/contrib/postgres/forms/array.py
++++ b/django/contrib/postgres/forms/array.py
+@@ -147,7 +147,7 @@ class SplitArrayWidget(forms.Widget):
+             if id_:
+                 final_attrs = {**final_attrs, 'id': '%s_%s' % (id_, i)}
+             context['widget']['subwidgets'].append(
+-                self.widget.get_context(name + '_%s' % i, widget_value, final_attrs)['widget']
++                self.widget.get_context(name + '_%s' % i, widget_value, final_attrs.copy())['widget']
+             )
+         return context
+ 
+diff --git a/django/forms/widgets.py b/django/forms/widgets.py
+index 6fe220bea7..ddd052be8d 100644
+--- a/django/forms/widgets.py
++++ b/django/forms/widgets.py
+@@ -524,6 +524,8 @@ class CheckboxInput(Input):
+         if self.check_test(value):
+             if attrs is None:
+                 attrs = {}
++            else:
++                attrs = attrs.copy()
+             attrs['checked'] = True
+         return super().get_context(name, value, attrs)
+2026-11-18 17:03:20,635 - INFO - Eval script for django__django-12193 written to [本机路径] copying to container...
+2026-11-18 17:03:42,881 - INFO - Test runtime: 22.19 seconds
+2026-11-18 17:03:42,882 - INFO - Test output for django__django-12193 written to [本机路径]
+2026-11-18 17:03:43,027 - INFO - Git diff after:
+diff --git a/django/contrib/postgres/forms/array.py b/django/contrib/postgres/forms/array.py
+index 2e19cd574a..18cfccf39c 100644
+--- a/django/contrib/postgres/forms/array.py
++++ b/django/contrib/postgres/forms/array.py
+@@ -147,7 +147,7 @@ class SplitArrayWidget(forms.Widget):
+             if id_:
+                 final_attrs = {**final_attrs, 'id': '%s_%s' % (id_, i)}
+             context['widget']['subwidgets'].append(
+-                self.widget.get_context(name + '_%s' % i, widget_value, final_attrs)['widget']
++                self.widget.get_context(name + '_%s' % i, widget_value, final_attrs.copy())['widget']
+             )
+         return context
+ 
+diff --git a/django/forms/widgets.py b/django/forms/widgets.py
+index 6fe220bea7..ddd052be8d 100644
+--- a/django/forms/widgets.py
++++ b/django/forms/widgets.py
+@@ -524,6 +524,8 @@ class CheckboxInput(Input):
+         if self.check_test(value):
+             if attrs is None:
+                 attrs = {}
++            else:
++                attrs = attrs.copy()
+             attrs['checked'] = True
+         return super().get_context(name, value, attrs)
+2026-11-18 17:03:43,027 - INFO - Grading answer for django__django-12193...
+2026-11-18 17:03:43,028 - INFO - report: {'django__django-12193': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['test_get_context_does_not_mutate_attrs (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)'], 'failure': []}, 'PASS_TO_PASS': {'success': ['test_render_check_exception (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_check_test (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_empty (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_false (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_int (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_none (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_true (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_value (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_value_from_datadict (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_value_from_datadict_string_int (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_value_omitted_from_data (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-12193: resolved: True
+2026-11-18 17:03:43,031 - INFO - Attempting to stop container sweb.eval.django__django-12193.C-swe-django__django-12193-B0-r3...
+2026-11-18 17:04:00,130 - INFO - Container sweb.eval.django__django-12193.C-swe-django__django-12193-B0-r3 stopped successfully.
+2026-11-18 17:04:00,132 - INFO - Attempting to remove container sweb.eval.django__django-12193.C-swe-django__django-12193-B0-r3...
+2026-11-18 17:04:00,533 - INFO - Container sweb.eval.django__django-12193.C-swe-django__django-12193-B0-r3 removed successfully.

@@ -1,0 +1,9 @@
+{
+  "task": "pytest-dev__pytest-5631",
+  "wall_seconds": 277.90758150001056,
+  "exit_status": "Submitted",
+  "submission": "Submitting final fix: `num_mock_patch_args` now compares patch replacement objects to mock DEFAULT sentinels by identity, avoiding NumPy array equality ambiguity. Public check passed; targeted reproducer, mock-decoration tests, and edge cases passed. Broader suite failures were reproduced on baseline and are unrelated environment issues.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 27.48678983398713
+}

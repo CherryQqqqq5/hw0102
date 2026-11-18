@@ -74,7 +74,7 @@ def task_success_tables(rows):
                 passed = sum(row["passed"] for row in selected)
                 values.append(f"{passed}/3（{passed / 3:.1%}）")
             data.append([task, *values])
-        items.extend([heading(label), table(data, [290, 67, 67, width - 424])])
+        items.extend([heading(label), table(data, [240, 84, 84, width - 408])])
     return items
 
 
@@ -89,8 +89,13 @@ def render():
     billing = audit["free_billing"]
     preparation = audit["free_preparation"]["usage"]
     plan = json.loads((WORK / BATCH.replace("confirmation-", "confirmation-plan-", 1)).with_suffix(".json").read_text())
+    request_window = plan.get("request_window_min_seconds", 60)
     prior_missing = audit["mechanical_free_billing"]["missing_responses"] + sum(
         item["missing_responses"] for item in audit["previous_free_billing"])
+    prior_returned_unknown = sum(item.get("returned_unknown_responses", item.get("returned_unverified_responses", 0))
+                                 for item in audit["previous_free_billing"])
+    prior_known_local = sum(item.get("returned_known_zero_local_metadata_rejections", 0)
+                            for item in audit["previous_free_billing"])
     body_style.leading = 16.8
     body_style.spaceAfter = 6
     items = [
@@ -106,7 +111,7 @@ def render():
         paragraph("30道任务最初选定时排除了此前45道开发任务及重复家族，旧产物用于工程验收。"
                   "这些任务随后在CodeBuddy及创智服务执行并形成错误分析；本轮使用相同方法、检查和题单，"
                   f"以Hy4 flash免费模型完成270个位置。主比较保留此前同免费型号{plan['reused_positions']}条有效原评分，"
-                  f"其余{plan['new_positions']}位置在输出接收修复后新运行。全部真实失败及其原评分保留。"
+                  f"其余{plan['new_positions']}位置在本次客户端修复后新运行。全部真实失败及其原评分保留。"
                   "方法形成阶段的正向、负向与未复现结果在后文保留。"),
         heading("二、控制器与信息条件一致的消融"),
         table([["配置", "决策与交付行为"],
@@ -152,7 +157,7 @@ def render():
                   "按仓库、终端类别和语言分层，使用固定种子nju-course-independent-confirmation-20261105-v1排序。"
                   "环境资格检查在模型运行前完成；缺少离线必要资源或输入含凭据形式数据的候选按预定边界排除，理由完整保存。"),
         paragraph("三组每题各重复三次，共270个预定位置。每题三轮轮换配置顺序，使三个条件在第一、第二、第三位置各出现一次。"
-                  f"输出接收修复协议{PROTOCOL[:7]}在首次新增正式请求前提交并核验远端一致，"
+                  f"本次修复协议{PROTOCOL[:7]}在首次新增正式请求前提交并核验远端一致，"
                   f"{plan['reused_positions']}条原评分按逐位置来源保留，{plan['new_positions']}位置新执行。"
                   f"{len(plan['preserved_previous_attempts'])}条前序未评分独立保留，费用不明仍为未知；"
                   f"当前主目录最多{plan['max_total_attempts']}次尝试，加前序保持累计300上限，每个未评分位置最多两次机械恢复；"
@@ -166,8 +171,8 @@ def render():
                   "均已在本轮启动前完成真实回归。创智服务另保留178条主位置评分和修复前2条评分，因余额不足停止；"
                   "不同服务分别记录成绩和费用，控制效果由本轮免费模型内部的同题三条件比较判断。"),
         table([["条件", "实际设置"],
-               ["模型与客户端", "CodeBuddy 2.179.3；请求hy4flash-free，实际hy4-flash-free；high推理；原生结构化动作"],
-               ["每次执行预算", "24次决策、600秒内部硬时限、60秒单命令；无额外请求重试；新请求至少留60秒；Harbor外层630秒含识别与收尾"],
+               ["模型与客户端", "CodeBuddy 2.179.3；请求hy4flash-free，实际hy4-flash-free；原生结构化动作；服务端推理设置未独立固定"],
+               ["每次执行预算", f"24次决策、600秒内部硬时限、60秒单命令；无额外请求重试；本次新增位置请求至少留{request_window}秒；Harbor外层630秒含识别与收尾"],
                ["资源与网络", "本地Docker虚拟机4核/约5GB；任务容器离线；一次仅执行一项生成与评分"],
                ["环境一致性", "Django与pytest所需公开依赖只读挂载；polyglot统一补充Python运行时，准备耗时单列"],
                ["评分与统计", "原题独立评分；30道题为统计单位，按基准分层进行10000次配对重采样，固定种子20261104"]],
@@ -176,7 +181,7 @@ def render():
                   "CODEBUDDY_CODE_MAX_OUTPUT_TOKENS实际设置4096；每段服务输出上限为4096词元，"
                   "一次CLI调用可包含多个服务回复，因此其总输出可能超过4096。每个实际messageId都须有自身型号和rawUsage.credit=0证明；"
                   "费用缺失、非零、未知错误或已发出请求超时均停止整队列。已知格式错误计入24次决策，连续三次则结束并保留原题评分。"
-                  "三条件的新请求窗口一致，C1原收尾预留继续计入；不足60秒时结束生成并评价当前真实产物。"
+                  f"本次新增位置三条件的新请求窗口均为{request_window}秒，C1原收尾预留继续计入；不足窗口时结束生成并评价当前真实产物。"
                   "服务端采样种子和内部更新无法独立固定。容器准备与原题评分另计，总用时包含实际清理时间。"),
         paragraph("网络修复使新进程继承已有代理并固定环境来源。密码分析及xarray首轮三条件均为同一旧来源；"
                   "Django11999首轮包含旧C1和新B0/C0。来源版本逐条列出，预先增加排除该整题的29题辅助比较，"
@@ -185,6 +190,7 @@ def render():
                   "各位置的来源版本、失败原件、实际用量和恢复请求分别保留，修复不改变原题评分，也不结清历史未知费用。"
                   "29题辅助分析针对此前声明的网络来源差异，不覆盖后续全部客户端版本变化；"
                   "这些工程变化及服务端不可固定因素仍构成控制效果解释的限制。"),
+        paragraph(audit.get("comparison_limitations", "各来源客户端版本及预算处理按冻结协议保留。")),
         heading("五、任务成功率与机制消融"),
         table([["基准", "B0", "C0", "C1"],
                *[[label, *[rate(by_group[key, arm]) for arm in ARMS]] for key, label in LABELS.items()],
@@ -246,6 +252,13 @@ def render():
                   paragraph("请求次数按适配器发起的请求尝试计算，包含超时重试。每次模型查询消耗一次决策额度，格式错误也计入；"
                             "同一查询的超时重试按请求尝试另计。输入、输出和缓存词元仅合计服务已返回字段，"
                             "输出包括返回用量中的推理输出。无响应与缺失用量均单独计数，不能据数值合计推断未知部分为零。"),
+                  paragraph("24次额度计算外层决策，4096上限针对每次原生模型输出。同一命令行响应仍可能包含客户端对未知工具名恢复时的多笔原生回执；"
+                            "每笔须有自身免费身份与零积分，后一笔不结清前一笔。已复核的双回执实例中，命令行输入与输出用量为两笔实际用量之和。"
+                            "客户端num_turns属于轮数记录，不直接当作原生模型调用次数。"),
+                  paragraph("预算门限拒绝的一次决策没有实际模型请求，也没有模型费用。scikit-learn25232第三轮基线记录18次外层决策，"
+                            "其中最后一次在剩137.75秒时被150秒门限拒绝，实际17请求、17响应和19条原生用量；"
+                            "C0对应22次外层决策、21请求、21响应和24条原生用量。本文请求与费用均依据实际事件及自身回执，"
+                            "不直接使用外层api_calls充当实际调用次数。两组在截止前保留现有补丁，原评分均通过。"),
                   paragraph(f"免费模型正式比较共{270 + summary['mechanical_attempt_count'] + summary['previous_attempt_count']}次尝试，主比较270次取得有效原题评分，"
                             f"另保留{summary['previous_attempt_count']}次前序未评分尝试及{summary['mechanical_attempt_count']}次未评分机械尝试。累计{usage['model_calls']:,}次请求、"
                             f"{usage['model_responses']:,}次响应、{usage['model_request_timeouts']}次请求超时和{usage['model_request_retries']}次额外重试；"
@@ -253,10 +266,14 @@ def render():
                             "全部正式尝试用量另列于summary.json。词元统计来自服务返回记录；超时且未返回用量的请求，"
                             "词元无法独立核算，其请求次数和等待时间仍保留。服务费用字段无法代替实际账户账单。"),
                   paragraph(f"本轮主比较{billing['responses']}次CLI响应中的{billing['actual_model_usage_records']}条实际模型用量均通过逐条免费身份及零积分核验，"
-                            f"恢复{billing['recovered_actions']}次完整动作。前序正式尝试保留{prior_missing}次缺失回执，"
+                            f"恢复{billing['recovered_actions']}次完整动作。前序正式尝试保留{prior_missing}次缺失回执及{prior_returned_unknown}次已返回但原生费用不全，"
                             f"准备记录另保留{audit['free_preparation']['missing_responses']}次缺失回执，真实费用继续未知，不能计为零。"
                             "免费接口准备包括最小连通、4096上限、轮数异常、短动作恢复及完整大响应接收验证；"
                             "旧别名hy4free误调用产生0.55积分，单独披露。CLI的total_cost_usd不能替代实际模型积分证明。"),
+                  paragraph(f"前序另有{prior_known_local}次本地工具结果的model元数据拒绝：其配置别名与父调用实际型号不一致，"
+                            "原生请求各自具有正确免费型号及零积分回执。诊断核对同一callId、messageId和conversationRequestId，"
+                            "客户端修复只沿用该父调用的实际身份；不添加别名白名单，也不变更原生事件或费用。"
+                            "原始整次拒绝和未评分状态保持，与上述真实费用未知分列。"),
                   paragraph(f"按不重复的初始及恢复准备来源，合计{preparation['model_calls']}次请求、{preparation['model_responses']}次响应，"
                             f"输入{preparation['input_tokens']:,}、输出{preparation['output_tokens']:,}、缓存输入{preparation['cached_input_tokens']:,}词元；"
                             f"其{audit['free_preparation']['actual_model_usage_records']}条实际模型用量均明确零积分。"

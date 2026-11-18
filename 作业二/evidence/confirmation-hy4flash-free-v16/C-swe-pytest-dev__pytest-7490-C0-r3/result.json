@@ -1,0 +1,9 @@
+{
+  "task": "pytest-dev__pytest-7490",
+  "wall_seconds": 248.46376016701106,
+  "exit_status": "Submitted",
+  "submission": "Fixed dynamic xfail markers by re-evaluating xfail marks after pytest_runtest_call completes, before report creation. Verified with the public check, 170 existing tests plus 1 xfail, and edge cases for strict xfail/xpass and --runxfail.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 31.012174875009805
+}

@@ -1,0 +1,24 @@
+{
+  "candidate_id": "candidate-001",
+  "artifact_digest": "57379a796f5e76607e90966b820926542efcb1a4975ca70380a67f42c4ccee27",
+  "protected_digest": "c0c48fe1ba8cd8ceb5757bbf4c6d2ab8076d2199a15ccf802adad4af0f8d70c0",
+  "eligible": true,
+  "evidence": {
+    "public-suite": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "3df68129361b8db7098838337d5a492f95818735a61a9b36bfac98842a07cebc  gigasecond.cpp\n8123678f1edbbd459fc2674316715315b7d5a6df5caafc71877eea76f288600a  gigasecond.h\n84c71cf09c62390ae799d6ea456ce1770f9b30051dcf3ebf26f0b26c58888f26  gigasecond_test.cpp\n"
+    }
+  },
+  "saved_elapsed": 84.98786758299684,
+  "files": {
+    "gigasecond.cpp": {
+      "data": "I2luY2x1ZGUgImdpZ2FzZWNvbmQuaCIKCm5hbWVzcGFjZSBnaWdhc2Vjb25kIHsKCmJvb3N0Ojpwb3NpeF90aW1lOjpwdGltZSBhZHZhbmNlKGJvb3N0Ojpwb3NpeF90aW1lOjpwdGltZSBtb21lbnQpIHsKICAgIHJldHVybiBtb21lbnQgKyBib29zdDo6cG9zaXhfdGltZTo6c2Vjb25kcygxMDAwMDAwMDAwTCk7Cn0KCn0gIC8vIG5hbWVzcGFjZSBnaWdhc2Vjb25kCg==",
+      "mode": 420
+    },
+    "gigasecond.h": {
+      "data": "I2lmICFkZWZpbmVkKEdJR0FTRUNPTkRfSCkKI2RlZmluZSBHSUdBU0VDT05EX0gKCiNpbmNsdWRlIDxib29zdC9kYXRlX3RpbWUvcG9zaXhfdGltZS9wb3NpeF90aW1lLmhwcD4KCm5hbWVzcGFjZSBnaWdhc2Vjb25kIHsKCmJvb3N0Ojpwb3NpeF90aW1lOjpwdGltZSBhZHZhbmNlKGJvb3N0Ojpwb3NpeF90aW1lOjpwdGltZSBtb21lbnQpOwoKfSAgLy8gbmFtZXNwYWNlIGdpZ2FzZWNvbmQKCiNlbmRpZiAvLyBHSUdBU0VDT05EX0gK",
+      "mode": 420
+    }
+  }
+}

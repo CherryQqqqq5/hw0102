@@ -1,0 +1,8 @@
+{
+  "task": "pydata__xarray-4687",
+  "wall_seconds": 602.0384446670068,
+  "scoreable": false,
+  "passed": null,
+  "error_type": "RuntimeError",
+  "error": "Free model request timed out before billing could be verified"
+}

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "IterativeImputer now accepts, documents, and forwards fill_value to its initial SimpleImputer, including np.nan support with NaN-compatible estimators. Public and targeted checks passed.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 20
+    }
+  }
+}

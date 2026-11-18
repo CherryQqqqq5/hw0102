@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Public suite passed and the verified candidate was saved; submitting the completed gigasecond implementation.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 10
+    }
+  }
+}

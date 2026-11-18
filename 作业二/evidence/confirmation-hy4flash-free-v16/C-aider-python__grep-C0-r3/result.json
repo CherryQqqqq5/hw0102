@@ -1,0 +1,10 @@
+{
+  "task": "python/grep",
+  "wall_seconds": 174.24918300000718,
+  "exit_status": "Submitted",
+  "submission": "Submit final verified grep.py implementation; public suite passed and no further changes were made.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 1.0392070829984732
+}

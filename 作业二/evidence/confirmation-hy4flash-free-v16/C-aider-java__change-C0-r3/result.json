@@ -1,0 +1,10 @@
+{
+  "task": "java/change",
+  "wall_seconds": 248.85805241699563,
+  "exit_status": "Submitted",
+  "submission": "Final submission after public suite and edge-case verification passed.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 15.55859045800753
+}

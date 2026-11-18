@@ -1,0 +1,9 @@
+{
+  "task": "pydata__xarray-4687",
+  "wall_seconds": 483.5327376659843,
+  "exit_status": "RepeatedFormatError",
+  "submission": "",
+  "scoreable": true,
+  "passed": false,
+  "grader_seconds": 108.30280795902945
+}

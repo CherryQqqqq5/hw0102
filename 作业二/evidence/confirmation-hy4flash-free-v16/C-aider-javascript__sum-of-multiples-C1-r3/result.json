@@ -1,0 +1,10 @@
+{
+  "task": "javascript/sum-of-multiples",
+  "wall_seconds": 174.91864549997263,
+  "exit_status": "Submitted",
+  "submission": "Implemented sum(factors, limit) using a Set of unique positive multiples below limit; original public suite passed all 16 tests.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 3.133539500006009
+}

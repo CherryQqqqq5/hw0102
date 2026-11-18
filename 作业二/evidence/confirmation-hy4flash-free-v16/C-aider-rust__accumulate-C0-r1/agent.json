@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Implemented generic FnMut-based map in src/lib.rs using a manual loop; all 12 tests pass and public-suite verification passed.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 4
+    }
+  }
+}

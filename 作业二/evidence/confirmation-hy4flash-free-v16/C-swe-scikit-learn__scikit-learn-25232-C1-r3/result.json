@@ -1,0 +1,9 @@
+{
+  "task": "scikit-learn__scikit-learn-25232",
+  "wall_seconds": 530.8468065829948,
+  "exit_status": "Submitted",
+  "submission": "IterativeImputer now accepts, documents, and forwards fill_value to its initial SimpleImputer, including np.nan support with NaN-compatible estimators. Public and targeted checks passed.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 91.98022916598711
+}

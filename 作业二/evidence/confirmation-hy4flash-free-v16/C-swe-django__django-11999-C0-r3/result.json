@@ -1,0 +1,9 @@
+{
+  "task": "django__django-11999",
+  "wall_seconds": 494.6020680000074,
+  "exit_status": "Submitted",
+  "submission": "Verified fix: Field.contribute_to_class() no longer overwrites a locally defined get_FIELD_display() override; public check passed.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 39.40360112499911
+}

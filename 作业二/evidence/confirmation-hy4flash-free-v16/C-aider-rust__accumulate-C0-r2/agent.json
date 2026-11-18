@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Implemented generic FnMut(T) -> U accumulate/map in src/lib.rs using an explicit loop; full test suite passes.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 4
+    }
+  }
+}

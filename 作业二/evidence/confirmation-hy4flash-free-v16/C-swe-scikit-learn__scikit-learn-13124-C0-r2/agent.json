@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting the verified StratifiedKFold fix; public-issue check passed with different stratified partitions across seeds.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 14
+    }
+  }
+}

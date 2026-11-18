@@ -1,0 +1,10 @@
+{
+  "task": "javascript/sum-of-multiples",
+  "wall_seconds": 60.23673016598332,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 1.8049300830170978
+}

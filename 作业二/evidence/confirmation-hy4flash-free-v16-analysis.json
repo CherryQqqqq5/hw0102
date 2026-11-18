@@ -1,0 +1,69 @@
+{
+  "batch": "confirmation-hy4flash-free-v16",
+  "protocol_commit": "84d7e94b0592d7d07c0afc2fd452e6bf23d49aa4",
+  "main_conclusion": "固定30题、三个条件、每题三轮的270条原评分已全部完成，207通过、63失败。原生基线B0与程序控制C1均为68/90，模型安排验证的C0为71/90。C1相对B0的平均差值为0.0个百分点，95%配对区间为[-7.8，6.7]；相对C0为-3.3个百分点，区间[-8.9，2.2]。本轮没有观察到程序控制稳定提高原题成功率。公开检查的覆盖缺口、格式失败、少数修复轨迹和全部真实负分均保留。最后10位置使用更严格的150秒请求准入，旧来源版本和历史13笔真实未知费用分别记录。",
+  "comparison_interpretation": "C1与B0各通过68次，任务层面有5题改善、4题退化，其余21题持平；改善题数多不等于总体通过率提高。C0相对B0多通过3次，差值+3.3个百分点，95%区间[-3.3，10.0]，仍包含零。C1比C0少通过3次，不能据当前结果把程序安排验证或候选交付表述为有效增量。三轮保留在同一任务内部，以30道任务为统计单位。29题预定网络来源辅助分析中，C1/B0差值约-1.1个百分点、区间[-9.2，5.7]；该分析也没有支持稳定提升，且不能消除后续全部客户端与准入策略变化。",
+  "cost_interpretation": "B0/C0/C1的实际请求分别833/978/934次。C1比B0多101次请求，约12.1%；已返回输入词元少约4.4%，但执行中位数从109.1秒增至150.4秒，总用时中位数从127.7秒增至168.7秒，原题通过数相同。C1比C0少44次请求，但少通过3次。C1自动检查66次，公开检查与候选操作分别累计301.5秒和633.8秒。费用明确为零仍需报告调用、词元和时间开销；旧13笔真实未知费用不能由新回执结清。预算拒绝的外层决策不计作实际请求，实际请求与原生计费记录分开核对。",
+  "cases": [
+    {
+      "title": "Django12193：公开通过反复遗漏原题不变性",
+      "observations": "C0/C1三轮均提交、最终公开检查有效，原评分三轮均失败。第三轮原测试test_get_context_does_not_mutate_attrs仍失败。C1只在SplitArrayWidget中复制传给子组件的属性；B0同时在CheckboxInput.get_context写入checked前复制调用者的字典，第三轮通过。该原题B0三轮为通过、失败、通过。",
+      "interpretation": "这是可重复的检查覆盖不足。公开检查通过与原题语义正确分别记录；程序更频繁执行同一检查并未补足其遗漏。冻结检查和负分均保留，案例不作为事后修改检查后再计入主比较的理由。",
+      "evidence": "confirmation-hy4flash-free-v16/C-swe-django__django-12193-C1-r3/candidate.patch；同题B0补丁、verification.jsonl及swe-official原测试输出。",
+      "scores": [
+        {"run_id": "C-swe-django__django-12193-B0-r3", "passed": true},
+        {"run_id": "C-swe-django__django-12193-C0-r3", "passed": false},
+        {"run_id": "C-swe-django__django-12193-C1-r3", "passed": false}
+      ]
+    },
+    {
+      "title": "scikit-learn25232：单轮优势与截止前保留候选",
+      "observations": "第二轮仅C1通过，B0的新功能测试通过但两项test_iterative_imputer_skip_non_missing回归失败，C0格式失败。第三轮三条件全部通过；B0/C0分别在剩137.75/135.08秒时停止新请求，以TimeExceeded结束模型循环，现有补丁仍通过原评分。B0实际17请求、19条原生用量，C0为21请求、24条原生用量；外层决策18/22分别包含一次未发出的预算拒绝。C1第三轮20请求后提交，通过原评分并有有效最终公开验证。C0第14步公开检查曾通过，后来改变候选，退出时最终验证无效，原评分仍通过。",
+      "interpretation": "第二轮C1相对基线的正向结果没有在第三轮形成同样的组间差值。新准入规则在真实任务中避免了临近截止再发请求，保留了已有正确补丁；该过程是机械修复证据，不能推导模型语义能力提高。一次中途公开检查通过、最终验证状态、客户端终止和原评分具有不同含义。",
+      "evidence": "confirmation-hy4flash-free-v16/C-swe-scikit-learn__scikit-learn-25232-B0-r3/controller.jsonl；同题三条件第二/三轮candidate.patch、model.jsonl、final-verification.json和原评分。",
+      "scores": [
+        {"run_id": "C-swe-scikit-learn__scikit-learn-25232-B0-r2", "passed": false},
+        {"run_id": "C-swe-scikit-learn__scikit-learn-25232-C0-r2", "passed": false},
+        {"run_id": "C-swe-scikit-learn__scikit-learn-25232-C1-r2", "passed": true},
+        {"run_id": "C-swe-scikit-learn__scikit-learn-25232-B0-r3", "passed": true},
+        {"run_id": "C-swe-scikit-learn__scikit-learn-25232-C0-r3", "passed": true},
+        {"run_id": "C-swe-scikit-learn__scikit-learn-25232-C1-r3", "passed": true}
+      ]
+    },
+    {
+      "title": "加法交换律：验证条件有效，额外控制收益未分离",
+      "observations": "prove-plus-comm第三轮B0因重复格式错误失败，C0/C1补全plus_comm.v中的自然数加法交换律Coq证明，编译检查有效且原评分通过。C0使用5次实际请求，C1使用8次；两者在前两轮也均通过。B0前两轮通过，第三轮失败。",
+      "interpretation": "该题的可执行编译检查直接约束形式证明是否被接受，公开验证与原题结果一致。C0同样通过，第三轮相对基线的优势属于完整信息与接口条件的观察结果；当前证据不能将其单独归因于程序安排验证。",
+      "evidence": "confirmation-hy4flash-free-v16/C-terminal-prove-plus-comm-C1-r3/；同题C0/B0的工具轨迹、最终验证及原评分。",
+      "scores": [
+        {"run_id": "C-terminal-prove-plus-comm-B0-r3", "passed": false},
+        {"run_id": "C-terminal-prove-plus-comm-C0-r3", "passed": true},
+        {"run_id": "C-terminal-prove-plus-comm-C1-r3", "passed": true}
+      ]
+    },
+    {
+      "title": "数据库恢复：原评分通过仍需核对交付范围",
+      "observations": "db-wal-recovery第二轮C1以RepeatedFormatError退出，最终公开检查失败，原评分仍为7/7通过。实际候选将11条恢复记录写入recovered.json，原main.db仍只有5行；公开检查同时要求数据库可读且含11行。第三轮该题C1与B0失败，C0通过。",
+      "interpretation": "题面同时要求数据库修复和记录提取，公开检查与原评分覆盖范围不同。原评分通过按冻结标准计入，但该轨迹不构成完整交付控制成功，也不能直接把公开检查失败归为机械误判。重复间波动和验证差异均保留。",
+      "evidence": "confirmation-hy4flash-free-v16/C-terminal-db-wal-recovery-C1-r2/；artifact.json、controller.jsonl、final-verification.json及原题test-stdout.txt。",
+      "scores": [
+        {"run_id": "C-terminal-db-wal-recovery-C1-r2", "passed": true},
+        {"run_id": "C-terminal-db-wal-recovery-C1-r3", "passed": false},
+        {"run_id": "C-terminal-db-wal-recovery-C0-r3", "passed": true}
+      ]
+    },
+    {
+      "title": "分布构造：单轮正向结果未稳定复现",
+      "observations": "distribution-search第二轮B0/C0格式失败，C1通过全部四项原题测试；第三轮三条件均失败。第二轮C1有有效公开验证，但没有失败检查后改变候选再通过的修复链。",
+      "interpretation": "该单轮正向结果与第三轮失败一起报告。实际调用过检查、出现一个通过案例和形成稳定的改造收益，属于不同的证据层次；不能用第二轮的正向案例替代三轮配对比较。",
+      "evidence": "confirmation-hy4flash-free-v16/C-terminal-distribution-search-C1-r2/；同题三条件第二/三轮工具、验证轨迹和原评分。",
+      "scores": [
+        {"run_id": "C-terminal-distribution-search-B0-r2", "passed": false},
+        {"run_id": "C-terminal-distribution-search-C0-r2", "passed": false},
+        {"run_id": "C-terminal-distribution-search-C1-r2", "passed": true},
+        {"run_id": "C-terminal-distribution-search-C1-r3", "passed": false}
+      ]
+    }
+  ],
+  "conclusion": "完整免费复测中，C1与原生基线通过数相同，低于C0，三个总体比较的配对区间均包含零。C1确实执行了66次自动检查，少数轨迹形成失败后修改并复测通过的序列，但没有恢复旧候选作为最终交付的案例，整体原题收益尚未得到支持。Django的重复反例说明公开检查覆盖是关键限制；数据库案例说明原评分与交付条件需要分开解释。150秒准入修复使真实任务在窗口不足时保留已有候选并正常评分，历史上游等待原因仍未确定。后续研究判断应基于这些负面与过程证据，不能把工程修复、一次验证通过或单轮正向结果当作方法总体有效的证明。本作业保留全部270评分、63真实失败、15前序尝试、旧13笔真实未知费用及所有来源版本。"
+}

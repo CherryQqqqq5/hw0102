@@ -1,0 +1,17 @@
+{
+  "new_scored": 10,
+  "reused_scored": 260,
+  "zero_credit_responses_verified": 109,
+  "known_zero_credit_usage_records": 119,
+  "saved_original_score_verification": {
+    "runs": "work/hy4flash-v16-checkpoint-270",
+    "score_records_verified": 10,
+    "by_benchmark": {
+      "swe": 4,
+      "terminal": 6
+    },
+    "unscored_records_preserved": [],
+    "check": "saved original grader decisions agree with result.json; graders were not re-executed"
+  },
+  "new_model_or_grader_calls": 0
+}

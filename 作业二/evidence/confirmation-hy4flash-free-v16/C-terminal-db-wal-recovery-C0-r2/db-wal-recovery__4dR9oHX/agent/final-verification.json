@@ -1,0 +1,15 @@
+{
+  "reason": "agent_exit",
+  "artifact_digest": "51fc0b7517d2b9581a20e7762004c3c861ab3e563dcbc7968cdda44d88fdc042",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": false,
+  "evidence": {
+    "public-task": {
+      "state": "pending",
+      "returncode": null,
+      "snapshot": null
+    }
+  },
+  "elapsed_seconds": 116.8570385830244
+}

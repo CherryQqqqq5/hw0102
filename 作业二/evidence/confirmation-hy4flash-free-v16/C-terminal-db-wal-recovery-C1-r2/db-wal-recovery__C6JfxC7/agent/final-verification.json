@@ -1,0 +1,15 @@
+{
+  "reason": "agent_exit",
+  "artifact_digest": "d34f5afbf75ebe5951d4d8fdb364647a11d072b72d2d8f70c40c7dc200fff864",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": false,
+  "evidence": {
+    "public-task": {
+      "state": "failed",
+      "returncode": 1,
+      "snapshot": null
+    }
+  },
+  "elapsed_seconds": 127.47281608299818
+}

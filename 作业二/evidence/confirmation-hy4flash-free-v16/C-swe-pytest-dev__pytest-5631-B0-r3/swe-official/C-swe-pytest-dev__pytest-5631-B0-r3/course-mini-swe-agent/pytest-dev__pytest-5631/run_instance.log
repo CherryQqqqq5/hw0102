@@ -1,0 +1,89 @@
+2026-11-18 17:40:34,391 - INFO - Creating container for pytest-dev__pytest-5631...
+2026-11-18 17:40:34,435 - INFO - Container for pytest-dev__pytest-5631 created: a5523d2be7f71df8b44e402b8dd8ff71c2a2e18944cd907b20b58e78f670f521
+2026-11-18 17:40:34,524 - INFO - Container for pytest-dev__pytest-5631 started: a5523d2be7f71df8b44e402b8dd8ff71c2a2e18944cd907b20b58e78f670f521
+2026-11-18 17:40:34,524 - INFO - Intermediate patch for pytest-dev__pytest-5631 written to [本机路径] now applying to container...
+2026-11-18 17:40:34,656 - INFO - >>>>> Applied Patch:
+Checking patch changelog/5631.bugfix.rst...
+Checking patch src/_pytest/compat.py...
+Checking patch testing/python/integration.py...
+Applied patch changelog/5631.bugfix.rst cleanly.
+Applied patch src/_pytest/compat.py cleanly.
+Applied patch testing/python/integration.py cleanly.
+
+2026-11-18 17:40:34,822 - INFO - Git diff before:
+diff --git a/src/_pytest/compat.py b/src/_pytest/compat.py
+index d238061b4..61c897f06 100644
+--- a/src/_pytest/compat.py
++++ b/src/_pytest/compat.py
+@@ -68,7 +68,12 @@ def num_mock_patch_args(function):
+     if any(mock_modules):
+         sentinels = [m.DEFAULT for m in mock_modules if m is not None]
+         return len(
+-            [p for p in patchings if not p.attribute_name and p.new in sentinels]
++            [
++                p
++                for p in patchings
++                if not p.attribute_name
++                and any(p.new is sentinel for sentinel in sentinels)
++            ]
+         )
+     return len(patchings)
+ 
+diff --git a/testing/python/integration.py b/testing/python/integration.py
+index a6b8dddf3..7d76cc469 100644
+--- a/testing/python/integration.py
++++ b/testing/python/integration.py
+@@ -119,6 +119,24 @@ class TestMockDecoration:
+         values = getfuncargnames(f)
+         assert values == ("y", "z")
+ 
++    def test_getfuncargnames_patch_with_array_like_new(self):
++        from _pytest.compat import getfuncargnames
++        from unittest.mock import patch
++
++        class AmbiguousBool:
++            def __bool__(self):
++                raise ValueError("ambiguous truth value")
++
++        class ArrayLike:
++            def __eq__(self, other):
++                return AmbiguousBool()
++
++        @patch("os.path.abspath", new=ArrayLike())
++        def f(x):
++            pass
++
++        assert getfuncargnames(f) == ("x",)
++
+     def test_unittest_mock(self, testdir):
+         testdir.makepyfile(
+             """
+2026-11-18 17:40:34,823 - INFO - Eval script for pytest-dev__pytest-5631 written to [本机路径] copying to container...
+2026-11-18 17:40:46,683 - INFO - Test runtime: 11.81 seconds
+2026-11-18 17:40:46,684 - INFO - Test output for pytest-dev__pytest-5631 written to [本机路径]
+2026-11-18 17:40:46,781 - INFO - Git diff after:
+diff --git a/src/_pytest/compat.py b/src/_pytest/compat.py
+index d238061b4..61c897f06 100644
+--- a/src/_pytest/compat.py
++++ b/src/_pytest/compat.py
+@@ -68,7 +68,12 @@ def num_mock_patch_args(function):
+     if any(mock_modules):
+         sentinels = [m.DEFAULT for m in mock_modules if m is not None]
+         return len(
+-            [p for p in patchings if not p.attribute_name and p.new in sentinels]
++            [
++                p
++                for p in patchings
++                if not p.attribute_name
++                and any(p.new is sentinel for sentinel in sentinels)
++            ]
+         )
+     return len(patchings)
+2026-11-18 17:40:46,781 - INFO - Git diff changed after running eval script
+2026-11-18 17:40:46,781 - INFO - Grading answer for pytest-dev__pytest-5631...
+2026-11-18 17:40:46,782 - INFO - report: {'pytest-dev__pytest-5631': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['testing/python/integration.py::TestMockDecoration::test_mock_sentinel_check_against_numpy_like'], 'failure': []}, 'PASS_TO_PASS': {'success': ['testing/python/integration.py::test_wrapped_getfslineno', 'testing/python/integration.py::TestMockDecoration::test_wrapped_getfuncargnames', 'testing/python/integration.py::TestMockDecoration::test_getfuncargnames_patching', 'testing/python/integration.py::test_pytestconfig_is_session_scoped', 'testing/python/integration.py::TestOEJSKITSpecials::test_funcarg_non_pycollectobj', 'testing/python/integration.py::TestOEJSKITSpecials::test_autouse_fixture', 'testing/python/integration.py::TestMockDecoration::test_unittest_mock', 'testing/python/integration.py::TestMockDecoration::test_unittest_mock_and_fixture', 'testing/python/integration.py::TestReRunTests::test_rerun', 'testing/python/integration.py::TestNoselikeTestAttribute::test_module_with_global_test', 'testing/python/integration.py::TestNoselikeTestAttribute::test_class_and_method', 'testing/python/integration.py::TestNoselikeTestAttribute::test_unittest_class', 'testing/python/integration.py::TestNoselikeTestAttribute::test_class_with_nasty_getattr', 'testing/python/integration.py::TestParameterize::test_idfn_marker', 'testing/python/integration.py::TestParameterize::test_idfn_fixture'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for pytest-dev__pytest-5631: resolved: True
+2026-11-18 17:40:46,782 - INFO - Attempting to stop container sweb.eval.pytest-dev__pytest-5631.C-swe-pytest-dev__pytest-5631-B0-r3...
+2026-11-18 17:41:02,014 - INFO - Container sweb.eval.pytest-dev__pytest-5631.C-swe-pytest-dev__pytest-5631-B0-r3 stopped successfully.
+2026-11-18 17:41:02,014 - INFO - Attempting to remove container sweb.eval.pytest-dev__pytest-5631.C-swe-pytest-dev__pytest-5631-B0-r3...
+2026-11-18 17:41:02,064 - INFO - Container sweb.eval.pytest-dev__pytest-5631.C-swe-pytest-dev__pytest-5631-B0-r3 removed successfully.

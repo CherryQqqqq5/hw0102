@@ -1,0 +1,9 @@
+{
+  "task": "scikit-learn__scikit-learn-11310",
+  "wall_seconds": 215.33627620898187,
+  "exit_status": "Submitted",
+  "submission": "Submit the verified saved candidate. Added refit_time_ to BaseSearchCV.fit, measuring the elapsed time around the best estimator refit with time.time(), and documented the attribute on GridSearchCV and RandomizedSearchCV. Public check passed; focused edge cases and relevant tests passed.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 27.75893695896957
+}

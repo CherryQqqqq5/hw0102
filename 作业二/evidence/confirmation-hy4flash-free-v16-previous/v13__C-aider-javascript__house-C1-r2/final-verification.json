@@ -1,0 +1,15 @@
+{
+  "reason": "agent_exit",
+  "artifact_digest": "32f777e137b80948eb83126c90591c88d4153326bef65a82d2c4968d49ad7b5b",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-suite": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "25a71a5cb4c76760e276e4d9a49a3b4347072697bea804268cdbf8e6da3849fb  house.js\n5809d02a3b2377aa2e8de7002fac9a3191c6002fa580e831fe7b542964ddc3d7  house.spec.js\n"
+    }
+  },
+  "elapsed_seconds": 170.6380019580247
+}
