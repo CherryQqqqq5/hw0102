@@ -286,7 +286,7 @@ def render():
                          ["失败后改版复测通过，且原题通过", *[total[arm]["repair_chain_and_original_pass_trials"] for arm in ARMS]],
                          ["最终阶段自动恢复的运行数", *[total[arm]["restored_final_candidate"] for arm in ARMS]]],
                         [240, 84, 84, width - 408]),
-                  paragraph("失败反馈、候选改变、复测通过的先后顺序属于过程证据；成功率的因果解释以同题匹配消融为依据。"
+                  paragraph("失败反馈、候选改变、复测通过的先后顺序属于过程证据；成功率仅报告所述匹配条件下的观察差异。"
                             "连续格式错误按RepeatedFormatError退出状态统计，与无模型响应分别列出，最终成绩均取原题判定。"
                             "退出后的检查计入实际检查开销，模型是否收到反馈由后续请求原文核对。"
                             "公开通过而原题失败的记录仍保留，可以揭示检查覆盖的局限。"),
