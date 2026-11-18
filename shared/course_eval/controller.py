@@ -6,7 +6,7 @@ import subprocess
 import time
 from dataclasses import asdict
 from pathlib import Path
-from typing import Literal
+from typing import ClassVar, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
@@ -20,6 +20,9 @@ from course_eval.verification import Evidence, VerificationState
 
 class ControlAction(BaseModel):
     model_config = ConfigDict(extra="forbid", strict=True)
+    required_fields: ClassVar[dict[str, str | None]] = {
+        "bash": "command", "verify": "check_id", "save": None, "restore": "candidate_id", "submit": None,
+    }
     operation: Literal["bash", "verify", "save", "restore", "submit"]
     command: str | None = Field(default=None, max_length=65536)
     check_id: str | None = None
@@ -28,14 +31,26 @@ class ControlAction(BaseModel):
 
     @model_validator(mode="after")
     def validate_action(self):
-        fields = {"bash": "command", "verify": "check_id", "restore": "candidate_id"}
-        required = fields.get(self.operation)
+        required = self.required_fields[self.operation]
         if required and not getattr(self, required):
             raise ValueError(f"{self.operation} requires {required}")
         for name in ("command", "check_id", "candidate_id"):
             if name != required and getattr(self, name) is not None:
                 raise ValueError(f"{name} is not valid for {self.operation}")
         return self
+
+    @classmethod
+    def __get_pydantic_json_schema__(cls, core_schema, handler):
+        schema = handler.resolve_ref_schema(handler(core_schema))
+        # 发送端与本地校验共用每种操作的字段定义，禁止其他操作的非空参数。
+        schema["oneOf"] = [
+            {"properties": {"operation": {"const": operation}, **{
+                name: {"type": "string", "minLength": 1} if name == required else {"type": "null"}
+                for name in ("command", "check_id", "candidate_id")}},
+             "required": ["operation", required] if required else ["operation"]}
+            for operation, required in cls.required_fields.items()
+        ]
+        return schema
 
 
 class ControlModel(CodeBuddyModel):
@@ -176,10 +191,10 @@ class ControlledEnvironment:
         self.decisions = 0
         self.last_automatic_step = -2
         self.final_phase = False
-        self.last_automatic_digest = None
         self.check_seconds = min(60.0, limits.command_seconds * len(checks))
         self.last_checks = {}
         self.checked_artifacts = {}
+        self.checked_contexts = {}
         self.final_report = None
 
     def event(self, event, **fields):
@@ -234,7 +249,10 @@ class ControlledEnvironment:
                   "coverage": check.coverage, "artifact_digest": after_candidate["artifact_digest"],
                   "before": before, "after": after, "seconds": seconds, **output}
         self.event("verification", **report)
-        self.last_automatic_digest = after_candidate["artifact_digest"] if reason != "requested" else self.last_automatic_digest
+        if (observed.state in {"passed", "failed"} and before == after and after is not None
+                and current["artifact_digest"] == after_candidate["artifact_digest"]
+                and self.store.trusted(after_candidate)):
+            self.checked_contexts[check_id] = (after_candidate["artifact_digest"], after_candidate["protected_digest"], after)
         if self.enabled:
             current, evidence = self.status()
             if all(item["state"] == "passed" for item in evidence.values()):
@@ -242,11 +260,16 @@ class ControlledEnvironment:
                 self.event("candidate_saved", candidate_id=saved["candidate_id"], eligible=saved["eligible"])
         return report
 
-    def verify_pending(self, reason, reserve_seconds=0):
+    def verify_pending(self, reason, reserve_seconds=0, *, only_changed=False):
         current, evidence = self.status()
         results = []
         for key, record in evidence.items():
             if record["state"] != "passed":
+                if only_changed:
+                    snapshot = self.state.snapshot(self.state.checks[key], self.target, 20)
+                    context = (current["artifact_digest"], current["protected_digest"], snapshot)
+                    if snapshot is not None and self.checked_contexts.get(key) == context:
+                        continue
                 results.append(self.verify(key, reason, reserve_seconds))
         return results
 
@@ -278,19 +301,18 @@ class ControlledEnvironment:
                              "extra": {"exit_status": "ControllerFinalized", "submission": ""}})
         if self.budget.remaining() <= max(180, 2 * self.final_reserve()) or calls >= self.limits.model_calls - 4:
             self.final_phase = True
-            current = self.store.capture()
-            if current["artifact_digest"] != self.last_automatic_digest:
-                reports = self.verify_pending("final_phase")
-                self.last_automatic_step = calls
+            reports = self.verify_pending("final_phase", only_changed=True)
+            self.last_automatic_step = calls
+            if reports:
                 self.event("final_phase", reports=reports)
                 return "Final verification phase: repair these public failures within the remaining budget. " + json.dumps(reports)
         elif calls >= 6 and calls - self.last_automatic_step >= 2:
             current = self.store.capture()
-            if (current["artifact_digest"] != self.store.original["artifact_digest"]
-                    and current["artifact_digest"] != self.last_automatic_digest):
-                reports = self.verify_pending("candidate_change", self.final_reserve())
+            if current["artifact_digest"] != self.store.original["artifact_digest"] or self.checked_contexts:
+                reports = self.verify_pending("candidate_change", self.final_reserve(), only_changed=True)
                 self.last_automatic_step = calls
-                return "Public verification of the changed candidate: " + json.dumps(reports)
+                if reports:
+                    return "Public verification of the changed candidate: " + json.dumps(reports)
         return ""
 
     def finish(self, reason):

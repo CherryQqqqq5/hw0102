@@ -81,6 +81,8 @@ def task_success_tables(rows):
 def render():
     summary, rows, narrative = load()
     execution = json.loads((WORK / "course-execution-failure-analysis-20261118.json").read_text())
+    matched = next(item for item in execution["same_protocol_complete_triples"]
+                   if item["protocol_commit"].startswith("081a796c") and item["repeat"] == 3)
     by_group = {(item["benchmark"], item["arm"]): item for item in summary["coverage"]}
     total = {arm: by_group["all", arm] for arm in ARMS}
     main, control, information = summary["comparisons"]
@@ -138,10 +140,11 @@ def render():
                ["verification.py：VerificationState", "维护公开条件与依赖版本，相关文件改变时旧验证失效"],
                ["agent.py：run_baseline、CodeBuddyModel", "B0保持原生决策；三组共用模型适配及预算修复，后者不作算法贡献"]],
               [218, width - 218]),
-        paragraph("实现沿用mini-swe-agent的决策、工具执行与格式反馈循环。对4096输出截断，参考Harbor的Terminus 2实现："
-                  "已有完整动作时先验证再执行，无完整动作时明确反馈格式错误。当前适配器先逐条验证真实模型型号和零积分回执，"
-                  "再将已定位的命令行客户端（Command-Line Interface，CLI）本地错误与服务回复分开；"
-                  "每个本地错误须关联独立前置模型用量，恢复动作须与最终结构化输出一致。该共同适配器用于三个条件，工程恢复不计为C1算法收益。"),
+        paragraph("实现沿用mini-swe-agent的决策、工具执行与格式反馈循环，并参考Harbor的Terminus 2截断处理。"
+                  "免费模型回复先通过实际身份与逐条费用验证。最后一个原生输出段达到4096词元上限时，适配器拒绝执行并反馈截断错误。"
+                  "此前输出段截断、后续输出段未达上限时，继续验证成功状态及结构化动作。"
+                  "命令行客户端（Command-Line Interface，CLI）本地错误与服务回复分列；每个已识别本地错误须关联独立前置模型用量，"
+                  "恢复动作与最终结构化输出一致后才接受。该共同适配器用于三个条件，工程恢复不计为C1算法收益。"),
         heading("三、公开检查与真实工程验收"),
         paragraph("检查依据完整公开题面、初始可见测试和输入编制。软件修复任务使用公开问题的行为复现，例如布尔数组的勾选状态、"
                   "自定义管理站点链接、数组类型保持与动态xfail行为。Aider使用原可见测试；Java公开检查保留原Disabled标记，"
@@ -212,6 +215,20 @@ def render():
                   "该并行变化支持把恢复方式作为重要混杂检查，不能单凭跨轮差值断言恢复改动导致全部失分。"
                   "相同协议提交的配对位置可作来源检查；它仍未统一任务组成、模型内部采样和全部客户端条件。"
                   "以下整体配对区间描述已保存的混合来源记录，不能解释成严格同一执行策略下的因果效应。"),
+        heading("同协议、同轮次的23题三条件比较"),
+        paragraph("事后按任务及轮次配对，仅保留B0、C0、C1齐全且protocol_commit完全相同的位置，再按协议与轮次分组，"
+                  "保留全部符合条件的任务，不按成绩筛选。081a796c第三轮为最大完整分组，包含23题69次运行，"
+                  "覆盖Aider 10题、SWE-bench 6题、Terminal-Bench 7题。全部九个分组及组成见附录。"),
+        table([["指标", *ARMS],
+               ["原题通过", *[f"{matched['arms'][arm]['passed']}/23（{matched['arms'][arm]['passed']/23:.1%}）" for arm in ARMS]],
+               ["CLI请求", *[matched["arms"][arm]["model_calls"] for arm in ARMS]],
+               ["输出词元", *[f"{matched['arms'][arm]['output_tokens']:,}" for arm in ARMS]],
+               ["执行中位数/秒", *[f"{matched['arms'][arm]['median_execution_seconds']:.1f}" for arm in ARMS]],
+               ["连续格式错误终止", *[matched["arms"][arm]["format_exits"] for arm in ARMS]]],
+              [145, 115, 115, width - 375]),
+        paragraph("该共同协议分组中，C1比B0少通过1题、比C0少2题，输出词元与执行时间中位数较高，未观察到程序安排验证的净收益。"
+                  "该分组提供相同已记录协议下的描述性对照；样本是执行完成后分组，提供方内部状态和采样仍不可固定，"
+                  "不能把23题作为预先注册的独立确认或将其他分组隐藏。"),
         table([["同原协议提交的事后子集", "位置对数", "对照通过", "改造通过"],
                *[[f"{item['treatment']} / {item['reference']}", item["task_repeat_pairs"], item["reference_passed"], item["treatment_passed"]]
                  for item in execution["protocol_matched_descriptive_pairs"]]], [220, 90, 90, width - 400]),
@@ -250,8 +267,9 @@ def render():
                             f"{item['delta_percentage_points']:+.1f}", interval(item)]
                            for item in sensitivity["comparisons"]]], [170, 125, width - 295])])
     items.extend([paragraph(narrative["comparison_interpretation"]),
-                  paragraph("C1/B0衡量完整改造的总体作用；C1/C0在相同初始信息、提示和工具下衡量程序控制的增量作用；"
-                            "C0/B0反映新增信息与接口的整体贡献。三轮重复保留在每道题内部，不能解释为每配置90道独立任务。"),
+                  paragraph("C1/B0、C1/C0、C0/B0分别对应完整改造、程序控制和新增信息接口的设计比较目标。"
+                            "整体汇总报告观察到的配对差异，并结合分版本结果解释。检查反馈、候选修改和复测通过的先后顺序提供过程证据。"
+                            "三轮重复保留在每道题内部，不能解释为每配置90道独立任务。"),
                   table([["超时敏感性（辅助）", "无超时配对题数", "差值/百分点"],
                          *[[f"{item['treatment']} − {item['reference']}", item["pairs_without_provider_timeout"],
                             f"{item['delta_without_provider_timeout_percentage_points']:+.1f}"
@@ -344,23 +362,37 @@ def render():
                   "同一来源复用记录不重复计数。历史与本轮合计覆盖75道不同任务。"
                   "历史失败、工程控制和机械未评分尝试分别保留。"),
         heading("九、结论与适用范围"), paragraph(narrative["conclusion"]),
-        paragraph("代码与真实响应的离线检查还定位两项实现缺陷：C0/C1动作接口的71份submit返回在发送的JSON Schema中合法，但携带其他动作字段时被本地ControlAction拒绝；"
-                  "C1自动调度在24条轨迹的37次请求中注入重复空检查反馈。前者以保存的发送Schema和原动作分别运行标准Schema验证与本地验证器，"
-                  "后者按新请求末尾的实际反馈计数。部分动作先受4096截断保护拒绝，71不能直接当作实际Schema报错次数；"
-                  "37也不能直接当作净新增请求或失分。改进方向是统一动作分支契约、仅反馈新检查结果，冻结原运行与分数保持。"),
+        paragraph("原C0/C1接口中，71份submit返回符合发送的JavaScript Object Notation（JSON，JavaScript对象表示法）Schema，"
+                  "却与本地操作约束冲突，涉及60次运行。"
+                  "其中68份在紧接下一请求的新增消息中出现对应的实际校验拒绝；3份处于运行最后一次请求，没有下一请求可供核对。"
+                  "71份响应的最后一个原生输出段均未达到4096。C1另有24条轨迹中的37次请求包含空自动检查反馈；"
+                  "37按实际消息计数，不直接等于净新增请求或失分。"),
+        heading("接口修复与工程验证范围"),
+        paragraph("2026年11月18日的修复版本保留本地动作接受规则，以同一操作—字段定义生成发送端分支约束。"
+                  "bash必须有非空command，verify必须有非空check_id，restore必须有非空candidate_id；save和submit不接受其他操作的非空参数。"
+                  "归档全部1757个控制动作中，旧发送约束与本地判定冲突150个：submit 71、save 35、bash 25、verify 19；"
+                  "修复后1607个合法动作两端接受、150个非法动作两端拒绝，另150个字段边界组合判定一致。"),
+        paragraph("自动反馈改为仅在产生新检查报告时追加消息；按实际候选、受保护依据和检查依赖版本识别已经反馈的结果。"
+                  "模型主动验证与程序安排验证共用该记录，相同候选及依赖不重复检查已报告的稳定失败，候选或依赖改变后仍重新检查。"
+                  "用归档候选字节和本地真实子进程复现旧空反馈，并验证主动检查、候选变化、失败去重、依赖失效、精确恢复及五种操作的返回和终止。"
+                  "该工程检查使用文件比较，不是原题成功率实验；历史冻结代码、270条原评分及真实费用校验保持。"
+                  "修复后模型行为和任务成功率仍无新增实测证据。"),
         paragraph("检查器按每道公开任务编制，包含人工规则设计，尚未验证自动生成检查器的能力。软件修复任务集中于四个仓库的较短修复，"
                   "Terminal限于可离线、单容器和当前资源能承载的任务，Aider覆盖六种语言。"
                   "除已披露的接口修复外，公开条件与方法在旧提供方运行前固定；免费复测前已读取旧服务结果，模型训练暴露情况未知。"
                   "检查范围、固定时限、客户端服务波动和样本规模共同限制结论外推。"),
         heading("材料与复现"),
-        paragraph("shared/course_eval/controller.py和candidate_io.py实现控制与候选操作；作业二/configs/保存冻结协议、"
+        paragraph("frozen-runtime/v16/course_eval/保存历史冻结执行实现，计划逐位置注明复用来源协议；"
+                  "shared/course_eval/controller.py为当前接口修复版本，candidate_io.py保持。作业二/configs/保存冻结协议、"
                   f"题单、公开检查与顺序；evidence/{BATCH}/保存主比较的可审计模型交互、真实计费回执、工具、候选版本和原评分；"
                   f"{BATCH}-summary/保存统计，{BATCH}-previous/保留{len(plan['preserved_previous_attempts'])}次前序未评分，"
                   "复用来源由计划逐位置列出。旧服务停止批次及前序记录单独保留，"
                   "codebuddy-v3-stopped-summary.json保存其未完成范围和去重费用，v2中的80条复用不能重复相加。"
                   "完整命令见shared/CONFIRMATION.md。"
                   "辅助实现、检查编制、执行与报告整理使用Codex；模型行为与原题成绩由保存的实际运行记录支持。"),
-        paragraph("课程逐项要求与材料对应关系见evidence/course-rubric-audit-20261118.md。"
+        paragraph("shared/README.md提供独立分析环境，shared/CONFIRMATION.md两条只读命令统一使用work/.venv/bin/python。"
+                  "干净环境执行完整原记录复核与分组/接口分析，具体版本、输出和工程验收见evidence/control-interface-repair-20261118.md。"
+                  "课程逐项要求与材料对应关系见evidence/course-rubric-audit-20261118.md。"
                   "完整输入、配置、代码、模型交互和独立原评分可由上述目录逐项核对。"),
         link("课程作业仓库", "https://github.com/CherryQqqqq5/hw0102"),
         link("免费模型执行协议提交", f"https://github.com/CherryQqqqq5/hw0102/commit/{PROTOCOL}"),
@@ -368,6 +400,24 @@ def render():
         link("Harbor Terminus 2源代码", "https://github.com/harbor-framework/harbor/blob/main/src/harbor/agents/terminus_2/terminus_2.py"),
         link("Terminal-Bench版本目录", "https://www.tbench.ai/benchmarks"),
     ])
+    items.extend([PageBreak(), heading("附录：全部同协议、同轮次三条件分组"),
+        paragraph("采用正文相同事后规则，保留所有满足三条件齐全且protocol_commit一致的任务—轮次。下表A/S/T依次为Aider、SWE-bench、Terminal-Bench题数；"
+                  "通过数、请求、输出和中位数均按B0/C0/C1顺序。各组任务及运行编号完整保存在course-execution-failure-analysis-20261118.json。"
+                  "不同轮次可含相同题，不把分组题数相加作为独立任务数。"),
+        table([["协议/轮次", "题数", "A/S/T", "B0通过", "C0通过", "C1通过"],
+            *[[f"{item['protocol_commit'][:8]}/r{item['repeat']}", item["tasks"],
+               "/".join(str(item["benchmarks"][name]) for name in ("aider", "swe", "terminal")),
+               *[f"{item['arms'][arm]['passed']}/{item['tasks']}" for arm in ARMS]]
+              for item in execution["same_protocol_complete_triples"]]], [123, 45, 70, 84, 84, width - 406]),
+        Spacer(1, 9),
+        table([["协议/轮次", "CLI请求", "输出词元", "执行中位数/秒"],
+            *[[f"{item['protocol_commit'][:8]}/r{item['repeat']}",
+               "/".join(str(item["arms"][arm]["model_calls"]) for arm in ARMS),
+               "/".join(str(item["arms"][arm]["output_tokens"]) for arm in ARMS),
+               "/".join(f"{item['arms'][arm]['median_execution_seconds']:.1f}" for arm in ARMS)]
+              for item in execution["same_protocol_complete_triples"]]], [123, 95, 170, width - 388]),
+        paragraph("该附录与完整270条矩阵、按轮汇总及87/86对两条件匹配分析共用同一原评分。"
+                  "分组没有引入模型请求、替换有效失败或重新运行评分器；各子集保留原执行差异与负结果。")])
     build("231880296_邱昱宁_作业二.pdf", "作业二 · 公开验证与候选交付控制", items,
           subtitle="邱昱宁 · 231880296", footer="智能推理与规划 · 邱昱宁")
 

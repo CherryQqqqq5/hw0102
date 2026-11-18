@@ -1,0 +1,215 @@
+{
+  "status": "pass",
+  "source": "Archived real records, local subprocess checks and independent clean venv",
+  "original_scores": 270,
+  "passed": 207,
+  "failed": 63,
+  "historical_unknown_fees_preserved": 13,
+  "original_sent_schema_local_conflicts": 150,
+  "fixed_contract": {
+    "real_actions": 1757,
+    "valid_actions": 1607,
+    "invalid_actions": 150,
+    "schema_local_conflicts": [],
+    "boundary_cases": 150,
+    "new_model_requests": 0,
+    "validation_scope": "Archived real actions; no model or benchmark execution"
+  },
+  "submit_conflict_evidence": {
+    "responses": 71,
+    "runs": 60,
+    "immediate_next_request_added_rejection": 68,
+    "no_next_request": 3,
+    "last_native_output_at_cap": 0
+  },
+  "empty_feedback_archived_requests": 37,
+  "empty_feedback_archived_runs": 24,
+  "feedback_engineering": {
+    "engineering_check": "pass",
+    "new_model_requests": 0,
+    "new_original_grader_executions": 0,
+    "archived_empty_feedback_requests": 37,
+    "archived_runs": 24,
+    "archived_fixture": "confirmation-hy4flash-free-v16/C-aider-cpp__all-your-base-C1-r2/candidates/candidate-001.json",
+    "checks": [
+      "requested verification without empty feedback",
+      "candidate change rechecks",
+      "unchanged failed candidate does not repeat",
+      "restore exact bytes",
+      "dependency invalidation rechecks",
+      "final phase without empty feedback",
+      "invalid action has no effects",
+      "five operations return or terminate correctly"
+    ],
+    "scope": "Real local subprocesses and archived candidate bytes; not a model-success experiment"
+  },
+  "same_protocol_groups": 9,
+  "same_protocol_23_tasks": {
+    "protocol_commit": "081a796c7bceca10e390fa983c18173289c4fe7a",
+    "repeat": 3,
+    "tasks": 23,
+    "benchmarks": {
+      "aider": 10,
+      "swe": 6,
+      "terminal": 7
+    },
+    "arms": {
+      "B0": {
+        "trials": 23,
+        "passed": 18,
+        "model_calls": 193,
+        "output_tokens": 313258,
+        "median_execution_seconds": 106.99096825002925,
+        "format_exits": 5,
+        "run_ids": [
+          "C-aider-cpp__all-your-base-B0-r3",
+          "C-aider-cpp__gigasecond-B0-r3",
+          "C-aider-go__alphametics-B0-r3",
+          "C-aider-go__beer-song-B0-r3",
+          "C-aider-java__change-B0-r3",
+          "C-aider-javascript__house-B0-r3",
+          "C-aider-javascript__sum-of-multiples-B0-r3",
+          "C-aider-python__grep-B0-r3",
+          "C-aider-python__rest-api-B0-r3",
+          "C-aider-rust__accumulate-B0-r3",
+          "C-swe-django__django-12193-B0-r3",
+          "C-swe-django__django-14855-B0-r3",
+          "C-swe-pytest-dev__pytest-5631-B0-r3",
+          "C-swe-pytest-dev__pytest-7490-B0-r3",
+          "C-swe-scikit-learn__scikit-learn-11310-B0-r3",
+          "C-swe-scikit-learn__scikit-learn-13124-B0-r3",
+          "C-terminal-db-wal-recovery-B0-r3",
+          "C-terminal-distribution-search-B0-r3",
+          "C-terminal-fix-code-vulnerability-B0-r3",
+          "C-terminal-log-summary-date-ranges-B0-r3",
+          "C-terminal-modernize-scientific-stack-B0-r3",
+          "C-terminal-polyglot-rust-c-B0-r3",
+          "C-terminal-vulnerable-secret-B0-r3"
+        ]
+      },
+      "C0": {
+        "trials": 23,
+        "passed": 19,
+        "model_calls": 226,
+        "output_tokens": 328118,
+        "median_execution_seconds": 126.96162529097637,
+        "format_exits": 3,
+        "run_ids": [
+          "C-aider-cpp__all-your-base-C0-r3",
+          "C-aider-cpp__gigasecond-C0-r3",
+          "C-aider-go__alphametics-C0-r3",
+          "C-aider-go__beer-song-C0-r3",
+          "C-aider-java__change-C0-r3",
+          "C-aider-javascript__house-C0-r3",
+          "C-aider-javascript__sum-of-multiples-C0-r3",
+          "C-aider-python__grep-C0-r3",
+          "C-aider-python__rest-api-C0-r3",
+          "C-aider-rust__accumulate-C0-r3",
+          "C-swe-django__django-12193-C0-r3",
+          "C-swe-django__django-14855-C0-r3",
+          "C-swe-pytest-dev__pytest-5631-C0-r3",
+          "C-swe-pytest-dev__pytest-7490-C0-r3",
+          "C-swe-scikit-learn__scikit-learn-11310-C0-r3",
+          "C-swe-scikit-learn__scikit-learn-13124-C0-r3",
+          "C-terminal-db-wal-recovery-C0-r3",
+          "C-terminal-distribution-search-C0-r3",
+          "C-terminal-fix-code-vulnerability-C0-r3",
+          "C-terminal-log-summary-date-ranges-C0-r3",
+          "C-terminal-modernize-scientific-stack-C0-r3",
+          "C-terminal-polyglot-rust-c-C0-r3",
+          "C-terminal-vulnerable-secret-C0-r3"
+        ]
+      },
+      "C1": {
+        "trials": 23,
+        "passed": 17,
+        "model_calls": 219,
+        "output_tokens": 350067,
+        "median_execution_seconds": 144.66344979201676,
+        "format_exits": 5,
+        "run_ids": [
+          "C-aider-cpp__all-your-base-C1-r3",
+          "C-aider-cpp__gigasecond-C1-r3",
+          "C-aider-go__alphametics-C1-r3",
+          "C-aider-go__beer-song-C1-r3",
+          "C-aider-java__change-C1-r3",
+          "C-aider-javascript__house-C1-r3",
+          "C-aider-javascript__sum-of-multiples-C1-r3",
+          "C-aider-python__grep-C1-r3",
+          "C-aider-python__rest-api-C1-r3",
+          "C-aider-rust__accumulate-C1-r3",
+          "C-swe-django__django-12193-C1-r3",
+          "C-swe-django__django-14855-C1-r3",
+          "C-swe-pytest-dev__pytest-5631-C1-r3",
+          "C-swe-pytest-dev__pytest-7490-C1-r3",
+          "C-swe-scikit-learn__scikit-learn-11310-C1-r3",
+          "C-swe-scikit-learn__scikit-learn-13124-C1-r3",
+          "C-terminal-db-wal-recovery-C1-r3",
+          "C-terminal-distribution-search-C1-r3",
+          "C-terminal-fix-code-vulnerability-C1-r3",
+          "C-terminal-log-summary-date-ranges-C1-r3",
+          "C-terminal-modernize-scientific-stack-C1-r3",
+          "C-terminal-polyglot-rust-c-C1-r3",
+          "C-terminal-vulnerable-secret-C1-r3"
+        ]
+      }
+    }
+  },
+  "clean_environment": {
+    "isolated": true,
+    "python": "3.13.12",
+    "packages": {
+      "mini-swe-agent": "2.4.6",
+      "pydantic": "2.14.2",
+      "jsonschema": "4.26.0"
+    }
+  },
+  "clean_commands_passed": 5,
+  "published_analysis_byte_equal": true,
+  "unchanged_from_frozen_v16": [
+    "agent.py",
+    "codebuddy_free.py",
+    "candidate_io.py"
+  ],
+  "controller_sha256": "9a8a1a28d14228fc339887e0e056e1e58175c0cffe323e5856a3c7c55ce863ef",
+  "pdf_structure": [
+    {
+      "file": "outputs/231880296_邱昱宁_作业一.pdf",
+      "pages": 6,
+      "characters_per_page": [
+        1243,
+        1438,
+        945,
+        1073,
+        659,
+        1259
+      ]
+    },
+    {
+      "file": "outputs/231880296_邱昱宁_作业二.pdf",
+      "pages": 15,
+      "characters_per_page": [
+        1226,
+        1541,
+        1408,
+        1285,
+        1381,
+        1181,
+        527,
+        1227,
+        1094,
+        1373,
+        1496,
+        1626,
+        1321,
+        1532,
+        1237
+      ]
+    }
+  ],
+  "rendered_pages_reviewed": 21,
+  "new_model_requests": 0,
+  "new_original_grader_executions": 0,
+  "new_model_fees": 0,
+  "scope": "Repaired engineering behavior and descriptive same-protocol analysis; no post-fix model-success evidence"
+}

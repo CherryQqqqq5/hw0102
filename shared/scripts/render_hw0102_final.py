@@ -123,6 +123,9 @@ def baseline_report(confirmation_batch: str | None = None) -> None:
                   "未将模型完成声明或工具退出状态直接当作成绩。辅助实现、分析与报告整理使用Codex，实测结果以保存原件为依据。"),
         link("作业一证据目录", "https://github.com/CherryQqqqq5/hw0102/tree/main/%E4%BD%9C%E4%B8%9A%E4%B8%80"),
         link("课程说明", "https://nju-link-lab.feishu.cn/wiki/QLwBwXov6iHjsJkeBPLck9AUncc"),
+        link("Aider Polyglot原始任务与固定版本7e0611e7", "https://github.com/Aider-AI/polyglot-benchmark/tree/7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"),
+        link("SWE-bench Verified原始数据与固定版本78f471bf", "https://huggingface.co/datasets/SWE-bench/SWE-bench_Verified/tree/78f471bf655a3137b2e8a75af1501690ec009ec3"),
+        link("Terminal-Bench 2.1原始任务与固定版本7131e437", "https://github.com/harbor-framework/terminal-bench-2-1/tree/7131e4375048a0e408a8fb404b5f499d726b695b"),
         link("SWE-bench 官方评测程序", "https://www.swebench.com/SWE-bench/reference/harness/"),
         link("SWE-bench Verified 覆盖与训练暴露审查", "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/"),
     ])

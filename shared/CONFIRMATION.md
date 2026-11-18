@@ -5,7 +5,7 @@
 在本目录使用已安装项目依赖执行下面的只读复算，不发模型请求、不重跑原评分器：
 
 ```sh
-PYTHONPATH="$PWD:$PWD/scripts" python3 scripts/verify_free_stopped_run.py \
+PYTHONPATH="$PWD:$PWD/scripts" work/.venv/bin/python scripts/verify_free_stopped_run.py \
   --runs '../作业二/evidence/confirmation-hy4flash-free-v16' \
   --previous-runs '../作业二/evidence/confirmation-hy4flash-free-v16-previous' \
   --summary '../作业二/evidence/confirmation-hy4flash-free-v16-summary/summary.json' \
@@ -16,17 +16,28 @@ PYTHONPATH="$PWD:$PWD/scripts" python3 scripts/verify_free_stopped_run.py \
   --preparation-root '../作业二/evidence/preparation-free'
 ```
 
-该命令核对270条原评分、全部主响应的实际费用、13历史未知与1本地元数据拒绝、15份冻结源码、逐题轨迹和配对区间。原评分器和模型均不重跑。最新报告按真实评分表补齐为作业一6页、作业二13页；原5/11页与6/11页版本由既有包保留。完整270记录包含恢复协议变化，不能将汇总区间解释为严格同协议因果效应。
+该命令核对270条原评分、全部主响应的实际费用、13历史未知与1本地元数据拒绝、15份冻结源码、逐题轨迹和配对区间。原评分器和模型均不重跑。最新报告按真实评分表补齐为作业一6页、作业二15页；原5/11页、6/11页和6/13页版本由既有包保留。完整270记录包含恢复协议变化，不能将汇总区间解释为严格同协议因果效应。
 
 按轮次与原生用量复算52次格式终止、末段推理耗尽、实际Schema和空反馈，不调用模型：
 
 ```sh
-PYTHONPATH="$PWD" python3 scripts/analyze_course_execution_failures.py \
+PYTHONPATH="$PWD" work/.venv/bin/python scripts/analyze_course_execution_failures.py \
   --evidence-root '../作业二/evidence' \
   --output work/course-execution-failure-analysis-20261118.json
 ```
 
-此只读分析使用已保存请求中的Schema及真实返回动作，对照当前本地动作校验器。71为契约不一致的离线响应数，不直接等于实际报错次数。新实验需要新的明确授权，不能执行下方历史续跑命令。
+此只读分析使用已保存请求中的Schema及真实返回动作，对照未改变接受规则的本地动作校验器。71个submit冲突涉及60次运行，其中68个在紧接下一请求的新增消息中出现对应拒绝，3个没有下一请求；71个末段均未达到4096。分析同时按任务、轮次及protocol_commit保留三条件完整且版本一致的全部子集，正文列出081a796c第三轮23题，附录列出全部九组；均为事后分组，未按分数筛选。
+
+历史270条评分对应`frozen-runtime/v16/`及计划逐位置记录的来源协议。当前`shared/course_eval/controller.py`另含2026-11-18动作Schema与反馈修复；历史冻结目录、原评分和计费校验保持。修复仅完成归档动作判定和本地真实命令验收，尚无修复后模型成功率证据。可从`shared/`离线复核当前工程行为：
+
+```sh
+PYTHONPATH="$PWD" work/.venv/bin/python -m course_eval.check_control_contracts \
+  --evidence-root '../作业二/evidence' --output work/control-contracts.json
+PYTHONPATH="$PWD" work/.venv/bin/python -m course_eval.check_control_feedback \
+  --evidence-root '../作业二/evidence' --out work/control-feedback
+```
+
+反馈验收使用归档候选的真实字节和本地子进程，将容器固定传输路径映射到工作区；检查候选变化、依赖失效、精确恢复及五种操作的返回/终止，不执行归档模型命令或原题评分。`--out`必须是尚不存在的目录。新实验需要新的明确授权，不能执行下方历史续跑命令。
 
 以下创智命令和版本说明属于已停止的历史批次，仅用于解释其记录与原执行方式；当前没有创智调用授权。
 

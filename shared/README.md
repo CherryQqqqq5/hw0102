@@ -8,6 +8,17 @@
 
 ## 准备数据和依赖
 
+只复算已发布记录时，在`shared/`建立以下独立环境即可，不需要模型登录、容器或原评分依赖。`requirements-analysis.txt`固定已验证的直接及间接依赖版本，后续只读命令均使用该环境的解释器。
+
+```sh
+mkdir -p work/process-tmp
+TMPDIR="$PWD/work/process-tmp" python3.13 -m venv work/.venv
+TMPDIR="$PWD/work/process-tmp" work/.venv/bin/python -m pip install \
+  --index-url https://pypi.org/simple --cache-dir work/pip-cache -r requirements-analysis.txt
+```
+
+若已备齐与本机Python版本及平台匹配的标准wheel安装包，可将安装命令改为`work/.venv/bin/python -m pip install --no-index --find-links work/wheels -r requirements-analysis.txt`。本次独立环境使用71个核对PyPI发布方摘要的发行包，以及11个通过标准`wheel pack`从已保存发行内容重建的安装包，统一离线安装。普通包索引访问和部分完整下载曾超时，未记为安装通过。实际环境、安装方式与复算验收见作业二的`control-clean-environment-validation-20261118.json`。
+
 在 `shared/` 执行下列命令。原始 SWE-bench 评分数据和 Terminal-Bench 验收文件用于独立评分，评测程序只向模型传递题面、可见代码与工具结果。
 
 ```sh

@@ -4,9 +4,9 @@
 
 2026年11月18日，hy4flash-free 固定270位置全部完成，207通过、63失败；B0/C0/C1为68/90、71/90、68/90。C1相对基线差值0.0个百分点，95%配对区间[-7.8，6.7]；相对C0为-3.3个百分点，区间[-8.9，2.2]。本轮没有支持程序控制稳定提高原题成功率。所有有效失败和历史13笔真实未知费用保留。[完整结果](作业二/evidence/hy4flash-v16-results-20261118.md) · [三轮统计](作业二/evidence/confirmation-hy4flash-free-v16-summary/summary.json) · [来源与费用审计](作业二/evidence/confirmation-hy4flash-free-v16-source-audit.json) · [当前协议](作业二/configs/confirmation-protocol-hy4flash-free-v16.md)
 
-首响应修复将三个条件的新请求准入从60提高到150秒，600秒执行预算和实际费用校验保持。新增10位置为5通过5失败，109实际响应、119原生用量均零积分；scikit-learn基线在剩137.75秒时停止新请求，保留补丁并通过原评分。260来源旧评分与15前序按字节保留；完整主矩阵2745响应、2974原生用量均有自身零费用证明。旧13真实未知及1笔原生费用已知零的本地元数据拒绝独立保存。最后10与旧来源的请求准入版本差异明确报告。[修复验证](作业二/evidence/hy4flash-v16-deadline-validation.json) · [逐题成绩](作业二/evidence/confirmation-hy4flash-free-v16-summary/trials.csv) · [六组轨迹分析](作业二/evidence/confirmation-hy4flash-free-v16-analysis.json)
+首响应修复将三个条件的新请求准入从60提高到150秒，600秒执行预算和实际费用校验保持。新增10位置为5通过5失败，109实际响应、119原生用量均零积分；scikit-learn基线在剩137.75秒时停止新请求，保留补丁并通过原评分。260来源旧评分与15前序按字节保留；完整主矩阵2745响应、2974原生用量均有自身零费用证明。旧13真实未知及1笔原生费用已知零的本地元数据拒绝独立保存。最后10与旧来源的请求准入版本差异明确报告。[修复验证](作业二/evidence/hy4flash-v16-deadline-validation.json) · [逐题成绩](作业二/evidence/confirmation-hy4flash-free-v16-summary/trials.csv) · [七组轨迹分析](作业二/evidence/confirmation-hy4flash-free-v16-analysis.json)
 
-已用登录Safari完整核读3.4/4.3的[真实评分表](作业二/evidence/course-grading-tables-20261118.md)：作业一权重25/15/30/20/10，作业二15/25/25/20/15。报告更新为6/13页，全部19页渲染检查通过；新增分轮成绩与原生用量、37条末段推理耗尽的精确口径、原生状态与恢复预算差异及接口缺陷回放，共七组案例。270原评分、全部失败和历史费用保持，混合来源区间不作严格同协议因果效应。[课程逐项核查](作业二/evidence/course-rubric-audit-20261118.md) · [离线逐条分析](作业二/evidence/course-execution-failure-analysis-20261118.json) · [作业一完整记录](作业一/evidence/task-records.json)。本次新增模型请求及原评分执行均0。
+已用登录Safari完整核读3.4/4.3的[真实评分表](作业二/evidence/course-grading-tables-20261118.md)：作业一权重25/15/30/20/10，作业二15/25/25/20/15。报告为6/15页，全部21页渲染检查通过；作业一补齐三套基准固定版本来源，作业二正文加入同协议同轮次23题对照、附录列出全部九组，并精确核对71个submit冲突的紧邻反馈。当前动作约束与自动反馈已修复，1757个归档动作及真实候选的本地命令检查通过；修复后仅有工程证据，历史270条仍对应原冻结实现，混合来源区间不作严格同协议因果效应。[接口修复与验证范围](作业二/evidence/control-interface-repair-20261118.md) · [课程逐项核查](作业二/evidence/course-rubric-audit-20261118.md) · [离线逐条分析](作业二/evidence/course-execution-failure-analysis-20261118.json) · [作业一完整记录](作业一/evidence/task-records.json)。本次新增模型请求、原评分执行和模型费用均0。
 
 | 目录 | 报告与材料 | 实验范围 |
 |---|---|---|

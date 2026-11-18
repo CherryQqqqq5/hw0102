@@ -1,6 +1,7 @@
 import argparse
 import json
 from pathlib import Path
+from statistics import median
 
 from jsonschema import Draft202012Validator
 from pydantic import ValidationError
@@ -46,13 +47,23 @@ for row in rows:
                     local_error = str(error)
                 else:
                     raise ValueError("The recorded submit action is not rejected by the current local contract")
+                followup = requests.get(response["request_id"] + 1)
+                if followup:
+                    assert followup["history"][:len(request["history"])] == request["history"]
+                added = followup["history"][len(request["history"]):] if followup else []
+                wrong_fields = [key for key in ("command", "check_id", "candidate_id") if action.get(key) is not None]
+                native_usage = [item["providerData"]["rawUsage"] for item in response["payload"]
+                                if "rawUsage" in item.get("providerData", {})]
                 contract_mismatches.append({"run_id": row["run_id"], "request_id": response["request_id"],
                     "sent_schema_accepts": Draft202012Validator(request["schema"]).is_valid(action),
                     "local_validator_error": local_error, "action": action,
+                    "next_request_exists": followup is not None,
+                    "last_native_output_tokens": native_usage[-1]["completion_tokens"],
+                    "next_request_added_messages": added,
                     "followup_local_rejection_feedback": any(
                         message.get("role") == "user" and "Invalid structured output" in str(message.get("content", ""))
-                        and "is not valid for submit" in str(message.get("content", ""))
-                        for message in requests.get(response["request_id"] + 1, {}).get("history", []))})
+                        and any(f"{key} is not valid for submit" in str(message.get("content", "")) for key in wrong_fields)
+                        for message in added)})
     usages = [event["providerData"]["rawUsage"] for response in responses for event in response["payload"]
               if "rawUsage" in event.get("providerData", {})]
     usage_by_response = [[event["providerData"]["rawUsage"] for event in response["payload"]
@@ -118,8 +129,43 @@ for reference, treatment in (("B0", "C1"), ("C0", "C1"), ("B0", "C0")):
         "task_repeat_pairs": len(matched), "reference_passed": sum(first["passed"] for first, second in matched),
         "treatment_passed": sum(second["passed"] for first, second in matched),
         "interpretation": "Post-hoc source-protocol match only; subset composition varies, not a new causal experiment"})
+result["submit_conflict_evidence"] = {
+    "responses": len(contract_mismatches), "runs": len({item["run_id"] for item in contract_mismatches}),
+    "immediate_next_request_added_rejection": sum(item["followup_local_rejection_feedback"] for item in contract_mismatches),
+    "no_next_request": sum(not item["next_request_exists"] for item in contract_mismatches),
+    "last_native_output_at_cap": sum(item["last_native_output_tokens"] == 4096 for item in contract_mismatches)}
+assert result["submit_conflict_evidence"] == {"responses": 71, "runs": 60,
+    "immediate_next_request_added_rejection": 68, "no_next_request": 3, "last_native_output_at_cap": 0}
+groups = {}
+for row in rows:
+    if row["arm"] != "B0":
+        continue
+    triple = [index[row["task"], arm, row["repeat"]] for arm in ("B0", "C0", "C1")]
+    if len({item["protocol_commit"] for item in triple}) != 1:
+        continue
+    groups.setdefault((row["protocol_commit"], row["repeat"]), []).append(triple)
+result["same_protocol_complete_triples"] = []
+for (protocol, repeat), triples in sorted(groups.items(), key=lambda item: (item[0][1], item[0][0])):
+    selection = {"protocol_commit": protocol, "repeat": repeat, "tasks": len(triples),
+                 "benchmarks": {name: sum(triple[0]["benchmark"] == name for triple in triples)
+                                for name in ("aider", "swe", "terminal")}, "arms": {},
+                 "task_ids": sorted(triple[0]["task"] for triple in triples)}
+    for number, arm in enumerate(("B0", "C0", "C1")):
+        selected = [triple[number] for triple in triples]
+        selection["arms"][arm] = {"trials": len(selected), "passed": sum(item["passed"] for item in selected),
+            "model_calls": sum(item["model_calls"] for item in selected),
+            "output_tokens": sum(item["output_tokens"] for item in selected),
+            "median_execution_seconds": median(item["execution_seconds"] for item in selected),
+            "format_exits": sum(item["exit_status"] == "RepeatedFormatError" for item in selected),
+            "run_ids": [item["run_id"] for item in selected]}
+    result["same_protocol_complete_triples"].append(selection)
+assert len(result["same_protocol_complete_triples"]) == 9
+largest = next(item for item in result["same_protocol_complete_triples"]
+               if item["protocol_commit"].startswith("081a796c") and item["repeat"] == 3)
+assert largest["tasks"] == 23 and [largest["arms"][arm]["passed"] for arm in ("B0", "C0", "C1")] == [18, 19, 17]
+result["grouping_rule"] = "Post-hoc: retain every task-repeat with all three arms and identical protocol_commit, group by protocol and repeat; no score filter"
 output = args.output
 output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
 print(json.dumps({key: value for key, value in result.items() if key not in
-    ("format_failure_details", "real_submit_schema_mismatches", "real_empty_feedback_requests", "polyglot_cross_version_cases")}
+    ("format_failure_details", "real_submit_schema_mismatches", "real_empty_feedback_requests", "polyglot_cross_version_cases", "same_protocol_complete_triples")}
     | {"submit_schema_mismatch_responses": len(contract_mismatches), "empty_feedback_requests": len(empty_feedback)}, ensure_ascii=False))

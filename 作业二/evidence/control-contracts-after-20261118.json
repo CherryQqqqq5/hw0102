@@ -1,0 +1,9 @@
+{
+  "real_actions": 1757,
+  "valid_actions": 1607,
+  "invalid_actions": 150,
+  "schema_local_conflicts": [],
+  "boundary_cases": 150,
+  "new_model_requests": 0,
+  "validation_scope": "Archived real actions; no model or benchmark execution"
+}

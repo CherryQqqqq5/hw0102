@@ -7,9 +7,12 @@ from zipfile import ZIP_DEFLATED, ZipFile
 
 root = Path("work/hw0102-publish")
 parser = argparse.ArgumentParser()
-parser.add_argument("--live-grading", action="store_true")
+mode = parser.add_mutually_exclusive_group()
+mode.add_argument("--live-grading", action="store_true")
+mode.add_argument("--control-repair", action="store_true")
 args = parser.parse_args()
-output = Path("outputs/作业一二_真实评分标准与失效分析_20261118.zip" if args.live_grading
+output = Path("outputs/作业一二_接口修复与同协议分析_20261118.zip" if args.control_repair else
+              "outputs/作业一二_真实评分标准与失效分析_20261118.zip" if args.live_grading
               else "outputs/作业一二_课程要求核查与报告补充_20261118.zip")
 names = ["README.md", "作业一/231880296_邱昱宁_作业一.pdf", "作业二/231880296_邱昱宁_作业二.pdf",
          "作业一/README.md", "作业一/evidence/task-records.json", "作业一/evidence/task-records.csv",
@@ -20,7 +23,7 @@ names = ["README.md", "作业一/231880296_邱昱宁_作业一.pdf", "作业二/
          "shared/scripts/build_course_task_records.py", "shared/scripts/render_hw0102_final.py",
          "shared/scripts/render_confirmation_report.py", "shared/scripts/render_delivery_pdf_qa.py",
          "shared/CONFIRMATION.md"]
-if args.live_grading:
+if args.live_grading or args.control_repair:
     names = [name for name in names if name not in (
         "作业二/evidence/course-rubric-pdf-structure-20261118.json", "作业二/evidence/course-rubric-validation-20261118.json")]
     names.extend(["作业二/evidence/course-grading-tables-20261118.md",
@@ -28,6 +31,18 @@ if args.live_grading:
                   "作业二/evidence/course-live-grading-validation-20261118.json",
                   "作业二/evidence/course-execution-failure-analysis-20261118.json",
                   "shared/scripts/analyze_course_execution_failures.py"])
+if args.control_repair:
+    names = [name for name in names if name not in (
+        "作业二/evidence/course-live-grading-pdf-structure-20261118.json",
+        "作业二/evidence/course-live-grading-validation-20261118.json")]
+    names.extend(["作业二/evidence/course-control-repair-pdf-structure-20261118.json",
+                  "作业二/evidence/course-control-repair-validation-20261118.json",
+                  "shared/course_eval/controller.py", "shared/course_eval/check_control_contracts.py",
+                  "shared/course_eval/check_control_feedback.py", "shared/requirements-analysis.txt",
+                  "作业二/evidence/control-interface-repair-20261118.md",
+                  "作业二/evidence/control-contracts-after-20261118.json",
+                  "作业二/evidence/control-feedback-after-20261118.json",
+                  "作业二/evidence/control-clean-environment-validation-20261118.json"])
 commit = subprocess.check_output(["git", "-C", str(root), "rev-parse", "HEAD"], text=True).strip()
 staged = output.with_suffix(".zip.part")
 with ZipFile(staged, "w", compression=ZIP_DEFLATED) as archive:
