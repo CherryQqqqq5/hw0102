@@ -1,0 +1,9 @@
+{
+  "task": "django__django-11999",
+  "wall_seconds": 305.21330916596344,
+  "exit_status": "RepeatedFormatError",
+  "submission": "",
+  "scoreable": true,
+  "passed": false,
+  "grader_seconds": 39.45722412498435
+}

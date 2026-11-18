@@ -1,0 +1,10 @@
+{
+  "task": "cpp/all-your-base",
+  "wall_seconds": 123.85864054202102,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 8.8981335000135
+}

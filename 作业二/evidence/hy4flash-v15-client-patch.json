@@ -35,14 +35,16 @@
     "forced_empty_stream_fault_live_validated": false
   },
   "live_validation_of_patched_client": "v14: one matched original house request returned complete terminal JSON and one actual free zero-credit native receipt; invalid save/check_id action rejected and preserved. Recovered original house score and later formal truncation handling verified separately",
-  "last_live_validated_client_sha256": "fbd46d708a36187a5c3a636a4d6e4c433304bfda440d6812ce569fb9425bf416",
+  "last_live_validated_client_sha256": "52115e9cf04a8cd91d5d48511b96032d06a4fbf2460d1a14e302c8251907f03c",
   "local_result_identity_patch": {
     "parent_sha256": "fbd46d708a36187a5c3a636a4d6e4c433304bfda440d6812ce569fb9425bf416",
     "scope": "Only local function_call_result model metadata inherits the exact parent function_call identity; callId, messageId and conversationRequestId must match",
     "actual_model_events_and_usage_unchanged": true,
     "original_response_rejection_and_unscored_attempt_preserved": true,
     "local_validation": "6 actual SDK assignment checks, 14 billing/replay checks, 24 unchanged adapter regressions and syntax/version checks passed",
-    "live_fixed_client_verified": false,
+    "live_fixed_client_verified": true,
+    "live_validation_evidence": "work/codebuddy-local-result-v14/live-validation-v15.json",
+    "live_validation_scope": "Matched original Django11999/B0/r3: 11 zero-credit CLI responses, 13 own native usage receipts, 9 local tool results matching their actual parent. Original score failed and remains retained",
     "validation_evidence": "work/codebuddy-local-result-v14/validation.json",
     "diagnostic_evidence": "work/codebuddy-local-result-v14/diagnostic.json",
     "new_unknown_native_fees": 0,

@@ -1,0 +1,9 @@
+{
+  "task": "scikit-learn__scikit-learn-25232",
+  "wall_seconds": 388.45520404097624,
+  "exit_status": "RepeatedFormatError",
+  "submission": "",
+  "scoreable": true,
+  "passed": false,
+  "grader_seconds": 96.6292022090056
+}

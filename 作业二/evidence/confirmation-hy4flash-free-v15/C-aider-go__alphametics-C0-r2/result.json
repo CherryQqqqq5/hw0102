@@ -1,0 +1,10 @@
+{
+  "task": "go/alphametics",
+  "wall_seconds": 114.39140304201283,
+  "exit_status": "RepeatedFormatError",
+  "submission": "",
+  "scoreable": true,
+  "passed": false,
+  "grader_exit_code": 1,
+  "grader_seconds": 13.878911792009603
+}

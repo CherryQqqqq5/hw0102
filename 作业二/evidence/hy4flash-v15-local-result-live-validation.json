@@ -1,0 +1,38 @@
+{
+  "status": "live_client_receipts_and_local_result_identity_verified_original_score_failed",
+  "source_run_id": "C-swe-django__django-11999-B0-r3",
+  "batch": "confirmation-hy4flash-free-v15",
+  "protocol_commit": "081a796c7bceca10e390fa983c18173289c4fe7a",
+  "client_sha256": "52115e9cf04a8cd91d5d48511b96032d06a4fbf2460d1a14e302c8251907f03c",
+  "billing": {
+    "requests": 11,
+    "responses": 11,
+    "runtime_accepted_responses": 11,
+    "offline_verified_zero_credit_responses": 11,
+    "actual_model_usage_records": 13,
+    "local_cli_errors_with_own_usage_proof": 4,
+    "recovered_actions": 2,
+    "largest_model_output_tokens": 4096,
+    "reported_credit_for_returned_responses": 0,
+    "missing_responses": 0,
+    "missing_response_credit": 0,
+    "scope": "Actual per-message provider identity and credit; CLI total_cost_usd is not billing evidence"
+  },
+  "local_tool_results_with_matching_actual_parent": 9,
+  "original_scoreable": true,
+  "original_passed": false,
+  "exit_status": "RepeatedFormatError",
+  "failed_original_tests": {
+    "FAIL_TO_PASS": [
+      "test_overriding_FIELD_display (model_fields.tests.GetFieldDisplayTests)"
+    ],
+    "PASS_TO_PASS": [],
+    "FAIL_TO_FAIL": [],
+    "PASS_TO_FAIL": []
+  },
+  "wall_seconds": 305.21330916596344,
+  "grader_seconds": 39.45722412498435,
+  "independent_preparation_model_calls": 0,
+  "model_calls_in_this_summarizer": 0,
+  "validation_boundary": "Real matched original benchmark attempt with patched client; negative original score retained. Forced empty-stream failure path was not exercised."
+}

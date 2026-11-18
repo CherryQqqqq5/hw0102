@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Completed plus_comm.v, compiled to plus_comm.vo with coqc, and passed the public verification check.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 6
+    }
+  }
+}

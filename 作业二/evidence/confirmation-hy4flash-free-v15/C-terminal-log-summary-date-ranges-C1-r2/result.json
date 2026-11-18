@@ -1,0 +1,8 @@
+{
+  "task": "log-summary-date-ranges",
+  "wall_seconds": 89.74176587502006,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "log-summary-date-ranges__XJ9D9u9/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

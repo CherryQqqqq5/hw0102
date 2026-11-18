@@ -1,0 +1,63 @@
+{
+  "interface_checks_passed": true,
+  "actual_model_requests": 2,
+  "credit": 0,
+  "records": [
+    {
+      "interface": "bash",
+      "action": {
+        "command": "printf ready",
+        "tool_call_id": "codebuddy-1"
+      },
+      "billing": {
+        "event": "billing_verified",
+        "time": 1794820860.539752,
+        "request_id": 1,
+        "request_model": "hy4flash-free",
+        "provider_model": "hy4-flash-free",
+        "credit": 0,
+        "usage_records": 1
+      }
+    },
+    {
+      "interface": "control",
+      "action": {
+        "operation": "submit",
+        "command": null,
+        "check_id": null,
+        "candidate_id": null,
+        "note": "free-route-smoke",
+        "tool_call_id": "codebuddy-1"
+      },
+      "billing": {
+        "event": "billing_verified",
+        "time": 1794820867.63935,
+        "request_id": 1,
+        "request_model": "hy4flash-free",
+        "provider_model": "hy4-flash-free",
+        "credit": 0,
+        "usage_records": 1
+      }
+    }
+  ],
+  "usage": {
+    "model_calls": 2,
+    "model_responses": 2,
+    "model_request_retries": 0,
+    "model_request_timeouts": 0,
+    "provider_turns": 8,
+    "tool_calls": 0,
+    "input_tokens": 6995,
+    "output_tokens": 390,
+    "cached_input_tokens": 0,
+    "submission_check_opportunities": 0,
+    "stale_at_submission": 0,
+    "deliverable_checkpoints": 0,
+    "deliverable_reminders": 0,
+    "usage_unreturned_requests": 0,
+    "usage_missing_input_responses": 0,
+    "usage_missing_output_responses": 0,
+    "usage_missing_cache_responses": 0,
+    "provider_reported_cost_usd": 0
+  }
+}

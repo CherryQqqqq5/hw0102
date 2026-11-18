@@ -1,0 +1,10 @@
+{
+  "task": "cpp/all-your-base",
+  "wall_seconds": 84.41236195800593,
+  "exit_status": "Submitted",
+  "submission": "Implemented all_your_base::convert with validation and arbitrary-length repeated-division conversion; original C++ test suite passed all 17 assertions.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 13.000195000029635
+}

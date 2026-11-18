@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submit the verified saved candidate. Added refit_time_ to BaseSearchCV.fit, measuring the elapsed time around the best estimator refit with time.time(), and documented the attribute on GridSearchCV and RandomizedSearchCV. Public check passed; focused edge cases and relevant tests passed.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 14
+    }
+  }
+}

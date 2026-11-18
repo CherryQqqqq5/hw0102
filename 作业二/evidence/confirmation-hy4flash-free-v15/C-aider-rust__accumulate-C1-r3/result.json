@@ -1,0 +1,10 @@
+{
+  "task": "rust/accumulate",
+  "wall_seconds": 74.85963445802918,
+  "exit_status": "Submitted",
+  "submission": "Public suite passed; submitting the verified implementation.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 1.284357166965492
+}

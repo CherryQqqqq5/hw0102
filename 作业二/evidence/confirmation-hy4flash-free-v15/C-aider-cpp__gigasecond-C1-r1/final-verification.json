@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "530a2339b3168aed5d074d089675d93e0be1adf211107b6164b8c1d36c106192",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-suite": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "dd4cadba711769716a9ebf6b643bcd410678cd6ce2c067de1edce65ce52875a2  gigasecond.cpp\nc4fa5fbf1c566fc9a1482238705a53775c177f8014913864227a1a51754be898  gigasecond.h\n84c71cf09c62390ae799d6ea456ce1770f9b30051dcf3ebf26f0b26c58888f26  gigasecond_test.cpp\n"
+    }
+  },
+  "elapsed_seconds": 100.83368745798361
+}

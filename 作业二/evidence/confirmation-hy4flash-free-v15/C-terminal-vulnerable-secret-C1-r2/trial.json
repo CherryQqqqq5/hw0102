@@ -1,0 +1,43 @@
+{
+  "task": {
+    "benchmark": "terminal",
+    "id": "vulnerable-secret",
+    "stratum": "security",
+    "group": "vulnerable-secret",
+    "difficulty": "medium",
+    "image": "alexgshaw/vulnerable-secret:20251031",
+    "cpus": 1,
+    "memory_mb": 2048,
+    "agent_timeout_seconds": 900.0,
+    "exclude": null,
+    "split": "C",
+    "candidate_scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/results.txt"
+      ],
+      "protected": [
+        "/app/vulnerable"
+      ],
+      "python": "/usr/local/bin/python3"
+    },
+    "image_id": "sha256:61ebb40454dd103aa2f7e71ad6dafd91cf2b301e6bb07e69d5b472412d1ee15b",
+    "image_digests": [
+      "alexgshaw/vulnerable-secret@sha256:61ebb40454dd103aa2f7e71ad6dafd91cf2b301e6bb07e69d5b472412d1ee15b"
+    ]
+  },
+  "phase": "formal",
+  "configuration": "C1",
+  "status": "started",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "protocol_commit": "abad82197a3b7833478261a0360f2eae873efdaa",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 0,
+    "strict_wall": true
+  }
+}

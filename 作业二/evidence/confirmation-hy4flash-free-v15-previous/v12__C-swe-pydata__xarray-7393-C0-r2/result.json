@@ -1,0 +1,8 @@
+{
+  "task": "pydata__xarray-7393",
+  "wall_seconds": 354.117505000002,
+  "scoreable": false,
+  "passed": null,
+  "error_type": "RuntimeError",
+  "error": "CodeBuddy returned a non-JSON response"
+}

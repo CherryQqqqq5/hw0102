@@ -1,0 +1,25 @@
+diff --git a/.course-public-check/test_public_issue.py b/.course-public-check/test_public_issue.py
+new file mode 100644
+index 000000000..55a04f479
+--- /dev/null
++++ b/.course-public-check/test_public_issue.py
+@@ -0,0 +1,4 @@
++import pytest
++def test_public_xfail(request):
++    request.node.add_marker(pytest.mark.xfail(reason='public issue'))
++    assert 0
+diff --git a/src/_pytest/skipping.py b/src/_pytest/skipping.py
+index 335e10996..8cbca833e 100755
+--- a/src/_pytest/skipping.py
++++ b/src/_pytest/skipping.py
+@@ -255,6 +255,10 @@ def pytest_runtest_call(item: Item) -> Generator[None, None, None]:
+             xfail("[NOTRUN] " + xfailed.reason)
+ 
+     yield
++    if not item.config.option.runxfail and xfailed is None:
++        # The test may have added an xfail marker dynamically through
++        # request.node.add_marker(), so refresh the evaluation after the call.
++        item._store[xfailed_key] = evaluate_xfail_marks(item)
+ 
+ 
+ @hookimpl(hookwrapper=True)

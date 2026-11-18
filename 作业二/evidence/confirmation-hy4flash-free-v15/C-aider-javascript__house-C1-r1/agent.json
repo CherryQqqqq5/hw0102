@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "House.verse and House.verses implemented; original visible suite passed 14/14 via public-suite verification.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 5
+    }
+  }
+}

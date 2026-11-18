@@ -1,0 +1,9 @@
+{
+  "task": "scikit-learn__scikit-learn-13124",
+  "wall_seconds": 198.76676074997522,
+  "exit_status": "Submitted",
+  "submission": "Submitting the verified StratifiedKFold fix; public-issue check passed with different stratified partitions across seeds.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 24.439968749997206
+}

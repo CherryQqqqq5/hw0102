@@ -1,0 +1,10 @@
+{
+  "task": "java/change",
+  "wall_seconds": 133.4836182090221,
+  "exit_status": "RepeatedFormatError",
+  "submission": "",
+  "scoreable": true,
+  "passed": false,
+  "grader_exit_code": 1,
+  "grader_seconds": 13.487562499998603
+}

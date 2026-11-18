@@ -2,9 +2,9 @@
 
 邱昱宁 · 231880296
 
-2026年11月18日，本轮新增43条独立原评分，当前138/270条有效评分，115通过、23失败；B0/C0/C1分别40/46、39/46、36/46，仍缺132条。Django 12193三组原题均失败，C0/C1公开检查通过，显示检查覆盖缺口；这些负面结果完整保留。[本轮结果与停止说明](作业二/evidence/hy4flash-v13-stop-20261118.md) · [逐位置评分与费用](作业二/evidence/hy4flash-v13-stopped-summary.json) · [当前协议](作业二/configs/confirmation-protocol-v13.md)
+2026年11月18日，hy4flash-free 固定270位置取得260条独立原评分，202通过、58失败；B0/C0/C1为67/86、69/87、66/87。最后xarray-4687/B0/r3的第24次调用发出后未取得首个响应及费用回执，已立即停止，尚缺10条评分。旧12笔加本次1笔真实未知费用共13笔保留；另有1笔本地元数据拒绝但原生费用已知零的历史尝试，单独保存。[260条结果与停止分析](作业二/evidence/hy4flash-v15-stop-20261118.md) · [评分与费用汇总](作业二/evidence/hy4flash-v15-stopped-summary.json) · [逐条分析](作业二/evidence/hy4flash-v15-scored-trials.json) · [当前协议](作业二/configs/confirmation-protocol-hy4flash-free-v15.md)
 
-普通文件接收经真实169448字节响应及恢复原题评分验证。随后house/C1第二轮第7次调用首个原生请求以空流错误结束且无自身费用，客户端内部重试的第二个回复积分0；后次回执不能结清首次，队列立即停止。旧11加新1共12笔未知保留，正式来源1497请求/1488响应、1707条已知实际零积分用量复核。停止后关闭课程客户端空流/流超时内部恢复的本地验证通过，修复后未调用模型；原费用校验不变。冻结v13运行源码与停止后修复分开保存，两份课程报告仍为历史完整实验版本。[真实接收验证](作业二/evidence/hy4flash-v13-stdout-preparation.json) · [故障诊断](作业二/evidence/hy4flash-v13-empty-stream-diagnostic.json) · [局部修复验证](作业二/evidence/hy4flash-v13-recovery-validation.json) · [备用免费接口配置](作业二/evidence/free-channel-setup-20261118.md)
+修复后的客户端已真实完成同题响应验收：11个响应、13条实际零积分原生用量、9个与父调用精确关联的本地工具结果，最大输出4096；该原题评分失败如实保留。v15复用188条原评分、新增72条，2,677个来源文件及15份冻结执行源码核对通过。Django12193的C0/C1三轮均公开检查通过、原题失败；scikit-learn25232和distribution-search有单轮正向结果，完整三轮主比较仍未完成。原费用校验保持，补充报告与新证据包保留所有真实失败和历史记录。[客户端真实验证](作业二/evidence/hy4flash-v15-local-result-live-validation.json) · [本次无首响应诊断](作业二/evidence/hy4flash-v15-first-response-diagnostic.json) · [备用通道状态](作业二/evidence/free-channel-setup-20261118.md)
 
 此前CodeBuddy及Boyue的有效评分、未评分、原始失败和用量独立保留，免费服务的成绩不与它们混算。下列两份报告及384条评分属于已完成的历史实验，完整新矩阵结束后更新。历史CodeBuddy确认及JavaScript运行时修复见[原协议](作业二/configs/confirmation-protocol-v3.md)与[原修复说明](作业二/configs/confirmation-runtime-repair-v3.md)。
 

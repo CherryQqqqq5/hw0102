@@ -1,0 +1,27 @@
+{
+  "candidate_id": "candidate-001",
+  "artifact_digest": "032eeb9b2ab992165b4e0bd15630ea9008a9a42fa7f8b6cbca3f68d684983377",
+  "protected_digest": "1bba8d5e5cbbeadae8e08a6a03ec89d31b7acae5a042afc4f083b7f80e4930e0",
+  "eligible": false,
+  "evidence": {
+    "public-task": {
+      "state": "pending",
+      "returncode": null,
+      "snapshot": null
+    }
+  },
+  "saved_elapsed": 55.42602358298609,
+  "files": {
+    "/app/analyze_climate_modern.py": {
+      "data": "IyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwoiIiJNb2Rlcm5pemVkIGNsaW1hdGUgc3RhdGlvbiBhbmFseXNpcyBmb3IgUHl0aG9uIDMuIiIiCgpmcm9tIHBhdGhsaWIgaW1wb3J0IFBhdGgKCmltcG9ydCBjb25maWdwYXJzZXIKaW1wb3J0IHBhbmRhcyBhcyBwZAoKCkJBU0VfRElSID0gUGF0aChfX2ZpbGVfXykucmVzb2x2ZSgpLnBhcmVudApEQVRBX1BBVEggPSBCQVNFX0RJUiAvICJjbGltYXRlX2FuYWx5emVyIiAvICJzYW1wbGVfZGF0YSIgLyAiY2xpbWF0ZV9kYXRhLmNzdiIKQ09ORklHX1BBVEggPSBCQVNFX0RJUiAvICJjbGltYXRlX2FuYWx5emVyIiAvICJjb25maWcuaW5pIgpTVEFUSU9OX0lEUyA9ICgxMDEsIDEwMikKCgpkZWYgbG9hZF9jb25maWcocGF0aDogUGF0aCA9IENPTkZJR19QQVRIKSAtPiBjb25maWdwYXJzZXIuQ29uZmlnUGFyc2VyOgogICAgIiIiTG9hZCB0aGUgbGVnYWN5IGNvbmZpZ3VyYXRpb24gdXNpbmcgUHl0aG9uIDMncyBjb25maWdwYXJzZXIuIiIiCiAgICBjb25maWcgPSBjb25maWdwYXJzZXIuQ29uZmlnUGFyc2VyKCkKICAgIGNvbmZpZy5yZWFkKHBhdGgsIGVuY29kaW5nPSJ1dGYtOCIpCiAgICByZXR1cm4gY29uZmlnCgoKZGVmIGxvYWRfY2xpbWF0ZV9kYXRhKHBhdGg6IFBhdGggPSBEQVRBX1BBVEgpIC0+IHBkLkRhdGFGcmFtZToKICAgICIiIlJlYWQgY2xpbWF0ZSBvYnNlcnZhdGlvbnMgZnJvbSBhIFVURi04IGVuY29kZWQgQ1NWIGZpbGUuIiIiCiAgICByZXR1cm4gcGQucmVhZF9jc3YocGF0aCwgZW5jb2Rpbmc9InV0Zi04IiwgcGFyc2VfZGF0ZXM9WyJkYXRlIl0pCgoKZGVmIHByaW50X3N0YXRpb25fbWVhbnMoZGF0YTogcGQuRGF0YUZyYW1lKSAtPiBOb25lOgogICAgIiIiUHJpbnQgdGhlIG1lYW4gdGVtcGVyYXR1cmUgZm9yIGVhY2ggcmVxdWlyZWQgc3RhdGlvbi4iIiIKICAgIGZvciBzdGF0aW9uX2lkIGluIFNUQVRJT05fSURTOgogICAgICAgIHN0YXRpb25fZGF0YSA9IGRhdGEubG9jW2RhdGFbInN0YXRpb25faWQiXSA9PSBzdGF0aW9uX2lkXQogICAgICAgIG1lYW5fdGVtcGVyYXR1cmUgPSBzdGF0aW9uX2RhdGFbInRlbXBlcmF0dXJlIl0ubWVhbigpCiAgICAgICAgcHJpbnQoZiJTdGF0aW9uIHtzdGF0aW9uX2lkfSBtZWFuIHRlbXBlcmF0dXJlOiB7bWVhbl90ZW1wZXJhdHVyZTouMWZ9wrBDIikKCgpkZWYgbWFpbigpIC0+IE5vbmU6CiAgICAjIFJlYWQgdGhlIGNvbmZpZ3VyYXRpb24gZm9yIGNvbXBhdGliaWxpdHkgd2l0aCB0aGUgbGVnYWN5IHdvcmtmbG93LgogICAgbG9hZF9jb25maWcoKQogICAgZGF0YSA9IGxvYWRfY2xpbWF0ZV9kYXRhKCkKICAgIHByaW50X3N0YXRpb25fbWVhbnMoZGF0YSkKCgppZiBfX25hbWVfXyA9PSAiX19tYWluX18iOgogICAgbWFpbigpCg==",
+      "mode": 511
+    },
+    "/app/requirements.txt": {
+      "data": "bnVtcHk+PTEuMjQuMApwYW5kYXM+PTIuMC4wCm1hdHBsb3RsaWI+PTMuNy4wCg==",
+      "mode": 438
+    },
+    "/app/pyproject.toml": {
+      "missing": true
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task": "distribution-search",
+  "wall_seconds": 317.6966376659984,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "distribution-search__qXzA3e4/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

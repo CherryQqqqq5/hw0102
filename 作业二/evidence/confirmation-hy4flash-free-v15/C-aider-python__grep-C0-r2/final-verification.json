@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "ad50e0b4c5ffbd9c7f52370edfba5820a6625d8bde922fb22341b49c2f86939f",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-suite": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "854f46420bb562d249ed56f49b3704f307fa92bf7b4583182e2a6a574d41d654  grep.py\n30721903a1dea840b7ab33374bb08cb0db84f63f4c80fc0a5515cff3071c0506  grep_test.py\n"
+    }
+  },
+  "elapsed_seconds": 105.63702487503178
+}

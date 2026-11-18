@@ -8,8 +8,207 @@ from zipfile import ZipFile
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--recovery", type=int, choices=(1, 2, 3, 4, 5, 6), default=1)
+parser.add_argument("--recovery", type=int, choices=(1, 2, 3, 4, 5, 6, 7, 8, 9), default=1)
 args = parser.parse_args()
+if args.recovery == 9:
+    archive_path = Path("outputs/作业一二_hy4flash_v15_260条评分与停止证据_20261118.zip")
+    published = Path("work/hw0102-publish")
+    destination = Path("work/verified-hy4flash-v15-package")
+    destination.mkdir(exist_ok=False)
+    summary_name = "作业二/evidence/hy4flash-v15-stopped-summary.json"
+    historical_name = "作业一二_hy4flash_v13评分与空流修复停止证据_20261118.zip"
+    with ZipFile(archive_path) as archive:
+        assert archive.testzip() is None
+        names = archive.namelist()
+        assert len(names) == len(set(names))
+        assert all(not name.startswith(("/", "../", ".git/", "work/"))
+                   and ".." not in Path(name).parts and "/.env" not in name for name in names)
+        for relative in ("README.md", summary_name, "作业二/evidence/hy4flash-v15-stop-20261118.md"):
+            assert archive.read(relative) == (published / relative).read_bytes()
+        for assignment in ("一", "二"):
+            relative = f"作业{assignment}/231880296_邱昱宁_作业{assignment}.pdf"
+            assert archive.read(relative) == (Path("outputs") / Path(relative).name).read_bytes()
+        assert archive.read("history/" + historical_name) == (Path("outputs") / historical_name).read_bytes()
+        for group, expected in (("confirmation-hy4flash-free-v15", 261),
+                                ("confirmation-hy4flash-free-v15-previous", 14)):
+            prefix = "作业二/evidence/" + group + "/"
+            assert sum(name.startswith(prefix) and name.endswith("/trial.json")
+                       and len(Path(name).parts) == 5 for name in names) == expected
+        archive.extractall(destination)
+    summary = json.loads((destination / summary_name).read_text())
+    shared = (destination / "shared").resolve()
+    interpreter = str(Path("work/.venv/bin/python").absolute())
+    child_env = os.environ | {"PYTHONPATH": str(shared) + os.pathsep + str(shared / "scripts")}
+    command = [interpreter, "scripts/verify_free_stopped_run.py",
+        "--runs", "../作业二/evidence/confirmation-hy4flash-free-v15",
+        "--previous-runs", "../作业二/evidence/confirmation-hy4flash-free-v15-previous",
+        "--summary", "../" + summary_name,
+        "--plan", "../作业二/configs/confirmation-plan-hy4flash-free-v15.json",
+        "--runtime", "../frozen-runtime/v15/course_eval",
+        "--trials", "../作业二/evidence/hy4flash-v15-scored-trials.json"]
+    process = subprocess.run(command, cwd=shared, env=child_env, capture_output=True, text=True, check=True)
+    verification = json.loads(process.stdout)
+    assert verification["scored"] == 260 and verification["passed"] == 202
+    assert verification["new_missing_receipts"] == 1 and verification["historical_missing_receipts"] == 9
+    assert verification["historical_returned_unknown_responses"] == 1
+    assert verification["historical_known_zero_local_metadata_rejections"] == 1
+    preparation_code = (
+        "import json; from pathlib import Path; from audit_confirmation_sources import audit_free_recovery_preparation; "
+        "base=Path('../作业二/evidence/preparation-free'); "
+        "print(json.dumps(audit_free_recovery_preparation(base/'codebuddy-quota-probe',base/'hy4flash-interface-v1')))"
+    )
+    preparation_process = subprocess.run([interpreter, "-c", preparation_code], cwd=shared, env=child_env,
+                                        capture_output=True, text=True, check=True)
+    preparation = json.loads(preparation_process.stdout)
+    expected_preparation = summary["all_free_preparation"]
+    for key in ("usage", "actual_model_usage_records", "missing_responses", "reported_credit_for_returned_responses", "initial_preparation"):
+        assert preparation[key] == expected_preparation[key]
+    for actual, expected in zip(preparation["recovery_preparation"], expected_preparation["recovery_preparation"], strict=True):
+        assert {key: value for key, value in actual.items() if key != "source"} == {key: value for key, value in expected.items() if key != "source"}
+    fee = (destination / "shared/course_eval/codebuddy_free.py").read_bytes()
+    assert hashlib.sha256(fee).hexdigest() == "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28"
+    assert summary["total_unknown_cli_requests"] == 13 and preparation["missing_responses"] == 2
+    assert summary["new_model_requests_after_stop"] == 0 and summary["complete_report_generated"] is False
+    diagnostic = summary["failure"]
+    assert diagnostic["request_id"] == 24 and diagnostic["actual_provider_credit"] is None
+    assert diagnostic["provider_diagnostics"]["model_requests_sent"] == 1
+    assert diagnostic["provider_diagnostics"]["first_raw_chunks"] == 0
+    result = {"archive": str(archive_path), "bytes": archive_path.stat().st_size, "members": len(names),
+        "integrity": "passed", "historical_reports_match": True, "v13_archive_preserved_byte_for_byte": True,
+        "frozen_v15_recomputation": verification, "original_scores_verified": 260,
+        "genuine_failures_preserved": 58, "main_unscored_attempts_preserved": 1,
+        "historical_unscored_attempts_preserved": 14, "remaining_scores": 10,
+        "formal_missing_receipts_preserved": 10, "formal_returned_unknown_preserved": 1,
+        "historical_preparation_unknown_receipts_preserved": 2, "total_unknown_cli_requests": 13,
+        "known_zero_local_metadata_rejection_preserved": 1, "preparation_requests_verified": 14,
+        "preparation_returned_responses_verified": 12, "billing_validator_unchanged": True,
+        "scored_trial_analysis_recomputed": True, "new_model_requests": 0,
+        "scope": "Preserved 260-position partial comparison; frozen 270-position primary comparison incomplete"}
+    Path("work/hy4flash-v15-package-verification.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
+    print(json.dumps(result, ensure_ascii=False))
+    raise SystemExit(0)
+if args.recovery == 8:
+    from audit_confirmation_sources import audit_free_billing
+
+    archive_path = Path("outputs/作业一二_hy4flash_v13评分与空流修复停止证据_20261118.zip")
+    published = Path("work/hw0102-publish")
+    destination = Path("work/verified-hy4flash-v13-package")
+    destination.mkdir(exist_ok=False)
+    summary_name = "作业二/evidence/hy4flash-v13-stopped-summary.json"
+    historical_name = "作业一二_hy4flash_v12评分与输出修复停止证据_20261117.zip"
+    with ZipFile(archive_path) as archive:
+        assert archive.testzip() is None
+        names = archive.namelist()
+        assert len(names) == len(set(names))
+        assert all(not name.startswith(("/", "../", ".git/", "work/"))
+                   and ".." not in Path(name).parts and "/.env" not in name for name in names)
+        for relative in ("README.md", summary_name, "作业二/evidence/hy4flash-v13-stop-20261118.md"):
+            assert archive.read(relative) == (published / relative).read_bytes()
+        for assignment in ("一", "二"):
+            relative = f"作业{assignment}/231880296_邱昱宁_作业{assignment}.pdf"
+            assert archive.read(relative) == (Path("outputs") / Path(relative).name).read_bytes()
+        assert archive.read("history/" + historical_name) == (Path("outputs") / historical_name).read_bytes()
+        for group, expected in (("confirmation-hy4flash-free-v13", 139),
+                                ("confirmation-hy4flash-free-v13-previous", 12)):
+            prefix = "作业二/evidence/" + group + "/"
+            assert sum(name.startswith(prefix) and name.endswith("/trial.json")
+                       and len(Path(name).parts) == 5 for name in names) == expected
+        archive.extractall(destination)
+    summary = json.loads((destination / summary_name).read_text())
+    shared = (destination / "shared").resolve()
+    command = [str(Path("work/.venv/bin/python").absolute()), "scripts/verify_free_stopped_run.py",
+        "--runs", "../作业二/evidence/confirmation-hy4flash-free-v13",
+        "--previous-runs", "../作业二/evidence/confirmation-hy4flash-free-v13-previous",
+        "--summary", "../" + summary_name,
+        "--plan", "../作业二/configs/confirmation-plan-hy4flash-free-v13.json",
+        "--runtime", "../frozen-runtime/v13/course_eval"]
+    process = subprocess.run(command, cwd=shared,
+        env=os.environ | {"PYTHONPATH": str(shared) + os.pathsep + str(shared / "scripts")},
+        capture_output=True, text=True, check=True)
+    verification = json.loads(process.stdout)
+    assert verification["scored"] == 138 and verification["passed"] == 115
+    assert verification["new_missing_receipts"] == 0 and verification["historical_missing_receipts"] == 9
+    assert verification["returned_unverified_responses"] == 1
+    probe = audit_free_billing(destination / "作业二/evidence/codebuddy-stdout-probe-v13")
+    assert probe == summary["preparation_billing"] and probe["responses"] == 1
+    assert summary["total_unknown_cli_requests"] == 12 and summary["failure"]["actual_model_credit"] is None
+    assert summary["failure"]["later_known_model_credit"] == 0
+    assert summary["new_model_requests_after_stop"] == 0 and summary["complete_report_generated"] is False
+    fee = (destination / "shared/course_eval/codebuddy_free.py").read_bytes()
+    assert hashlib.sha256(fee).hexdigest() == "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28"
+    patch = json.loads((destination / "作业二/evidence/hy4flash-v13-client-patch.json").read_text())
+    assert patch["live_provider_validation_after_patch"] is False and patch["new_model_calls_after_stop"] == 0
+    result = {"archive": str(archive_path), "bytes": archive_path.stat().st_size, "members": len(names),
+        "integrity": "passed", "historical_reports_match": True, "v12_archive_preserved_byte_for_byte": True,
+        "frozen_v13_recomputation": verification, "live_preparation_requests_verified": 1,
+        "original_scores_verified": 138, "genuine_failures_preserved": 23,
+        "formal_missing_receipts_preserved": 9, "formal_returned_unverified_preserved": 1,
+        "historical_preparation_unknown_receipts_preserved": 2, "total_unknown_cli_requests": 12,
+        "empty_stream_repair_local_validation_passed": True, "empty_stream_repair_live_validated": False,
+        "new_model_requests": 0, "scope": "Preserved partial comparison; 270-position matrix incomplete"}
+    Path("work/hy4flash-v13-package-verification.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
+    print(json.dumps(result, ensure_ascii=False))
+    raise SystemExit(0)
+if args.recovery == 7:
+    from audit_confirmation_sources import audit_free_billing
+
+    archive_path = Path("outputs/作业一二_hy4flash_v12评分与输出修复停止证据_20261117.zip")
+    published = Path("work/hw0102-publish")
+    destination = Path("work/verified-hy4flash-v12-package")
+    destination.mkdir(exist_ok=False)
+    summary_name = "作业二/evidence/hy4flash-v12-stopped-summary.json"
+    historical_name = "作业一二_hy4flash_v11序列化修复停止证据_20261117.zip"
+    with ZipFile(archive_path) as archive:
+        assert archive.testzip() is None
+        names = archive.namelist()
+        assert all(not name.startswith(("/", "../", ".git/", "work/"))
+                   and ".." not in Path(name).parts and "/.env" not in name for name in names)
+        for relative in ("README.md", summary_name, "作业二/evidence/hy4flash-v12-stop-20261117.md"):
+            assert archive.read(relative) == (published / relative).read_bytes()
+        for assignment in ("一", "二"):
+            relative = f"作业{assignment}/231880296_邱昱宁_作业{assignment}.pdf"
+            assert archive.read(relative) == (Path("outputs") / Path(relative).name).read_bytes()
+        assert archive.read("history/" + historical_name) == (Path("outputs") / historical_name).read_bytes()
+        for group, expected in (("confirmation-hy4flash-free-v12", 96),
+                                ("confirmation-hy4flash-free-v12-previous", 11)):
+            prefix = "作业二/evidence/" + group + "/"
+            assert sum(name.startswith(prefix) and name.endswith("/trial.json")
+                       and len(Path(name).parts) == 5 for name in names) == expected
+        archive.extractall(destination)
+    summary = json.loads((destination / summary_name).read_text())
+    shared = (destination / "shared").resolve()
+    command = [str(Path("work/.venv/bin/python").absolute()), "scripts/verify_free_stopped_run.py",
+        "--runs", "../作业二/evidence/confirmation-hy4flash-free-v12",
+        "--previous-runs", "../作业二/evidence/confirmation-hy4flash-free-v12-previous",
+        "--summary", "../" + summary_name,
+        "--plan", "../作业二/configs/confirmation-plan-hy4flash-free-v12.json",
+        "--runtime", "../frozen-runtime/v12/course_eval"]
+    process = subprocess.run(command, cwd=shared, env=os.environ | {"PYTHONPATH": str(shared)},
+                             capture_output=True, text=True, check=True)
+    verification = json.loads(process.stdout)
+    assert verification["scored"] == 95 and verification["passed"] == 84
+    assert verification["new_missing_receipts"] == 1 and verification["historical_missing_receipts"] == 8
+    probe = audit_free_billing(destination / "作业二/evidence/codebuddy-single-turn-probe-v12")
+    assert probe == summary["preparation_billing"] and probe["responses"] == 3
+    replay = json.loads((destination / "作业二/evidence/hy4flash-v12-stdout-replay.json").read_text())
+    assert replay["regular_file_exact_bytes"] and replay["parsed_values_and_actual_billing_unchanged"]
+    assert replay["real_model_requests"] == 0 and replay["live_cli_validation_after_fix"] is False
+    assert summary["total_unknown_cli_requests"] == 11 and summary["failure"]["actual_model_credit"] is None
+    assert summary["new_model_requests_after_stop"] == 0 and summary["complete_report_generated"] is False
+    fee = (destination / "shared/course_eval/codebuddy_free.py").read_bytes()
+    assert hashlib.sha256(fee).hexdigest() == "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28"
+    assert (destination / "shared/course_eval/agent.py").read_bytes() != (destination / "frozen-runtime/v12/course_eval/agent.py").read_bytes()
+    result = {"archive": str(archive_path), "bytes": archive_path.stat().st_size, "members": len(names),
+        "integrity": "passed", "historical_reports_match": True, "v11_archive_preserved_byte_for_byte": True,
+        "frozen_v12_recomputation": verification, "live_preparation_requests_verified": 3,
+        "original_scores_verified": 95, "genuine_failures_preserved": 11,
+        "formal_unknown_receipts_preserved": 9, "historical_preparation_unknown_receipts_preserved": 2,
+        "total_unknown_cli_requests": 11, "stdout_repair_local_transport_replay_passed": True,
+        "stdout_repair_live_validated": False, "new_model_requests": 0,
+        "scope": "Preserved partial comparison and local stdout repair; 270-position matrix incomplete"}
+    Path("work/hy4flash-v12-package-verification.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
+    print(json.dumps(result, ensure_ascii=False))
+    raise SystemExit(0)
 if args.recovery in (4, 6):
     earlier = args.recovery == 4
     stem = "hy4flash-v9-repair" if earlier else "hy4flash-v11"

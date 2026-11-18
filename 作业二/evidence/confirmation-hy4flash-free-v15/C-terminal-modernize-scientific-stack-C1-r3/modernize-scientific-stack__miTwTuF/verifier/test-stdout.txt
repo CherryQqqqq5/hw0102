@@ -1,0 +1,13 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.12, pytest-8.4.1, pluggy-1.7.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 2 items
+
+../tests/test_outputs.py ..                                              [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_modernized_code_runs
+PASSED ../tests/test_outputs.py::test_dependency_file_exists
+============================== 2 passed in 2.69s ===============================

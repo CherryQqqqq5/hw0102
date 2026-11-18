@@ -2,9 +2,9 @@
 
 邱昱宁 · 231880296　｜　[阅读实验报告](231880296_邱昱宁_作业二.pdf)
 
-hy4flash-free本轮新增43条独立原评分，累计138/270、115通过23失败，B0/C0/C1为40/46、39/46、36/46。Django 12193三组原题均失败，C0/C1公开检查通过，检查覆盖有限。随后house/C1第7次调用首个原生空流无费用，客户端内部重试后次零积分不能结清首次，立即停止；历史11加新1共12笔未知保留。尚缺132条评分，完整新三轮报告待完成。[本轮说明](evidence/hy4flash-v13-stop-20261118.md) · [原评分与费用](evidence/hy4flash-v13-stopped-summary.json) · [当前协议](configs/confirmation-protocol-v13.md)
+hy4flash-free 固定270位置已取得260条独立原评分，202通过、58失败，B0/C0/C1为67/86、69/87、66/87。xarray-4687/B0/r3第24次调用在剩余73.08秒时发出，截止前未收到首个响应和实际费用回执，立即停止；旧12笔加新增1笔共13笔真实未知费用保留。尚缺10条，完整新三轮报告待完成。[补充报告](evidence/hy4flash-v15-stop-20261118.md) · [原评分与费用](evidence/hy4flash-v15-stopped-summary.json) · [260条轨迹分析](evidence/hy4flash-v15-scored-trials.json) · [当前协议](configs/confirmation-protocol-hy4flash-free-v15.md)
 
-真实轮数异常序列化、4096截断拒绝执行及短动作恢复的既有验证保留。普通文件接收新增一次真实169448字节验证及恢复原题通过。停止后关闭课程客户端空流/流超时的内部重试，本地5项分支、8项序列化、24项费用与恢复回归通过，未新增真实模型调用。费用校验器保持；frozen-runtime/v13保存当次运行源码，当前共享代码包含停止后的日志日期修正。[真实准备](evidence/hy4flash-v13-stdout-preparation.json) · [故障诊断](evidence/hy4flash-v13-empty-stream-diagnostic.json) · [修复验证](evidence/hy4flash-v13-recovery-validation.json) · [备用接口配置](evidence/free-channel-setup-20261118.md)
+本地工具结果身份修复已真实验收，11个响应均有自身零费用证明，4096上限及两次完整动作恢复被实际执行；该原题评分失败保留。独立的历史本地元数据拒绝具有两笔完整原生零积分回执，原整次拒绝及未评分状态保持，不计入13笔真实未知。Django12193的C0/C1三轮均公开检查通过而原题失败；单轮正向案例和重复波动见补充报告。15份v15执行源码冻结，费用校验器保持。[真实验收](evidence/hy4flash-v15-local-result-live-validation.json) · [停止诊断](evidence/hy4flash-v15-first-response-diagnostic.json) · [备用接口配置](evidence/free-channel-setup-20261118.md)
 
 下列报告、数值和案例呈现已完成的历史实验。旧CodeBuddy、创智及各次未评分尝试单独保留，成绩与费用不并入当前免费模型主比较。[历史v3协议](configs/confirmation-protocol-v3.md) · [历史来源计划](configs/confirmation-plan-v3.json) · [原v2记录](evidence/confirmation-v2/)
 

@@ -1,0 +1,64 @@
+{
+  "source_run_id": "C-swe-pydata__xarray-4687-B0-r3",
+  "request_id": 24,
+  "cli_pid": 28304,
+  "configured_model": "hy4flash-free",
+  "actual_provider_model": null,
+  "actual_provider_credit": null,
+  "failure_category": "first_response_wait_exceeded_remaining_execution_window",
+  "request_time_unix": 1795000028.385589,
+  "error_time_unix": 1795000101.5105028,
+  "effective_request_timeout_seconds": 73.07826291699894,
+  "request_window_floor_seconds": 60,
+  "execution_limit_seconds": 600,
+  "previous_complete_cli_responses": 23,
+  "last_complete_request_id": 23,
+  "previous_cli_latency_median_seconds": 17.171342849731445,
+  "previous_cli_latency_max_seconds": 42.45780682563782,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "provider_diagnostics": {
+    "cli_pid": 28304,
+    "log_status": "read",
+    "log_name": "C-swe-pydata__xarray-4687-B0-r3__7019d0bb044e924c451d563908c74fd3.log",
+    "stage": "awaiting_first_stream_chunk",
+    "model_requests_sent": 1,
+    "streams_started": 0,
+    "first_raw_chunks": 0,
+    "completed_streams": 0,
+    "retry_notices": 0,
+    "truncation_retries": 0,
+    "structured_output_retries": 0,
+    "event_loop_ticks": 2,
+    "last_event_loop_tick": "11/18/2026, 7:08:09 PM.778",
+    "source_line_numbers": [
+      16278,
+      16312,
+      16314
+    ],
+    "billing_status": "unknown",
+    "scope": "Client transport diagnostics only; no model billing inference"
+  },
+  "stage_events": [
+    {
+      "source_line": 16278,
+      "event": "request_sent",
+      "timestamp": "11/18/2026, 7:07:11 PM.101"
+    },
+    {
+      "source_line": 16312,
+      "event": "event_loop_alive",
+      "timestamp": "11/18/2026, 7:07:39 PM.772"
+    },
+    {
+      "source_line": 16314,
+      "event": "event_loop_alive",
+      "timestamp": "11/18/2026, 7:08:09 PM.778"
+    }
+  ],
+  "confirmed_observation": "The 24th CLI request was admitted with 73.08 seconds remaining; one native request was sent, the event loop stayed alive, no first chunk or actual usage arrived, and the outer 600-second deadline killed the client",
+  "causal_limit": "Client records locate asynchronous waiting before the first response; they do not identify upstream queuing versus network latency or prove the missing fee is zero",
+  "official_usage_contract": "https://www.codebuddy.cn/docs/cli/stream-json-turn-usage",
+  "receipt_query_boundary": "CLI help exposes no supported per-request invoice query. Official stage usage reports unknown when cancellation precedes any completed model call; aggregate quota is not a replacement receipt",
+  "new_model_requests_in_diagnosis_or_after_stop": 0
+}

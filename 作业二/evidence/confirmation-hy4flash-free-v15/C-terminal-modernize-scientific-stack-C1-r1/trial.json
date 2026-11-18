@@ -1,0 +1,48 @@
+{
+  "task": {
+    "benchmark": "terminal",
+    "id": "modernize-scientific-stack",
+    "stratum": "scientific-computing",
+    "group": "modernize-scientific-stack",
+    "difficulty": "medium",
+    "image": "alexgshaw/modernize-scientific-stack:20251031",
+    "cpus": 1,
+    "memory_mb": 2048,
+    "agent_timeout_seconds": 600.0,
+    "exclude": null,
+    "split": "C",
+    "candidate_scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/analyze_climate_modern.py",
+        "/app/requirements.txt",
+        "/app/pyproject.toml"
+      ],
+      "protected": [
+        "/app/climate_analyzer/analyze_climate.py",
+        "/app/climate_analyzer/config.ini",
+        "/app/climate_analyzer/requirements_old.txt",
+        "/app/climate_analyzer/sample_data/climate_data.csv"
+      ],
+      "python": "/usr/local/bin/python3"
+    },
+    "image_id": "sha256:64e69cee13bf6b0b9016e735b51891bce996a60f1e2d1a005bf12c949e221d71",
+    "image_digests": [
+      "alexgshaw/modernize-scientific-stack@sha256:64e69cee13bf6b0b9016e735b51891bce996a60f1e2d1a005bf12c949e221d71"
+    ]
+  },
+  "phase": "formal",
+  "configuration": "C1",
+  "status": "started",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 0,
+    "strict_wall": true
+  }
+}

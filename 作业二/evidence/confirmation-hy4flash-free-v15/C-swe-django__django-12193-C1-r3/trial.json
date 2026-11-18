@@ -1,0 +1,31 @@
+{
+  "task": {
+    "benchmark": "swe",
+    "id": "django__django-12193",
+    "stratum": "django/django",
+    "group": "django__django-12193",
+    "difficulty": "<15 min fix",
+    "image": "swebench/sweb.eval.x86_64.django_1776_django-12193:latest",
+    "base_commit": "3fb7c12158a2402f0f80824f6778112071235803",
+    "exclude": null,
+    "split": "C",
+    "image_id": "sha256:f2f0882bb350e6c7b073569444629513f4c0bd6821f3610d243a26b2b4eae26e",
+    "image_digests": [
+      "swebench/sweb.eval.x86_64.django_1776_django-12193@sha256:f2f0882bb350e6c7b073569444629513f4c0bd6821f3610d243a26b2b4eae26e"
+    ]
+  },
+  "phase": "formal",
+  "configuration": "C1",
+  "status": "started",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "protocol_commit": "081a796c7bceca10e390fa983c18173289c4fe7a",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 0,
+    "strict_wall": true
+  }
+}

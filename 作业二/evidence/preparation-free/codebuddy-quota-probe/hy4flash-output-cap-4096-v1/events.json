@@ -1,0 +1,221 @@
+[
+  {
+    "type": "reasoning",
+    "role": null,
+    "status": null,
+    "providerData": {
+      "requestModelId": "hy4flash-free",
+      "requestModelName": "Hy4 flash",
+      "model": "hy4-flash-free",
+      "messageId": "01a1e3ea763f7d8b9e5109f4f1feff5e",
+      "conversationRequestId": "01a1e3ea7550723ab72dd6fe5caf9ae3",
+      "agent": "cli"
+    }
+  },
+  {
+    "type": "message",
+    "role": "assistant",
+    "status": "completed",
+    "providerData": {
+      "requestModelId": "hy4flash-free",
+      "requestModelName": "Hy4 flash",
+      "model": "hy4-flash-free",
+      "messageId": "01a1e3ea763f7d8b9e5109f4f1feff5e",
+      "rawUsage": {
+        "prompt_tokens": 3178,
+        "completion_tokens": 4096,
+        "total_tokens": 7274,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 4067,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 3178,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 4067,
+        "credit": 0,
+        "cached_tokens": 0,
+        "quota": {
+          "model": "hy4-flash",
+          "percent": 0,
+          "reset_at": "1794906979",
+          "shared_models": [
+            "hy4free"
+          ]
+        }
+      },
+      "conversationRequestId": "01a1e3ea7550723ab72dd6fe5caf9ae3",
+      "agent": "cli"
+    }
+  },
+  {
+    "type": "reasoning",
+    "role": null,
+    "status": null,
+    "providerData": {
+      "requestModelId": "hy4flash-free",
+      "requestModelName": "Hy4 flash",
+      "model": "hy4-flash-free",
+      "messageId": "01a1e3eae65c72f89b7b9e958a34c242",
+      "conversationRequestId": "01a1e3ea7550723ab72dd6fe5caf9ae3",
+      "agent": "cli"
+    }
+  },
+  {
+    "type": "model-usage",
+    "role": null,
+    "status": null,
+    "providerData": {
+      "requestModelId": "hy4flash-free",
+      "requestModelName": "Hy4 flash",
+      "model": "hy4-flash-free",
+      "messageId": "01a1e3eae65c72f89b7b9e958a34c242",
+      "rawUsage": {
+        "prompt_tokens": 3267,
+        "completion_tokens": 4096,
+        "total_tokens": 7363,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 4096,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 3072
+        },
+        "prompt_cache_hit_tokens": 3072,
+        "prompt_cache_miss_tokens": 195,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 4096,
+        "credit": 0,
+        "cached_tokens": 0,
+        "quota": {
+          "model": "hy4-flash",
+          "percent": 0,
+          "reset_at": "1794906979",
+          "shared_models": [
+            "hy4free"
+          ]
+        }
+      },
+      "conversationRequestId": "01a1e3ea7550723ab72dd6fe5caf9ae3",
+      "agent": "cli"
+    }
+  },
+  {
+    "type": "message",
+    "role": "assistant",
+    "status": "incomplete",
+    "providerData": {
+      "conversationRequestId": "01a1e3ea7550723ab72dd6fe5caf9ae3",
+      "agent": "cli",
+      "skipRun": true,
+      "error": {
+        "message": "Max turns (1) exceeded",
+        "isNetworkError": false,
+        "networkErrorAutoRetry": false,
+        "isStreamTimeout": false,
+        "isRetryable": false
+      }
+    }
+  },
+  {
+    "type": "reasoning",
+    "role": null,
+    "status": null,
+    "providerData": {
+      "requestModelId": "hy4flash-free",
+      "requestModelName": "Hy4 flash",
+      "model": "hy4-flash-free",
+      "messageId": "01a1e3eb43887910b700f7b6339c269e",
+      "conversationRequestId": "01a1e3ea7550723ab72dd6fe5caf9ae3",
+      "agent": "cli"
+    }
+  },
+  {
+    "type": "message",
+    "role": "assistant",
+    "status": "completed",
+    "providerData": {
+      "requestModelId": "hy4flash-free",
+      "requestModelName": "Hy4 flash",
+      "model": "hy4-flash-free",
+      "messageId": "01a1e3eb43887910b700f7b6339c269e",
+      "rawUsage": {
+        "prompt_tokens": 3328,
+        "completion_tokens": 2893,
+        "total_tokens": 6221,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 2864,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0,
+          "cached_tokens": 3072
+        },
+        "prompt_cache_hit_tokens": 3072,
+        "prompt_cache_miss_tokens": 256,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 0,
+        "prompt_cache_write_tokens": 0,
+        "completion_thinking_tokens": 2864,
+        "credit": 0,
+        "cached_tokens": 0,
+        "quota": {
+          "model": "hy4-flash",
+          "percent": 0,
+          "reset_at": "1794906979",
+          "shared_models": [
+            "hy4free"
+          ]
+        }
+      },
+      "conversationRequestId": "01a1e3ea7550723ab72dd6fe5caf9ae3",
+      "agent": "cli"
+    }
+  },
+  {
+    "type": "result",
+    "subtype": "success",
+    "is_error": false,
+    "result": "15 16 17 18 19 20 21 22 23 24 25 26 27 28",
+    "duration_ms": 18719,
+    "duration_api_ms": 20,
+    "num_turns": 9,
+    "total_cost_usd": 0,
+    "usage": {
+      "input_tokens": 9773,
+      "output_tokens": 11085,
+      "cache_creation_input_tokens": 0,
+      "cache_read_input_tokens": 6144,
+      "cache_creation": null,
+      "server_tool_use": null,
+      "service_tier": null
+    }
+  }
+]

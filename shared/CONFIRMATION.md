@@ -1,8 +1,20 @@
 # 免费模型独立确认与历史记录复算
 
-当前正式评测仅使用CodeBuddy 2.179.3的hy4flash-free，实际身份与每个messageId的rawUsage.credit=0逐条核验；新增费用未知、非零或型号不符立即停止。当前源码与精确计划对应[免费v7协议](../作业二/configs/CONFIRMATION_HY4FLASH_PROTOCOL_V7.md)和[冻结计划](../作业二/configs/confirmation-plan-hy4flash-free-v7.json)，包含7条旧来源有效原评分及六次独立前序。复算已上传原评分及费用无需模型请求；正式新调用须遵循当前协议和授权。
+当前正式评测仅使用CodeBuddy 2.179.3的hy4flash-free，实际身份与每个原生消息的rawUsage.credit=0逐条核验。v15停止于260/270、202通过58失败，B0/C0/C1为67/86、69/87、66/87；最后xarray-4687/B0/r3没有首响应和实际费用回执，新增1笔加旧12笔共13笔真实未知，所有新调用已停止。另1笔本地元数据拒绝的历史响应有完整自身原生零费用，原拒绝和未评分仍保留。[当前协议](../作业二/configs/confirmation-protocol-hy4flash-free-v15.md) · [冻结计划](../作业二/configs/confirmation-plan-hy4flash-free-v15.json) · [补充报告](../作业二/evidence/hy4flash-v15-stop-20261118.md)
 
-本轮在用户明确要求再次尝试后恢复Go基线并通过；随后共享工具组请求跨越合盖睡眠，因安全连接失败且费用未知停止，当前28条有效评分。五次未知费用、系统睡眠证据及带恢复归档的无模型请求复算命令见[本次恢复记录](../作业二/evidence/hy4flash-v7-recovery1-20261117.md)。前次27条检查点见[历史停止记录](../作业二/evidence/hy4flash-v7-stop-20261117.md)，现有两份命名报告为此前已完成的历史报告。
+在本目录使用已安装项目依赖执行下面的只读复算，不发模型请求、不重跑原评分器：
+
+```sh
+PYTHONPATH="$PWD:$PWD/scripts" python3 scripts/verify_free_stopped_run.py \
+  --runs '../作业二/evidence/confirmation-hy4flash-free-v15' \
+  --previous-runs '../作业二/evidence/confirmation-hy4flash-free-v15-previous' \
+  --summary '../作业二/evidence/hy4flash-v15-stopped-summary.json' \
+  --plan '../作业二/configs/confirmation-plan-hy4flash-free-v15.json' \
+  --runtime '../frozen-runtime/v15/course_eval' \
+  --trials '../作业二/evidence/hy4flash-v15-scored-trials.json'
+```
+
+该命令核对260条原评分、逐位置实际费用、全部前序拒绝与未知、15份执行源码和逐条轨迹分析。不同来源客户端版本保留在trial与冻结目录中；完整270位置统计器继续拒绝不完整矩阵。继续执行需要在保留13笔真实未知的前提下取得新明确授权，或取得本次缺失的实际费用证明，不能直接执行历史续跑命令。现有两份命名PDF为此前已完成的历史报告，新结果以补充报告呈现。
 
 以下创智命令和版本说明属于已停止的历史批次，仅用于解释其记录与原执行方式；当前没有创智调用授权。
 

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Fix complete: SplitArrayWidget now copies attrs per subwidget so CheckboxInput's checked mutation cannot leak to later widgets. Public check passed.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 13
+    }
+  }
+}

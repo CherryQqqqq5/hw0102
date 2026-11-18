@@ -1,0 +1,5 @@
+{
+  "stdout": "\n> test\n> jest ./*\n\n",
+  "stderr": "PASS ./house.spec.js\n  House\n    ✓ verse one - the house that jack built (1 ms)\n    ✓ verse two - the malt that lay\n    ✓ verse three - the rat that ate (1 ms)\n    ✓ verse four - the cat that killed\n    ✓ verse five - the dog that worried\n    ✓ verse six - the cow with the crumpled horn (1 ms)\n    ✓ verse seven - the maiden all forlorn\n    ✓ verse eight - the man all tattered and torn\n    ✓ verse nine - the priest all shaven and shorn (1 ms)\n    ✓ verse ten - the rooster that crowed in the morn\n    ✓ verse eleven - the farmer sowing his corn\n    ✓ verse twelve - the horse and the hound and the horn (1 ms)\n    ✓ multiple verses\n    ✓ full rhyme (1 ms)\n\nTest Suites: 1 passed, 1 total\nTests:       14 passed, 14 total\nSnapshots:   0 total\nTime:        2.594 s\nRan all test suites matching /.\\/LICENSE|.\\/babel.config.js|.\\/house.js|.\\/house.spec.js|.\\/node_modules|.\\/package-lock.json|.\\/package.json/i.\n",
+  "returncode": 0
+}
