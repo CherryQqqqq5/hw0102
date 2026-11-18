@@ -2,7 +2,7 @@
 
 [阅读实验报告](231880296_邱昱宁_作业一.pdf)
 
-当前hy4flash-free固定270位置全部完成，其中B0三轮基线68/90：SWE-bench 23/30、Terminal-Bench 20/30、Aider 25/30。报告已更新为5页，保留原诊断30题并分开追加新固定30题的90次基线。新旧题单、模型和预算分别解释，历史13笔真实未知费用保留。[完整免费结果](../作业二/evidence/hy4flash-v16-results-20261118.md) · [逐题三轮成绩](../作业二/evidence/confirmation-hy4flash-free-v16-summary/trials.csv)
+当前hy4flash-free固定270位置全部完成，其中B0三轮基线68/90：SWE-bench 23/30、Terminal-Bench 20/30、Aider 25/30。报告已更新为6页，补齐原30题的目标、预期行为及4条失败的主机制统计，并分开追加新固定30题的90次基线。[完整记录](evidence/task-records.json)收录每题完整输入、预期与实际、原评分、初步归因和轨迹路径，[表格索引](evidence/task-records.csv)可直接查看。新旧题单、模型和预算分别解释，历史13笔真实未知费用保留。[完整免费结果](../作业二/evidence/hy4flash-v16-results-20261118.md) · [逐题三轮成绩](../作业二/evidence/confirmation-hy4flash-free-v16-summary/trials.csv)
 
 下表为此前30道诊断题的实际原评分，与新增固定任务的重复基线分开记录。
 

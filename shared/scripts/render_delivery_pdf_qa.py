@@ -1,10 +1,14 @@
+import argparse
 import subprocess
 from pathlib import Path
 
 from PIL import Image, ImageDraw
 
 
-root = Path("work/pdf-qa-v16")
+parser = argparse.ArgumentParser()
+parser.add_argument("--output-directory", type=Path, default=Path("work/pdf-qa-v16"))
+args = parser.parse_args()
+root = args.output_directory
 root.mkdir(exist_ok=True)
 for index, assignment in enumerate(("一", "二"), 1):
     source = Path("outputs") / f"231880296_邱昱宁_作业{assignment}.pdf"

@@ -22,6 +22,8 @@ footer = "智能推理与规划 · 邱昱宁"
 
 
 def baseline_report(confirmation_batch: str | None = None) -> None:
+    task_records = json.loads((work / "hw0102-publish/作业一/evidence/task-records.json").read_text())["records"]
+    task_index = {record["task"]: record for record in task_records}
     coverage = {row["benchmark"]: row for row in summary["coverage"] if row["split"] == "D" and row["arm"] == "B0"}
     baseline = [row for row in rows if row["split"] == "D" and row["arm"] == "B0"]
     if len(baseline) != 30 or any(coverage[key]["scoreable"] != 10 for key in labels):
@@ -64,6 +66,15 @@ def baseline_report(confirmation_batch: str | None = None) -> None:
                   "将格式、可运行性和任务语义分成独立检查，并标明公开检查的覆盖边界。第二类是探索与交付脱节。"
                   "存在可运行的临时候选时，后续诊断可能耗尽预算，最终路径仍为空。为显式交付路径设置早期检查点，"
                   "将草稿落盘和改进过程连接起来。提供方与容器故障单独记录。"),
+        table([["互斥主机制", "实际失败题", "数量", "改进与验证边界"],
+               ["产物交付", "query-optimize；批处理调度", "2/4", "先保存指定路径；保存后仍须检验等价性与性能"],
+               ["语义精度", "video-processing", "1/4", "增加独立精度验证；提前实现能否修复尚未验证"],
+               ["验证范围不足", "extract-elf", "1/4", "独立检验地址含义；避免实现与自查共用未经检验假设"]],
+              [90, 135, 40, width - 265]),
+        paragraph("以上为对4条真实失败进行的人工主机制编码，每题归入一类，分母为全部4条失败。"
+                  "它们均来自Terminal任务；SWE-bench与Aider在当前各10题中未见原评分失败，不能据此推断不存在错误。"
+                  "调度题的提供方超时和多题交互截止另记为伴随因素，不替代具体产物或断言归因。"
+                  "公开检查改善是否带来净收益，由作业二的同题比较及消融检验。"),
     ]
     items = [
         heading("任务抽样与固定条件"),
@@ -87,16 +98,18 @@ def baseline_report(confirmation_batch: str | None = None) -> None:
                   f"{output_tokens:,} 个输出词元。未返回响应的调用可能缺少用量。通过率以各基准的 10 道有效评分为分母。"),
         paragraph("SWE-bench 由官方 resolved 指标判定，Terminal-Bench 使用 Harbor 的原题奖励，Aider 以原题测试全通过判定。"
                   "模型超时后由原题评分器检查实际留下的产物，提供方超时单列。评分通过和智能体提交声明分别统计。"),
-        PageBreak(), *case_items, PageBreak(), heading("逐题结果与证据索引"),
+        PageBreak(), *case_items, heading("逐题结果与证据索引"),
+        paragraph("完整记录采用JavaScript Object Notation（JSON，JavaScript对象表示法），表格索引采用"
+                  "Comma-Separated Values（CSV，逗号分隔值）。逐题目标与预期行为见下表，具体输入和原验收路径见附件。"),
     ]
     for key, label in labels.items():
         items.append(heading(label))
-        details = [["任务", "评分", "终止状态", "模型请求"]]
+        details = [["任务", "任务目标与预期行为", "原评分", "终止状态"]]
         for row in baseline:
             if row["benchmark"] == key:
-                details.append([row["task"], "通过" if row["passed"] == "True" else "未通过",
-                                row["exit_status"] or "见轨迹", row["model_calls"]])
-        items.extend([table(details, [208, 55, 145, width - 408]), Spacer(1, 5)])
+                details.append([row["task"], task_index[row["task"]]["task_description"],
+                                "通过" if row["passed"] == "True" else "未通过", row["exit_status"] or "见轨迹"])
+        items.extend([table(details, [161, 188, 45, width - 394]), Spacer(1, 5)])
     items.extend([
         heading("局限性"),
         paragraph("每套只有 10 道诊断题，且偏向资源有限、可离线评分与较短修复的任务，结果适用于当前抽样范围和运行条件。"
@@ -104,6 +117,10 @@ def baseline_report(confirmation_batch: str | None = None) -> None:
                   "SWE-bench Verified 公开题目还存在训练暴露与测试覆盖问题，不能从本结果推断一般软件工程能力。"),
         paragraph("仓库作业一目录中的 evidence/formal-trials.csv 可逐题复算，evidence/formal/ 保存命令、"
                   "脱敏可见模型交互、产物及评分日志。原始启动异常和重复提供方超时证据分别保留。"),
+        paragraph("evidence/task-records.json逐题收录完整任务输入、预期评分标准、实际原评分、执行与最终产物路径、"
+                  "初步归因及原验收日志路径；task-records.csv提供相同索引，完整输入以JSON为准。"
+                  "本表的通过表示原题resolved、奖励1或原题测试全通过；失败的具体断言及过程见对应记录，"
+                  "未将模型完成声明或工具退出状态直接当作成绩。辅助实现、分析与报告整理使用Codex，实测结果以保存原件为依据。"),
         link("作业一证据目录", "https://github.com/CherryQqqqq5/hw0102/tree/main/%E4%BD%9C%E4%B8%9A%E4%B8%80"),
         link("课程说明", "https://nju-link-lab.feishu.cn/wiki/QLwBwXov6iHjsJkeBPLck9AUncc"),
         link("SWE-bench 官方评测程序", "https://www.swebench.com/SWE-bench/reference/harness/"),

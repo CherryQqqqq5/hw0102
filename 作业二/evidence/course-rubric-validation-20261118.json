@@ -1,0 +1,21 @@
+{
+  "scope": "Local report supplementation against the original course requirements",
+  "original_grading_weight_tables_available": false,
+  "assignment_1_pages": 6,
+  "assignment_2_pages": 11,
+  "baseline_task_records": 30,
+  "baseline_original_passed": 26,
+  "baseline_original_failed": 4,
+  "confirmation_original_scores_unchanged": 270,
+  "confirmation_passed": 207,
+  "confirmation_failed": 63,
+  "new_model_requests": 0,
+  "new_original_grader_executions": 0,
+  "new_model_fees": 0,
+  "historical_unknown_fees_preserved": 13,
+  "pdf_text_and_page_bounds": "passed",
+  "visual_review_scope": "Only the two course reports authorized by the user",
+  "all_17_pages_reviewed_in_contact_sheets": true,
+  "observed_clipping_overlap_or_missing_glyphs": false,
+  "source_grade_files_modified": false
+}

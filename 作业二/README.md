@@ -2,6 +2,8 @@
 
 邱昱宁 · 231880296　｜　[阅读实验报告](231880296_邱昱宁_作业二.pdf)
 
+当前11页报告已补充实质改造函数定位、绝对次数/百分点/相对百分比公式，以及Django11999的真实反馈修复过程，共六组轨迹分析。[课程逐项核查](evidence/course-rubric-audit-20261118.md)说明已满足的可见要求及评分细表缺失等限制。本次仅本地整理与文档更新，新增模型请求及原评分执行均为0。
+
 hy4flash-free 固定270位置已全部完成，207通过、63失败，B0/C0/C1为68/90、71/90、68/90。C1/B0差值0.0个百分点，95%区间[-7.8，6.7]；C1/C0差值-3.3个百分点，区间[-8.9，2.2]。本轮未支持程序控制稳定提高原评分通过率。[完整结果](evidence/hy4flash-v16-results-20261118.md) · [三轮统计](evidence/confirmation-hy4flash-free-v16-summary/summary.json) · [原评分与费用](evidence/confirmation-hy4flash-free-v16-source-audit.json) · [当前协议](configs/confirmation-protocol-hy4flash-free-v16.md)
 
 新增10条完整原评分，109实际响应、119原生用量均有自身零积分回执。新150秒请求门限在scikit-learn基线剩137.75秒时实际阻止下一请求，现有补丁通过原评分；600秒执行预算及费用校验保持。旧13笔真实未知、1笔原生费用已知零的本地元数据拒绝和15前序均保留。260旧评分与最后10新窗口版本差异写入报告，Django反例、单轮正向、重复波动及全部63失败如实呈现。[逐题三轮表](evidence/confirmation-hy4flash-free-v16-summary/trials.csv) · [轨迹解释](evidence/confirmation-hy4flash-free-v16-analysis.json) · [客户端修复](evidence/hy4flash-v16-deadline-validation.json)

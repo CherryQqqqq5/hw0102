@@ -6,6 +6,17 @@
   "cost_interpretation": "B0/C0/C1的实际请求分别833/978/934次。C1比B0多101次请求，约12.1%；已返回输入词元少约4.4%，但执行中位数从109.1秒增至150.4秒，总用时中位数从127.7秒增至168.7秒，原题通过数相同。C1比C0少44次请求，但少通过3次。C1自动检查66次，公开检查与候选操作分别累计301.5秒和633.8秒。费用明确为零仍需报告调用、词元和时间开销；旧13笔真实未知费用不能由新回执结清。预算拒绝的外层决策不计作实际请求，实际请求与原生计费记录分开核对。",
   "cases": [
     {
+      "title": "Django11999：失败反馈被实际采用，任务净收益未分离",
+      "observations": "第一轮C1第11步由程序发起最终阶段检查，display实际为foo/bar，未保留用户定义的显示方法。第12次实际模型请求包含完整失败反馈；随后修改Field.contribute_to_class，仅在类中不存在对应方法时生成get_FIELD_display。第13步主动复测返回something/something并通过，候选版本已改变且被保存，独立原评分通过。同题第一轮B0、C0、C1均通过，实际请求分别18、11、16次。",
+      "interpretation": "该轨迹提供检查失败、反馈进入下一请求、修改、同条件复测和原评分通过的完整过程证据；三组同轮均通过，不能据此认定程序控制带来额外成功。检查失败时尚未修改初始实现，故这里只说明反馈与修复的实际先后关系。首轮存在已披露的来源版本差异，后续三轮总比较仍按原记录报告。",
+      "evidence": "confirmation-hy4flash-free-v16/C-swe-django__django-11999-C1-r1/controller.jsonl第11/13步、model.jsonl请求12、candidate.patch及swe-official；同题B0/C0原评分。",
+      "scores": [
+        {"run_id": "C-swe-django__django-11999-B0-r1", "passed": true},
+        {"run_id": "C-swe-django__django-11999-C0-r1", "passed": true},
+        {"run_id": "C-swe-django__django-11999-C1-r1", "passed": true}
+      ]
+    },
+    {
       "title": "Django12193：公开通过反复遗漏原题不变性",
       "observations": "C0/C1三轮均提交、最终公开检查有效，原评分三轮均失败。第三轮原测试test_get_context_does_not_mutate_attrs仍失败。C1只在SplitArrayWidget中复制传给子组件的属性；B0同时在CheckboxInput.get_context写入checked前复制调用者的字典，第三轮通过。该原题B0三轮为通过、失败、通过。",
       "interpretation": "这是可重复的检查覆盖不足。公开检查通过与原题语义正确分别记录；程序更频繁执行同一检查并未补足其遗漏。冻结检查和负分均保留，案例不作为事后修改检查后再计入主比较的理由。",

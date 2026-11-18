@@ -130,6 +130,13 @@ def render():
         paragraph("模型请求、重试、命令、检查、候选摘要及保存恢复共用600秒执行预算。C1会为恢复保留30秒（已有可行候选）"
                   "或15秒（尚无可行候选）。无法完成验证时记录unknown状态；没有可行候选时保留当前真实产物，由原题评分。"
                   "公开通过的含义严格受检查覆盖范围限制。"),
+        table([["代码位置", "实质改造与消融开关"],
+               ["controller.py：ControlledEnvironment.verify", "执行公开条件，登记真实输出及对应候选；C0/C1共同使用"],
+               ["controller.py：before_decision、finish", "C1安排检查与截止前交付；C0关闭程序安排，保留相同提示和工具"],
+               ["controller.py：CandidateStore；candidate_io.py", "保存与按字节恢复候选，核对受保护文件；两组使用同一接口"],
+               ["verification.py：VerificationState", "维护公开条件与依赖版本，相关文件改变时旧验证失效"],
+               ["agent.py：run_baseline、CodeBuddyModel", "B0保持原生决策；三组共用模型适配及预算修复，后者不作算法贡献"]],
+              [218, width - 218]),
         paragraph("实现沿用mini-swe-agent的决策、工具执行与格式反馈循环。对4096输出截断，参考Harbor的Terminus 2实现："
                   "已有完整动作时先验证再执行，无完整动作时明确反馈格式错误。当前适配器先逐条验证真实模型型号和零积分回执，"
                   "再将已定位的命令行客户端（Command-Line Interface，CLI）本地错误与服务回复分开；"
@@ -152,7 +159,7 @@ def render():
                ["实际候选初始化错误", "明确记录操作错误，独立Aider评分仍返回有效失败"]], [130, width - 130]),
         paragraph("上述工程控制的模型请求数为0。真实查询优化的公开原查询在120秒内未完成，等价性和速度检查记为unknown；"
                   "合成SQLite数据仅用于验证检查程序，不作为真实任务的性能证据。"),
-        PageBreak(), heading("四、免费模型固定任务复测协议"),
+        heading("四、免费模型固定任务复测协议"),
         paragraph("SWE-bench Verified、Terminal-Bench 2.1和Aider Polyglot各10道任务。"
                   "按仓库、终端类别和语言分层，使用固定种子nju-course-independent-confirmation-20261105-v1排序。"
                   "环境资格检查在模型运行前完成；缺少离线必要资源或输入含凭据形式数据的候选按预定边界排除，理由完整保存。"),
@@ -204,6 +211,10 @@ def render():
                             f"{comparison['delta_percentage_points']:+.1f}", interval(comparison),
                             f"{gain}/{30-gain-loss}/{loss}"])
     items.append(table(comparisons, [80, 96, 125, width - 301]))
+    items.append(paragraph("每条件成功率为通过次数/90；每题先对三轮0/1成绩求均值，再对30题的条件差值求均值，乘100得到百分点差。"
+                           "相对百分比为通过数差/对照通过数×100%。C1/B0为0次、0.0个百分点、相对0.0%；"
+                           "C1/C0为−3次、−3.3个百分点、相对−4.2%；C0/B0为+3次、+3.3个百分点、相对+4.4%。"
+                           "配对重采样以任务为单位，保留同题三轮，不能将270次执行当作270道独立题目。"))
     sensitivity = summary["transport_sensitivity"]
     items.extend([paragraph("预先声明的网络版本辅助分析排除Django11999整题，保留29题、261条有效评分；"
                             "它用于检查混合网络来源是否改变结论，不替代上面的30题主要结果。"),
@@ -318,6 +329,8 @@ def render():
                   "codebuddy-v3-stopped-summary.json保存其未完成范围和去重费用，v2中的80条复用不能重复相加。"
                   "完整命令见shared/CONFIRMATION.md。"
                   "辅助实现、检查编制、执行与报告整理使用Codex；模型行为与原题成绩由保存的实际运行记录支持。"),
+        paragraph("课程逐项要求与材料对应关系见evidence/course-rubric-audit-20261118.md。"
+                  "完整输入、配置、代码、模型交互和独立原评分可由上述目录逐项核对。"),
         link("课程作业仓库", "https://github.com/CherryQqqqq5/hw0102"),
         link("免费模型执行协议提交", f"https://github.com/CherryQqqqq5/hw0102/commit/{PROTOCOL}"),
         link("mini-swe-agent维护者实现说明", "https://mini-swe-agent.com/latest/advanced/cookbook/"),
