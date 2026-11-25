@@ -1,0 +1,595 @@
+import argparse
+import ast
+import importlib.util
+import json
+import statistics
+import tomllib
+from collections import Counter
+from pathlib import Path
+
+from scripts.export_performance_evidence import digest, inspect_run, inspect_nvidia_run
+from scripts.summarize_performance_comparison import control_artifact_metrics
+
+
+def read(path):
+    return json.loads(path.read_text())
+
+
+def incremental_sources(summary, root, folder, identity_registry=None):
+    acceptance = summary.get("incremental_acceptance")
+    if acceptance is None:
+        return None
+    producer = folder / "join_scoped_revisions.py"
+    if (acceptance["producer"] != str(producer.relative_to(root))
+            or acceptance["producer_sha256"] != digest(producer)):
+        raise ValueError("The task-local acceptance producer differs from its actual source")
+    core_path = root / acceptance["core_summary"]
+    if digest(core_path) != acceptance["core_summary_sha256"]:
+        raise ValueError("The intact original cohort summary changed after scoped acceptance")
+    core = read(core_path)
+    if core["analysis_sha256"] != summary["analysis_sha256"] or core["rows"] != acceptance["original_core_rows"]:
+        raise ValueError("The original cohort rows or their analysis producer changed")
+    spec = importlib.util.spec_from_file_location("verify_scoped_acceptance", producer)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    plans = {name: module.validate_plan(root, root / entry["path"])
+        for name, entry in acceptance["revision_plans"].items()}
+    for entry in acceptance["revision_plans"].values():
+        if digest(root / entry["path"]) != entry["sha256"]:
+            raise ValueError("A declared prospective revision plan changed after analysis")
+    parents = {arm: read(root / name) for arm, name in core["source_plan_paths"].items()}
+    manifest = read(root / core["source_manifest_path"])
+    tasks = {task["id"]: task for task in manifest["selected"]}
+    checks = read((root / core["source_plan_paths"]["main"]).parent / "checks.json")
+    inherited = module.validate_scope(root, parents, tasks, checks, {key: plans[key] for key in ("json", "feal", "xarray", "pytest", "preservation")})
+    if inherited != acceptance["inherited_task_definitions"] or acceptance["required_inherited_positions"] != 140:
+        raise ValueError("The claimed inherited task definitions differ from actual source equivalence")
+    for name in ("json", "feal", "xarray", "pytest", "preservation"):
+        replacement, = read(root / plans[name]["manifest"])["selected"]
+        manifest["selected"] = [replacement if task["id"] == replacement["id"] else task for task in manifest["selected"]]
+    if manifest != read(root / summary["source_manifest_path"]):
+        raise ValueError("The effective task manifest differs from its five declared local revisions")
+    identities, position_counts = identity_registry if identity_registry is not None else set(), {}
+    all_rows = acceptance["original_core_rows"] + acceptance["new_revision_rows"] + acceptance["previous_json_development_rows"]
+    for row in all_rows:
+        actual = module.actual_row(root, root / row["run_dir"], row["arm"], tasks[row["task"]], identities, position_counts)
+        if actual != row:
+            raise ValueError("A retained development or original cost row changed after acceptance")
+    changed = {plans[key]["task"] for key in ("json", "feal", "xarray", "pytest", "preservation")}
+    effective = [row for row in acceptance["original_core_rows"] if row["arm"] == "dsh" or row["task"] not in changed]
+    effective += acceptance["new_revision_rows"]
+    if effective != summary["rows"]:
+        raise ValueError("The effective rows do not equal unchanged original positions plus fixed fresh revisions")
+    for field, actual in (("all_listed_model_scored_positions", len(all_rows)),
+            ("all_listed_distinct_actual_generations", len(identities)),
+            *[("all_listed_" + key, sum(row[key] for row in all_rows)) for key in ("actual_requests", "input_tokens", "output_tokens")]):
+        if acceptance[field] != actual:
+            raise ValueError("The original plus development cost total differs from actual source rows")
+    if summary["distinct_actual_generations"] != sum(position_counts[row["run_dir"]] for row in effective):
+        raise ValueError("The effective generation total differs from its actual selected positions")
+    retirement = acceptance.get("retired_unstarted_development_slot")
+    if retirement is not None:
+        record = root / retirement["path"]
+        if (digest(record) != retirement["sha256"] or read(record)["second_new_model_calls"] != 0
+                or retirement["actual_model_calls"] != 0 or retirement["original_grader_calls"] != 0):
+            raise ValueError("The unstarted zero-model development slot differs from its actual retirement evidence")
+    if summary["complete_all225"] and (not core["complete_all225"] or len(acceptance["new_revision_rows"]) != 10):
+        raise ValueError("Scoped acceptance requires the complete original225 and all ten fixed fresh scores")
+    return acceptance
+
+
+def claim_billing_identities(directory, identities):
+    trace, = directory.rglob("model.jsonl")
+    claimed = [message for event in map(json.loads, trace.read_text().splitlines())
+        if event["event"] == "billing_verified" for message in event["fresh_model_message_ids"]]
+    if not claimed or len(claimed) != len(set(claimed)) or identities.intersection(claimed):
+        raise ValueError("An actual generation is duplicated across original, development or ablation positions")
+    identities.update(claimed)
+
+
+def describe(rows):
+    return {"completed": len(rows), "passed": sum(row["passed"] for row in rows),
+        "qualified_passed": sum(row["qualified_passed"] for row in rows),
+        "requests": sum(row["actual_requests"] for row in rows),
+        "input_tokens": sum(row["input_tokens"] for row in rows),
+        "output_tokens": sum(row["output_tokens"] for row in rows),
+        "summed_wall_seconds": sum(row["wall_seconds"] for row in rows),
+        "median_wall_seconds": statistics.median(row["wall_seconds"] for row in rows) if rows else None}
+
+
+def paired(left, right, wanted):
+    common = sorted(set(left) & set(right) & set(wanted))
+    cells = Counter((left[task]["passed"], right[task]["passed"]) for task in common)
+    n = len(common)
+    difference = cells[True, False] - cells[False, True]
+    right_passed = cells[True, True] + cells[False, True]
+    deltas = {key: [left[task][key] - right[task][key] for task in common]
+        for key in ("actual_requests", "input_tokens", "output_tokens", "wall_seconds")}
+    return {"matched": n, "planned": len(wanted), "left": describe([left[t] for t in common]),
+        "right": describe([right[t] for t in common]),
+        "both_pass": cells[True, True], "left_only_pass": cells[True, False],
+        "right_only_pass": cells[False, True], "both_fail": cells[False, False],
+        "absolute_pass_difference": difference,
+        "percentage_point_difference": 100 * difference / n if n else None,
+        "relative_success_rate_change_percent": 100 * difference / right_passed if right_passed else None,
+        "relative_change_denominator": "right-group successes on the exact same matched tasks; undefined when zero",
+        "left_only_tasks": [t for t in common if left[t]["passed"] and not right[t]["passed"]],
+        "right_only_tasks": [t for t in common if right[t]["passed"] and not left[t]["passed"]],
+        "mean_paired_left_minus_right": {k: statistics.mean(v) if v else None for k, v in deltas.items()},
+        "median_paired_left_minus_right": {k: statistics.median(v) if v else None for k, v in deltas.items()}}
+
+
+def nvidia_same_stratum_pairs(left, right, wanted, left_strata, right_strata):
+    completed = sorted(set(left) & set(right) & set(wanted))
+    cross = [task for task in completed if left_strata[task] != right_strata[task]]
+    strict = [task for task in completed if task not in cross]
+    value = paired({task: left[task] for task in strict}, {task: right[task] for task in strict}, wanted)
+    def descriptive(row):
+        return {key: row[key] for key in ("run_dir", "transport_stratum", "actual_source_plan_sha256",
+            "passed", "actual_requests", "wall_seconds")}
+    value.update(strict_same_stratum_planned=sum(left_strata[task] == right_strata[task] for task in wanted),
+        completed_same_task_pairs=len(completed), cross_stratum_completed_pairs=len(cross),
+        cross_stratum_descriptive_comparisons=[{"task": task, "left": descriptive(left[task]),
+            "right": descriptive(right[task]), "scope": "Descriptive only; excluded from strict paired statistics."} for task in cross])
+    return value
+
+
+def nvidia_report_sources(summary_path, root, tasks, require_complete=False):
+    snapshot_sha = digest(summary_path)
+    snapshot = read(summary_path)
+    if (snapshot["schema"] != "nvidia75_v28_stratified_offline_summary_v1"
+            or snapshot["stage"] == "invalid_evidence" or snapshot["identity_audit"]["errors"]
+            or snapshot["historical_ledger_errors"] or snapshot["unexpected_position_directories"]):
+        raise ValueError("The independent NVIDIA result or retained fee ledger failed validation")
+    for name, expected in snapshot["source_sha256"].items():
+        path = root / name
+        if not path.resolve().is_relative_to(root) or path.is_symlink() or digest(path) != expected:
+            raise ValueError("A source-bound NVIDIA result changed: " + name)
+    trials_path = root / snapshot["trials_path"]
+    if not trials_path.resolve().is_relative_to(root) or digest(trials_path) != snapshot["trials_sha256"]:
+        raise ValueError("The NVIDIA rows changed after independent consumption")
+    rows = [json.loads(line) for line in trials_path.read_text().splitlines()]
+    if len(rows) != 225 or Counter(row["lane"] for row in rows) != {"main": 75, "dsh": 75, "repeat": 75}:
+        raise ValueError("The independent NVIDIA matrix must retain all225 planned positions")
+    plan_name = snapshot.get("plan_path", "work/nvidia75-transport-v28-20261125/plan.json")
+    expected_plans = {
+        "work/nvidia75-transport-v28-20261125/plan.json": ("86ffe1672729bdf1a68aacc0884a471cd9777162b3a048881a41335823884a92", 427),
+        "work/nvidia75-resume-v29-20261125/plan.json": ("d2d8e1f1daf9ec0dc25f824a6a4e7168696eb3b92f37f433048690a461a6483e", 541),
+        "work/nvidia75-small-actions-v30-20261125/plan.json": ("c0fe4961f310f979bec7da1101e75f0b86db240cb5b40364ccd76f4e2b528f18", 729),
+        "work/nvidia75-idle-alignment-v31-20261125/plan.json": ("0995b63b9b2d06cef8a4348872a7757941c13c8fc1419a2da5b5c133e0dd4da3", 969),
+        "work/nvidia75-parallel-dispatch-v32-20261125/plan.json": ("f5971565bd5b18374b065f0b2aeb7659727310beef85a0e375b9fd18c9f7dae2", 1100),
+    }
+    if plan_name not in expected_plans:
+        raise ValueError("An unrelated NVIDIA plan cannot enter the report")
+    plan_path = root / plan_name
+    plan = read(plan_path)
+    expected_sha, expected_bindings = expected_plans[plan_name]
+    if (digest(plan_path) != snapshot["plan_sha256"] or snapshot["plan_sha256"] != expected_sha
+            or len(plan["all_files_sha256"]) != expected_bindings or snapshot["bound_source_count"] != expected_bindings):
+        raise ValueError("The report uses a different admitted NVIDIA transport plan")
+    original_plan_path = root / "work/nvidia75-v27-20261125/plan.json"
+    original_plan = read(original_plan_path)
+    original_tasks = {task["id"]: task for task in read(root / plan["manifest"])["selected"]}
+    positions, indexed, ids, intervals = set(), {arm: {} for arm in ("main", "dsh", "repeat")}, set(), []
+    strata = {arm: {} for arm in indexed}
+    for row in rows:
+        arm, task = row["lane"], row["task"]
+        if task not in tasks or (arm, task) in positions:
+            raise ValueError("The NVIDIA report drops or duplicates an original75 position")
+        positions.add((arm, task))
+        inherited = task == "extract-elf"
+        inherited_relu = task == "model-extraction-relu-logits" and arm in plan.get("additional_inherited_v30_relu_positions", {})
+        inherited_dsh_relu = (task == "model-extraction-relu-logits" and arm == "dsh"
+            and "additional_inherited_v31_dsh_relu_position" in plan)
+        expected_stratum = ("v27_inherited_elf" if inherited else "v30_inherited_scored_relu" if inherited_relu else
+            "v31_inherited_scored_dsh_relu" if inherited_dsh_relu else
+            "v31_runtime_v32_parallel_remaining219" if plan_name == "work/nvidia75-parallel-dispatch-v32-20261125/plan.json" else
+            "v31_sdk_idle_alignment_remaining220" if plan_name == "work/nvidia75-idle-alignment-v31-20261125/plan.json" else
+            "v30_common_guidance_remaining74" if plan_name == "work/nvidia75-small-actions-v30-20261125/plan.json" else "v28_remaining74")
+        if row["transport_stratum"] != expected_stratum:
+            raise ValueError("A planned NVIDIA task changed its source-defined comparison stratum")
+        strata[arm][task] = expected_stratum
+        if row["scoreable"] is not True:
+            continue
+        if row["record_validated"] is not True or row["validation_errors"]:
+            raise ValueError("An invalid scored NVIDIA position cannot enter the report")
+        directory = root / row["run_dir"]
+        if not directory.resolve().is_relative_to(root):
+            raise ValueError("A NVIDIA report run leaves the project")
+        lane = plan["lanes"][arm]
+        expected_run = (root / plan["inherited_completed_positions"][arm]["run_dir"] if inherited else
+            root / plan["additional_inherited_v30_relu_positions"][arm]["run_dir"] if inherited_relu else
+            root / plan["additional_inherited_v31_dsh_relu_position"]["run_dir"] if inherited_dsh_relu else
+            root / plan["queue"] / arm / (task.replace("/", "-") + "-" + lane["configuration"] + "-r" + str(lane["repetition"])))
+        if directory.resolve() != expected_run.resolve() or row["framework"] != lane["framework"]:
+            raise ValueError("An old pilot or another arm cannot replace a fixed NVIDIA position")
+        source_plan, source_path = (original_plan, original_plan_path) if inherited else (plan, plan_path)
+        if inherited_relu:
+            source_path = root / "work/nvidia75-small-actions-v30-20261125/plan.json"
+            source_plan = read(source_path)
+            if digest(source_path) != expected_plans[str(source_path.relative_to(root))][0]:
+                raise ValueError("An inherited ReLU position lost its actual v30 plan")
+        if inherited_dsh_relu:
+            source_path = root / "work/nvidia75-idle-alignment-v31-20261125/plan.json"
+            source_plan = read(source_path)
+            if digest(source_path) != expected_plans[str(source_path.relative_to(root))][0]:
+                raise ValueError("The inherited DSH ReLU lost its actual v31 plan")
+        protocol, trial = read(directory.with_suffix(".protocol.json")), read(directory / "trial.json")
+        if (protocol["plan_sha256"] != digest(source_path) or protocol["runtime_root"] != source_plan["runtime_root"]
+                or trial["task"] != original_tasks[task] or trial["phase"] != "formal"
+                or any(protocol[key] != lane[key] or trial[key] != lane[key]
+                    for key in ("framework", "model", "backend", "configuration"))
+                or protocol["limits"] != source_plan["limits"] or trial["limits"] != source_plan["limits"]):
+            raise ValueError("The report source differs from its actual task-stratified NVIDIA protocol")
+        for name, expected in row["source_sha256"].items():
+            path = root / name
+            if not path.resolve().is_relative_to(root) or path.is_symlink() or digest(path) != expected:
+                raise ValueError("A consumed NVIDIA position changed before reporting: " + name)
+        actual = inspect_nvidia_run(directory, row["framework"], root / plan["lanes"][arm]["contract"])
+        if (actual["task"] != task or actual["passed"] != row["passed"]
+                or actual["wall_seconds"] != row["wall_seconds"]
+                or any(actual[key] != row["usage"][key] for key in ("input_tokens", "output_tokens", "model_calls"))
+                or actual["actual_requests"] != actual["verified_nonbilled_service_calls"]):
+            raise ValueError("The report differs from actual NVIDIA grades, usage or individual proofs")
+        controlled = actual["final_control_applicable"]
+        qualified = actual["passed"] and (not controlled or actual["final_protected_unchanged"] is True
+            and actual["final_valid_verification"] is True)
+        if qualified != row["qualified_passed"]:
+            raise ValueError("The actual registered NVIDIA control result changed")
+        trace, = directory.rglob("model.jsonl")
+        events = [json.loads(line) for line in trace.read_text().splitlines()]
+        starts = {event["request_id"]: event["time"] for event in events if event["event"] == "request"}
+        intervals.extend(event["time"] - starts[event["request_id"]] for event in events if event["event"] == "response")
+        current = {event["generation_id"] for event in events if event["event"] == "billing_verified"}
+        if current & ids or len(current) != actual["actual_requests"]:
+            raise ValueError("The NVIDIA report reuses an actual model generation")
+        ids.update(current)
+        indexed[arm][task] = actual | {"qualified_passed": qualified, "run_dir": row["run_dir"],
+            "transport_stratum": expected_stratum, "actual_source_plan_sha256": protocol["plan_sha256"]}
+    route_probes = snapshot.get("retained_openrouter_route_probes", [])
+    if plan_name in {"work/nvidia75-idle-alignment-v31-20261125/plan.json", "work/nvidia75-parallel-dispatch-v32-20261125/plan.json"}:
+        ordinals = [30, 31] if "additional_inherited_v31_dsh_relu_position" in plan else [30]
+        if [probe["historical_unknown_ordinal"] for probe in route_probes] != ordinals:
+            raise ValueError("The selected report must retain every exact actual OR route-probe unknown")
+    else:
+        ordinals = []
+    for ordinal, probe in zip(ordinals, route_probes, strict=True):
+        acceptance_path = root / f"work/free-recovery{ordinal}-20261125/accepted-unknown{ordinal}.json"
+        accepted = read(acceptance_path)
+        if (digest(acceptance_path) != plan["all_files_sha256"][str(acceptance_path.relative_to(root))]
+                or probe["historical_unknown_ordinal"] != ordinal or probe["kind"] != "route_probe"
+                or probe["is_task_position"] is not False or probe["physical_request_count"] != 1
+                or probe["complete_own_receipts"] != 0 or probe["unverified_requests"] != [1]
+                or probe["own_zero_receipt_available"] is not False
+                or snapshot["explicit_unknowns_in_these_retained_cost_views"] != [26, 27, 28, 29] + ordinals
+                or any(probe[key] is not None for key in ("scoreable", "passed", "original_result",
+                    "actual_model_identity", "actual_generation_id", "actual_usage", "actual_amount", "reported_monetary_cost_usd"))
+                or any(accepted[key] is not None for key in (
+                    "complete_actual_model_identity", "actual_generation_id", "actual_usage", "actual_amount"))):
+            raise ValueError("The OR route probe must remain one unscored request with unknown individual fee and usage")
+        for name, expected in probe["source_sha256"].items():
+            path = root / name
+            if not path.resolve().is_relative_to(root) or path.is_symlink() or digest(path) != expected:
+                raise ValueError("The OR route-probe source changed")
+        trace = root / accepted["canonical_trace"]
+        events = [json.loads(line) for line in trace.read_text().splitlines()]
+        request, = [event for event in events if event["event"] == "request"]
+        error, = [event for event in events if event["event"] == "request_error"]
+        if (str(trace.parent.relative_to(root)) != probe["run_dir"] or request["request_id"] != 1
+                or request["payload"]["model"] != probe["configured_model"]
+                or error != accepted["actual_error"] or error != probe["error"] or error["http_status"] != 400
+                or any(event["event"] in {"response", "billing_verified"} for event in events)):
+            raise ValueError("The report's route-probe view differs from its actual no-receipt HTTP400")
+        if ordinal == 31:
+            protocol = read(trace.with_name("protocol.json"))
+            if (request["endpoint"] != "https://openrouter.ai/api/v1/responses"
+                    or request["payload"]["max_output_tokens"] != 512
+                    or protocol["wall_seconds_limit"] != 300 or protocol["automatic_retries"] != 0
+                    or protocol["tool_execution"] is not False or protocol["original_grading"] is not False
+                    or digest(trace.with_name("protocol.json")) != digest(root / "work/openrouter-responses-validation-20261125/admission.json")):
+                raise ValueError("The separate Responses route lost its exact one-call/512/300/no-execution protocol")
+    cross_service = snapshot.get("cross_service_retained_costs")
+    if cross_service is not None:
+        nvidia_cost = snapshot["all_consumed_nvidia_cost_positions"]
+        other_requests = snapshot["retained_unscored_v25_interruptions"]["openrouter"]["physical_request_count"]
+        other_requests += sum(probe["physical_request_count"] for probe in route_probes)
+        if (cross_service["nvidia_physical_requests"] != nvidia_cost["actual_closed_requests"]
+                or cross_service["nvidia_complete_policy_proofs"] != nvidia_cost["verified_nonbilled_service_calls"]
+                or cross_service["openrouter_physical_requests"] != other_requests
+                or cross_service["closed_physical_requests"] != nvidia_cost["actual_closed_requests"] + other_requests
+                or cross_service["reported_monetary_cost_usd"] is not None):
+            raise ValueError("The separate-service retained cost totals disagree or erase unknown money")
+    complete = snapshot["all_original225_validated"] and all(len(values) == 75 for values in indexed.values())
+    if require_complete and not complete:
+        raise ValueError("Final reports also require all225 declared NVIDIA comparison positions")
+    if digest(summary_path) != snapshot_sha or digest(trials_path) != snapshot["trials_sha256"]:
+        raise ValueError("The asynchronous NVIDIA analysis changed during report consumption")
+    return {"source": str(summary_path.relative_to(root)), "source_sha256": snapshot_sha,
+        "trials_path": str(trials_path.relative_to(root)), "trials_sha256": digest(trials_path),
+        "complete_all225": complete, "source_versions": snapshot["transport_strata"],
+        "groups": {arm: describe(list(values.values())) for arm, values in indexed.items()},
+        "by_benchmark": {arm: {benchmark: describe([row for task, row in values.items()
+            if tasks[task]["benchmark"] == benchmark]) for benchmark in ("aider", "swe", "terminal")}
+            for arm, values in indexed.items()},
+        "comparison": nvidia_same_stratum_pairs(indexed["main"], indexed["dsh"], tasks, strata["main"], strata["dsh"]),
+        "repeat": nvidia_same_stratum_pairs(indexed["main"], indexed["repeat"], tasks, strata["main"], strata["repeat"]),
+        "reported_monetary_cost_usd": snapshot["matrix_totals"]["reported_monetary_cost_usd"],
+        "historical_costs": snapshot["all_consumed_nvidia_cost_positions"],
+        "retained_unscored_v30_dsh_relu": snapshot.get("retained_unscored_v30_dsh_relu", []),
+        "retained_openrouter_route_probes": route_probes,
+        "cross_service_retained_costs": cross_service,
+        "explicit_retained_unknown_ordinals": snapshot["explicit_unknowns_in_these_retained_cost_views"],
+        "recorded_complete_responses_over900_seconds": sum(interval > 900 for interval in intervals),
+        "longest_recorded_request_response_interval_seconds": max(intervals) if intervals else None,
+        "request_response_interval_scope": "Only validated scored matrix positions: local request-to-complete-response timestamps, not server compute-only latency or retained unscored history.",
+        "not_pooled_with_hy4": True, "new_model_calls": 0}
+
+
+def native_output(directory, source):
+    capture = read(directory / "artifact-capture.json")
+    config = directory / "artifact-capture-config.json"
+    if digest(config) != capture["config_sha256"] or read(config)["artifacts"] != capture["sources"]:
+        raise ValueError("The native artifact collection scope or config changed")
+    manifest, = directory.glob("*/artifacts/manifest.json")
+    entry, = [entry for entry in read(manifest) if entry["source"] == source]
+    if source not in capture["sources"] or entry["status"] != "ok" or entry["type"] != "file":
+        raise ValueError("The declared final output was not successfully collected")
+    path = manifest.parent.parent / entry["destination"]
+    if path.is_symlink() or not path.resolve(strict=True).is_relative_to(manifest.parent.resolve()):
+        raise ValueError("The final output is not a regular captured trial artifact")
+    final, = directory.rglob("final-verification.json")
+    evidence = read(final)
+    if evidence["valid_verification"] is not True or evidence["protected_unchanged"] is not True:
+        raise ValueError("The final public and protected checks do not qualify this artifact")
+    expected = {line.split(maxsplit=1)[0] for check in evidence["evidence"].values()
+        for line in check["snapshot"].splitlines() if line.split(maxsplit=1)[-1].strip() == source}
+    if expected != {digest(path)}:
+        raise ValueError("Captured output bytes differ from the exact final public-check snapshot")
+    return path
+
+
+def case_observations(indexed, root):
+    facts, sources = {}, {}
+    for task, check in (("extract-elf", "public-memory"), ("model-extraction-relu-logits", "public-query-directions")):
+        directory = root / indexed[task]["run_dir"]
+        source, = directory.rglob("controller.jsonl")
+        events = [json.loads(line) for line in source.read_text().splitlines()]
+        event = [event for event in events if event["event"] == "verification" and event["check_id"] == check][-1]
+        facts[task] = {"check_step": event["step"], "reason": event["reason"], "public_result": json.loads(event["stdout"])}
+        sources[task] = {"path": str(source.relative_to(root)), "sha256": digest(source)}
+    directory = root / indexed["video-processing"]["run_dir"]
+    output = native_output(directory, "/app/output.toml")
+    facts["video-processing"] = tomllib.loads(output.read_text())
+    sources["video-processing"] = {"path": str(output.relative_to(root)), "sha256": digest(output)}
+    directory = root / indexed["query-optimize"]["run_dir"]
+    source, = directory.rglob("test-stdout.txt")
+    line, = [line for line in source.read_text().splitlines() if line.startswith("{'iterations':")]
+    facts["query-optimize"] = ast.literal_eval(line)
+    sources["query-optimize"] = {"path": str(source.relative_to(root)), "sha256": digest(source)}
+    return facts, sources
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--summary", type=Path, default=Path("work/parallel-free-evaluation-20261124/hy4-summary/summary.json"))
+    parser.add_argument("--out", type=Path, default=Path("work/parallel-free-evaluation-20261124/report-data.json"))
+    parser.add_argument("--ablation-plan", type=Path, default=Path("work/parallel-free-evaluation-20261124/final-reuse-ablation/plan.json"))
+    parser.add_argument("--nvidia-summary", type=Path, default=Path("work/parallel-free-evaluation-20261124/final-nvidia-v32-summary/summary.json"))
+    parser.add_argument("--require-complete", action="store_true")
+    args = parser.parse_args()
+    root, folder = Path.cwd(), Path(__file__).parent.resolve()
+    summary = read(args.summary)
+    if summary["analysis_sha256"] != digest(folder / "analyze_hy4.py"):
+        raise ValueError("Recompute the actual source analysis before preparing the report")
+    identities = set()
+    acceptance = incremental_sources(summary, root, folder, identities)
+    for lane in ("main", "repeat"):
+        if summary["source_plan_sha256"][lane] != digest(root / summary["source_plan_paths"][lane]):
+            raise ValueError("The analysis belongs to a different source-bound plan")
+    manifest = root / summary["source_manifest_path"]
+    if digest(manifest) != summary["source_manifest_sha256"]:
+        raise ValueError("The original task manifest changed after the analysis")
+    tasks = {row["id"]: row for row in read(manifest)["selected"]}
+    if Counter(t["split"] for t in tasks.values()) != {"D": 30, "C": 30, "H": 15}:
+        raise ValueError("The original development sets differ from D30+C30+H15")
+    indexed = {arm: {} for arm in ("main", "dsh", "repeat")}
+    sources, control, runtime_counts = {}, {}, {}
+    for row in summary["rows"]:
+        arm, task = row["arm"], row["task"]
+        if task not in tasks or task in indexed[arm]:
+            raise ValueError("A report position is missing, duplicated or outside original75")
+        directory = root / row["run_dir"]
+        score = directory / "result.json"
+        protocol = directory.with_suffix(".protocol.json")
+        trace, = directory.rglob("model.jsonl")
+        for path, expected in ((score, row["original_score_sha256"]),
+                (protocol, row["protocol_sha256"]), (trace, row["trace_sha256"])):
+            if digest(path) != expected:
+                raise ValueError("The report no longer describes the original source: " + str(path))
+        actual = inspect_run(directory, "dsh" if arm == "dsh" else "mini-swe")
+        if acceptance is None:
+            claim_billing_identities(directory, identities)
+        for key in ("passed", "actual_requests", "verified_zero_credit_requests", "input_tokens", "output_tokens", "wall_seconds"):
+            if actual[key] != row[key]:
+                raise ValueError("A report metric differs from its actual original record: " + key)
+        if actual["actual_requests"] != actual["verified_zero_credit_requests"]:
+            raise ValueError("A real request lacks its own zero-credit receipt")
+        indexed[arm][task] = row
+        sources[f"{arm}:{task}"] = {"score": str(score.relative_to(root)), "score_sha256": digest(score),
+            "protocol": str(protocol.relative_to(root)), "protocol_sha256": digest(protocol),
+            "trace": str(trace.relative_to(root)), "trace_sha256": digest(trace)}
+        runtime_counts.setdefault(arm, Counter())[row["runtime_root"]] += 1
+        if arm != "dsh" and row["final_control_applicable"]:
+            final = control_artifact_metrics(directory, "mini-swe", row["configuration"])
+            event_path, = directory.rglob("controller.jsonl")
+            events = [json.loads(line) for line in event_path.read_text().splitlines()]
+            counts = Counter(event["event"] for event in events)
+            control[f"{arm}:{task}"] = {"configuration": row["configuration"],
+                "actual_automatic_checks_enabled": row["configuration"] == "C1",
+                "events": dict(counts), "verification_reasons": dict(Counter(
+                    event.get("reason", "missing") for event in events if event["event"] == "verification")),
+                "eligible_candidates_saved": sum(event["eligible"] is True for event in events
+                    if event["event"] == "candidate_saved"),
+                "final": final, "controller_sha256": digest(event_path)}
+    sets = {"all75": set(tasks), **{name: {t for t in tasks if tasks[t]["split"] == split}
+        for split, name in (("D", "D30"), ("C", "C30"), ("H", "H15"))},
+        **{bench: {t for t in tasks if tasks[t]["benchmark"] == bench} for bench in ("aider", "swe", "terminal")}}
+    ablation_plan = args.ablation_plan
+    ablation = {"planned": 3, "completed": 0, "rows": [], "plan_sha256": digest(ablation_plan),
+        "variable": "Explicit instructions to prefer existing public algorithm helpers; helper availability and implementation remain unchanged"}
+    plan = read(ablation_plan)
+    for name, expected in plan["all_files_sha256"].items():
+        if digest(root / name) != expected:
+            raise ValueError("A source-bound ablation dependency changed before report generation")
+    ablation_tasks = {task["id"]: task for task in read(root / plan["manifest"])["selected"]}
+    if list(ablation_tasks) != plan["task_ids"] or len(ablation_tasks) != 3:
+        raise ValueError("The declared three ablation tasks changed")
+    ablation_state = root / plan["queue"] / "state.json"
+    if ablation_state.exists():
+        state = read(ablation_state)
+        if state["plan_sha256"] != digest(ablation_plan):
+            raise ValueError("The actual ablation differs from its prespecified plan")
+        for row in state["rows"]:
+            directory = root / row["run_dir"]
+            task = ablation_tasks[row["task"]]
+            if directory != root / plan["queue"] / (task["id"] + "-C0-reuse-guidance-off-r1"):
+                raise ValueError("An ablation row refers to a different actual run")
+            if digest(directory / "result.json") != row["original_score_sha256"]:
+                raise ValueError("An ablation score changed")
+            actual = inspect_run(directory, "mini-swe")
+            if any(actual[k] != row[k] for k in ("passed", "wall_seconds", "input_tokens", "output_tokens", "actual_requests", "verified_zero_credit_requests")):
+                raise ValueError("The actual ablation score or billing differs")
+            protocol = read(directory.with_suffix(".protocol.json"))
+            if (protocol["limits"] != plan["limits"] or protocol["configuration"] != "C0"
+                    or protocol["model"] != "hy4flash-free" or protocol["persistent_native_session"] is not True
+                    or (root / protocol["runtime_root"]).resolve() != (root / plan["runtime_root"]).resolve()
+                    or read(directory / "trial.json")["task"] != task):
+                raise ValueError("The actual ablation input, source, budget or model differs from its frozen plan")
+            claim_billing_identities(directory, identities)
+            final = control_artifact_metrics(directory, "mini-swe", "C0")
+            if any(row[key] != value for key, value in final.items()):
+                raise ValueError("A saved ablation row differs from its actual final public or protected record")
+            ablation["rows"].append({"task": row["task"], "without_guidance": row,
+                "full_guidance_reference": indexed["main"][row["task"]]})
+        ablation["completed"] = len(ablation["rows"])
+        if len({r["task"] for r in ablation["rows"]}) != ablation["completed"]:
+            raise ValueError("An ablation position is duplicated")
+    complete = summary["complete_all225"] and all(len(rows) == 75 for rows in indexed.values()) and ablation["completed"] == 3
+    if args.require_complete and not complete:
+        raise ValueError("The final report needs all225 core and3 declared supplementary original scores")
+    supplementary = {}
+    for name in ("independent-review-findings.json", "independent-review-32plus4-20261124.json",
+            "scheduler-public-replay/result.json", "oracle-engineering-validation-r2/result.json"):
+        path = folder / name
+        supplementary[name] = {"path": str(path.relative_to(root)), "sha256": digest(path)}
+    if acceptance is not None:
+        feal_review = root / "work/feal-linear-helper-20261125/completed-review.json"
+        feal_proof = read(feal_review)
+        if (feal_proof["status"] != "APPROVE_COMPLETED_TWO_POSITION_SCOPE"
+                or feal_proof["blocking_findings_remaining"] != {"P0": 0, "P1": 0}):
+            raise ValueError("The FEAL mechanism description requires its actual completed source review")
+        for run in feal_proof["runs"]:
+            directory = root / run["run_dir"]
+            for name, expected in run["source_sha256_relative_to_run"].items():
+                if digest(directory / name) != expected:
+                    raise ValueError("A reviewed FEAL source changed before report generation")
+        supplementary["feal_completed_review"] = {"path": str(feal_review.relative_to(root)), "sha256": digest(feal_review)}
+        json_review = root / "work/json-in-semantics-20261125/oracle-bool/ascii-transport/completed-review.json"
+        json_proof = read(json_review)
+        conclusion = json_proof["conclusion"]
+        final_json = [row for row in acceptance["new_revision_rows"] if row["task"] == "django__django-13346"]
+        if (conclusion["status"] != "APPROVE_WITH_RECORDED_LIMITS"
+                or conclusion["new_P0"] != 0 or conclusion["new_P1"] != 0
+                or conclusion["qualified_passed"] != 2
+                or {row["run_dir"] for row in json_proof["rows"]} != {row["run_dir"] for row in final_json}
+                or json_proof["frozen_plan"]["sha256"] != acceptance["revision_plans"]["json"]["sha256"]):
+            raise ValueError("The final JSON mechanism description requires its two actual reviewed revision sessions")
+        for name, expected in json_proof["shared_source_sha256"].items():
+            if digest(root / name) != expected:
+                raise ValueError("A shared reviewed JSON source changed before report generation")
+        for run in json_proof["rows"]:
+            directory = root / run["run_dir"]
+            for name, expected in run["source_sha256"].items():
+                if digest(directory / name) != expected:
+                    raise ValueError("A reviewed JSON source changed before report generation")
+            if digest(directory.with_suffix(".protocol.json")) != run["protocol_sha256"]:
+                raise ValueError("A reviewed JSON session protocol changed before report generation")
+        supplementary["json_completed_review"] = {"path": str(json_review.relative_to(root)), "sha256": digest(json_review)}
+        for label, task_id, relative in (
+                ("xarray", "pydata__xarray-2905", "work/xarray-2905-semantics-20261125/completed-review.json"),
+                ("pytest", "pytest-dev__pytest-7205", "work/pytest-7205-semantics-20261125/completed-review.json"),
+                ("preservation", "pytest-dev__pytest-5631", "work/pytest-5631-preservation-20261125/completed-review.json")):
+            review_path = root / relative
+            proof = read(review_path)
+            final_rows = [row for row in acceptance["new_revision_rows"] if row["task"] == task_id]
+            if (proof["status"] != "APPROVE_WITH_STATED_LIMITS" or proof["blocking_findings"]
+                    or proof["totals"]["final_public_and_protected_passed"] != 2
+                    or {row["run_dir"] for row in proof["rows"]} != {row["run_dir"] for row in final_rows}
+                    or proof["frozen_plan"]["sha256"] != acceptance["revision_plans"][label]["sha256"]):
+                raise ValueError("The mechanism description requires its two actual reviewed sessions: " + label)
+            for name, expected in proof["shared_source_sha256"].items():
+                if digest(root / name) != expected:
+                    raise ValueError("A shared reviewed source changed before report generation: " + name)
+            for run in proof["rows"]:
+                directory = root / run["run_dir"]
+                for name, expected in run["source_sha256"].items():
+                    if digest(directory / name) != expected:
+                        raise ValueError("A reviewed run source changed before report generation: " + name)
+                if digest(directory.with_suffix(".protocol.json")) != run["protocol_sha256"]:
+                    raise ValueError("A reviewed session protocol changed before report generation: " + label)
+            supplementary[label + "_completed_review"] = {"path": relative, "sha256": digest(review_path)}
+        oracle_proof = root / "work/json-in-semantics-20261125/oracle-bool/qualification/result.json"
+        supplementary["oracle_bool_qualification"] = {"path": str(oracle_proof.relative_to(root)), "sha256": digest(oracle_proof)}
+    historical_paths = {"all270": root / "work/hw0102-publish/作业二/evidence/confirmation-hy4flash-free-v16-summary/summary.json",
+        "protocol_groups": root / "work/course-execution-failure-analysis-20261118.json"}
+    history = {name: read(path) for name, path in historical_paths.items()}
+    for name, path in historical_paths.items():
+        supplementary["historical_" + name] = {"path": str(path.relative_to(root)), "sha256": digest(path)}
+    matched, = [row for row in history["protocol_groups"]["same_protocol_complete_triples"]
+        if row["protocol_commit"].startswith("081a796c") and row["repeat"] == 3]
+    historical = {"interpretation": "Previously audited records, not a new model run or a new complete raw trace review",
+        "all270": {row["arm"]: {"passed": row["success"], "trials": row["trials"]}
+            for row in history["all270"]["coverage"] if row["benchmark"] == "all"},
+        "matched_protocol": matched}
+    cases, case_sources = case_observations(indexed["main"], root)
+    data = {"stage": "complete_report_input" if complete else "incomplete_internal_preview_input",
+        "summary": str(args.summary), "summary_sha256": digest(args.summary),
+        "producer_sha256": digest(Path(__file__)), "tasks_path": str(manifest.relative_to(root)),
+        "tasks_sha256": digest(manifest),
+        "observed_utc": summary["observed_utc"], "groups": summary["groups"],
+        "complete_required_experiments": complete,
+        "main_and_repeat_all75_qualified_pass": summary["main_and_repeat_all75_qualified_pass"],
+        "comparisons": {name: paired(indexed["main"], indexed["dsh"], selected) for name, selected in sets.items()},
+        "independent_repeats": {name: paired(indexed["main"], indexed["repeat"], selected) for name, selected in sets.items()},
+        "runtime_counts": {arm: dict(counts) for arm, counts in runtime_counts.items()},
+        "mechanism_use": {arm: {
+            "controlled_positions": sum(key.startswith(arm + ":") for key in control),
+            "automatic_enabled_positions": sum(value["actual_automatic_checks_enabled"] for key, value in control.items()
+                if key.startswith(arm + ":")),
+            "requested_checks": sum(value["verification_reasons"].get("requested", 0) for key, value in control.items()
+                if key.startswith(arm + ":")),
+            "candidates_saved": sum(value["events"].get("candidate_saved", 0) for key, value in control.items()
+                if key.startswith(arm + ":")),
+            "eligible_candidates_saved": sum(value["eligible_candidates_saved"] for key, value in control.items()
+                if key.startswith(arm + ":")),
+            "actual_restores": sum(value["events"].get("candidate_restored", 0) for key, value in control.items()
+                if key.startswith(arm + ":"))} for arm in ("main", "repeat")},
+        "ablation": ablation, "sources": sources, "control": control, "supplementary": supplementary,
+        "case_observations": cases, "case_sources": case_sources,
+        "historical_control_comparison": historical,
+        "historical_unknown_calls_preserved": summary["historical_unknown_calls_preserved"],
+        "active_financial_stop": summary["active_financial_stop"], "unscored_attempts": summary["unscored_attempts"],
+        "mechanical_interruption_costs": summary["mechanical_interruption_costs"],
+        "additional_interrupted_request_events": summary["additional_interrupted_request_events"],
+        "additional_unverified_request_events": summary["additional_unverified_request_events"],
+        "new_model_calls": 0, "inference_scope": summary["interpretation"],
+        "incremental_acceptance": acceptance,
+        "cost_scope": "Each cohort includes all its original scored passes and failures. Historical attempts, unknowns and supplementary models remain separate; token usage is not a monetary receipt."}
+    data["nvidia_auxiliary"] = nvidia_report_sources(args.nvidia_summary.resolve(), root, tasks)
+    args.out.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    print(json.dumps({"complete": complete, "groups": {arm: describe(list(rows.values())) for arm, rows in indexed.items()},
+        "ablation_completed": ablation["completed"], "new_model_calls": 0}, ensure_ascii=False))
+
+
+if __name__ == "__main__":
+    main()

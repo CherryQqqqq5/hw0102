@@ -1,0 +1,389 @@
+{
+  "status": "PASS",
+  "stage": "source_and_entry_readiness_only_not_final_submission",
+  "new_model_calls": 0,
+  "new_original_grader_calls": 0,
+  "source_manifest_sha256": "37afb309ec98d54a2f70950be1da2d2f59da9bfe6d6bf706278e6cbfbc02563a",
+  "current_command_checks": [
+    {
+      "arguments": [
+        "python",
+        "-B",
+        "sync_sources.py",
+        "verify"
+      ],
+      "returncode": 0,
+      "output_sha256": "d3938f76d7faa7cff58ce8756bd7bf0556c53683dff4b493cda4634cca15db4a",
+      "output": "{\"status\": \"verified\", \"source_files\": 601, \"source_bytes\": 13549919, \"frozen_runtime_versions\": 6, \"public_resources_referenced_not_copied\": 5, \"new_model_calls\": 0, \"new_original_grader_calls\": 0, \"final_results_complete\": false}\n\n"
+    },
+    {
+      "arguments": [
+        "python",
+        "-B",
+        "work/parallel-free-evaluation-20261124/analyze_nvidia_v28.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "output_sha256": "152296f7d0be2bf50ec44b6b6772707fd51e770ecb868cd3b5903e2e9fda8929",
+      "output": "usage: analyze_nvidia_v28.py [-h] [--out OUT]\n                             [--experiment {v28,v29,v30,v31,v32}]\n\noptions:\n  -h, --help            show this help message and exit\n  --out OUT\n  --experiment {v28,v29,v30,v31,v32}\n\n"
+    },
+    {
+      "arguments": [
+        "python",
+        "-B",
+        "work/parallel-free-evaluation-20261124/export_nvidia_v28.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "output_sha256": "6672bffc938f3c9c854e8ec5752a7242654a1bafb1ecb04ebd72b890ef0726eb",
+      "output": "usage: export_nvidia_v28.py [-h] {export,verify} ...\n\npositional arguments:\n  {export,verify}\n\noptions:\n  -h, --help       show this help message and exit\n\n"
+    },
+    {
+      "arguments": [
+        "python",
+        "-B",
+        "work/parallel-free-evaluation-20261124/export_nvidia_history.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "output_sha256": "12fc8136fa7e4080711257e17e5c069335aeca5c4a5cc59ac6d436c97edf5135",
+      "output": "usage: export_nvidia_history.py [-h] --out OUT [--summary SUMMARY]\n                                {export,verify}\n\npositional arguments:\n  {export,verify}\n\noptions:\n  -h, --help         show this help message and exit\n  --out OUT\n  --summary SUMMARY\n\n"
+    },
+    {
+      "arguments": [
+        "python",
+        "-B",
+        "work/parallel-free-evaluation-20261124/prepare_report_data.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "output_sha256": "4fbfcbda966f44de3f0eb317c0cc456d618d1f0cbdde78b9dfd490b25d2b26cf",
+      "output": "usage: prepare_report_data.py [-h] [--summary SUMMARY] [--out OUT]\n                              [--ablation-plan ABLATION_PLAN]\n                              [--nvidia-summary NVIDIA_SUMMARY]\n                              [--require-complete]\n\noptions:\n  -h, --help            show this help message and exit\n  --summary SUMMARY\n  --out OUT\n  --ablation-plan ABLATION_PLAN\n  --nvidia-summary NVIDIA_SUMMARY\n  --require-complete\n\n"
+    },
+    {
+      "arguments": [
+        "python",
+        "-B",
+        "work/parallel-free-evaluation-20261124/join_scoped_revisions.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "output_sha256": "d9ea53e9a89cdbb1a84214158ce0d10850332a29633f968818876526eebdceaf",
+      "output": "usage: join_scoped_revisions.py [-h] [--core-summary CORE_SUMMARY] [--out OUT]\n                                [--require-complete]\n\noptions:\n  -h, --help            show this help message and exit\n  --core-summary CORE_SUMMARY\n  --out OUT\n  --require-complete\n\n"
+    },
+    {
+      "arguments": [
+        "python",
+        "-B",
+        "work/parallel-free-evaluation-20261124/ready_coordinator.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "output_sha256": "699b5870519c6860e69f823976080939c3b4b96c6ab5b892278083fde8c1a08c",
+      "output": "usage: ready_coordinator.py [-h] --plan PLAN --queue-dir QUEUE_DIR\n                            [--validate-only]\n\noptions:\n  -h, --help            show this help message and exit\n  --plan PLAN\n  --queue-dir QUEUE_DIR\n  --validate-only\n\n"
+    },
+    {
+      "arguments": [
+        "python",
+        "-B",
+        "work/parallel-free-evaluation-20261124/run_fixed_free_trials.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "output_sha256": "38d5042d8e678704add196f5df34aee1b6bc8db2db667acd132edc4af816f5b7",
+      "output": "usage: run_fixed_free_trials.py [-h] --plan PLAN [--validate-only]\n\noptions:\n  -h, --help       show this help message and exit\n  --plan PLAN\n  --validate-only\n\n"
+    },
+    {
+      "arguments": [
+        "python",
+        "-B",
+        "work/parallel-free-evaluation-20261124/run_ready_queues.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "output_sha256": "75e1e771dca95db04580b99f5892836e47467820ead7330a2194477f5d8bbd56",
+      "output": "usage: run_ready_queues.py [-h] [--previous-main PREVIOUS_MAIN]\n                           [--adopt-repeat ADOPT_REPEAT]\n                           [--main-plan MAIN_PLAN] [--repeat-plan REPEAT_PLAN]\n                           [--run-label RUN_LABEL] [--validate-only]\n\noptions:\n  -h, --help            show this help message and exit\n  --previous-main PREVIOUS_MAIN\n  --adopt-repeat ADOPT_REPEAT\n  --main-plan MAIN_PLAN\n  --repeat-plan REPEAT_PLAN\n  --run-label RUN_LABEL\n  --validate-only\n\n"
+    },
+    {
+      "arguments": [
+        "python",
+        "-B",
+        "work/render_hy4_final_reports.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "output_sha256": "e3f86a1aa379c985b16804957e85e7b20c210bfe6f4dd390c8dc847da881f35f",
+      "output": "usage: render_hy4_final_reports.py [-h] [--data DATA] [--out-dir OUT_DIR]\n                                   [--final-review FINAL_REVIEW] [--preview]\n\noptions:\n  -h, --help            show this help message and exit\n  --data DATA\n  --out-dir OUT_DIR\n  --final-review FINAL_REVIEW\n  --preview\n\n"
+    },
+    {
+      "arguments": [
+        "python",
+        "-B",
+        "work/nvidia75-parallel-dispatch-v32-20261125/benchmarks_entry.py",
+        "--import-proof"
+      ],
+      "returncode": 0,
+      "output_sha256": "4be044587903f1fe29025f09c7fa98a1d4a5958ff567c1576949fcd39b15dd6e",
+      "output": "{\"actual_module_resolution\": {\"benchmarks\": {\"path\": \"[reproduction]/work/frozen-performance-free-v31/course_eval/benchmarks.py\", \"sha256\": \"57d478adda9d4f1770eae34740b0a9c4c1d5c5da5b99fb541ffe859553cdb665\"}, \"agent\": {\"path\": \"[reproduction]/work/frozen-performance-free-v31/course_eval/agent.py\", \"sha256\": \"22814d396ad3027d79ff44e916d365db014657ff644a7e8cf51db8c5f828b2c2\"}, \"controller\": {\"path\": \"[reproduction]/work/frozen-performance-free-v31/course_eval/controller.py\", \"sha256\": \"4e154b9ab10f77964044a411abe97bce6038c971cb229ebaa9858c879b16a8e2\"}, \"financial_stop\": {\"path\": \"[reproduction]/work/frozen-performance-free-v31/course_eval/financial_stop.py\", \"sha256\": \"c5417fdfea0b5b836b465d88a304eb660f7e3f1acc85e10ebee9612815f7fd4f\"}, \"openrouter_free\": {\"path\": \"[reproduction]/work/frozen-performance-free-v31/course_eval/openrouter_free.py\", \"sha256\": \"4ad86d138a2812bd3f2ce594a6fa7830ada392f41a39e423733c837276e3ab06\"}, \"nvidia_free\": {\"path\": \"[reproduction]/work/frozen-performance-free-v31/course_eval/nvidia_free.py\", \"sha256\": \"9752aabfbb5009238db516fbe29eb511e38ec4a5f60474d680df23ef1593b48b\"}}, \"new_model_calls\": 0}\n\n"
+    },
+    {
+      "arguments": [
+        "python",
+        "-B",
+        "launchers/harbor_entry.py",
+        "--help"
+      ],
+      "returncode": 0,
+      "output_sha256": "ce46ee9a5cd1cff6264c66c9115a86b640d05e7cf3ec2ce76f9a89e62d9ad708",
+      "output": "                                                                                \n Usage: harbor_entry.py [OPTIONS] COMMAND [ARGS]...                             \n                                                                                \n╭─ Options ────────────────────────────────────────────────────────────────────╮\n│ --version             -v                                                     │\n│ --install-completion            Install completion for the current shell.    │\n│ --show-completion               Show completion for the current shell, to    │\n│                                 copy it or customize the installation.       │\n│ --help                -h        Show this message and exit.                  │\n╰──────────────────────────────────────────────────────────────────────────────╯\n╭─ Commands ───────────────────────────────────────────────────────────────────╮\n│ check     Check task quality against a rubric.                               │\n│ lint      Statically check task files.                                       │\n│ analyze   Analyze trial trajectories.                                        │\n│ init      Initialize a new task or dataset.                                  │\n│ run       Start a job. Alias for `harbor job start`.                         │\n│ exec      Compile paths into tasks and run a job.                            │\n│ publish   Publish tasks and datasets to the Harbor registry.                 │\n│ upload    Upload job results to the Harbor platform.                         │\n│ download  Download a task or dataset.                                        │\n│ sync      Update task digests in a dataset manifest.                         │\n│ view      Start web server to browse trajectory files.                       │\n│ adapter   Manage adapters.                                                   │\n│ agent     Inspect built-in agents.                                           │\n│ task      Manage tasks.                                                      │\n│ dataset   Manage datasets.                                                   │\n│ job       Manage jobs.                                                       │\n│ hub       View Harbor Hub jobs, tasks, and trials.                           │\n│ trial     Manage trials.                                                     │\n│ cache     Manage Harbor cache.                   "
+    }
+  ],
+  "current_checks_passed": true,
+  "failed_qualification_history": [
+    {
+      "arguments": [
+        "python",
+        "-B",
+        "work/render_hy4_final_reports.py",
+        "--help"
+      ],
+      "returncode": 1,
+      "output_sha256": "af9598fc24618672cc1a304869b95e8630aed5622b85aff9876b1bfb07efb057",
+      "output": "\nTraceback (most recent call last):\n  File \"<string>\", line 13, in <module>\n    runpy.run_path(sys.argv[0],run_name=\"__main__\")\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"work/render_hy4_final_reports.py\", line 6, in <module>\n    from reportlab.platypus import Spacer, TableStyle\nModuleNotFoundError: No module named 'reportlab'\n"
+    },
+    {
+      "arguments": [
+        "python",
+        "-B",
+        "launchers/harbor.py",
+        "--help"
+      ],
+      "returncode": 1,
+      "output_sha256": "d96a8c13f9fbc0d93470ac0264c4aa68661e270a562d98de5bafe2853b551f22",
+      "output": "\nTraceback (most recent call last):\n  File \"<string>\", line 13, in <module>\n    runpy.run_path(sys.argv[0],run_name=\"__main__\")\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"launchers/harbor.py\", line 5, in <module>\n    from harbor.cli.main import app\n  File \"[reproduction]/launchers/harbor.py\", line 5, in <module>\n    from harbor.cli.main import app\nModuleNotFoundError: No module named 'harbor.cli'; 'harbor' is not a package\n"
+    },
+    {
+      "arguments": [
+        "python",
+        "-B",
+        "work/parallel-free-evaluation-20261124/run_fixed_free_trials.py",
+        "--help"
+      ],
+      "returncode": 1,
+      "output_sha256": "61c273546ae17dad78380ef46aa22d441a914f5774ab239955d582eb98e5e321",
+      "output": "\nTraceback (most recent call last):\n  File \"<string>\", line 12, in <module>\n    runpy.run_path(sys.argv[0],run_name=\"__main__\")\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"work/parallel-free-evaluation-20261124/run_fixed_free_trials.py\", line 8, in <module>\n    from ready_coordinator import digest, prepare_missing_image, read_json\nModuleNotFoundError: No module named 'ready_coordinator'\n"
+    }
+  ],
+  "source_comparison": {
+    "verified_source_files": 601,
+    "source_digest_mismatches": [],
+    "scope": "Only the explicit601 recorded source/config/launcher files read; no current v32 queue/model/session read",
+    "subsequent_authorized_update": "Only work/scan_staged_delivery.py updated and source/export bytes re-compared; previous full600 source comparisons retained"
+  },
+  "sensitive_scan": {
+    "files_checked": 605,
+    "bytes_scope": "Only this approximately14MB new code directory; no SDK/cache traversal",
+    "sensitive_hits": [],
+    "detector_definition_exceptions": [
+      {
+        "path": "course_eval/export_revision.py",
+        "line": 8,
+        "reason": "Only the literal rejection pattern definition is excluded; all remaining source scanned"
+      },
+      {
+        "path": "course_eval/export_revision.py",
+        "line": 11,
+        "reason": "Only the literal rejection pattern definition is excluded; all remaining source scanned"
+      },
+      {
+        "path": "work/frozen-performance-dsh-parallel-guard-20261124/course_eval/export_revision.py",
+        "line": 8,
+        "reason": "Only the literal rejection pattern definition is excluded; all remaining source scanned"
+      },
+      {
+        "path": "work/frozen-performance-dsh-parallel-guard-20261124/course_eval/export_revision.py",
+        "line": 11,
+        "reason": "Only the literal rejection pattern definition is excluded; all remaining source scanned"
+      },
+      {
+        "path": "work/frozen-performance-free-v27/course_eval/export_revision.py",
+        "line": 8,
+        "reason": "Only the literal rejection pattern definition is excluded; all remaining source scanned"
+      },
+      {
+        "path": "work/frozen-performance-free-v27/course_eval/export_revision.py",
+        "line": 11,
+        "reason": "Only the literal rejection pattern definition is excluded; all remaining source scanned"
+      },
+      {
+        "path": "work/frozen-performance-free-v31/course_eval/export_revision.py",
+        "line": 8,
+        "reason": "Only the literal rejection pattern definition is excluded; all remaining source scanned"
+      },
+      {
+        "path": "work/frozen-performance-free-v31/course_eval/export_revision.py",
+        "line": 11,
+        "reason": "Only the literal rejection pattern definition is excluded; all remaining source scanned"
+      },
+      {
+        "path": "work/frozen-performance-hy4-feal-linear-v19/course_eval/export_revision.py",
+        "line": 8,
+        "reason": "Only the literal rejection pattern definition is excluded; all remaining source scanned"
+      },
+      {
+        "path": "work/frozen-performance-hy4-feal-linear-v19/course_eval/export_revision.py",
+        "line": 11,
+        "reason": "Only the literal rejection pattern definition is excluded; all remaining source scanned"
+      },
+      {
+        "path": "work/frozen-performance-hy4-sql-layout-v18/course_eval/export_revision.py",
+        "line": 8,
+        "reason": "Only the literal rejection pattern definition is excluded; all remaining source scanned"
+      },
+      {
+        "path": "work/frozen-performance-hy4-sql-layout-v18/course_eval/export_revision.py",
+        "line": 11,
+        "reason": "Only the literal rejection pattern definition is excluded; all remaining source scanned"
+      },
+      {
+        "path": "work/frozen-performance-hy4-sql-layout-v18-guidance-off/course_eval/export_revision.py",
+        "line": 8,
+        "reason": "Only the literal rejection pattern definition is excluded; all remaining source scanned"
+      },
+      {
+        "path": "work/frozen-performance-hy4-sql-layout-v18-guidance-off/course_eval/export_revision.py",
+        "line": 11,
+        "reason": "Only the literal rejection pattern definition is excluded; all remaining source scanned"
+      }
+    ],
+    "parent_staged_scanner_requires_explicit_new_detector_paths": false,
+    "parent_added_exact_new_detector_paths": true,
+    "final_staged_scan_pending": true
+  },
+  "validation_environment": {
+    "execution": "Existing project Python3.13venv; no installation",
+    "report": "Existing Codex report environment; ReportLab4.4.9/pdfplumber0.11.9/Pillow13.0.0/pypdf6.21.4; no installation",
+    "dispatch": "socket.connect and subprocess.Popen denied within every checked entry",
+    "isolation": "All author own-source and VMshare opens denied during help/import checks; only installed dependencies and already published public wheel refs allowed",
+    "fixture_correction": "Direct-script sys.path emulated after preserved runpy-only fixture failure",
+    "publication_launcher_correction": "New harbor.py copy renamed harbor_entry.py to avoid package shadowing; actual original launcher never changed"
+  },
+  "scope_limits": [
+    "No full experiment replay, new model requests, graders, containers, PDF generation, visual QA, fresh package install, commit or push",
+    "Sanitized historical plans are provenance records, not current executable admissions",
+    "Original577-byte custom Harbor launcher SHA and portable export SHA remain distinct",
+    "SDK/image/task payloads, account/STOP and raw private traces excluded",
+    "Source snapshots are this publication-time point; later runtime/report changes require separately reviewed sync"
+  ],
+  "readme_wording_amendment": {
+    "changes": [
+      "Use original passed/not passed/unscored interruption terminology",
+      "Remove the renderer14line editing narration"
+    ],
+    "previous_manifest_sha256": "85d83d2c5a8f4653addba3f6d26f7fd186a4d04127a7bd11e9d103038385a3fe",
+    "previous_readme": {
+      "sha256": "66609e2cc4624cdf2e0f5a56e7bad35e575bf87800aac4871a28751923184362",
+      "bytes": 6658
+    },
+    "current_readme": {
+      "sha256": "48aee393257faf8e34e85fb6c861ed45d74ee0a80ca1ceb0b8e5723400c3d453",
+      "bytes": 6588
+    },
+    "source_file_entries_sha256": "355d43c77a3f303f0f09e7d248bbc3e3b0d2da1a6cfd6700bd8f675d6e48a6e1",
+    "source_file_entries_unchanged": true,
+    "registered_source_files": 601,
+    "readme_lint": "PASS: requested wording, balanced code fences, no trailing whitespace",
+    "prior12_entry_checks_reused": true,
+    "new_entry_or_tree_scans": 0
+  },
+  "publication_scanner_amendment": {
+    "owner": "Parent-approved exact seven detector-definition paths",
+    "old_record": {
+      "source": "work/scan_staged_delivery.py",
+      "source_sha256": "06e858eb2d37e04d1ae93482b34ed0602a52967ec08f594df6da7f1e830a1b0d",
+      "source_bytes": 2487,
+      "export_sha256": "06e858eb2d37e04d1ae93482b34ed0602a52967ec08f594df6da7f1e830a1b0d",
+      "export_bytes": 2487,
+      "byte_identical": true,
+      "kind": "source_code",
+      "transformation": "none"
+    },
+    "current_record": {
+      "source": "work/scan_staged_delivery.py",
+      "source_sha256": "8dc7651f92595b158677d0f8aa7bfb7a00cc49274d1506a27773e3d3d6ba67ed",
+      "source_bytes": 3322,
+      "export_sha256": "8dc7651f92595b158677d0f8aa7bfb7a00cc49274d1506a27773e3d3d6ba67ed",
+      "export_bytes": 3322,
+      "byte_identical": true,
+      "kind": "source_code",
+      "transformation": "none"
+    },
+    "source_export_identical": true,
+    "other600_source_records_unchanged": true
+  },
+  "ordinary_python_cache_qualification": {
+    "status": "PASS",
+    "new_sync_source": {
+      "sha256": "f561c8aa4ced85a6ab0092a37c271dee886a49ed030c67571bb32c3200843b85",
+      "bytes": 14933
+    },
+    "previous_manifest_sha256": "09c6c0c2a777d600b8184f964ce8ef459064c48e9f01feb0f4e3eef36c3d0e6c",
+    "prior_qualification_limitation": "Earlier12 checks used -B and did not exercise re-generated bytecode; retain their original scope",
+    "intermediate_failure_preserved": {
+      "ordinary_help_returncode": 0,
+      "verify_error": "A synchronized exported source changed: work/scan_staged_delivery.py",
+      "cause": "Concurrent parent-approved scanner source update was not yet entered in the manifest",
+      "own_pyc_files_cleaned": 4,
+      "own_pyc_bytes_cleaned": 42873
+    },
+    "command": [
+      "python",
+      "work/parallel-free-evaluation-20261124/ready_coordinator.py",
+      "--help"
+    ],
+    "python_B": false,
+    "PYTHONDONTWRITEBYTECODE": false,
+    "returncode": 0,
+    "output_sha256": "dfe71329d898b4f7a3639823e7dcea69c2db52a44cdb04e5ed0c36ae4854ff05",
+    "real_new_pyc_files": [
+      "course_eval/__pycache__/docker_target.cpython-313.pyc",
+      "course_eval/__pycache__/resource_pool.cpython-313.pyc",
+      "course_eval/__pycache__/sandbox_command.cpython-313.pyc",
+      "scripts/__pycache__/run_performance_queue.cpython-313.pyc"
+    ],
+    "old_extra_rule_would_reject_these_real_files": 4,
+    "verify_after_ordinary_help": {
+      "status": "verified",
+      "source_files": 601,
+      "source_bytes": 13550754,
+      "frozen_runtime_versions": 6,
+      "public_resources_referenced_not_copied": 5,
+      "new_model_calls": 0,
+      "new_original_grader_calls": 0,
+      "final_results_complete": false
+    },
+    "ordinary_non_pyc_file_rejected": "Unexpected files entered the code-only directory: ['__pycache__/qualification-extra.txt']",
+    "only_ignored_type": "suffix.pyc AND a parent component named __pycache__",
+    "own_generated_cache_cleanup": {
+      "files": 4,
+      "bytes": 42873,
+      "all_removed": true
+    },
+    "new_model_calls": 0,
+    "new_original_grader_calls": 0,
+    "unmodified_other11_entry_checks_reused": true,
+    "source_payloads_unchanged_except_parent_scanner": true
+  },
+  "incremental_sensitive_scan": {
+    "scope": [
+      "README.md",
+      "sync_sources.py",
+      "work/scan_staged_delivery.py",
+      "SOURCE_MANIFEST.json",
+      "VALIDATION.json"
+    ],
+    "status": "PASS",
+    "source_scanner_only_parent_approved_delta": true,
+    "no_full_tree_rescan": true
+  }
+}

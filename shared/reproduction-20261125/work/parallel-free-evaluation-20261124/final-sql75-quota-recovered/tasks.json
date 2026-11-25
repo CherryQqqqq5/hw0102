@@ -1,0 +1,1725 @@
+{
+  "stage": "frozen",
+  "revisions": {
+    "swe": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+    "terminal": "7131e4375048a0e408a8fb404b5f499d726b695b",
+    "aider": "7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"
+  },
+  "selected": [
+    {
+      "benchmark": "terminal",
+      "id": "model-extraction-relu-logits",
+      "stratum": "mathematics",
+      "group": "model-extraction-relu-logits",
+      "difficulty": "hard",
+      "image": "alexgshaw/model-extraction-relu-logits:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 900.0,
+      "exclude": null,
+      "split": "H",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/steal.py",
+          "/app/stolen_A1.npy"
+        ],
+        "protected": [
+          "/app/forward.py",
+          "/opt/course-tools/relu_recovery.py"
+        ],
+        "python": "python3",
+        "reusable_helper": "relu_directions"
+      }
+    },
+    {
+      "benchmark": "swe",
+      "id": "pydata__xarray-4687",
+      "stratum": "pydata/xarray",
+      "group": "pydata__xarray-4687",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.pydata_1776_xarray-4687:latest",
+      "base_commit": "d3b6aa6d8b997df115a53c001d00222a0f92f63a",
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:2fef5e69c8c0210e5240618a354722aafaddc4137e92b6768d61967bd7f36fd3",
+      "image_digests": [
+        "swebench/sweb.eval.x86_64.pydata_1776_xarray-4687@sha256:2fef5e69c8c0210e5240618a354722aafaddc4137e92b6768d61967bd7f36fd3"
+      ]
+    },
+    {
+      "benchmark": "swe",
+      "id": "pydata__xarray-6599",
+      "stratum": "pydata/xarray",
+      "group": "pydata__xarray-6599",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.pydata_1776_xarray-6599:latest",
+      "base_commit": "6bb2b855498b5c68d7cca8cceb710365d58e6048",
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "terminal",
+      "id": "extract-elf",
+      "stratum": "file-operations",
+      "group": "extract-elf",
+      "difficulty": "medium",
+      "image": "alexgshaw/extract-elf:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 900.0,
+      "exclude": null,
+      "split": "D",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/extract.js"
+        ],
+        "protected": [
+          "/app/a.out",
+          "/app/hi.c",
+          "/opt/course-tools/elf_memory_check.py",
+          "/opt/course-tools/pyelftools.whl"
+        ],
+        "python": "python3",
+        "reusable_helper": "elf_memory_check"
+      }
+    },
+    {
+      "benchmark": "terminal",
+      "id": "video-processing",
+      "stratum": "video-processing",
+      "group": "video-processing",
+      "difficulty": "hard",
+      "image": "alexgshaw/video-processing:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 3600.0,
+      "exclude": null,
+      "split": "D",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/jump_analyzer.py",
+          "/app/output.toml"
+        ],
+        "protected": [
+          "/app/example_video.mp4",
+          "/opt/course-tools/video_events.py"
+        ],
+        "python": "python3",
+        "reusable_helper": "video_events"
+      }
+    },
+    {
+      "benchmark": "terminal",
+      "id": "llm-inference-batching-scheduler",
+      "stratum": "machine-learning",
+      "group": "llm-inference-batching-scheduler",
+      "difficulty": "hard",
+      "image": "alexgshaw/llm-inference-batching-scheduler:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 1800.0,
+      "exclude": null,
+      "split": "D",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/task_file/output_data/plan_b1.jsonl",
+          "/app/task_file/output_data/plan_b2.jsonl"
+        ],
+        "protected": [
+          "/app/task_file/input_data/requests_bucket_1.jsonl",
+          "/app/task_file/input_data/requests_bucket_2.jsonl",
+          "/app/task_file/scripts/cost_model.py",
+          "/app/task_file/scripts/baseline_packer.py"
+        ],
+        "python": "python3"
+      }
+    },
+    {
+      "benchmark": "terminal",
+      "id": "query-optimize",
+      "stratum": "data-science",
+      "group": "query-optimize",
+      "difficulty": "medium",
+      "image": "alexgshaw/query-optimize:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 900.0,
+      "exclude": null,
+      "split": "D",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/sol.sql"
+        ],
+        "protected": [
+          "/app/oewn.sqlite",
+          "/app/my-sql-query.sql"
+        ],
+        "python": "/opt/course-runtime/bin/python3",
+        "reusable_helper": "sql_layout"
+      }
+    },
+    {
+      "benchmark": "aider",
+      "id": "cpp/all-your-base",
+      "stratum": "cpp",
+      "group": "all-your-base",
+      "solution_files": [
+        "all_your_base.cpp",
+        "all_your_base.h"
+      ],
+      "test_files": [
+        "all_your_base_test.cpp"
+      ],
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+      "image_digests": [
+        "nju-course-aider@sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14"
+      ]
+    },
+    {
+      "benchmark": "terminal",
+      "id": "constraints-scheduling",
+      "stratum": "personal-assistant",
+      "group": "constraints-scheduling",
+      "difficulty": "medium",
+      "image": "alexgshaw/constraints-scheduling:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 1200.0,
+      "exclude": null,
+      "split": "H",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/meeting_scheduled.ics"
+        ],
+        "protected": [
+          "/app/alice_calendar.ics",
+          "/app/bob_calendar.ics",
+          "/app/carol_calendar.ics"
+        ],
+        "python": "python3"
+      }
+    },
+    {
+      "benchmark": "swe",
+      "id": "django__django-11999",
+      "stratum": "django/django",
+      "group": "django__django-11999",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-11999:latest",
+      "base_commit": "84633905273fc916e3d17883810d9969c03f73c2",
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:3c7e7f035f611b17f2093ee6409364bc28cce8b9bac266b9590db762d197607e",
+      "image_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-11999@sha256:3c7e7f035f611b17f2093ee6409364bc28cce8b9bac266b9590db762d197607e"
+      ]
+    },
+    {
+      "benchmark": "aider",
+      "id": "cpp/allergies",
+      "stratum": "cpp",
+      "group": "allergies",
+      "solution_files": [
+        "allergies.cpp",
+        "allergies.h"
+      ],
+      "test_files": [
+        "allergies_test.cpp"
+      ],
+      "exclude": null,
+      "split": "H"
+    },
+    {
+      "benchmark": "terminal",
+      "id": "custom-memory-heap-crash",
+      "stratum": "debugging",
+      "group": "custom-memory-heap-crash",
+      "difficulty": "medium",
+      "image": "alexgshaw/custom-memory-heap-crash:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 1800.0,
+      "exclude": null,
+      "split": "H",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/user.cpp"
+        ],
+        "protected": [
+          "/app/main.cpp",
+          "/app/user.h"
+        ],
+        "python": "python3"
+      }
+    },
+    {
+      "benchmark": "swe",
+      "id": "django__django-12050",
+      "stratum": "django/django",
+      "group": "django__django-12050",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-12050:latest",
+      "base_commit": "b93a0e34d9b9b99d41103782b7e7aeabf47517e3",
+      "exclude": null,
+      "split": "H"
+    },
+    {
+      "benchmark": "aider",
+      "id": "cpp/gigasecond",
+      "stratum": "cpp",
+      "group": "gigasecond",
+      "solution_files": [
+        "gigasecond.cpp",
+        "gigasecond.h"
+      ],
+      "test_files": [
+        "gigasecond_test.cpp"
+      ],
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+      "image_digests": [
+        "nju-course-aider@sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14"
+      ]
+    },
+    {
+      "benchmark": "terminal",
+      "id": "db-wal-recovery",
+      "stratum": "file-operations",
+      "group": "db-wal-recovery",
+      "difficulty": "medium",
+      "image": "alexgshaw/db-wal-recovery:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 900.0,
+      "exclude": null,
+      "split": "C",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/recovered.json",
+          "/app/main.db",
+          "/app/main.db-wal",
+          "/app/main.db-shm"
+        ],
+        "protected": [],
+        "python": "/usr/bin/python3"
+      },
+      "image_id": "sha256:0e33ea5ec823975d1bd6c3778395c9f94251dd88f571146057bff6adb7e4594e",
+      "image_digests": [
+        "alexgshaw/db-wal-recovery@sha256:0e33ea5ec823975d1bd6c3778395c9f94251dd88f571146057bff6adb7e4594e"
+      ]
+    },
+    {
+      "benchmark": "swe",
+      "id": "django__django-12193",
+      "stratum": "django/django",
+      "group": "django__django-12193",
+      "difficulty": "<15 min fix",
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-12193:latest",
+      "base_commit": "3fb7c12158a2402f0f80824f6778112071235803",
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:f2f0882bb350e6c7b073569444629513f4c0bd6821f3610d243a26b2b4eae26e",
+      "image_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-12193@sha256:f2f0882bb350e6c7b073569444629513f4c0bd6821f3610d243a26b2b4eae26e"
+      ]
+    },
+    {
+      "benchmark": "aider",
+      "id": "cpp/linked-list",
+      "stratum": "cpp",
+      "group": "linked-list",
+      "solution_files": [
+        "linked_list.cpp",
+        "linked_list.h"
+      ],
+      "test_files": [
+        "linked_list_test.cpp"
+      ],
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "terminal",
+      "id": "distribution-search",
+      "stratum": "machine-learning",
+      "group": "distribution-search",
+      "difficulty": "medium",
+      "image": "alexgshaw/distribution-search:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 3600.0,
+      "exclude": null,
+      "split": "C",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/dist.npy"
+        ],
+        "protected": [],
+        "python": "/usr/local/bin/python3"
+      },
+      "image_id": "sha256:1448f7aa1c6080488251d00350e8e90477858989b1bec0accc866d7b3220738a",
+      "image_digests": [
+        "alexgshaw/distribution-search@sha256:1448f7aa1c6080488251d00350e8e90477858989b1bec0accc866d7b3220738a"
+      ]
+    },
+    {
+      "benchmark": "swe",
+      "id": "django__django-13346",
+      "stratum": "django/django",
+      "group": "django__django-13346",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-13346:latest",
+      "base_commit": "9c92924cd5d164701e2514e1c2d6574126bd7cc2",
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "aider",
+      "id": "cpp/parallel-letter-frequency",
+      "stratum": "cpp",
+      "group": "parallel-letter-frequency",
+      "solution_files": [
+        "parallel_letter_frequency.cpp",
+        "parallel_letter_frequency.h"
+      ],
+      "test_files": [
+        "parallel_letter_frequency_test.cpp"
+      ],
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "terminal",
+      "id": "feal-linear-cryptanalysis",
+      "stratum": "mathematics",
+      "group": "feal-cryptanalysis",
+      "difficulty": "hard",
+      "image": "alexgshaw/feal-linear-cryptanalysis:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 1800.0,
+      "exclude": null,
+      "split": "C",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/plaintexts.txt"
+        ],
+        "protected": [
+          "/app/ciphertexts.txt",
+          "/app/decrypt",
+          "/app/decrypt.c",
+          "/app/feal",
+          "/app/feal.c",
+          "/app/pairs.txt"
+        ],
+        "python": "/usr/local/bin/python3"
+      },
+      "image_id": "sha256:ea78749a8422c6228d26c8753f45906a6a2df089906764b7e3c3e27e8f718ee7",
+      "image_digests": [
+        "alexgshaw/feal-linear-cryptanalysis@sha256:ea78749a8422c6228d26c8753f45906a6a2df089906764b7e3c3e27e8f718ee7"
+      ]
+    },
+    {
+      "benchmark": "swe",
+      "id": "django__django-14855",
+      "stratum": "django/django",
+      "group": "django__django-14855",
+      "difficulty": "<15 min fix",
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14855:latest",
+      "base_commit": "475cffd1d64c690cdad16ede4d5e81985738ceb4",
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:11c07ee9d97e0d9d7ed2766de8bd3f961825ffa9113bd154a7e8780b459d41cc",
+      "image_digests": [
+        "swebench/sweb.eval.x86_64.django_1776_django-14855@sha256:11c07ee9d97e0d9d7ed2766de8bd3f961825ffa9113bd154a7e8780b459d41cc"
+      ]
+    },
+    {
+      "benchmark": "aider",
+      "id": "go/alphametics",
+      "stratum": "go",
+      "group": "alphametics",
+      "solution_files": [
+        "alphametics.go"
+      ],
+      "test_files": [
+        "alphametics_test.go"
+      ],
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+      "image_digests": [
+        "nju-course-aider@sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c"
+      ]
+    },
+    {
+      "benchmark": "terminal",
+      "id": "fix-code-vulnerability",
+      "stratum": "security",
+      "group": "fix-code-vulnerability",
+      "difficulty": "hard",
+      "image": "alexgshaw/fix-code-vulnerability:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 900.0,
+      "exclude": null,
+      "split": "C",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/bottle.py",
+          "/app/report.jsonl"
+        ],
+        "protected": [
+          "/app/.github/FUNDING.yml",
+          "/app/.github/workflows/run_tests.yml",
+          "/app/.gitignore",
+          "/app/.readthedocs.yaml",
+          "/app/AUTHORS",
+          "/app/LICENSE",
+          "/app/Makefile",
+          "/app/README.rst",
+          "/app/docs/_locale/.tx/config",
+          "/app/docs/_locale/README.txt",
+          "/app/docs/_locale/_pot/api.pot",
+          "/app/docs/_locale/_pot/async.pot",
+          "/app/docs/_locale/_pot/changelog.pot",
+          "/app/docs/_locale/_pot/configuration.pot",
+          "/app/docs/_locale/_pot/contact.pot",
+          "/app/docs/_locale/_pot/deployment.pot",
+          "/app/docs/_locale/_pot/development.pot",
+          "/app/docs/_locale/_pot/faq.pot",
+          "/app/docs/_locale/_pot/index.pot",
+          "/app/docs/_locale/_pot/plugindev.pot",
+          "/app/docs/_locale/_pot/plugins/index.pot",
+          "/app/docs/_locale/_pot/recipes.pot",
+          "/app/docs/_locale/_pot/routing.pot",
+          "/app/docs/_locale/_pot/stpl.pot",
+          "/app/docs/_locale/_pot/tutorial.pot",
+          "/app/docs/_locale/_pot/tutorial_app.pot",
+          "/app/docs/_locale/de_DE/LC_MESSAGES/api.po",
+          "/app/docs/_locale/de_DE/LC_MESSAGES/async.po",
+          "/app/docs/_locale/de_DE/LC_MESSAGES/changelog.po",
+          "/app/docs/_locale/de_DE/LC_MESSAGES/configuration.po",
+          "/app/docs/_locale/de_DE/LC_MESSAGES/contact.po",
+          "/app/docs/_locale/de_DE/LC_MESSAGES/deployment.po",
+          "/app/docs/_locale/de_DE/LC_MESSAGES/development.po",
+          "/app/docs/_locale/de_DE/LC_MESSAGES/faq.po",
+          "/app/docs/_locale/de_DE/LC_MESSAGES/index.po",
+          "/app/docs/_locale/de_DE/LC_MESSAGES/plugindev.po",
+          "/app/docs/_locale/de_DE/LC_MESSAGES/plugins/index.po",
+          "/app/docs/_locale/de_DE/LC_MESSAGES/recipes.po",
+          "/app/docs/_locale/de_DE/LC_MESSAGES/routing.po",
+          "/app/docs/_locale/de_DE/LC_MESSAGES/stpl.po",
+          "/app/docs/_locale/de_DE/LC_MESSAGES/tutorial.po",
+          "/app/docs/_locale/de_DE/LC_MESSAGES/tutorial_app.po",
+          "/app/docs/_locale/fr/LC_MESSAGES/api.po",
+          "/app/docs/_locale/fr/LC_MESSAGES/async.po",
+          "/app/docs/_locale/fr/LC_MESSAGES/changelog.po",
+          "/app/docs/_locale/fr/LC_MESSAGES/configuration.po",
+          "/app/docs/_locale/fr/LC_MESSAGES/contact.po",
+          "/app/docs/_locale/fr/LC_MESSAGES/deployment.po",
+          "/app/docs/_locale/fr/LC_MESSAGES/development.po",
+          "/app/docs/_locale/fr/LC_MESSAGES/faq.po",
+          "/app/docs/_locale/fr/LC_MESSAGES/index.po",
+          "/app/docs/_locale/fr/LC_MESSAGES/plugindev.po",
+          "/app/docs/_locale/fr/LC_MESSAGES/plugins/index.po",
+          "/app/docs/_locale/fr/LC_MESSAGES/recipes.po",
+          "/app/docs/_locale/fr/LC_MESSAGES/routing.po",
+          "/app/docs/_locale/fr/LC_MESSAGES/stpl.po",
+          "/app/docs/_locale/fr/LC_MESSAGES/tutorial.po",
+          "/app/docs/_locale/fr/LC_MESSAGES/tutorial_app.po",
+          "/app/docs/_locale/ja_JP/LC_MESSAGES/api.po",
+          "/app/docs/_locale/ja_JP/LC_MESSAGES/async.po",
+          "/app/docs/_locale/ja_JP/LC_MESSAGES/changelog.po",
+          "/app/docs/_locale/ja_JP/LC_MESSAGES/configuration.po",
+          "/app/docs/_locale/ja_JP/LC_MESSAGES/contact.po",
+          "/app/docs/_locale/ja_JP/LC_MESSAGES/deployment.po",
+          "/app/docs/_locale/ja_JP/LC_MESSAGES/development.po",
+          "/app/docs/_locale/ja_JP/LC_MESSAGES/faq.po",
+          "/app/docs/_locale/ja_JP/LC_MESSAGES/index.po",
+          "/app/docs/_locale/ja_JP/LC_MESSAGES/plugindev.po",
+          "/app/docs/_locale/ja_JP/LC_MESSAGES/plugins/index.po",
+          "/app/docs/_locale/ja_JP/LC_MESSAGES/recipes.po",
+          "/app/docs/_locale/ja_JP/LC_MESSAGES/routing.po",
+          "/app/docs/_locale/ja_JP/LC_MESSAGES/stpl.po",
+          "/app/docs/_locale/ja_JP/LC_MESSAGES/tutorial.po",
+          "/app/docs/_locale/ja_JP/LC_MESSAGES/tutorial_app.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/_pot/api.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/_pot/async.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/_pot/changelog.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/_pot/configuration.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/_pot/contact.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/_pot/deployment.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/_pot/development.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/_pot/faq.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/_pot/index.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/_pot/plugindev.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/_pot/plugins/index.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/_pot/recipes.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/_pot/routing.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/_pot/stpl.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/_pot/tutorial.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/_pot/tutorial_app.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/api.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/async.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/changelog.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/configuration.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/contact.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/deployment.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/development.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/faq.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/index.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/plugindev.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/plugins/index.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/recipes.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/routing.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/stpl.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/tutorial.po",
+          "/app/docs/_locale/pt_BR/LC_MESSAGES/tutorial_app.po",
+          "/app/docs/_locale/requirements.txt",
+          "/app/docs/_locale/ru_RU/LC_MESSAGES/api.po",
+          "/app/docs/_locale/ru_RU/LC_MESSAGES/async.po",
+          "/app/docs/_locale/ru_RU/LC_MESSAGES/changelog.po",
+          "/app/docs/_locale/ru_RU/LC_MESSAGES/configuration.po",
+          "/app/docs/_locale/ru_RU/LC_MESSAGES/contact.po",
+          "/app/docs/_locale/ru_RU/LC_MESSAGES/deployment.po",
+          "/app/docs/_locale/ru_RU/LC_MESSAGES/development.po",
+          "/app/docs/_locale/ru_RU/LC_MESSAGES/faq.po",
+          "/app/docs/_locale/ru_RU/LC_MESSAGES/index.po",
+          "/app/docs/_locale/ru_RU/LC_MESSAGES/plugindev.po",
+          "/app/docs/_locale/ru_RU/LC_MESSAGES/plugins/index.po",
+          "/app/docs/_locale/ru_RU/LC_MESSAGES/recipes.po",
+          "/app/docs/_locale/ru_RU/LC_MESSAGES/routing.po",
+          "/app/docs/_locale/ru_RU/LC_MESSAGES/stpl.po",
+          "/app/docs/_locale/ru_RU/LC_MESSAGES/tutorial.po",
+          "/app/docs/_locale/ru_RU/LC_MESSAGES/tutorial_app.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/_pot/api.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/_pot/async.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/_pot/changelog.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/_pot/configuration.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/_pot/contact.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/_pot/deployment.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/_pot/development.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/_pot/faq.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/_pot/index.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/_pot/plugindev.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/_pot/plugins/index.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/_pot/recipes.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/_pot/routing.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/_pot/stpl.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/_pot/tutorial.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/_pot/tutorial_app.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/api.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/async.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/changelog.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/configuration.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/contact.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/deployment.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/development.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/faq.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/index.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/plugindev.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/plugins/index.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/recipes.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/routing.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/stpl.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/tutorial.po",
+          "/app/docs/_locale/zh_CN/LC_MESSAGES/tutorial_app.po",
+          "/app/docs/api.rst",
+          "/app/docs/async.rst",
+          "/app/docs/bottle.svg",
+          "/app/docs/changelog.rst",
+          "/app/docs/conf.py",
+          "/app/docs/configuration.rst",
+          "/app/docs/contributors.rst",
+          "/app/docs/deployment.rst",
+          "/app/docs/development.rst",
+          "/app/docs/faq.rst",
+          "/app/docs/index.rst",
+          "/app/docs/plugins/dev.rst",
+          "/app/docs/plugins/index.rst",
+          "/app/docs/plugins/list.rst",
+          "/app/docs/routing.rst",
+          "/app/docs/stpl.rst",
+          "/app/docs/tutorial.rst",
+          "/app/docs/tutorial_app.rst",
+          "/app/pyproject.toml",
+          "/app/test/.coveragerc",
+          "/app/test/__init__.py",
+          "/app/test/build_python.sh",
+          "/app/test/example_settings.py",
+          "/app/test/test_app.py",
+          "/app/test/test_auth.py",
+          "/app/test/test_config.py",
+          "/app/test/test_contextlocals.py",
+          "/app/test/test_environ.py",
+          "/app/test/test_exc.py",
+          "/app/test/test_fileupload.py",
+          "/app/test/test_formsdict.py",
+          "/app/test/test_html_helper.py",
+          "/app/test/test_importhook.py",
+          "/app/test/test_jinja2.py",
+          "/app/test/test_mako.py",
+          "/app/test/test_mdict.py",
+          "/app/test/test_mount.py",
+          "/app/test/test_multipart.py",
+          "/app/test/test_oorouting.py",
+          "/app/test/test_outputfilter.py",
+          "/app/test/test_plugins.py",
+          "/app/test/test_resources.py",
+          "/app/test/test_route.py",
+          "/app/test/test_router.py",
+          "/app/test/test_securecookies.py",
+          "/app/test/test_sendfile.py",
+          "/app/test/test_stpl.py",
+          "/app/test/test_wsgi.py",
+          "/app/test/tools.py",
+          "/app/test/views/jinja2_base.tpl",
+          "/app/test/views/jinja2_inherit.tpl",
+          "/app/test/views/jinja2_simple.tpl",
+          "/app/test/views/mako_base.tpl",
+          "/app/test/views/mako_inherit.tpl",
+          "/app/test/views/mako_simple.tpl",
+          "/app/test/views/stpl_include.tpl",
+          "/app/test/views/stpl_no_vars.tpl",
+          "/app/test/views/stpl_simple.tpl",
+          "/app/test/views/stpl_t2base.tpl",
+          "/app/test/views/stpl_t2inc.tpl",
+          "/app/test/views/stpl_t2main.tpl",
+          "/app/test/views/stpl_unicode.tpl"
+        ],
+        "python": "/usr/local/bin/python3"
+      },
+      "image_id": "sha256:cac325252991f823713b2d0441502972901dd782bd67f66c03d9b1e410dac5c0",
+      "image_digests": [
+        "alexgshaw/fix-code-vulnerability@sha256:cac325252991f823713b2d0441502972901dd782bd67f66c03d9b1e410dac5c0"
+      ]
+    },
+    {
+      "benchmark": "swe",
+      "id": "django__django-15554",
+      "stratum": "django/django",
+      "group": "django__django-15554",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-15554:latest",
+      "base_commit": "59ab3fd0e9e606d7f0f7ca26609c06ee679ece97",
+      "exclude": null,
+      "split": "H"
+    },
+    {
+      "benchmark": "aider",
+      "id": "go/beer-song",
+      "stratum": "go",
+      "group": "beer-song",
+      "solution_files": [
+        "beer_song.go"
+      ],
+      "test_files": [
+        "beer_song_test.go"
+      ],
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+      "image_digests": [
+        "nju-course-aider@sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c"
+      ]
+    },
+    {
+      "benchmark": "terminal",
+      "id": "fix-git",
+      "stratum": "software-engineering",
+      "group": "fix-git",
+      "difficulty": "easy",
+      "image": "alexgshaw/fix-git:20260403",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 900.0,
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "swe",
+      "id": "django__django-15987",
+      "stratum": "django/django",
+      "group": "django__django-15987",
+      "difficulty": "<15 min fix",
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-15987:latest",
+      "base_commit": "7e6b537f5b92be152779fc492bb908d27fe7c52a",
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "aider",
+      "id": "go/connect",
+      "stratum": "go",
+      "group": "connect",
+      "solution_files": [
+        "connect.go"
+      ],
+      "test_files": [
+        "connect_test.go"
+      ],
+      "exclude": null,
+      "split": "H"
+    },
+    {
+      "benchmark": "terminal",
+      "id": "log-summary-date-ranges",
+      "stratum": "data-processing",
+      "group": "log-summary-date-ranges",
+      "difficulty": "medium",
+      "image": "alexgshaw/log-summary-date-ranges:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 900.0,
+      "exclude": null,
+      "split": "C",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/summary.csv"
+        ],
+        "protected": [
+          "/app/logs/2025-07-03_api.log",
+          "/app/logs/2025-07-03_app.log",
+          "/app/logs/2025-07-03_auth.log",
+          "/app/logs/2025-07-03_db.log",
+          "/app/logs/2025-07-04_api.log",
+          "/app/logs/2025-07-04_app.log",
+          "/app/logs/2025-07-04_auth.log",
+          "/app/logs/2025-07-04_db.log",
+          "/app/logs/2025-07-05_api.log",
+          "/app/logs/2025-07-05_app.log",
+          "/app/logs/2025-07-05_auth.log",
+          "/app/logs/2025-07-05_db.log",
+          "/app/logs/2025-07-06_api.log",
+          "/app/logs/2025-07-06_app.log",
+          "/app/logs/2025-07-06_auth.log",
+          "/app/logs/2025-07-06_db.log",
+          "/app/logs/2025-07-07_api.log",
+          "/app/logs/2025-07-07_app.log",
+          "/app/logs/2025-07-07_auth.log",
+          "/app/logs/2025-07-07_db.log",
+          "/app/logs/2025-07-08_api.log",
+          "/app/logs/2025-07-08_app.log",
+          "/app/logs/2025-07-08_auth.log",
+          "/app/logs/2025-07-08_db.log",
+          "/app/logs/2025-07-09_api.log",
+          "/app/logs/2025-07-09_app.log",
+          "/app/logs/2025-07-09_auth.log",
+          "/app/logs/2025-07-09_db.log",
+          "/app/logs/2025-07-10_api.log",
+          "/app/logs/2025-07-10_app.log",
+          "/app/logs/2025-07-10_auth.log",
+          "/app/logs/2025-07-10_db.log",
+          "/app/logs/2025-07-11_api.log",
+          "/app/logs/2025-07-11_app.log",
+          "/app/logs/2025-07-11_auth.log",
+          "/app/logs/2025-07-11_db.log",
+          "/app/logs/2025-07-12_api.log",
+          "/app/logs/2025-07-12_app.log",
+          "/app/logs/2025-07-12_auth.log",
+          "/app/logs/2025-07-12_db.log",
+          "/app/logs/2025-07-13_api.log",
+          "/app/logs/2025-07-13_app.log",
+          "/app/logs/2025-07-13_auth.log",
+          "/app/logs/2025-07-13_db.log",
+          "/app/logs/2025-07-14_api.log",
+          "/app/logs/2025-07-14_app.log",
+          "/app/logs/2025-07-14_auth.log",
+          "/app/logs/2025-07-14_db.log",
+          "/app/logs/2025-07-15_api.log",
+          "/app/logs/2025-07-15_app.log",
+          "/app/logs/2025-07-15_auth.log",
+          "/app/logs/2025-07-15_db.log",
+          "/app/logs/2025-07-16_api.log",
+          "/app/logs/2025-07-16_app.log",
+          "/app/logs/2025-07-16_auth.log",
+          "/app/logs/2025-07-16_db.log",
+          "/app/logs/2025-07-17_api.log",
+          "/app/logs/2025-07-17_app.log",
+          "/app/logs/2025-07-17_auth.log",
+          "/app/logs/2025-07-17_db.log",
+          "/app/logs/2025-07-18_api.log",
+          "/app/logs/2025-07-18_app.log",
+          "/app/logs/2025-07-18_auth.log",
+          "/app/logs/2025-07-18_db.log",
+          "/app/logs/2025-07-19_api.log",
+          "/app/logs/2025-07-19_app.log",
+          "/app/logs/2025-07-19_auth.log",
+          "/app/logs/2025-07-19_db.log",
+          "/app/logs/2025-07-20_api.log",
+          "/app/logs/2025-07-20_app.log",
+          "/app/logs/2025-07-20_auth.log",
+          "/app/logs/2025-07-20_db.log",
+          "/app/logs/2025-07-21_api.log",
+          "/app/logs/2025-07-21_app.log",
+          "/app/logs/2025-07-21_auth.log",
+          "/app/logs/2025-07-21_db.log",
+          "/app/logs/2025-07-22_api.log",
+          "/app/logs/2025-07-22_app.log",
+          "/app/logs/2025-07-22_auth.log",
+          "/app/logs/2025-07-22_db.log",
+          "/app/logs/2025-07-23_api.log",
+          "/app/logs/2025-07-23_app.log",
+          "/app/logs/2025-07-23_auth.log",
+          "/app/logs/2025-07-23_db.log",
+          "/app/logs/2025-07-24_api.log",
+          "/app/logs/2025-07-24_app.log",
+          "/app/logs/2025-07-24_auth.log",
+          "/app/logs/2025-07-24_db.log",
+          "/app/logs/2025-07-25_api.log",
+          "/app/logs/2025-07-25_app.log",
+          "/app/logs/2025-07-25_auth.log",
+          "/app/logs/2025-07-25_db.log",
+          "/app/logs/2025-07-26_api.log",
+          "/app/logs/2025-07-26_app.log",
+          "/app/logs/2025-07-26_auth.log",
+          "/app/logs/2025-07-26_db.log",
+          "/app/logs/2025-07-27_api.log",
+          "/app/logs/2025-07-27_app.log",
+          "/app/logs/2025-07-27_auth.log",
+          "/app/logs/2025-07-27_db.log",
+          "/app/logs/2025-07-28_api.log",
+          "/app/logs/2025-07-28_app.log",
+          "/app/logs/2025-07-28_auth.log",
+          "/app/logs/2025-07-28_db.log",
+          "/app/logs/2025-07-29_api.log",
+          "/app/logs/2025-07-29_app.log",
+          "/app/logs/2025-07-29_auth.log",
+          "/app/logs/2025-07-29_db.log",
+          "/app/logs/2025-07-30_api.log",
+          "/app/logs/2025-07-30_app.log",
+          "/app/logs/2025-07-30_auth.log",
+          "/app/logs/2025-07-30_db.log",
+          "/app/logs/2025-07-31_api.log",
+          "/app/logs/2025-07-31_app.log",
+          "/app/logs/2025-07-31_auth.log",
+          "/app/logs/2025-07-31_db.log",
+          "/app/logs/2025-08-01_api.log",
+          "/app/logs/2025-08-01_app.log",
+          "/app/logs/2025-08-01_auth.log",
+          "/app/logs/2025-08-01_db.log",
+          "/app/logs/2025-08-02_api.log",
+          "/app/logs/2025-08-02_app.log",
+          "/app/logs/2025-08-02_auth.log",
+          "/app/logs/2025-08-02_db.log",
+          "/app/logs/2025-08-03_api.log",
+          "/app/logs/2025-08-03_app.log",
+          "/app/logs/2025-08-03_auth.log",
+          "/app/logs/2025-08-03_db.log",
+          "/app/logs/2025-08-04_api.log",
+          "/app/logs/2025-08-04_app.log",
+          "/app/logs/2025-08-04_auth.log",
+          "/app/logs/2025-08-04_db.log",
+          "/app/logs/2025-08-05_api.log",
+          "/app/logs/2025-08-05_app.log",
+          "/app/logs/2025-08-05_auth.log",
+          "/app/logs/2025-08-05_db.log",
+          "/app/logs/2025-08-06_api.log",
+          "/app/logs/2025-08-06_app.log",
+          "/app/logs/2025-08-06_auth.log",
+          "/app/logs/2025-08-06_db.log",
+          "/app/logs/2025-08-07_api.log",
+          "/app/logs/2025-08-07_app.log",
+          "/app/logs/2025-08-07_auth.log",
+          "/app/logs/2025-08-07_db.log",
+          "/app/logs/2025-08-08_api.log",
+          "/app/logs/2025-08-08_app.log",
+          "/app/logs/2025-08-08_auth.log",
+          "/app/logs/2025-08-08_db.log",
+          "/app/logs/2025-08-09_api.log",
+          "/app/logs/2025-08-09_app.log",
+          "/app/logs/2025-08-09_auth.log",
+          "/app/logs/2025-08-09_db.log",
+          "/app/logs/2025-08-10_api.log",
+          "/app/logs/2025-08-10_app.log",
+          "/app/logs/2025-08-10_auth.log",
+          "/app/logs/2025-08-10_db.log",
+          "/app/logs/2025-08-11_api.log",
+          "/app/logs/2025-08-11_app.log",
+          "/app/logs/2025-08-11_auth.log",
+          "/app/logs/2025-08-11_db.log",
+          "/app/logs/2025-08-12_api.log",
+          "/app/logs/2025-08-12_app.log",
+          "/app/logs/2025-08-12_auth.log",
+          "/app/logs/2025-08-12_db.log"
+        ],
+        "python": "/usr/local/bin/python3"
+      },
+      "image_id": "sha256:cbeb6ba905c2fec294f16cd5e16e3ea7f2e04d38ac2484d51a11de262aa7dc51",
+      "image_digests": [
+        "alexgshaw/log-summary-date-ranges@sha256:cbeb6ba905c2fec294f16cd5e16e3ea7f2e04d38ac2484d51a11de262aa7dc51"
+      ]
+    },
+    {
+      "benchmark": "swe",
+      "id": "django__django-16082",
+      "stratum": "django/django",
+      "group": "django__django-16082",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-16082:latest",
+      "base_commit": "bf47c719719d0e190a99fa2e7f959d5bbb7caf8a",
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "aider",
+      "id": "go/trinary",
+      "stratum": "go",
+      "group": "trinary",
+      "solution_files": [
+        "trinary.go"
+      ],
+      "test_files": [
+        "trinary_test.go"
+      ],
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "terminal",
+      "id": "mailman",
+      "stratum": "system-administration",
+      "group": "mailman",
+      "difficulty": "medium",
+      "image": "alexgshaw/mailman:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 1800.0,
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "swe",
+      "id": "pydata__xarray-2905",
+      "stratum": "pydata/xarray",
+      "group": "pydata__xarray-2905",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.pydata_1776_xarray-2905:latest",
+      "base_commit": "7c4e2ac83f7b4306296ff9b7b51aaf016e5ad614",
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "aider",
+      "id": "go/variable-length-quantity",
+      "stratum": "go",
+      "group": "variable-length-quantity",
+      "solution_files": [
+        "variable_length_quantity.go"
+      ],
+      "test_files": [
+        "variable_length_quantity_test.go"
+      ],
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "swe",
+      "id": "pydata__xarray-3305",
+      "stratum": "pydata/xarray",
+      "group": "pydata__xarray-3305",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.pydata_1776_xarray-3305:latest",
+      "base_commit": "69c7e01e5167a3137c285cb50d1978252bb8bcbf",
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "aider",
+      "id": "java/change",
+      "stratum": "java",
+      "group": "change",
+      "solution_files": [
+        "src/main/java/ChangeCalculator.java"
+      ],
+      "test_files": [
+        "src/test/java/ChangeCalculatorTest.java"
+      ],
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:a8b889d675595ed6b2a7fe925a4a046e47d9bcb34d34ccaf5bb2988a9b5b552d",
+      "image_digests": [
+        "nju-course-aider@sha256:a8b889d675595ed6b2a7fe925a4a046e47d9bcb34d34ccaf5bb2988a9b5b552d"
+      ]
+    },
+    {
+      "benchmark": "terminal",
+      "id": "modernize-scientific-stack",
+      "stratum": "scientific-computing",
+      "group": "modernize-scientific-stack",
+      "difficulty": "medium",
+      "image": "alexgshaw/modernize-scientific-stack:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 600.0,
+      "exclude": null,
+      "split": "C",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/analyze_climate_modern.py",
+          "/app/requirements.txt",
+          "/app/pyproject.toml"
+        ],
+        "protected": [
+          "/app/climate_analyzer/analyze_climate.py",
+          "/app/climate_analyzer/config.ini",
+          "/app/climate_analyzer/requirements_old.txt",
+          "/app/climate_analyzer/sample_data/climate_data.csv"
+        ],
+        "python": "/usr/local/bin/python3"
+      },
+      "image_id": "sha256:64e69cee13bf6b0b9016e735b51891bce996a60f1e2d1a005bf12c949e221d71",
+      "image_digests": [
+        "alexgshaw/modernize-scientific-stack@sha256:64e69cee13bf6b0b9016e735b51891bce996a60f1e2d1a005bf12c949e221d71"
+      ]
+    },
+    {
+      "benchmark": "aider",
+      "id": "java/phone-number",
+      "stratum": "java",
+      "group": "phone-number",
+      "solution_files": [
+        "src/main/java/PhoneNumber.java"
+      ],
+      "test_files": [
+        "src/test/java/PhoneNumberTest.java"
+      ],
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "terminal",
+      "id": "multi-source-data-merger",
+      "stratum": "data-processing",
+      "group": "multi-source-data-merger",
+      "difficulty": "medium",
+      "image": "alexgshaw/multi-source-data-merger:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 900.0,
+      "exclude": null,
+      "split": "C",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/merged_users.parquet",
+          "/app/conflicts.json"
+        ],
+        "protected": [
+          "/data/source_a/users.json",
+          "/data/source_b/users.csv",
+          "/data/source_c/users.parquet"
+        ],
+        "python": "/usr/local/bin/python3"
+      },
+      "image_id": "sha256:8b32782078ff7383a1b4e5d3cecca8ce287e30f50bb4c0e5db009a18064e666e",
+      "image_digests": [
+        "alexgshaw/multi-source-data-merger@sha256:8b32782078ff7383a1b4e5d3cecca8ce287e30f50bb4c0e5db009a18064e666e"
+      ]
+    },
+    {
+      "benchmark": "swe",
+      "id": "pydata__xarray-4695",
+      "stratum": "pydata/xarray",
+      "group": "pydata__xarray-4695",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.pydata_1776_xarray-4695:latest",
+      "base_commit": "51ef2a66c4e0896eab7d2b03e3dfb3963e338e3c",
+      "exclude": null,
+      "split": "H"
+    },
+    {
+      "benchmark": "aider",
+      "id": "java/pig-latin",
+      "stratum": "java",
+      "group": "pig-latin",
+      "solution_files": [
+        "src/main/java/PigLatinTranslator.java"
+      ],
+      "test_files": [
+        "src/test/java/PigLatinTranslatorTest.java"
+      ],
+      "exclude": null,
+      "split": "H"
+    },
+    {
+      "benchmark": "terminal",
+      "id": "openssl-selfsigned-cert",
+      "stratum": "security",
+      "group": "openssl-selfsigned-cert",
+      "difficulty": "medium",
+      "image": "alexgshaw/openssl-selfsigned-cert:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 900.0,
+      "exclude": null,
+      "split": "D",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/ssl/server.key",
+          "/app/ssl/server.crt",
+          "/app/ssl/server.pem",
+          "/app/ssl/verification.txt",
+          "/app/check_cert.py"
+        ],
+        "protected": [],
+        "python": "python3"
+      }
+    },
+    {
+      "benchmark": "aider",
+      "id": "javascript/book-store",
+      "stratum": "javascript",
+      "group": "book-store",
+      "solution_files": [
+        "book-store.js"
+      ],
+      "test_files": [
+        "book-store.spec.js"
+      ],
+      "exclude": null,
+      "split": "H"
+    },
+    {
+      "benchmark": "terminal",
+      "id": "password-recovery",
+      "stratum": "security",
+      "group": "password-recovery",
+      "difficulty": "hard",
+      "image": "alexgshaw/password-recovery:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 900.0,
+      "exclude": null,
+      "split": "H",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/recovered_passwords.txt"
+        ],
+        "protected": [],
+        "python": "python3"
+      }
+    },
+    {
+      "benchmark": "swe",
+      "id": "pydata__xarray-7393",
+      "stratum": "pydata/xarray",
+      "group": "pydata__xarray-7393",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.pydata_1776_xarray-7393:latest",
+      "base_commit": "41fef6f1352be994cd90056d47440fe9aa4c068f",
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:8d92f63564f3cfa7497bdc9fd4bacb5cfac11459f658621a00ebe3eb55832278",
+      "image_digests": [
+        "swebench/sweb.eval.x86_64.pydata_1776_xarray-7393@sha256:8d92f63564f3cfa7497bdc9fd4bacb5cfac11459f658621a00ebe3eb55832278"
+      ]
+    },
+    {
+      "benchmark": "aider",
+      "id": "javascript/food-chain",
+      "stratum": "javascript",
+      "group": "food-chain",
+      "solution_files": [
+        "food-chain.js"
+      ],
+      "test_files": [
+        "food-chain.spec.js"
+      ],
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "terminal",
+      "id": "polyglot-rust-c",
+      "stratum": "software-engineering",
+      "group": "polyglot-executable",
+      "difficulty": "hard",
+      "image": "alexgshaw/polyglot-rust-c:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 900.0,
+      "exclude": null,
+      "split": "C",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/polyglot/main.rs"
+        ],
+        "protected": [],
+        "python": "/opt/course-runtime/bin/python3"
+      },
+      "image_id": "sha256:3ba84f0e138a4b65e58c53f920a0fc852571e6402901c3bdbb876e9dab6e6c5e",
+      "image_digests": [
+        "alexgshaw/polyglot-rust-c@sha256:3ba84f0e138a4b65e58c53f920a0fc852571e6402901c3bdbb876e9dab6e6c5e"
+      ]
+    },
+    {
+      "benchmark": "swe",
+      "id": "pytest-dev__pytest-5631",
+      "stratum": "pytest-dev/pytest",
+      "group": "pytest-dev__pytest-5631",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-5631:latest",
+      "base_commit": "cb828ebe70b4fa35cd5f9a7ee024272237eab351",
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:c76510e12a1765211e064f6e8de09e51ac0f7839f60d72305b374e004308b6a1",
+      "image_digests": [
+        "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-5631@sha256:c76510e12a1765211e064f6e8de09e51ac0f7839f60d72305b374e004308b6a1"
+      ]
+    },
+    {
+      "benchmark": "aider",
+      "id": "javascript/house",
+      "stratum": "javascript",
+      "group": "house",
+      "solution_files": [
+        "house.js"
+      ],
+      "test_files": [
+        "house.spec.js"
+      ],
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+      "image_digests": [
+        "nju-course-aider@sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7"
+      ]
+    },
+    {
+      "benchmark": "terminal",
+      "id": "prove-plus-comm",
+      "stratum": "software-engineering",
+      "group": "prove-plus-comm",
+      "difficulty": "easy",
+      "image": "alexgshaw/prove-plus-comm:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 900.0,
+      "exclude": null,
+      "split": "C",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/workspace/plus_comm.v",
+          "/workspace/plus_comm.vo"
+        ],
+        "protected": [],
+        "python": "/usr/bin/python3"
+      },
+      "image_id": "sha256:e26741d01681a9da1beeff8b7b7b65fe2b921b8b122a306a3707a81ebd051f73",
+      "image_digests": [
+        "alexgshaw/prove-plus-comm@sha256:e26741d01681a9da1beeff8b7b7b65fe2b921b8b122a306a3707a81ebd051f73"
+      ]
+    },
+    {
+      "benchmark": "swe",
+      "id": "pytest-dev__pytest-7205",
+      "stratum": "pytest-dev/pytest",
+      "group": "pytest-dev__pytest-7205",
+      "difficulty": "<15 min fix",
+      "image": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7205:latest",
+      "base_commit": "5e7f1ab4bf58e473e5d7f878eb2b499d7deabd29",
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "aider",
+      "id": "javascript/sum-of-multiples",
+      "stratum": "javascript",
+      "group": "sum-of-multiples",
+      "solution_files": [
+        "sum-of-multiples.js"
+      ],
+      "test_files": [
+        "sum-of-multiples.spec.js"
+      ],
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+      "image_digests": [
+        "nju-course-aider@sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7"
+      ]
+    },
+    {
+      "benchmark": "terminal",
+      "id": "regex-log",
+      "stratum": "data-processing",
+      "group": "regex-log",
+      "difficulty": "medium",
+      "image": "alexgshaw/regex-log:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 900.0,
+      "exclude": null,
+      "split": "D",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/regex.txt"
+        ],
+        "protected": [],
+        "python": "/opt/course-runtime/bin/python3"
+      }
+    },
+    {
+      "benchmark": "swe",
+      "id": "pytest-dev__pytest-7490",
+      "stratum": "pytest-dev/pytest",
+      "group": "pytest-dev__pytest-7490",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7490:latest",
+      "base_commit": "7f7a36478abe7dd1fa993b115d22606aa0e35e88",
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:9e10d2e75d41e6f6325949d19d6a8a033d1f5d5fd6d4ce53ad483eb8951a417f",
+      "image_digests": [
+        "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7490@sha256:9e10d2e75d41e6f6325949d19d6a8a033d1f5d5fd6d4ce53ad483eb8951a417f"
+      ]
+    },
+    {
+      "benchmark": "aider",
+      "id": "javascript/triangle",
+      "stratum": "javascript",
+      "group": "triangle",
+      "solution_files": [
+        "triangle.js"
+      ],
+      "test_files": [
+        "triangle.spec.js"
+      ],
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "terminal",
+      "id": "sparql-university",
+      "stratum": "data-querying",
+      "group": "sparql-university",
+      "difficulty": "hard",
+      "image": "alexgshaw/sparql-university:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 900.0,
+      "exclude": null,
+      "split": "D",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/solution.sparql"
+        ],
+        "protected": [
+          "/app/university_graph.ttl"
+        ],
+        "python": "python3"
+      }
+    },
+    {
+      "benchmark": "swe",
+      "id": "pytest-dev__pytest-7571",
+      "stratum": "pytest-dev/pytest",
+      "group": "pytest-dev__pytest-7571",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7571:latest",
+      "base_commit": "422685d0bdc110547535036c1ff398b5e1c44145",
+      "exclude": null,
+      "split": "H"
+    },
+    {
+      "benchmark": "aider",
+      "id": "python/grep",
+      "stratum": "python",
+      "group": "grep",
+      "solution_files": [
+        "grep.py"
+      ],
+      "test_files": [
+        "grep_test.py"
+      ],
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+      "image_digests": [
+        "nju-course-aider@sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555"
+      ]
+    },
+    {
+      "benchmark": "terminal",
+      "id": "sqlite-db-truncate",
+      "stratum": "debugging",
+      "group": "sqlite-db-truncate",
+      "difficulty": "medium",
+      "image": "alexgshaw/sqlite-db-truncate:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 900.0,
+      "exclude": null,
+      "split": "D",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/recover.json"
+        ],
+        "protected": [
+          "/app/trunc.db"
+        ],
+        "python": "python3"
+      }
+    },
+    {
+      "benchmark": "swe",
+      "id": "pytest-dev__pytest-8399",
+      "stratum": "pytest-dev/pytest",
+      "group": "pytest-dev__pytest-8399",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-8399:latest",
+      "base_commit": "6e7dc8bac831cd8cf7a53b08efa366bd84f0c0fe",
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "aider",
+      "id": "python/list-ops",
+      "stratum": "python",
+      "group": "list-ops",
+      "solution_files": [
+        "list_ops.py"
+      ],
+      "test_files": [
+        "list_ops_test.py"
+      ],
+      "exclude": null,
+      "split": "H"
+    },
+    {
+      "benchmark": "terminal",
+      "id": "tune-mjcf",
+      "stratum": "scientific-computing",
+      "group": "tune-mjcf",
+      "difficulty": "medium",
+      "image": "alexgshaw/tune-mjcf:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 900.0,
+      "exclude": null,
+      "split": "H",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/model.xml"
+        ],
+        "protected": [
+          "/app/model_ref.xml",
+          "/app/eval.py"
+        ],
+        "python": "python3"
+      }
+    },
+    {
+      "benchmark": "swe",
+      "id": "scikit-learn__scikit-learn-10908",
+      "stratum": "scikit-learn/scikit-learn",
+      "group": "scikit-learn__scikit-learn-10908",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-10908:latest",
+      "base_commit": "67d06b18c68ee4452768f8a1e868565dd4354abf",
+      "exclude": null,
+      "split": "H"
+    },
+    {
+      "benchmark": "aider",
+      "id": "python/proverb",
+      "stratum": "python",
+      "group": "proverb",
+      "solution_files": [
+        "proverb.py"
+      ],
+      "test_files": [
+        "proverb_test.py"
+      ],
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "terminal",
+      "id": "vulnerable-secret",
+      "stratum": "security",
+      "group": "vulnerable-secret",
+      "difficulty": "medium",
+      "image": "alexgshaw/vulnerable-secret:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 900.0,
+      "exclude": null,
+      "split": "C",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/results.txt"
+        ],
+        "protected": [
+          "/app/vulnerable"
+        ],
+        "python": "/usr/local/bin/python3"
+      },
+      "image_id": "sha256:61ebb40454dd103aa2f7e71ad6dafd91cf2b301e6bb07e69d5b472412d1ee15b",
+      "image_digests": [
+        "alexgshaw/vulnerable-secret@sha256:61ebb40454dd103aa2f7e71ad6dafd91cf2b301e6bb07e69d5b472412d1ee15b"
+      ]
+    },
+    {
+      "benchmark": "swe",
+      "id": "scikit-learn__scikit-learn-11310",
+      "stratum": "scikit-learn/scikit-learn",
+      "group": "scikit-learn__scikit-learn-11310",
+      "difficulty": "<15 min fix",
+      "image": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-11310:latest",
+      "base_commit": "553b5fb8f84ba05c8397f26dd079deece2b05029",
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:9868186e3d37062a178faa15e5860641521c0193d6897aa0053b2d338fd566dd",
+      "image_digests": [
+        "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-11310@sha256:9868186e3d37062a178faa15e5860641521c0193d6897aa0053b2d338fd566dd"
+      ]
+    },
+    {
+      "benchmark": "aider",
+      "id": "python/rest-api",
+      "stratum": "python",
+      "group": "rest-api",
+      "solution_files": [
+        "rest_api.py"
+      ],
+      "test_files": [
+        "rest_api_test.py"
+      ],
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+      "image_digests": [
+        "nju-course-aider@sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555"
+      ]
+    },
+    {
+      "benchmark": "swe",
+      "id": "scikit-learn__scikit-learn-13124",
+      "stratum": "scikit-learn/scikit-learn",
+      "group": "scikit-learn__scikit-learn-13124",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13124:latest",
+      "base_commit": "9f0b959a8c9195d1b6e203f08b698e052b426ca9",
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:36b429f4c7fa428226090d04d4a019cd3401381637554d162e5f929f3a80f77c",
+      "image_digests": [
+        "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13124@sha256:36b429f4c7fa428226090d04d4a019cd3401381637554d162e5f929f3a80f77c"
+      ]
+    },
+    {
+      "benchmark": "aider",
+      "id": "python/tree-building",
+      "stratum": "python",
+      "group": "tree-building",
+      "solution_files": [
+        "tree_building.py"
+      ],
+      "test_files": [
+        "tree_building_test.py"
+      ],
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "swe",
+      "id": "scikit-learn__scikit-learn-13496",
+      "stratum": "scikit-learn/scikit-learn",
+      "group": "scikit-learn__scikit-learn-13496",
+      "difficulty": "<15 min fix",
+      "image": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13496:latest",
+      "base_commit": "3aefc834dce72e850bff48689bea3c7dff5f3fad",
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "aider",
+      "id": "rust/accumulate",
+      "stratum": "rust",
+      "group": "accumulate",
+      "solution_files": [
+        "src/lib.rs",
+        "Cargo.toml"
+      ],
+      "test_files": [
+        "tests/accumulate.rs"
+      ],
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:de357a92e50590e84cfb36bb68dbbd6ee739bdba6f3535a7a5b5890d9a07805e",
+      "image_digests": [
+        "nju-course-aider@sha256:de357a92e50590e84cfb36bb68dbbd6ee739bdba6f3535a7a5b5890d9a07805e"
+      ]
+    },
+    {
+      "benchmark": "swe",
+      "id": "scikit-learn__scikit-learn-14496",
+      "stratum": "scikit-learn/scikit-learn",
+      "group": "scikit-learn__scikit-learn-14496",
+      "difficulty": "<15 min fix",
+      "image": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-14496:latest",
+      "base_commit": "d49a6f13af2f22228d430ac64ac2b518937800d0",
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "aider",
+      "id": "rust/doubly-linked-list",
+      "stratum": "rust",
+      "group": "doubly-linked-list",
+      "solution_files": [
+        "src/lib.rs",
+        "Cargo.toml"
+      ],
+      "test_files": [
+        "tests/doubly-linked-list.rs"
+      ],
+      "exclude": null,
+      "split": "D"
+    },
+    {
+      "benchmark": "swe",
+      "id": "scikit-learn__scikit-learn-25232",
+      "stratum": "scikit-learn/scikit-learn",
+      "group": "scikit-learn__scikit-learn-25232",
+      "difficulty": "<15 min fix",
+      "image": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-25232:latest",
+      "base_commit": "f7eea978097085a6781a0e92fc14ba7712a52d75",
+      "exclude": null,
+      "split": "C",
+      "image_id": "sha256:2b2069e2a3f12ddcf3fc1c811468da25f2b349a08ea0dd98a5dbe3eecb0c4ca1",
+      "image_digests": [
+        "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-25232@sha256:2b2069e2a3f12ddcf3fc1c811468da25f2b349a08ea0dd98a5dbe3eecb0c4ca1"
+      ]
+    }
+  ],
+  "scope": "All 75 previously exposed original tasks; fixed public-structure policy, no best-of-run selection"
+}
