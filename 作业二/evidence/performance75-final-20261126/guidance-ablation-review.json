@@ -1,0 +1,1039 @@
+{
+  "schema_version": 1,
+  "status": "APPROVE_WITH_STATED_LIMITS",
+  "blocking_findings": [],
+  "final_delivery_admission": false,
+  "frozen_plan": {
+    "path": "work/parallel-free-evaluation-20261124/final-reuse-ablation/plan.json",
+    "sha256": "a61385dd661d8b9074e154896b74e37bf073176d5e2e25e0961fa750a0d00e2e",
+    "actual_all_files_bindings": 527,
+    "independently_rechecked_selected_bindings": 26,
+    "scope": "Exact three pre-registered exposed helper-family tasks, one fresh session each; not75unseen tasks."
+  },
+  "totals": {
+    "positions": 3,
+    "raw_original_passed": 3,
+    "final_public_and_protected_passed": 3,
+    "requests": 31,
+    "responses": 31,
+    "distinct_own_zero_receipts": 31,
+    "native_sessions": 3,
+    "executed_bash_commands": 21,
+    "original_tests_passed": 8,
+    "input_tokens": 448222,
+    "output_tokens": 22508,
+    "wall_seconds": 464.9928078338271,
+    "unknown_requests_in_these_positions": 0
+  },
+  "identity_check": {
+    "baseline_IDs": 4329,
+    "baseline_sessions": 248,
+    "new_IDs": 31,
+    "new_sessions": 3,
+    "union_IDs": 4360,
+    "union_sessions": 251,
+    "rows": [
+      {
+        "task": "model-extraction-relu-logits",
+        "run_dir": "work/vmshare/performance75-hy4-v18-reuse-guidance-ablation-20261125/model-extraction-relu-logits-C0-reuse-guidance-off-r1",
+        "new_IDs": 9,
+        "native_session": "709fa0eb-e6e1-4f89-a627-74d08d59792f",
+        "ID_intersection": 0,
+        "session_intersection": 0,
+        "initial_request_guidance_sentence_absent": "Inspect and run this baseline on the callable oracle before developing a replacement.",
+        "native_capture_links": [
+          {
+            "source": "/app/steal.py",
+            "captured_path": "model-extraction-relu-logits__dqgQ6Y9/artifacts/app/steal.py",
+            "sha256": "e6fd12aa83f311d90b28b146a4e0e57646e2f6ba9abc609d94795b4168f91b86",
+            "bytes": 11913,
+            "matches_final_snapshot": true
+          },
+          {
+            "source": "/app/stolen_A1.npy",
+            "captured_path": "model-extraction-relu-logits__dqgQ6Y9/artifacts/app/stolen_A1.npy",
+            "sha256": "76b8cf53152aaccc5a235d1fb2a6f8596fd1b78dac856443fdf11b340ad6cfdd",
+            "bytes": 1728,
+            "matches_final_snapshot": true
+          }
+        ],
+        "protocol_sha256": "3ecf4d29cd0408dc27371d740cd35820bf3cd041e46e50ecb94c962ae5eacfb7",
+        "resource_sha256": "b995adedf0fb360d5f55178c80533c87bff38eb8e0313848fa46f7d07239c8ce"
+      },
+      {
+        "task": "extract-elf",
+        "run_dir": "work/vmshare/performance75-hy4-v18-reuse-guidance-ablation-20261125/extract-elf-C0-reuse-guidance-off-r1",
+        "new_IDs": 11,
+        "native_session": "3848ebb2-b662-49ed-bb75-ae2b55b507e1",
+        "ID_intersection": 0,
+        "session_intersection": 0,
+        "initial_request_guidance_sentence_absent": "Use it to detect incomplete extraction and inconsistent values.",
+        "native_capture_links": [
+          {
+            "source": "/app/extract.js",
+            "captured_path": "extract-elf__c6uTuZ7/artifacts/app/extract.js",
+            "sha256": "e175184de61c08fa463006545045630a35f5c3c9716ae224752fde23613f680b",
+            "bytes": 2605,
+            "matches_final_snapshot": true
+          }
+        ],
+        "protocol_sha256": "1fd09f50799fc4702152800ddafce31cc88feee23fdd06f37d3b243553b10521",
+        "resource_sha256": "ce1554acece73346019d62fa1c395ef5ac65375c1ffa5c8ef9dee87d1eb9f1da"
+      },
+      {
+        "task": "video-processing",
+        "run_dir": "work/vmshare/performance75-hy4-v18-reuse-guidance-ablation-20261125/video-processing-C0-reuse-guidance-off-r1",
+        "new_IDs": 11,
+        "native_session": "4d5f641e-e40f-4b46-88da-a99967061caa",
+        "ID_intersection": 0,
+        "session_intersection": 0,
+        "initial_request_guidance_sentence_absent": "Inspect and run this baseline on the task-visible example before developing a replacement.",
+        "native_capture_links": [
+          {
+            "source": "/app/jump_analyzer.py",
+            "captured_path": "video-processing__cL7NVE4/artifacts/app/jump_analyzer.py",
+            "sha256": "1b028bf08b1d4c2b296e745290cadc9dbf34606e3377ff728fce64e48d677966",
+            "bytes": 8014,
+            "matches_final_snapshot": true
+          },
+          {
+            "source": "/app/output.toml",
+            "captured_path": "video-processing__cL7NVE4/artifacts/app/output.toml",
+            "sha256": "0793aa3cef4fe74c579e6bf3e7a6bbe38dfe1460fdb9d55822d0c57c2658226e",
+            "bytes": 59,
+            "matches_final_snapshot": true
+          }
+        ],
+        "protocol_sha256": "a5c55e2d8b9e3cd144a3ce9000755d1628de3bb45db78a2046a451198bf0476e",
+        "resource_sha256": "a5010dabc7c988b780ae9889d7850922e8a4033d874e4f963bfd04a0af0c7a5f"
+      }
+    ],
+    "state_sha256": "b65ecb4b2101c6dd71d6c8260b7d5cc5e025ade89a75eba4ba3c2d64b9cc4f7b",
+    "plan_sha256": "a61385dd661d8b9074e154896b74e37bf073176d5e2e25e0961fa750a0d00e2e"
+  },
+  "source_and_variable_check": {
+    "only_reusable_helper_instructions_module_AST_diff": true,
+    "helper_algorithm_bytes_identical_to_v18": true,
+    "unchanged": "Original task definitions/checks/C0/fees/input image pins/500-3600-120-64000-0budgets unchanged. Actual firstrequests lack selected removed sentences; paths/functions/caveats/helper availability and other controller guidance remain.",
+    "actual_reference_runtime": "work/frozen-performance-hy4-sql-layout-v18",
+    "ReLU_v20_reference_substitution": false,
+    "reference_trial_SHA_frozen": false,
+    "reference_trial_validation": "Actual trial formal phase/task/framework/model/backend/configuration/limits were checked against corresponding original protocol and manifest; trial itself was not SHA-frozen by preparer. Current actualtrialSHA is recorded, not falsely described as pre-frozen."
+  },
+  "comparisons": [
+    {
+      "task": "model-extraction-relu-logits",
+      "full_guidance_reference": {
+        "arm": "main",
+        "task": "model-extraction-relu-logits",
+        "benchmark": "terminal",
+        "configuration": "C0",
+        "passed": true,
+        "qualified_passed": false,
+        "wall_seconds": 247.6694710419979,
+        "actual_requests": 10,
+        "verified_zero_credit_requests": 10,
+        "input_tokens": 91495,
+        "output_tokens": 4952,
+        "final_control_applicable": true,
+        "final_protected_unchanged": true,
+        "final_valid_verification": false,
+        "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/model-extraction-relu-logits-C0-r1",
+        "original_score_sha256": "a1bf56869d2f795285ee4a485b15b9bcf61c70a7a8586fc630de12d8719a2b82",
+        "protocol_sha256": "0b52479c15370f163f5cc3ee494e277a84adb89a0c605c64ed5259950feb8507",
+        "trace_sha256": "9403c5902e41cba7de9cee887b81d01a9a8ad4b94452a0a5fbd79d5fb95431eb"
+      },
+      "off": {
+        "run_dir": "work/vmshare/performance75-hy4-v18-reuse-guidance-ablation-20261125/model-extraction-relu-logits-C0-reuse-guidance-off-r1",
+        "passed": true,
+        "qualified_passed": true,
+        "actual_requests": 9,
+        "input_tokens": 132652,
+        "output_tokens": 4846,
+        "wall_seconds": 116.70760733296629
+      },
+      "off_minus_full": {
+        "requests": -1,
+        "input_tokens": 41157,
+        "output_tokens": -106,
+        "wall_seconds": -130.9618637090316
+      }
+    },
+    {
+      "task": "extract-elf",
+      "full_guidance_reference": {
+        "arm": "main",
+        "task": "extract-elf",
+        "benchmark": "terminal",
+        "configuration": "C0",
+        "passed": true,
+        "qualified_passed": true,
+        "wall_seconds": 164.89775966701563,
+        "actual_requests": 10,
+        "verified_zero_credit_requests": 10,
+        "input_tokens": 137331,
+        "output_tokens": 7979,
+        "final_control_applicable": true,
+        "final_protected_unchanged": true,
+        "final_valid_verification": true,
+        "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/extract-elf-C0-r1",
+        "original_score_sha256": "15c5c8d02b6118b3092b0ab0df52229df79863151247b45400c13b3dbcb8a51f",
+        "protocol_sha256": "40ab31d52b0e1639e444041019883d1d952cf37791a20e93c7f4671e453f6f60",
+        "trace_sha256": "c0fae8c476af3775d39cd8848d5585c8366ca72002fe1d9a82d5fc3ffb803748"
+      },
+      "off": {
+        "run_dir": "work/vmshare/performance75-hy4-v18-reuse-guidance-ablation-20261125/extract-elf-C0-reuse-guidance-off-r1",
+        "passed": true,
+        "qualified_passed": true,
+        "actual_requests": 11,
+        "input_tokens": 161209,
+        "output_tokens": 8876,
+        "wall_seconds": 153.55127966695
+      },
+      "off_minus_full": {
+        "requests": 1,
+        "input_tokens": 23878,
+        "output_tokens": 897,
+        "wall_seconds": -11.34648000006564
+      }
+    },
+    {
+      "task": "video-processing",
+      "full_guidance_reference": {
+        "arm": "main",
+        "task": "video-processing",
+        "benchmark": "terminal",
+        "configuration": "C0",
+        "passed": true,
+        "qualified_passed": true,
+        "wall_seconds": 528.9209053330123,
+        "actual_requests": 19,
+        "verified_zero_credit_requests": 19,
+        "input_tokens": 394957,
+        "output_tokens": 17583,
+        "final_control_applicable": true,
+        "final_protected_unchanged": true,
+        "final_valid_verification": true,
+        "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/video-processing-C0-r1",
+        "original_score_sha256": "dc0515fb5c85385d998733e2b0d88961cefa596a0741c2ade9a9abc42e0f1f5b",
+        "protocol_sha256": "6a45635a7130c1d4a674242b941290a87423d66377b784968a4adfc59576469c",
+        "trace_sha256": "d40a0f769cc522c7cad668f3da09f229dd0b11c898f4dd26d442b155f0bc25f6"
+      },
+      "off": {
+        "run_dir": "work/vmshare/performance75-hy4-v18-reuse-guidance-ablation-20261125/video-processing-C0-reuse-guidance-off-r1",
+        "passed": true,
+        "qualified_passed": true,
+        "actual_requests": 11,
+        "input_tokens": 154361,
+        "output_tokens": 8786,
+        "wall_seconds": 194.73392083391082
+      },
+      "off_minus_full": {
+        "requests": -8,
+        "input_tokens": -240596,
+        "output_tokens": -8797,
+        "wall_seconds": -334.1869844991015
+      }
+    }
+  ],
+  "interpretation": {
+    "raw_success_rate": "Full-guidance references3/3 and guidance-off3/3: no raw success-rate gain from the explicit reuse sentences on these three actual trials.",
+    "actual_support": "All3off trajectories still use the provided helper/checker. The result limits claims that those selected prescriptive sentences are necessary for reuse or success.",
+    "limitations": "Three previously exposed development tasks, one stochastic trajectory/configuration; helper availability is never removed, ELFstillincludes explicitchecker command, and all other guidance remains. Cost differences do not isolate a robust causal benefit or harmfulness of the removed text. No automatic-control/helperavailability/unseen-task/full75 ablation claim.",
+    "ReLU_original_boundary": "Original v18 full-guidance ReLUrawtrue butqualifiedfalse remains. Its previously audited source/weight-access process boundary remains; do not substitute corrected v20 outcome or attribute current off success to v20guards.",
+    "cost_unit": "31actual own provider rawUsage.credit0 receipts, not cumulative usage. Scalar oraclequeries/helperchecks are not modelgenerations. Existing35historical unknowns remain unknown."
+  },
+  "rows": [
+    {
+      "arm": "guidance_off",
+      "task": "model-extraction-relu-logits",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-v18-reuse-guidance-ablation-20261125/model-extraction-relu-logits-C0-reuse-guidance-off-r1",
+      "revision_scope": "guidance_off",
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 116.70760733296629,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18-guidance-off",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795645910.281219,
+        "native_session_id": "709fa0eb-e6e1-4f89-a627-74d08d59792f",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "fb1323a23bcfd3a46fa7d3b7af359777fb01298ec24fc5c3a991da901b3412c1"
+      },
+      "event_counts": {
+        "request": 9,
+        "cli_process_started": 9,
+        "response": 9,
+        "billing_verified": 9
+      },
+      "native_sessions": [
+        "709fa0eb-e6e1-4f89-a627-74d08d59792f"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a214d63b887756aa1fee814ba56088",
+          0,
+          5613,
+          539
+        ],
+        [
+          2,
+          "01a214d65a1c7f1494ef20ab3a6242b5",
+          0,
+          9463,
+          530
+        ],
+        [
+          3,
+          "01a214d676c97997925c6a49cdbcbff9",
+          0,
+          12203,
+          1783
+        ],
+        [
+          4,
+          "01a214d6aab971048b5212fac98d2f97",
+          0,
+          14610,
+          308
+        ],
+        [
+          5,
+          "01a214d6d01f77f28302bc3f888b0896",
+          0,
+          16427,
+          142
+        ],
+        [
+          6,
+          "01a214d6f28971f09a45752bccd3b7cb",
+          0,
+          17265,
+          176
+        ],
+        [
+          7,
+          "01a214d70898788b8820fb6374da0337",
+          0,
+          17862,
+          1040
+        ],
+        [
+          8,
+          "01a214d73b3371248776d38ef83080cf",
+          0,
+          19177,
+          158
+        ],
+        [
+          9,
+          "01a214d765987e5f817e8cb312c305a6",
+          0,
+          20032,
+          170
+        ]
+      ],
+      "input_tokens": 132652,
+      "output_tokens": 4846,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "4b0a2299615fa3eaf872838e4a75b4b597a35c4366e3e44c0ff79956949c975e",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-query-directions": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "e6fd12aa83f311d90b28b146a4e0e57646e2f6ba9abc609d94795b4168f91b86  /app/steal.py\n76b8cf53152aaccc5a235d1fb2a6f8596fd1b78dac856443fdf11b340ad6cfdd  /app/stolen_A1.npy\naf1a23efd8e4390d16a29777c28116b2f8623ae3f7b628fe14db9f94dac26f5b  forward.py\n"
+          }
+        },
+        "elapsed_seconds": 85.6982126670191
+      },
+      "controller_event_counts": {
+        "candidate_operation": 7,
+        "verification": 2,
+        "candidate_saved": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "4b0a2299615fa3eaf872838e4a75b4b597a35c4366e3e44c0ff79956949c975e",
+          "eligible": true
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "4b0a2299615fa3eaf872838e4a75b4b597a35c4366e3e44c0ff79956949c975e",
+          "eligible": true
+        }
+      ],
+      "native_capture": {
+        "registered": true,
+        "artifacts": [
+          {
+            "source": "/app/steal.py",
+            "status": "ok",
+            "type": "file",
+            "path": "model-extraction-relu-logits__dqgQ6Y9/artifacts/app/steal.py",
+            "sha256": "e6fd12aa83f311d90b28b146a4e0e57646e2f6ba9abc609d94795b4168f91b86",
+            "bytes": 11913,
+            "sha_present_in_final_public_snapshot": true
+          },
+          {
+            "source": "/app/stolen_A1.npy",
+            "status": "ok",
+            "type": "file",
+            "path": "model-extraction-relu-logits__dqgQ6Y9/artifacts/app/stolen_A1.npy",
+            "sha256": "76b8cf53152aaccc5a235d1fb2a6f8596fd1b78dac856443fdf11b340ad6cfdd",
+            "bytes": 1728,
+            "sha_present_in_final_public_snapshot": true
+          }
+        ],
+        "model_requests_by_capture": 0
+      },
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "============================= test session starts ==============================",
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_stolen_matrix_matches",
+          "============================== 1 passed in 7.13s ==============================="
+        ]
+      },
+      "tools_count": 6,
+      "nonzero_tools": [
+        3
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 6,
+        "verify": 2,
+        "save": 1
+      },
+      "source_sha256": {
+        "result.json": "8631ff395b1d00c4a3ad1d9273c01de4cb2b1ee0b6973ce2c71230385899b97a",
+        "trial.json": "64272375b663d93821af0f88aff047a7544bf00a3e65ec9bb44d65a23b511938",
+        "protocol:work/vmshare/performance75-hy4-v18-reuse-guidance-ablation-20261125/model-extraction-relu-logits-C0-reuse-guidance-off-r1.protocol.json": "3ecf4d29cd0408dc27371d740cd35820bf3cd041e46e50ecb94c962ae5eacfb7",
+        "model-extraction-relu-logits__dqgQ6Y9/agent/model.jsonl": "7fed7624057f7dceef6baa044e817cfc3d7580c42d719802984182259e3cbfa6",
+        "model-extraction-relu-logits__dqgQ6Y9/agent/controller.jsonl": "3c83426813a761a3bcd2695d2cf59fe2ed7c0d5814f11510d6f49b0c3a03e114",
+        "model-extraction-relu-logits__dqgQ6Y9/agent/final-verification.json": "7a2a805b8d857e485c7529bdb4c73da14737f5b2d5911a8f15865c1dfe9ccc70",
+        "model-extraction-relu-logits__dqgQ6Y9/agent/candidates/candidate-001.json": "13f6e4f29bcdd9e8db73f5dac9579c797c0e6a9b804a8f34762e0fe95442df84",
+        "artifact-capture.json": "352bd2c68970cc08f789941c28424ee208b46fee7e9d0f5a0c98cc186d8cb3d6",
+        "artifact-capture-config.json": "d6410012068ccbcc43e90e0f7653f6391eaf5af469a4d32790d0773730bb8377",
+        "model-extraction-relu-logits__dqgQ6Y9/artifacts/manifest.json": "c45ee2e6f298be8c2bf6cdc10b0ae7409c54b965f20f550f25ecc3c9275c7d70",
+        "model-extraction-relu-logits__dqgQ6Y9/artifacts/app/steal.py": "e6fd12aa83f311d90b28b146a4e0e57646e2f6ba9abc609d94795b4168f91b86",
+        "model-extraction-relu-logits__dqgQ6Y9/artifacts/app/stolen_A1.npy": "76b8cf53152aaccc5a235d1fb2a6f8596fd1b78dac856443fdf11b340ad6cfdd",
+        "model-extraction-relu-logits__dqgQ6Y9/result.json": "f7236570152604777f7d6dee09502526a9779b3cd734263af9e44f07883edeb1",
+        "model-extraction-relu-logits__dqgQ6Y9/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "model-extraction-relu-logits__dqgQ6Y9/verifier/test-stdout.txt": "c1a4191347b72d40bd8617c715306b32773fd8b026462acc785392ed776f5f21",
+        "model-extraction-relu-logits__dqgQ6Y9/agent/tools.jsonl": "ff10adbcf0925debf6d6e2bce59e58a230abd4756266219e363814ee362481ba",
+        "model-extraction-relu-logits/instruction.md": "c9e179dd099065a34c362a865b0eb9fab5f7d96be582cf117e7519580c036ebe"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All9 model event structures/individual fresh own-zero receipts; all6 complete executed tool commands and meaningful output, complete original task/grade, controller and candidates/native artifact byte links. Reasoning not read word-for-word.",
+      "protocol_sha256": "3ecf4d29cd0408dc27371d740cd35820bf3cd041e46e50ecb94c962ae5eacfb7",
+      "native_artifact_byte_links": [
+        {
+          "source": "/app/steal.py",
+          "captured_path": "model-extraction-relu-logits__dqgQ6Y9/artifacts/app/steal.py",
+          "sha256": "e6fd12aa83f311d90b28b146a4e0e57646e2f6ba9abc609d94795b4168f91b86",
+          "bytes": 11913,
+          "matches_final_snapshot": true
+        },
+        {
+          "source": "/app/stolen_A1.npy",
+          "captured_path": "model-extraction-relu-logits__dqgQ6Y9/artifacts/app/stolen_A1.npy",
+          "sha256": "76b8cf53152aaccc5a235d1fb2a6f8596fd1b78dac856443fdf11b340ad6cfdd",
+          "bytes": 1728,
+          "matches_final_snapshot": true
+        }
+      ],
+      "semantic_review": {
+        "helper_adopted": true,
+        "mechanism": "Tool1/2 read existing public numerical helper; tool3 copies its bytes to standalone steal.py and appends callable-only import plus dimension10 main. Final native script starts with unchanged frozen helper bytes. It recovers20directions with137063 scalar oracle queries, not137063 model requests.",
+        "access": "All six bash commands inspected: no cat/read of forward implementation, no A1/weights/globals/inspect access. Only importlib loading and getattr forward callable. Query-based development/delivery on this observed trace; finite probing is not a completeness certificate.",
+        "self_contained": "11913B native script has no /opt/course-tools dependency and runs withpython-I from unrelatedcwd; NPY deterministic before/after hashes agree.",
+        "check": "Requested verify step5 and8 passed; candidate001 saved step6eligibletrue; final9current/public/protectedtrue. Checker itself reuses same helper withn_lines23/seed39117, matching the candidate's selected parameters: this is numerical consistency, not an independent algorithm/complete-hidden-width proof. Original matrix scorer separately passes.",
+        "retained_failure": "Tool3 initial execution fails because /usr/bin/time is absent; subprocess-based timing replacement then actually executes recovery. No model retry or original score rerun.",
+        "raw": true,
+        "qualified": true
+      }
+    },
+    {
+      "arm": "guidance_off",
+      "task": "extract-elf",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-v18-reuse-guidance-ablation-20261125/extract-elf-C0-reuse-guidance-off-r1",
+      "revision_scope": "guidance_off",
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 153.55127966695,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18-guidance-off",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795646039.869743,
+        "native_session_id": "3848ebb2-b662-49ed-bb75-ae2b55b507e1",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "508585248ecf77e1c9bf778132d722f0cad7d7d59b2c6ac77cc913a7a98b91fe"
+      },
+      "event_counts": {
+        "request": 11,
+        "cli_process_started": 11,
+        "response": 11,
+        "billing_verified": 11
+      },
+      "native_sessions": [
+        "3848ebb2-b662-49ed-bb75-ae2b55b507e1"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a214d8355c7fcf962e5ac5562ce3bf",
+          0,
+          5585,
+          258
+        ],
+        [
+          2,
+          "01a214d84eb47aff9531d122b23a72b0",
+          0,
+          6040,
+          214
+        ],
+        [
+          3,
+          "01a214d866f67336872bf257934bc577",
+          0,
+          9825,
+          2376
+        ],
+        [
+          4,
+          "01a214d8c9287cb1ad09614064eed588",
+          0,
+          12762,
+          1334
+        ],
+        [
+          5,
+          "01a214d905cf750aaa2418facf017d20",
+          0,
+          14360,
+          1380
+        ],
+        [
+          6,
+          "01a214d93766797b8671bfe406dc335a",
+          0,
+          16124,
+          117
+        ],
+        [
+          7,
+          "01a214d9595e7f5791b5dee602ae7a17",
+          0,
+          17035,
+          110
+        ],
+        [
+          8,
+          "01a214d96efb7f739e1c4b614e4281ee",
+          0,
+          17501,
+          1323
+        ],
+        [
+          9,
+          "01a214d99e457eb986e5ad52dfe3f88d",
+          0,
+          18931,
+          1288
+        ],
+        [
+          10,
+          "01a214d9cb2777bdacbc1d51f1f4c93b",
+          0,
+          20469,
+          337
+        ],
+        [
+          11,
+          "01a214d9e8f67146b4a800d9b08c4591",
+          0,
+          22577,
+          139
+        ]
+      ],
+      "input_tokens": 161209,
+      "output_tokens": 8876,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "e3334561517dfab52f2cd50ab203f3a6c1b4f2a6727c01025d575fd87ab3e894",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-memory": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "e175184de61c08fa463006545045630a35f5c3c9716ae224752fde23613f680b  extract.js\nc9f03015f4be39676c3be5cbe7db490103f040c8d83352d696443cf4e7c7d04c  /app/a.out\n"
+          }
+        },
+        "elapsed_seconds": 119.79698037495837
+      },
+      "controller_event_counts": {
+        "candidate_operation": 6,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "e3334561517dfab52f2cd50ab203f3a6c1b4f2a6727c01025d575fd87ab3e894",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "bb6d479ea4a2870d97d31040b963bbd23ddae6c11f392defc874c731ccd26f12",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "e3334561517dfab52f2cd50ab203f3a6c1b4f2a6727c01025d575fd87ab3e894",
+          "eligible": true
+        }
+      ],
+      "native_capture": {
+        "registered": true,
+        "artifacts": [
+          {
+            "source": "/app/extract.js",
+            "status": "ok",
+            "type": "file",
+            "path": "extract-elf__c6uTuZ7/artifacts/app/extract.js",
+            "sha256": "e175184de61c08fa463006545045630a35f5c3c9716ae224752fde23613f680b",
+            "bytes": 2605,
+            "sha_present_in_final_public_snapshot": false
+          }
+        ],
+        "model_requests_by_capture": 0
+      },
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "============================= test session starts ==============================",
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_extract_js_exists",
+          "PASSED ../tests/test_outputs.py::test_output_matches_reference",
+          "============================== 2 passed in 1.98s ==============================="
+        ]
+      },
+      "tools_count": 8,
+      "nonzero_tools": [
+        1
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 8,
+        "save": 2,
+        "verify": 1
+      },
+      "source_sha256": {
+        "result.json": "dce3c6287ed4749a8a5854db6b27b941c7add056d4ea9eda0b5a572dcf784c08",
+        "trial.json": "ae537cb3a146637a7dd7b85026271e5af9267e25aa55e58c0255e85e8dd54236",
+        "protocol:work/vmshare/performance75-hy4-v18-reuse-guidance-ablation-20261125/extract-elf-C0-reuse-guidance-off-r1.protocol.json": "1fd09f50799fc4702152800ddafce31cc88feee23fdd06f37d3b243553b10521",
+        "extract-elf__c6uTuZ7/agent/model.jsonl": "66b0f261567a13e30fdbfe509296776ae453851fcd3927b2a6bcc58a98b85225",
+        "extract-elf__c6uTuZ7/agent/controller.jsonl": "74fc860fe4ed839096063b32c6162b825a0eece783c62a6f1e90d35524a75162",
+        "extract-elf__c6uTuZ7/agent/final-verification.json": "5b7259eb41c4d3bee8346d6623a52040ec2e4e305683ff92e66e78daa883f650",
+        "extract-elf__c6uTuZ7/agent/candidates/candidate-002.json": "53a5fefb2e9249f51e16467806a304dfe62a53c75bd7a5d683dd5b47a444d2d9",
+        "extract-elf__c6uTuZ7/agent/candidates/candidate-001.json": "ac689b8b1911b8846e2e42142b79cab07a248b1494149b64beea303adf9b3336",
+        "artifact-capture.json": "231301a80a181dac4320177a62bc038c656654a07378a1387223b7b8fc39c31b",
+        "artifact-capture-config.json": "42dadc697470c350e2cf6af224250542558c2a1840a2f2db5909a0cf7cb5252a",
+        "extract-elf__c6uTuZ7/artifacts/manifest.json": "edc4c8c083a7d823ded422c0c705113fe58fbf1b7b329268d4100ca738f78f2a",
+        "extract-elf__c6uTuZ7/artifacts/app/extract.js": "e175184de61c08fa463006545045630a35f5c3c9716ae224752fde23613f680b",
+        "extract-elf__c6uTuZ7/result.json": "69bae23648f199123bcabd4cdb52dbc770002d3908194890e3909470316f1379",
+        "extract-elf__c6uTuZ7/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "extract-elf__c6uTuZ7/verifier/test-stdout.txt": "a8c6bc14ae92bcdf0caa74eecbbac04848fcbca55e582a5169f33a3b57659b07",
+        "extract-elf__c6uTuZ7/agent/tools.jsonl": "2a41f0b1d06f1606534d3cb739c6a99d12a4269d9b54efe2f9e2f9513223a3f4",
+        "extract-elf/instruction.md": "f1dd8c8fd9f01101d2ecb65665bdedc33adc868abd853b3adf556f6aa4982073"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All11 model event structures/individual fresh own-zero receipts; all8 complete executed tool commands and meaningful output, complete original task/grade, controller and candidates/native artifact byte links. Reasoning not read word-for-word.",
+      "protocol_sha256": "1fd09f50799fc4702152800ddafce31cc88feee23fdd06f37d3b243553b10521",
+      "native_artifact_byte_links": [
+        {
+          "source": "/app/extract.js",
+          "captured_path": "extract-elf__c6uTuZ7/artifacts/app/extract.js",
+          "sha256": "e175184de61c08fa463006545045630a35f5c3c9716ae224752fde23613f680b",
+          "bytes": 2605,
+          "matches_final_snapshot": true
+        }
+      ],
+      "semantic_review": {
+        "helper_adopted": true,
+        "mechanism": "The public helper is a checker, not an extraction algorithm. Tool2 reads its source; tool3 and4 invoke it directly; requested verify step6 records700/700 correct PT_LOAD unsigned32 words, zero inconsistencies and unchanged providedbinary. Model writes independent general program-header parser, fixing initial little-endian-only header reads before final verification.",
+        "delivery": "2605B captured extract.js matches current snapshot and final savedcandidate002. Initialcandidate001 has earlierdigest/eligiblefalse; correctedcandidate002step7eligibletrue; final11valid/protectedtrue. No helper path in delivery.",
+        "retained_failure": "file utility absent attool1. Tool5 synthetic ELF builder incorrectly places payload beyond its claimed file offsets, so both endian cases returning allzero are a flawed self-test. Tool6 corrects builder and actually verifies six nonzero/padded words for each endian. Do not cite early allzero check as general parser validation.",
+        "limit": "Original scorer2pass and public700/700 support provided ELF. No claim of complete coverage of all malformed/huge/extended-number ELF inputs.",
+        "raw": true,
+        "qualified": true
+      }
+    },
+    {
+      "arm": "guidance_off",
+      "task": "video-processing",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-v18-reuse-guidance-ablation-20261125/video-processing-C0-reuse-guidance-off-r1",
+      "revision_scope": "guidance_off",
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 194.73392083391082,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18-guidance-off",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795646184.588525,
+        "native_session_id": "4d5f641e-e40f-4b46-88da-a99967061caa",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "85e0653a9f067a99ba1589db69a16764276cf65c4bc521bdb373dc4a01a1c838"
+      },
+      "event_counts": {
+        "request": 11,
+        "cli_process_started": 11,
+        "response": 11,
+        "billing_verified": 11
+      },
+      "native_sessions": [
+        "4d5f641e-e40f-4b46-88da-a99967061caa"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a214da66a378ea8c5366a380228f66",
+          0,
+          5715,
+          329
+        ],
+        [
+          2,
+          "01a214da7f0273fca9696128ca2fea88",
+          0,
+          8301,
+          777
+        ],
+        [
+          3,
+          "01a214dac3107cf1a1b7a09ba7e76b2e",
+          0,
+          9447,
+          2898
+        ],
+        [
+          4,
+          "01a214db09d37ec4a9935ac5503eeed9",
+          0,
+          12474,
+          813
+        ],
+        [
+          5,
+          "01a214db425c75a69822d283292e3ad7",
+          0,
+          13465,
+          160
+        ],
+        [
+          6,
+          "01a214db577878b582a428d8a4a1bc80",
+          0,
+          13898,
+          1037
+        ],
+        [
+          7,
+          "01a214db955f71659de3dacc4b2d1ed4",
+          0,
+          16687,
+          867
+        ],
+        [
+          8,
+          "01a214dbcad77b8fa01057245e157a1f",
+          0,
+          18005,
+          928
+        ],
+        [
+          9,
+          "01a214dc64cc70eda264fa156416a7da",
+          0,
+          17957,
+          716
+        ],
+        [
+          10,
+          "01a214dc84a07287bfc1a7b3d7157ab0",
+          0,
+          18926,
+          104
+        ],
+        [
+          11,
+          "01a214dca0ab7e0cb0727a30b0ce453c",
+          0,
+          19486,
+          157
+        ]
+      ],
+      "input_tokens": 154361,
+      "output_tokens": 8786,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "c0c8dadca7233a50fea57f24ecedb6bf7e66ad049f2e800cd17f5afa805cf8ca",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-artifact": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "1b028bf08b1d4c2b296e745290cadc9dbf34606e3377ff728fce64e48d677966  /app/jump_analyzer.py\n0793aa3cef4fe74c579e6bf3e7a6bbe38dfe1460fdb9d55822d0c57c2658226e  /app/output.toml\n"
+          }
+        },
+        "elapsed_seconds": 152.60496283404063
+      },
+      "controller_event_counts": {
+        "candidate_operation": 7,
+        "candidate_saved": 1,
+        "verification": 2,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "c0c8dadca7233a50fea57f24ecedb6bf7e66ad049f2e800cd17f5afa805cf8ca",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "c0c8dadca7233a50fea57f24ecedb6bf7e66ad049f2e800cd17f5afa805cf8ca",
+          "eligible": false
+        }
+      ],
+      "native_capture": {
+        "registered": true,
+        "artifacts": [
+          {
+            "source": "/app/jump_analyzer.py",
+            "status": "ok",
+            "type": "file",
+            "path": "video-processing__cL7NVE4/artifacts/app/jump_analyzer.py",
+            "sha256": "1b028bf08b1d4c2b296e745290cadc9dbf34606e3377ff728fce64e48d677966",
+            "bytes": 8014,
+            "sha_present_in_final_public_snapshot": true
+          },
+          {
+            "source": "/app/output.toml",
+            "status": "ok",
+            "type": "file",
+            "path": "video-processing__cL7NVE4/artifacts/app/output.toml",
+            "sha256": "0793aa3cef4fe74c579e6bf3e7a6bbe38dfe1460fdb9d55822d0c57c2658226e",
+            "bytes": 59,
+            "sha_present_in_final_public_snapshot": true
+          }
+        ],
+        "model_requests_by_capture": 0
+      },
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_example_video_exists",
+          "PASSED ../tests/test_outputs.py::test_test_video_exists",
+          "PASSED ../tests/test_outputs.py::test_jump_analyzer_example_video",
+          "PASSED ../tests/test_outputs.py::test_jump_analyzer_test_video",
+          "PASSED ../tests/test_outputs.py::test_jump_analyzer_imports",
+          "============================== 5 passed in 16.78s =============================="
+        ]
+      },
+      "tools_count": 7,
+      "nonzero_tools": [
+        2,
+        3
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 7,
+        "save": 1,
+        "verify": 2,
+        "submit": 1
+      },
+      "source_sha256": {
+        "result.json": "0d41adbb2ba6d9e32defc09bc0e30a73ce64ee7f30c6668f3afd83861503ff9f",
+        "trial.json": "884b8e5cfb871449226087606b705831c7364c942c365c7d0796fc5c21d5bb96",
+        "protocol:work/vmshare/performance75-hy4-v18-reuse-guidance-ablation-20261125/video-processing-C0-reuse-guidance-off-r1.protocol.json": "a5c55e2d8b9e3cd144a3ce9000755d1628de3bb45db78a2046a451198bf0476e",
+        "video-processing__cL7NVE4/agent/model.jsonl": "3ca71cf09cea69e2c84d646d72b435bfdfe141b782de21ef6852f28bc4033df8",
+        "video-processing__cL7NVE4/agent/controller.jsonl": "d7d821e8420b82c7c8158c724d6ecf5aee9b0780ed41c5ccd436083db8682425",
+        "video-processing__cL7NVE4/agent/final-verification.json": "0da2b23fb59abab1d3af5f8e347143217492e7218d88a171d21bbdaf9e87309f",
+        "video-processing__cL7NVE4/agent/candidates/candidate-001.json": "53893f7e327d184d7c409c0420ef84b932b9dfd1cb935fb14d04728ba7e01347",
+        "artifact-capture.json": "6ab87d949687de5720d207417b851e8a2e546973668f3063a72124cfb6f3402b",
+        "artifact-capture-config.json": "d9f41018b58106c41c160c839dbddda9b26ef9adf56e851770227a3f6c5e7763",
+        "video-processing__cL7NVE4/artifacts/manifest.json": "2c2999ef974e21e200db6e71508268aeac5946b30fc345df0bf34ea35c8b8342",
+        "video-processing__cL7NVE4/artifacts/app/jump_analyzer.py": "1b028bf08b1d4c2b296e745290cadc9dbf34606e3377ff728fce64e48d677966",
+        "video-processing__cL7NVE4/artifacts/app/output.toml": "0793aa3cef4fe74c579e6bf3e7a6bbe38dfe1460fdb9d55822d0c57c2658226e",
+        "video-processing__cL7NVE4/result.json": "52c85960f460d180a1728bc68e0b1381c21eca4d4baa03baf6f7601aea107f2f",
+        "video-processing__cL7NVE4/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "video-processing__cL7NVE4/verifier/test-stdout.txt": "5b791190313ba76231d1573e9820f87628e26c2219c507b8a00285c035d73645",
+        "video-processing__cL7NVE4/agent/tools.jsonl": "22615be48209224ca426ab582ec6fa9164108308234d0c3fb59a96734fd4890e",
+        "video-processing/instruction.md": "15936f5e61823ae4794994d6e1b7e4e776b40968ea382405b868c501dfe032db"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All11 model event structures/individual fresh own-zero receipts; all7 complete executed tool commands and meaningful output, complete original task/grade, controller and candidates/native artifact byte links. Reasoning not read word-for-word.",
+      "protocol_sha256": "a5c55e2d8b9e3cd144a3ce9000755d1628de3bb45db78a2046a451198bf0476e",
+      "native_artifact_byte_links": [
+        {
+          "source": "/app/jump_analyzer.py",
+          "captured_path": "video-processing__cL7NVE4/artifacts/app/jump_analyzer.py",
+          "sha256": "1b028bf08b1d4c2b296e745290cadc9dbf34606e3377ff728fce64e48d677966",
+          "bytes": 8014,
+          "matches_final_snapshot": true
+        },
+        {
+          "source": "/app/output.toml",
+          "captured_path": "video-processing__cL7NVE4/artifacts/app/output.toml",
+          "sha256": "0793aa3cef4fe74c579e6bf3e7a6bbe38dfe1460fdb9d55822d0c57c2658226e",
+          "bytes": 59,
+          "matches_final_snapshot": true
+        }
+      ],
+      "semantic_review": {
+        "helper_adopted": true,
+        "mechanism": "Tool1 reads public video_events helper; tool2 runsanalyze_video and observes53/62. Tool3 rewrites same background/component/ground-contact/flight algorithm with documentation and standalone CLI; only output adaptation/import fallback changes. No hardcoded53/62 return path.",
+        "semantic_observation": "Tool5 actual contact sheet49..64 independently viewed in this audit: trailingfoot contact near53 precedes flight54..61 and landing62. Actualpixel diagnostics and model-visible image support that event interpretation; checker only certifies syntax/files/TOMLshape.",
+        "transformation_checks": "Tool6 shifts10frames→63/72, truncates80→53/62, mirrors→53/62, and restores example output53/62. These transformations alone would not certify event semantics; actual contact-sheet and original scorer are separate.",
+        "delivery": "8014B self-contained native script and59B finalTOML match savedcandidate001 and current public snapshots. Candidate001step5 remainseligiblefalse; verify7 and10pass, final11valid/protectedtrue, no retroactive save-eligibility rewrite.",
+        "retained_failure": "Extra geometry diagnostictool2 fails onNone/isnan after valid baseline result. Initial importtoml missing attool3; optional import with directtwo-integer TOML writer then succeeds, without package installation.",
+        "limit": "Fixed-camera/single-runner/same-scale heuristic per task; cannot claim arbitrary videos or completeness. Original5tests include example and held-outtaskvideo; no hidden video/answers observed in development.",
+        "raw": true,
+        "qualified": true
+      }
+    }
+  ],
+  "shared_source_sha256": {
+    "work/frozen-performance-hy4-sql-layout-v18-guidance-off/course_eval/terminal_runtime.py": "082c205b597cbaa1911737353e332013668890d091f324fc97449b1e90e3cd0c",
+    "work/frozen-performance-hy4-sql-layout-v18-guidance-off/course_eval/relu_recovery.py": "f3dd9a3efc6ef2bdb3a28708225162f99cd39a45323481b46023ac9d7e2cfae4",
+    "work/frozen-performance-hy4-sql-layout-v18-guidance-off/course_eval/video_events.py": "cc1be22ff1e217e16fc5b1777677e20b518719ad3993edde9e884d2df5819d62",
+    "work/frozen-performance-hy4-sql-layout-v18-guidance-off/course_eval/elf_memory_check.py": "e13f2d9ffabad9f538414e8299f5197b73e6db98ff2f4482b5e2a11f36db955e",
+    "work/frozen-performance-hy4-sql-layout-v18-guidance-off/course_eval/controller.py": "6c136191b64eca3ac069c1fd147eea60e200587f8a76657cfcf2b5f4e2174b62",
+    "work/frozen-performance-hy4-sql-layout-v18-guidance-off/course_eval/codebuddy_free.py": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+    "work/frozen-performance-hy4-sql-layout-v18-guidance-off/course_eval/financial_stop.py": "27b59ada2a897cfd10c5ebbaf65aa7e4e33157310ca56d6952cf1308559d0239",
+    "work/frozen-performance-hy4-sql-layout-v18-guidance-off/course_eval/image_input.py": "c3a9184aee35b454e2ef729112769cbdf09b404ca0ff156d7d25960308e7fa54",
+    "work/frozen-performance-hy4-sql-layout-v18-guidance-off/course_eval/harbor_agent.py": "def732e78eecbea0a5d15506a1d55c850de0359349674af9c45334152ff67393",
+    "work/frozen-performance-hy4-sql-layout-v18-guidance-off/course_eval/candidate_io.py": "307457f8eeff702f1a8f7b9f43bb69138bec908a9f8783ae5795c45fe1c1802c",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/model-extraction-relu-logits-C0-r1/result.json": "a1bf56869d2f795285ee4a485b15b9bcf61c70a7a8586fc630de12d8719a2b82",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/model-extraction-relu-logits-C0-r1/trial.json": "64272375b663d93821af0f88aff047a7544bf00a3e65ec9bb44d65a23b511938",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/model-extraction-relu-logits-C0-r1.protocol.json": "0b52479c15370f163f5cc3ee494e277a84adb89a0c605c64ed5259950feb8507",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/extract-elf-C0-r1/result.json": "15c5c8d02b6118b3092b0ab0df52229df79863151247b45400c13b3dbcb8a51f",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/extract-elf-C0-r1/trial.json": "ae537cb3a146637a7dd7b85026271e5af9267e25aa55e58c0255e85e8dd54236",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/extract-elf-C0-r1.protocol.json": "40ab31d52b0e1639e444041019883d1d952cf37791a20e93c7f4671e453f6f60",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/video-processing-C0-r1/result.json": "dc0515fb5c85385d998733e2b0d88961cefa596a0741c2ade9a9abc42e0f1f5b",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/video-processing-C0-r1/trial.json": "884b8e5cfb871449226087606b705831c7364c942c365c7d0796fc5c21d5bb96",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/video-processing-C0-r1.protocol.json": "6a45635a7130c1d4a674242b941290a87423d66377b784968a4adfc59576469c",
+    "work/parallel-free-evaluation-20261124/final-reuse-ablation/tasks.json": "b278ac4897e236cfd09c1a86941e8531ac48009756b01d2d0910b028a019cfb8",
+    "work/parallel-free-evaluation-20261124/final-reuse-ablation/checks.json": "8f1b3a87b197a93c3f4441095495dc3a835bb8f29712336949767a92e308dff4",
+    "work/parallel-free-evaluation-20261124/run_hy4_trial.py": "5764368864a179569ffa7cf98779fcfbc3ec74fcea4de7fcb1970261732e9063",
+    "work/parallel-free-evaluation-20261124/resource_warm_trial.py": "17d871ae7feb15fe2e76cdc024de3e1d5c61b39c1b071321336cdfed825d4e10",
+    "work/parallel-free-evaluation-20261124/final-reuse-ablation/artifact-capture-policy.json": "534827c04495f46b5fcdddfc78641090854089cb8a1dd380df1190edab890360",
+    "work/parallel-free-evaluation-20261124/prepare_reuse_ablation.py": "b35268b022f1194d5fa413b272af69baf00a91e8d45d34885ffedb849cc75e69",
+    "work/parallel-free-evaluation-20261124/run_reuse_ablation.py": "342a5e6d2caa24ed5a28389050f398eb19c9d804cd2147df5da8f3be15bbdcea",
+    "work/parallel-free-evaluation-20261124/final-reuse-ablation/plan.json": "a61385dd661d8b9074e154896b74e37bf073176d5e2e25e0961fa750a0d00e2e",
+    "work/vmshare/performance75-hy4-v18-reuse-guidance-ablation-20261125/state.json": "b65ecb4b2101c6dd71d6c8260b7d5cc5e025ade89a75eba4ba3c2d64b9cc4f7b",
+    "work/parallel-free-evaluation-20261124/independent-core-after219-incremental-20261126.json": "c4eaf6bf93ac9e11c8aacec69343a2f00f0e051fbe0d3994fea72e8c3168d946",
+    "work/vmshare/performance75-hy4-v18-reuse-guidance-ablation-20261125/model-extraction-relu-logits-C0-reuse-guidance-off-r1.protocol.json": "3ecf4d29cd0408dc27371d740cd35820bf3cd041e46e50ecb94c962ae5eacfb7",
+    "work/vmshare/performance75-hy4-v18-reuse-guidance-ablation-20261125/model-extraction-relu-logits-C0-reuse-guidance-off-r1.resources.json": "b995adedf0fb360d5f55178c80533c87bff38eb8e0313848fa46f7d07239c8ce",
+    "work/vmshare/performance75-hy4-v18-reuse-guidance-ablation-20261125/extract-elf-C0-reuse-guidance-off-r1.protocol.json": "1fd09f50799fc4702152800ddafce31cc88feee23fdd06f37d3b243553b10521",
+    "work/vmshare/performance75-hy4-v18-reuse-guidance-ablation-20261125/extract-elf-C0-reuse-guidance-off-r1.resources.json": "ce1554acece73346019d62fa1c395ef5ac65375c1ffa5c8ef9dee87d1eb9f1da",
+    "work/vmshare/performance75-hy4-v18-reuse-guidance-ablation-20261125/video-processing-C0-reuse-guidance-off-r1.protocol.json": "a5c55e2d8b9e3cd144a3ce9000755d1628de3bb45db78a2046a451198bf0476e",
+    "work/vmshare/performance75-hy4-v18-reuse-guidance-ablation-20261125/video-processing-C0-reuse-guidance-off-r1.resources.json": "a5010dabc7c988b780ae9889d7850922e8a4033d874e4f963bfd04a0af0c7a5f"
+  },
+  "limits": [
+    "No source/runtime/plan/financial state or original score edited.",
+    "No new models, VM/container operations, original grading, installation, Git or uploads.",
+    "Previously audited core/reference trajectories reused; no live preservation pair read. This review does not provide final joined-source/PDF/package approval."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "reason": "zero_model_public_nan_contract_qualification",
+  "artifact_digest": "07724a16272a098fcda7ed7e674d2bd6a0cbf22d1d062a5833332a941fc899c8",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": false,
+  "evidence": {
+    "public-issue": {
+      "state": "failed",
+      "returncode": 1,
+      "snapshot": null
+    }
+  },
+  "elapsed_seconds": 9.707195041002706
+}

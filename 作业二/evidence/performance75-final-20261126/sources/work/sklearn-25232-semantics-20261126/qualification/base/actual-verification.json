@@ -1,0 +1,18 @@
+{
+  "check_id": "public-issue",
+  "reason": "zero_model_public_nan_contract_qualification",
+  "state": "failed",
+  "coverage": [
+    "Original visible fill_value check plus12 public cases for constant initialization, NaN-tolerant tree iteration and fitted feature range",
+    "Derive empty-feature status from the original training missing-value mask, cache it on fit and reuse on transform;NaN initialization statistics do not imply an empty training column",
+    "Public mature mechanism:https://github.com/scikit-learn/scikit-learn/blob/main/sklearn/impute/_iterative.py ;1.5.2 still used statistics_ and is not claimed fixed",
+    "Every probe training feature contains observed values;this is not an exhaustive all-empty training-column contract"
+  ],
+  "artifact_digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "before": "0798fb974d439441ad7553e174750ec4c6a51f6a7e2eb4555210a27f900c0e7f  sklearn/impute/_iterative.py\n",
+  "after": "0798fb974d439441ad7553e174750ec4c6a51f6a7e2eb4555210a27f900c0e7f  sklearn/impute/_iterative.py\n",
+  "seconds": 3.1413267920725048,
+  "stdout": "{\"passed\": false, \"conditions\": [{\"id\": \"public-issue\", \"passed\": false, \"actual\": {\"error\": \"TypeError\", \"detail\": \"__init__() got an unexpected keyword argument 'fill_value'\"}, \"required\": \"public issue behavior\"}]}\n",
+  "stderr": "",
+  "returncode": 1
+}

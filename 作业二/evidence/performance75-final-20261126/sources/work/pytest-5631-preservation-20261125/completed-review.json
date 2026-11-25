@@ -1,0 +1,767 @@
+{
+  "schema_version": 1,
+  "status": "APPROVE_WITH_STATED_LIMITS",
+  "blocking_findings": [],
+  "frozen_plan": {
+    "path": "work/pytest-5631-preservation-20261125/frozen/plan.json",
+    "sha256": "618aaebb91efb3cb760f79c4f1470705c51129e506331eb2e84e355e71ff3adf",
+    "all143_bindings_actually_verified": true,
+    "bound_bytes": 35453805
+  },
+  "totals": {
+    "trials": 2,
+    "original_passed": 2,
+    "final_public_and_protected_passed": 2,
+    "requests": 30,
+    "responses": 30,
+    "own_zero_receipts": 30,
+    "new_native_sessions": 2,
+    "executed_bash_commands": 24,
+    "input_tokens": 460901,
+    "output_tokens": 15407,
+    "scored_wall_seconds": 291.7681791250361,
+    "unknown_requests_in_these_two": 0
+  },
+  "identity_check": {
+    "baseline_IDs": 4360,
+    "baseline_sessions": 251,
+    "new_IDs": 30,
+    "new_sessions": 2,
+    "ID_intersection": 0,
+    "session_intersection": 0,
+    "known_union_IDs": 4390,
+    "known_union_sessions": 253,
+    "scope": "Prior original225 + fourteen earlier scoped repairs + five oldJSON + eleven known mechanical-prefix calls + three ablations; these two prospective sessions are not resampling original semantic failures."
+  },
+  "rows": [
+    {
+      "arm": "main",
+      "task": "pytest-dev__pytest-5631",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance-pytest-preservation-v1-20261125/pytest-dev__pytest-5631-C0-preserve-tests-main-r1",
+      "revision_scope": "preservation",
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 138.67643816699274,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795646376.28203,
+        "native_session_id": "8b782983-656d-41e9-b46a-140948bb7b86",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "b0d1db2d6353d84e9dcca0042eb40aea3857977967f3c816bd12e392946725af"
+      },
+      "event_counts": {
+        "request": 14,
+        "cli_process_started": 14,
+        "response": 14,
+        "billing_verified": 14
+      },
+      "native_sessions": [
+        "8b782983-656d-41e9-b46a-140948bb7b86"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a214dd53237ca3b74dce3db71a458c",
+          0,
+          6043,
+          234
+        ],
+        [
+          2,
+          "01a214dd68e67be79a47d92a16afbfa9",
+          0,
+          9371,
+          611
+        ],
+        [
+          3,
+          "01a214dd8e7a765c8cb62c1ad0eef24a",
+          0,
+          10570,
+          366
+        ],
+        [
+          4,
+          "01a214dda8047de3a720e2f62a240472",
+          0,
+          11495,
+          318
+        ],
+        [
+          5,
+          "01a214ddc1897e058fbcf19b1cabb3dd",
+          0,
+          12185,
+          468
+        ],
+        [
+          6,
+          "01a214dde0917fa29a5c02fa50417dbc",
+          0,
+          13183,
+          267
+        ],
+        [
+          7,
+          "01a214ddf84679afa381cafbfc92c488",
+          0,
+          13921,
+          737
+        ],
+        [
+          8,
+          "01a214de160b7e65bb54bfa73a67e801",
+          0,
+          14955,
+          103
+        ],
+        [
+          9,
+          "01a214de2c2f70e78782a977cff576b7",
+          0,
+          15334,
+          171
+        ],
+        [
+          10,
+          "01a214de4c1e7809b0756aec33e147a8",
+          0,
+          16142,
+          1410
+        ],
+        [
+          11,
+          "01a214de78c17b4881aec2c87218d03c",
+          0,
+          18546,
+          1275
+        ],
+        [
+          12,
+          "01a214dea2dd73cfaab0eaa6753bf91f",
+          0,
+          20147,
+          365
+        ],
+        [
+          13,
+          "01a214debc2077f09f72b62f183e6e55",
+          0,
+          20749,
+          230
+        ],
+        [
+          14,
+          "01a214dedb58784aa4b88a339b393e27",
+          0,
+          21616,
+          116
+        ]
+      ],
+      "input_tokens": 204257,
+      "output_tokens": 6671,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "e49fef5598e09fa6e178c1fd5b990df388159ad4a050e4d29e05bcff7f5b2fea",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-issue": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "6145f9fe476b39275651317a3f8d8b2fc7afe94b50c4246c85815c2b8ad75442  src/_pytest/compat.py\n"
+          }
+        },
+        "elapsed_seconds": 107.33160725003108
+      },
+      "controller_event_counts": {
+        "candidate_operation": 8,
+        "candidate_saved": 1,
+        "verification": 2,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "e49fef5598e09fa6e178c1fd5b990df388159ad4a050e4d29e05bcff7f5b2fea",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "e49fef5598e09fa6e178c1fd5b990df388159ad4a050e4d29e05bcff7f5b2fea",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        ".course-public-check/test_public_issue.py",
+        "src/_pytest/compat.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 15,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED testing/python/integration.py::TestNoselikeTestAttribute::test_class_with_nasty_getattr",
+          "PASSED testing/python/integration.py::TestParameterize::test_idfn_marker",
+          "PASSED testing/python/integration.py::TestParameterize::test_idfn_fixture",
+          "SKIPPED [1] /testbed/testing/python/integration.py:160: could not import 'mock': No module named 'mock'",
+          "SKIPPED [1] /testbed/testing/python/integration.py:211: could not import 'mock': No module named 'mock'",
+          "SKIPPED [1] /testbed/testing/python/integration.py:244: could not import 'mock': No module named 'mock'",
+          "SKIPPED [1] /testbed/testing/python/integration.py:268: could not import 'mock': No module named 'mock'",
+          "===================== 16 passed, 4 skipped in 0.45 seconds ====================="
+        ]
+      },
+      "tools_count": 11,
+      "nonzero_tools": [],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 11,
+        "save": 1,
+        "verify": 2
+      },
+      "source_sha256": {
+        "result.json": "1ea69c93926b43fcf1591d1b7c79139dc120360eeb950e723fc305b737d4863c",
+        "trial.json": "2330e1e3454d3fed20f061d4151c4b8b069d134b86125eb28ca41dd961a57280",
+        "model.jsonl": "b248b105a550ec9790cf08942cc0019a9e8bef84b0135ba104df14d888c25a5c",
+        "controller.jsonl": "61a73f351af45df3de5ad0501c379f042b7effb397cd153478386b878d1a663f",
+        "final-verification.json": "b841bccbb1fc04465c1db48874d293068944d38fdb22383237d4257b62ba2140",
+        "candidates/candidate-001.json": "378649c7e86e6bc01b8e1cb68857e67a2d9856743fdd7e7cbf6189f7200d6460",
+        "candidate.patch": "945350676406aa259070d5a13a757b025708dac80f8dc5c943d71a132a104847",
+        "swe-official/pytest-dev__pytest-5631-C0-preserve-tests-main-r1/course-mini-swe-agent/pytest-dev__pytest-5631/patch.diff": "945350676406aa259070d5a13a757b025708dac80f8dc5c943d71a132a104847",
+        "swe-official/pytest-dev__pytest-5631-C0-preserve-tests-main-r1/course-mini-swe-agent/pytest-dev__pytest-5631/report.json": "fa7d8c45af6a784ef6a63c2c386f30767fa8114134aa872e631e1bc6a4a9ebaa",
+        "swe-official/pytest-dev__pytest-5631-C0-preserve-tests-main-r1/course-mini-swe-agent/pytest-dev__pytest-5631/test_output.txt": "2f57132eb702204cadc5cba8b5d75da6cdebbac1b8c60ac7de6af340de808cd2",
+        "swe-official/pytest-dev__pytest-5631-C0-preserve-tests-main-r1/course-mini-swe-agent/pytest-dev__pytest-5631/run_instance.log": "26a6f337eae36551036ea71627157c4ed709016bba9141797359d213dcc01bc9",
+        "swe-official/pytest-dev__pytest-5631-C0-preserve-tests-main-r1/course-mini-swe-agent/pytest-dev__pytest-5631/eval.sh": "7ec1e21a0b12d8fbb8dba14ae1ff9276880ce6d65ab1cfcbbdb62d3d9aa2c68f",
+        "tools.jsonl": "f476b72929a181361852d67c62c2898d32e4f61512a32369a4023ec798f245d4"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All14 model event structures/individual own-zero receipts, all11 complete executed bash commands and meaningful output, full task/production patch, candidate metadata/payloads/controller and actual original-grade report/results read. No claim of word-for-word model reasoning review.",
+      "protocol_sha256": "10806b6cb462838132ff2ed161623d275ade03f0e442030127856133fcef2a04",
+      "actual_payload_and_control_links": {
+        "arm": "main",
+        "run_dir": "work/vmshare/performance-pytest-preservation-v1-20261125/pytest-dev__pytest-5631-C0-preserve-tests-main-r1",
+        "new_IDs": 14,
+        "native_session": "8b782983-656d-41e9-b46a-140948bb7b86",
+        "ID_intersection": 0,
+        "session_intersection": 0,
+        "protocol_sha256": "10806b6cb462838132ff2ed161623d275ade03f0e442030127856133fcef2a04",
+        "payloads": [
+          {
+            "path": "candidates/candidate-001.json",
+            "source_sha256": "378649c7e86e6bc01b8e1cb68857e67a2d9856743fdd7e7cbf6189f7200d6460",
+            "eligible": false,
+            "payload_sha256": "6145f9fe476b39275651317a3f8d8b2fc7afe94b50c4246c85815c2b8ad75442",
+            "bytes": 10008,
+            "artifact_digest": "e49fef5598e09fa6e178c1fd5b990df388159ad4a050e4d29e05bcff7f5b2fea"
+          }
+        ],
+        "patch_sha256": "945350676406aa259070d5a13a757b025708dac80f8dc5c943d71a132a104847",
+        "grader_patch_sha256": "945350676406aa259070d5a13a757b025708dac80f8dc5c943d71a132a104847",
+        "public_check_generated_test_sha256": "b59007a36193bc17e0cd1d6b428d3f4397a4d47b7ab674f650784cd46c301133",
+        "public_generated_file_is_exact_registered_reproducer": true,
+        "control": [
+          {
+            "event": "candidate_saved",
+            "step": 8,
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "check_id": null,
+            "state": null,
+            "reason": null,
+            "artifact_digest": "e49fef5598e09fa6e178c1fd5b990df388159ad4a050e4d29e05bcff7f5b2fea",
+            "protected_unchanged": null,
+            "valid_verification": null
+          },
+          {
+            "event": "verification",
+            "step": 9,
+            "candidate_id": null,
+            "eligible": null,
+            "check_id": "public-issue",
+            "state": "passed",
+            "reason": "requested",
+            "artifact_digest": "e49fef5598e09fa6e178c1fd5b990df388159ad4a050e4d29e05bcff7f5b2fea",
+            "protected_unchanged": null,
+            "valid_verification": null
+          },
+          {
+            "event": "verification",
+            "step": 13,
+            "candidate_id": null,
+            "eligible": null,
+            "check_id": "public-issue",
+            "state": "passed",
+            "reason": "requested",
+            "artifact_digest": "e49fef5598e09fa6e178c1fd5b990df388159ad4a050e4d29e05bcff7f5b2fea",
+            "protected_unchanged": null,
+            "valid_verification": null
+          },
+          {
+            "event": "final_artifact",
+            "step": 14,
+            "candidate_id": null,
+            "eligible": null,
+            "check_id": null,
+            "state": null,
+            "reason": "submission",
+            "artifact_digest": "e49fef5598e09fa6e178c1fd5b990df388159ad4a050e4d29e05bcff7f5b2fea",
+            "protected_unchanged": true,
+            "valid_verification": true
+          }
+        ],
+        "grader_report_sha256": "fa7d8c45af6a784ef6a63c2c386f30767fa8114134aa872e631e1bc6a4a9ebaa",
+        "grader_stdout_sha256": "2f57132eb702204cadc5cba8b5d75da6cdebbac1b8c60ac7de6af340de808cd2",
+        "retained_skips": [
+          "SKIPPED [1] /testbed/testing/python/integration.py:160: could not import 'mock': No module named 'mock'",
+          "SKIPPED [1] /testbed/testing/python/integration.py:211: could not import 'mock': No module named 'mock'",
+          "SKIPPED [1] /testbed/testing/python/integration.py:244: could not import 'mock': No module named 'mock'",
+          "SKIPPED [1] /testbed/testing/python/integration.py:268: could not import 'mock': No module named 'mock'"
+        ]
+      },
+      "semantic_review": {
+        "production_fix": "num_mock_patch_args replaces arbitrary equality membership with any(p.new is s for s in sentinels), retaining attribute_name filtering, both DEFAULT providers, missingpatchings and no-loaded-mock behavior. Both final full patches and10008B production sourcepayloads are identical.",
+        "tests_preserved": "No executed action edits existing testing/ or test configuration. Added selftests stay in separate container /tmp scratch directories. Actual final tracked test/config diff is empty; final protected=true. The added .course-public-check/test_public_issue.py is generated verbatim by the unchanged registered public command, not an original test edited by the model. Its5lines and digest are independently tied to that command; full graded patch includes it explicitly.",
+        "information_access": "Observed task/production/config/setup dependency reads, interpreter/package discovery, original repository testing grep, and existing Git setup history. No hiddengrader/answer/old candidate or engineering reference patch retrieval observed. Public guidance supplies official identity-comparison mechanism, not a benchmark gold patch.",
+        "actual_tests": "Each original scorer reports1 target +15P2P passed,4skipped because optional external mock package absent; not the wholepytest suite. Requested public-issue check separately executes actual NumPy array patch under the configured testbedPython and reports1pass; test flags are raw/unmodified.",
+        "local_debug_limits": "DefaultPython3.11/3.10 cannot import provided NumPy cpython39 extension or pytest dependencies. Model's additional stdlib scratch checks extract the real production function AST and use synthetic equality controls/real unittest.mock decorators; one synthetic legacy mock module is not an installed external-package integration test. These are explicitly separate from real public NumPy/original grader.",
+        "candidate_order": "candidate001step8eligiblefalse retained. Requested verifications9 and13pass; final14current-valid/protectedtrue. No later eligible save exists; later checks do not retroactively alter candidate001.",
+        "causal_boundary": "The new sessions follow scratch/preservation guidance and finish with unchanged original tests. No protected-change rejection or recovery was triggered in either new trajectory, so success does not isolate the causal effect of those instructions. Old main rawtrue/qualifiedfalse and its extra existing-test hunk remain historical evidence."
+      }
+    },
+    {
+      "arm": "repeat",
+      "task": "pytest-dev__pytest-5631",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance-pytest-preservation-v1-20261125/pytest-dev__pytest-5631-C0-preserve-tests-repeat-r2",
+      "revision_scope": "preservation",
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 153.09174095804337,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795646515.979317,
+        "native_session_id": "2039accf-cf74-4b7d-8720-66bceab00e5c",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "b0d1db2d6353d84e9dcca0042eb40aea3857977967f3c816bd12e392946725af"
+      },
+      "event_counts": {
+        "request": 16,
+        "cli_process_started": 16,
+        "response": 16,
+        "billing_verified": 16
+      },
+      "native_sessions": [
+        "2039accf-cf74-4b7d-8720-66bceab00e5c"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a214df750271c285814972103e13aa",
+          0,
+          6043,
+          199
+        ],
+        [
+          2,
+          "01a214df8b2173539f84fe80926ea76c",
+          0,
+          8327,
+          840
+        ],
+        [
+          3,
+          "01a214dfaa727d89a1bab87920df1ac1",
+          0,
+          9791,
+          417
+        ],
+        [
+          4,
+          "01a214dfc47d75f092b06d427d57c28f",
+          0,
+          10549,
+          401
+        ],
+        [
+          5,
+          "01a214dfdef07412aca423cb31111be4",
+          0,
+          11744,
+          269
+        ],
+        [
+          6,
+          "01a214dff72c79678c0a6fdf348acfda",
+          0,
+          13028,
+          406
+        ],
+        [
+          7,
+          "01a214e0115e7434bc55fbee63061f42",
+          0,
+          14123,
+          499
+        ],
+        [
+          8,
+          "01a214e02bff7684833e6cfe90466438",
+          0,
+          15632,
+          1343
+        ],
+        [
+          9,
+          "01a214e0565f71259b523ed1f2c0e567",
+          0,
+          17167,
+          652
+        ],
+        [
+          10,
+          "01a214e076d47a8e8030d77dd9584f1d",
+          0,
+          17971,
+          803
+        ],
+        [
+          11,
+          "01a214e096cc77448bd0f8d7ae9cfd5d",
+          0,
+          19450,
+          1747
+        ],
+        [
+          12,
+          "01a214e0ccd47c0c82b133a674ad235c",
+          0,
+          21287,
+          292
+        ],
+        [
+          13,
+          "01a214e0e78d71aaa3e1a1de2a0975ac",
+          0,
+          21854,
+          88
+        ],
+        [
+          14,
+          "01a214e1052372c8af6d32fdfe32d872",
+          0,
+          22578,
+          308
+        ],
+        [
+          15,
+          "01a214e11f747dcba3cce3ba798e4ed5",
+          0,
+          23212,
+          253
+        ],
+        [
+          16,
+          "01a214e1386f73e39cdbeb567e27863f",
+          0,
+          23888,
+          219
+        ]
+      ],
+      "input_tokens": 256644,
+      "output_tokens": 8736,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "e49fef5598e09fa6e178c1fd5b990df388159ad4a050e4d29e05bcff7f5b2fea",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-issue": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "6145f9fe476b39275651317a3f8d8b2fc7afe94b50c4246c85815c2b8ad75442  src/_pytest/compat.py\n"
+          }
+        },
+        "elapsed_seconds": 122.97992045804858
+      },
+      "controller_event_counts": {
+        "candidate_operation": 7,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "e49fef5598e09fa6e178c1fd5b990df388159ad4a050e4d29e05bcff7f5b2fea",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "e49fef5598e09fa6e178c1fd5b990df388159ad4a050e4d29e05bcff7f5b2fea",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "e49fef5598e09fa6e178c1fd5b990df388159ad4a050e4d29e05bcff7f5b2fea",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "e49fef5598e09fa6e178c1fd5b990df388159ad4a050e4d29e05bcff7f5b2fea",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        ".course-public-check/test_public_issue.py",
+        "src/_pytest/compat.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 15,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED testing/python/integration.py::TestNoselikeTestAttribute::test_class_with_nasty_getattr",
+          "PASSED testing/python/integration.py::TestParameterize::test_idfn_marker",
+          "PASSED testing/python/integration.py::TestParameterize::test_idfn_fixture",
+          "SKIPPED [1] /testbed/testing/python/integration.py:160: could not import 'mock': No module named 'mock'",
+          "SKIPPED [1] /testbed/testing/python/integration.py:211: could not import 'mock': No module named 'mock'",
+          "SKIPPED [1] /testbed/testing/python/integration.py:244: could not import 'mock': No module named 'mock'",
+          "SKIPPED [1] /testbed/testing/python/integration.py:268: could not import 'mock': No module named 'mock'",
+          "===================== 16 passed, 4 skipped in 0.41 seconds ====================="
+        ]
+      },
+      "tools_count": 13,
+      "nonzero_tools": [
+        2,
+        8,
+        9
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 13,
+        "save": 2,
+        "verify": 1
+      },
+      "source_sha256": {
+        "result.json": "63f43087166f5f5f16df57a532a04cb09f6be88696aa4ad414a50be66a48c9d0",
+        "trial.json": "2330e1e3454d3fed20f061d4151c4b8b069d134b86125eb28ca41dd961a57280",
+        "model.jsonl": "dc5b45d45e407fea90c7ce024ce59166cc0a512a505f554a4e01af3277f4a73f",
+        "controller.jsonl": "3a56aa1e6949dce014ad476cf6882ebac1241b9973137bea9e7310ada41166b8",
+        "final-verification.json": "09ce48a6527fff0927d9d0554ac8b9622817f2f8517c2fb0d05eebad5898ba06",
+        "candidates/candidate-002.json": "fb1362644e5cb91a0b69d1d934fd0a98a44fe5458238f5134747c1dd3d345cc4",
+        "candidates/candidate-001.json": "c49ab8275d5d778a5442690a148a2babf8d9a5c779cf4a897c3a43d621206be8",
+        "candidate.patch": "945350676406aa259070d5a13a757b025708dac80f8dc5c943d71a132a104847",
+        "swe-official/pytest-dev__pytest-5631-C0-preserve-tests-repeat-r2/course-mini-swe-agent/pytest-dev__pytest-5631/patch.diff": "945350676406aa259070d5a13a757b025708dac80f8dc5c943d71a132a104847",
+        "swe-official/pytest-dev__pytest-5631-C0-preserve-tests-repeat-r2/course-mini-swe-agent/pytest-dev__pytest-5631/report.json": "fa7d8c45af6a784ef6a63c2c386f30767fa8114134aa872e631e1bc6a4a9ebaa",
+        "swe-official/pytest-dev__pytest-5631-C0-preserve-tests-repeat-r2/course-mini-swe-agent/pytest-dev__pytest-5631/test_output.txt": "ee37794797ae82d96f935a78ac156fb2154e3957dc84ada13fda60dc12aa84b8",
+        "swe-official/pytest-dev__pytest-5631-C0-preserve-tests-repeat-r2/course-mini-swe-agent/pytest-dev__pytest-5631/run_instance.log": "820f74e6c7f8e41d081514dcc836c785ea90d29156364024eda1303b5d389161",
+        "swe-official/pytest-dev__pytest-5631-C0-preserve-tests-repeat-r2/course-mini-swe-agent/pytest-dev__pytest-5631/eval.sh": "7ec1e21a0b12d8fbb8dba14ae1ff9276880ce6d65ab1cfcbbdb62d3d9aa2c68f",
+        "tools.jsonl": "39f5b644cb3c0aee4e284beb6191ac2a6786da331f6171d0b6349e23c665ca6c"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All16 model event structures/individual own-zero receipts, all13 complete executed bash commands and meaningful output, full task/production patch, candidate metadata/payloads/controller and actual original-grade report/results read. No claim of word-for-word model reasoning review.",
+      "protocol_sha256": "10806b6cb462838132ff2ed161623d275ade03f0e442030127856133fcef2a04",
+      "actual_payload_and_control_links": {
+        "arm": "repeat",
+        "run_dir": "work/vmshare/performance-pytest-preservation-v1-20261125/pytest-dev__pytest-5631-C0-preserve-tests-repeat-r2",
+        "new_IDs": 16,
+        "native_session": "2039accf-cf74-4b7d-8720-66bceab00e5c",
+        "ID_intersection": 0,
+        "session_intersection": 0,
+        "protocol_sha256": "10806b6cb462838132ff2ed161623d275ade03f0e442030127856133fcef2a04",
+        "payloads": [
+          {
+            "path": "candidates/candidate-001.json",
+            "source_sha256": "c49ab8275d5d778a5442690a148a2babf8d9a5c779cf4a897c3a43d621206be8",
+            "eligible": false,
+            "payload_sha256": "6145f9fe476b39275651317a3f8d8b2fc7afe94b50c4246c85815c2b8ad75442",
+            "bytes": 10008,
+            "artifact_digest": "e49fef5598e09fa6e178c1fd5b990df388159ad4a050e4d29e05bcff7f5b2fea"
+          },
+          {
+            "path": "candidates/candidate-002.json",
+            "source_sha256": "fb1362644e5cb91a0b69d1d934fd0a98a44fe5458238f5134747c1dd3d345cc4",
+            "eligible": true,
+            "payload_sha256": "6145f9fe476b39275651317a3f8d8b2fc7afe94b50c4246c85815c2b8ad75442",
+            "bytes": 10008,
+            "artifact_digest": "e49fef5598e09fa6e178c1fd5b990df388159ad4a050e4d29e05bcff7f5b2fea"
+          }
+        ],
+        "patch_sha256": "945350676406aa259070d5a13a757b025708dac80f8dc5c943d71a132a104847",
+        "grader_patch_sha256": "945350676406aa259070d5a13a757b025708dac80f8dc5c943d71a132a104847",
+        "public_check_generated_test_sha256": "b59007a36193bc17e0cd1d6b428d3f4397a4d47b7ab674f650784cd46c301133",
+        "public_generated_file_is_exact_registered_reproducer": true,
+        "control": [
+          {
+            "event": "candidate_saved",
+            "step": 12,
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "check_id": null,
+            "state": null,
+            "reason": null,
+            "artifact_digest": "e49fef5598e09fa6e178c1fd5b990df388159ad4a050e4d29e05bcff7f5b2fea",
+            "protected_unchanged": null,
+            "valid_verification": null
+          },
+          {
+            "event": "verification",
+            "step": 13,
+            "candidate_id": null,
+            "eligible": null,
+            "check_id": "public-issue",
+            "state": "passed",
+            "reason": "requested",
+            "artifact_digest": "e49fef5598e09fa6e178c1fd5b990df388159ad4a050e4d29e05bcff7f5b2fea",
+            "protected_unchanged": null,
+            "valid_verification": null
+          },
+          {
+            "event": "candidate_saved",
+            "step": 14,
+            "candidate_id": "candidate-002",
+            "eligible": true,
+            "check_id": null,
+            "state": null,
+            "reason": null,
+            "artifact_digest": "e49fef5598e09fa6e178c1fd5b990df388159ad4a050e4d29e05bcff7f5b2fea",
+            "protected_unchanged": null,
+            "valid_verification": null
+          },
+          {
+            "event": "final_artifact",
+            "step": 16,
+            "candidate_id": null,
+            "eligible": null,
+            "check_id": null,
+            "state": null,
+            "reason": "submission",
+            "artifact_digest": "e49fef5598e09fa6e178c1fd5b990df388159ad4a050e4d29e05bcff7f5b2fea",
+            "protected_unchanged": true,
+            "valid_verification": true
+          }
+        ],
+        "grader_report_sha256": "fa7d8c45af6a784ef6a63c2c386f30767fa8114134aa872e631e1bc6a4a9ebaa",
+        "grader_stdout_sha256": "ee37794797ae82d96f935a78ac156fb2154e3957dc84ada13fda60dc12aa84b8",
+        "retained_skips": [
+          "SKIPPED [1] /testbed/testing/python/integration.py:160: could not import 'mock': No module named 'mock'",
+          "SKIPPED [1] /testbed/testing/python/integration.py:211: could not import 'mock': No module named 'mock'",
+          "SKIPPED [1] /testbed/testing/python/integration.py:244: could not import 'mock': No module named 'mock'",
+          "SKIPPED [1] /testbed/testing/python/integration.py:268: could not import 'mock': No module named 'mock'"
+        ]
+      },
+      "semantic_review": {
+        "production_fix": "num_mock_patch_args replaces arbitrary equality membership with any(p.new is s for s in sentinels), retaining attribute_name filtering, both DEFAULT providers, missingpatchings and no-loaded-mock behavior. Both final full patches and10008B production sourcepayloads are identical.",
+        "tests_preserved": "No executed action edits existing testing/ or test configuration. Added selftests stay in separate container /tmp scratch directories. Actual final tracked test/config diff is empty; final protected=true. The added .course-public-check/test_public_issue.py is generated verbatim by the unchanged registered public command, not an original test edited by the model. Its5lines and digest are independently tied to that command; full graded patch includes it explicitly.",
+        "information_access": "Observed task/production/config/setup dependency reads, interpreter/package discovery, original repository testing grep, and existing Git setup history. No hiddengrader/answer/old candidate or engineering reference patch retrieval observed. Public guidance supplies official identity-comparison mechanism, not a benchmark gold patch.",
+        "actual_tests": "Each original scorer reports1 target +15P2P passed,4skipped because optional external mock package absent; not the wholepytest suite. Requested public-issue check separately executes actual NumPy array patch under the configured testbedPython and reports1pass; test flags are raw/unmodified.",
+        "local_debug_limits": "DefaultPython3.11/3.10 lacks matching pytest/NumPy dependencies. Scratch reproducer stubs attr/py only inside its own process and imports the actual production compat module; initial synthetic equality returns a truthy list and miscounts, then it is corrected to return an object whose bool raises and actually reproduces ValueError. After production identity patch it passes. Later scratch AmbiguousArray __bool__ placed on SimpleNamespace is a weak simulation by itself; separate EqualityBomb/no-equality assertions, corrected reproducer, real NumPy publiccheck and original targetgrade are stronger evidence. No stub is written into repository or used by original grader.",
+        "candidate_order": "candidate001step12eligiblefalse retained. Verification13passes; candidate002step14eligibletrue; final16valid/protectedtrue.",
+        "causal_boundary": "The new sessions follow scratch/preservation guidance and finish with unchanged original tests. No protected-change rejection or recovery was triggered in either new trajectory, so success does not isolate the causal effect of those instructions. Old main rawtrue/qualifiedfalse and its extra existing-test hunk remain historical evidence."
+      }
+    }
+  ],
+  "shared_source_sha256": {
+    "work/pytest-5631-preservation-20261125/frozen/plan.json": "618aaebb91efb3cb760f79c4f1470705c51129e506331eb2e84e355e71ff3adf",
+    "work/pytest-5631-preservation-20261125/inputs/tasks.json": "e546042c13d0491a7ca7f8bc225847716561e5c02534ee504ea9f6b2e9e39b09",
+    "work/pytest-5631-preservation-20261125/inputs/checks.json": "38ec86870dcfbd6a779839b246a119c3f88a1c01ce5c975526b8a9c4594c6d21",
+    "work/pytest-5631-preservation-20261125/prepare_and_run.py": "80304d37117a434fc80d03457f3327b964fb92d4efb0a3c3df01a90a28f03c41",
+    "work/pytest-5631-preservation-20261125/completed-qualification-review.json": "bd0a00eb602c09c6b1af339091cffe54ef3f23b279a174c5b5f7d16252bb469b",
+    "work/pytest-5631-preservation-20261125/admission-review.json": "8aef4cb074ba45ccde444375bfb4cbc5831f0b7f09719c3f6212797048dc8475",
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/codebuddy_free.py": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+    "work/vmshare/performance-pytest-preservation-v1-20261125/pytest-dev__pytest-5631-C0-preserve-tests-main-r1.resources.json": "3bc9d8558ee4145abdf77651f58d1541e9d22bbfbcf9428fa4c78c8cf1de475b",
+    "work/vmshare/performance-pytest-preservation-v1-20261125/pytest-dev__pytest-5631-C0-preserve-tests-main-r1.protocol.json": "10806b6cb462838132ff2ed161623d275ade03f0e442030127856133fcef2a04",
+    "work/vmshare/performance-pytest-preservation-v1-20261125/pytest-dev__pytest-5631-C0-preserve-tests-repeat-r2.resources.json": "a5b47fcebaf09b7b719495bbb0f91eb3a146ca2ce0f4db68f468cb2e6951859d",
+    "work/vmshare/performance-pytest-preservation-v1-20261125/pytest-dev__pytest-5631-C0-preserve-tests-repeat-r2.protocol.json": "10806b6cb462838132ff2ed161623d275ade03f0e442030127856133fcef2a04",
+    "work/vmshare/performance-pytest-preservation-v1-20261125/state.json": "f1d5b304fc4839598b70efe7bdf068d32475df795904125cd2cde6b3a4df3ee1"
+  },
+  "limits": [
+    "Actual original16passed/4skipped preserves optionalmock gap; it is not entirepytest-suite success.",
+    "Candidate main001 remains ineligible at save even though actual final public/protected validity is true.",
+    "Default model shell dependency failures and synthetic scratch controls are kept distinct from actual NumPy registered check and original grader.",
+    "Production change is only identity comparison. The full actual grader patch also contains the registered-command-created public reproducer; original repository tests/config remain unchanged.",
+    "Old original main rawtrue/qualifiedfalse and all prior original scores/fees are retained; this is a fixed prospective local-input revision pair.",
+    "Both trials use originalv18 runtime/model/500calls3600s120command64000cap/0retries/originalpin/freeguard. No new runtime or original score edited.",
+    "Reviewer read all tools and event structures; model reasoning and repetitive grader bootstrap not read word-for-word. No new models, VM, grader, financial state or Git operations."
+  ],
+  "original_source_boundary": {
+    "revised_task_only": "pytest-dev__pytest-5631",
+    "modified_model_input": "Only three public-check coverage instructions: preservation/scratch, restore-before-submit, official matureidentity mechanism. Same task/check command/pin/grader/fees/budgets.",
+    "old_main_outcome_preserved": "rawtrue,qualifiedfalse from original protectedtest modification; not overwritten."
+  }
+}

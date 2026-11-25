@@ -1,0 +1,764 @@
+{
+  "schema_version": 1,
+  "record_kind": "independent_final_joined_scientific_result_source_and_trace_admission",
+  "reviewer": "/root/parallel_capacity_review",
+  "observed_utc": "2026-11-25T23:03:40Z",
+  "status": "APPROVE_WITH_STATED_LIMITS",
+  "source_summary": "work/parallel-free-evaluation-20261124/joint-final75-20261126/summary.json",
+  "source_summary_sha256": "adff31af130194be2c54f8f1006e0c702451e4f5828edbdeb62d610da57a2057",
+  "positions_reviewed": {
+    "main": 75,
+    "dsh": 75,
+    "repeat": 75
+  },
+  "blocking_findings_remaining": 0,
+  "blocking_findings": [],
+  "scope": {
+    "scientific_joined_result_source_admission": true,
+    "final_pdf_or_remote_git_or_submission_zip_approved_by_this_record": false,
+    "all_original_core225_complete": true,
+    "fixed_original_core_summary": "work/parallel-free-evaluation-20261124/hy4-original225-final-20261126/summary.json",
+    "fixed_original_core_summary_sha256": "7bbb62a23fc0679038448370cb7da109c3febc9016cdc3ff58e867aee3d0a2ba",
+    "original_core_rows_unchanged_in_final_acceptance": true,
+    "original_core_positions": 225,
+    "effective_joined_positions": 225,
+    "unchanged_task_definitions": 67,
+    "inherited_main_and_repeat_positions": 134,
+    "new_fixed_task_revision_positions": 16,
+    "baseline_positions": 75,
+    "earlier_scored_JSON_development_positions_kept_separate": 5,
+    "guidance_ablation_positions_kept_separate": 3,
+    "old_unscored_mechanical_attempts_kept_separate": 5,
+    "comparison_model": "hy4flash-free",
+    "comparison_backend": "codebuddy",
+    "other_model_NVIDIA_MiniMax_OpenRouter_results_do_not_fill_Hy4_positions": true
+  },
+  "result_recomputation": {
+    "effective_groups": {
+      "main": {
+        "completed": 75,
+        "passed": 75,
+        "qualified_passed": 75,
+        "actual_requests": 1270,
+        "input_tokens": 34626096,
+        "output_tokens": 826178,
+        "median_wall_seconds": 148.52150649996474
+      },
+      "repeat": {
+        "completed": 75,
+        "passed": 75,
+        "qualified_passed": 75,
+        "actual_requests": 1209,
+        "input_tokens": 29615186,
+        "output_tokens": 770087,
+        "median_wall_seconds": 147.1590207500849
+      },
+      "dsh": {
+        "completed": 75,
+        "passed": 69,
+        "qualified_passed": 69,
+        "actual_requests": 1200,
+        "input_tokens": 27159037,
+        "output_tokens": 701215,
+        "median_wall_seconds": 133.91654058301356
+      }
+    },
+    "original_core_groups": {
+      "dsh": {
+        "completed": 75,
+        "passed": 69,
+        "qualified_passed": 69,
+        "actual_requests": 1200,
+        "input_tokens": 27159037,
+        "output_tokens": 701215,
+        "median_wall_seconds": 133.91654058301356
+      },
+      "main": {
+        "completed": 75,
+        "passed": 71,
+        "qualified_passed": 69,
+        "actual_requests": 1342,
+        "input_tokens": 40630746,
+        "output_tokens": 933829,
+        "median_wall_seconds": 164.5781036670087
+      },
+      "repeat": {
+        "completed": 75,
+        "passed": 73,
+        "qualified_passed": 72,
+        "actual_requests": 1236,
+        "input_tokens": 30743853,
+        "output_tokens": 789915,
+        "median_wall_seconds": 157.94257912505418
+      }
+    },
+    "original_core_raw_passed": 213,
+    "original_core_raw_failed": 12,
+    "original_core_raw_true_but_unqualified": 3,
+    "effective_current_control": {
+      "main": {
+        "passed_current": 73,
+        "not_applicable": 2
+      },
+      "repeat": {
+        "passed_current": 73,
+        "not_applicable": 2
+      },
+      "dsh": {
+        "not_applicable": 75
+      }
+    },
+    "B0_control_not_applicable_tasks": [
+      "fix-git",
+      "mailman"
+    ],
+    "B0_numeric_qualified_is_raw_passthrough_not_preservation_certification": true,
+    "paired_same75": {
+      "matched": 75,
+      "required": 75,
+      "method_only_pass": [
+        "django__django-12193",
+        "extract-elf",
+        "model-extraction-relu-logits",
+        "pydata__xarray-2905",
+        "pydata__xarray-4687",
+        "video-processing"
+      ],
+      "dsh_only_pass": [],
+      "both_failed": []
+    },
+    "independent_repeat": {
+      "matched": 75,
+      "required": 75,
+      "both_pass": 75
+    },
+    "all_three_arms_exactly75_unique_original_tasks": true,
+    "each_arm_benchmark_counts": {
+      "aider": 25,
+      "swe": 25,
+      "terminal": 25
+    },
+    "membership_reconstructed_from_original225_and_fixed16_matches_final_rows_in_order": true,
+    "manifest_reconstructed_from_original_tasks_and_only_declared_eight_replacements_matches": true
+  },
+  "budget_and_inheritance": {
+    "limits_per_actual_attempt": {
+      "model_calls": 500,
+      "wall_seconds": 3600,
+      "command_seconds": 120,
+      "max_output_tokens": 64000,
+      "timeout_retries": 0,
+      "strict_wall": true
+    },
+    "same_limits_checked_in_all246_actual_trial_and_protocol_records": true,
+    "logical_positions_with_mechanical_readmission_can_accumulate_multiple_attempt_budgets": true,
+    "scored_wall_time_does_not_include_previous_unscored_attempts": true,
+    "partial_or_missing_historical_wall_times_are_not_filled_with_zero": true,
+    "original_C0_is_requested_verification_not_C1_automatic_per_action_checking": true,
+    "only_new_ReLU_and_xarray4695_use_reviewed_v20_runtime": true,
+    "FEAL_uses_task_conditional_v19_runtime": true,
+    "remaining_revision_runtime_is_original_v18": true,
+    "inherited_records_keep_actual_recorded_runtime_not_relabelled_as_latest": true,
+    "runtime_scope_validation": {
+      "inherited_tasks_use_original_task_runtime": true,
+      "feal_conditional_terminal_runtime_ast_equivalence": true,
+      "relu_uses_exact_reviewed_task_specific_v20": true,
+      "xarray4695_uses_exact_reviewed_task_specific_v20": true,
+      "relu_whole_runtime_ast_equivalence_claimed": false
+    },
+    "interpreter_resolutions_checked_only_against_bound_before_model_rule_and_saved_actual_probe": [
+      "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/resolved-inputs/password-recovery.environment.json",
+      "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/resolved-inputs/sparql-university.environment.json",
+      "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/resolved-inputs/password-recovery.environment.json",
+      "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/resolved-inputs/sparql-university.environment.json"
+    ],
+    "runtime_checks": [
+      {
+        "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+        "bound_files": 73,
+        "mismatches": []
+      },
+      {
+        "runtime_root": "work/frozen-performance-dsh-parallel-guard-20261124",
+        "bound_files": 68,
+        "mismatches": []
+      },
+      {
+        "runtime_root": "work/frozen-performance-dsh-v10",
+        "bound_files": 64,
+        "mismatches": []
+      }
+    ],
+    "original_baseline_sdk_version": "0.2.2rc2"
+  },
+  "fixed_scope_progress": {
+    "json": {
+      "task": "django__django-13346",
+      "required": 2,
+      "completed": 2,
+      "passed": 2,
+      "qualified_passed": 2,
+      "positions": [
+        {
+          "arm": "main",
+          "label": "json-oracle-ascii-main-r7",
+          "run_dir": "work/vmshare/performance-json-oracle-ascii-v4-20261125/django__django-13346-C0-json-oracle-ascii-main-r7",
+          "status": "original_scored",
+          "passed": true,
+          "qualified_passed": true
+        },
+        {
+          "arm": "repeat",
+          "label": "json-oracle-ascii-repeat-r8",
+          "run_dir": "work/vmshare/performance-json-oracle-ascii-v4-20261125/django__django-13346-C0-json-oracle-ascii-repeat-r8",
+          "status": "original_scored",
+          "passed": true,
+          "qualified_passed": true
+        }
+      ]
+    },
+    "feal": {
+      "task": "feal-linear-cryptanalysis",
+      "required": 2,
+      "completed": 2,
+      "passed": 2,
+      "qualified_passed": 2,
+      "positions": [
+        {
+          "arm": "main",
+          "label": "feal-linear-main-readmission-r1",
+          "run_dir": "work/vmshare/performance-feal-linear-v19-20261125/feal-linear-cryptanalysis-C0-feal-linear-main-readmission-r1",
+          "status": "original_scored",
+          "passed": true,
+          "qualified_passed": true
+        },
+        {
+          "arm": "repeat",
+          "label": "feal-linear-repeat-r2",
+          "run_dir": "work/vmshare/performance-feal-linear-v19-20261125/feal-linear-cryptanalysis-C0-feal-linear-repeat-r2",
+          "status": "original_scored",
+          "passed": true,
+          "qualified_passed": true
+        }
+      ]
+    },
+    "xarray": {
+      "task": "pydata__xarray-2905",
+      "required": 2,
+      "completed": 2,
+      "passed": 2,
+      "qualified_passed": 2,
+      "positions": [
+        {
+          "arm": "main",
+          "label": "object-contract-main-r1",
+          "run_dir": "work/vmshare/performance-xarray-object-contract-v1-20261125/pydata__xarray-2905-C0-object-contract-main-r1",
+          "status": "original_scored",
+          "passed": true,
+          "qualified_passed": true
+        },
+        {
+          "arm": "repeat",
+          "label": "object-contract-repeat-r2",
+          "run_dir": "work/vmshare/performance-xarray-object-contract-v1-20261125/pydata__xarray-2905-C0-object-contract-repeat-r2",
+          "status": "original_scored",
+          "passed": true,
+          "qualified_passed": true
+        }
+      ]
+    },
+    "pytest": {
+      "task": "pytest-dev__pytest-7205",
+      "required": 2,
+      "completed": 2,
+      "passed": 2,
+      "qualified_passed": 2,
+      "positions": [
+        {
+          "arm": "main",
+          "label": "safe-repr-main-r1",
+          "run_dir": "work/vmshare/performance-pytest-safe-repr-v1-20261125/pytest-dev__pytest-7205-C0-safe-repr-main-r1",
+          "status": "original_scored",
+          "passed": true,
+          "qualified_passed": true
+        },
+        {
+          "arm": "repeat",
+          "label": "safe-repr-repeat-r2",
+          "run_dir": "work/vmshare/performance-pytest-safe-repr-v1-20261125/pytest-dev__pytest-7205-C0-safe-repr-repeat-r2",
+          "status": "original_scored",
+          "passed": true,
+          "qualified_passed": true
+        }
+      ]
+    },
+    "preservation": {
+      "task": "pytest-dev__pytest-5631",
+      "required": 2,
+      "completed": 2,
+      "passed": 2,
+      "qualified_passed": 2,
+      "positions": [
+        {
+          "arm": "main",
+          "label": "preserve-tests-main-r1",
+          "run_dir": "work/vmshare/performance-pytest-preservation-v1-20261125/pytest-dev__pytest-5631-C0-preserve-tests-main-r1",
+          "status": "original_scored",
+          "passed": true,
+          "qualified_passed": true
+        },
+        {
+          "arm": "repeat",
+          "label": "preserve-tests-repeat-r2",
+          "run_dir": "work/vmshare/performance-pytest-preservation-v1-20261125/pytest-dev__pytest-5631-C0-preserve-tests-repeat-r2",
+          "status": "original_scored",
+          "passed": true,
+          "qualified_passed": true
+        }
+      ]
+    },
+    "relu": {
+      "task": "model-extraction-relu-logits",
+      "required": 2,
+      "completed": 2,
+      "passed": 2,
+      "qualified_passed": 2,
+      "positions": [
+        {
+          "arm": "main",
+          "label": "query-boundary-main-r1",
+          "run_dir": "work/vmshare/performance-relu-submit-boundary-v20-20261125/model-extraction-relu-logits-C0-query-boundary-main-r1",
+          "status": "original_scored",
+          "passed": true,
+          "qualified_passed": true
+        },
+        {
+          "arm": "repeat",
+          "label": "query-boundary-repeat-r2",
+          "run_dir": "work/vmshare/performance-relu-submit-boundary-v20-20261125/model-extraction-relu-logits-C0-query-boundary-repeat-r2",
+          "status": "original_scored",
+          "passed": true,
+          "qualified_passed": true
+        }
+      ]
+    },
+    "sklearn": {
+      "task": "scikit-learn__scikit-learn-25232",
+      "required": 2,
+      "completed": 2,
+      "passed": 2,
+      "qualified_passed": 2,
+      "positions": [
+        {
+          "arm": "main",
+          "label": "nan-contract-main-r1",
+          "run_dir": "work/vmshare/performance-sklearn-nan-contract-20261126/scikit-learn__scikit-learn-25232-C0-nan-contract-main-r1",
+          "status": "original_scored",
+          "passed": true,
+          "qualified_passed": true
+        },
+        {
+          "arm": "repeat",
+          "label": "nan-contract-repeat-r2",
+          "run_dir": "work/vmshare/performance-sklearn-nan-contract-20261126/scikit-learn__scikit-learn-25232-C0-nan-contract-repeat-r2",
+          "status": "original_scored",
+          "passed": true,
+          "qualified_passed": true
+        }
+      ]
+    },
+    "loc_preservation": {
+      "task": "pydata__xarray-4695",
+      "required": 2,
+      "completed": 2,
+      "passed": 2,
+      "qualified_passed": 2,
+      "positions": [
+        {
+          "arm": "main",
+          "label": "loc-preserve-main-r1",
+          "run_dir": "work/vmshare/performance-xarray-loc-preservation-v20-20261126/pydata__xarray-4695-C0-loc-preserve-main-r1",
+          "status": "original_scored",
+          "passed": true,
+          "qualified_passed": true
+        },
+        {
+          "arm": "repeat",
+          "label": "loc-preserve-repeat-r2",
+          "run_dir": "work/vmshare/performance-xarray-loc-preservation-v20-20261126/pydata__xarray-4695-C0-loc-preserve-repeat-r2",
+          "status": "original_scored",
+          "passed": true,
+          "qualified_passed": true
+        }
+      ]
+    }
+  },
+  "frozen_plan_bindings": {
+    "revision_and_previous_development_plans": {
+      "json": {
+        "path": "work/json-in-semantics-20261125/oracle-bool/ascii-transport/frozen/plan.json",
+        "sha256": "22dbb73f419807b047496d69b7271233b03b273a76fdf89230ec1c0caed742f1"
+      },
+      "feal": {
+        "path": "work/feal-linear-helper-20261125/readmission/plan.json",
+        "sha256": "ebaadb0cea8bd64162f045220f80402766007d43ceb8e566d33f994e1319b6d1"
+      },
+      "xarray": {
+        "path": "work/xarray-2905-semantics-20261125/frozen/plan.json",
+        "sha256": "b44b0c45781bb3386a89ffc7530154fa5391e5ee7814bbd8a4cf4d05ea6e90d1"
+      },
+      "pytest": {
+        "path": "work/pytest-7205-semantics-20261125/frozen/plan.json",
+        "sha256": "e01b367ae072eaa8e476bc142302bba8311df40bcbe06f534df98c24389f2509"
+      },
+      "preservation": {
+        "path": "work/pytest-5631-preservation-20261125/frozen/plan.json",
+        "sha256": "618aaebb91efb3cb760f79c4f1470705c51129e506331eb2e84e355e71ff3adf"
+      },
+      "relu": {
+        "path": "work/hy4-submit-boundary-20261125/frozen-pair-r2/plan.json",
+        "sha256": "b7bdc4f787e4526fa19c68271f7e4bc80c15d706908e7d3d293bbb375fe8e703"
+      },
+      "sklearn": {
+        "path": "work/sklearn-25232-semantics-20261126/frozen/plan.json",
+        "sha256": "aaaab89b7cb8b7345c190c3f721eed90218c3d5ff7fb976e7ed090d113192123"
+      },
+      "loc_preservation": {
+        "path": "work/xarray-4695-preservation-20261126/frozen/plan.json",
+        "sha256": "d2636d6a5c9842d031922f15465a0166374e73e453297644f99f1f51e891e079"
+      },
+      "development_json_types": {
+        "path": "work/json-in-semantics-20261125/frozen/plan.json",
+        "sha256": "2f3f708a85027eea05831dd0153f01ade12b52756e39965bc02dcc6e68a76442"
+      },
+      "development_json_contract": {
+        "path": "work/json-in-semantics-20261125/expanded/frozen/plan.json",
+        "sha256": "b94571ad777882d25d1dfff18846e37c0061c657378cc999dcb83d675317c8d2"
+      },
+      "development_json_unicode_transport": {
+        "path": "work/json-in-semantics-20261125/oracle-bool/frozen/plan.json",
+        "sha256": "446a19bedb4373d84c215630bb9f8d89a9ad2d43584d19dbf46b22a5a0ffe8fd"
+      }
+    },
+    "all11_declared_plan_source_maps_checked": true,
+    "unique_all_files_bindings": 1052,
+    "unique_declared_binding_bytes": 70017441,
+    "total_distinct_digest_computations_in_plan_scope_validation": 1063,
+    "total_bytes_in_that_validation": 70375647,
+    "task_and_public_check_registration": "All8 revisions register exact unchanged task/check hashes for each of the67 inherited tasks; original image pins, configuration and equal per-attempt limits were checked. Removing only FEAL conditional branches recovers original terminal-runtime AST. ReLU/xarray4695 use the exact previously reviewed v20 four-file boundary; no whole-runtime AST equivalence is claimed.",
+    "all16_new_slots_exact_queue_label_arm_task_protocol_and_runtime_checked": true,
+    "all5_prior_JSON_scored_development_slots_exactly_mapped_to_their_own_development_plans": true,
+    "all8_completed_trajectory_reviews_consumed_against_final_new_revision_membership": true,
+    "retired_unstarted_development_slot": {
+      "path": "work/json-in-semantics-20261125/oracle-bool/ascii-transport/retirement.json",
+      "sha256": "3780b9b4cb713cf7715795b16ccc3c9a955005c363844a60cca6fbd619336da4",
+      "actual_model_calls": 0,
+      "original_grader_calls": 0
+    }
+  },
+  "identity_and_cost": {
+    "effective_matrix_actual_requests": 3679,
+    "original_core225_own_zero_requests": 3778,
+    "fixed_revision16_own_zero_requests": 325,
+    "earlier_JSON5_own_zero_requests": 245,
+    "all_scored_attempts": 246,
+    "all_scored_actual_requests": 4348,
+    "all_scored_distinct_own_zero_message_ids": 4348,
+    "all_scored_distinct_native_sessions": 246,
+    "all_scored_input_tokens": 122674232,
+    "all_scored_output_tokens": 2751445,
+    "known_mechanical_costs": {
+      "attempts": 5,
+      "requests": 14,
+      "own_zero_receipts": 11,
+      "requests_missing_own_receipt": 3,
+      "native_sessions": 4,
+      "known_input_tokens": 112105,
+      "known_output_tokens": 5503,
+      "known_wall_seconds_lower_bound": 206.2355789160356,
+      "missing_wall_seconds_attempts": 2,
+      "unknown_amount_and_usage_remain_null": true
+    },
+    "guidance_ablation_costs": {
+      "positions": 3,
+      "own_zero_receipts": 31,
+      "native_sessions": 3,
+      "raw_original_passed": 3,
+      "final_public_and_protected_passed": 3,
+      "full_guidance_reference_raw_passed": 3,
+      "full_guidance_reference_positions": 3,
+      "success_rate_gain": 0,
+      "full_guidance_reference_is_original_v18_not_relu_v20": true,
+      "review": "work/parallel-free-evaluation-20261124/independent-guidance-ablation-completed-20261126.json",
+      "review_sha256": "1cd4694933a9a920e044f9a52469f645887e3e51e18f462934414affdd174f18",
+      "source_revalidated": true
+    },
+    "expanded_union": {
+      "scored_246_ids": 4348,
+      "known_unscored_prefix_ids": 11,
+      "ablation_ids": 31,
+      "total_own_zero_ids_in_this_explicit_scope": 4390,
+      "unique_native_sessions": 253,
+      "within_or_cross_group_id_intersections": 0,
+      "within_or_cross_group_session_intersections": 0,
+      "not_all_historical_project_API_calls": true
+    },
+    "historical_unknown35": {
+      "evidence": "work/free-recovery35-20261126/accepted-unknown35.json",
+      "sha256": "a9ba318f97f32a6c2326c3f1488abfa93326d72b324e6105a8589f81902f22ca",
+      "accepted_unknown_events": 35,
+      "latest_single_event": 35,
+      "latest_fields_actual_identity_generation_usage_amount": null,
+      "observed_transport_identity_counted_as_own_receipt": false,
+      "previous_accepted_chain_entries_rehashed": 8,
+      "accepted_evidence_is_not_zero_fee_receipt": true
+    },
+    "cross_position_or_cost_stratum_message_id_intersections": 0,
+    "cross_position_or_cost_stratum_native_session_intersections": 0,
+    "credit0_is_actual_own_fresh_model_usage_receipt_not_cumulative_usage_or_account_metadata": true,
+    "historical_unknown_is_not_a_zero_cost_receipt": true,
+    "unknown_amount_and_complete_usage_remain_null": true,
+    "total_project_dollar_cost": null,
+    "all_historical_project_model_calls_claimed_covered_by_this_4390_scope": false,
+    "separate_scope_note": "This4390 union is246scored attempts plus11known mechanical-prefix receipts plus31guidance-ablation receipts. It excludes earlier SQL pilots, prior experimental cohorts and other providers. Those require their retained historical cost views; the35unknown ledger is not converted to zero receipts."
+  },
+  "retained_original_negative_evidence": {
+    "raw_false_positions": [
+      {
+        "arm": "dsh",
+        "task": "model-extraction-relu-logits",
+        "run_dir": "work/vmshare/performance75-dsh-hy4-v10/model-extraction-relu-logits-B0-r1"
+      },
+      {
+        "arm": "dsh",
+        "task": "pydata__xarray-4687",
+        "run_dir": "work/vmshare/performance75-dsh-hy4-v10/pydata__xarray-4687-B0-r1"
+      },
+      {
+        "arm": "dsh",
+        "task": "extract-elf",
+        "run_dir": "work/vmshare/performance75-dsh-hy4-v10/extract-elf-B0-r1"
+      },
+      {
+        "arm": "dsh",
+        "task": "video-processing",
+        "run_dir": "work/vmshare/performance75-dsh-hy4-v10/video-processing-B0-r1"
+      },
+      {
+        "arm": "dsh",
+        "task": "django__django-12193",
+        "run_dir": "work/vmshare/performance75-dsh-hy4-v10/django__django-12193-B0-r1"
+      },
+      {
+        "arm": "dsh",
+        "task": "pydata__xarray-2905",
+        "run_dir": "work/vmshare/performance75-dsh-hy4-v10/pydata__xarray-2905-B0-r1"
+      },
+      {
+        "arm": "main",
+        "task": "django__django-13346",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-13346-C0-r1"
+      },
+      {
+        "arm": "main",
+        "task": "feal-linear-cryptanalysis",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/feal-linear-cryptanalysis-C0-r1"
+      },
+      {
+        "arm": "main",
+        "task": "pydata__xarray-2905",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pydata__xarray-2905-C0-r1"
+      },
+      {
+        "arm": "main",
+        "task": "pytest-dev__pytest-7205",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pytest-dev__pytest-7205-C0-r1"
+      },
+      {
+        "arm": "repeat",
+        "task": "pydata__xarray-2905",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-2905-C0-r2"
+      },
+      {
+        "arm": "repeat",
+        "task": "pytest-dev__pytest-7205",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pytest-dev__pytest-7205-C0-r2"
+      }
+    ],
+    "raw_true_unqualified_positions": [
+      {
+        "arm": "main",
+        "task": "model-extraction-relu-logits",
+        "benchmark": "terminal",
+        "configuration": "C0",
+        "passed": true,
+        "wall_seconds": 247.6694710419979,
+        "actual_requests": 10,
+        "verified_zero_credit_requests": 10,
+        "input_tokens": 91495,
+        "output_tokens": 4952,
+        "qualified_passed": false,
+        "final_control_applicable": true,
+        "final_protected_unchanged": true,
+        "final_valid_verification": false,
+        "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/model-extraction-relu-logits-C0-r1",
+        "original_score_sha256": "a1bf56869d2f795285ee4a485b15b9bcf61c70a7a8586fc630de12d8719a2b82",
+        "protocol_sha256": "0b52479c15370f163f5cc3ee494e277a84adb89a0c605c64ed5259950feb8507",
+        "trace_sha256": "9403c5902e41cba7de9cee887b81d01a9a8ad4b94452a0a5fbd79d5fb95431eb"
+      },
+      {
+        "arm": "main",
+        "task": "pytest-dev__pytest-5631",
+        "benchmark": "swe",
+        "configuration": "C0",
+        "passed": true,
+        "wall_seconds": 164.5781036670087,
+        "actual_requests": 19,
+        "verified_zero_credit_requests": 19,
+        "input_tokens": 345554,
+        "output_tokens": 7918,
+        "qualified_passed": false,
+        "final_control_applicable": true,
+        "final_protected_unchanged": false,
+        "final_valid_verification": false,
+        "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pytest-dev__pytest-5631-C0-r1",
+        "original_score_sha256": "17a04dd6e08180f544c1a874d088130e1abfcc1dc46a6e257d392ecc1017cbe1",
+        "protocol_sha256": "f1f46fdb65ed864e052ce7878bd40d0f64b80c698a5c54f258501d3e25fcf3c6",
+        "trace_sha256": "ec961afa80942660237acd245d951935c53b9fa3e059d82e8fc789e3ae420caa"
+      },
+      {
+        "arm": "repeat",
+        "task": "pydata__xarray-4695",
+        "benchmark": "swe",
+        "configuration": "C0",
+        "passed": true,
+        "wall_seconds": 298.2267782080453,
+        "actual_requests": 21,
+        "verified_zero_credit_requests": 21,
+        "input_tokens": 442372,
+        "output_tokens": 10640,
+        "qualified_passed": false,
+        "final_control_applicable": true,
+        "final_protected_unchanged": false,
+        "final_valid_verification": false,
+        "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-4695-C0-r2",
+        "original_score_sha256": "47fbc5ee25bdd6438da91007879f07277bf11c3e489c1f6bedb4654d7fa7611a",
+        "protocol_sha256": "47b0b0b12a7e78394477bc696b552543495dab4a17110429b28f26dc1899a1e0",
+        "trace_sha256": "087788482e8923dcbef658acf042ee5bf86c5431dba5c099e802d2693f0b7f5b"
+      }
+    ],
+    "all_original_result_and_protocol_sha256_preserved": true,
+    "displaced_original_rows_retained": 16,
+    "no_semantic_false_resampled_as_a_same_configuration_retry": true,
+    "posthoc_method_revisions_are_explicit_new_task_local_configurations_with_original_costs_retained": true
+  },
+  "review_depth": {
+    "current_final_pass": [
+      "Read current joiner/consumer source and exact final summary; validated all11 revision/development plans,67 inherited task/check definitions, reviewed runtime boundaries and final task manifest.",
+      "For all246scored physical attempts, reread actual result,trial and protocol; checked original score, actual task/model/backend/framework/configuration/limits/runtime, exact slot membership, receipt-count/token totals and linkage to the prior source-bound trace audit.",
+      "Recomputed current controller metrics for all applicable C0 positions; B0 remains not applicable. Rehashed2882small score,protocol,trial,candidate,patch,grader-output and captured-artifact sources (53347374bytes).",
+      "Reconsumed all8completed scope reviews against actual final membership and current source bytes; revalidated3ablation source records and5mechanical-prefix records; recomputed cross-position message/session uniqueness."
+    ],
+    "original_225_deep_trajectory_reads_reused_without_rereading_old_model_text": true,
+    "prior_trajectory_audit_rows_reused": 241,
+    "old_JSON_development_rows_have_identity_cost_recheck_not_new_full_reasoning_review": 5,
+    "prior_review_row_coverage": {
+      "work/parallel-free-evaluation-20261124/independent-closed177-review-20261126.json": 187,
+      "work/parallel-free-evaluation-20261124/independent-core-after177-incremental-20261126.json": 10,
+      "work/parallel-free-evaluation-20261124/independent-core-after187-incremental-20261126.json": 14,
+      "work/parallel-free-evaluation-20261124/independent-core-after201-incremental-20261126.json": 9,
+      "work/parallel-free-evaluation-20261124/independent-core-after210-incremental-20261126.json": 9,
+      "work/parallel-free-evaluation-20261124/independent-core-after219-incremental-20261126.json": 6,
+      "work/sklearn-25232-semantics-20261126/completed-review.json": 2,
+      "work/xarray-4695-preservation-20261126/completed-review.json": 2,
+      "work/pytest-5631-preservation-20261125/completed-review.json": 2
+    },
+    "per_position_depth_is_the_linked_prior_review_row_read_depth_not_a_new_word_for_word_claim": true,
+    "model_reasoning_read_word_for_word_for_all_trials": false,
+    "old_model_trace_bytes_reparsed_in_this_final_pass": false,
+    "old_trace_source_sha256_linkage_compared_to_exact_final_summary_and_prior_read_records": true,
+    "current_small_source_rehash_count": 2882,
+    "current_small_source_rehash_bytes": 53347374,
+    "current_small_source_inventory_object_sha256": "74d7612b007f45aaaff04050f7ba07a0c46705379ca4d139ebc7d1e05b58d0b0",
+    "position_audit_mapping_object_sha256": "83a94837fe2e3f852abd2ea2efbcb146c6cfcfabe97c8cf5c2d9f83725ae3687",
+    "mapping_digest_definition": "SHA256 of canonical sorted-key compact JSON of ordered241objects with arm/task/run_dir/raw/qualified/protocol_sha256/original_score_sha256/bound_trace_sha256/own_receipt_count/native_sessions/rehashed_small_source_member_count. The linked review row inventories hold the full per-source mappings.",
+    "source_boundary": "Only actual closed records were consumed. Existing original-grader reports/stdout were read or hashed; no hidden grader implementation, new model request, container, grader, fee action, STOP edit, runtime edit, Git action or installation was performed."
+  },
+  "mechanism_and_claim_limits": [
+    "All75task identities were available during method development. These results support performance on this exposed development set, not unseen-task generalization or transfer.",
+    "The effective150main/repeat positions are134inherited results plus16fixed prospective task-local revision results, not150fresh sessions after the last configuration freeze.",
+    "The eight revised contracts/helpers/guidance/runtime boundaries add task-local support. The final75versus69 comparison is a bundled method/configuration result; it does not isolate framework control, reusable knowledge learning, any single helper or checking policy as its cause.",
+    "Independent native sessions and fresh message IDs establish separate executions and billing identities. Deterministic helpers can yield identical artifacts; session independence is not evidence of algorithmic diversity or statistical independence of task selection.",
+    "C0public/protected success means the registered current checks and protected dependency scope passed. It is not whole-library semantic completeness, an operating-system sandbox, or proof every possible hidden answer access was impossible.",
+    "Only146of the150effective main/repeat positions have applicable final C0 control, all146current-passed. The other4positions are B0 fix-git/mailman, and75DSH positions have no C0 protection certification.",
+    "The guidance-off ablation preserved helper availability and substantial task instructions; all3off and all3exact original-v18full-guidance references passed raw original scoring. No success-rate gain is established. The original ReLU rawtrue/qfalse and implementation access limitation remain; v20 is not substituted as a reference.",
+    "Original12raw failures and3rawtrue/qfalse results remain intact. OldmainReLU read oracle implementation; oldmainpytest5631 and oldrepeatxarray4695 changed protected tests. The later declared task revisions do not repair those historical labels retroactively.",
+    "DSH scikit-learn14496 appended an existing public test module and B0 has no preservation controller. Its original reward remains true; no claim that every baseline candidate preserved all tests is made.",
+    "Some original SWE broad stdout contains non-target environment/dependency/test failures even when the official tracked target/PASS_TO_PASS report passed (including xarray4687Pint,sklearn11310legacy pytest.raises,optional pytest5631mock skips). The original tracked score and full stdout are distinct evidence scopes.",
+    "JSON Oracle results cover compilation/parameter separation and limited public adaptation, not execution against an Oracle server or complete all-backend ORM compatibility.",
+    "ReLU revised delivered scripts were query-based and self-contained in the observed fixed trajectories, but the recognized-pattern access gate is not a full security sandbox. The new success trajectories did not trigger denied-source-read or pending-submit rejection; those branches were tested in zero-model engineering qualification, not causally demonstrated by those successes.",
+    "FEAL,NaN,object-type,repr and preservation public probes are bounded public contracts. Their passes do not certify arbitrary keys,all-empty-training columns,allcontainer/ORM/backend/object combinations or whole-framework compatibility.",
+    "MuJoCo original4tests and recorded random-seed/finite subsets support the observed legal solver-option changes and speed ratios in this environment. Rounded0.0000is not zero,50reported seeds are not50explicitfinite attestations, and cross-architecture execution is not a native-hardware or universal physical-equivalence claim.",
+    "Per-attempt500/3600/64000/zero-retry limits are identical; logical positions can incur multiple mechanical attempts. Scored wall time is not parallel batch elapsed time or full solve/recovery history. Unknown and missing usage/time remain explicit rather than defaulting to zero.",
+    "Public or repository-history search attempts and their actual returns are retained in the linked audits. The audits report observed acquisition; they cannot rule out model memorization or unobserved capabilities."
+  ],
+  "nonblocking_findings": [
+    {
+      "kind": "interpretation_of_xarray6599",
+      "status": "CORRECTED_AND_PRESERVED",
+      "finding": "Upstream issue6597clarifies explicit timedelta coordinates as the defect and direct-data polyval semantics as an accepted breaking change; an approximately1e30implicit-data result is not treated as a missed bug. Historical tool values,original grades and the source-bound interpretation note remain."
+    },
+    {
+      "kind": "former_nan_semantic_gap",
+      "status": "CLOSED_FOR_THE_DECLARED_PUBLIC_CONTRACT",
+      "finding": "Oldrepeatraw/qtrue ignored the stated NaN iterative path. The two new fixed NaN sessions passed12public cases and original scoring,including the observed repeat11/12→production fix→12/12chain. This addresses the declared scope without changing old labels or claiming full compatibility."
+    },
+    {
+      "kind": "final_control_vs_candidate_eligibility",
+      "status": "RETAINED_SEPARATE_EVIDENCE",
+      "finding": "Several runs saved a final-byte-matching candidate before current verification and retain eligible=false. Current final verification,save-time eligibility,native capture completeness and raw original reward remain separate fields; historical candidate eligibility is not rewritten."
+    }
+  ],
+  "source_sha256": {
+    "work/parallel-free-evaluation-20261124/independent-closed177-review-20261126.json": "cb1dfd62c93b21771f35ed4ab527668e18d575593ea17fdfe90d5a7f8ce88df1",
+    "work/parallel-free-evaluation-20261124/independent-core-after177-incremental-20261126.json": "95581af5dbbd37b11bc24a0c9a0b1b989fe80b2ba4d346c6d38e1efc03add715",
+    "work/parallel-free-evaluation-20261124/independent-core-after187-incremental-20261126.json": "b9a91501391ad5a0bd20a042ddea7162696fcf0d593a2f4db378b8268326c2ff",
+    "work/parallel-free-evaluation-20261124/independent-core-after201-incremental-20261126.json": "03855ded614da431df49ccf9164a5324e59bc50c7c94c2758832525b418376db",
+    "work/parallel-free-evaluation-20261124/independent-core-after210-incremental-20261126.json": "bb14a45ca0f481cf55c718b1c38d678ecb58962717aa7b7d8c8894c3280fd0e3",
+    "work/parallel-free-evaluation-20261124/independent-core-after219-incremental-20261126.json": "c4eaf6bf93ac9e11c8aacec69343a2f00f0e051fbe0d3994fea72e8c3168d946",
+    "work/sklearn-25232-semantics-20261126/completed-review.json": "ee70b77ba884f073c2400cb20ce20999befe266a4e7db16b02e81461728fb36a",
+    "work/xarray-4695-preservation-20261126/completed-review.json": "97f92aa9b5aadf1327fc22648a1e7084076293ae39ec8f19cc60b353b88b1d27",
+    "work/pytest-5631-preservation-20261125/completed-review.json": "d44494768241689521d69f4bf6827da85fe80ea3fc220e35a6a29514e956c8ef",
+    "work/xarray-2905-semantics-20261125/completed-review.json": "ac0b1645d9127c044a91887822355e575bddcb49194d9cef3c05688039c9af1b",
+    "work/pytest-7205-semantics-20261125/completed-review.json": "c1a66800818db25234d9ff805664cefc423f5d43b4e38962d5af7bc258271733",
+    "work/hy4-submit-boundary-20261125/completed-review.json": "c6e2ae15e5d1c77bd3a80864f80f6792da6689c40a813662099f4f1fa886e5ac",
+    "work/json-in-semantics-20261125/oracle-bool/ascii-transport/completed-review.json": "7d15f354d93b383194109748ba97b0c259fa684e74b0cca3d45120e0cd8420a6",
+    "work/feal-linear-helper-20261125/completed-review.json": "02c84a40716a56a3730eee9aa1ab50917d273a374ae395afae77f6b41a32d721",
+    "work/parallel-free-evaluation-20261124/independent-guidance-ablation-completed-20261126.json": "1cd4694933a9a920e044f9a52469f645887e3e51e18f462934414affdd174f18",
+    "work/free-recovery35-20261126/accepted-unknown35.json": "a9ba318f97f32a6c2326c3f1488abfa93326d72b324e6105a8589f81902f22ca",
+    "work/vmshare/performance75-dsh-hy4-v10/protocol.json": "7c9d004a45b6ebbab8535be39f4ca63372dd00ccd0275534a10495d217a68f28",
+    "work/parallel-free-evaluation-20261124/prepare_report_data.py": "2aee4a2ab4381a0abbaf9c0a115ee7755d007befab451839cce8cc468c070ca2",
+    "work/render_hy4_final_reports.py": "264fba250190867a999c6a7f36c3bac3fba9e9a76fc0aa829f9b038721bf603b",
+    "work/parallel-free-evaluation-20261124/analyze_hy4.py": "65a532095592054bf9c8ff60e88c55b32727667988a42e7aabfe16dd786353d7",
+    "work/parallel-free-evaluation-20261124/join_scoped_revisions.py": "39793c972e61331956a66e7ee451416442c0395ff3193d53abd97c254fa5bfa6",
+    "work/parallel-free-evaluation-20261124/joint-final75-20261126/summary.json": "adff31af130194be2c54f8f1006e0c702451e4f5828edbdeb62d610da57a2057",
+    "work/parallel-free-evaluation-20261124/joint-final75-20261126/tasks.json": "e0a287d0a7e679e502d74f41308f0cfe8c2baf0fc01371a4f83174448a84a1d1",
+    "work/parallel-free-evaluation-20261124/hy4-original225-final-20261126/summary.json": "7bbb62a23fc0679038448370cb7da109c3febc9016cdc3ff58e867aee3d0a2ba",
+    "work/free-recovery35-20261126/hy4-plans/main-plan.json": "ac01bbdef1ef007b5f959d7b6673cfe033d47aad14729979465722015bcbdcba",
+    "work/free-recovery35-20261126/hy4-plans/repeat-plan.json": "b430c029ac373ab5ae1cd83bdc195353dd24cdeff1341f3f347eeac77e29d32a",
+    "work/json-in-semantics-20261125/oracle-bool/ascii-transport/frozen/plan.json": "22dbb73f419807b047496d69b7271233b03b273a76fdf89230ec1c0caed742f1",
+    "work/feal-linear-helper-20261125/readmission/plan.json": "ebaadb0cea8bd64162f045220f80402766007d43ceb8e566d33f994e1319b6d1",
+    "work/xarray-2905-semantics-20261125/frozen/plan.json": "b44b0c45781bb3386a89ffc7530154fa5391e5ee7814bbd8a4cf4d05ea6e90d1",
+    "work/pytest-7205-semantics-20261125/frozen/plan.json": "e01b367ae072eaa8e476bc142302bba8311df40bcbe06f534df98c24389f2509",
+    "work/pytest-5631-preservation-20261125/frozen/plan.json": "618aaebb91efb3cb760f79c4f1470705c51129e506331eb2e84e355e71ff3adf",
+    "work/hy4-submit-boundary-20261125/frozen-pair-r2/plan.json": "b7bdc4f787e4526fa19c68271f7e4bc80c15d706908e7d3d293bbb375fe8e703",
+    "work/sklearn-25232-semantics-20261126/frozen/plan.json": "aaaab89b7cb8b7345c190c3f721eed90218c3d5ff7fb976e7ed090d113192123",
+    "work/xarray-4695-preservation-20261126/frozen/plan.json": "d2636d6a5c9842d031922f15465a0166374e73e453297644f99f1f51e891e079",
+    "work/json-in-semantics-20261125/frozen/plan.json": "2f3f708a85027eea05831dd0153f01ade12b52756e39965bc02dcc6e68a76442",
+    "work/json-in-semantics-20261125/expanded/frozen/plan.json": "b94571ad777882d25d1dfff18846e37c0061c657378cc999dcb83d675317c8d2",
+    "work/json-in-semantics-20261125/oracle-bool/frozen/plan.json": "446a19bedb4373d84c215630bb9f8d89a9ad2d43584d19dbf46b22a5a0ffe8fd"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "reviewer": "/root/parallel_capacity_review",
+  "mode": "independent_read_only_source_and_completed_trace_review",
+  "new_model_generation_requests": 0,
+  "new_original_grader_executions": 0,
+  "completed_main_prefix_reviewed": 21,
+  "full_trace_cases_reviewed": ["model-extraction-relu-logits", "video-processing", "llm-inference-batching-scheduler", "query-optimize", "django__django-13346"],
+  "original_scoring": {
+    "main_passed": 21,
+    "same_task_dsh_passed": 16,
+    "main_benchmarks": {"terminal": 10, "swe": 6, "aider": 5},
+    "main_own_fresh_zero_credit_requests": 375,
+    "paired_dsh_own_fresh_zero_credit_requests": 392,
+    "cross_cohort_fresh_message_id_intersection": 0,
+    "final_valid_and_protected": 21,
+    "source_binding_checksum_differences": 0,
+    "graded_failure_selected_for_resampling_found": false,
+    "interpretation": "Verified original scores for the current fixed prefix, not the complete75 or an independent repeat claim"
+  },
+  "contribution_scope": {
+    "all_reviewed_configurations": "C0",
+    "automatic_control_enabled": false,
+    "registered_verification_events": 28,
+    "verification_reasons": ["requested"],
+    "actual_candidate_restorations": 0,
+    "cannot_claim_every_final_artifact_has_saved_eligible_identical_candidate": ["constraints-scheduling", "django__django-13346", "feal-linear-cryptanalysis"],
+    "extra_algorithm_support_vs_old_dsh": ["ReLU numerical recovery helper", "fixed-camera single-runner video helper"],
+    "supported_comparison": "The complete prompts, public helpers, structured action/verification/version interface and routing policy",
+    "unsupported_attribution": ["automatic checking caused the C0 success gain", "automatic restoration caused the C0 success gain", "an isolated controller effect", "a full public leaderboard replication"]
+  },
+  "semantic_findings": [
+    {
+      "task": "django__django-13346",
+      "source": "work/vmshare/performance75-artifact-policy-v17-after-accepted17-driver-current/django__django-13346-C0-free-reset-20261124-r1/candidate.patch",
+      "finding": "New KeyTransformIn Oracle branch interpolates JSON data into a quoted SQL literal; an ordinary apostrophe in a string is not escaped",
+      "minimal_public_input": "O'Reilly",
+      "provenance": "The patch copies an existing Exact-lookup inline pattern into a newly added IN-lookup path. The original IN path used parameters; the entire original Django Oracle implementation was not free of this pattern.",
+      "actual_original_grader": "test_sqlite model_fields.test_jsonfield: 75 executed, 8 skipped, 67 passed",
+      "actual_mysql_or_oracle_database_validation": false,
+      "original_score_unchanged": true,
+      "public_requirement_scope": "The original task explicitly names MySQL, Oracle and SQLite",
+      "correct_general_remedy": "Bind the JSON document as data to JSON_VALUE(%s, '$.value') or JSON_QUERY(%s, '$.value'); keep the fixed path literal",
+      "remedy_already_applied_to_original_model_artifact": false,
+      "separate_postscore_engineering_revision_required_before_full_cross_backend_correctness_claim": true,
+      "primary_sources": ["https://docs.oracle.com/en/database/oracle/oracle-database/19/adjsn/function-JSON_VALUE.html", "https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/JSON_QUERY.html"]
+    },
+    {
+      "task": "django__django-13346",
+      "finding": "The additional model_fields run recorded 399 tests with 1 error and 56 skipped; it was not a full pass",
+      "cause_supported_by_actual_trace_and_fixed_source": "The model's temporary pytz shim returned ZoneInfo. America/Vancouver.tzname(None) returned None, which old Django serialized as the timezone string 'None'; the SQLite callback then failed to resolve that zone.",
+      "scope": "Model self-test runtime only; independent original grading ran in a fresh environment without that shim",
+      "diagnostic_limit": "The model retained only tail40 of that output, so the innermost callback exception was not preserved; no new full test run was performed"
+    },
+    {
+      "task": "llm-inference-batching-scheduler",
+      "finding": "The registered public-artifact command covers file presence and JSON parsing; it does not cover performance or global shapes",
+      "reused_existing_full_public_checker": true,
+      "actual_hy4_artifact_all_public_conditions_passed": 22,
+      "actual_nvidia_artifact_public_conditions_failed": 7,
+      "source": "work/parallel-free-evaluation-20261124/scheduler-public-replay/result.json",
+      "new_model_performance_benefit_from_registering_full_checker": "not_measured",
+      "boundary_difference": "The public checker uses strict < for thresholds, while the original grader uses <=; neither actual candidate lies on equality, so these two replay outcomes are unaffected"
+    }
+  ],
+  "repair_for_reports": [
+    "Describe C0 verification as model requested, and state the extra public algorithm support",
+    "Use SQLite-scoring coverage for the Django passing result; retain the Oracle edge and the one self-test error",
+    "Attribute video semantics to actual image observations and original scoring, not its syntax-only check",
+    "Attribute query semantic equivalence and measured speed to the actual self-tests and original scoring, not EXPLAIN parsing alone",
+    "Keep finite-query ReLU consistency separate from a completeness guarantee"
+  ]
+}

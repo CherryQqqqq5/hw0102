@@ -1,0 +1,3581 @@
+{
+  "schema_version": 1,
+  "status": "AUDITED_NINE_CLOSED_ORIGINAL_POSITIONS_WITH_STATED_LIMITS",
+  "final_225_admission": false,
+  "blocking_findings": [],
+  "authority": {
+    "path": "work/parallel-free-evaluation-20261124/hy4-snapshot-0507-20261126/summary.json",
+    "sha256": "f93115883af15c70bd6621b65cdf62c05afc593f6923070cc8b19e32ec670803",
+    "observed_utc": "2026-11-25T21:06:06.206093+00:00",
+    "original_positions": 219,
+    "groups": {
+      "main": 73,
+      "dsh": 73,
+      "repeat": 73
+    },
+    "selection": "Complete run_dir set difference from the fixed210 authority; all9 included, exactly pytest7571/sqlite-db-truncate/pytest8399 in each arm. No score-based selection.",
+    "excluded": "The six original positions after fixed219, including live tune-mjcf and sklearn10908; later ablation/preservation runs. No in-flight source was read."
+  },
+  "reused_reviews": [
+    {
+      "path": "work/parallel-free-evaluation-20261124/independent-core-after201-incremental-20261126.json",
+      "sha256": "03855ded614da431df49ccf9164a5324e59bc50c7c94c2758832525b418376db",
+      "scope": "Fixed210 and its prior3986-ID/233-session source-audited union. Parent reported all157 bound sources rechecked; this review reuses that unchanged semantic audit."
+    },
+    {
+      "path": "work/parallel-free-evaluation-20261124/independent-closed177-review-20261126.json",
+      "sha256": "cb1dfd62c93b21771f35ed4ab527668e18d575593ea17fdfe90d5a7f8ce88df1",
+      "scope": "Previously completed source/trajectory audit; only its closed receipt/session inventories are reused for deduplication here."
+    },
+    {
+      "path": "work/parallel-free-evaluation-20261124/independent-core-after177-incremental-20261126.json",
+      "sha256": "95581af5dbbd37b11bc24a0c9a0b1b989fe80b2ba4d346c6d38e1efc03add715",
+      "scope": "Previously completed source/trajectory audit; only its closed receipt/session inventories are reused for deduplication here."
+    },
+    {
+      "path": "work/parallel-free-evaluation-20261124/independent-core-after187-incremental-20261126.json",
+      "sha256": "b9a91501391ad5a0bd20a042ddea7162696fcf0d593a2f4db378b8268326c2ff",
+      "scope": "Previously completed source/trajectory audit; only its closed receipt/session inventories are reused for deduplication here."
+    },
+    {
+      "path": "work/sklearn-25232-semantics-20261126/completed-review.json",
+      "sha256": "ee70b77ba884f073c2400cb20ce20999befe266a4e7db16b02e81461728fb36a",
+      "scope": "Previously audited revised-method IDs enter historical uniqueness only, not original-core score counts."
+    },
+    {
+      "path": "work/xarray-4695-preservation-20261126/completed-review.json",
+      "sha256": "97f92aa9b5aadf1327fc22648a1e7084076293ae39ec8f19cc60b353b88b1d27",
+      "scope": "Previously audited revised-method IDs enter historical uniqueness only, not original-core score counts."
+    }
+  ],
+  "totals_recomputed": {
+    "new_original_positions": 9,
+    "by_arm": {
+      "main": 3,
+      "dsh": 3,
+      "repeat": 3
+    },
+    "raw_passed": 9,
+    "raw_failed": 0,
+    "C0_positions": 6,
+    "C0_final_public_and_protected_passed": 6,
+    "B0_control_not_applicable": 3,
+    "requests": 196,
+    "responses": 196,
+    "distinct_own_zero_credit_receipts": 196,
+    "unknown_requests_in_these9": 0,
+    "new_native_sessions": 9,
+    "tool_records": 172,
+    "input_tokens": 4759747,
+    "output_tokens": 111326,
+    "original219": {
+      "raw_passed": 207,
+      "raw_failed": 12,
+      "complete_own_zero_receipts": 3631
+    },
+    "known_source_audited_union": {
+      "original219_plus14_actual_scoped_plus5_oldJSON_scored_positions": 238,
+      "complete_own_zero_IDs_excluding_known_mechanical_prefix": 4171,
+      "known_mechanical_prefix_IDs": 11,
+      "complete_IDs_with_that_prefix": 4182,
+      "native_sessions": 242
+    },
+    "historical_unknown_calls_preserved": 35,
+    "scope": "Only explicitly source-audited same-provider history. Unknowns remain unknown; different providers/earlier unexpanded pilots are not silently included."
+  },
+  "identity_check": {
+    "prior_IDs": 3986,
+    "prior_sessions": 233,
+    "new_IDs": 196,
+    "new_sessions": 9,
+    "ID_intersection": 0,
+    "session_intersection": 0,
+    "known_union_IDs": 4182,
+    "known_union_sessions": 242,
+    "baseline": "Prior3986 IDs/233 sessions reconstructed from the bound review rows, five old JSON development identity records, NaN/loc rows and eleven complete mechanical-prefix receipts. The four exact historical prefix traces were streamed only for recorded request session IDs.",
+    "receipt_rule": "The actual frozen verifier checked every response. Count one newly observed own native messageId/rawUsage per response; require exact billing_verified fresh-ID list, credit0, Hy4 request/provider identity, attempt1 and64000 cap."
+  },
+  "actual_checks": {
+    "new_run_source_bindings": 125,
+    "additional_instruction_checkout_budget_agent_resource_bindings": 31,
+    "frozen_protocol_and_input": "All9 task/configuration/framework/model/backend/runtime/interpreter/limits matched actual frozen definitions. Actual result/protocol/model trace SHAs matched the fixed219 authority.",
+    "image_pin": "All9 closed resource records actual_image_id exactly match the corresponding original task pins; SWE checkout base commit matches task and original base_tree==image_tree with clean paths/modes. No VM/image was queried in this review.",
+    "billing": "196 requests=196 responses=196 one-fresh own-zero receipts; no request_error/billing_error or pending request in these9.",
+    "currentness": [
+      {
+        "arm": "main",
+        "task": "pytest-dev__pytest-7571",
+        "final_digest": "4aa02b6d74c940beced006369b95bec4e66ff4fda52f361d39d77459ae31b13f",
+        "matching_verification_steps": [
+          22
+        ],
+        "saved_candidates": [
+          {
+            "path": "candidates/candidate-002.json",
+            "candidate_id": "candidate-002",
+            "eligible": true,
+            "files": [
+              {
+                "source": "src/_pytest/logging.py",
+                "sha256": "f8a9132ef18f65d916c2a9501547a33c706a70fde57f12cea3e072e2a285b7a6",
+                "mode": 420,
+                "bytes": 29892
+              }
+            ]
+          },
+          {
+            "path": "candidates/candidate-001.json",
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "files": [
+              {
+                "source": "src/_pytest/logging.py",
+                "sha256": "f8a9132ef18f65d916c2a9501547a33c706a70fde57f12cea3e072e2a285b7a6",
+                "mode": 420,
+                "bytes": 29892
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "arm": "main",
+        "task": "sqlite-db-truncate",
+        "final_digest": "9b07e519b57a01f1b746f498d974e03122246aaabc75008849248476afbb73c3",
+        "matching_verification_steps": [
+          6
+        ],
+        "saved_candidates": [
+          {
+            "path": "sqlite-db-truncate__FMLG82f/agent/candidates/candidate-001.json",
+            "candidate_id": "candidate-001",
+            "eligible": true,
+            "files": [
+              {
+                "source": "/app/recover.json",
+                "sha256": "1ee2c578f0baf3ff6f0994857cefe976cfe4472130934726060f8bfe56bbe125",
+                "mode": 438,
+                "bytes": 515
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "arm": "main",
+        "task": "pytest-dev__pytest-8399",
+        "final_digest": "7d885a04d572d5cb5380e61f75b6f87f580eb9fde583e3738de43805a0ef3330",
+        "matching_verification_steps": [
+          21
+        ],
+        "saved_candidates": [
+          {
+            "path": "candidates/candidate-002.json",
+            "candidate_id": "candidate-002",
+            "eligible": false,
+            "files": [
+              {
+                "source": "src/_pytest/unittest.py",
+                "sha256": "035cbd7a413cd6f1cb504d93cfbe7d59d8f3b646d8799efd6467ab4351c963a0",
+                "mode": 420,
+                "bytes": 13943
+              }
+            ]
+          },
+          {
+            "path": "candidates/candidate-003.json",
+            "candidate_id": "candidate-003",
+            "eligible": true,
+            "files": [
+              {
+                "source": "src/_pytest/unittest.py",
+                "sha256": "035cbd7a413cd6f1cb504d93cfbe7d59d8f3b646d8799efd6467ab4351c963a0",
+                "mode": 420,
+                "bytes": 13943
+              }
+            ]
+          },
+          {
+            "path": "candidates/candidate-001.json",
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "files": [
+              {
+                "source": "src/_pytest/unittest.py",
+                "sha256": "035cbd7a413cd6f1cb504d93cfbe7d59d8f3b646d8799efd6467ab4351c963a0",
+                "mode": 420,
+                "bytes": 13943
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "arm": "repeat",
+        "task": "pytest-dev__pytest-7571",
+        "final_digest": "3bd2247dfd4c6feb15f5e7a8bf1fb8c1345c1a4b4f678981d767f4050bc67e35",
+        "matching_verification_steps": [
+          20,
+          27
+        ],
+        "saved_candidates": [
+          {
+            "path": "candidates/candidate-001.json",
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "files": [
+              {
+                "source": "src/_pytest/logging.py",
+                "sha256": "445a32ef937c6c024c68f58c98202149c69f36a6162b74870fda04971fd66b25",
+                "mode": 420,
+                "bytes": 29729
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "arm": "repeat",
+        "task": "sqlite-db-truncate",
+        "final_digest": "9b07e519b57a01f1b746f498d974e03122246aaabc75008849248476afbb73c3",
+        "matching_verification_steps": [
+          7
+        ],
+        "saved_candidates": [
+          {
+            "path": "sqlite-db-truncate__cngNgrc/agent/candidates/candidate-002.json",
+            "candidate_id": "candidate-002",
+            "eligible": true,
+            "files": [
+              {
+                "source": "/app/recover.json",
+                "sha256": "1ee2c578f0baf3ff6f0994857cefe976cfe4472130934726060f8bfe56bbe125",
+                "mode": 438,
+                "bytes": 515
+              }
+            ]
+          },
+          {
+            "path": "sqlite-db-truncate__cngNgrc/agent/candidates/candidate-001.json",
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "files": [
+              {
+                "source": "/app/recover.json",
+                "sha256": "1ee2c578f0baf3ff6f0994857cefe976cfe4472130934726060f8bfe56bbe125",
+                "mode": 438,
+                "bytes": 515
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "arm": "repeat",
+        "task": "pytest-dev__pytest-8399",
+        "final_digest": "7d885a04d572d5cb5380e61f75b6f87f580eb9fde583e3738de43805a0ef3330",
+        "matching_verification_steps": [
+          22
+        ],
+        "saved_candidates": [
+          {
+            "path": "candidates/candidate-002.json",
+            "candidate_id": "candidate-002",
+            "eligible": false,
+            "files": [
+              {
+                "source": "src/_pytest/unittest.py",
+                "sha256": "035cbd7a413cd6f1cb504d93cfbe7d59d8f3b646d8799efd6467ab4351c963a0",
+                "mode": 420,
+                "bytes": 13943
+              }
+            ]
+          },
+          {
+            "path": "candidates/candidate-003.json",
+            "candidate_id": "candidate-003",
+            "eligible": true,
+            "files": [
+              {
+                "source": "src/_pytest/unittest.py",
+                "sha256": "035cbd7a413cd6f1cb504d93cfbe7d59d8f3b646d8799efd6467ab4351c963a0",
+                "mode": 420,
+                "bytes": 13943
+              }
+            ]
+          },
+          {
+            "path": "candidates/candidate-001.json",
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "files": [
+              {
+                "source": "src/_pytest/unittest.py",
+                "sha256": "035cbd7a413cd6f1cb504d93cfbe7d59d8f3b646d8799efd6467ab4351c963a0",
+                "mode": 420,
+                "bytes": 13943
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "native_artifacts": [
+      {
+        "arm": "main",
+        "task": "sqlite-db-truncate",
+        "source": "/app/recover.json",
+        "sha256": "1ee2c578f0baf3ff6f0994857cefe976cfe4472130934726060f8bfe56bbe125",
+        "bytes": 515,
+        "row_count": 10,
+        "snapshot_match": true,
+        "saved_candidate_match": true
+      },
+      {
+        "arm": "repeat",
+        "task": "sqlite-db-truncate",
+        "source": "/app/recover.json",
+        "sha256": "1ee2c578f0baf3ff6f0994857cefe976cfe4472130934726060f8bfe56bbe125",
+        "bytes": 515,
+        "row_count": 10,
+        "snapshot_match": true,
+        "saved_candidate_match": true
+      }
+    ],
+    "original_grade": "All6 SWE candidate.patch files byte-identical to their actual original-grader patch.diff. Actual report target outcomes and stdout ranges preserved; all3 Terminal actual reward1 and one-test reports read.",
+    "source_reuse": "Did not rehash the entire SDK/runtime tree or reread all prior210 model traces. Exact frozen plan/task/check/pin/verifier sources and the nine new closed runs were read.",
+    "no_new_execution": "No model request, container/VM/original grader, source/score/STOP/plan/Git mutation."
+  },
+  "semantic_review": {
+    "pytest-dev__pytest-7571": {
+      "arms": [
+        "main",
+        "repeat",
+        "dsh"
+      ],
+      "scope": "Complete3 final production patches, actual issue, all69 tool commands, meaningful failures/self-tests and original grade; C0 controller/candidates/final states.",
+      "responsibility": "caplog.set_level(42) leaks the shared handler threshold into the next test. DSH saves/restores the initial handler threshold in LogCaptureFixture._finalize; main saves/restores it in catching_logs.__enter__/__exit__; repeat creates a fresh capture handler in each _runtest_for phase.",
+      "original_grade": {
+        "each_FAIL_TO_PASS_success": 1,
+        "target": "testing/logging/test_fixture.py::test_change_level_undos_handler_level",
+        "each_PASS_TO_PASS_success": 14,
+        "each_stdout_passed": 15,
+        "whole_suite_passed": false
+      },
+      "public_check_limit": "Registered check runs the14 existing logging/test_fixture tests, which already pass before the fix. It does not itself include the official new target test. Semantic support is the supplied issue reproducer in actual tools and the unchanged original grader.",
+      "main": [
+        "Tool7 reproduces handler42 before the patch. Tool18 changes catching_logs;tool19 prints handler0 afterward. Tool20 original logging suite57passes.",
+        "Tool21 full collection fails for missing xmlschema/hypothesis;tool22 broad run times out124 with visible failures;tool23 stops at testing/test_monkeypatch.py::test_syspath_prepend, pkg_resources deprecation treated as error. No independent pristine-base rerun of that failure exists in this run.",
+        "Tool24 deliberate failing scratch case is1failed/1passed and demonstrates the next test restores threshold; configured global and nested catching_logs scratch cases pass. This intended failure is not an original-task failure."
+      ],
+      "repeat": [
+        "Tool12 reproduces handler42;tool16 installs per-phase handler and same reproducer returns0. Tool17 first scratch run accidentally loads INFO pytest.ini, so two default0 assertions fail;tool18 explicit empty ini makes all4 pass. This is a self-test configuration correction, not hidden score feedback.",
+        "Original logging57tests pass. Broad collection has missing xmlschema/hypothesis;ignore run times out. First failure is the same pkg_resources path;caplog-selected modules report2failed/198passed due pkg_resources. No whole-suite pass or independently proven clean-base equivalence is claimed.",
+        "Only saved candidate001 remains eligible=false; later requested verifications at steps20/27 and final step28 are true for the same artifact. The old qualification definition uses actual final currentness/protection, not retroactive save eligibility."
+      ],
+      "dsh": [
+        "Tool12 production finalizer repair;tool16 issue assertions2pass,tool17 logging57pass,tool19 configured WARNING restoration2pass. Default Python initially lacks pytest;actual testbed Python is subsequently used."
+      ],
+      "information_access": [
+        "All3 inspect provided Git ancestors/refactor history. DSH target/history search and git fsck return no target/unreachable result. Main reads local6.0.0 and5.4.0 tags;these are supplied repository history, not hidden-source-free repair.",
+        "Main/repeat inspect installed copies/caches. Repeat's attempted pytest6.0.1 download fails DNS and produces no downloaded source. No observed hidden grader/gold access."
+      ],
+      "preservation": "All final patches modify only src/_pytest/logging.py; no original tests/configuration hunk. C0 final protection true, B0 has no C0 preservation assertion."
+    },
+    "pytest-dev__pytest-8399": {
+      "arms": [
+        "main",
+        "repeat",
+        "dsh"
+      ],
+      "scope": "Complete3 patches, supplied unittest fixture visibility issue, all82 tool commands and meaningful output, original grader-delivered patch/report and C0 final evidence.",
+      "responsibility": "Prefix the generated unittest setup fixture name with underscore so existing --fixtures filtering hides it without -v and retains verbose visibility. Main/repeat change one name in _make_xunit_fixture. DSH additionally prefixes four analogous xunit-generated names in python.py.",
+      "original_grade": {
+        "each_FAIL_TO_PASS_success": 1,
+        "target": "testing/test_unittest.py::test_fixtures_setup_setUpClass_issue8394",
+        "each_PASS_TO_PASS_success": 59,
+        "each_stdout_passed": 60,
+        "each_stdout_skipped": 30,
+        "scope": "Target unittest/nose modules;not entire pytest suite."
+      },
+      "public_check_limit": "Registered C0 command runs the existing testing/test_unittest.py (59passed/9skipped after original tests restored). The issue's default-vs-verbose visibility is separately exercised in actual self-tests and original target grade.",
+      "main": [
+        "Most early commands use a Python lacking attr/pytest. Actual registered check uses frozen testbed interpreter and passes59tests;do not call the failed early CLI attempts successful behavior verification.",
+        "Tool17 temporarily adds24-line regression test to original testing/test_unittest.py;tool18 explicitly restores that file. Final candidate/grade patch has only the production line;final protection and verification true.",
+        "Attempt to download pytest6.2.2/6.2.3 fails DNS. Ancestor489f6f449 shows the introduction of the generated public name;no later target/gold patch obtained."
+      ],
+      "repeat": [
+        "Tool11 shows the unwanted public name;tool14 adds underscore;tool15 default output hides it, -v retains it and ordinary execution passes.",
+        "Tool16 adds30-line own regression to protected original test file;tool17 added test passes and tool18 file suite60passes/9skips includes that extra model test. Tool19 restores original test bytes. The later registered check59passes/9skips is distinct from original grader60passes/30skips.",
+        "Tool20 scratch inherited class/setup_method/two-module/fixtures-per-test tests pass. Tool21 fixtures.py reports5failures due pkg_resources deprecation;tool23 same five pass with warning ignored. This is not a pristine-base proof and not whole-suite success."
+      ],
+      "dsh": [
+        "Tool16 reproduces public unittest name;tool17 repair,tool18 default hidden/verbose visible;tool19 selected78pass/9skip.",
+        "Tools20-29 extend the same convention to four ordinary xunit fixture factories and demonstrate all generated names hidden by default and present under -v.",
+        "Broad tool30 fails (some output SDK-clipped) for pkg_resources warnings;tool31 ignores that warning and selected327pass/10skip/1xfail. Tool32 full collection misses xmlschema/hypothesis;tool33 ignore run ends timeout-or-OOM with visible failures."
+      ],
+      "preservation": "Two C0 trajectories temporarily edited original tests and restored them before their final public verification/grade. Final patches contain no original testing/configuration change;do not claim tests were never touched throughout development.",
+      "information_access": "Provided Git ancestor names489f6f449/50114d473/0f918b1a9 and repository docs/fixtures are read. Installed dependency/source searches are visible. No observed command reads hidden grader or answer files."
+    },
+    "sqlite-db-truncate": {
+      "arms": [
+        "main",
+        "repeat",
+        "dsh"
+      ],
+      "scope": "Actual supplied one-page damaged DB task, all21 tools, data-derived recovery writes, original one-test scores and C0 captured JSON/candidate/currentness bytes.",
+      "mechanism": "The4096-byte input is a table-leaf B-tree page (0x0d), not a complete SQLite header. All3 identify ten cell offsets at the start and decode payload/header varints and SQLite serial types to recover ten word/value rows, including integer constant1 and floating99.99/0.5.",
+      "main": "Tool5 writes a general parser and recover.json from decoded cells;tool6 creates a new SQLite schema in a scratch DB, inserts the original page as table root and successfully queries the same rows.",
+      "repeat": "Tool3 dynamically decodes all ten cells. Tool4 writes those observed values as a literal JSON list;tool5 rebuilds SQLite from them and proves its entire4096-byte data page exactly matches the supplied input. This is fixed-input recovery, not an unseen-database recovery experiment.",
+      "dsh": "Tools5/6 decode the actual page then write JSON;tool7 checks10 rows/exact word/value shape. No legacy native final-file capture exists.",
+      "original_grade": "All3 original test_json_data pass (one test each), original reward1/exceptionnull retained.",
+      "public_check_limit": "Registered command only requires nonempty recover.json and successful python json.tool parse. It does not compare recovered row semantics;actual page reconstruction/self-check and original grader provide that evidence.",
+      "native_byte_link": "C0 main/repeat final515-byte JSON SHA1ee2c578f0baf3ff6f0994857cefe976cfe4472130934726060f8bfe56bbe125 matches native capture, saved candidate and final public snapshot. Same deterministic content does not imply receipt/session reuse;all new IDs/sessions are independent.",
+      "generality_limit": {
+        "priority": "P2",
+        "finding": "The DSH parser assumes10 pointers and has non-general serial_len/9-byte-varint handling (serial types5/6 and9-byte varints are not correctly generalized). This fixed input uses only serial types0/1/7/9 and short varints,so its observed output/original score is unaffected.",
+        "consequence": "Do not describe it as a general arbitrary-corrupt-SQLite recovery implementation;no broader task or rerun is requested."
+      },
+      "preservation_and_access": "All observed source accesses are the provided/app/trunc.db and own recovery/scratch files;no hidden answer retrieval. C0 protects the source DB and ends protectedtrue;no command overwrites it in any arm. Old B0 lacks a controller protection record."
+    }
+  },
+  "limits": [
+    "Fixed210→219 only. Not final225 admission,75x2 success,final joined-source acceptance or PDF/package approval. Six original positions plus three ablations and two preservation runs remain outside this unit.",
+    "All172 actual tool command structures and meaningful outputs were directly read; complete final patches and target grade ranges were read. Repository-display output includes SDK-clipped portions and model reasoning was not read word-for-word.",
+    "Rawfalse12, rawtrue-but-unqualified historical positions and null mechanical attempts remain unchanged. Accepted35 historical unknowns are not zero-fee receipts.",
+    "Known receipt totals include fourteen completed scoped-method results only in the deduplication history, not original219 scores;eleven known mechanical-prefix IDs are cost only.",
+    "C0 means model-requested public registration and current final evidence, not automatic per-step checking. Early saved ineligible candidates and temporarily edited/restored tests remain visible.",
+    "B0 control/protection is not applicable, not zero or a C0 pass. Legacy DSH terminal final bytes are not independently native-captured.",
+    "No actual model/VM/container/grader/Git/STOP/plan/source mutation or read of live10908/tune records occurred."
+  ],
+  "rows": [
+    {
+      "arm": "dsh",
+      "task": "pytest-dev__pytest-7571",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-dsh-hy4-v10/pytest-dev__pytest-7571-B0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 185.42398945789319,
+      "runtime_root": "work/frozen-performance-dsh-parallel-guard-20261124",
+      "protocol_configuration": "B0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795638278.8286872,
+        "native_session_id": "9a0e78db-b942-41a5-9fd8-08cc04c44035",
+        "history_count": 2,
+        "history_roles": [
+          "user",
+          "user"
+        ],
+        "initial_history_sha256": "cfdc77f6dc8172f8262ef992290a169f3744fddf3aee3421f4524a4f968c000c"
+      },
+      "event_counts": {
+        "request": 20,
+        "cli_process_started": 20,
+        "response": 20,
+        "billing_verified": 20
+      },
+      "native_sessions": [
+        "9a0e78db-b942-41a5-9fd8-08cc04c44035"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a21461c8c57d59857ea730e9387b65",
+          0,
+          4429,
+          60
+        ],
+        [
+          2,
+          "01a21461e0417dd19a3c85fc3d3d78a7",
+          0,
+          5273,
+          81
+        ],
+        [
+          3,
+          "01a21461f18470f6ab0b33fefb545af5",
+          0,
+          8099,
+          85
+        ],
+        [
+          4,
+          "01a21462049979cd8148901ef7981902",
+          0,
+          10884,
+          313
+        ],
+        [
+          5,
+          "01a214621e9a7980b3abcfbb73013bd3",
+          0,
+          12434,
+          57
+        ],
+        [
+          6,
+          "01a214623185773b8168f8be940813fe",
+          0,
+          14575,
+          93
+        ],
+        [
+          7,
+          "01a214624d8474cd92336cc17d641606",
+          0,
+          15174,
+          1027
+        ],
+        [
+          8,
+          "01a2146271f471edb92e7c19d481e1a3",
+          0,
+          16294,
+          1114
+        ],
+        [
+          9,
+          "01a21462ab4c72049c53d3a2f11e2f37",
+          0,
+          17472,
+          200
+        ],
+        [
+          10,
+          "01a21462c5127e49a38a29ffb97fbd5d",
+          0,
+          18396,
+          98
+        ],
+        [
+          11,
+          "01a21462d7d27faea0fc66480e69fc89",
+          0,
+          21212,
+          74
+        ],
+        [
+          12,
+          "01a21462eb7479d8bbbe7c7eb8fcc968",
+          0,
+          22956,
+          2684
+        ],
+        [
+          13,
+          "01a214632d627184a371943994caece6",
+          0,
+          26020,
+          107
+        ],
+        [
+          14,
+          "01a2146343e8717bae9887743a892be4",
+          0,
+          26229,
+          117
+        ],
+        [
+          15,
+          "01a2146359837d35a5a2e844fca67cf0",
+          0,
+          26486,
+          104
+        ],
+        [
+          16,
+          "01a2146371bd71eba486c7f2efe171a5",
+          0,
+          26746,
+          186
+        ],
+        [
+          17,
+          "01a2146387997ede9c4e8f5e858b7cf4",
+          0,
+          27026,
+          57
+        ],
+        [
+          18,
+          "01a21463a2b97b19a2a79eb1d0a809bc",
+          0,
+          27187,
+          536
+        ],
+        [
+          19,
+          "01a21463c12d762bb588fc5611195c3d",
+          0,
+          28391,
+          625
+        ],
+        [
+          20,
+          "01a21463e2f87e0abb2d32424d078000",
+          0,
+          29114,
+          373
+        ]
+      ],
+      "input_tokens": 384397,
+      "output_tokens": 7991,
+      "final_control": null,
+      "controller_event_counts": {},
+      "candidate_records": [],
+      "matching_final_candidates": [],
+      "native_capture": null,
+      "patch_paths": [
+        "src/_pytest/logging.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 14,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED testing/logging/test_fixture.py::test_fixture_help",
+          "PASSED testing/logging/test_fixture.py::test_change_level_undo",
+          "PASSED testing/logging/test_fixture.py::test_change_level_undos_handler_level",
+          "PASSED testing/logging/test_fixture.py::test_ini_controls_global_log_level",
+          "PASSED testing/logging/test_fixture.py::test_caplog_can_override_global_log_level",
+          "PASSED testing/logging/test_fixture.py::test_caplog_captures_despite_exception",
+          "PASSED testing/logging/test_fixture.py::test_log_report_captures_according_to_config_option_upon_failure",
+          "============================== 15 passed in 0.24s =============================="
+        ]
+      },
+      "tools_count": 19,
+      "nonzero_tools": [],
+      "sdk_event_counts": {
+        "session": 1,
+        "agent/inbox/spliced": 2,
+        "turn/start": 1,
+        "step/start": 20,
+        "system/message": 1,
+        "user/message": 2,
+        "request/header": 1,
+        "request/context": 1,
+        "assistant/message": 20,
+        "tool/call": 19,
+        "tool/result": 19,
+        "step/end": 20,
+        "turn/end": 1
+      },
+      "proposed_structured_actions": {
+        "unknown": 20
+      },
+      "source_sha256": {
+        "result.json": "335205471543c8f4f0a32587a578b40da490f1cdd59d94264f19ba145608807a",
+        "trial.json": "f1ef486bbc965b38699cf158282af06b0fc9adce03034ad43c1d40f0b304e814",
+        "protocol:work/vmshare/performance75-dsh-hy4-v10/pytest-dev__pytest-7571-B0-r1.protocol.json": "5a7822b1577836de1270bdc5ea9db455ff31952be6dfa355f651e04b6734350a",
+        "model.jsonl": "6c0da0fdd315efd2b381f83470e5e810bf706d2665094db8307f175e78f919b4",
+        "candidate.patch": "94adc99e14892618fdc95cae1be4869d62b8c0942a2533fcfe26aea5ae9a462d",
+        "swe-official/pytest-dev__pytest-7571-B0-r1/course-mini-swe-agent/pytest-dev__pytest-7571/patch.diff": "94adc99e14892618fdc95cae1be4869d62b8c0942a2533fcfe26aea5ae9a462d",
+        "swe-official/pytest-dev__pytest-7571-B0-r1/course-mini-swe-agent/pytest-dev__pytest-7571/report.json": "c83f46f6b2bc3110dd3cca49b7442c1fca7f20b728c8ff38f19bc4a59950a835",
+        "swe-official/pytest-dev__pytest-7571-B0-r1/course-mini-swe-agent/pytest-dev__pytest-7571/test_output.txt": "2fefe668e7c86d973925c89357b0716d5a902a3fc67de20d347987d86dce1da1",
+        "swe-official/pytest-dev__pytest-7571-B0-r1/course-mini-swe-agent/pytest-dev__pytest-7571/run_instance.log": "f0308d2acfdfb20e4d67d087dbf7eb71c0cefb87227582a8818b96bb6354b3b8",
+        "swe-official/pytest-dev__pytest-7571-B0-r1/course-mini-swe-agent/pytest-dev__pytest-7571/eval.sh": "d2700809aa9752c9be9676c0e08ef76e61a7ebb37d9941092b6619bf2bc5e134",
+        "dsh/dsh-home/sessions/--testbed--/course-task/session.v4.jsonl": "9f88dfa862d2e5c471c9090301abd92f8cf9f3d90c378d6d233f1e5f5972c2dd"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model event structures/individual own receipts/controller/candidates/complete final patch and original grade parsed; all tool commands and meaningful output directly read. Repository display excerpts and model reasoning not read word-for-word.",
+      "protocol_sha256": "5a7822b1577836de1270bdc5ea9db455ff31952be6dfa355f651e04b6734350a",
+      "control_applicability": "B0: original grader/receipt verification applies; no C0 final-control guarantee",
+      "currentness_link": null,
+      "native_artifact_byte_links": [],
+      "image_and_checkout_evidence": {
+        "sources": {
+          "instruction.txt": "9c62f18b21e1ea32b1fe56dd483c7016a98a23e0a61387524d6a5802d445b2a7",
+          "checkout.json": "86beba312ea6eb1a368f39e2d65558b3ec1251471d2fc0c2f67a1c0d50c69cb8",
+          "execution-budget.json": "69f589c49f821e56cad836c5cb00ea9a452baee01352c8ce7e82293d49434eed",
+          "resource:work/vmshare/performance75-dsh-hy4-v10/pytest-dev__pytest-7571-B0-r1.resources.json": "d6c8314e0dd7cf42d3212331b6b566ebb8acedb1510dde1234bbc93eeffb2cb2"
+        },
+        "image": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7571:latest",
+        "frozen_pin": "sha256:0a1f84cd32e2c8332f90bfad6f3fd16304f25c01384adb4ffd4f7250316bd60a",
+        "resource": {
+          "task": "pytest-dev__pytest-7571",
+          "benchmark": "swe",
+          "exclusive": true,
+          "requested_at": 1795637846.604785,
+          "resource_wait_is_outside_original_task_budget": true,
+          "admitted_at": 1795638271.696939,
+          "actual_image_id": "sha256:0a1f84cd32e2c8332f90bfad6f3fd16304f25c01384adb4ffd4f7250316bd60a",
+          "image_resolution_round": 0,
+          "returncode": 0,
+          "released_at": 1795638457.74438
+        }
+      }
+    },
+    {
+      "arm": "dsh",
+      "task": "sqlite-db-truncate",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-dsh-hy4-v10/sqlite-db-truncate-B0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 164.42607258295175,
+      "runtime_root": "work/frozen-performance-dsh-parallel-guard-20261124",
+      "protocol_configuration": "B0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795638845.197412,
+        "native_session_id": "e8f718dc-aa67-4535-946a-89dd19ffece2",
+        "history_count": 2,
+        "history_roles": [
+          "user",
+          "user"
+        ],
+        "initial_history_sha256": "4d3003951e1c3d3fa73be34e02d5a9caa22436a27ed8a4072c7a659e824dba02"
+      },
+      "event_counts": {
+        "request": 8,
+        "cli_process_started": 8,
+        "response": 8,
+        "billing_verified": 8
+      },
+      "native_sessions": [
+        "e8f718dc-aa67-4535-946a-89dd19ffece2"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a2146a67c0737980dbd778d97b354f",
+          0,
+          4364,
+          87
+        ],
+        [
+          2,
+          "01a2146a7cb57e529ff4d635a20f53e1",
+          0,
+          4594,
+          863
+        ],
+        [
+          3,
+          "01a2146a9bb573a6a39ffa6ed78429df",
+          0,
+          5892,
+          1700
+        ],
+        [
+          4,
+          "01a2146aca697291a6d7935408237770",
+          0,
+          7939,
+          1188
+        ],
+        [
+          5,
+          "01a2146aed267469ab7af541a31a9020",
+          0,
+          9778,
+          22548
+        ],
+        [
+          6,
+          "01a2146c2c2b7124a175174b82010058",
+          0,
+          32657,
+          727
+        ],
+        [
+          7,
+          "01a2146c4b2b7a5aa277384f20775841",
+          0,
+          33705,
+          222
+        ],
+        [
+          8,
+          "01a2146c600974cb8122256a38705dfc",
+          0,
+          34180,
+          617
+        ]
+      ],
+      "input_tokens": 133109,
+      "output_tokens": 27952,
+      "final_control": null,
+      "controller_event_counts": {},
+      "candidate_records": [],
+      "matching_final_candidates": [],
+      "native_capture": null,
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "============================= test session starts ==============================",
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_json_data",
+          "============================== 1 passed in 0.08s ==============================="
+        ]
+      },
+      "tools_count": 7,
+      "nonzero_tools": [],
+      "sdk_event_counts": {
+        "session": 1,
+        "agent/inbox/spliced": 2,
+        "turn/start": 1,
+        "step/start": 8,
+        "system/message": 1,
+        "user/message": 2,
+        "request/header": 1,
+        "request/context": 1,
+        "assistant/message": 8,
+        "tool/call": 7,
+        "tool/result": 7,
+        "step/end": 8,
+        "turn/end": 1
+      },
+      "proposed_structured_actions": {
+        "unknown": 8
+      },
+      "source_sha256": {
+        "result.json": "2f0e01553adcd02ed64502d4c7093d26a3dcf8084c5cebd9ec78c85a57ae7fd2",
+        "trial.json": "c38fe4f9b42294d1718f73ac1bb438d34f67c57228b13900ba1799c5277dc4a0",
+        "protocol:work/vmshare/performance75-dsh-hy4-v10/sqlite-db-truncate-B0-r1.protocol.json": "8013f53cb3c793c5b9582531ba691b13fcccce5129a78b2e8e41ba4009617b7b",
+        "sqlite-db-truncate__5NRtdVT/agent/model.jsonl": "f08e572fc06a23f117b2f554f8964cd95558410a56cd8834500d7bfd001655a2",
+        "sqlite-db-truncate__5NRtdVT/result.json": "87e22d14351109372b49323873556f773b56328a4978eb4e11f76c94a5d697b0",
+        "sqlite-db-truncate__5NRtdVT/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "sqlite-db-truncate__5NRtdVT/verifier/test-stdout.txt": "170ff48a1f835b1275815ace7abf51bb3c052bcb61321b3d0c4b8f2b8bb6b607",
+        "sqlite-db-truncate__5NRtdVT/agent/dsh/dsh-home/sessions/--app--/course-task/session.v4.jsonl": "29167665703758c76a268125d5caaad8a6a83774cc34180864e07bf5b43c77c5",
+        "sqlite-db-truncate/instruction.md": "465c135cd80be49023ea3ecf8f1d840c679b3a960efe425d510894e417b9d802"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model event structures/individual own receipts/controller/candidates/complete final patch and original grade parsed; all tool commands and meaningful output directly read. Repository display excerpts and model reasoning not read word-for-word.",
+      "protocol_sha256": "8013f53cb3c793c5b9582531ba691b13fcccce5129a78b2e8e41ba4009617b7b",
+      "control_applicability": "B0: original grader/receipt verification applies; no C0 final-control guarantee",
+      "currentness_link": null,
+      "native_artifact_byte_links": [],
+      "image_and_checkout_evidence": {
+        "sources": {
+          "resource:work/vmshare/performance75-dsh-hy4-v10/sqlite-db-truncate-B0-r1.resources.json": "168ff6e1b8a4ede597fc3ab5842004565fe271132de10c5d8ddef9865f02b711"
+        },
+        "image": "alexgshaw/sqlite-db-truncate:20251031",
+        "frozen_pin": "sha256:aabac93c93bd1f310e6a6fb893911d7735026ed18491c72133c9196a09092ca4",
+        "resource": {
+          "task": "sqlite-db-truncate",
+          "benchmark": "terminal",
+          "exclusive": false,
+          "requested_at": 1795638834.3361301,
+          "resource_wait_is_outside_original_task_budget": true,
+          "admitted_at": 1795638834.3770308,
+          "actual_image_id": "sha256:aabac93c93bd1f310e6a6fb893911d7735026ed18491c72133c9196a09092ca4",
+          "image_resolution_round": 0,
+          "returncode": 0,
+          "released_at": 1795638999.318017
+        }
+      }
+    },
+    {
+      "arm": "dsh",
+      "task": "pytest-dev__pytest-8399",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-dsh-hy4-v10/pytest-dev__pytest-8399-B0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 450.5633253749693,
+      "runtime_root": "work/frozen-performance-dsh-parallel-guard-20261124",
+      "protocol_configuration": "B0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795639397.053324,
+        "native_session_id": "cf08fc1d-e928-424a-89dc-705f6d164111",
+        "history_count": 2,
+        "history_roles": [
+          "user",
+          "user"
+        ],
+        "initial_history_sha256": "a1d3ee60f1803e5ee5de60430d25b8d8678151c799cf6dd0a35743040ef83429"
+      },
+      "event_counts": {
+        "request": 38,
+        "cli_process_started": 38,
+        "response": 38,
+        "billing_verified": 38
+      },
+      "native_sessions": [
+        "cf08fc1d-e928-424a-89dc-705f6d164111"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a21472d49d7d40a420fe51bb569781",
+          0,
+          4581,
+          183
+        ],
+        [
+          2,
+          "01a21472eaee7f728d5b12a06f8ef09d",
+          0,
+          5549,
+          135
+        ],
+        [
+          3,
+          "01a21472fd7279b6badd78335f1d5013",
+          0,
+          7797,
+          208
+        ],
+        [
+          4,
+          "01a2147313d77767b1c400a79cfdc458",
+          0,
+          8356,
+          226
+        ],
+        [
+          5,
+          "01a2147328e1716aacc9d69ca5baef2d",
+          0,
+          9035,
+          241
+        ],
+        [
+          6,
+          "01a214733e6c7b03a8ec368e1d58a544",
+          0,
+          9589,
+          76
+        ],
+        [
+          7,
+          "01a2147352a3775690c7ae7e0b6d0e97",
+          0,
+          11192,
+          104
+        ],
+        [
+          8,
+          "01a2147368087c0baa8568d09ab48eb0",
+          0,
+          12931,
+          206
+        ],
+        [
+          9,
+          "01a214737df878d7a051caf27f2c9eb5",
+          0,
+          13878,
+          96
+        ],
+        [
+          10,
+          "01a2147390797f468d71c31a78f78acc",
+          0,
+          15974,
+          533
+        ],
+        [
+          11,
+          "01a21473af7e742cb1ced4f8f1ec2e08",
+          0,
+          16598,
+          96
+        ],
+        [
+          12,
+          "01a21473c6c77c4686400d6b0ec27653",
+          0,
+          17146,
+          82
+        ],
+        [
+          13,
+          "01a21473e0f97977a88f06b865690df6",
+          0,
+          17315,
+          121
+        ],
+        [
+          14,
+          "01a21473f47373dfa315d79b7638008b",
+          0,
+          17670,
+          144
+        ],
+        [
+          15,
+          "01a214740df27137aebe594c5745fd5a",
+          0,
+          17906,
+          125
+        ],
+        [
+          16,
+          "01a2147424167d2aa3eed62259cfad98",
+          0,
+          18356,
+          182
+        ],
+        [
+          17,
+          "01a214743b0676f3b8046120cc0683e8",
+          0,
+          18655,
+          158
+        ],
+        [
+          18,
+          "01a214744f5a77b4a133e36d7c6e7ee2",
+          0,
+          19065,
+          339
+        ],
+        [
+          19,
+          "01a214746ed873aa843edaa26f46032f",
+          0,
+          19608,
+          156
+        ],
+        [
+          20,
+          "01a21474931171c78e941bf612e058f1",
+          0,
+          19883,
+          384
+        ],
+        [
+          21,
+          "01a21474adda7102851bcac120178072",
+          0,
+          20473,
+          75
+        ],
+        [
+          22,
+          "01a21474bfbb7a2b927e43eba3801ddc",
+          0,
+          21113,
+          313
+        ],
+        [
+          23,
+          "01a21474d6c87aeb8413f1ca5b2d354f",
+          0,
+          21752,
+          110
+        ],
+        [
+          24,
+          "01a21474edda7058b1f8e4a459f5ad71",
+          0,
+          24300,
+          472
+        ],
+        [
+          25,
+          "01a214750bc77e6c83e01249c790ec17",
+          0,
+          24915,
+          470
+        ],
+        [
+          26,
+          "01a2147526ab7076b97e4417d34545ca",
+          0,
+          28259,
+          582
+        ],
+        [
+          27,
+          "01a21475674572e79037a8f5433d7237",
+          0,
+          28900,
+          190
+        ],
+        [
+          28,
+          "01a2147580e070898882f2ef27625d61",
+          0,
+          29252,
+          157
+        ],
+        [
+          29,
+          "01a214759673796d86a7a38c24bf6fbd",
+          0,
+          30214,
+          376
+        ],
+        [
+          30,
+          "01a21475b17c7665a264c21e403d2ab7",
+          0,
+          30783,
+          301
+        ],
+        [
+          31,
+          "01a214760ee87f8789bab14b36e12432",
+          0,
+          33994,
+          152
+        ],
+        [
+          32,
+          "01a21476673a76a8ade3531ca28b74e1",
+          0,
+          34350,
+          160
+        ],
+        [
+          33,
+          "01a214768f35743ebff621dc956db016",
+          0,
+          34961,
+          98
+        ],
+        [
+          34,
+          "01a214788595762790642fb24cf84059",
+          0,
+          36005,
+          407
+        ],
+        [
+          35,
+          "01a21478a0e47618bd8d28225f7b52b5",
+          0,
+          36837,
+          364
+        ],
+        [
+          36,
+          "01a21478b99c7cc6b26fbd4703947e9b",
+          0,
+          38188,
+          402
+        ],
+        [
+          37,
+          "01a21478d3e77b3188cfa8ef387b1e0a",
+          0,
+          38654,
+          66
+        ],
+        [
+          38,
+          "01a21478e7cd7fd795b3975d9bfce01d",
+          0,
+          38829,
+          557
+        ]
+      ],
+      "input_tokens": 832863,
+      "output_tokens": 9047,
+      "final_control": null,
+      "controller_event_counts": {},
+      "candidate_records": [],
+      "matching_final_candidates": [],
+      "native_capture": null,
+      "patch_paths": [
+        "src/_pytest/python.py",
+        "src/_pytest/unittest.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 59,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED testing/test_unittest.py::test_do_cleanups_on_success",
+          "PASSED testing/test_unittest.py::test_do_cleanups_on_setup_failure",
+          "PASSED testing/test_unittest.py::test_do_cleanups_on_teardown_failure",
+          "PASSED testing/test_unittest.py::test_plain_unittest_does_not_support_async",
+          "SKIPPED [21] testing/test_nose.py:6: could not import 'nose': No module named 'nose'",
+          "SKIPPED [8] testing/test_unittest.py:448: could not import 'twisted.trial.unittest': No module named 'twisted'",
+          "SKIPPED [1] testing/test_unittest.py:1277: could not import 'asynctest': No module named 'asynctest'",
+          "======================== 60 passed, 30 skipped in 3.11s ========================"
+        ]
+      },
+      "tools_count": 37,
+      "nonzero_tools": [],
+      "sdk_event_counts": {
+        "session": 1,
+        "agent/inbox/spliced": 2,
+        "turn/start": 1,
+        "step/start": 38,
+        "system/message": 1,
+        "user/message": 2,
+        "request/header": 1,
+        "request/context": 1,
+        "assistant/message": 38,
+        "tool/call": 37,
+        "tool/result": 37,
+        "step/end": 38,
+        "turn/end": 1
+      },
+      "proposed_structured_actions": {
+        "unknown": 38
+      },
+      "source_sha256": {
+        "result.json": "4822285dbfcce2cf31f938e73be288b4722ef3b85b7e3433c54dae78deb27ce0",
+        "trial.json": "08c1b60c40e925f804d9add75885a20300529532f348117bae23555d955ad1c7",
+        "protocol:work/vmshare/performance75-dsh-hy4-v10/pytest-dev__pytest-8399-B0-r1.protocol.json": "01676d426950ecf7a8f6cb442f29a8f8340ebf2c91c3e5e081e59f042ff13c19",
+        "model.jsonl": "4f8c5165cb9220522e318db842f49f610d212998f4983fc8de3b692a82252194",
+        "candidate.patch": "f3978226f7f45e8f815e24d2dd4bdbdd4ac990618d902a251b4057b34146074c",
+        "swe-official/pytest-dev__pytest-8399-B0-r1/course-mini-swe-agent/pytest-dev__pytest-8399/patch.diff": "f3978226f7f45e8f815e24d2dd4bdbdd4ac990618d902a251b4057b34146074c",
+        "swe-official/pytest-dev__pytest-8399-B0-r1/course-mini-swe-agent/pytest-dev__pytest-8399/report.json": "3b7a34026831337f274388d6a84d2518b26618d11b0ee9267938f4abb3dfdc38",
+        "swe-official/pytest-dev__pytest-8399-B0-r1/course-mini-swe-agent/pytest-dev__pytest-8399/test_output.txt": "ad4f632c5fca93c2efe6728239c04cfdf0fbc43d5a27a4e281a4cc649549fe51",
+        "swe-official/pytest-dev__pytest-8399-B0-r1/course-mini-swe-agent/pytest-dev__pytest-8399/run_instance.log": "3030356be46e155bfd29b26fd673a04953401bdf8bb34f132e2d52715ab0073f",
+        "swe-official/pytest-dev__pytest-8399-B0-r1/course-mini-swe-agent/pytest-dev__pytest-8399/eval.sh": "4f94827f9a122f593812860b784519c3602a363e759b278b5f76516a4c840995",
+        "dsh/dsh-home/sessions/--testbed--/course-task/session.v4.jsonl": "1d5906b4d1c4e248f826ba9efac7fe062caa964b852cc273debeafeb8fa0a881"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model event structures/individual own receipts/controller/candidates/complete final patch and original grade parsed; all tool commands and meaningful output directly read. Repository display excerpts and model reasoning not read word-for-word.",
+      "protocol_sha256": "01676d426950ecf7a8f6cb442f29a8f8340ebf2c91c3e5e081e59f042ff13c19",
+      "control_applicability": "B0: original grader/receipt verification applies; no C0 final-control guarantee",
+      "currentness_link": null,
+      "native_artifact_byte_links": [],
+      "image_and_checkout_evidence": {
+        "sources": {
+          "instruction.txt": "e8f2b786834698c809aeee5465eea7e729a816f5d6a00021be709379893c2f7d",
+          "checkout.json": "0e60b44280dad40e7a3892f33204b29af192ad767df6cc750af70130bcb63f06",
+          "execution-budget.json": "ce0cc0cc02696eefd1b9efd9834fcfa695cd21b492db5667e2882c821c53b39b",
+          "resource:work/vmshare/performance75-dsh-hy4-v10/pytest-dev__pytest-8399-B0-r1.resources.json": "2d44794828fce0b60f78226064f6eca051fd4d44517a7f4b7989e9e9ac46e48a"
+        },
+        "image": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-8399:latest",
+        "frozen_pin": "sha256:1403b263348f1da02330634d688ebf8dd61fa69f2c301203c89551889946cb0d",
+        "resource": {
+          "task": "pytest-dev__pytest-8399",
+          "benchmark": "swe",
+          "exclusive": true,
+          "requested_at": 1795639389.1197782,
+          "resource_wait_is_outside_original_task_budget": true,
+          "admitted_at": 1795639389.456935,
+          "actual_image_id": "sha256:1403b263348f1da02330634d688ebf8dd61fa69f2c301203c89551889946cb0d",
+          "image_resolution_round": 0,
+          "returncode": 0,
+          "released_at": 1795639840.690613
+        }
+      }
+    },
+    {
+      "arm": "main",
+      "task": "pytest-dev__pytest-7571",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pytest-dev__pytest-7571-C0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 373.50904016697314,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795638460.3427641,
+        "native_session_id": "de47c688-b7d6-4fc4-ab77-972960f4a9e6",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "8d3b046135b7b884e51584ab7088adc01b9916f25370eec937d58eb55e6e68a6"
+      },
+      "event_counts": {
+        "request": 29,
+        "cli_process_started": 29,
+        "response": 29,
+        "billing_verified": 29
+      },
+      "native_sessions": [
+        "de47c688-b7d6-4fc4-ab77-972960f4a9e6"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a21464896f7fdcafaeffac833c834a",
+          0,
+          5336,
+          219
+        ],
+        [
+          2,
+          "01a214649f0475b79bc2a5e0a225a778",
+          0,
+          6408,
+          266
+        ],
+        [
+          3,
+          "01a21464b4157d529d49747e017333f4",
+          0,
+          10225,
+          195
+        ],
+        [
+          4,
+          "01a21464c93a730fa0c135b0ea6cdec5",
+          0,
+          14369,
+          178
+        ],
+        [
+          5,
+          "01a21464ddcf775e8ae7e447631afeb3",
+          0,
+          16186,
+          511
+        ],
+        [
+          6,
+          "01a21464f85875a59544b41c14979931",
+          0,
+          18891,
+          289
+        ],
+        [
+          7,
+          "01a2146512d879938580911c2714361e",
+          0,
+          20083,
+          278
+        ],
+        [
+          8,
+          "01a214652c5370329a41990ca769c350",
+          0,
+          20506,
+          972
+        ],
+        [
+          9,
+          "01a214654ef87260a907e0ee2acc7561",
+          0,
+          23300,
+          165
+        ],
+        [
+          10,
+          "01a2146562a9740c820596332391aa48",
+          0,
+          24521,
+          280
+        ],
+        [
+          11,
+          "01a21465786d711baffce7449969b7d4",
+          0,
+          26429,
+          1365
+        ],
+        [
+          12,
+          "01a21465aa0f73c8b654e544ecf4b925",
+          0,
+          27943,
+          678
+        ],
+        [
+          13,
+          "01a21465c8767b6b9ae6295499577d38",
+          0,
+          28774,
+          1360
+        ],
+        [
+          14,
+          "01a21465f1877b6ab4eecae042067dfc",
+          0,
+          31163,
+          1959
+        ],
+        [
+          15,
+          "01a214662a0d75788c2315de30ad2063",
+          0,
+          33230,
+          221
+        ],
+        [
+          16,
+          "01a214664222754caef8f6b26cdf1527",
+          0,
+          34190,
+          323
+        ],
+        [
+          17,
+          "01a21466596b7709895f0fa4f3e5ec9e",
+          0,
+          35395,
+          272
+        ],
+        [
+          18,
+          "01a21466708f73cbab43f2e3092d5961",
+          0,
+          38094,
+          1598
+        ],
+        [
+          19,
+          "01a214669ac273b6920f4dee694682af",
+          0,
+          40456,
+          124
+        ],
+        [
+          20,
+          "01a21466b58c72a88c1c7f38760432ff",
+          0,
+          40852,
+          202
+        ],
+        [
+          21,
+          "01a21466ccfd745a86efd693bc71a48c",
+          0,
+          41241,
+          206
+        ],
+        [
+          22,
+          "01a21466e92f729e96c7f3e6ddfe175b",
+          0,
+          41573,
+          140
+        ],
+        [
+          23,
+          "01a214670733743a99995ef4de76351d",
+          0,
+          42178,
+          605
+        ],
+        [
+          24,
+          "01a2146735b47a919dfe98100825bf5c",
+          0,
+          43263,
+          176
+        ],
+        [
+          25,
+          "01a2146921aa7f95a897837bbcbf5533",
+          0,
+          44504,
+          473
+        ],
+        [
+          26,
+          "01a214694d3c7b3583544e372f595cf9",
+          0,
+          45449,
+          1001
+        ],
+        [
+          27,
+          "01a2146973ed75eda8ead3e55e6fd826",
+          0,
+          46779,
+          421
+        ],
+        [
+          28,
+          "01a214698ec774bab1a6b10bf65f5c9f",
+          0,
+          47702,
+          111
+        ],
+        [
+          29,
+          "01a21469a6f47d72bf28f91fe3e4dc11",
+          0,
+          48188,
+          89
+        ]
+      ],
+      "input_tokens": 897228,
+      "output_tokens": 14677,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "4aa02b6d74c940beced006369b95bec4e66ff4fda52f361d39d77459ae31b13f",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "f8a9132ef18f65d916c2a9501547a33c706a70fde57f12cea3e072e2a285b7a6  src/_pytest/logging.py\n508cb5a4c698e6b26ebc66e5473da19311e6c9cfc02b442c4a8249a614b20239  testing/logging/test_fixture.py\n"
+          }
+        },
+        "elapsed_seconds": 342.09370437497273
+      },
+      "controller_event_counts": {
+        "candidate_operation": 7,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "4aa02b6d74c940beced006369b95bec4e66ff4fda52f361d39d77459ae31b13f",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "4aa02b6d74c940beced006369b95bec4e66ff4fda52f361d39d77459ae31b13f",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "4aa02b6d74c940beced006369b95bec4e66ff4fda52f361d39d77459ae31b13f",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "4aa02b6d74c940beced006369b95bec4e66ff4fda52f361d39d77459ae31b13f",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "src/_pytest/logging.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 14,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED testing/logging/test_fixture.py::test_fixture_help",
+          "PASSED testing/logging/test_fixture.py::test_change_level_undo",
+          "PASSED testing/logging/test_fixture.py::test_change_level_undos_handler_level",
+          "PASSED testing/logging/test_fixture.py::test_ini_controls_global_log_level",
+          "PASSED testing/logging/test_fixture.py::test_caplog_can_override_global_log_level",
+          "PASSED testing/logging/test_fixture.py::test_caplog_captures_despite_exception",
+          "PASSED testing/logging/test_fixture.py::test_log_report_captures_according_to_config_option_upon_failure",
+          "============================== 15 passed in 0.24s =============================="
+        ]
+      },
+      "tools_count": 25,
+      "nonzero_tools": [
+        5,
+        21,
+        22,
+        23
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 25,
+        "save": 2,
+        "verify": 1,
+        "submit": 1
+      },
+      "source_sha256": {
+        "result.json": "efd11d966b0da9bf0630844d54a05d3a1565180e538d210eaa9dcb404a4eab22",
+        "trial.json": "ee3f03c9577aa9ac8b42c1e941e40b27738ddfab7ce98be16c46b094bf5dbd54",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pytest-dev__pytest-7571-C0-r1.protocol.json": "528f6e764b4b65ad5011fb01b2a7e8de2256cd128cc9582a6bbcd7e52deb6eb8",
+        "model.jsonl": "ce9f60e912f280d0eda68e1ec551a5b9ec73d9659a4c13f79a72622b74e14569",
+        "controller.jsonl": "830320945cfc371460158c904d895c28e92bd078f2d3319b40012272e26863d3",
+        "final-verification.json": "afe6ef046d21bb78388b5cc836b3db3861345f63d1a7e0483c0fe2954889cde7",
+        "candidates/candidate-002.json": "a4fa85cf2cf59b2e4357cd7d545c6bfda7119ea3ab6ffe990381e439482807e6",
+        "candidates/candidate-001.json": "198551795fccc5c4ccb539a9528747c5bb5880db32aa5edc53980fb2ce38be26",
+        "candidate.patch": "e4acb6c3a338c71b9f8395b92df68dbed34e82ad4c296bc8b4780cf78077e83e",
+        "swe-official/pytest-dev__pytest-7571-C0-r1/course-mini-swe-agent/pytest-dev__pytest-7571/patch.diff": "e4acb6c3a338c71b9f8395b92df68dbed34e82ad4c296bc8b4780cf78077e83e",
+        "swe-official/pytest-dev__pytest-7571-C0-r1/course-mini-swe-agent/pytest-dev__pytest-7571/report.json": "c83f46f6b2bc3110dd3cca49b7442c1fca7f20b728c8ff38f19bc4a59950a835",
+        "swe-official/pytest-dev__pytest-7571-C0-r1/course-mini-swe-agent/pytest-dev__pytest-7571/test_output.txt": "46485cba2c21d9c7d067e8125cb0ae5513b49f351ffd3f60500942b44a314444",
+        "swe-official/pytest-dev__pytest-7571-C0-r1/course-mini-swe-agent/pytest-dev__pytest-7571/run_instance.log": "f7599669d1a82c5cd351a0fe7c583ef547740da234478ad1c0edfd922b80faac",
+        "swe-official/pytest-dev__pytest-7571-C0-r1/course-mini-swe-agent/pytest-dev__pytest-7571/eval.sh": "d2700809aa9752c9be9676c0e08ef76e61a7ebb37d9941092b6619bf2bc5e134",
+        "tools.jsonl": "8f77d12234d4549ae00a918ab6d9a0dccbdcf6f271c7e9bb4f9a13944a434b2c"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model event structures/individual own receipts/controller/candidates/complete final patch and original grade parsed; all tool commands and meaningful output directly read. Repository display excerpts and model reasoning not read word-for-word.",
+      "protocol_sha256": "528f6e764b4b65ad5011fb01b2a7e8de2256cd128cc9582a6bbcd7e52deb6eb8",
+      "control_applicability": "C0: model-requested public check plus original final protected/currentness records",
+      "currentness_link": {
+        "arm": "main",
+        "task": "pytest-dev__pytest-7571",
+        "final_digest": "4aa02b6d74c940beced006369b95bec4e66ff4fda52f361d39d77459ae31b13f",
+        "matching_verification_steps": [
+          22
+        ],
+        "saved_candidates": [
+          {
+            "path": "candidates/candidate-002.json",
+            "candidate_id": "candidate-002",
+            "eligible": true,
+            "files": [
+              {
+                "source": "src/_pytest/logging.py",
+                "sha256": "f8a9132ef18f65d916c2a9501547a33c706a70fde57f12cea3e072e2a285b7a6",
+                "mode": 420,
+                "bytes": 29892
+              }
+            ]
+          },
+          {
+            "path": "candidates/candidate-001.json",
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "files": [
+              {
+                "source": "src/_pytest/logging.py",
+                "sha256": "f8a9132ef18f65d916c2a9501547a33c706a70fde57f12cea3e072e2a285b7a6",
+                "mode": 420,
+                "bytes": 29892
+              }
+            ]
+          }
+        ],
+        "production_file_SHA_present_in_final_snapshot": true
+      },
+      "native_artifact_byte_links": [],
+      "image_and_checkout_evidence": {
+        "sources": {
+          "instruction.txt": "9c62f18b21e1ea32b1fe56dd483c7016a98a23e0a61387524d6a5802d445b2a7",
+          "checkout.json": "86beba312ea6eb1a368f39e2d65558b3ec1251471d2fc0c2f67a1c0d50c69cb8",
+          "execution-budget.json": "dbd3573d478e80aa76a9244e41af19af09a4af2f759de8bc6dc965a8ce7cb300",
+          "agent.json": "4f2bebda2ac23044de86f8547c518c33db57cf9fbf88a090c69b60c6f00abca8",
+          "resource:work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pytest-dev__pytest-7571-C0-r1.resources.json": "743449fe93dc2c34d0d378950a47235f692a049195b19e7c46c4c258f9dc560f"
+        },
+        "image": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7571:latest",
+        "frozen_pin": "sha256:0a1f84cd32e2c8332f90bfad6f3fd16304f25c01384adb4ffd4f7250316bd60a",
+        "resource": {
+          "task": "pytest-dev__pytest-7571",
+          "benchmark": "swe",
+          "exclusive": true,
+          "requested_at": 1795638457.843252,
+          "resource_wait_is_outside_original_task_budget": true,
+          "admitted_at": 1795638458.148181,
+          "actual_image_id": "sha256:0a1f84cd32e2c8332f90bfad6f3fd16304f25c01384adb4ffd4f7250316bd60a",
+          "image_resolution_round": 0,
+          "returncode": 0,
+          "released_at": 1795638832.357424
+        }
+      }
+    },
+    {
+      "arm": "main",
+      "task": "sqlite-db-truncate",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/sqlite-db-truncate-C0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 123.4236234590644,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795639268.130561,
+        "native_session_id": "a4222931-f06d-4770-a9d6-33a3770b6c21",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "81669cf37c191f356a8e6a78509cd8cb6c779f1f2d294977c0939ff92d8b25fc"
+      },
+      "event_counts": {
+        "request": 9,
+        "cli_process_started": 9,
+        "response": 9,
+        "billing_verified": 9
+      },
+      "native_sessions": [
+        "a4222931-f06d-4770-a9d6-33a3770b6c21"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a21470dc8c76dbb9c8a8828f5508a5",
+          0,
+          5270,
+          195
+        ],
+        [
+          2,
+          "01a21470f31d7a98ac6e545ad27d4b66",
+          0,
+          5652,
+          622
+        ],
+        [
+          3,
+          "01a214710edb7ac5a156c49ad662b3ca",
+          0,
+          8723,
+          865
+        ],
+        [
+          4,
+          "01a214712e6f7bbba453f3ceac7785ce",
+          0,
+          10919,
+          2363
+        ],
+        [
+          5,
+          "01a2147168527089b47ba3e20b03076a",
+          0,
+          14318,
+          6705
+        ],
+        [
+          6,
+          "01a21471ef58737cbc2be6ba319b6a47",
+          0,
+          22224,
+          1585
+        ],
+        [
+          7,
+          "01a21472286a7769a37dd6bbb8c73c3d",
+          0,
+          24124,
+          424
+        ],
+        [
+          8,
+          "01a2147242d374db8f5bc7ac52e1e1d8",
+          0,
+          24848,
+          255
+        ],
+        [
+          9,
+          "01a214725fbc7dbf9bb5f605d510e210",
+          0,
+          25414,
+          117
+        ]
+      ],
+      "input_tokens": 141492,
+      "output_tokens": 13131,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "9b07e519b57a01f1b746f498d974e03122246aaabc75008849248476afbb73c3",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-artifact": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "1ee2c578f0baf3ff6f0994857cefe976cfe4472130934726060f8bfe56bbe125  /app/recover.json\n"
+          }
+        },
+        "elapsed_seconds": 106.00015300000086
+      },
+      "controller_event_counts": {
+        "candidate_operation": 5,
+        "verification": 1,
+        "candidate_saved": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "9b07e519b57a01f1b746f498d974e03122246aaabc75008849248476afbb73c3",
+          "eligible": true
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "9b07e519b57a01f1b746f498d974e03122246aaabc75008849248476afbb73c3",
+          "eligible": true
+        }
+      ],
+      "native_capture": {
+        "registered": true,
+        "artifacts": [
+          {
+            "source": "/app/recover.json",
+            "status": "ok",
+            "type": "file",
+            "path": "sqlite-db-truncate__FMLG82f/artifacts/app/recover.json",
+            "sha256": "1ee2c578f0baf3ff6f0994857cefe976cfe4472130934726060f8bfe56bbe125",
+            "bytes": 515,
+            "sha_present_in_final_public_snapshot": true
+          }
+        ],
+        "model_requests_by_capture": 0
+      },
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "============================= test session starts ==============================",
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_json_data",
+          "============================== 1 passed in 0.08s ==============================="
+        ]
+      },
+      "tools_count": 7,
+      "nonzero_tools": [],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 7,
+        "verify": 1,
+        "save": 1
+      },
+      "source_sha256": {
+        "result.json": "246d8a0da17deb59ab9ad3b0d9c90e044dbbe5798df0d5e18b695819886fe9e5",
+        "trial.json": "d05bbce128e108accb6cea803bc3ecabeb5fa78955a2c795047bd0b59303aa57",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/sqlite-db-truncate-C0-r1.protocol.json": "e53d3c07a44544cc4844d6095b05c7e46270ce64cb0ef426f83fa19a39ab520f",
+        "sqlite-db-truncate__FMLG82f/agent/model.jsonl": "7349fc6a1ef37fc54a83ba9bd9002fcface6713c92658e7579dd8c39708065e1",
+        "sqlite-db-truncate__FMLG82f/agent/controller.jsonl": "a5414a0169a178e2f0539c6e78f2e335e79cdb541a772f319e0bf54a73ade623",
+        "sqlite-db-truncate__FMLG82f/agent/final-verification.json": "004d886d1daa09367bd9b6b2a0f2cf1ed550487c6d0ce1e4a85950130bf928f6",
+        "sqlite-db-truncate__FMLG82f/agent/candidates/candidate-001.json": "e761007653d1d3029c22678dfd3da6ae4b35974d3cf8061a825eb5433ab1cff8",
+        "artifact-capture.json": "8c5f741621430e6da57e737b5da1b28f64c260bbd296df4b2bd9ce6ed31b3476",
+        "artifact-capture-config.json": "5b418336a534d7d5e4389c779dccfa45b04aa8bbd4ef9c5a6c7b72bd1536c65e",
+        "sqlite-db-truncate__FMLG82f/artifacts/manifest.json": "4e6b4ec03f1702efd6fa4ac08ef4f2a216e2406215b2bd0728daab3b1760526e",
+        "sqlite-db-truncate__FMLG82f/artifacts/app/recover.json": "1ee2c578f0baf3ff6f0994857cefe976cfe4472130934726060f8bfe56bbe125",
+        "sqlite-db-truncate__FMLG82f/result.json": "fc07c2e56b54bf1062a4bc29070455f1bfc2908875b2dd3fe9fa20ecc818a330",
+        "sqlite-db-truncate__FMLG82f/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "sqlite-db-truncate__FMLG82f/verifier/test-stdout.txt": "170ff48a1f835b1275815ace7abf51bb3c052bcb61321b3d0c4b8f2b8bb6b607",
+        "sqlite-db-truncate__FMLG82f/agent/tools.jsonl": "caadef42946248f1fb64c2b4818e4d45a23f41204bb1bf90e34e6cb46fb3397d",
+        "sqlite-db-truncate/instruction.md": "465c135cd80be49023ea3ecf8f1d840c679b3a960efe425d510894e417b9d802"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model event structures/individual own receipts/controller/candidates/complete final patch and original grade parsed; all tool commands and meaningful output directly read. Repository display excerpts and model reasoning not read word-for-word.",
+      "protocol_sha256": "e53d3c07a44544cc4844d6095b05c7e46270ce64cb0ef426f83fa19a39ab520f",
+      "control_applicability": "C0: model-requested public check plus original final protected/currentness records",
+      "currentness_link": {
+        "arm": "main",
+        "task": "sqlite-db-truncate",
+        "final_digest": "9b07e519b57a01f1b746f498d974e03122246aaabc75008849248476afbb73c3",
+        "matching_verification_steps": [
+          6
+        ],
+        "saved_candidates": [
+          {
+            "path": "sqlite-db-truncate__FMLG82f/agent/candidates/candidate-001.json",
+            "candidate_id": "candidate-001",
+            "eligible": true,
+            "files": [
+              {
+                "source": "/app/recover.json",
+                "sha256": "1ee2c578f0baf3ff6f0994857cefe976cfe4472130934726060f8bfe56bbe125",
+                "mode": 438,
+                "bytes": 515
+              }
+            ]
+          }
+        ]
+      },
+      "native_artifact_byte_links": [
+        {
+          "arm": "main",
+          "task": "sqlite-db-truncate",
+          "source": "/app/recover.json",
+          "sha256": "1ee2c578f0baf3ff6f0994857cefe976cfe4472130934726060f8bfe56bbe125",
+          "bytes": 515,
+          "row_count": 10,
+          "snapshot_match": true,
+          "saved_candidate_match": true
+        }
+      ],
+      "image_and_checkout_evidence": {
+        "sources": {
+          "resource:work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/sqlite-db-truncate-C0-r1.resources.json": "18f1d1531ca85c515415a174902d31d52dfd1cbb8092e12aa876c33c42a99cea"
+        },
+        "image": "alexgshaw/sqlite-db-truncate:20251031",
+        "frozen_pin": "sha256:aabac93c93bd1f310e6a6fb893911d7735026ed18491c72133c9196a09092ca4",
+        "resource": {
+          "task": "sqlite-db-truncate",
+          "benchmark": "terminal",
+          "exclusive": false,
+          "requested_at": 1795638999.385786,
+          "resource_wait_is_outside_original_task_budget": true,
+          "admitted_at": 1795639264.60183,
+          "actual_image_id": "sha256:aabac93c93bd1f310e6a6fb893911d7735026ed18491c72133c9196a09092ca4",
+          "image_resolution_round": 0,
+          "returncode": 0,
+          "released_at": 1795639388.5433989
+        }
+      }
+    },
+    {
+      "arm": "main",
+      "task": "pytest-dev__pytest-8399",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pytest-dev__pytest-8399-C0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 200.95356049994007,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795639843.296781,
+        "native_session_id": "95a55d6b-f99f-4f87-85e4-e52eb2551d66",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "df421db0d8d6b9b18e4f2b336ac2f20dc392e16d8088a1dffa7bffbf6fd8513c"
+      },
+      "event_counts": {
+        "request": 24,
+        "cli_process_started": 24,
+        "response": 24,
+        "billing_verified": 24
+      },
+      "native_sessions": [
+        "95a55d6b-f99f-4f87-85e4-e52eb2551d66"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a21479a38977bbb116e0c9f896ffc6",
+          0,
+          5495,
+          159
+        ],
+        [
+          2,
+          "01a21479b8227d099f15fb86f6795405",
+          0,
+          8758,
+          259
+        ],
+        [
+          3,
+          "01a21479ccfd7595b9b6eb7e6b5a458f",
+          0,
+          10165,
+          196
+        ],
+        [
+          4,
+          "01a21479e1477b04a4ee3a1e74523f75",
+          0,
+          12216,
+          154
+        ],
+        [
+          5,
+          "01a21479f4827d81ba7339cd54e1db52",
+          0,
+          12887,
+          232
+        ],
+        [
+          6,
+          "01a2147a0d8d79da9504cbcbfe4b9664",
+          0,
+          15172,
+          798
+        ],
+        [
+          7,
+          "01a2147a2da87e428d29c444a45e07a7",
+          0,
+          17955,
+          304
+        ],
+        [
+          8,
+          "01a2147a45a97d558d6ebea9cbf44e8e",
+          0,
+          19178,
+          224
+        ],
+        [
+          9,
+          "01a2147a5ac2764fa6f297a2e8aedb17",
+          0,
+          19644,
+          212
+        ],
+        [
+          10,
+          "01a2147a70017300984d5517299f8dc7",
+          0,
+          20331,
+          393
+        ],
+        [
+          11,
+          "01a2147a8b89765795941fe8a829bf9a",
+          0,
+          22553,
+          517
+        ],
+        [
+          12,
+          "01a2147ac7d0729490a86232fb932a22",
+          0,
+          23771,
+          237
+        ],
+        [
+          13,
+          "01a2147addf873969a8eed6e8e4a910c",
+          0,
+          24101,
+          177
+        ],
+        [
+          14,
+          "01a2147af1aa77ad952227c6990faa07",
+          0,
+          25099,
+          145
+        ],
+        [
+          15,
+          "01a2147b051d766bba7e74a68a081194",
+          0,
+          27225,
+          123
+        ],
+        [
+          16,
+          "01a2147b19cf70ffb12b8c6f16bdae9c",
+          0,
+          28807,
+          398
+        ],
+        [
+          17,
+          "01a2147b317b7fe4b69db32f18b27946",
+          0,
+          29309,
+          947
+        ],
+        [
+          18,
+          "01a2147b537d7261a11e819570ac7f57",
+          0,
+          30947,
+          102
+        ],
+        [
+          19,
+          "01a2147b6a267bff873d03056781efe4",
+          0,
+          31324,
+          239
+        ],
+        [
+          20,
+          "01a2147b7fa47db097ee5fa3a10ff5c2",
+          0,
+          31891,
+          92
+        ],
+        [
+          21,
+          "01a2147b94227a4282358287911cd646",
+          0,
+          32257,
+          325
+        ],
+        [
+          22,
+          "01a2147bbf9876299a68498282a5934b",
+          0,
+          33057,
+          140
+        ],
+        [
+          23,
+          "01a2147bd9fd7941b0081e49692aa1d1",
+          0,
+          33567,
+          1733
+        ],
+        [
+          24,
+          "01a2147c11eb7251b7953e1a57e1dff0",
+          0,
+          35587,
+          444
+        ]
+      ],
+      "input_tokens": 551296,
+      "output_tokens": 8550,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "7d885a04d572d5cb5380e61f75b6f87f580eb9fde583e3738de43805a0ef3330",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "035cbd7a413cd6f1cb504d93cfbe7d59d8f3b646d8799efd6467ab4351c963a0  src/_pytest/unittest.py\nad9a488b8c9df7372dddb0617c32ec46dc630b65f4b3b43f2dcd440540c306cf  testing/test_unittest.py\n"
+          }
+        },
+        "elapsed_seconds": 167.77300404105335
+      },
+      "controller_event_counts": {
+        "candidate_operation": 8,
+        "candidate_saved": 3,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "7d885a04d572d5cb5380e61f75b6f87f580eb9fde583e3738de43805a0ef3330",
+          "eligible": false
+        },
+        {
+          "candidate_id": "candidate-003",
+          "artifact_digest": "7d885a04d572d5cb5380e61f75b6f87f580eb9fde583e3738de43805a0ef3330",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "7d885a04d572d5cb5380e61f75b6f87f580eb9fde583e3738de43805a0ef3330",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "7d885a04d572d5cb5380e61f75b6f87f580eb9fde583e3738de43805a0ef3330",
+          "eligible": false
+        },
+        {
+          "candidate_id": "candidate-003",
+          "artifact_digest": "7d885a04d572d5cb5380e61f75b6f87f580eb9fde583e3738de43805a0ef3330",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "7d885a04d572d5cb5380e61f75b6f87f580eb9fde583e3738de43805a0ef3330",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "src/_pytest/unittest.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 59,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED testing/test_unittest.py::test_do_cleanups_on_success",
+          "PASSED testing/test_unittest.py::test_do_cleanups_on_setup_failure",
+          "PASSED testing/test_unittest.py::test_do_cleanups_on_teardown_failure",
+          "PASSED testing/test_unittest.py::test_plain_unittest_does_not_support_async",
+          "SKIPPED [21] testing/test_nose.py:6: could not import 'nose': No module named 'nose'",
+          "SKIPPED [8] testing/test_unittest.py:448: could not import 'twisted.trial.unittest': No module named 'twisted'",
+          "SKIPPED [1] testing/test_unittest.py:1277: could not import 'asynctest': No module named 'asynctest'",
+          "======================== 60 passed, 30 skipped in 3.10s ========================"
+        ]
+      },
+      "tools_count": 20,
+      "nonzero_tools": [],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 20,
+        "save": 3,
+        "verify": 1
+      },
+      "source_sha256": {
+        "result.json": "6c1fc8cb7e8770deac1706b41d94cd68afe92cbfef02df40cc2d8ef37ac80bfa",
+        "trial.json": "da41cf45511f3699334a629ac67172ff28a26c09fae3bb3a5339de52b2c28b4a",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pytest-dev__pytest-8399-C0-r1.protocol.json": "e4ad770e9ab5b3a3a85cf55e1b3332a16d05f3e992b7ebc56e656b54a01c708c",
+        "model.jsonl": "5e8b9fdf2efc841508278c580d2b50f3c2d8aeac80879a1738c1d948651921d7",
+        "controller.jsonl": "4ca4b2f067f32136532d276fe1b0ac2849c5481e4ba7beacb29605e96cf0f7db",
+        "final-verification.json": "b0d379085cca450001c7adb0e940f85ea2e62b4f3b15139af2610452ac9674b2",
+        "candidates/candidate-002.json": "f9136361bf2457c080733c316970a42512a0d87f6bfe8d197dca614e4ece4de9",
+        "candidates/candidate-003.json": "5e8ea293d4795dd6eaa1b9c79a184df8ebee2c10b1e5f75115f824f089ea96e2",
+        "candidates/candidate-001.json": "bd3d144a0f2e1957dace11164f1a6abbea691de2570effef20156ce44f9367c4",
+        "candidate.patch": "36f6ec3d7cc5e546bf272d551f476e42b4e26d15c37b880ccfea5bdb249c542a",
+        "swe-official/pytest-dev__pytest-8399-C0-r1/course-mini-swe-agent/pytest-dev__pytest-8399/patch.diff": "36f6ec3d7cc5e546bf272d551f476e42b4e26d15c37b880ccfea5bdb249c542a",
+        "swe-official/pytest-dev__pytest-8399-C0-r1/course-mini-swe-agent/pytest-dev__pytest-8399/report.json": "3b7a34026831337f274388d6a84d2518b26618d11b0ee9267938f4abb3dfdc38",
+        "swe-official/pytest-dev__pytest-8399-C0-r1/course-mini-swe-agent/pytest-dev__pytest-8399/test_output.txt": "2fa2b37ebe35e2131e81b232443ef19d9ee479d2efc07b5d339777a184b31dac",
+        "swe-official/pytest-dev__pytest-8399-C0-r1/course-mini-swe-agent/pytest-dev__pytest-8399/run_instance.log": "67767004cc5da647d4453e264d42f8628f1ec27f3eebc22540ac063b0847da0b",
+        "swe-official/pytest-dev__pytest-8399-C0-r1/course-mini-swe-agent/pytest-dev__pytest-8399/eval.sh": "4f94827f9a122f593812860b784519c3602a363e759b278b5f76516a4c840995",
+        "tools.jsonl": "568243b8931ef25496a1dee919dd6e3baa3330f8bb938e5ad296e86a16ca3370"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model event structures/individual own receipts/controller/candidates/complete final patch and original grade parsed; all tool commands and meaningful output directly read. Repository display excerpts and model reasoning not read word-for-word.",
+      "protocol_sha256": "e4ad770e9ab5b3a3a85cf55e1b3332a16d05f3e992b7ebc56e656b54a01c708c",
+      "control_applicability": "C0: model-requested public check plus original final protected/currentness records",
+      "currentness_link": {
+        "arm": "main",
+        "task": "pytest-dev__pytest-8399",
+        "final_digest": "7d885a04d572d5cb5380e61f75b6f87f580eb9fde583e3738de43805a0ef3330",
+        "matching_verification_steps": [
+          21
+        ],
+        "saved_candidates": [
+          {
+            "path": "candidates/candidate-002.json",
+            "candidate_id": "candidate-002",
+            "eligible": false,
+            "files": [
+              {
+                "source": "src/_pytest/unittest.py",
+                "sha256": "035cbd7a413cd6f1cb504d93cfbe7d59d8f3b646d8799efd6467ab4351c963a0",
+                "mode": 420,
+                "bytes": 13943
+              }
+            ]
+          },
+          {
+            "path": "candidates/candidate-003.json",
+            "candidate_id": "candidate-003",
+            "eligible": true,
+            "files": [
+              {
+                "source": "src/_pytest/unittest.py",
+                "sha256": "035cbd7a413cd6f1cb504d93cfbe7d59d8f3b646d8799efd6467ab4351c963a0",
+                "mode": 420,
+                "bytes": 13943
+              }
+            ]
+          },
+          {
+            "path": "candidates/candidate-001.json",
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "files": [
+              {
+                "source": "src/_pytest/unittest.py",
+                "sha256": "035cbd7a413cd6f1cb504d93cfbe7d59d8f3b646d8799efd6467ab4351c963a0",
+                "mode": 420,
+                "bytes": 13943
+              }
+            ]
+          }
+        ],
+        "production_file_SHA_present_in_final_snapshot": true
+      },
+      "native_artifact_byte_links": [],
+      "image_and_checkout_evidence": {
+        "sources": {
+          "instruction.txt": "e8f2b786834698c809aeee5465eea7e729a816f5d6a00021be709379893c2f7d",
+          "checkout.json": "0e60b44280dad40e7a3892f33204b29af192ad767df6cc750af70130bcb63f06",
+          "execution-budget.json": "c946ab9bd607d3df0808de7a5c62c3a54322f903d3da12e643378980c29235b8",
+          "agent.json": "2a2277aabe15c6432ae772832c67e510f8fbc6bd87e0fa12eaf7f63c5d1f1d32",
+          "resource:work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pytest-dev__pytest-8399-C0-r1.resources.json": "e47413106015af8ab7f00226b6b515a18c83fad25f6f560612b3ce6e26013102"
+        },
+        "image": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-8399:latest",
+        "frozen_pin": "sha256:1403b263348f1da02330634d688ebf8dd61fa69f2c301203c89551889946cb0d",
+        "resource": {
+          "task": "pytest-dev__pytest-8399",
+          "benchmark": "swe",
+          "exclusive": true,
+          "requested_at": 1795639840.838867,
+          "resource_wait_is_outside_original_task_budget": true,
+          "admitted_at": 1795639841.13907,
+          "actual_image_id": "sha256:1403b263348f1da02330634d688ebf8dd61fa69f2c301203c89551889946cb0d",
+          "image_resolution_round": 0,
+          "returncode": 0,
+          "released_at": 1795640042.766722
+        }
+      }
+    },
+    {
+      "arm": "repeat",
+      "task": "pytest-dev__pytest-7571",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pytest-dev__pytest-7571-C0-r2",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 413.54866279207636,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795637856.500742,
+        "native_session_id": "1873b3f7-cd75-459d-a486-e29ff816e9e7",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "8d3b046135b7b884e51584ab7088adc01b9916f25370eec937d58eb55e6e68a6"
+      },
+      "event_counts": {
+        "request": 28,
+        "cli_process_started": 28,
+        "response": 28,
+        "billing_verified": 28
+      },
+      "native_sessions": [
+        "1873b3f7-cd75-459d-a486-e29ff816e9e7"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a2145b531e708b9e5d659c2c8b0fe0",
+          0,
+          5336,
+          175
+        ],
+        [
+          2,
+          "01a2145b6a127f7cbd7006bd05718e24",
+          0,
+          6444,
+          206
+        ],
+        [
+          3,
+          "01a2145b7f637e0dbb170feff52a08fa",
+          0,
+          8064,
+          212
+        ],
+        [
+          4,
+          "01a2145b93fc7cdc912d82c98f7d413e",
+          0,
+          12293,
+          188
+        ],
+        [
+          5,
+          "01a2145baa6076ad924a7cb534dbc707",
+          0,
+          14894,
+          263
+        ],
+        [
+          6,
+          "01a2145bc2d27848a328c233e864ac14",
+          0,
+          18773,
+          717
+        ],
+        [
+          7,
+          "01a2145be4c47f8c8e7d009674b8053e",
+          0,
+          20314,
+          334
+        ],
+        [
+          8,
+          "01a2145bfdf37e1a829197d2c20190b9",
+          0,
+          21830,
+          179
+        ],
+        [
+          9,
+          "01a2145c15687019b476593aad055e96",
+          0,
+          24807,
+          346
+        ],
+        [
+          10,
+          "01a2145c2e01702784f53ed7609fa35b",
+          0,
+          27175,
+          255
+        ],
+        [
+          11,
+          "01a2145c461b793d97ed61057fd5fa9a",
+          0,
+          27610,
+          230
+        ],
+        [
+          12,
+          "01a2145c6ade7a34a7dbb81c3ac6be7d",
+          0,
+          28408,
+          216
+        ],
+        [
+          13,
+          "01a2145c84867a7cb5552b1649e355d6",
+          0,
+          29032,
+          2730
+        ],
+        [
+          14,
+          "01a2145ccf547243b3cb2435aa11a42b",
+          0,
+          31869,
+          316
+        ],
+        [
+          15,
+          "01a2145cf0a877f18ed8c98d64d771d5",
+          0,
+          32777,
+          179
+        ],
+        [
+          16,
+          "01a2145d058c741ba0be8bfebdc9a610",
+          0,
+          34268,
+          1014
+        ],
+        [
+          17,
+          "01a2145d29a271c5a7d1588a25cb800c",
+          0,
+          35753,
+          182
+        ],
+        [
+          18,
+          "01a2145d42fd7e67b09b3378f4ac5f40",
+          0,
+          36214,
+          1216
+        ],
+        [
+          19,
+          "01a2145d760e785f874dc1ae1727f21f",
+          0,
+          38081,
+          536
+        ],
+        [
+          20,
+          "01a2145d94ae7b57920256e77f49cf0e",
+          0,
+          38736,
+          88
+        ],
+        [
+          21,
+          "01a2145db03376ed8b08b5c17febaf05",
+          0,
+          39287,
+          447
+        ],
+        [
+          22,
+          "01a2145ddb82755d9b74b6c7cde685bf",
+          0,
+          40222,
+          182
+        ],
+        [
+          23,
+          "01a2145fd4787fb79cb85dd5448f93fa",
+          0,
+          41455,
+          500
+        ],
+        [
+          24,
+          "01a2146012c8724fa9a16587f8999158",
+          0,
+          42435,
+          253
+        ],
+        [
+          25,
+          "01a21460750b796797bbc737809ab18b",
+          0,
+          45870,
+          1064
+        ],
+        [
+          26,
+          "01a21460bf027a519c884eeae7a084c2",
+          0,
+          47638,
+          1101
+        ],
+        [
+          27,
+          "01a21460e6da799e9ffb52a493c06b7d",
+          0,
+          49216,
+          194
+        ],
+        [
+          28,
+          "01a2146109767aae96f4743a9061ac32",
+          0,
+          49873,
+          108
+        ]
+      ],
+      "input_tokens": 848674,
+      "output_tokens": 13431,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "3bd2247dfd4c6feb15f5e7a8bf1fb8c1345c1a4b4f678981d767f4050bc67e35",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "445a32ef937c6c024c68f58c98202149c69f36a6162b74870fda04971fd66b25  src/_pytest/logging.py\n508cb5a4c698e6b26ebc66e5473da19311e6c9cfc02b442c4a8249a614b20239  testing/logging/test_fixture.py\n"
+          }
+        },
+        "elapsed_seconds": 381.95107833400834
+      },
+      "controller_event_counts": {
+        "candidate_operation": 8,
+        "candidate_saved": 1,
+        "verification": 2,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "3bd2247dfd4c6feb15f5e7a8bf1fb8c1345c1a4b4f678981d767f4050bc67e35",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "3bd2247dfd4c6feb15f5e7a8bf1fb8c1345c1a4b4f678981d767f4050bc67e35",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "src/_pytest/logging.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 14,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED testing/logging/test_fixture.py::test_fixture_help",
+          "PASSED testing/logging/test_fixture.py::test_change_level_undo",
+          "PASSED testing/logging/test_fixture.py::test_change_level_undos_handler_level",
+          "PASSED testing/logging/test_fixture.py::test_ini_controls_global_log_level",
+          "PASSED testing/logging/test_fixture.py::test_caplog_can_override_global_log_level",
+          "PASSED testing/logging/test_fixture.py::test_caplog_captures_despite_exception",
+          "PASSED testing/logging/test_fixture.py::test_log_report_captures_according_to_config_option_upon_failure",
+          "============================== 15 passed in 0.24s =============================="
+        ]
+      },
+      "tools_count": 25,
+      "nonzero_tools": [
+        20
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 25,
+        "save": 1,
+        "verify": 2
+      },
+      "source_sha256": {
+        "result.json": "7367521b4b97e59edf4f8c9a2ea50bd5f0eed2e36a34878d2006a5c4712c4c0d",
+        "trial.json": "ee3f03c9577aa9ac8b42c1e941e40b27738ddfab7ce98be16c46b094bf5dbd54",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pytest-dev__pytest-7571-C0-r2.protocol.json": "528f6e764b4b65ad5011fb01b2a7e8de2256cd128cc9582a6bbcd7e52deb6eb8",
+        "model.jsonl": "0b6c4fdd0ae59e7c63568dfc85019c3094ac47e1fe2f7d49bdf95eedaa933671",
+        "controller.jsonl": "8886ea50ae1e4815ba96c27faf5e9ff2ddc2f92fe2a4b9795b6d3d711dbfe3be",
+        "final-verification.json": "77c5656bc09a68a72a13681820a8f63ecbea11db462ab08df0ead1b5abdfb4be",
+        "candidates/candidate-001.json": "6c55cb96b7fe8dd72d100ec5c12eb2e7a54526b226ea5d079889f651c3fbd275",
+        "candidate.patch": "e39f2a45c3834130cdf12ea7f8a4eb14c4d0712c457f39ed2dc4f99338800191",
+        "swe-official/pytest-dev__pytest-7571-C0-r2/course-mini-swe-agent/pytest-dev__pytest-7571/patch.diff": "e39f2a45c3834130cdf12ea7f8a4eb14c4d0712c457f39ed2dc4f99338800191",
+        "swe-official/pytest-dev__pytest-7571-C0-r2/course-mini-swe-agent/pytest-dev__pytest-7571/report.json": "c83f46f6b2bc3110dd3cca49b7442c1fca7f20b728c8ff38f19bc4a59950a835",
+        "swe-official/pytest-dev__pytest-7571-C0-r2/course-mini-swe-agent/pytest-dev__pytest-7571/test_output.txt": "223b94b91f3eb8d95f913d73a4d9b3e457b3871ec1cf102f0da82f0b1f2a0b44",
+        "swe-official/pytest-dev__pytest-7571-C0-r2/course-mini-swe-agent/pytest-dev__pytest-7571/run_instance.log": "f82e2f150d5a94513509ad74b73cb3f889759eed3f0c0029e427046d2ee8bf1c",
+        "swe-official/pytest-dev__pytest-7571-C0-r2/course-mini-swe-agent/pytest-dev__pytest-7571/eval.sh": "d2700809aa9752c9be9676c0e08ef76e61a7ebb37d9941092b6619bf2bc5e134",
+        "tools.jsonl": "276a5c098ca9d540443b96c449713cd8f8165443e7c391e257e812169397c2ef"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model event structures/individual own receipts/controller/candidates/complete final patch and original grade parsed; all tool commands and meaningful output directly read. Repository display excerpts and model reasoning not read word-for-word.",
+      "protocol_sha256": "528f6e764b4b65ad5011fb01b2a7e8de2256cd128cc9582a6bbcd7e52deb6eb8",
+      "control_applicability": "C0: model-requested public check plus original final protected/currentness records",
+      "currentness_link": {
+        "arm": "repeat",
+        "task": "pytest-dev__pytest-7571",
+        "final_digest": "3bd2247dfd4c6feb15f5e7a8bf1fb8c1345c1a4b4f678981d767f4050bc67e35",
+        "matching_verification_steps": [
+          20,
+          27
+        ],
+        "saved_candidates": [
+          {
+            "path": "candidates/candidate-001.json",
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "files": [
+              {
+                "source": "src/_pytest/logging.py",
+                "sha256": "445a32ef937c6c024c68f58c98202149c69f36a6162b74870fda04971fd66b25",
+                "mode": 420,
+                "bytes": 29729
+              }
+            ]
+          }
+        ],
+        "production_file_SHA_present_in_final_snapshot": true
+      },
+      "native_artifact_byte_links": [],
+      "image_and_checkout_evidence": {
+        "sources": {
+          "instruction.txt": "9c62f18b21e1ea32b1fe56dd483c7016a98a23e0a61387524d6a5802d445b2a7",
+          "checkout.json": "86beba312ea6eb1a368f39e2d65558b3ec1251471d2fc0c2f67a1c0d50c69cb8",
+          "execution-budget.json": "841e117bf06e5aa77407c46dc66921491e911e25b2bbd27b132b87eaddfefb28",
+          "agent.json": "92d1097353b3a7747ae450c4abc3844c76a12b79dcdcec4ef769470d1419d081",
+          "resource:work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pytest-dev__pytest-7571-C0-r2.resources.json": "ea80d2879fbbc7a4fd80f06554c1eecc2a9bafb0b684df3188dbb72974d29e69"
+        },
+        "image": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7571:latest",
+        "frozen_pin": "sha256:0a1f84cd32e2c8332f90bfad6f3fd16304f25c01384adb4ffd4f7250316bd60a",
+        "resource": {
+          "task": "pytest-dev__pytest-7571",
+          "benchmark": "swe",
+          "exclusive": true,
+          "requested_at": 1795637846.576745,
+          "resource_wait_is_outside_original_task_budget": true,
+          "admitted_at": 1795637854.2220092,
+          "actual_image_id": "sha256:0a1f84cd32e2c8332f90bfad6f3fd16304f25c01384adb4ffd4f7250316bd60a",
+          "image_resolution_round": 0,
+          "returncode": 0,
+          "released_at": 1795638268.453718
+        }
+      }
+    },
+    {
+      "arm": "repeat",
+      "task": "sqlite-db-truncate",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/sqlite-db-truncate-C0-r2",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 114.00943637499586,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795638838.3848891,
+        "native_session_id": "23e2ff10-ecad-42de-8e75-69d288e28574",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "81669cf37c191f356a8e6a78509cd8cb6c779f1f2d294977c0939ff92d8b25fc"
+      },
+      "event_counts": {
+        "request": 11,
+        "cli_process_started": 11,
+        "response": 11,
+        "billing_verified": 11
+      },
+      "native_sessions": [
+        "23e2ff10-ecad-42de-8e75-69d288e28574"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a2146a4fe5773bb61b9cbe1bfa794a",
+          0,
+          5270,
+          269
+        ],
+        [
+          2,
+          "01a2146a68a878568d41b27f3aa38789",
+          0,
+          5728,
+          631
+        ],
+        [
+          3,
+          "01a2146a8d3978949220b55d286fccb5",
+          0,
+          6728,
+          1865
+        ],
+        [
+          4,
+          "01a2146ac41679c8a2cc20d16389caec",
+          0,
+          10038,
+          1392
+        ],
+        [
+          5,
+          "01a2146af6b87e3fb84b551a4190f79f",
+          0,
+          12023,
+          1437
+        ],
+        [
+          6,
+          "01a2146b29e47ba2872f564c0946c71d",
+          0,
+          13776,
+          335
+        ],
+        [
+          7,
+          "01a2146b46e17b80890f93b96ea715b9",
+          0,
+          14374,
+          119
+        ],
+        [
+          8,
+          "01a2146b61fb709893fda7f6e191b110",
+          0,
+          14818,
+          553
+        ],
+        [
+          9,
+          "01a2146b7f817169a313a09b8291b57e",
+          0,
+          15679,
+          123
+        ],
+        [
+          10,
+          "01a2146b92b17b43a66b901a8564926f",
+          0,
+          16010,
+          133
+        ],
+        [
+          11,
+          "01a2146ba9b6785182a471bb9633be4e",
+          0,
+          16454,
+          134
+        ]
+      ],
+      "input_tokens": 130898,
+      "output_tokens": 6991,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "9b07e519b57a01f1b746f498d974e03122246aaabc75008849248476afbb73c3",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-artifact": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "1ee2c578f0baf3ff6f0994857cefe976cfe4472130934726060f8bfe56bbe125  /app/recover.json\n"
+          }
+        },
+        "elapsed_seconds": 96.30140304099768
+      },
+      "controller_event_counts": {
+        "candidate_operation": 6,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "9b07e519b57a01f1b746f498d974e03122246aaabc75008849248476afbb73c3",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "9b07e519b57a01f1b746f498d974e03122246aaabc75008849248476afbb73c3",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "9b07e519b57a01f1b746f498d974e03122246aaabc75008849248476afbb73c3",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "9b07e519b57a01f1b746f498d974e03122246aaabc75008849248476afbb73c3",
+          "eligible": false
+        }
+      ],
+      "native_capture": {
+        "registered": true,
+        "artifacts": [
+          {
+            "source": "/app/recover.json",
+            "status": "ok",
+            "type": "file",
+            "path": "sqlite-db-truncate__cngNgrc/artifacts/app/recover.json",
+            "sha256": "1ee2c578f0baf3ff6f0994857cefe976cfe4472130934726060f8bfe56bbe125",
+            "bytes": 515,
+            "sha_present_in_final_public_snapshot": true
+          }
+        ],
+        "model_requests_by_capture": 0
+      },
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "============================= test session starts ==============================",
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_json_data",
+          "============================== 1 passed in 0.08s ==============================="
+        ]
+      },
+      "tools_count": 7,
+      "nonzero_tools": [],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 7,
+        "save": 2,
+        "verify": 1
+      },
+      "source_sha256": {
+        "result.json": "d44c9fc70099b411b6f3acd2b2f8d1f0b8fdda107ad6373acdd329e77c88a90f",
+        "trial.json": "d05bbce128e108accb6cea803bc3ecabeb5fa78955a2c795047bd0b59303aa57",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/sqlite-db-truncate-C0-r2.protocol.json": "e53d3c07a44544cc4844d6095b05c7e46270ce64cb0ef426f83fa19a39ab520f",
+        "sqlite-db-truncate__cngNgrc/agent/model.jsonl": "8e4ff40d096c30009ce38b7df9b550d9a196112f030ae59a92f4b1c3b04413e5",
+        "sqlite-db-truncate__cngNgrc/agent/controller.jsonl": "d2b893c20d8212f4966daa72d293095ca839734e84ec493d6d30ff6169b5aae1",
+        "sqlite-db-truncate__cngNgrc/agent/final-verification.json": "b9e43215e37fcfe9bc571597c9969d9ffd9a7704a686aa952732518523a9ae1b",
+        "sqlite-db-truncate__cngNgrc/agent/candidates/candidate-002.json": "7a2297ab4a798a9211f89a124b8967ea9ddc553d8ec72aaccddf950ff5465d6d",
+        "sqlite-db-truncate__cngNgrc/agent/candidates/candidate-001.json": "5e851ab42f796150ae78146e00775c391a73b22f8f90adfb2a2a27ed2a97bceb",
+        "artifact-capture.json": "65767dafc7746c0de01c250ba4246ed2f9acf6e719689ee637d78266ded94183",
+        "artifact-capture-config.json": "6e39316cc00f409afd545f869bf90bcad6fa84ea18ebfa140a1f108012e451d7",
+        "sqlite-db-truncate__cngNgrc/artifacts/manifest.json": "4e6b4ec03f1702efd6fa4ac08ef4f2a216e2406215b2bd0728daab3b1760526e",
+        "sqlite-db-truncate__cngNgrc/artifacts/app/recover.json": "1ee2c578f0baf3ff6f0994857cefe976cfe4472130934726060f8bfe56bbe125",
+        "sqlite-db-truncate__cngNgrc/result.json": "ca5a993259834fc8f22936185ea38646aa238eb15fa2733171aa61e4658ec443",
+        "sqlite-db-truncate__cngNgrc/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "sqlite-db-truncate__cngNgrc/verifier/test-stdout.txt": "170ff48a1f835b1275815ace7abf51bb3c052bcb61321b3d0c4b8f2b8bb6b607",
+        "sqlite-db-truncate__cngNgrc/agent/tools.jsonl": "9d7b07cae1f59ef4f47ca65c7506ea8cb4071797320025a7cc3345712c0c29f6",
+        "sqlite-db-truncate/instruction.md": "465c135cd80be49023ea3ecf8f1d840c679b3a960efe425d510894e417b9d802"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model event structures/individual own receipts/controller/candidates/complete final patch and original grade parsed; all tool commands and meaningful output directly read. Repository display excerpts and model reasoning not read word-for-word.",
+      "protocol_sha256": "e53d3c07a44544cc4844d6095b05c7e46270ce64cb0ef426f83fa19a39ab520f",
+      "control_applicability": "C0: model-requested public check plus original final protected/currentness records",
+      "currentness_link": {
+        "arm": "repeat",
+        "task": "sqlite-db-truncate",
+        "final_digest": "9b07e519b57a01f1b746f498d974e03122246aaabc75008849248476afbb73c3",
+        "matching_verification_steps": [
+          7
+        ],
+        "saved_candidates": [
+          {
+            "path": "sqlite-db-truncate__cngNgrc/agent/candidates/candidate-002.json",
+            "candidate_id": "candidate-002",
+            "eligible": true,
+            "files": [
+              {
+                "source": "/app/recover.json",
+                "sha256": "1ee2c578f0baf3ff6f0994857cefe976cfe4472130934726060f8bfe56bbe125",
+                "mode": 438,
+                "bytes": 515
+              }
+            ]
+          },
+          {
+            "path": "sqlite-db-truncate__cngNgrc/agent/candidates/candidate-001.json",
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "files": [
+              {
+                "source": "/app/recover.json",
+                "sha256": "1ee2c578f0baf3ff6f0994857cefe976cfe4472130934726060f8bfe56bbe125",
+                "mode": 438,
+                "bytes": 515
+              }
+            ]
+          }
+        ]
+      },
+      "native_artifact_byte_links": [
+        {
+          "arm": "repeat",
+          "task": "sqlite-db-truncate",
+          "source": "/app/recover.json",
+          "sha256": "1ee2c578f0baf3ff6f0994857cefe976cfe4472130934726060f8bfe56bbe125",
+          "bytes": 515,
+          "row_count": 10,
+          "snapshot_match": true,
+          "saved_candidate_match": true
+        }
+      ],
+      "image_and_checkout_evidence": {
+        "sources": {
+          "resource:work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/sqlite-db-truncate-C0-r2.resources.json": "4a0fe0bd0ae07542f28b630147c767fde45501a412c52eef78eeb9806eaed8a4"
+        },
+        "image": "alexgshaw/sqlite-db-truncate:20251031",
+        "frozen_pin": "sha256:aabac93c93bd1f310e6a6fb893911d7735026ed18491c72133c9196a09092ca4",
+        "resource": {
+          "task": "sqlite-db-truncate",
+          "benchmark": "terminal",
+          "exclusive": false,
+          "requested_at": 1795638834.3361459,
+          "resource_wait_is_outside_original_task_budget": true,
+          "admitted_at": 1795638834.379107,
+          "actual_image_id": "sha256:aabac93c93bd1f310e6a6fb893911d7735026ed18491c72133c9196a09092ca4",
+          "image_resolution_round": 0,
+          "returncode": 0,
+          "released_at": 1795638948.904511
+        }
+      }
+    },
+    {
+      "arm": "repeat",
+      "task": "pytest-dev__pytest-8399",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pytest-dev__pytest-8399-C0-r2",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 247.33199899992906,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795639018.389581,
+        "native_session_id": "2c5901f6-77ae-4379-a99a-999c650b849b",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "df421db0d8d6b9b18e4f2b336ac2f20dc392e16d8088a1dffa7bffbf6fd8513c"
+      },
+      "event_counts": {
+        "request": 29,
+        "cli_process_started": 29,
+        "response": 29,
+        "billing_verified": 29
+      },
+      "native_sessions": [
+        "2c5901f6-77ae-4379-a99a-999c650b849b"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a2146d0d147eadabcb555f6bd3c725",
+          0,
+          5495,
+          179
+        ],
+        [
+          2,
+          "01a2146d218279a790a9d4402ee24225",
+          0,
+          6525,
+          169
+        ],
+        [
+          3,
+          "01a2146d358476bcb304ff15a11aaefe",
+          0,
+          10117,
+          242
+        ],
+        [
+          4,
+          "01a2146d4cf4716c9cb92029bf6f2cb4",
+          0,
+          13096,
+          273
+        ],
+        [
+          5,
+          "01a2146d64847ca4bf7d466174913bea",
+          0,
+          15752,
+          247
+        ],
+        [
+          6,
+          "01a2146d7a9f70948ceeeea162b349cc",
+          0,
+          16569,
+          343
+        ],
+        [
+          7,
+          "01a2146d944a77d9bf8ae31a0e4e1d8e",
+          0,
+          17589,
+          257
+        ],
+        [
+          8,
+          "01a2146daab07d0ab6a7e8e46d5a2dda",
+          0,
+          20048,
+          522
+        ],
+        [
+          9,
+          "01a2146dc70979baa892b56dc1282145",
+          0,
+          21746,
+          643
+        ],
+        [
+          10,
+          "01a2146de5f97fc8b166fff13bfc8140",
+          0,
+          22844,
+          239
+        ],
+        [
+          11,
+          "01a2146e00fe746fa499d6fd7f78ac9f",
+          0,
+          23745,
+          188
+        ],
+        [
+          12,
+          "01a2146e1f1b7038a9b28514180f6dbe",
+          0,
+          25870,
+          639
+        ],
+        [
+          13,
+          "01a2146e3d8c762ea4ace437e2e878d2",
+          0,
+          29849,
+          176
+        ],
+        [
+          14,
+          "01a2146e54ac7a7b8ef8e79e576175b2",
+          0,
+          32524,
+          324
+        ],
+        [
+          15,
+          "01a2146e6deb7c24baed3eeb13b78d1d",
+          0,
+          33301,
+          270
+        ],
+        [
+          16,
+          "01a2146e882672c4abf1b962315c66ea",
+          0,
+          33770,
+          948
+        ],
+        [
+          17,
+          "01a2146eabb072a6881b952e1bfaa669",
+          0,
+          35535,
+          120
+        ],
+        [
+          18,
+          "01a2146ec19f7446b09d9d0bea701dba",
+          0,
+          35771,
+          119
+        ],
+        [
+          19,
+          "01a2146ee9d47db1a05cd76ebaa65c63",
+          0,
+          36028,
+          129
+        ],
+        [
+          20,
+          "01a2146f02b97cd08c8e10c363090841",
+          0,
+          36431,
+          232
+        ],
+        [
+          21,
+          "01a2146f19ac7d799faf821ae13e1efb",
+          0,
+          36964,
+          82
+        ],
+        [
+          22,
+          "01a2146f30f57ae1913f9e3bbb35441b",
+          0,
+          37320,
+          143
+        ],
+        [
+          23,
+          "01a2146f5b3e769690209546e18071fe",
+          0,
+          37938,
+          310
+        ],
+        [
+          24,
+          "01a2146f75927f28afac90a2c50463e9",
+          0,
+          38619,
+          980
+        ],
+        [
+          25,
+          "01a2146fa16d7853a2af8b1c76b4a6b9",
+          0,
+          39848,
+          283
+        ],
+        [
+          26,
+          "01a2146fdd097f85ab017d542bf25739",
+          0,
+          43312,
+          286
+        ],
+        [
+          27,
+          "01a2146ff8387299928eb0e4efa2fe32",
+          0,
+          43716,
+          392
+        ],
+        [
+          28,
+          "01a2147015ae753abc999b0f41c149ea",
+          0,
+          44225,
+          693
+        ],
+        [
+          29,
+          "01a214703592773a9b03cdb7677a8660",
+          0,
+          45243,
+          128
+        ]
+      ],
+      "input_tokens": 839790,
+      "output_tokens": 9556,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "7d885a04d572d5cb5380e61f75b6f87f580eb9fde583e3738de43805a0ef3330",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "035cbd7a413cd6f1cb504d93cfbe7d59d8f3b646d8799efd6467ab4351c963a0  src/_pytest/unittest.py\nad9a488b8c9df7372dddb0617c32ec46dc630b65f4b3b43f2dcd440540c306cf  testing/test_unittest.py\n"
+          }
+        },
+        "elapsed_seconds": 213.9161086670356
+      },
+      "controller_event_counts": {
+        "candidate_operation": 8,
+        "candidate_saved": 3,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "7d885a04d572d5cb5380e61f75b6f87f580eb9fde583e3738de43805a0ef3330",
+          "eligible": false
+        },
+        {
+          "candidate_id": "candidate-003",
+          "artifact_digest": "7d885a04d572d5cb5380e61f75b6f87f580eb9fde583e3738de43805a0ef3330",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "7d885a04d572d5cb5380e61f75b6f87f580eb9fde583e3738de43805a0ef3330",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "7d885a04d572d5cb5380e61f75b6f87f580eb9fde583e3738de43805a0ef3330",
+          "eligible": false
+        },
+        {
+          "candidate_id": "candidate-003",
+          "artifact_digest": "7d885a04d572d5cb5380e61f75b6f87f580eb9fde583e3738de43805a0ef3330",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "7d885a04d572d5cb5380e61f75b6f87f580eb9fde583e3738de43805a0ef3330",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "src/_pytest/unittest.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 59,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED testing/test_unittest.py::test_do_cleanups_on_success",
+          "PASSED testing/test_unittest.py::test_do_cleanups_on_setup_failure",
+          "PASSED testing/test_unittest.py::test_do_cleanups_on_teardown_failure",
+          "PASSED testing/test_unittest.py::test_plain_unittest_does_not_support_async",
+          "SKIPPED [21] testing/test_nose.py:6: could not import 'nose': No module named 'nose'",
+          "SKIPPED [8] testing/test_unittest.py:448: could not import 'twisted.trial.unittest': No module named 'twisted'",
+          "SKIPPED [1] testing/test_unittest.py:1277: could not import 'asynctest': No module named 'asynctest'",
+          "======================== 60 passed, 30 skipped in 3.09s ========================"
+        ]
+      },
+      "tools_count": 25,
+      "nonzero_tools": [
+        5,
+        7,
+        21
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 25,
+        "save": 3,
+        "verify": 1
+      },
+      "source_sha256": {
+        "result.json": "34b5719968b72469c43506c42c595f4bec93db60fb075276afcac096dde12cde",
+        "trial.json": "da41cf45511f3699334a629ac67172ff28a26c09fae3bb3a5339de52b2c28b4a",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pytest-dev__pytest-8399-C0-r2.protocol.json": "e4ad770e9ab5b3a3a85cf55e1b3332a16d05f3e992b7ebc56e656b54a01c708c",
+        "model.jsonl": "0d0c0b1117e28a385be78b813511bcc836760c781aa62b299af37b741b4adf21",
+        "controller.jsonl": "9a03cd3af21d64ff68f103ffba0b9d9869de9e94c3762df2e48cf98de79d9153",
+        "final-verification.json": "6f3ce7ee952092e246f3f6eafb125b8e777367c90a45bd15280f381912501c78",
+        "candidates/candidate-002.json": "a24eb53071cd06ade1962088d4dcd102d0a2243eff39acb10262be48c7670a1b",
+        "candidates/candidate-003.json": "31ca75b5575b74b3227874492fa9e2e55bb0188f7080d04b840a2910859da638",
+        "candidates/candidate-001.json": "270dc5046782717728141c309ac472a79ae1d2b0a27747b3794bd09bece4d9cc",
+        "candidate.patch": "36f6ec3d7cc5e546bf272d551f476e42b4e26d15c37b880ccfea5bdb249c542a",
+        "swe-official/pytest-dev__pytest-8399-C0-r2/course-mini-swe-agent/pytest-dev__pytest-8399/patch.diff": "36f6ec3d7cc5e546bf272d551f476e42b4e26d15c37b880ccfea5bdb249c542a",
+        "swe-official/pytest-dev__pytest-8399-C0-r2/course-mini-swe-agent/pytest-dev__pytest-8399/report.json": "3b7a34026831337f274388d6a84d2518b26618d11b0ee9267938f4abb3dfdc38",
+        "swe-official/pytest-dev__pytest-8399-C0-r2/course-mini-swe-agent/pytest-dev__pytest-8399/test_output.txt": "085e2550f0c71b20f1e28a2a620f9f1926f58b7f5b6bd453755310121094f2f1",
+        "swe-official/pytest-dev__pytest-8399-C0-r2/course-mini-swe-agent/pytest-dev__pytest-8399/run_instance.log": "7f038a51e152a6294eda02ecbbbb3bbe17056d2934f77c0f9e96be0cbaa389ba",
+        "swe-official/pytest-dev__pytest-8399-C0-r2/course-mini-swe-agent/pytest-dev__pytest-8399/eval.sh": "4f94827f9a122f593812860b784519c3602a363e759b278b5f76516a4c840995",
+        "tools.jsonl": "d2ad74ef8e2a5c7dcd4e765624aed93d311f36099e1e4e2a7bed75c9c9493f5a"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model event structures/individual own receipts/controller/candidates/complete final patch and original grade parsed; all tool commands and meaningful output directly read. Repository display excerpts and model reasoning not read word-for-word.",
+      "protocol_sha256": "e4ad770e9ab5b3a3a85cf55e1b3332a16d05f3e992b7ebc56e656b54a01c708c",
+      "control_applicability": "C0: model-requested public check plus original final protected/currentness records",
+      "currentness_link": {
+        "arm": "repeat",
+        "task": "pytest-dev__pytest-8399",
+        "final_digest": "7d885a04d572d5cb5380e61f75b6f87f580eb9fde583e3738de43805a0ef3330",
+        "matching_verification_steps": [
+          22
+        ],
+        "saved_candidates": [
+          {
+            "path": "candidates/candidate-002.json",
+            "candidate_id": "candidate-002",
+            "eligible": false,
+            "files": [
+              {
+                "source": "src/_pytest/unittest.py",
+                "sha256": "035cbd7a413cd6f1cb504d93cfbe7d59d8f3b646d8799efd6467ab4351c963a0",
+                "mode": 420,
+                "bytes": 13943
+              }
+            ]
+          },
+          {
+            "path": "candidates/candidate-003.json",
+            "candidate_id": "candidate-003",
+            "eligible": true,
+            "files": [
+              {
+                "source": "src/_pytest/unittest.py",
+                "sha256": "035cbd7a413cd6f1cb504d93cfbe7d59d8f3b646d8799efd6467ab4351c963a0",
+                "mode": 420,
+                "bytes": 13943
+              }
+            ]
+          },
+          {
+            "path": "candidates/candidate-001.json",
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "files": [
+              {
+                "source": "src/_pytest/unittest.py",
+                "sha256": "035cbd7a413cd6f1cb504d93cfbe7d59d8f3b646d8799efd6467ab4351c963a0",
+                "mode": 420,
+                "bytes": 13943
+              }
+            ]
+          }
+        ],
+        "production_file_SHA_present_in_final_snapshot": true
+      },
+      "native_artifact_byte_links": [],
+      "image_and_checkout_evidence": {
+        "sources": {
+          "instruction.txt": "e8f2b786834698c809aeee5465eea7e729a816f5d6a00021be709379893c2f7d",
+          "checkout.json": "0e60b44280dad40e7a3892f33204b29af192ad767df6cc750af70130bcb63f06",
+          "execution-budget.json": "bed706d63c8ea532a324ccb63baee1234b95341db35dc778c8de4e144681cda1",
+          "agent.json": "8b8fa5ab82560c4e4c0a2d0eb1fc717768fa2c93713aeaa5d8ac6c3cab111c81",
+          "resource:work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pytest-dev__pytest-8399-C0-r2.resources.json": "698cc640ab2e034cc95217045f1f0868b57d8a9745c1e7faeeed3ece77c948fa"
+        },
+        "image": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-8399:latest",
+        "frozen_pin": "sha256:1403b263348f1da02330634d688ebf8dd61fa69f2c301203c89551889946cb0d",
+        "resource": {
+          "task": "pytest-dev__pytest-8399",
+          "benchmark": "swe",
+          "exclusive": true,
+          "requested_at": 1795639006.915919,
+          "resource_wait_is_outside_original_task_budget": true,
+          "admitted_at": 1795639016.074281,
+          "actual_image_id": "sha256:1403b263348f1da02330634d688ebf8dd61fa69f2c301203c89551889946cb0d",
+          "image_resolution_round": 0,
+          "returncode": 0,
+          "released_at": 1795639264.1167
+        }
+      }
+    }
+  ],
+  "shared_source_sha256": {
+    "work/parallel-free-evaluation-20261124/hy4-snapshot-0507-20261126/summary.json": "f93115883af15c70bd6621b65cdf62c05afc593f6923070cc8b19e32ec670803",
+    "work/parallel-free-evaluation-20261124/hy4-snapshot-0423-20261126/summary.json": "f54c91fd310a4eba52438476472c6d885fbc782f6ef584fff261514d2ce153a4",
+    "work/parallel-free-evaluation-20261124/independent-core-after201-incremental-20261126.json": "03855ded614da431df49ccf9164a5324e59bc50c7c94c2758832525b418376db",
+    "work/parallel-free-evaluation-20261124/independent-closed177-review-20261126.json": "cb1dfd62c93b21771f35ed4ab527668e18d575593ea17fdfe90d5a7f8ce88df1",
+    "work/parallel-free-evaluation-20261124/independent-core-after177-incremental-20261126.json": "95581af5dbbd37b11bc24a0c9a0b1b989fe80b2ba4d346c6d38e1efc03add715",
+    "work/parallel-free-evaluation-20261124/independent-core-after187-incremental-20261126.json": "b9a91501391ad5a0bd20a042ddea7162696fcf0d593a2f4db378b8268326c2ff",
+    "work/sklearn-25232-semantics-20261126/completed-review.json": "ee70b77ba884f073c2400cb20ce20999befe266a4e7db16b02e81461728fb36a",
+    "work/xarray-4695-preservation-20261126/completed-review.json": "97f92aa9b5aadf1327fc22648a1e7084076293ae39ec8f19cc60b353b88b1d27",
+    "work/free-recovery35-20261126/hy4-plans/main-plan.json": "ac01bbdef1ef007b5f959d7b6673cfe033d47aad14729979465722015bcbdcba",
+    "work/free-recovery35-20261126/hy4-plans/repeat-plan.json": "b430c029ac373ab5ae1cd83bdc195353dd24cdeff1341f3f347eeac77e29d32a",
+    "work/free-recovery35-20261126/hy4-plans/tasks.json": "756f111c06a2d757c3034dd6134abbefa454d5371e5153e6afcaabd1bd3a8be2",
+    "work/free-recovery35-20261126/hy4-plans/checks.json": "8f1b3a87b197a93c3f4441095495dc3a835bb8f29712336949767a92e308dff4",
+    "work/vmshare/performance75-dsh-hy4-v10/tasks.json": "500e27356f70e58dfe394828e698c43cce331a0a7aa8bb8bc4f4effd8ce4a13c",
+    "work/vmshare/performance75-dsh-hy4-v10/environment-pins.json": "4cccb2ad44c00d4257ea8f9e89c2e2fcf19d21d1d1bec55a4e7661d9449c282e",
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/codebuddy_free.py": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28"
+  }
+}

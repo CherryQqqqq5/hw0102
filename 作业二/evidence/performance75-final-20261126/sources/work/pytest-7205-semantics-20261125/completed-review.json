@@ -1,0 +1,2173 @@
+{
+  "schema_version": 1,
+  "record_kind": "completed_prospective_safe_repr_model_result_review",
+  "reviewer": "/root/parallel_capacity_review",
+  "review_date": "2026-11-25",
+  "status": "APPROVE_WITH_STATED_LIMITS",
+  "blocking_findings": [],
+  "task": "pytest-dev__pytest-7205",
+  "role_boundary": "This worker authored the earlier public qualification driver/probe and separate engineering reference. The parent independently reviewed that source and actual qualification. This record directly audits the two subsequently produced model outcomes, native identities, tools, controller, candidate bytes and original grading; it is not an independent reimplementation of the earlier qualifier.",
+  "review_actions": {
+    "new_model_requests": 0,
+    "new_vm_or_Docker_executions": 0,
+    "new_grader_executions": 0,
+    "qualification_replays": 0,
+    "only_written_file": "work/pytest-7205-semantics-20261125/completed-review.json"
+  },
+  "review_depth": {
+    "model": "Complete structural scan of all32 actual request/CLI-start/response/billing groups. Each own fresh native rawUsage receipt, model identity, native session, credit and token count independently reconciled. Every structured action and representative assistant explanations were read; not a word-for-word reading of all reasoning prose.",
+    "tools": "All26 actual commands and return codes read; meaningful dependency discovery/failure, before/after repro, production edits, scratch-case outputs, original-suite conflict and temporary-copy checks read. Long public source listings and repetitive warning/traceback sections were inspected by relevant sections.",
+    "controller": "All controller structures, both saves, the actual verification and final artifacts per run scanned. All36 public case results and both16-pass/9-deselected summaries parsed.",
+    "grading": "Both complete original report structures and all26 verdicts per report consumed; original stdout summaries/exit codes read; final candidate.patch and grader-received patch.diff verified byte-identical. No grader rerun.",
+    "retained_raw_CLI_limit": "Each model-run controller verification retains the18-case rendered SETUP/TEARDOWN values, return codes and stdout/stderr hashes. The separate per-case raw subprocess stdout files were not exported from these model containers. The earlier engineering qualification retained full raw process transcripts, but those are not relabeled as these two model-run transcripts."
+  },
+  "frozen_plan": {
+    "path": "work/pytest-7205-semantics-20261125/frozen/plan.json",
+    "sha256": "e01b367ae072eaa8e476bc142302bba8311df40bcbe06f534df98c24389f2509",
+    "bound_files_rehashed": 157,
+    "binding_drift": [],
+    "fixed_labels": [
+      "safe-repr-main-r1",
+      "safe-repr-repeat-r2"
+    ],
+    "runtime": "work/frozen-performance-hy4-sql-layout-v18",
+    "configuration": "C0",
+    "model": "hy4flash-free",
+    "pin": "sha256:1c6124cd5254db8831df455575eff2795b0cbeb849d10846388e30e00870e495",
+    "limits": {
+      "model_calls": 500,
+      "wall_seconds": 3600,
+      "command_seconds": 120,
+      "max_output_tokens": 64000,
+      "timeout_retries": 0,
+      "strict_wall": true
+    }
+  },
+  "totals": {
+    "completed_fixed_positions": 2,
+    "original_passed": 2,
+    "final_public_and_protected_passed": 2,
+    "new_actual_requests": 32,
+    "own_fresh_zero_credit_receipts": 32,
+    "new_native_sessions": 2,
+    "new_input_tokens": 679203,
+    "new_output_tokens": 15732,
+    "new_wall_seconds_sum": 394.4695185419405,
+    "old_original_false_positions": 2,
+    "old_own_fresh_zero_credit_requests": 54,
+    "old_input_tokens": 1868844,
+    "old_output_tokens": 32409,
+    "old_plus_new_task_positions": 4,
+    "old_plus_new_task_requests": 86,
+    "old_plus_new_task_input_tokens": 2548047,
+    "old_plus_new_task_output_tokens": 48141,
+    "engineering_qualification_models": 0,
+    "engineering_qualification_original_graders": 1,
+    "engineering_original_grade_seconds": 28.500739999930374,
+    "historical_unknown_calls_preserved_separately": 24
+  },
+  "mechanism_and_input": {
+    "shared_fix": "Both model candidates uniformly render fixturedef.cached_param through saferepr(...,maxsize=42), covering bytes, strings and explicit/callable fixture ids. No bytes-only conditional remains.",
+    "main_import": "from _pytest._io.saferepr import saferepr",
+    "repeat_import": "from _pytest.compat import saferepr; the actual original compat.py publicly reexports the same _pytest._io implementation, confirmed in the recorded source read.",
+    "actual_first_substantive_defect": "After finding the prepared Python3.9 testbed environment, both actual original-code repros raise BytesWarning in _show_fixture_action when formatting bytes. Main initially used a different interpreter lacking attrs; repeat initially used one lacking pytest. Those unsuccessful probes and failed DNS package-install attempts remain in the trace/cost.",
+    "production_edit_adoption": "Both chose a single production edit before their first registered verify, and both native explanations explicitly identify a uniform bounded saferepr fix. The registered public guidance was present in their first one-item user history. The first registered public verification already passed; there is no observed public-failure-to-patch-repair loop to claim.",
+    "final_delivery": "Each candidate002 is eligible, source-byte SHA matches the final public snapshot, final artifact digest matches the saved candidate and no restore occurred. Both source files remain mode0644; final patch touches only src/_pytest/setuponly.py.",
+    "protection": "The recorded final public check keeps original testing/test_setuponly.py SHA3ae0ec6d1cee6e86806a4e97e07bccb4f6bf48fb735bc3aab865aa31ce32bf8c. Git-based C0 candidate protection reports no changed original testing/configuration paths. Candidate stores contain only the production source. The141-path full-byte/mode audit belongs to earlier engineering qualification, not a newly performed141-file byte audit of these model containers.",
+    "hidden_input_boundary": "All executed source/test/config reads and environment/cache discovery commands were inspected. Returned data is public repository/test source, dependency metadata, standard-library/bundled wheel paths and the models' own scratch files. No command reads the original grader metadata/answer patch. First request inputs contain public saferepr guidance and the exact public check, without separate-public-reference.patch, reference-original-grade or swe-grader.json.",
+    "contribution_limit": "These two task-local fresh-session passes support this public safe-repr contract and actual verify/save use. They do not alone establish general method superiority, all-pytest correctness or completion of a new75-task cohort."
+  },
+  "findings": [
+    {
+      "priority": "INFO",
+      "blocking": false,
+      "subject": "Repeat preserves the true old-format conflict and uses a separate temporary self-test copy",
+      "evidence": "Repeat tools9/10: the unchanged original public file returns9failed/16passed. It then copies that file to testing/test_setuponly_saferepr_tmp.py, changes only expected quoted displays in the copy, gets25passed, deletes the copy, and git status lists only src/_pytest/setuponly.py. The fixed registered public command and original grader do not use that copy; final original test SHA remains unchanged.",
+      "claim_limit": "The25-pass temporary-copy result is a model self-test, not a passing unchanged old suite and not the original score."
+    },
+    {
+      "priority": "INFO",
+      "blocking": false,
+      "subject": "Main scratch test errors and pre-existing fixture-id behavior remain visible",
+      "evidence": "Main tool9's first scratch edge case includes a bytes entry in fixture ids and gets collection errors in all three modes. Tool10 replaces those ids with strings; tool11 separately verifies raw default values in all modes. The fixed final18-case command passes independently. Explicit id entries of None display[None] in one scratch sample because cached_param already selects fixture ids; no new claim about general id-generation semantics is made.",
+      "claim_limit": "Do not count the first scratch collection-error runs as semantic passes or broaden the result to arbitrary id-generation behavior."
+    },
+    {
+      "priority": "INFO",
+      "blocking": false,
+      "subject": "Public runtime dependency discovery costs retained",
+      "evidence": "Both models first invoked an interpreter without the prepared pytest dependencies, attempted installation with DNS failures, then found /opt/miniconda3/envs/testbed/bin/python and reproduced/fixed the actual bytes issue. All32 model calls, including these unsuccessful preparation steps, remain counted.",
+      "claim_limit": "Passing final checks do not erase those calls or turn the failed installation attempts into successful environment changes."
+    },
+    {
+      "priority": "INFO",
+      "blocking": false,
+      "subject": "Finite public contract and raw process export boundary",
+      "evidence": "Each actual registered check reports16 original non-format passes plus18 short self-chosen -bb cases in setup-show/setup-only/setup-plan. Controller stdout contains all18 rendered results/return codes/hashes, while the per-case raw subprocess transcript stayed within the model container.",
+      "claim_limit": "Do not claim a separately archived full CLI transcript for these two new model runs, arbitrary user-object behavior or exhaustive long-repr/truncation coverage."
+    }
+  ],
+  "identity_and_cost": {
+    "native_receipts_individually_reconciled": 32,
+    "request_response_billing_pairs_exact": true,
+    "one_fresh_usage_record_per_request": true,
+    "actual_credit": 0,
+    "provider_result_cost_usd": 0,
+    "cumulative_usage_records_not_counted_as_new_generations": true,
+    "new_sessions": [
+      "558bd3ba-8f3b-46bd-98c8-dcc31578866b",
+      "aee0d22a-c75b-48ce-a813-ec6e8f2593cd"
+    ],
+    "new_message_ids": [
+      "01a20feb107f7b0d80917c9a14c4725c",
+      "01a20feb27fb730880bb7e3e3e063c09",
+      "01a20feb3c9375b5b5636041fa5491da",
+      "01a20feb5e3d71fe908d75e655412232",
+      "01a20feb78df743db2d844f8904a6173",
+      "01a20feb948579899913198eb18047b0",
+      "01a20febcde27b7e997da7e7e8df1778",
+      "01a20febf221757faddb1ef41c2d1451",
+      "01a20fec162373e4bd3fc7b58c42f930",
+      "01a20fec3cba70b09607c7ec3a465fac",
+      "01a20fec5325761cbfc156dae2611e5d",
+      "01a20fec7cac73b1bd5786c495ff1ca2",
+      "01a20fec9cb0742b931092d4a9e9748f",
+      "01a20fecc31679ba9fe9162f6fc9d084",
+      "01a20fecfc0d749fb5451a2d2fac6d58",
+      "01a20fed1e197c1d9a411c44d8053d7c",
+      "01a20fedb99c774b9354b9ee34275d71",
+      "01a20fedd1ac7ab28948bc01d0099943",
+      "01a20fedf9977c6fbd3a45ccdb4c5ef2",
+      "01a20fee26387569ae0937a168648eae",
+      "01a20fee54a9796e8e7f8d191a038dfa",
+      "01a20fee6efe77ba8c1a22529bce9906",
+      "01a20feebcc0792082dc650252dbccb0",
+      "01a20feeeef07652b5300d0ea56a851f",
+      "01a20fef1d8473c2aa005ed1f4691a7a",
+      "01a20fef49fe73fcae244f80cb938567",
+      "01a20fef7fc672e4be65b07e65bd4494",
+      "01a20fefa0bb7f609eaf6ae38450e946",
+      "01a20fefd91e7beb85d879d9d13b63e8",
+      "01a20ff005377f5682a474a23d29a087",
+      "01a20ff053ba737589984d956c4a6fa2",
+      "01a20ff06ed875d3a4127093a9b0f258"
+    ],
+    "historical_comparison_positions": 17,
+    "historical_unique_generations": 579,
+    "historical_unique_sessions": 17,
+    "combined_unique_generations": 611,
+    "combined_unique_sessions": 19,
+    "previous_cross_collisions": [],
+    "new_generation_cross_intersections": [],
+    "new_session_cross_intersections": [],
+    "scope": "New32/2 compared with the original two Pytest false positions, original and revised Xarray pairs, seven completed JSON development/final positions, and original plus revised FEAL pairs. Historical traces were reconsumed for identities/SHA; the original two Pytest fee metrics were revalidated. This increment does not claim a full trajectory re-review of every historical position.",
+    "compared_historical_positions": [
+      {
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pydata__xarray-2905-C0-r1",
+        "raw_passed": false,
+        "fresh_generations": 20,
+        "sessions": [
+          "45d6dc2f-c149-4d3a-8145-8aa3f57772f4"
+        ],
+        "new32_message_intersection": [],
+        "new2_session_intersection": [],
+        "trace_sha256": "6d149e8629b8beaefc7138824fc678821c6469e029c64af970cf86466c0235bb",
+        "result_sha256": "ea24d6d9822e9b8b92788af63c95731daa880c8fc0716459dd259af2e72a0521"
+      },
+      {
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-2905-C0-r2",
+        "raw_passed": false,
+        "fresh_generations": 30,
+        "sessions": [
+          "8608c3d2-9bbf-4d1c-b0db-5ae6c5d15395"
+        ],
+        "new32_message_intersection": [],
+        "new2_session_intersection": [],
+        "trace_sha256": "c5faec1fef52f2649e4518e5f2f3eb6996ab8fc8a65cba0bdaa89091119860ea",
+        "result_sha256": "9df8bb9240cbc00f25626261c4b7e379e65ffc3f21094494be38e464bd1d26a9"
+      },
+      {
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/feal-linear-cryptanalysis-C0-r1",
+        "raw_passed": false,
+        "fresh_generations": 81,
+        "sessions": [
+          "be6370a6-89d0-4372-8365-c287dc8e8d81"
+        ],
+        "new32_message_intersection": [],
+        "new2_session_intersection": [],
+        "trace_sha256": "def810d0d41cc6f9fb879b73df25948344fe2fa66764f72086f8c974be7de29d",
+        "result_sha256": "529734497083979666f2233400bb4534c2f3d13ff2904ac366050494a91055e3"
+      },
+      {
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/feal-linear-cryptanalysis-C0-r2",
+        "raw_passed": true,
+        "fresh_generations": 18,
+        "sessions": [
+          "0e63ec43-a8dc-49ff-aa31-c05072fb44f1"
+        ],
+        "new32_message_intersection": [],
+        "new2_session_intersection": [],
+        "trace_sha256": "9db5010ffe2875e40f12595d8da6cef896e29f73f8710503a62dab5b77d45057",
+        "result_sha256": "d47512d19ce87526f4a4f6ca5ceffc0a6cd4f2749c1fde6e846f00fba0c776cb"
+      },
+      {
+        "run_dir": "work/vmshare/performance-json-types-revision-20261125/django__django-13346-C0-json-types-revision-main-r1",
+        "raw_passed": true,
+        "fresh_generations": 45,
+        "sessions": [
+          "db00677f-b1f6-4fcc-a7e1-20a7ebaf6187"
+        ],
+        "new32_message_intersection": [],
+        "new2_session_intersection": [],
+        "trace_sha256": "b19cdefc48b73064ea010e055289c2b88b1a08ae1d59ee363253e11d3f49bcaa",
+        "result_sha256": "0346102daa63aa5bf06c8247588161ace730bebc2124ca78811bf3d951183aa5"
+      },
+      {
+        "run_dir": "work/vmshare/performance-json-types-revision-20261125/django__django-13346-C0-json-types-revision-repeat-r2",
+        "raw_passed": true,
+        "fresh_generations": 36,
+        "sessions": [
+          "67718d88-0348-4506-a8a1-cdd465822d2e"
+        ],
+        "new32_message_intersection": [],
+        "new2_session_intersection": [],
+        "trace_sha256": "d4454fda624946fd31626f16e3cbc5df099fd9686dcdb76099d35241d59b2e2b",
+        "result_sha256": "ec23d7fb58f9c4c4203b8df971c54f4ed1b84b1dfacf074bc10b8aec2e89145b"
+      },
+      {
+        "run_dir": "work/vmshare/performance-json-contract-v2-20261125/django__django-13346-C0-json-contract-main-r3",
+        "raw_passed": true,
+        "fresh_generations": 70,
+        "sessions": [
+          "1ea8ca84-2475-4c41-b607-4914842b4ec8"
+        ],
+        "new32_message_intersection": [],
+        "new2_session_intersection": [],
+        "trace_sha256": "c6a4691f5e4d07ee1b9b103f4a41209c8b2cef53ec317cd38962a01e26f6fc49",
+        "result_sha256": "60ec95c8b84b54ebf95ad27f2841c81aceb3ec4ae4e541a7a24f2bd496da65dd"
+      },
+      {
+        "run_dir": "work/vmshare/performance-json-contract-v2-20261125/django__django-13346-C0-json-contract-repeat-r4",
+        "raw_passed": true,
+        "fresh_generations": 47,
+        "sessions": [
+          "dec3842e-c2f2-4192-9bc1-3a5723c6e338"
+        ],
+        "new32_message_intersection": [],
+        "new2_session_intersection": [],
+        "trace_sha256": "f5a777d2824aab43b5936a2dc366780e8832a7a44adced8138a36a38c650fc20",
+        "result_sha256": "66bd0a08b6cbf310df79b5226184915a1fe9e0cf462bf26e62ca9434281d464c"
+      },
+      {
+        "run_dir": "work/vmshare/performance-json-oracle-guided-v3-20261125/django__django-13346-C0-json-oracle-guided-main-r5",
+        "raw_passed": true,
+        "fresh_generations": 47,
+        "sessions": [
+          "5dbdbe37-c661-412c-a6fc-50f52076db86"
+        ],
+        "new32_message_intersection": [],
+        "new2_session_intersection": [],
+        "trace_sha256": "178ee9b481b86c49f83f1fea0946cdba0c3b128157b963fe428811a897ee990d",
+        "result_sha256": "e373c746bbe717bc439960a344265bf5275ecedd29848dd3c0f70f19c74dbc0d"
+      },
+      {
+        "run_dir": "work/vmshare/performance-json-oracle-ascii-v4-20261125/django__django-13346-C0-json-oracle-ascii-main-r7",
+        "raw_passed": true,
+        "fresh_generations": 41,
+        "sessions": [
+          "8fa8aacd-f5e4-4584-9d00-4f3e2c48f191"
+        ],
+        "new32_message_intersection": [],
+        "new2_session_intersection": [],
+        "trace_sha256": "65b41806c0af047cda7a92d5e78b2d0b5205c64c974dca2a1efc2f18149aea65",
+        "result_sha256": "0c7f239b186cc6bb72b0c563d65dc22cb9c520aaa4b0ef12e895d242b0c44547"
+      },
+      {
+        "run_dir": "work/vmshare/performance-json-oracle-ascii-v4-20261125/django__django-13346-C0-json-oracle-ascii-repeat-r8",
+        "raw_passed": true,
+        "fresh_generations": 28,
+        "sessions": [
+          "59ecaa44-905d-4aa8-890f-b322ec531336"
+        ],
+        "new32_message_intersection": [],
+        "new2_session_intersection": [],
+        "trace_sha256": "0725fb4688319d7193bc0c18d84249de370cbffac9955cad90b9499ad64f55dc",
+        "result_sha256": "7c2df9731c7a8525f634652f98a161c67ef18aabeec2ee2b5a824a328c686315"
+      },
+      {
+        "run_dir": "work/vmshare/performance-feal-linear-v19-20261125/feal-linear-cryptanalysis-C0-feal-linear-main-readmission-r1",
+        "raw_passed": true,
+        "fresh_generations": 7,
+        "sessions": [
+          "dbe0a8f8-9d8c-46fa-ad23-6493d0024d90"
+        ],
+        "new32_message_intersection": [],
+        "new2_session_intersection": [],
+        "trace_sha256": "b5bd0d17d50a5ab6759db4071367dba9ad0c2ce75b3069ce15758e9d8541fdc2",
+        "result_sha256": "75c64efecae744f73594306864950ba2086fcf300134d0209edda9f404f94941"
+      },
+      {
+        "run_dir": "work/vmshare/performance-feal-linear-v19-20261125/feal-linear-cryptanalysis-C0-feal-linear-repeat-r2",
+        "raw_passed": true,
+        "fresh_generations": 8,
+        "sessions": [
+          "a4f57863-446c-4957-98e2-dfd09b7e0fc9"
+        ],
+        "new32_message_intersection": [],
+        "new2_session_intersection": [],
+        "trace_sha256": "e3c65ba67b8e07accbbee194d8b71d5448e95025d4dcecec135aec2dd15a7b4f",
+        "result_sha256": "c6392bdea7d8a64c5c36adef42d40a58ee15601a06cca6b39aab5e1c11feb58e"
+      },
+      {
+        "run_dir": "work/vmshare/performance-xarray-object-contract-v1-20261125/pydata__xarray-2905-C0-object-contract-main-r1",
+        "raw_passed": true,
+        "fresh_generations": 24,
+        "sessions": [
+          "24b05907-4ae2-4bfb-954f-d51904c648ad"
+        ],
+        "new32_message_intersection": [],
+        "new2_session_intersection": [],
+        "trace_sha256": "7b59187b5ecf0096eb34c71be3b62da8ae4973aab370131f1bec32b7e4bdedad",
+        "result_sha256": "fc10d2d286efd15af5711ca3dd14b38acd9cefd41714e2212c2ea6b5302ceea8"
+      },
+      {
+        "run_dir": "work/vmshare/performance-xarray-object-contract-v1-20261125/pydata__xarray-2905-C0-object-contract-repeat-r2",
+        "raw_passed": true,
+        "fresh_generations": 23,
+        "sessions": [
+          "723d8a56-11ba-4b91-b531-1da784625561"
+        ],
+        "new32_message_intersection": [],
+        "new2_session_intersection": [],
+        "trace_sha256": "27e59f35d673a61a71958b1c9d2f049ffd1401d0df2d7ca15a67cd7d3e042c4d",
+        "result_sha256": "b61f1c4a20dc10e5b232521581b89ff40f9643e03a7689ad23efe81a43172630"
+      },
+      {
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pytest-dev__pytest-7205-C0-r1",
+        "raw_passed": false,
+        "fresh_generations": 30,
+        "sessions": [
+          "c12a46c4-f62a-466c-8b93-74d70708c0a2"
+        ],
+        "new32_message_intersection": [],
+        "new2_session_intersection": [],
+        "trace_sha256": "a3fe3983b068c90e03a854ed95e43501156d199e19b194c5a8470b22ab11b069",
+        "result_sha256": "02e8ec363465a3ded8d7c4f9f583b910b31699db2fd34e87f6a8cee86ef89a7e"
+      },
+      {
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pytest-dev__pytest-7205-C0-r2",
+        "raw_passed": false,
+        "fresh_generations": 24,
+        "sessions": [
+          "cbec546f-46aa-4744-8f2c-37d58ab79f85"
+        ],
+        "new32_message_intersection": [],
+        "new2_session_intersection": [],
+        "trace_sha256": "f002ea87f664073ed983834a0b05aa63c5d811dcea28100fe7c15e7295999b14",
+        "result_sha256": "3b7c4ce916c14d773cc1b0870aff2a3ea49951f1efa72f36ccdf6ddfcec9e0e5"
+      }
+    ]
+  },
+  "preserved_original_pytest_costs": [
+    {
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pytest-dev__pytest-7205-C0-r1",
+      "metrics": {
+        "task": "pytest-dev__pytest-7205",
+        "passed": false,
+        "wall_seconds": 453.5179184579756,
+        "actual_requests": 30,
+        "verified_zero_credit_requests": 30,
+        "fresh_native_usage_records": 30,
+        "native_session_count": 1,
+        "model_calls": 30,
+        "model_responses": 30,
+        "model_request_retries": 0,
+        "model_request_timeouts": 0,
+        "provider_turns": 30,
+        "tool_calls": 25,
+        "input_tokens": 1150562,
+        "output_tokens": 22857,
+        "cached_input_tokens": 1087232,
+        "submission_check_opportunities": 0,
+        "stale_at_submission": 0,
+        "deliverable_checkpoints": 0,
+        "deliverable_reminders": 0,
+        "usage_unreturned_requests": 0,
+        "usage_missing_input_responses": 0,
+        "usage_missing_output_responses": 0,
+        "usage_missing_cache_responses": 0,
+        "provider_reported_cost_usd": 0
+      },
+      "result": {
+        "task": "pytest-dev__pytest-7205",
+        "wall_seconds": 453.5179184579756,
+        "exit_status": "Submitted",
+        "submission": "",
+        "scoreable": true,
+        "passed": false,
+        "grader_seconds": 28.53664900001604
+      }
+    },
+    {
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pytest-dev__pytest-7205-C0-r2",
+      "metrics": {
+        "task": "pytest-dev__pytest-7205",
+        "passed": false,
+        "wall_seconds": 233.10606270795688,
+        "actual_requests": 24,
+        "verified_zero_credit_requests": 24,
+        "fresh_native_usage_records": 24,
+        "native_session_count": 1,
+        "model_calls": 24,
+        "model_responses": 24,
+        "model_request_retries": 0,
+        "model_request_timeouts": 0,
+        "provider_turns": 24,
+        "tool_calls": 20,
+        "input_tokens": 718282,
+        "output_tokens": 9552,
+        "cached_input_tokens": 666880,
+        "submission_check_opportunities": 0,
+        "stale_at_submission": 0,
+        "deliverable_checkpoints": 0,
+        "deliverable_reminders": 0,
+        "usage_unreturned_requests": 0,
+        "usage_missing_input_responses": 0,
+        "usage_missing_output_responses": 0,
+        "usage_missing_cache_responses": 0,
+        "provider_reported_cost_usd": 0
+      },
+      "result": {
+        "task": "pytest-dev__pytest-7205",
+        "wall_seconds": 233.10606270795688,
+        "exit_status": "Submitted",
+        "submission": "Submit final production fix",
+        "scoreable": true,
+        "passed": false,
+        "grader_seconds": 28.36644570797216
+      }
+    }
+  ],
+  "qualification_boundary": {
+    "phase": "actual_c0_public_safe_repr_contract_and_separate_original_grader_passed",
+    "legacy_unchanged_public_reference_result": "9failed/16passed",
+    "new_contract_controls": "base3/18,retained repeat3/18,public engineering reference18/18",
+    "separate_engineering_grade": "26passed,true,1original grader,0models; remains separate from these model scores"
+  },
+  "claim_limits": [
+    "Both fixed prospective model sessions passed unchanged original grading and final public/protected checks; the two original Pytest false scores and their54 real model calls remain untouched.",
+    "The original problem and published pytest6.0.0 safe-repr implementation support this explicit display-contract change. The old full public suite's nine obsolete unquoted assertions remain negative evidence rather than being silently modified.",
+    "C0 exposes optional verify/save actions. These two models actually invoked them; this is not evidence that every C0 run checks automatically.",
+    "The later combined four-task policy may inherit only71x2 task-input-identical records plus all8 fixed revision outcomes and must honor complete original225/ablation/acceptance gates. This evidence file does not perform that join or claim all75 complete.",
+    "Historical24 unknown calls remain separate and are not counted as verified zero. Earlier SQL pilots, independent engineering original grading and preparation/resource overhead require their own cost rows.",
+    "This reviewer authored the earlier qualifier/reference; parent separately audited those. The present review is source/trace-grounded outcome verification, not a second independent implementation or blind evaluation."
+  ],
+  "shared_source_sha256": {
+    "work/pytest-7205-semantics-20261125/frozen/plan.json": "e01b367ae072eaa8e476bc142302bba8311df40bcbe06f534df98c24389f2509",
+    "work/pytest-7205-semantics-20261125/prepare_repair.py": "c95fb2f35e840708e0e89b98f4f67f373d2c21877eb959953660b9dde04297c3",
+    "work/pytest-7205-semantics-20261125/qualify_public_contract.py": "8d3b5843b3e9a3cf2d4eefb0927323100c48f9b2e700d5030805907f265fc911",
+    "work/pytest-7205-semantics-20261125/public_setup_repr_probe.py": "0000946f24c55f9b7d7d5fcdef0751461da24275b45a0a2e064a62f97ffcd162",
+    "work/pytest-7205-semantics-20261125/separate-public-reference.patch": "3c49041a5759e3b82c185699eca4abb784bc4c0df2c99677370d2a3f3f6ee4f2",
+    "work/pytest-7205-semantics-20261125/qualification/result.json": "740e6979042ea8df7cc90b74bef8b7c4d4f5bf4bc754270a67c3d30ce82e1ded",
+    "work/pytest-7205-semantics-20261125/admission-review.json": "6070c34912f4928f443082b6e7110642bc9f3cbd5169810e8e9d6957e22cd127",
+    "work/xarray-2905-semantics-20261125/completed-review.json": "ac0b1645d9127c044a91887822355e575bddcb49194d9cef3c05688039c9af1b",
+    "scripts/export_performance_evidence.py": "5b9d3d297c9c738a4240277df6cc64ef9c52828d8601ccf1acdbf39d8a890c5e",
+    "course_eval/codebuddy_free.py": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28"
+  },
+  "rows": [
+    {
+      "label": "safe-repr-main-r1",
+      "run_dir": "work/vmshare/performance-pytest-safe-repr-v1-20261125/pytest-dev__pytest-7205-C0-safe-repr-main-r1",
+      "result": {
+        "task": "pytest-dev__pytest-7205",
+        "wall_seconds": 173.14677295798901,
+        "exit_status": "Submitted",
+        "submission": "",
+        "scoreable": true,
+        "passed": true,
+        "grader_seconds": 28.365388832986355
+      },
+      "metrics": {
+        "task": "pytest-dev__pytest-7205",
+        "passed": true,
+        "wall_seconds": 173.14677295798901,
+        "actual_requests": 16,
+        "verified_zero_credit_requests": 16,
+        "fresh_native_usage_records": 16,
+        "native_session_count": 1,
+        "model_calls": 16,
+        "model_responses": 16,
+        "model_request_retries": 0,
+        "model_request_timeouts": 0,
+        "provider_turns": 16,
+        "tool_calls": 13,
+        "input_tokens": 341544,
+        "output_tokens": 8269,
+        "cached_input_tokens": 303872,
+        "submission_check_opportunities": 0,
+        "stale_at_submission": 0,
+        "deliverable_checkpoints": 0,
+        "deliverable_reminders": 0,
+        "usage_unreturned_requests": 0,
+        "usage_missing_input_responses": 0,
+        "usage_missing_output_responses": 0,
+        "usage_missing_cache_responses": 0,
+        "provider_reported_cost_usd": 0
+      },
+      "native_session_id": "aee0d22a-c75b-48ce-a813-ec6e8f2593cd",
+      "model_event_counts": {
+        "request": 16,
+        "cli_process_started": 16,
+        "response": 16,
+        "billing_verified": 16
+      },
+      "individual_native_receipts": [
+        {
+          "request_id": 1,
+          "message_id": "01a20feb107f7b0d80917c9a14c4725c",
+          "session_id": "aee0d22a-c75b-48ce-a813-ec6e8f2593cd",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 6794,
+          "output_tokens": 305,
+          "operation": "bash"
+        },
+        {
+          "request_id": 2,
+          "message_id": "01a20feb27fb730880bb7e3e3e063c09",
+          "session_id": "aee0d22a-c75b-48ce-a813-ec6e8f2593cd",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 7966,
+          "output_tokens": 312,
+          "operation": "bash"
+        },
+        {
+          "request_id": 3,
+          "message_id": "01a20feb3c9375b5b5636041fa5491da",
+          "session_id": "aee0d22a-c75b-48ce-a813-ec6e8f2593cd",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 12107,
+          "output_tokens": 739,
+          "operation": "bash"
+        },
+        {
+          "request_id": 4,
+          "message_id": "01a20feb5e3d71fe908d75e655412232",
+          "session_id": "aee0d22a-c75b-48ce-a813-ec6e8f2593cd",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 16080,
+          "output_tokens": 437,
+          "operation": "bash"
+        },
+        {
+          "request_id": 5,
+          "message_id": "01a20feb78df743db2d844f8904a6173",
+          "session_id": "aee0d22a-c75b-48ce-a813-ec6e8f2593cd",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 16812,
+          "output_tokens": 429,
+          "operation": "bash"
+        },
+        {
+          "request_id": 6,
+          "message_id": "01a20feb948579899913198eb18047b0",
+          "session_id": "aee0d22a-c75b-48ce-a813-ec6e8f2593cd",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 18221,
+          "output_tokens": 478,
+          "operation": "bash"
+        },
+        {
+          "request_id": 7,
+          "message_id": "01a20febcde27b7e997da7e7e8df1778",
+          "session_id": "aee0d22a-c75b-48ce-a813-ec6e8f2593cd",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 19360,
+          "output_tokens": 547,
+          "operation": "bash"
+        },
+        {
+          "request_id": 8,
+          "message_id": "01a20febf221757faddb1ef41c2d1451",
+          "session_id": "aee0d22a-c75b-48ce-a813-ec6e8f2593cd",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 20221,
+          "output_tokens": 356,
+          "operation": "bash"
+        },
+        {
+          "request_id": 9,
+          "message_id": "01a20fec162373e4bd3fc7b58c42f930",
+          "session_id": "aee0d22a-c75b-48ce-a813-ec6e8f2593cd",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 22284,
+          "output_tokens": 1307,
+          "operation": "bash"
+        },
+        {
+          "request_id": 10,
+          "message_id": "01a20fec3cba70b09607c7ec3a465fac",
+          "session_id": "aee0d22a-c75b-48ce-a813-ec6e8f2593cd",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 24113,
+          "output_tokens": 98,
+          "operation": "save"
+        },
+        {
+          "request_id": 11,
+          "message_id": "01a20fec5325761cbfc156dae2611e5d",
+          "session_id": "aee0d22a-c75b-48ce-a813-ec6e8f2593cd",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 24486,
+          "output_tokens": 868,
+          "operation": "bash"
+        },
+        {
+          "request_id": 12,
+          "message_id": "01a20fec7cac73b1bd5786c495ff1ca2",
+          "session_id": "aee0d22a-c75b-48ce-a813-ec6e8f2593cd",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 25729,
+          "output_tokens": 569,
+          "operation": "bash"
+        },
+        {
+          "request_id": 13,
+          "message_id": "01a20fec9cb0742b931092d4a9e9748f",
+          "session_id": "aee0d22a-c75b-48ce-a813-ec6e8f2593cd",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 27340,
+          "output_tokens": 1000,
+          "operation": "bash"
+        },
+        {
+          "request_id": 14,
+          "message_id": "01a20fecc31679ba9fe9162f6fc9d084",
+          "session_id": "aee0d22a-c75b-48ce-a813-ec6e8f2593cd",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 29351,
+          "output_tokens": 147,
+          "operation": "verify"
+        },
+        {
+          "request_id": 15,
+          "message_id": "01a20fecfc0d749fb5451a2d2fac6d58",
+          "session_id": "aee0d22a-c75b-48ce-a813-ec6e8f2593cd",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 34886,
+          "output_tokens": 535,
+          "operation": "save"
+        },
+        {
+          "request_id": 16,
+          "message_id": "01a20fed1e197c1d9a411c44d8053d7c",
+          "session_id": "aee0d22a-c75b-48ce-a813-ec6e8f2593cd",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 35794,
+          "output_tokens": 142,
+          "operation": "bash"
+        }
+      ],
+      "actions": [
+        {
+          "request_id": 1,
+          "operation": "bash",
+          "note": "Inspect repository location, files, git state, and Python version.",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 2,
+          "operation": "bash",
+          "note": "Inspect setup-show implementation, its tests, and saferepr conventions.",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 3,
+          "operation": "bash",
+          "note": "Inspect parameter-format tests and reproduce BytesWarning in setup-show/setup-only/setup-plan.",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 4,
+          "operation": "bash",
+          "note": "Locate a Python environment with pytest dependencies installed.",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 5,
+          "operation": "bash",
+          "note": "Check interpreters and package availability for running pytest from source.",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 6,
+          "operation": "bash",
+          "note": "Install pytest runtime dependencies needed to execute the source checkout.",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 7,
+          "operation": "bash",
+          "note": "Search local filesystem and caches for dependencies needed by pytest.",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 8,
+          "operation": "bash",
+          "note": "Reproduce BytesWarning with the prepared testbed Python environment.",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 9,
+          "operation": "bash",
+          "note": "Use saferepr(maxsize=42) to display cached fixture parameters safely.",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 10,
+          "operation": "save",
+          "note": "Initial fix: setuponly displays cached_param via saferepr(maxsize=42).",
+          "command_source": null
+        },
+        {
+          "request_id": 11,
+          "operation": "bash",
+          "note": "Verify fix under -bb across modes and parameter/id edge cases.",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 12,
+          "operation": "bash",
+          "note": "Rerun safe-repr display edge cases with valid string ids.",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 13,
+          "operation": "bash",
+          "note": "Verify raw byte/string/integer params and 42-character truncation without ids.",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 14,
+          "operation": "verify",
+          "note": "Run registered public-regression check for the safe-repr setup display fix.",
+          "command_source": null
+        },
+        {
+          "request_id": 15,
+          "operation": "save",
+          "note": "Verified final candidate: public-regression passed; only src/_pytest/setuponly.py changed.",
+          "command_source": null
+        },
+        {
+          "request_id": 16,
+          "operation": "bash",
+          "note": "Submit the verified final artifact.",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        }
+      ],
+      "actual_tool_records": [
+        {
+          "index": 0,
+          "returncode": 0,
+          "stdout_sha256": "8781fecef46408c4c8fe620dcf87145f55b867f871f68c5b475293657c7a32d6",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "15c6e7ca9319223bab41327241d31dbf42385b34673141534840ecfaf01d6065"
+        },
+        {
+          "index": 1,
+          "returncode": 0,
+          "stdout_sha256": "0933670996e95bf4d115954a9258c2bf1b69757cb05bb09077ae9144c1f5835b",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "451e073ee8761d0a435e3909fb1c75a6f3e037fba361c48b93207f7fe3ea76b8"
+        },
+        {
+          "index": 2,
+          "returncode": 0,
+          "stdout_sha256": "aacca99983bbb3d8da8570b52cd7883a1dd1c45339ed29b69cb7c1799aac3507",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "d1ba01312afe957addcc6b6846f0ec46afdcb80a617bf5161c937729aa292e32"
+        },
+        {
+          "index": 3,
+          "returncode": 0,
+          "stdout_sha256": "8964ce70861b9fce0ef3013363e5ff131009edec63ff152011943abccb7c4178",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "ee90f8faea746f8b86ceb75d10cb2999f6e62cc0ac3b21cff49b9338e1806817"
+        },
+        {
+          "index": 4,
+          "returncode": 0,
+          "stdout_sha256": "28a763e0411d27ee960b79d1cf6657cd34332c9b3012bf39989a1d9e072952a2",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "5062f8e77c1807379e44c6b3e46eea501fb51589223651aeac27068713e06372"
+        },
+        {
+          "index": 5,
+          "returncode": 0,
+          "stdout_sha256": "b8329675efd36d95b68acf969765cb9b6c4b02b70846ff243fd61081876eed72",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "b4ccbd3b66e1e4d4292c35772a6b8bc62f8dd9a0ce3d52117693acb04175e298"
+        },
+        {
+          "index": 6,
+          "returncode": 0,
+          "stdout_sha256": "afdff5f52c17f98cd8f717c5137b65e6924d6ff2edf4e11c6866803c9dcefd4f",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "168f6087434c940dc811bbb5317f0aa79418d7735f1829f663d8298c50d34eef"
+        },
+        {
+          "index": 7,
+          "returncode": 0,
+          "stdout_sha256": "4a649f21db3de280bf6d93c327445a3ac16e4cd58c8341fce93029a3360e3a8a",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "3144e5c064aa9046f4a5a4bd47e51a498be60b589c3911013dc8ca1cf7a50ea7"
+        },
+        {
+          "index": 8,
+          "returncode": 0,
+          "stdout_sha256": "5d2d410f727258436c80548e4a8c49c21a6628b02332c9e4f56af963fe42ebe8",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "ca9edaee2c013f9b2b5cdcb059f2c2b04d64c8031cfaa000854f0c8da90c8308"
+        },
+        {
+          "index": 9,
+          "returncode": 0,
+          "stdout_sha256": "81e4618b0a93ad4f11c4078730c34b010d1d79ea01da0cf45f75017b5efc3d14",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "2355a2c49830162507a6af6ec5f823c79a843a87a0265088306497ffe8f51119"
+        },
+        {
+          "index": 10,
+          "returncode": 0,
+          "stdout_sha256": "37d9fea12f3536ca8e5b91a82f5324b72bf1ea4d0396f98bbb61dacb09950b69",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "ce0930b533ab3e326438544701e4e4d5cf25b253f825ab4184f61a72c52ad9b7"
+        },
+        {
+          "index": 11,
+          "returncode": 0,
+          "stdout_sha256": "5bbfcc4b45def6f309f26b3fd0ff5ec767374f0c4c63124d8b575d89cdb1af03",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "e4cab24cc76802e79ea33752c2d4d8c857427bd02cabd9082649d111b644b83c"
+        },
+        {
+          "index": 12,
+          "returncode": 0,
+          "stdout_sha256": "8f813c4d9a9e264263fd5f8fbe2eb712a5b5106da7b690131aab74bc0bbeb29b",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "2e2577cea459e468a3c7237d52cfd7c074569f65082e4f900514a7f20923eecd"
+        }
+      ],
+      "controller_events": {
+        "candidate_operation": 7,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_saves": [
+        {
+          "step": 10,
+          "candidate_id": "candidate-001",
+          "artifact_digest": "11eb48e993de1eac05b178a8e8f58fc05f169bd9c63bea4fecfb58090a73cec4",
+          "eligible": false
+        },
+        {
+          "step": 15,
+          "candidate_id": "candidate-002",
+          "artifact_digest": "11eb48e993de1eac05b178a8e8f58fc05f169bd9c63bea4fecfb58090a73cec4",
+          "eligible": true
+        }
+      ],
+      "candidate_sources": [
+        {
+          "candidate_id": "candidate-001",
+          "eligible": false,
+          "artifact_digest": "11eb48e993de1eac05b178a8e8f58fc05f169bd9c63bea4fecfb58090a73cec4",
+          "source_sha256": "089f3769994ef71bc32cf2f6f3fbd7ddc6c60d50905f3f21d9ae396992148835",
+          "source_bytes": 2544,
+          "mode": 420,
+          "protected_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "candidate_id": "candidate-002",
+          "eligible": true,
+          "artifact_digest": "11eb48e993de1eac05b178a8e8f58fc05f169bd9c63bea4fecfb58090a73cec4",
+          "source_sha256": "089f3769994ef71bc32cf2f6f3fbd7ddc6c60d50905f3f21d9ae396992148835",
+          "source_bytes": 2544,
+          "mode": 420,
+          "protected_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        }
+      ],
+      "final": {
+        "reason": "submission",
+        "artifact_digest": "11eb48e993de1eac05b178a8e8f58fc05f169bd9c63bea4fecfb58090a73cec4",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "089f3769994ef71bc32cf2f6f3fbd7ddc6c60d50905f3f21d9ae396992148835  src/_pytest/setuponly.py\n3ae0ec6d1cee6e86806a4e97e07bccb4f6bf48fb735bc3aab865aa31ce32bf8c  testing/test_setuponly.py\n"
+          }
+        },
+        "elapsed_seconds": 141.67876545805484
+      },
+      "verifications": [
+        {
+          "step": 14,
+          "artifact_digest": "11eb48e993de1eac05b178a8e8f58fc05f169bd9c63bea4fecfb58090a73cec4",
+          "state": "passed",
+          "seconds": 8.739008666016161,
+          "before": "089f3769994ef71bc32cf2f6f3fbd7ddc6c60d50905f3f21d9ae396992148835  src/_pytest/setuponly.py\n3ae0ec6d1cee6e86806a4e97e07bccb4f6bf48fb735bc3aab865aa31ce32bf8c  testing/test_setuponly.py\n",
+          "after": "089f3769994ef71bc32cf2f6f3fbd7ddc6c60d50905f3f21d9ae396992148835  src/_pytest/setuponly.py\n3ae0ec6d1cee6e86806a4e97e07bccb4f6bf48fb735bc3aab865aa31ce32bf8c  testing/test_setuponly.py\n",
+          "nonformat_original_stdout": "16 passed, 9 deselected in 0.56s",
+          "probe": {
+            "passed": true,
+            "total": 18,
+            "cases": [
+              {
+                "scenario": "default_ascii_bytes",
+                "mode": "--setup-show",
+                "expected": "[b'north-star']",
+                "rendered": {
+                  "SETUP": [
+                    "[b'north-star']"
+                  ],
+                  "TEARDOWN": [
+                    "[b'north-star']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "4f2945c452974ff5a6e06ef9c80cc1aa02a0c338463884df468ba9f593f8323b",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_ascii_bytes",
+                "mode": "--setup-only",
+                "expected": "[b'north-star']",
+                "rendered": {
+                  "SETUP": [
+                    "[b'north-star']"
+                  ],
+                  "TEARDOWN": [
+                    "[b'north-star']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "7ff5c2448616636b1de374bc6f70674fda78d2cabb88a37ad27f6f11fbc3feb2",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_ascii_bytes",
+                "mode": "--setup-plan",
+                "expected": "[b'north-star']",
+                "rendered": {
+                  "SETUP": [
+                    "[b'north-star']"
+                  ],
+                  "TEARDOWN": [
+                    "[b'north-star']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "7ff5c2448616636b1de374bc6f70674fda78d2cabb88a37ad27f6f11fbc3feb2",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_non_ascii_bytes",
+                "mode": "--setup-show",
+                "expected": "[b'\\x03\\x9e\\xff']",
+                "rendered": {
+                  "SETUP": [
+                    "[b'\\x03\\x9e\\xff']"
+                  ],
+                  "TEARDOWN": [
+                    "[b'\\x03\\x9e\\xff']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "db7c8a33404748a3ebf4dfc512b3537aa2959f78b33cf06fb7bc3c12b112a4af",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_non_ascii_bytes",
+                "mode": "--setup-only",
+                "expected": "[b'\\x03\\x9e\\xff']",
+                "rendered": {
+                  "SETUP": [
+                    "[b'\\x03\\x9e\\xff']"
+                  ],
+                  "TEARDOWN": [
+                    "[b'\\x03\\x9e\\xff']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "9d4671c5f9d6f141791468c574a77ebea8467b80a65fa5fb5a2c6668f2148ba2",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_non_ascii_bytes",
+                "mode": "--setup-plan",
+                "expected": "[b'\\x03\\x9e\\xff']",
+                "rendered": {
+                  "SETUP": [
+                    "[b'\\x03\\x9e\\xff']"
+                  ],
+                  "TEARDOWN": [
+                    "[b'\\x03\\x9e\\xff']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "9d4671c5f9d6f141791468c574a77ebea8467b80a65fa5fb5a2c6668f2148ba2",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_string",
+                "mode": "--setup-show",
+                "expected": "['public-alpha']",
+                "rendered": {
+                  "SETUP": [
+                    "['public-alpha']"
+                  ],
+                  "TEARDOWN": [
+                    "['public-alpha']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "909279138f6cae57d9a61bbb0c7f51b71695e8870e5b1cbc4430f949049d2bf7",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_string",
+                "mode": "--setup-only",
+                "expected": "['public-alpha']",
+                "rendered": {
+                  "SETUP": [
+                    "['public-alpha']"
+                  ],
+                  "TEARDOWN": [
+                    "['public-alpha']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "f0083d71b9ee0e8fcef6a3ce1c166c0df926f7ea4791c4ad399e4a5bc50c6841",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_string",
+                "mode": "--setup-plan",
+                "expected": "['public-alpha']",
+                "rendered": {
+                  "SETUP": [
+                    "['public-alpha']"
+                  ],
+                  "TEARDOWN": [
+                    "['public-alpha']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "f0083d71b9ee0e8fcef6a3ce1c166c0df926f7ea4791c4ad399e4a5bc50c6841",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_integer",
+                "mode": "--setup-show",
+                "expected": "[23]",
+                "rendered": {
+                  "SETUP": [
+                    "[23]"
+                  ],
+                  "TEARDOWN": [
+                    "[23]"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "4c4eea8afc77929e98959b538a979b7413f11a33ba4ecb64f9494e622fedc049",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_integer",
+                "mode": "--setup-only",
+                "expected": "[23]",
+                "rendered": {
+                  "SETUP": [
+                    "[23]"
+                  ],
+                  "TEARDOWN": [
+                    "[23]"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "09663f8d706199f694731a70309f1f91fac55ad6e7070891517330fa31181569",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_integer",
+                "mode": "--setup-plan",
+                "expected": "[23]",
+                "rendered": {
+                  "SETUP": [
+                    "[23]"
+                  ],
+                  "TEARDOWN": [
+                    "[23]"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "09663f8d706199f694731a70309f1f91fac55ad6e7070891517330fa31181569",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "explicit_id",
+                "mode": "--setup-show",
+                "expected": "['visible-token']",
+                "rendered": {
+                  "SETUP": [
+                    "['visible-token']"
+                  ],
+                  "TEARDOWN": [
+                    "['visible-token']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "b7faa135a21237f85980298ded27f3982bb7d630f2612c6df995529454c8d9dc",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "explicit_id",
+                "mode": "--setup-only",
+                "expected": "['visible-token']",
+                "rendered": {
+                  "SETUP": [
+                    "['visible-token']"
+                  ],
+                  "TEARDOWN": [
+                    "['visible-token']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "97d89bddb7ffe0c22149f16f058c2d1c28560d565f002b3925580c8d36a0b866",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "explicit_id",
+                "mode": "--setup-plan",
+                "expected": "['visible-token']",
+                "rendered": {
+                  "SETUP": [
+                    "['visible-token']"
+                  ],
+                  "TEARDOWN": [
+                    "['visible-token']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "97d89bddb7ffe0c22149f16f058c2d1c28560d565f002b3925580c8d36a0b866",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "callable_id",
+                "mode": "--setup-show",
+                "expected": "['mapped-33']",
+                "rendered": {
+                  "SETUP": [
+                    "['mapped-33']"
+                  ],
+                  "TEARDOWN": [
+                    "['mapped-33']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "763a95cf1d77dd30209c31544450a7485756dc2b685a34b759eb74cda4940512",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "callable_id",
+                "mode": "--setup-only",
+                "expected": "['mapped-33']",
+                "rendered": {
+                  "SETUP": [
+                    "['mapped-33']"
+                  ],
+                  "TEARDOWN": [
+                    "['mapped-33']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "2ddd14b41c94c05c64523dde7d1239d8d7236d84ea6835225a78b2c47e699b26",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "callable_id",
+                "mode": "--setup-plan",
+                "expected": "['mapped-33']",
+                "rendered": {
+                  "SETUP": [
+                    "['mapped-33']"
+                  ],
+                  "TEARDOWN": [
+                    "['mapped-33']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "2ddd14b41c94c05c64523dde7d1239d8d7236d84ea6835225a78b2c47e699b26",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              }
+            ],
+            "actual_cli_transcript": "/course-public-setup-repr-processes.json",
+            "scope": "Self-chosen values under actual Python -bb CLI in three setup modes. Default bytes/string/integer and explicit/callable fixture ids use one safe repr display contract. Builtin pytest plugins are used; third-party plugin autoload is disabled only for these isolated public cases. No hidden fixtures or expected production patch."
+          },
+          "public_stdout_sha256": "9fca83edf350ab3cd42e5acfd252bd77e28984ffb3ff9c9f4637371bceafc110"
+        }
+      ],
+      "original_grade": {
+        "resolved": true,
+        "infra_failure": false,
+        "patch_applied": true,
+        "counts": {
+          "FAIL_TO_PASS": {
+            "success": 10,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 16,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "summary": [
+          "============================== 26 passed in 1.18s =============================="
+        ],
+        "exit_zero": true,
+        "submitted_patch_equals_grader_patch": true
+      },
+      "protocol_sha256": "ed158e6a889c10240a00a3c736052642277ca599f4335d960fa083035c0c5d3d",
+      "source_sha256": {
+        ".controller-input.json": "bef7e91cbcf460f46b86a43a57fb3b1425e1227b09f67de6b65243dd1990f363",
+        "agent.json": "dcff83c90473351d1779b8ebed8e8d74234d654851bea1c3c67038cc64fcf6fd",
+        "candidate.patch": "8507b81a20b82e3c9e59b23bf8877a3b788af9166fe5d808b1ef372c968c15eb",
+        "candidates/candidate-001.json": "3df38cd29045d07ad562b29627c1e3f2d52cd5a698eea78597f60eec9d89c21d",
+        "candidates/candidate-002.json": "115e0f24ab79bf2c29de43d1548ae96ad057c2ed265c977f3a58dd0aa7e3bd5c",
+        "checkout.json": "88b7ee0c3c3c05483f24a04873d7d24a1e6cb6b2aee0b21c2b112afdf636b1fa",
+        "controller.jsonl": "9b9397d418a0ceb90be3003d268c39b190935f070313fa3905c67ee3dd4b4894",
+        "execution-budget.json": "f3b30cf977546893986f99cc7de09c9db567304b17b5f5285f6306680888f0ed",
+        "final-verification.json": "c2ebafac473bcc0c58e6e6a1a821fbac240edef56ef85b6bf92e0d8b7e67549a",
+        "instruction.txt": "bb8327f3b3acbba2bfb7ea59f5c3c63443d3d80ed9af605406781fd580fd4b65",
+        "model.jsonl": "413bfdb106811acd57f81db5f3a006a8fe6ab25df03b9b9a7a6322d01abc8ddf",
+        "result.json": "7836b23986d2d4eaf65ec2eff3d58a9bf78331634eed98e57ea4a7629f3830e2",
+        "swe-official/pytest-dev__pytest-7205-C0-safe-repr-main-r1/course-mini-swe-agent/pytest-dev__pytest-7205/eval.sh": "722f5fdef23a1599616ded010fdf9c93329e0c4c56433d900dff9d647ddcd555",
+        "swe-official/pytest-dev__pytest-7205-C0-safe-repr-main-r1/course-mini-swe-agent/pytest-dev__pytest-7205/patch.diff": "8507b81a20b82e3c9e59b23bf8877a3b788af9166fe5d808b1ef372c968c15eb",
+        "swe-official/pytest-dev__pytest-7205-C0-safe-repr-main-r1/course-mini-swe-agent/pytest-dev__pytest-7205/report.json": "75f5f4a9b3f8a86f19774aea95ebc1c95272f41ac80a2c878afadcd02205a648",
+        "swe-official/pytest-dev__pytest-7205-C0-safe-repr-main-r1/course-mini-swe-agent/pytest-dev__pytest-7205/run_instance.log": "d843a0272e95adde47ae11c43958bb17c55cac908377c7f81047ae22e858871e",
+        "swe-official/pytest-dev__pytest-7205-C0-safe-repr-main-r1/course-mini-swe-agent/pytest-dev__pytest-7205/test_output.txt": "183eb50a031e0cac331eaf4c6306a815a0e216da87e3efb914baf806a9b8cefb",
+        "tools.jsonl": "8f53ce1f40f3026f931ba96dea40d081d97e9cf19527c8fa2da36c58f4b493d3",
+        "trial.json": "9a11b8b7ee386bd9e53379463dc70d58202eabcc826ff0ddbe4b61a68b8203cb"
+      }
+    },
+    {
+      "label": "safe-repr-repeat-r2",
+      "run_dir": "work/vmshare/performance-pytest-safe-repr-v1-20261125/pytest-dev__pytest-7205-C0-safe-repr-repeat-r2",
+      "result": {
+        "task": "pytest-dev__pytest-7205",
+        "wall_seconds": 221.32274558395147,
+        "exit_status": "Submitted",
+        "submission": "",
+        "scoreable": true,
+        "passed": true,
+        "grader_seconds": 28.076604875037447
+      },
+      "metrics": {
+        "task": "pytest-dev__pytest-7205",
+        "passed": true,
+        "wall_seconds": 221.32274558395147,
+        "actual_requests": 16,
+        "verified_zero_credit_requests": 16,
+        "fresh_native_usage_records": 16,
+        "native_session_count": 1,
+        "model_calls": 16,
+        "model_responses": 16,
+        "model_request_retries": 0,
+        "model_request_timeouts": 0,
+        "provider_turns": 16,
+        "tool_calls": 13,
+        "input_tokens": 337659,
+        "output_tokens": 7463,
+        "cached_input_tokens": 292096,
+        "submission_check_opportunities": 0,
+        "stale_at_submission": 0,
+        "deliverable_checkpoints": 0,
+        "deliverable_reminders": 0,
+        "usage_unreturned_requests": 0,
+        "usage_missing_input_responses": 0,
+        "usage_missing_output_responses": 0,
+        "usage_missing_cache_responses": 0,
+        "provider_reported_cost_usd": 0
+      },
+      "native_session_id": "558bd3ba-8f3b-46bd-98c8-dcc31578866b",
+      "model_event_counts": {
+        "request": 16,
+        "cli_process_started": 16,
+        "response": 16,
+        "billing_verified": 16
+      },
+      "individual_native_receipts": [
+        {
+          "request_id": 1,
+          "message_id": "01a20fedb99c774b9354b9ee34275d71",
+          "session_id": "558bd3ba-8f3b-46bd-98c8-dcc31578866b",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 6794,
+          "output_tokens": 251,
+          "operation": "bash"
+        },
+        {
+          "request_id": 2,
+          "message_id": "01a20fedd1ac7ab28948bc01d0099943",
+          "session_id": "558bd3ba-8f3b-46bd-98c8-dcc31578866b",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 7896,
+          "output_tokens": 219,
+          "operation": "bash"
+        },
+        {
+          "request_id": 3,
+          "message_id": "01a20fedf9977c6fbd3a45ccdb4c5ef2",
+          "session_id": "558bd3ba-8f3b-46bd-98c8-dcc31578866b",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 11859,
+          "output_tokens": 412,
+          "operation": "bash"
+        },
+        {
+          "request_id": 4,
+          "message_id": "01a20fee26387569ae0937a168648eae",
+          "session_id": "558bd3ba-8f3b-46bd-98c8-dcc31578866b",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 12740,
+          "output_tokens": 321,
+          "operation": "bash"
+        },
+        {
+          "request_id": 5,
+          "message_id": "01a20fee54a9796e8e7f8d191a038dfa",
+          "session_id": "558bd3ba-8f3b-46bd-98c8-dcc31578866b",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 13256,
+          "output_tokens": 248,
+          "operation": "bash"
+        },
+        {
+          "request_id": 6,
+          "message_id": "01a20fee6efe77ba8c1a22529bce9906",
+          "session_id": "558bd3ba-8f3b-46bd-98c8-dcc31578866b",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 15095,
+          "output_tokens": 268,
+          "operation": "bash"
+        },
+        {
+          "request_id": 7,
+          "message_id": "01a20feebcc0792082dc650252dbccb0",
+          "session_id": "558bd3ba-8f3b-46bd-98c8-dcc31578866b",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 16807,
+          "output_tokens": 392,
+          "operation": "bash"
+        },
+        {
+          "request_id": 8,
+          "message_id": "01a20feeeef07652b5300d0ea56a851f",
+          "session_id": "558bd3ba-8f3b-46bd-98c8-dcc31578866b",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 17834,
+          "output_tokens": 307,
+          "operation": "bash"
+        },
+        {
+          "request_id": 9,
+          "message_id": "01a20fef1d8473c2aa005ed1f4691a7a",
+          "session_id": "558bd3ba-8f3b-46bd-98c8-dcc31578866b",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 21298,
+          "output_tokens": 1114,
+          "operation": "bash"
+        },
+        {
+          "request_id": 10,
+          "message_id": "01a20fef49fe73fcae244f80cb938567",
+          "session_id": "558bd3ba-8f3b-46bd-98c8-dcc31578866b",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 22817,
+          "output_tokens": 596,
+          "operation": "bash"
+        },
+        {
+          "request_id": 11,
+          "message_id": "01a20fef7fc672e4be65b07e65bd4494",
+          "session_id": "558bd3ba-8f3b-46bd-98c8-dcc31578866b",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 25751,
+          "output_tokens": 602,
+          "operation": "save"
+        },
+        {
+          "request_id": 12,
+          "message_id": "01a20fefa0bb7f609eaf6ae38450e946",
+          "session_id": "558bd3ba-8f3b-46bd-98c8-dcc31578866b",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 26620,
+          "output_tokens": 883,
+          "operation": "bash"
+        },
+        {
+          "request_id": 13,
+          "message_id": "01a20fefd91e7beb85d879d9d13b63e8",
+          "session_id": "558bd3ba-8f3b-46bd-98c8-dcc31578866b",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 27779,
+          "output_tokens": 1093,
+          "operation": "bash"
+        },
+        {
+          "request_id": 14,
+          "message_id": "01a20ff005377f5682a474a23d29a087",
+          "session_id": "558bd3ba-8f3b-46bd-98c8-dcc31578866b",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 33084,
+          "output_tokens": 184,
+          "operation": "verify"
+        },
+        {
+          "request_id": 15,
+          "message_id": "01a20ff053ba737589984d956c4a6fa2",
+          "session_id": "558bd3ba-8f3b-46bd-98c8-dcc31578866b",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 38650,
+          "output_tokens": 361,
+          "operation": "save"
+        },
+        {
+          "request_id": 16,
+          "message_id": "01a20ff06ed875d3a4127093a9b0f258",
+          "session_id": "558bd3ba-8f3b-46bd-98c8-dcc31578866b",
+          "requested_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 39379,
+          "output_tokens": 212,
+          "operation": "bash"
+        }
+      ],
+      "actions": [
+        {
+          "request_id": 1,
+          "operation": "bash",
+          "note": "Inspect repository layout and target files",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 2,
+          "operation": "bash",
+          "note": "Read target source/tests and existing saferepr usage",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 3,
+          "operation": "bash",
+          "note": "Confirm saferepr import and reproduce BytesWarning under -bb",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 4,
+          "operation": "bash",
+          "note": "Locate Python environment containing pytest",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 5,
+          "operation": "bash",
+          "note": "Inspect installed dependencies and package metadata",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 6,
+          "operation": "bash",
+          "note": "Check pytest requirements and install checkout",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 7,
+          "operation": "bash",
+          "note": "Search alternate interpreters and filesystem for test dependencies",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 8,
+          "operation": "bash",
+          "note": "Reproduce BytesWarning with dedicated testbed environment",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 9,
+          "operation": "bash",
+          "note": "Apply saferepr fix and rerun byte reproduction",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 10,
+          "operation": "bash",
+          "note": "Inspect parameter tests and run original suite after fix",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 11,
+          "operation": "save",
+          "note": "Candidate fix: render setup-show cached parameters with saferepr(maxsize=42)",
+          "command_source": null
+        },
+        {
+          "request_id": 12,
+          "operation": "bash",
+          "note": "Validate safe-repr-adjusted test copy and clean up",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 13,
+          "operation": "bash",
+          "note": "Run -bb edge cases in all setup display modes",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        },
+        {
+          "request_id": 14,
+          "operation": "verify",
+          "note": "Run registered public regression check",
+          "command_source": null
+        },
+        {
+          "request_id": 15,
+          "operation": "save",
+          "note": "Verified final fix: saferepr(cached_param, maxsize=42); public-regression passed",
+          "command_source": null
+        },
+        {
+          "request_id": 16,
+          "operation": "bash",
+          "note": "Required standalone submission command",
+          "command_source": "Corresponding executed tool command is SHA-bound in tools.jsonl and actual_tool_records."
+        }
+      ],
+      "actual_tool_records": [
+        {
+          "index": 0,
+          "returncode": 0,
+          "stdout_sha256": "8bf30df4d0a30b4895c97dba6c3898d694821c2f9ae43b68c50b2641b8ea9210",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "a13b7858a6a1e3e14b6b650dbd370ad1b3805a87fbdc8a15071b182f0d6189f1"
+        },
+        {
+          "index": 1,
+          "returncode": 0,
+          "stdout_sha256": "f17ca52e295970a9dab96c8b3b5c89a2393adcc27a79b5620555c529d280514f",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "bf4cc381c3205647062156eedefa727ff03e689ea6b89307b2b8e97d4371c241"
+        },
+        {
+          "index": 2,
+          "returncode": 0,
+          "stdout_sha256": "8c5a26fe6917eb7cfc75d77e086d09b0c69dfa8d2c0281851d4d8ba312a24b18",
+          "stderr_sha256": "7abd61be173818f0c019f2463f29cbcc9d0e017cc454dc28f7940ed989837dd7",
+          "command_sha256": "c66d5d9a29dd22a29684fef0d1b90e8f58b2101475bafd0a5cf192172e2964d3"
+        },
+        {
+          "index": 3,
+          "returncode": 0,
+          "stdout_sha256": "cd9b3438b551fadb10398ff97a834640069b8422f750791b34848697821f7205",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "8b3330d930d2252225c57805b354f4fff780c7503f1b65ab0caa6afa81b86330"
+        },
+        {
+          "index": 4,
+          "returncode": 0,
+          "stdout_sha256": "faaa3795d88e01014944878ac2bdf3683208c3491234b435de2d6cbb3322f24f",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "6b52381053ace1cc4e49c6e2ca16e6adffcb78a9a107b83c5326eacd2411c521"
+        },
+        {
+          "index": 5,
+          "returncode": 0,
+          "stdout_sha256": "9b123e9bbf3b8c8af4d5466abd94106e46e2d6b6dc65b79ee28ff71a8e09e1be",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "41ccae9f786645481b23311bffdcf2d8de1425361868a209cffd0181b1628470"
+        },
+        {
+          "index": 6,
+          "returncode": 0,
+          "stdout_sha256": "831d70a0724ff10e65dae1d138c86a0639bb20f5b9edd700a745d011d489951b",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "bb31b96df474a1b08ba37c46baa0a0cd7abcef5084060dea0aac00880418f022"
+        },
+        {
+          "index": 7,
+          "returncode": 0,
+          "stdout_sha256": "d6b997878c425eec86ad32f5743c49015f5188362cbcfbff5f1e23b5af16da54",
+          "stderr_sha256": "47376c71536c1a3e9bed036ba33162467fae6e9a0dd608d41e354823f2e43768",
+          "command_sha256": "4e8db36a8197af26ef0d251ecfc2203ddd4a81f329e39495758218f120ca3305"
+        },
+        {
+          "index": 8,
+          "returncode": 0,
+          "stdout_sha256": "3688b4d244afc6e659bfc83a7653aaf12b6a6e4e21dc7f025dd89e7ec9636901",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "17c37db245ade32cc8a57506b37b6795e98a780603821877a85d896c5605ca86"
+        },
+        {
+          "index": 9,
+          "returncode": 0,
+          "stdout_sha256": "051fdcefbb0c63ea31742c168b2478a4dbf6d0fe9bb48d9195c628ef019dcacd",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "1b0cfde83629aea9edfaa0bcb492f8e428eae3f7da614af86c4a4509bad5c362"
+        },
+        {
+          "index": 10,
+          "returncode": 0,
+          "stdout_sha256": "b5f226e31d14d8e6bfd7d52829ebd5962e88f2f95fb6254f5bf5fa771f729ba1",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "603f2d7608d3dda80c3c03623228aae9bcfbf1428f0027077b60eb06b2c8a58d"
+        },
+        {
+          "index": 11,
+          "returncode": 0,
+          "stdout_sha256": "90c4769f6002a343d5cf943366761ca8cb8e3d92d54cb1ea40502955636f7d93",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "e12d838e120be9aa14eeb1322f70ab2591d3137684ab526550fdc5db61d11bba"
+        },
+        {
+          "index": 12,
+          "returncode": 0,
+          "stdout_sha256": "8f813c4d9a9e264263fd5f8fbe2eb712a5b5106da7b690131aab74bc0bbeb29b",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "command_sha256": "2e2577cea459e468a3c7237d52cfd7c074569f65082e4f900514a7f20923eecd"
+        }
+      ],
+      "controller_events": {
+        "candidate_operation": 7,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_saves": [
+        {
+          "step": 11,
+          "candidate_id": "candidate-001",
+          "artifact_digest": "766105dd6444ab19149a6871d60152c7e21ae9ad377e3bbceef5f742355e97f1",
+          "eligible": false
+        },
+        {
+          "step": 15,
+          "candidate_id": "candidate-002",
+          "artifact_digest": "766105dd6444ab19149a6871d60152c7e21ae9ad377e3bbceef5f742355e97f1",
+          "eligible": true
+        }
+      ],
+      "candidate_sources": [
+        {
+          "candidate_id": "candidate-001",
+          "eligible": false,
+          "artifact_digest": "766105dd6444ab19149a6871d60152c7e21ae9ad377e3bbceef5f742355e97f1",
+          "source_sha256": "e68d9fdbb507761bc6dca503622145a506628a5e5e00444e7f37e35ea8433dee",
+          "source_bytes": 2537,
+          "mode": 420,
+          "protected_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "candidate_id": "candidate-002",
+          "eligible": true,
+          "artifact_digest": "766105dd6444ab19149a6871d60152c7e21ae9ad377e3bbceef5f742355e97f1",
+          "source_sha256": "e68d9fdbb507761bc6dca503622145a506628a5e5e00444e7f37e35ea8433dee",
+          "source_bytes": 2537,
+          "mode": 420,
+          "protected_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        }
+      ],
+      "final": {
+        "reason": "submission",
+        "artifact_digest": "766105dd6444ab19149a6871d60152c7e21ae9ad377e3bbceef5f742355e97f1",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "e68d9fdbb507761bc6dca503622145a506628a5e5e00444e7f37e35ea8433dee  src/_pytest/setuponly.py\n3ae0ec6d1cee6e86806a4e97e07bccb4f6bf48fb735bc3aab865aa31ce32bf8c  testing/test_setuponly.py\n"
+          }
+        },
+        "elapsed_seconds": 189.9914291249588
+      },
+      "verifications": [
+        {
+          "step": 14,
+          "artifact_digest": "766105dd6444ab19149a6871d60152c7e21ae9ad377e3bbceef5f742355e97f1",
+          "state": "passed",
+          "seconds": 8.5982759159524,
+          "before": "e68d9fdbb507761bc6dca503622145a506628a5e5e00444e7f37e35ea8433dee  src/_pytest/setuponly.py\n3ae0ec6d1cee6e86806a4e97e07bccb4f6bf48fb735bc3aab865aa31ce32bf8c  testing/test_setuponly.py\n",
+          "after": "e68d9fdbb507761bc6dca503622145a506628a5e5e00444e7f37e35ea8433dee  src/_pytest/setuponly.py\n3ae0ec6d1cee6e86806a4e97e07bccb4f6bf48fb735bc3aab865aa31ce32bf8c  testing/test_setuponly.py\n",
+          "nonformat_original_stdout": "16 passed, 9 deselected in 0.54s",
+          "probe": {
+            "passed": true,
+            "total": 18,
+            "cases": [
+              {
+                "scenario": "default_ascii_bytes",
+                "mode": "--setup-show",
+                "expected": "[b'north-star']",
+                "rendered": {
+                  "SETUP": [
+                    "[b'north-star']"
+                  ],
+                  "TEARDOWN": [
+                    "[b'north-star']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "4f2945c452974ff5a6e06ef9c80cc1aa02a0c338463884df468ba9f593f8323b",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_ascii_bytes",
+                "mode": "--setup-only",
+                "expected": "[b'north-star']",
+                "rendered": {
+                  "SETUP": [
+                    "[b'north-star']"
+                  ],
+                  "TEARDOWN": [
+                    "[b'north-star']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "7ff5c2448616636b1de374bc6f70674fda78d2cabb88a37ad27f6f11fbc3feb2",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_ascii_bytes",
+                "mode": "--setup-plan",
+                "expected": "[b'north-star']",
+                "rendered": {
+                  "SETUP": [
+                    "[b'north-star']"
+                  ],
+                  "TEARDOWN": [
+                    "[b'north-star']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "7ff5c2448616636b1de374bc6f70674fda78d2cabb88a37ad27f6f11fbc3feb2",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_non_ascii_bytes",
+                "mode": "--setup-show",
+                "expected": "[b'\\x03\\x9e\\xff']",
+                "rendered": {
+                  "SETUP": [
+                    "[b'\\x03\\x9e\\xff']"
+                  ],
+                  "TEARDOWN": [
+                    "[b'\\x03\\x9e\\xff']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "db7c8a33404748a3ebf4dfc512b3537aa2959f78b33cf06fb7bc3c12b112a4af",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_non_ascii_bytes",
+                "mode": "--setup-only",
+                "expected": "[b'\\x03\\x9e\\xff']",
+                "rendered": {
+                  "SETUP": [
+                    "[b'\\x03\\x9e\\xff']"
+                  ],
+                  "TEARDOWN": [
+                    "[b'\\x03\\x9e\\xff']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "9d4671c5f9d6f141791468c574a77ebea8467b80a65fa5fb5a2c6668f2148ba2",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_non_ascii_bytes",
+                "mode": "--setup-plan",
+                "expected": "[b'\\x03\\x9e\\xff']",
+                "rendered": {
+                  "SETUP": [
+                    "[b'\\x03\\x9e\\xff']"
+                  ],
+                  "TEARDOWN": [
+                    "[b'\\x03\\x9e\\xff']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "9d4671c5f9d6f141791468c574a77ebea8467b80a65fa5fb5a2c6668f2148ba2",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_string",
+                "mode": "--setup-show",
+                "expected": "['public-alpha']",
+                "rendered": {
+                  "SETUP": [
+                    "['public-alpha']"
+                  ],
+                  "TEARDOWN": [
+                    "['public-alpha']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "909279138f6cae57d9a61bbb0c7f51b71695e8870e5b1cbc4430f949049d2bf7",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_string",
+                "mode": "--setup-only",
+                "expected": "['public-alpha']",
+                "rendered": {
+                  "SETUP": [
+                    "['public-alpha']"
+                  ],
+                  "TEARDOWN": [
+                    "['public-alpha']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "f0083d71b9ee0e8fcef6a3ce1c166c0df926f7ea4791c4ad399e4a5bc50c6841",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_string",
+                "mode": "--setup-plan",
+                "expected": "['public-alpha']",
+                "rendered": {
+                  "SETUP": [
+                    "['public-alpha']"
+                  ],
+                  "TEARDOWN": [
+                    "['public-alpha']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "f0083d71b9ee0e8fcef6a3ce1c166c0df926f7ea4791c4ad399e4a5bc50c6841",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_integer",
+                "mode": "--setup-show",
+                "expected": "[23]",
+                "rendered": {
+                  "SETUP": [
+                    "[23]"
+                  ],
+                  "TEARDOWN": [
+                    "[23]"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "4c4eea8afc77929e98959b538a979b7413f11a33ba4ecb64f9494e622fedc049",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_integer",
+                "mode": "--setup-only",
+                "expected": "[23]",
+                "rendered": {
+                  "SETUP": [
+                    "[23]"
+                  ],
+                  "TEARDOWN": [
+                    "[23]"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "09663f8d706199f694731a70309f1f91fac55ad6e7070891517330fa31181569",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "default_integer",
+                "mode": "--setup-plan",
+                "expected": "[23]",
+                "rendered": {
+                  "SETUP": [
+                    "[23]"
+                  ],
+                  "TEARDOWN": [
+                    "[23]"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "09663f8d706199f694731a70309f1f91fac55ad6e7070891517330fa31181569",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "explicit_id",
+                "mode": "--setup-show",
+                "expected": "['visible-token']",
+                "rendered": {
+                  "SETUP": [
+                    "['visible-token']"
+                  ],
+                  "TEARDOWN": [
+                    "['visible-token']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "b7faa135a21237f85980298ded27f3982bb7d630f2612c6df995529454c8d9dc",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "explicit_id",
+                "mode": "--setup-only",
+                "expected": "['visible-token']",
+                "rendered": {
+                  "SETUP": [
+                    "['visible-token']"
+                  ],
+                  "TEARDOWN": [
+                    "['visible-token']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "97d89bddb7ffe0c22149f16f058c2d1c28560d565f002b3925580c8d36a0b866",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "explicit_id",
+                "mode": "--setup-plan",
+                "expected": "['visible-token']",
+                "rendered": {
+                  "SETUP": [
+                    "['visible-token']"
+                  ],
+                  "TEARDOWN": [
+                    "['visible-token']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "97d89bddb7ffe0c22149f16f058c2d1c28560d565f002b3925580c8d36a0b866",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "callable_id",
+                "mode": "--setup-show",
+                "expected": "['mapped-33']",
+                "rendered": {
+                  "SETUP": [
+                    "['mapped-33']"
+                  ],
+                  "TEARDOWN": [
+                    "['mapped-33']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "763a95cf1d77dd30209c31544450a7485756dc2b685a34b759eb74cda4940512",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "callable_id",
+                "mode": "--setup-only",
+                "expected": "['mapped-33']",
+                "rendered": {
+                  "SETUP": [
+                    "['mapped-33']"
+                  ],
+                  "TEARDOWN": [
+                    "['mapped-33']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "2ddd14b41c94c05c64523dde7d1239d8d7236d84ea6835225a78b2c47e699b26",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              },
+              {
+                "scenario": "callable_id",
+                "mode": "--setup-plan",
+                "expected": "['mapped-33']",
+                "rendered": {
+                  "SETUP": [
+                    "['mapped-33']"
+                  ],
+                  "TEARDOWN": [
+                    "['mapped-33']"
+                  ]
+                },
+                "returncode": 0,
+                "passed": true,
+                "stdout_sha256": "2ddd14b41c94c05c64523dde7d1239d8d7236d84ea6835225a78b2c47e699b26",
+                "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+              }
+            ],
+            "actual_cli_transcript": "/course-public-setup-repr-processes.json",
+            "scope": "Self-chosen values under actual Python -bb CLI in three setup modes. Default bytes/string/integer and explicit/callable fixture ids use one safe repr display contract. Builtin pytest plugins are used; third-party plugin autoload is disabled only for these isolated public cases. No hidden fixtures or expected production patch."
+          },
+          "public_stdout_sha256": "d877a173e3dbc40a9b5b2389999754bbc5121dc460246963892fd927832d8871"
+        }
+      ],
+      "original_grade": {
+        "resolved": true,
+        "infra_failure": false,
+        "patch_applied": true,
+        "counts": {
+          "FAIL_TO_PASS": {
+            "success": 10,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 16,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "summary": [
+          "============================== 26 passed in 1.10s =============================="
+        ],
+        "exit_zero": true,
+        "submitted_patch_equals_grader_patch": true
+      },
+      "protocol_sha256": "ed158e6a889c10240a00a3c736052642277ca599f4335d960fa083035c0c5d3d",
+      "source_sha256": {
+        ".controller-input.json": "bef7e91cbcf460f46b86a43a57fb3b1425e1227b09f67de6b65243dd1990f363",
+        "agent.json": "1b1acca463423c8d4d973f520b6ba3ec36247570d94ff2bf07ebae3bf7d10f0f",
+        "candidate.patch": "e0ce0291488eb76658463c39be14319188ab52b0d12f18c8b9ad3fd98df5ec8d",
+        "candidates/candidate-001.json": "efedb42922cda803a7777cd8a8d946ced6cad0f4e91d4d7e673d47eb3d7ac5d0",
+        "candidates/candidate-002.json": "5472111b8022b7781ccb2558318e4b0c88d7ed8317b2ab88e44b74a25aca843a",
+        "checkout.json": "88b7ee0c3c3c05483f24a04873d7d24a1e6cb6b2aee0b21c2b112afdf636b1fa",
+        "controller.jsonl": "5517e7bedf8daa42f1ed54c1456e70b3bfc649a02d6289f2c5f06dd410b6e17f",
+        "execution-budget.json": "8c259556ebceb2651fdcc3092572bfb8f494ffce832203f9dc6d9b57b39c9db6",
+        "final-verification.json": "128b25f5e5f61421ac5af43df619ae1bc0acea87954d8ee562a6cf68710856d8",
+        "instruction.txt": "bb8327f3b3acbba2bfb7ea59f5c3c63443d3d80ed9af605406781fd580fd4b65",
+        "model.jsonl": "f22368c387546059d968dd8d2e30354b1de8193ba4e12806dbc581acc82f19df",
+        "result.json": "fb2630fda39ba653e84c69c1c4c49288fc985a1d1323b5777250a350a9aa2dea",
+        "swe-official/pytest-dev__pytest-7205-C0-safe-repr-repeat-r2/course-mini-swe-agent/pytest-dev__pytest-7205/eval.sh": "722f5fdef23a1599616ded010fdf9c93329e0c4c56433d900dff9d647ddcd555",
+        "swe-official/pytest-dev__pytest-7205-C0-safe-repr-repeat-r2/course-mini-swe-agent/pytest-dev__pytest-7205/patch.diff": "e0ce0291488eb76658463c39be14319188ab52b0d12f18c8b9ad3fd98df5ec8d",
+        "swe-official/pytest-dev__pytest-7205-C0-safe-repr-repeat-r2/course-mini-swe-agent/pytest-dev__pytest-7205/report.json": "75f5f4a9b3f8a86f19774aea95ebc1c95272f41ac80a2c878afadcd02205a648",
+        "swe-official/pytest-dev__pytest-7205-C0-safe-repr-repeat-r2/course-mini-swe-agent/pytest-dev__pytest-7205/run_instance.log": "02ade8f6f0a9769f8a3fac3446e87424b0a8f9e151a5a6e43bccfe654bf43157",
+        "swe-official/pytest-dev__pytest-7205-C0-safe-repr-repeat-r2/course-mini-swe-agent/pytest-dev__pytest-7205/test_output.txt": "be88c45d5131236d5fc52ef9f91a93fbad6fe6e29cc981b3c1becd993a430727",
+        "tools.jsonl": "5948033470ed0506b0b3203c3014d4ea0b8fd0da6c6a2e9bafe3bc4f3b943092",
+        "trial.json": "9a11b8b7ee386bd9e53379463dc70d58202eabcc826ff0ddbe4b61a68b8203cb"
+      }
+    }
+  ]
+}

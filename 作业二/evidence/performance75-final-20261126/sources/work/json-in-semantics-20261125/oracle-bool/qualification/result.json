@@ -1,0 +1,3586 @@
+{
+  "phase": "actual_original_pin_oracle_bool_rhs_contract_qualified",
+  "new_model_calls": 0,
+  "original_grader_calls": 0,
+  "pin": "sha256:a58c4f201531ac127ef08636fccc8c0849dc747e6874cf53a3c83da8d851bb3b",
+  "input_sha256": {
+    "work/json-in-semantics-20261125/oracle-bool/qualify_oracle_bool.py": "f6eedc32776721c4499fff435d3746e9e7a03e2c40a576b0e1ce600d7db7ae72",
+    "work/json-in-semantics-20261125/oracle-bool/public_oracle_bool_probe.py": "3869c4476cb5c73199c66454487dc2f13099b8324ed165c94ee6f83d4de8f28f",
+    "work/json-in-semantics-20261125/expanded/public_contract_probe.py": "ec6dd37a702485aa5fb9a7ef54588fd6616167a23dd5d94e4a4808444a331462",
+    "work/json-in-semantics-20261125/expanded/frozen/plan.json": "b94571ad777882d25d1dfff18846e37c0061c657378cc999dcb83d675317c8d2",
+    "work/json-in-semantics-20261125/expanded/qualification/result.json": "aeb93e04d5afd7d8efee2aa5fa2de3b410418302fa3c6d00138e2074cdd0f077",
+    "work/json-in-semantics-20261125/expanded/separate-public-reference.patch": "d3e6670296eea046636e0424012620468d1e45b3cb2ac5519c5a38a212da5ce6",
+    "work/vmshare/performance-json-contract-v2-20261125/django__django-13346-C0-json-contract-main-r3/result.json": "60ec95c8b84b54ebf95ad27f2841c81aceb3ec4ae4e541a7a24f2bd496da65dd",
+    "work/vmshare/performance-json-contract-v2-20261125/django__django-13346-C0-json-contract-main-r3/candidate.patch": "dc37a895b902693f9588379c09e3c5fc5e24378ec401ce1faa4a0178295b4329",
+    "work/vmshare/performance-json-contract-v2-20261125/django__django-13346-C0-json-contract-main-r3.protocol.json": "9b1de816ebfb560d6bedf739c3ffa70232e8e22e551664e8f001496307e5ecc6",
+    "work/vmshare/performance-json-contract-v2-20261125/django__django-13346-C0-json-contract-main-r3/trial.json": "c521329881dd7db64e14bb5ed519a1d57bf35ce2c1733c39f5a949f27c97f61c",
+    "work/vmshare/performance-json-contract-v2-20261125/django__django-13346-C0-json-contract-repeat-r4/result.json": "66bd0a08b6cbf310df79b5226184915a1fe9e0cf462bf26e62ca9434281d464c",
+    "work/vmshare/performance-json-contract-v2-20261125/django__django-13346-C0-json-contract-repeat-r4/candidate.patch": "154628317cf06712ca0a65e560f0e970e6ed79ed0c3d17ea33dd90e9164ee9ac",
+    "work/vmshare/performance-json-contract-v2-20261125/django__django-13346-C0-json-contract-repeat-r4.protocol.json": "9b1de816ebfb560d6bedf739c3ffa70232e8e22e551664e8f001496307e5ecc6",
+    "work/vmshare/performance-json-contract-v2-20261125/django__django-13346-C0-json-contract-repeat-r4/trial.json": "c521329881dd7db64e14bb5ed519a1d57bf35ce2c1733c39f5a949f27c97f61c"
+  },
+  "probe_sha256": "3869c4476cb5c73199c66454487dc2f13099b8324ed165c94ee6f83d4de8f28f",
+  "base_probe_sha256": "ec6dd37a702485aa5fb9a7ef54588fd6616167a23dd5d94e4a4808444a331462",
+  "driver_sha256": "f6eedc32776721c4499fff435d3746e9e7a03e2c40a576b0e1ce600d7db7ae72",
+  "reference_patch_sha256": "d3e6670296eea046636e0424012620468d1e45b3cb2ac5519c5a38a212da5ce6",
+  "actual_loaded_runtime_modules": {
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/benchmarks.py": "57d478adda9d4f1770eae34740b0a9c4c1d5c5da5b99fb541ffe859553cdb665",
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/docker_target.py": "2ed262a331ad7b15b0b937e315fbc39b7c73ab6821e1e52c3d9b657cf792ae83"
+  },
+  "variants": [
+    {
+      "variant": "base",
+      "patch_sha256": null,
+      "original67_passed": false,
+      "boolean_passed": 2,
+      "boolean_total": 2,
+      "uploaded_source_sha256": {
+        "/base-public-contract-probe.py": "ec6dd37a702485aa5fb9a7ef54588fd6616167a23dd5d94e4a4808444a331462",
+        "/public_oracle_bool_probe.py": "3869c4476cb5c73199c66454487dc2f13099b8324ed165c94ee6f83d4de8f28f"
+      },
+      "details": {
+        "passed": false,
+        "sqlite_database_cases": [
+          {
+            "case": 0,
+            "python_type": "bool",
+            "value": true,
+            "rhs_kind": "single",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 0,
+            "python_type": "bool",
+            "value": true,
+            "rhs_kind": "mixed",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 0,
+            "python_type": "bool",
+            "value": true,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 1,
+            "python_type": "bool",
+            "value": false,
+            "rhs_kind": "single",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 1,
+            "python_type": "bool",
+            "value": false,
+            "rhs_kind": "mixed",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 1,
+            "python_type": "bool",
+            "value": false,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 2,
+            "python_type": "int",
+            "value": 7,
+            "rhs_kind": "single",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 2,
+            "python_type": "int",
+            "value": 7,
+            "rhs_kind": "mixed",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 2,
+            "python_type": "int",
+            "value": 7,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 3,
+            "python_type": "int",
+            "value": -4,
+            "rhs_kind": "single",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 3,
+            "python_type": "int",
+            "value": -4,
+            "rhs_kind": "mixed",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 3,
+            "python_type": "int",
+            "value": -4,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 4,
+            "python_type": "float",
+            "value": 2.5,
+            "rhs_kind": "single",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 4,
+            "python_type": "float",
+            "value": 2.5,
+            "rhs_kind": "mixed",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 4,
+            "python_type": "float",
+            "value": 2.5,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 5,
+            "python_type": "str",
+            "value": "",
+            "rhs_kind": "single",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 5,
+            "python_type": "str",
+            "value": "",
+            "rhs_kind": "mixed",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 5,
+            "python_type": "str",
+            "value": "",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 6,
+            "python_type": "str",
+            "value": "Campus",
+            "rhs_kind": "single",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 6,
+            "python_type": "str",
+            "value": "Campus",
+            "rhs_kind": "mixed",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 6,
+            "python_type": "str",
+            "value": "Campus",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 7,
+            "python_type": "str",
+            "value": "O'Reilly-course",
+            "rhs_kind": "single",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 7,
+            "python_type": "str",
+            "value": "O'Reilly-course",
+            "rhs_kind": "mixed",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 7,
+            "python_type": "str",
+            "value": "O'Reilly-course",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 8,
+            "python_type": "str",
+            "value": "null",
+            "rhs_kind": "single",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 8,
+            "python_type": "str",
+            "value": "null",
+            "rhs_kind": "mixed",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 8,
+            "python_type": "str",
+            "value": "null",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 9,
+            "python_type": "str",
+            "value": "true",
+            "rhs_kind": "single",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 9,
+            "python_type": "str",
+            "value": "true",
+            "rhs_kind": "mixed",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 9,
+            "python_type": "str",
+            "value": "true",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 10,
+            "python_type": "str",
+            "value": "[0]",
+            "rhs_kind": "single",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 10,
+            "python_type": "str",
+            "value": "[0]",
+            "rhs_kind": "mixed",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 10,
+            "python_type": "str",
+            "value": "[0]",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 11,
+            "python_type": "list",
+            "value": [],
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 11,
+            "python_type": "list",
+            "value": [],
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 11,
+            "python_type": "list",
+            "value": [],
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 12,
+            "python_type": "list",
+            "value": [
+              7,
+              {
+                "nested": false
+              }
+            ],
+            "rhs_kind": "single",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 12,
+            "python_type": "list",
+            "value": [
+              7,
+              {
+                "nested": false
+              }
+            ],
+            "rhs_kind": "mixed",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 12,
+            "python_type": "list",
+            "value": [
+              7,
+              {
+                "nested": false
+              }
+            ],
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 13,
+            "python_type": "dict",
+            "value": {},
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 13,
+            "python_type": "dict",
+            "value": {},
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 13,
+            "python_type": "dict",
+            "value": {},
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 14,
+            "python_type": "dict",
+            "value": {
+              "nested": [
+                1,
+                null,
+                false
+              ]
+            },
+            "rhs_kind": "single",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 14,
+            "python_type": "dict",
+            "value": {
+              "nested": [
+                1,
+                null,
+                false
+              ]
+            },
+            "rhs_kind": "mixed",
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          },
+          {
+            "case": 14,
+            "python_type": "dict",
+            "value": {
+              "nested": [
+                1,
+                null,
+                false
+              ]
+            },
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": "empty_rhs",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": "expression_rhs",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": "controlled_split_path",
+            "configured_test_limit": 3,
+            "actual_ids": [],
+            "expected_ids": [
+              1
+            ],
+            "passed": false
+          }
+        ],
+        "sqlite_expression_cases": [
+          {
+            "case": "value",
+            "value": 7,
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              7
+            ],
+            "expected_ids": [
+              7
+            ]
+          },
+          {
+            "case": "mixed_value",
+            "value": 7,
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              7
+            ],
+            "expected_ids": [
+              7
+            ]
+          },
+          {
+            "case": "column",
+            "value": 7,
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              7
+            ],
+            "expected_ids": [
+              7
+            ]
+          },
+          {
+            "case": "mixed_column",
+            "value": 7,
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              7
+            ],
+            "expected_ids": [
+              7
+            ]
+          },
+          {
+            "case": "value",
+            "value": "Campus",
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              9
+            ],
+            "expected_ids": [
+              9
+            ]
+          },
+          {
+            "case": "mixed_value",
+            "value": "Campus",
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              9
+            ],
+            "expected_ids": [
+              9
+            ]
+          }
+        ],
+        "oracle_parameter_separation_cases": [
+          {
+            "value": "O'Reilly-course-bound-value",
+            "validation_tier": "real_ORM_Oracle_SQL_branch_on_SQLite_wrapper",
+            "sql": "SELECT \"course_public_json_types_publicjsonvalue\".\"id\", \"course_public_json_types_publicjsonvalue\".\"payload\" FROM \"course_public_json_types_publicjsonvalue\" WHERE COALESCE(JSON_QUERY(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"'), JSON_VALUE(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"')) IN (%s)",
+            "parameters": [
+              "\"O'Reilly-course-bound-value\""
+            ],
+            "value_bound": true,
+            "value_absent_from_sql": true,
+            "scalar_parameters": true,
+            "passed": true
+          },
+          {
+            "value": [
+              "O'Reilly-course-bound-value",
+              false
+            ],
+            "validation_tier": "real_ORM_Oracle_SQL_branch_on_SQLite_wrapper",
+            "sql": "SELECT \"course_public_json_types_publicjsonvalue\".\"id\", \"course_public_json_types_publicjsonvalue\".\"payload\" FROM \"course_public_json_types_publicjsonvalue\" WHERE COALESCE(JSON_QUERY(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"'), JSON_VALUE(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"')) IN (%s)",
+            "parameters": [
+              "[\"O'Reilly-course-bound-value\", false]"
+            ],
+            "value_bound": true,
+            "value_absent_from_sql": true,
+            "scalar_parameters": true,
+            "passed": true
+          },
+          {
+            "value": {
+              "nested": "O'Reilly-course-bound-value"
+            },
+            "validation_tier": "real_ORM_Oracle_SQL_branch_on_SQLite_wrapper",
+            "sql": "SELECT \"course_public_json_types_publicjsonvalue\".\"id\", \"course_public_json_types_publicjsonvalue\".\"payload\" FROM \"course_public_json_types_publicjsonvalue\" WHERE COALESCE(JSON_QUERY(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"'), JSON_VALUE(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"')) IN (%s)",
+            "parameters": [
+              "{\"nested\": \"O'Reilly-course-bound-value\"}"
+            ],
+            "value_bound": true,
+            "value_absent_from_sql": true,
+            "scalar_parameters": true,
+            "passed": true
+          }
+        ],
+        "backend_rhs_string_cases": [
+          {
+            "vendor": "mysql",
+            "value": "Campus",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": false,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "\"Campus\""
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "\"Campus\"",
+            "expected_value": "Campus"
+          },
+          {
+            "vendor": "mysql",
+            "value": "O'Reilly-course-bound",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": false,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "\"O'Reilly-course-bound\""
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "\"O'Reilly-course-bound\"",
+            "expected_value": "O'Reilly-course-bound"
+          },
+          {
+            "vendor": "mysql",
+            "value": "null",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": false,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "\"null\""
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "\"null\"",
+            "expected_value": "null"
+          },
+          {
+            "vendor": "mysql",
+            "value": "true",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": false,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "\"true\""
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "\"true\"",
+            "expected_value": "true"
+          },
+          {
+            "vendor": "mysql",
+            "value": "",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": false,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "\"\""
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "\"\"",
+            "expected_value": ""
+          },
+          {
+            "vendor": "oracle",
+            "value": "Campus",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": false,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "\"Campus\""
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "\"Campus\"",
+            "expected_value": "Campus"
+          },
+          {
+            "vendor": "oracle",
+            "value": "O'Reilly-course-bound",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": false,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "\"O'Reilly-course-bound\""
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "\"O'Reilly-course-bound\"",
+            "expected_value": "O'Reilly-course-bound"
+          },
+          {
+            "vendor": "oracle",
+            "value": "null",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": false,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "\"null\""
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "\"null\"",
+            "expected_value": "null"
+          },
+          {
+            "vendor": "oracle",
+            "value": "true",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": false,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "\"true\""
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "\"true\"",
+            "expected_value": "true"
+          },
+          {
+            "vendor": "oracle",
+            "value": "",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": false,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "\"\""
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "\"\"",
+            "expected_value": ""
+          }
+        ],
+        "oracle_bool_rhs_string_cases": [
+          {
+            "value": true,
+            "expected_string": "true",
+            "tier": "compiled_Oracle_singleton_bool_RHS_on_limited_SQLite_JSON1_adapter",
+            "rhs_sql": "(%s)",
+            "parameters": [
+              "true"
+            ],
+            "adapted_sql": "(%s)",
+            "parameters_separate": true,
+            "placeholder_count_match": true,
+            "actual_value": "true",
+            "passed": true
+          },
+          {
+            "value": false,
+            "expected_string": "false",
+            "tier": "compiled_Oracle_singleton_bool_RHS_on_limited_SQLite_JSON1_adapter",
+            "rhs_sql": "(%s)",
+            "parameters": [
+              "false"
+            ],
+            "adapted_sql": "(%s)",
+            "parameters_separate": true,
+            "placeholder_count_match": true,
+            "actual_value": "false",
+            "passed": true
+          }
+        ],
+        "qualified_public_source_sha256": "ec6dd37a702485aa5fb9a7ef54588fd6616167a23dd5d94e4a4808444a331462",
+        "base_cases_total": 67,
+        "oracle_bool_cases_total": 2,
+        "new_model_calls": 0,
+        "original_grader_calls": 0,
+        "live_mysql_or_oracle_queries": 0,
+        "coverage_limit": "The unchanged48+6+3+10 public cases, including strict dangerous-string parameter isolation, execute first. Two additional compiled Oracle RHS fragments must match placeholder counts and return strings true/false for True/False; static SQL and parameterized forms are both admitted. Only the documented JSON_VALUE/QUERY and JSON_OBJECT forms are adapted with SQLite JSON1; this is not an Oracle19 driver/server query, complete SQL comparison, or general SQL-template equivalence test.",
+        "oracle_boolean_source": "https://docs.oracle.com/en/database/oracle/oracle-database/19/adjsn/function-JSON_VALUE.html"
+      }
+    },
+    {
+      "variant": "r3",
+      "patch_sha256": "dc37a895b902693f9588379c09e3c5fc5e24378ec401ce1faa4a0178295b4329",
+      "original67_passed": true,
+      "boolean_passed": 0,
+      "boolean_total": 2,
+      "uploaded_source_sha256": {
+        "/base-public-contract-probe.py": "ec6dd37a702485aa5fb9a7ef54588fd6616167a23dd5d94e4a4808444a331462",
+        "/public_oracle_bool_probe.py": "3869c4476cb5c73199c66454487dc2f13099b8324ed165c94ee6f83d4de8f28f"
+      },
+      "details": {
+        "passed": false,
+        "sqlite_database_cases": [
+          {
+            "case": 0,
+            "python_type": "bool",
+            "value": true,
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 0,
+            "python_type": "bool",
+            "value": true,
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 0,
+            "python_type": "bool",
+            "value": true,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 1,
+            "python_type": "bool",
+            "value": false,
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 1,
+            "python_type": "bool",
+            "value": false,
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 1,
+            "python_type": "bool",
+            "value": false,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 2,
+            "python_type": "int",
+            "value": 7,
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 2,
+            "python_type": "int",
+            "value": 7,
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 2,
+            "python_type": "int",
+            "value": 7,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 3,
+            "python_type": "int",
+            "value": -4,
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 3,
+            "python_type": "int",
+            "value": -4,
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 3,
+            "python_type": "int",
+            "value": -4,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 4,
+            "python_type": "float",
+            "value": 2.5,
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 4,
+            "python_type": "float",
+            "value": 2.5,
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 4,
+            "python_type": "float",
+            "value": 2.5,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 5,
+            "python_type": "str",
+            "value": "",
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 5,
+            "python_type": "str",
+            "value": "",
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 5,
+            "python_type": "str",
+            "value": "",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 6,
+            "python_type": "str",
+            "value": "Campus",
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 6,
+            "python_type": "str",
+            "value": "Campus",
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 6,
+            "python_type": "str",
+            "value": "Campus",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 7,
+            "python_type": "str",
+            "value": "O'Reilly-course",
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 7,
+            "python_type": "str",
+            "value": "O'Reilly-course",
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 7,
+            "python_type": "str",
+            "value": "O'Reilly-course",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 8,
+            "python_type": "str",
+            "value": "null",
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 8,
+            "python_type": "str",
+            "value": "null",
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 8,
+            "python_type": "str",
+            "value": "null",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 9,
+            "python_type": "str",
+            "value": "true",
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 9,
+            "python_type": "str",
+            "value": "true",
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 9,
+            "python_type": "str",
+            "value": "true",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 10,
+            "python_type": "str",
+            "value": "[0]",
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 10,
+            "python_type": "str",
+            "value": "[0]",
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 10,
+            "python_type": "str",
+            "value": "[0]",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 11,
+            "python_type": "list",
+            "value": [],
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 11,
+            "python_type": "list",
+            "value": [],
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 11,
+            "python_type": "list",
+            "value": [],
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 12,
+            "python_type": "list",
+            "value": [
+              7,
+              {
+                "nested": false
+              }
+            ],
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 12,
+            "python_type": "list",
+            "value": [
+              7,
+              {
+                "nested": false
+              }
+            ],
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 12,
+            "python_type": "list",
+            "value": [
+              7,
+              {
+                "nested": false
+              }
+            ],
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 13,
+            "python_type": "dict",
+            "value": {},
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 13,
+            "python_type": "dict",
+            "value": {},
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 13,
+            "python_type": "dict",
+            "value": {},
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 14,
+            "python_type": "dict",
+            "value": {
+              "nested": [
+                1,
+                null,
+                false
+              ]
+            },
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 14,
+            "python_type": "dict",
+            "value": {
+              "nested": [
+                1,
+                null,
+                false
+              ]
+            },
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 14,
+            "python_type": "dict",
+            "value": {
+              "nested": [
+                1,
+                null,
+                false
+              ]
+            },
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": "empty_rhs",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": "expression_rhs",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": "controlled_split_path",
+            "configured_test_limit": 3,
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          }
+        ],
+        "sqlite_expression_cases": [
+          {
+            "case": "value",
+            "value": 7,
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              7
+            ],
+            "expected_ids": [
+              7
+            ]
+          },
+          {
+            "case": "mixed_value",
+            "value": 7,
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              7
+            ],
+            "expected_ids": [
+              7
+            ]
+          },
+          {
+            "case": "column",
+            "value": 7,
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              7
+            ],
+            "expected_ids": [
+              7
+            ]
+          },
+          {
+            "case": "mixed_column",
+            "value": 7,
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              7
+            ],
+            "expected_ids": [
+              7
+            ]
+          },
+          {
+            "case": "value",
+            "value": "Campus",
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              9
+            ],
+            "expected_ids": [
+              9
+            ]
+          },
+          {
+            "case": "mixed_value",
+            "value": "Campus",
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              9
+            ],
+            "expected_ids": [
+              9
+            ]
+          }
+        ],
+        "oracle_parameter_separation_cases": [
+          {
+            "value": "O'Reilly-course-bound-value",
+            "validation_tier": "real_ORM_Oracle_SQL_branch_on_SQLite_wrapper",
+            "sql": "SELECT \"course_public_json_types_publicjsonvalue\".\"id\", \"course_public_json_types_publicjsonvalue\".\"payload\" FROM \"course_public_json_types_publicjsonvalue\" WHERE COALESCE(JSON_QUERY(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"'), JSON_VALUE(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"')) IN (%s)",
+            "parameters": [
+              "O'Reilly-course-bound-value"
+            ],
+            "value_bound": true,
+            "value_absent_from_sql": true,
+            "scalar_parameters": true,
+            "passed": true
+          },
+          {
+            "value": [
+              "O'Reilly-course-bound-value",
+              false
+            ],
+            "validation_tier": "real_ORM_Oracle_SQL_branch_on_SQLite_wrapper",
+            "sql": "SELECT \"course_public_json_types_publicjsonvalue\".\"id\", \"course_public_json_types_publicjsonvalue\".\"payload\" FROM \"course_public_json_types_publicjsonvalue\" WHERE COALESCE(JSON_QUERY(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"'), JSON_VALUE(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"')) IN (JSON_QUERY(%s, '$'))",
+            "parameters": [
+              "[\"O'Reilly-course-bound-value\", false]"
+            ],
+            "value_bound": true,
+            "value_absent_from_sql": true,
+            "scalar_parameters": true,
+            "passed": true
+          },
+          {
+            "value": {
+              "nested": "O'Reilly-course-bound-value"
+            },
+            "validation_tier": "real_ORM_Oracle_SQL_branch_on_SQLite_wrapper",
+            "sql": "SELECT \"course_public_json_types_publicjsonvalue\".\"id\", \"course_public_json_types_publicjsonvalue\".\"payload\" FROM \"course_public_json_types_publicjsonvalue\" WHERE COALESCE(JSON_QUERY(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"'), JSON_VALUE(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"')) IN (JSON_QUERY(%s, '$'))",
+            "parameters": [
+              "{\"nested\": \"O'Reilly-course-bound-value\"}"
+            ],
+            "value_bound": true,
+            "value_absent_from_sql": true,
+            "scalar_parameters": true,
+            "passed": true
+          }
+        ],
+        "backend_rhs_string_cases": [
+          {
+            "vendor": "mysql",
+            "value": "Campus",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "Campus"
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "Campus",
+            "expected_value": "Campus"
+          },
+          {
+            "vendor": "mysql",
+            "value": "O'Reilly-course-bound",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "O'Reilly-course-bound"
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "O'Reilly-course-bound",
+            "expected_value": "O'Reilly-course-bound"
+          },
+          {
+            "vendor": "mysql",
+            "value": "null",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "null"
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "null",
+            "expected_value": "null"
+          },
+          {
+            "vendor": "mysql",
+            "value": "true",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "true"
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "true",
+            "expected_value": "true"
+          },
+          {
+            "vendor": "mysql",
+            "value": "",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              ""
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "",
+            "expected_value": ""
+          },
+          {
+            "vendor": "oracle",
+            "value": "Campus",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "Campus"
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "Campus",
+            "expected_value": "Campus"
+          },
+          {
+            "vendor": "oracle",
+            "value": "O'Reilly-course-bound",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "O'Reilly-course-bound"
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "O'Reilly-course-bound",
+            "expected_value": "O'Reilly-course-bound"
+          },
+          {
+            "vendor": "oracle",
+            "value": "null",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "null"
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "null",
+            "expected_value": "null"
+          },
+          {
+            "vendor": "oracle",
+            "value": "true",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "true"
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "true",
+            "expected_value": "true"
+          },
+          {
+            "vendor": "oracle",
+            "value": "",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              ""
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "",
+            "expected_value": ""
+          }
+        ],
+        "oracle_bool_rhs_string_cases": [
+          {
+            "value": true,
+            "expected_string": "true",
+            "tier": "compiled_Oracle_singleton_bool_RHS_on_limited_SQLite_JSON1_adapter",
+            "rhs_sql": "(%s)",
+            "parameters": [
+              true
+            ],
+            "adapted_sql": "(%s)",
+            "parameters_separate": true,
+            "placeholder_count_match": true,
+            "actual_value": 1,
+            "passed": false
+          },
+          {
+            "value": false,
+            "expected_string": "false",
+            "tier": "compiled_Oracle_singleton_bool_RHS_on_limited_SQLite_JSON1_adapter",
+            "rhs_sql": "(%s)",
+            "parameters": [
+              false
+            ],
+            "adapted_sql": "(%s)",
+            "parameters_separate": true,
+            "placeholder_count_match": true,
+            "actual_value": 0,
+            "passed": false
+          }
+        ],
+        "qualified_public_source_sha256": "ec6dd37a702485aa5fb9a7ef54588fd6616167a23dd5d94e4a4808444a331462",
+        "base_cases_total": 67,
+        "oracle_bool_cases_total": 2,
+        "new_model_calls": 0,
+        "original_grader_calls": 0,
+        "live_mysql_or_oracle_queries": 0,
+        "coverage_limit": "The unchanged48+6+3+10 public cases, including strict dangerous-string parameter isolation, execute first. Two additional compiled Oracle RHS fragments must match placeholder counts and return strings true/false for True/False; static SQL and parameterized forms are both admitted. Only the documented JSON_VALUE/QUERY and JSON_OBJECT forms are adapted with SQLite JSON1; this is not an Oracle19 driver/server query, complete SQL comparison, or general SQL-template equivalence test.",
+        "oracle_boolean_source": "https://docs.oracle.com/en/database/oracle/oracle-database/19/adjsn/function-JSON_VALUE.html"
+      }
+    },
+    {
+      "variant": "r4",
+      "patch_sha256": "154628317cf06712ca0a65e560f0e970e6ed79ed0c3d17ea33dd90e9164ee9ac",
+      "original67_passed": true,
+      "boolean_passed": 0,
+      "boolean_total": 2,
+      "uploaded_source_sha256": {
+        "/base-public-contract-probe.py": "ec6dd37a702485aa5fb9a7ef54588fd6616167a23dd5d94e4a4808444a331462",
+        "/public_oracle_bool_probe.py": "3869c4476cb5c73199c66454487dc2f13099b8324ed165c94ee6f83d4de8f28f"
+      },
+      "details": {
+        "passed": false,
+        "sqlite_database_cases": [
+          {
+            "case": 0,
+            "python_type": "bool",
+            "value": true,
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 0,
+            "python_type": "bool",
+            "value": true,
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 0,
+            "python_type": "bool",
+            "value": true,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 1,
+            "python_type": "bool",
+            "value": false,
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 1,
+            "python_type": "bool",
+            "value": false,
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 1,
+            "python_type": "bool",
+            "value": false,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 2,
+            "python_type": "int",
+            "value": 7,
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 2,
+            "python_type": "int",
+            "value": 7,
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 2,
+            "python_type": "int",
+            "value": 7,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 3,
+            "python_type": "int",
+            "value": -4,
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 3,
+            "python_type": "int",
+            "value": -4,
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 3,
+            "python_type": "int",
+            "value": -4,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 4,
+            "python_type": "float",
+            "value": 2.5,
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 4,
+            "python_type": "float",
+            "value": 2.5,
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 4,
+            "python_type": "float",
+            "value": 2.5,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 5,
+            "python_type": "str",
+            "value": "",
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 5,
+            "python_type": "str",
+            "value": "",
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 5,
+            "python_type": "str",
+            "value": "",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 6,
+            "python_type": "str",
+            "value": "Campus",
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 6,
+            "python_type": "str",
+            "value": "Campus",
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 6,
+            "python_type": "str",
+            "value": "Campus",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 7,
+            "python_type": "str",
+            "value": "O'Reilly-course",
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 7,
+            "python_type": "str",
+            "value": "O'Reilly-course",
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 7,
+            "python_type": "str",
+            "value": "O'Reilly-course",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 8,
+            "python_type": "str",
+            "value": "null",
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 8,
+            "python_type": "str",
+            "value": "null",
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 8,
+            "python_type": "str",
+            "value": "null",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 9,
+            "python_type": "str",
+            "value": "true",
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 9,
+            "python_type": "str",
+            "value": "true",
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 9,
+            "python_type": "str",
+            "value": "true",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 10,
+            "python_type": "str",
+            "value": "[0]",
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 10,
+            "python_type": "str",
+            "value": "[0]",
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 10,
+            "python_type": "str",
+            "value": "[0]",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 11,
+            "python_type": "list",
+            "value": [],
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 11,
+            "python_type": "list",
+            "value": [],
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 11,
+            "python_type": "list",
+            "value": [],
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 12,
+            "python_type": "list",
+            "value": [
+              7,
+              {
+                "nested": false
+              }
+            ],
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 12,
+            "python_type": "list",
+            "value": [
+              7,
+              {
+                "nested": false
+              }
+            ],
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 12,
+            "python_type": "list",
+            "value": [
+              7,
+              {
+                "nested": false
+              }
+            ],
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 13,
+            "python_type": "dict",
+            "value": {},
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 13,
+            "python_type": "dict",
+            "value": {},
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 13,
+            "python_type": "dict",
+            "value": {},
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 14,
+            "python_type": "dict",
+            "value": {
+              "nested": [
+                1,
+                null,
+                false
+              ]
+            },
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 14,
+            "python_type": "dict",
+            "value": {
+              "nested": [
+                1,
+                null,
+                false
+              ]
+            },
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 14,
+            "python_type": "dict",
+            "value": {
+              "nested": [
+                1,
+                null,
+                false
+              ]
+            },
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": "empty_rhs",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": "expression_rhs",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": "controlled_split_path",
+            "configured_test_limit": 3,
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          }
+        ],
+        "sqlite_expression_cases": [
+          {
+            "case": "value",
+            "value": 7,
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              7
+            ],
+            "expected_ids": [
+              7
+            ]
+          },
+          {
+            "case": "mixed_value",
+            "value": 7,
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              7
+            ],
+            "expected_ids": [
+              7
+            ]
+          },
+          {
+            "case": "column",
+            "value": 7,
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              7
+            ],
+            "expected_ids": [
+              7
+            ]
+          },
+          {
+            "case": "mixed_column",
+            "value": 7,
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              7
+            ],
+            "expected_ids": [
+              7
+            ]
+          },
+          {
+            "case": "value",
+            "value": "Campus",
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              9
+            ],
+            "expected_ids": [
+              9
+            ]
+          },
+          {
+            "case": "mixed_value",
+            "value": "Campus",
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              9
+            ],
+            "expected_ids": [
+              9
+            ]
+          }
+        ],
+        "oracle_parameter_separation_cases": [
+          {
+            "value": "O'Reilly-course-bound-value",
+            "validation_tier": "real_ORM_Oracle_SQL_branch_on_SQLite_wrapper",
+            "sql": "SELECT \"course_public_json_types_publicjsonvalue\".\"id\", \"course_public_json_types_publicjsonvalue\".\"payload\" FROM \"course_public_json_types_publicjsonvalue\" WHERE COALESCE(JSON_QUERY(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"'), JSON_VALUE(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"')) IN (%s)",
+            "parameters": [
+              "O'Reilly-course-bound-value"
+            ],
+            "value_bound": true,
+            "value_absent_from_sql": true,
+            "scalar_parameters": true,
+            "passed": true
+          },
+          {
+            "value": [
+              "O'Reilly-course-bound-value",
+              false
+            ],
+            "validation_tier": "real_ORM_Oracle_SQL_branch_on_SQLite_wrapper",
+            "sql": "SELECT \"course_public_json_types_publicjsonvalue\".\"id\", \"course_public_json_types_publicjsonvalue\".\"payload\" FROM \"course_public_json_types_publicjsonvalue\" WHERE COALESCE(JSON_QUERY(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"'), JSON_VALUE(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"')) IN (%s)",
+            "parameters": [
+              "[\"O'Reilly-course-bound-value\",false]"
+            ],
+            "value_bound": true,
+            "value_absent_from_sql": true,
+            "scalar_parameters": true,
+            "passed": true
+          },
+          {
+            "value": {
+              "nested": "O'Reilly-course-bound-value"
+            },
+            "validation_tier": "real_ORM_Oracle_SQL_branch_on_SQLite_wrapper",
+            "sql": "SELECT \"course_public_json_types_publicjsonvalue\".\"id\", \"course_public_json_types_publicjsonvalue\".\"payload\" FROM \"course_public_json_types_publicjsonvalue\" WHERE COALESCE(JSON_QUERY(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"'), JSON_VALUE(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"')) IN (%s)",
+            "parameters": [
+              "{\"nested\":\"O'Reilly-course-bound-value\"}"
+            ],
+            "value_bound": true,
+            "value_absent_from_sql": true,
+            "scalar_parameters": true,
+            "passed": true
+          }
+        ],
+        "backend_rhs_string_cases": [
+          {
+            "vendor": "mysql",
+            "value": "Campus",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "Campus"
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "Campus",
+            "expected_value": "Campus"
+          },
+          {
+            "vendor": "mysql",
+            "value": "O'Reilly-course-bound",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "O'Reilly-course-bound"
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "O'Reilly-course-bound",
+            "expected_value": "O'Reilly-course-bound"
+          },
+          {
+            "vendor": "mysql",
+            "value": "null",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "null"
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "null",
+            "expected_value": "null"
+          },
+          {
+            "vendor": "mysql",
+            "value": "true",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "true"
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "true",
+            "expected_value": "true"
+          },
+          {
+            "vendor": "mysql",
+            "value": "",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              ""
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "",
+            "expected_value": ""
+          },
+          {
+            "vendor": "oracle",
+            "value": "Campus",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "Campus"
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "Campus",
+            "expected_value": "Campus"
+          },
+          {
+            "vendor": "oracle",
+            "value": "O'Reilly-course-bound",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "O'Reilly-course-bound"
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "O'Reilly-course-bound",
+            "expected_value": "O'Reilly-course-bound"
+          },
+          {
+            "vendor": "oracle",
+            "value": "null",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "null"
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "null",
+            "expected_value": "null"
+          },
+          {
+            "vendor": "oracle",
+            "value": "true",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              "true"
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "true",
+            "expected_value": "true"
+          },
+          {
+            "vendor": "oracle",
+            "value": "",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(%s)",
+            "rhs_parameters": [
+              ""
+            ],
+            "adapted_sql": "(%s)",
+            "actual_value": "",
+            "expected_value": ""
+          }
+        ],
+        "oracle_bool_rhs_string_cases": [
+          {
+            "value": true,
+            "expected_string": "true",
+            "tier": "compiled_Oracle_singleton_bool_RHS_on_limited_SQLite_JSON1_adapter",
+            "rhs_sql": "(%s)",
+            "parameters": [
+              true
+            ],
+            "adapted_sql": "(%s)",
+            "parameters_separate": true,
+            "placeholder_count_match": true,
+            "actual_value": 1,
+            "passed": false
+          },
+          {
+            "value": false,
+            "expected_string": "false",
+            "tier": "compiled_Oracle_singleton_bool_RHS_on_limited_SQLite_JSON1_adapter",
+            "rhs_sql": "(%s)",
+            "parameters": [
+              false
+            ],
+            "adapted_sql": "(%s)",
+            "parameters_separate": true,
+            "placeholder_count_match": true,
+            "actual_value": 0,
+            "passed": false
+          }
+        ],
+        "qualified_public_source_sha256": "ec6dd37a702485aa5fb9a7ef54588fd6616167a23dd5d94e4a4808444a331462",
+        "base_cases_total": 67,
+        "oracle_bool_cases_total": 2,
+        "new_model_calls": 0,
+        "original_grader_calls": 0,
+        "live_mysql_or_oracle_queries": 0,
+        "coverage_limit": "The unchanged48+6+3+10 public cases, including strict dangerous-string parameter isolation, execute first. Two additional compiled Oracle RHS fragments must match placeholder counts and return strings true/false for True/False; static SQL and parameterized forms are both admitted. Only the documented JSON_VALUE/QUERY and JSON_OBJECT forms are adapted with SQLite JSON1; this is not an Oracle19 driver/server query, complete SQL comparison, or general SQL-template equivalence test.",
+        "oracle_boolean_source": "https://docs.oracle.com/en/database/oracle/oracle-database/19/adjsn/function-JSON_VALUE.html"
+      }
+    },
+    {
+      "variant": "reference",
+      "patch_sha256": "d3e6670296eea046636e0424012620468d1e45b3cb2ac5519c5a38a212da5ce6",
+      "original67_passed": true,
+      "boolean_passed": 2,
+      "boolean_total": 2,
+      "uploaded_source_sha256": {
+        "/base-public-contract-probe.py": "ec6dd37a702485aa5fb9a7ef54588fd6616167a23dd5d94e4a4808444a331462",
+        "/public_oracle_bool_probe.py": "3869c4476cb5c73199c66454487dc2f13099b8324ed165c94ee6f83d4de8f28f"
+      },
+      "details": {
+        "passed": true,
+        "sqlite_database_cases": [
+          {
+            "case": 0,
+            "python_type": "bool",
+            "value": true,
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 0,
+            "python_type": "bool",
+            "value": true,
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 0,
+            "python_type": "bool",
+            "value": true,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 1,
+            "python_type": "bool",
+            "value": false,
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 1,
+            "python_type": "bool",
+            "value": false,
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 1,
+            "python_type": "bool",
+            "value": false,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 2,
+            "python_type": "int",
+            "value": 7,
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 2,
+            "python_type": "int",
+            "value": 7,
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 2,
+            "python_type": "int",
+            "value": 7,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 3,
+            "python_type": "int",
+            "value": -4,
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 3,
+            "python_type": "int",
+            "value": -4,
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 3,
+            "python_type": "int",
+            "value": -4,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 4,
+            "python_type": "float",
+            "value": 2.5,
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 4,
+            "python_type": "float",
+            "value": 2.5,
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 4,
+            "python_type": "float",
+            "value": 2.5,
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 5,
+            "python_type": "str",
+            "value": "",
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 5,
+            "python_type": "str",
+            "value": "",
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 5,
+            "python_type": "str",
+            "value": "",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 6,
+            "python_type": "str",
+            "value": "Campus",
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 6,
+            "python_type": "str",
+            "value": "Campus",
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 6,
+            "python_type": "str",
+            "value": "Campus",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 7,
+            "python_type": "str",
+            "value": "O'Reilly-course",
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 7,
+            "python_type": "str",
+            "value": "O'Reilly-course",
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 7,
+            "python_type": "str",
+            "value": "O'Reilly-course",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 8,
+            "python_type": "str",
+            "value": "null",
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 8,
+            "python_type": "str",
+            "value": "null",
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 8,
+            "python_type": "str",
+            "value": "null",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 9,
+            "python_type": "str",
+            "value": "true",
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 9,
+            "python_type": "str",
+            "value": "true",
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 9,
+            "python_type": "str",
+            "value": "true",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 10,
+            "python_type": "str",
+            "value": "[0]",
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 10,
+            "python_type": "str",
+            "value": "[0]",
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 10,
+            "python_type": "str",
+            "value": "[0]",
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 11,
+            "python_type": "list",
+            "value": [],
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 11,
+            "python_type": "list",
+            "value": [],
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 11,
+            "python_type": "list",
+            "value": [],
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 12,
+            "python_type": "list",
+            "value": [
+              7,
+              {
+                "nested": false
+              }
+            ],
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 12,
+            "python_type": "list",
+            "value": [
+              7,
+              {
+                "nested": false
+              }
+            ],
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 12,
+            "python_type": "list",
+            "value": [
+              7,
+              {
+                "nested": false
+              }
+            ],
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 13,
+            "python_type": "dict",
+            "value": {},
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 13,
+            "python_type": "dict",
+            "value": {},
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 13,
+            "python_type": "dict",
+            "value": {},
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": 14,
+            "python_type": "dict",
+            "value": {
+              "nested": [
+                1,
+                null,
+                false
+              ]
+            },
+            "rhs_kind": "single",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 14,
+            "python_type": "dict",
+            "value": {
+              "nested": [
+                1,
+                null,
+                false
+              ]
+            },
+            "rhs_kind": "mixed",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": 14,
+            "python_type": "dict",
+            "value": {
+              "nested": [
+                1,
+                null,
+                false
+              ]
+            },
+            "rhs_kind": "negative",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": "empty_rhs",
+            "actual_ids": [],
+            "expected_ids": [],
+            "passed": true
+          },
+          {
+            "case": "expression_rhs",
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          },
+          {
+            "case": "controlled_split_path",
+            "configured_test_limit": 3,
+            "actual_ids": [
+              1
+            ],
+            "expected_ids": [
+              1
+            ],
+            "passed": true
+          }
+        ],
+        "sqlite_expression_cases": [
+          {
+            "case": "value",
+            "value": 7,
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              7
+            ],
+            "expected_ids": [
+              7
+            ]
+          },
+          {
+            "case": "mixed_value",
+            "value": 7,
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              7
+            ],
+            "expected_ids": [
+              7
+            ]
+          },
+          {
+            "case": "column",
+            "value": 7,
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              7
+            ],
+            "expected_ids": [
+              7
+            ]
+          },
+          {
+            "case": "mixed_column",
+            "value": 7,
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              7
+            ],
+            "expected_ids": [
+              7
+            ]
+          },
+          {
+            "case": "value",
+            "value": "Campus",
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              9
+            ],
+            "expected_ids": [
+              9
+            ]
+          },
+          {
+            "case": "mixed_value",
+            "value": "Campus",
+            "tier": "actual_SQLite_expression_list_query",
+            "passed": true,
+            "actual_ids": [
+              9
+            ],
+            "expected_ids": [
+              9
+            ]
+          }
+        ],
+        "oracle_parameter_separation_cases": [
+          {
+            "value": "O'Reilly-course-bound-value",
+            "validation_tier": "real_ORM_Oracle_SQL_branch_on_SQLite_wrapper",
+            "sql": "SELECT \"course_public_json_types_publicjsonvalue\".\"id\", \"course_public_json_types_publicjsonvalue\".\"payload\" FROM \"course_public_json_types_publicjsonvalue\" WHERE COALESCE(JSON_QUERY(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"'), JSON_VALUE(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"')) IN (JSON_VALUE(%s, '$.value'))",
+            "parameters": [
+              "{\"value\": \"O'Reilly-course-bound-value\"}"
+            ],
+            "value_bound": true,
+            "value_absent_from_sql": true,
+            "scalar_parameters": true,
+            "passed": true
+          },
+          {
+            "value": [
+              "O'Reilly-course-bound-value",
+              false
+            ],
+            "validation_tier": "real_ORM_Oracle_SQL_branch_on_SQLite_wrapper",
+            "sql": "SELECT \"course_public_json_types_publicjsonvalue\".\"id\", \"course_public_json_types_publicjsonvalue\".\"payload\" FROM \"course_public_json_types_publicjsonvalue\" WHERE COALESCE(JSON_QUERY(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"'), JSON_VALUE(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"')) IN (JSON_QUERY(%s, '$.value'))",
+            "parameters": [
+              "{\"value\": [\"O'Reilly-course-bound-value\", false]}"
+            ],
+            "value_bound": true,
+            "value_absent_from_sql": true,
+            "scalar_parameters": true,
+            "passed": true
+          },
+          {
+            "value": {
+              "nested": "O'Reilly-course-bound-value"
+            },
+            "validation_tier": "real_ORM_Oracle_SQL_branch_on_SQLite_wrapper",
+            "sql": "SELECT \"course_public_json_types_publicjsonvalue\".\"id\", \"course_public_json_types_publicjsonvalue\".\"payload\" FROM \"course_public_json_types_publicjsonvalue\" WHERE COALESCE(JSON_QUERY(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"'), JSON_VALUE(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"')) IN (JSON_QUERY(%s, '$.value'))",
+            "parameters": [
+              "{\"value\": {\"nested\": \"O'Reilly-course-bound-value\"}}"
+            ],
+            "value_bound": true,
+            "value_absent_from_sql": true,
+            "scalar_parameters": true,
+            "passed": true
+          }
+        ],
+        "backend_rhs_string_cases": [
+          {
+            "vendor": "mysql",
+            "value": "Campus",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(JSON_EXTRACT(%s, '$'))",
+            "rhs_parameters": [
+              "\"Campus\""
+            ],
+            "adapted_sql": "(JSON_EXTRACT(%s, '$'))",
+            "actual_value": "Campus",
+            "expected_value": "Campus"
+          },
+          {
+            "vendor": "mysql",
+            "value": "O'Reilly-course-bound",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(JSON_EXTRACT(%s, '$'))",
+            "rhs_parameters": [
+              "\"O'Reilly-course-bound\""
+            ],
+            "adapted_sql": "(JSON_EXTRACT(%s, '$'))",
+            "actual_value": "O'Reilly-course-bound",
+            "expected_value": "O'Reilly-course-bound"
+          },
+          {
+            "vendor": "mysql",
+            "value": "null",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(JSON_EXTRACT(%s, '$'))",
+            "rhs_parameters": [
+              "\"null\""
+            ],
+            "adapted_sql": "(JSON_EXTRACT(%s, '$'))",
+            "actual_value": "null",
+            "expected_value": "null"
+          },
+          {
+            "vendor": "mysql",
+            "value": "true",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(JSON_EXTRACT(%s, '$'))",
+            "rhs_parameters": [
+              "\"true\""
+            ],
+            "adapted_sql": "(JSON_EXTRACT(%s, '$'))",
+            "actual_value": "true",
+            "expected_value": "true"
+          },
+          {
+            "vendor": "mysql",
+            "value": "",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(JSON_EXTRACT(%s, '$'))",
+            "rhs_parameters": [
+              "\"\""
+            ],
+            "adapted_sql": "(JSON_EXTRACT(%s, '$'))",
+            "actual_value": "",
+            "expected_value": ""
+          },
+          {
+            "vendor": "oracle",
+            "value": "Campus",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(JSON_VALUE(%s, '$.value'))",
+            "rhs_parameters": [
+              "{\"value\": \"Campus\"}"
+            ],
+            "adapted_sql": "(COURSE_JSON_VALUE(%s, '$.value'))",
+            "actual_value": "Campus",
+            "expected_value": "Campus"
+          },
+          {
+            "vendor": "oracle",
+            "value": "O'Reilly-course-bound",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(JSON_VALUE(%s, '$.value'))",
+            "rhs_parameters": [
+              "{\"value\": \"O'Reilly-course-bound\"}"
+            ],
+            "adapted_sql": "(COURSE_JSON_VALUE(%s, '$.value'))",
+            "actual_value": "O'Reilly-course-bound",
+            "expected_value": "O'Reilly-course-bound"
+          },
+          {
+            "vendor": "oracle",
+            "value": "null",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(JSON_VALUE(%s, '$.value'))",
+            "rhs_parameters": [
+              "{\"value\": \"null\"}"
+            ],
+            "adapted_sql": "(COURSE_JSON_VALUE(%s, '$.value'))",
+            "actual_value": "null",
+            "expected_value": "null"
+          },
+          {
+            "vendor": "oracle",
+            "value": "true",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(JSON_VALUE(%s, '$.value'))",
+            "rhs_parameters": [
+              "{\"value\": \"true\"}"
+            ],
+            "adapted_sql": "(COURSE_JSON_VALUE(%s, '$.value'))",
+            "actual_value": "true",
+            "expected_value": "true"
+          },
+          {
+            "vendor": "oracle",
+            "value": "",
+            "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+            "controlled_mysql_is_mariadb": false,
+            "passed": true,
+            "rhs_sql": "(JSON_VALUE(%s, '$.value'))",
+            "rhs_parameters": [
+              "{\"value\": \"\"}"
+            ],
+            "adapted_sql": "(COURSE_JSON_VALUE(%s, '$.value'))",
+            "actual_value": "",
+            "expected_value": ""
+          }
+        ],
+        "oracle_bool_rhs_string_cases": [
+          {
+            "value": true,
+            "expected_string": "true",
+            "tier": "compiled_Oracle_singleton_bool_RHS_on_limited_SQLite_JSON1_adapter",
+            "rhs_sql": "(JSON_VALUE(%s, '$.value'))",
+            "parameters": [
+              "{\"value\": true}"
+            ],
+            "adapted_sql": "(COURSE_JSON_VALUE(%s, '$.value'))",
+            "parameters_separate": true,
+            "placeholder_count_match": true,
+            "actual_value": "true",
+            "passed": true
+          },
+          {
+            "value": false,
+            "expected_string": "false",
+            "tier": "compiled_Oracle_singleton_bool_RHS_on_limited_SQLite_JSON1_adapter",
+            "rhs_sql": "(JSON_VALUE(%s, '$.value'))",
+            "parameters": [
+              "{\"value\": false}"
+            ],
+            "adapted_sql": "(COURSE_JSON_VALUE(%s, '$.value'))",
+            "parameters_separate": true,
+            "placeholder_count_match": true,
+            "actual_value": "false",
+            "passed": true
+          }
+        ],
+        "qualified_public_source_sha256": "ec6dd37a702485aa5fb9a7ef54588fd6616167a23dd5d94e4a4808444a331462",
+        "base_cases_total": 67,
+        "oracle_bool_cases_total": 2,
+        "new_model_calls": 0,
+        "original_grader_calls": 0,
+        "live_mysql_or_oracle_queries": 0,
+        "coverage_limit": "The unchanged48+6+3+10 public cases, including strict dangerous-string parameter isolation, execute first. Two additional compiled Oracle RHS fragments must match placeholder counts and return strings true/false for True/False; static SQL and parameterized forms are both admitted. Only the documented JSON_VALUE/QUERY and JSON_OBJECT forms are adapted with SQLite JSON1; this is not an Oracle19 driver/server query, complete SQL comparison, or general SQL-template equivalence test.",
+        "oracle_boolean_source": "https://docs.oracle.com/en/database/oracle/oracle-database/19/adjsn/function-JSON_VALUE.html"
+      }
+    }
+  ],
+  "source_original_scores_sha256": {
+    "work/vmshare/performance-json-contract-v2-20261125/django__django-13346-C0-json-contract-main-r3/result.json": "60ec95c8b84b54ebf95ad27f2841c81aceb3ec4ae4e541a7a24f2bd496da65dd",
+    "work/vmshare/performance-json-contract-v2-20261125/django__django-13346-C0-json-contract-repeat-r4/result.json": "66bd0a08b6cbf310df79b5226184915a1fe9e0cf462bf26e62ca9434281d464c"
+  },
+  "original_model_scores_unchanged": true,
+  "live_mysql_or_oracle_queries": 0,
+  "reused_reference_original_grade": {
+    "path": "work/json-in-semantics-20261125/expanded/qualification/result.json",
+    "sha256": "aeb93e04d5afd7d8efee2aa5fa2de3b410418302fa3c6d00138e2074cdd0f077",
+    "outcome": {
+      "scoreable": true,
+      "passed": true,
+      "grader_seconds": 37.984669790952466
+    }
+  },
+  "scope": "Four actual original-pin checkouts, real SQLite ORM and limited compiled Oracle RHS Boolean-string adapters. No Oracle driver/server, no new grader and no model generation. The fixed r4 outcome is recorded without requiring it to fail or pass the new cases."
+}

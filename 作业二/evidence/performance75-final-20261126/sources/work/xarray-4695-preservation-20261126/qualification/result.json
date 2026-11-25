@@ -1,0 +1,150 @@
+{
+  "phase": "actual_v20_original_pin_unchanged_public_check_protection_and_submit_gate_qualified",
+  "task": "pydata__xarray-4695",
+  "pin": "sha256:fe6074de116357f2b6f1b3b964726cd02b866f68509f3e74d3a58c48a778ac6d",
+  "new_model_calls": 0,
+  "new_original_grader_calls": 0,
+  "source_files_sha256": {
+    "work/xarray-4695-preservation-20261126/qualify_preservation.py": "2bd2e01aef6fef72138eb9f7dd68b47e7e9c2fb60a0826661e7cd4356cd0bb16",
+    "work/xarray-4695-preservation-20261126/PLAN.md": "692d44006d895e48ed887babec00f5646b16b9dad7f97a1102c72275d085b42a",
+    "work/hy4-submit-boundary-20261125/runtime-manifest.json": "c83b2e16c3da5cc9ce98e5471437987dffbdf4fff2da4fa149f49f1db507933a",
+    "work/parallel-free-evaluation-20261124/hy4-snapshot-0311-20261126/summary.json": "9ea154acbe75a8ca58d8e4c6648418814eaa4d54a7a891fa3e51fe6cda6e70e4",
+    "work/free-recovery35-20261126/hy4-plans/tasks.json": "756f111c06a2d757c3034dd6134abbefa454d5371e5153e6afcaabd1bd3a8be2",
+    "work/free-recovery35-20261126/hy4-plans/checks.json": "8f1b3a87b197a93c3f4441095495dc3a835bb8f29712336949767a92e308dff4",
+    "work/vmshare/performance75-dsh-hy4-v10/environment-pins.json": "4cccb2ad44c00d4257ea8f9e89c2e2fcf19d21d1d1bec55a4e7661d9449c282e",
+    "work/free-recovery35-20261126/hy4-plans/main-plan.json": "ac01bbdef1ef007b5f959d7b6673cfe033d47aad14729979465722015bcbdcba",
+    "work/free-recovery35-20261126/hy4-plans/repeat-plan.json": "b430c029ac373ab5ae1cd83bdc195353dd24cdeff1341f3f347eeac77e29d32a",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pydata__xarray-4695-C0-r1/instruction.txt": "b694f62153bf5219670f7badbc5369c172ca99681e0449a182f71b4795182ee2",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pydata__xarray-4695-C0-r1/result.json": "c046749068da5f92386fd752df6d9d548d5809dd08aea5aa36bb521bf0ae678a",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pydata__xarray-4695-C0-r1/candidate.patch": "e3c08b25fd67e1749afb35cafa794688d3c5b6e6699bfcad15f3708c895a4403",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pydata__xarray-4695-C0-r1/model.jsonl": "ff8f8ad870540e8f71008d0e9feb168bee444f74128a88aace45e1bf5300ba88",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pydata__xarray-4695-C0-r1/tools.jsonl": "705bee008b0196eeb1e0023d16b1758eab55ecfad5e97c4874ed7d352d75aab6",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pydata__xarray-4695-C0-r1/controller.jsonl": "cc4805810ccc36ae51f143a036625a4c1906d27dbd2ea20dd1b16c259aeef4c2",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pydata__xarray-4695-C0-r1/final-verification.json": "ceeb3fb3a4387b6f28d4ab7fef2682d7c864dbd984d7293d812f4e2a40806d09",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pydata__xarray-4695-C0-r1.protocol.json": "47b0b0b12a7e78394477bc696b552543495dab4a17110429b28f26dc1899a1e0",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-4695-C0-r2/instruction.txt": "b694f62153bf5219670f7badbc5369c172ca99681e0449a182f71b4795182ee2",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-4695-C0-r2/result.json": "47fbc5ee25bdd6438da91007879f07277bf11c3e489c1f6bedb4654d7fa7611a",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-4695-C0-r2/candidate.patch": "2cfa368eadbeb818a7f698c5ae4487676bbb3894fac039178b1659a773671cf0",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-4695-C0-r2/model.jsonl": "087788482e8923dcbef658acf042ee5bf86c5431dba5c099e802d2693f0b7f5b",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-4695-C0-r2/tools.jsonl": "a8d6e8ed329325b095d59a3530160abdbb58dc75f770b294d1fc0927aa2ad69d",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-4695-C0-r2/controller.jsonl": "1d925874a30ce65c167e7c4ca51c7cf4e50a421975d900ccf3dd80e4e334a11f",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-4695-C0-r2/final-verification.json": "7d59b9f3798d9c18aea2e90fb437dfc3e45e8c1395b9f0182a095d842bef1ac9",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-4695-C0-r2.protocol.json": "47b0b0b12a7e78394477bc696b552543495dab4a17110429b28f26dc1899a1e0"
+  },
+  "actual_loaded_runtime_modules": {
+    "work/frozen-performance-hy4-submit-boundary-v20/course_eval/agent.py": "22814d396ad3027d79ff44e916d365db014657ff644a7e8cf51db8c5f828b2c2",
+    "work/frozen-performance-hy4-submit-boundary-v20/course_eval/benchmarks.py": "57d478adda9d4f1770eae34740b0a9c4c1d5c5da5b99fb541ffe859553cdb665",
+    "work/frozen-performance-hy4-submit-boundary-v20/course_eval/controller.py": "4708caca205d61bcaeb41e390d9089288cb88c365a7be2541fb282909faf48c7",
+    "work/frozen-performance-hy4-submit-boundary-v20/course_eval/docker_target.py": "2ed262a331ad7b15b0b937e315fbc39b7c73ab6821e1e52c3d9b657cf792ae83",
+    "work/frozen-performance-hy4-submit-boundary-v20/course_eval/verification.py": "5ae7a4eb9753740e0f5385b99655fe5d144bf49ec6ef8ca0784a930f5308c424"
+  },
+  "variants": [
+    {
+      "variant": "base",
+      "state": "passed",
+      "submit_accepted": true,
+      "original_issue_example_passed": false,
+      "final": {
+        "reason": "submission",
+        "artifact_digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "af0230748cba5250306df3631a3b705830c3cace4302adb5dc1a1b2fcc8a080a  xarray/core/dataarray.py\n62e9eec7500bc7c9755b81c00e3a070b9166d9098ac3aa6202d2f5c706a19c35  xarray/core/dataset.py\n7e44016de9c43cc57cdc1a6bd4e6dbe7774467cf1865f76e93d72efed24ce90e  xarray/core/indexing.py\n05325f6d363c1ac6f4351ac7109c2fd883761893b04bd51776623bb3273bd02c  xarray/tests/test_dataarray.py\n"
+          }
+        },
+        "elapsed_seconds": 14.547241415944882
+      },
+      "pending_submit_rejected": true,
+      "original_test_sha256": "05325f6d363c1ac6f4351ac7109c2fd883761893b04bd51776623bb3273bd02c",
+      "final_test_sha256": "05325f6d363c1ac6f4351ac7109c2fd883761893b04bd51776623bb3273bd02c",
+      "actual_verification_sha256": "733ed2028f7269b61a1ce23ddcfdb88ca204200312228924061b9e9abaf5730b"
+    },
+    {
+      "variant": "recorded_bad_repeat",
+      "state": "protected_dependency_changed",
+      "submit_accepted": false,
+      "original_issue_example_passed": true,
+      "final": {
+        "reason": "zero_model_preservation_diagnostic",
+        "artifact_digest": "9d7d89c1bf7cd3857598040719ca8307e404e8ac87f4cdcfdb819915a3ebec6c",
+        "protected_unchanged": false,
+        "restored_candidate": null,
+        "valid_verification": false,
+        "evidence": {
+          "public-regression": {
+            "state": "protected_dependency_changed",
+            "returncode": null,
+            "snapshot": null
+          }
+        },
+        "elapsed_seconds": 15.369031250011176
+      },
+      "pending_submit_rejected": true,
+      "original_test_sha256": "05325f6d363c1ac6f4351ac7109c2fd883761893b04bd51776623bb3273bd02c",
+      "final_test_sha256": "3dccf6321d02378d4aaf16f95138d4a4bef85c6c153eef312e8d27c0081ece1e",
+      "actual_verification_sha256": "5f945e5dad0ff29088a95523385102ac0f5bed4c07755a4f4722bf95bd46afad"
+    },
+    {
+      "variant": "recorded_good_main",
+      "state": "passed",
+      "submit_accepted": true,
+      "original_issue_example_passed": true,
+      "final": {
+        "reason": "submission",
+        "artifact_digest": "9d7d89c1bf7cd3857598040719ca8307e404e8ac87f4cdcfdb819915a3ebec6c",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "4ad6113256b568dcccf2c92833e521d9c7a14bb5d9ccd30dc3375d8c65b9ec56  xarray/core/dataarray.py\n62e9eec7500bc7c9755b81c00e3a070b9166d9098ac3aa6202d2f5c706a19c35  xarray/core/dataset.py\n7e44016de9c43cc57cdc1a6bd4e6dbe7774467cf1865f76e93d72efed24ce90e  xarray/core/indexing.py\n05325f6d363c1ac6f4351ac7109c2fd883761893b04bd51776623bb3273bd02c  xarray/tests/test_dataarray.py\n"
+          }
+        },
+        "elapsed_seconds": 14.354199790977873
+      },
+      "pending_submit_rejected": true,
+      "original_test_sha256": "05325f6d363c1ac6f4351ac7109c2fd883761893b04bd51776623bb3273bd02c",
+      "final_test_sha256": "05325f6d363c1ac6f4351ac7109c2fd883761893b04bd51776623bb3273bd02c",
+      "actual_verification_sha256": "f4f453a28c11533a2c4854671117e72bb4773bf18118631cbf28df3650ae9400"
+    },
+    {
+      "variant": "recorded_repeat_tests_restored",
+      "state": "passed",
+      "submit_accepted": true,
+      "original_issue_example_passed": true,
+      "final": {
+        "reason": "submission",
+        "artifact_digest": "9d7d89c1bf7cd3857598040719ca8307e404e8ac87f4cdcfdb819915a3ebec6c",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "4ad6113256b568dcccf2c92833e521d9c7a14bb5d9ccd30dc3375d8c65b9ec56  xarray/core/dataarray.py\n62e9eec7500bc7c9755b81c00e3a070b9166d9098ac3aa6202d2f5c706a19c35  xarray/core/dataset.py\n7e44016de9c43cc57cdc1a6bd4e6dbe7774467cf1865f76e93d72efed24ce90e  xarray/core/indexing.py\n05325f6d363c1ac6f4351ac7109c2fd883761893b04bd51776623bb3273bd02c  xarray/tests/test_dataarray.py\n"
+          }
+        },
+        "elapsed_seconds": 14.353482500067912
+      },
+      "pending_submit_rejected": true,
+      "original_test_sha256": "05325f6d363c1ac6f4351ac7109c2fd883761893b04bd51776623bb3273bd02c",
+      "final_test_sha256": "05325f6d363c1ac6f4351ac7109c2fd883761893b04bd51776623bb3273bd02c",
+      "actual_verification_sha256": "d5da95330c7d105157d1d5acd79922d1a4c7a20c135d2494aa28636db3632629"
+    }
+  ],
+  "runtime_root": "work/frozen-performance-hy4-submit-boundary-v20",
+  "runtime_manifest_sha256": "c83b2e16c3da5cc9ce98e5471437987dffbdf4fff2da4fa149f49f1db507933a",
+  "new_checks_sha256": "3ec1051716e742443b4fd682e843dd4897fc216b1434a9200406626e45358dde",
+  "new_tasks_sha256": "62dc1c36c18d0ed3cb91cdbbbdf9f40b9c943f0d6618a6ac92b35894063aee20",
+  "driver_sha256": "2bd2e01aef6fef72138eb9f7dd68b47e7e9c2fb60a0826661e7cd4356cd0bb16",
+  "original200_snapshot_sha256": "9ea154acbe75a8ca58d8e4c6648418814eaa4d54a7a891fa3e51fe6cda6e70e4",
+  "interpretation": "Engineering replay,not model behavior. The unchanged base public subset passes while the original issue fails;no claim that the old public command covers this bug. Bad repeat has passing pytest but invalid protection and rejected submission. Good main and repeat with exactly restored original tests pass verify/save/submit. Original raw/q values and all costs remain unchanged."
+}

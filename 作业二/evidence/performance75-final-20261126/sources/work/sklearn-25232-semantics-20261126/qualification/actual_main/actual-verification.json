@@ -1,0 +1,18 @@
+{
+  "check_id": "public-issue",
+  "reason": "zero_model_public_nan_contract_qualification",
+  "state": "failed",
+  "coverage": [
+    "Original visible fill_value check plus12 public cases for constant initialization, NaN-tolerant tree iteration and fitted feature range",
+    "Derive empty-feature status from the original training missing-value mask, cache it on fit and reuse on transform;NaN initialization statistics do not imply an empty training column",
+    "Public mature mechanism:https://github.com/scikit-learn/scikit-learn/blob/main/sklearn/impute/_iterative.py ;1.5.2 still used statistics_ and is not claimed fixed",
+    "Every probe training feature contains observed values;this is not an exhaustive all-empty training-column contract"
+  ],
+  "artifact_digest": "07724a16272a098fcda7ed7e674d2bd6a0cbf22d1d062a5833332a941fc899c8",
+  "before": "dc2ad5ca61a19ad10d2da0757f313bb400817cf4318dfe058482bcefef4deaf4  sklearn/impute/_iterative.py\n",
+  "after": "dc2ad5ca61a19ad10d2da0757f313bb400817cf4318dfe058482bcefef4deaf4  sklearn/impute/_iterative.py\n",
+  "seconds": 4.727181915892288,
+  "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"public-issue\", \"passed\": true, \"actual\": {\"initial_output\": [[1.0, 7.0], [7.0, 2.0], [3.0, 4.0]]}, \"required\": [[1.0, 7.0], [7.0, 2.0], [3.0, 4.0]]}]}\n{\"passed\": false, \"total\": 12, \"cases\": [{\"name\": \"existing_mean_strategy\", \"passed\": true, \"shape\": [4, 2], \"n_iter\": 2, \"warnings\": [\"ConvergenceWarning\"]}, {\"name\": \"constant_initial:None\", \"passed\": true, \"shape\": [4, 2], \"n_iter\": 0, \"warnings\": []}, {\"name\": \"constant_initial:10.0\", \"passed\": true, \"shape\": [4, 2], \"n_iter\": 0, \"warnings\": []}, {\"name\": \"constant_initial:-3.0\", \"passed\": true, \"shape\": [4, 2], \"n_iter\": 0, \"warnings\": []}, {\"name\": \"nan_initial_without_iteration\", \"passed\": true, \"shape\": [4, 2], \"n_iter\": 0, \"warnings\": []}, {\"name\": \"tree_nan_fit:nan:keep=False\", \"passed\": true, \"shape\": [4, 2], \"n_iter\": 1, \"imputed_values\": [4.333333333333333, 4.666666666666667], \"warnings\": [\"ConvergenceWarning\"]}, {\"name\": \"tree_nan_fit:nan:keep=True\", \"passed\": false, \"error_type\": \"AssertionError\", \"error\": \"0\", \"warnings\": []}, {\"name\": \"tree_nan_fit:-1.0:keep=False\", \"passed\": true, \"shape\": [4, 2], \"n_iter\": 1, \"imputed_values\": [4.333333333333333, 4.666666666666667], \"warnings\": [\"ConvergenceWarning\"]}, {\"name\": \"tree_nan_fit:-1.0:keep=True\", \"passed\": false, \"error_type\": \"AssertionError\", \"error\": \"0\", \"warnings\": []}, {\"name\": \"fitted_feature_range:keep=False\", \"passed\": false, \"error_type\": \"IndexError\", \"error\": \"index 1 is out of bounds for axis 1 with size 1\", \"warnings\": []}, {\"name\": \"fitted_feature_range:keep=True\", \"passed\": false, \"error_type\": \"AssertionError\", \"error\": \"[[nan, 3.0], [nan, 5.0], [nan, 7.0], [nan, 9.0]]\", \"warnings\": []}, {\"name\": \"fill_value_ignored_for_mean\", \"passed\": true, \"shape\": [4, 2], \"n_iter\": 0, \"warnings\": []}], \"scope\": \"Public task-derived fill_value, NaN-tolerant tree iteration and fitted transform feature range. Each training feature has observations;no hidden grader inputs, gold patch or model candidate reference.\"}\n",
+  "stderr": "",
+  "returncode": 1
+}

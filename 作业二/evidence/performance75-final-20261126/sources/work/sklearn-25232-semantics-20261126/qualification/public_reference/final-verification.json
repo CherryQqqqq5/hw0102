@@ -1,0 +1,15 @@
+{
+  "reason": "zero_model_public_nan_contract_qualification",
+  "artifact_digest": "4a6fbed7e9b5b3e33e901c630c6ed0205e917f8df6565a309d454e5b8f5b0a01",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-issue": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "c32a9bb7b018e533533b17be4618babe25a93b6c257572e43097251408ce02c6  sklearn/impute/_iterative.py\n"
+    }
+  },
+  "elapsed_seconds": 9.75252012501005
+}

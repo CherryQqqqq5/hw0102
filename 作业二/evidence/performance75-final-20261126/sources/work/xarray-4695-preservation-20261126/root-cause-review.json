@@ -1,0 +1,789 @@
+{
+  "schema_version": 1,
+  "record_kind": "independent_original_xarray4695_preservation_diagnosis",
+  "status": "P1_QUALIFIED_GAP_CONFIRMED_ORIGINAL_SCORES_PRESERVED",
+  "frozen_original_snapshot": {
+    "path": "work/parallel-free-evaluation-20261124/hy4-snapshot-0311-20261126/summary.json",
+    "sha256": "9ea154acbe75a8ca58d8e4c6648418814eaa4d54a7a891fa3e51fe6cda6e70e4",
+    "original_positions": 200,
+    "groups": {
+      "main": 66,
+      "repeat": 67,
+      "dsh": 67
+    }
+  },
+  "scope": {
+    "original_task": "pydata__xarray-4695",
+    "old_positions_reviewed": 2,
+    "old_runtime": "work/frozen-performance-hy4-sql-layout-v18",
+    "old_scores_not_rewritten": true,
+    "new_revision_not_executed": true
+  },
+  "findings": [
+    {
+      "priority": "P1",
+      "kind": "protected_test_mutation_and_invalid_submission",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-4695-C0-r2",
+      "production_fix": "Same as qualified main: DataArray._LocIndexer.__getitem__ passes indexer mapping as self.data_array.sel(key), avoiding reserved keyword collisions.",
+      "protected_path": "xarray/tests/test_dataarray.py",
+      "hunk": "Adds15 lines: @pytest.mark.parametrize dim in method/tolerance/drop/indexers plus test_loc_with_reserved_dimension_name.",
+      "first_mutating_action": {
+        "model_step": 13,
+        "tool_index": 12
+      },
+      "registered_feedback": {
+        "step": 14,
+        "state": "protected_dependency_changed",
+        "public_command_returncode": 0,
+        "public_stdout": "9 passed,879 deselected,11 warnings; the existing suite was enlarged by the candidate's own4 cases"
+      },
+      "first_response_misinterpretation": {
+        "step": 15,
+        "operation": "save",
+        "note": "Interprets nine passing pytest cases as successful public check, ignoring the registered protection failure."
+      },
+      "candidate002": {
+        "saved_step": 15,
+        "eligible": false
+      },
+      "submission": {
+        "step": 21,
+        "final_protected": false,
+        "final_valid": false,
+        "raw_original": true
+      },
+      "root_cause": "v18 C0 correctly flags changed protected tests but allows submission even with invalid current evidence. The agent leaves its added tests in place and treats passing subprocess output as the full check state."
+    },
+    {
+      "priority": "INFO",
+      "kind": "qualified_normal_neighbor",
+      "arm": "main",
+      "temporary_test_mutation": {
+        "tool": 9,
+        "protected_file": "xarray/tests/test_dataarray.py"
+      },
+      "actual_repair": {
+        "model_step": 11,
+        "tool": 10,
+        "behavior": "Recognizes saved candidate metadata/protected-test instruction, restores original test file and keeps only production fix; subsequent self-checks use container scratch script."
+      },
+      "final": {
+        "raw_original": true,
+        "qualified": true,
+        "protected": true,
+        "valid": true
+      },
+      "final_patch": "Only the one-line production edit remains."
+    },
+    {
+      "priority": "INFO",
+      "kind": "original_score_vs_complete_stdout_scope",
+      "report_per_position": {
+        "FAIL_TO_PASS_success": 1,
+        "PASS_TO_PASS_success": 875
+      },
+      "actual_original_stdout": "1 failed,877 passed,1 skipped,5 xfailed,1 xpassed,259 warnings,exit1; both original report resolvedtrue are preserved.",
+      "failed_test": "xarray/tests/test_dataarray.py::TestDataArray::test_from_series_multiindex",
+      "original_grader_test_handling": "Both actual eval.sh reset xarray/tests/test_dataarray.py to original base51ef2a66 before applying the scorer's own test changes and running pytest. Rawtrue therefore does not certify preservation of the agent's submitted test tree;the separate C0 final protection remains authoritative for that requirement.",
+      "failing_path": "df.stack('alpha').to_xarray() -> pandas.core.generic.to_xarray -> pandas.compat._optional.import_optional_dependency('xarray')",
+      "actual_exception": "ImportError at pandas/compat/_optional.py:171: Pandas requires version0.19.0 or newer of xarray;original image reports0.16.3.dev24+ga4cf03327.d20261125",
+      "recorded_baseline_control": "Main tool12 shows this same named failure on the unchanged production source; repeat tool14 also shows it among5 categorical/MultiIndex failures in its pristine HEAD worktree. The `.loc` one-line fix does not modify this optional dependency path.",
+      "scope_limit": "This audit reuses those actual archived baseline executions, not a new baseline/whole-library run."
+    },
+    {
+      "priority": "INFO",
+      "kind": "public_check_coverage_limit",
+      "command": "/opt/miniconda3/envs/testbed/bin/python -m pytest -q xarray/tests/test_dataarray.py -k 'loc and not dask'",
+      "statement": "The unchanged original public subset lacks the new issue-specific reserved-name cases. Base check may pass while the original method example fails; qualification must retain the actual result rather than fabricate a failed base check."
+    }
+  ],
+  "revision_design": {
+    "runtime": "work/frozen-performance-hy4-submit-boundary-v20",
+    "already_existing_gate": "C0 submit requires store.trusted and every registered current evidence state passed; returns recoverable submission_rejected otherwise. This is not C1 automatic per-step checking.",
+    "task_specific_filter": "ReLU source/weight/inspect access filter only applies with reusable_helper=relu_directions; it is not enabled for this SWE task.",
+    "variable": "Three task-local preservation/public state guidance entries plus already reviewed submit gate; original public command/dependencies/scope/model/fee/budget/pin/grade unchanged.",
+    "fixed_prospective_positions": 2,
+    "combined_future_scope": "67 inherited task definitions x2 plus16 fixed revision positions; no current joint acceptance and no v20 claim for other inherited tasks."
+  },
+  "totals": {
+    "old_requests": 40,
+    "old_own_zero_credit_receipts": 40,
+    "distinct_old_native_message_ids": 40,
+    "distinct_native_sessions": 2,
+    "old_original_true": 2,
+    "old_qualified_true": 1,
+    "new_model_calls_by_this_audit": 0,
+    "new_original_grader_calls_by_this_audit": 0
+  },
+  "rows": [
+    {
+      "arm": "main",
+      "task": "pydata__xarray-4695",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pydata__xarray-4695-C0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 234.0543136660708,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795633196.7125812,
+        "native_session_id": "b322f059-5b35-48a2-95b3-93fc12f67a69",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "48d6def22714d5a8aefe089a3ebc1e57f3091cae3e8cdeb5602fc235b1ea5cdb"
+      },
+      "event_counts": {
+        "request": 19,
+        "cli_process_started": 19,
+        "response": 19,
+        "billing_verified": 19
+      },
+      "native_sessions": [
+        "b322f059-5b35-48a2-95b3-93fc12f67a69"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a2141438627f50b1558eff7f264cf2",
+          0,
+          6754,
+          198
+        ],
+        [
+          2,
+          "01a214144fe077eca5d42aa567bfec5a",
+          0,
+          7326,
+          202
+        ],
+        [
+          3,
+          "01a21414642176da929acdd33d14d0a4",
+          0,
+          8443,
+          232
+        ],
+        [
+          4,
+          "01a214147de6730ea59df8c814b5df5a",
+          0,
+          11511,
+          748
+        ],
+        [
+          5,
+          "01a214149e447d27b2d464a78129ad43",
+          0,
+          13245,
+          366
+        ],
+        [
+          6,
+          "01a21414c0367fde84047e7bb71452e4",
+          0,
+          14385,
+          317
+        ],
+        [
+          7,
+          "01a21414dc8873e093b5e15efc73e3df",
+          0,
+          15167,
+          795
+        ],
+        [
+          8,
+          "01a2141509a8704da66b9baa2d44ee53",
+          0,
+          16263,
+          218
+        ],
+        [
+          9,
+          "01a214151ff474ecae8765694fc1d810",
+          0,
+          17756,
+          576
+        ],
+        [
+          10,
+          "01a214153eaf701e9dfce55b4c91f7e4",
+          0,
+          19002,
+          127
+        ],
+        [
+          11,
+          "01a2141557847bf5884a3959462036f0",
+          0,
+          19395,
+          445
+        ],
+        [
+          12,
+          "01a214157dfa726aa28c6947af36c0e5",
+          0,
+          20147,
+          126
+        ],
+        [
+          13,
+          "01a2141594447179a305a0277451d918",
+          0,
+          20544,
+          163
+        ],
+        [
+          14,
+          "01a21415c9e977488946d469eca92124",
+          0,
+          21833,
+          891
+        ],
+        [
+          15,
+          "01a21416379971b28a488fcbb0c49d88",
+          0,
+          23375,
+          952
+        ],
+        [
+          16,
+          "01a214168fe875819aef509969919872",
+          0,
+          25053,
+          560
+        ],
+        [
+          17,
+          "01a21416cbe97c6997c2cf4ad32681a8",
+          0,
+          26737,
+          666
+        ],
+        [
+          18,
+          "01a21416edb77066b137c62b40d3705b",
+          0,
+          27872,
+          178
+        ],
+        [
+          19,
+          "01a2141709117e5390361f55c996bbc2",
+          0,
+          28518,
+          127
+        ]
+      ],
+      "input_tokens": 343326,
+      "output_tokens": 7887,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "9d7d89c1bf7cd3857598040719ca8307e404e8ac87f4cdcfdb819915a3ebec6c",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "4ad6113256b568dcccf2c92833e521d9c7a14bb5d9ccd30dc3375d8c65b9ec56  xarray/core/dataarray.py\n62e9eec7500bc7c9755b81c00e3a070b9166d9098ac3aa6202d2f5c706a19c35  xarray/core/dataset.py\n7e44016de9c43cc57cdc1a6bd4e6dbe7774467cf1865f76e93d72efed24ce90e  xarray/core/indexing.py\n05325f6d363c1ac6f4351ac7109c2fd883761893b04bd51776623bb3273bd02c  xarray/tests/test_dataarray.py\n"
+          }
+        },
+        "elapsed_seconds": 191.41240841592662
+      },
+      "controller_event_counts": {
+        "candidate_operation": 10,
+        "candidate_saved": 3,
+        "verification": 2,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "69af347d935d5a49ab48992aa630c9ee6515d5037975939cc756bb234d8c0a2a",
+          "eligible": false
+        },
+        {
+          "candidate_id": "candidate-003",
+          "artifact_digest": "9d7d89c1bf7cd3857598040719ca8307e404e8ac87f4cdcfdb819915a3ebec6c",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "69af347d935d5a49ab48992aa630c9ee6515d5037975939cc756bb234d8c0a2a",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-003",
+          "artifact_digest": "9d7d89c1bf7cd3857598040719ca8307e404e8ac87f4cdcfdb819915a3ebec6c",
+          "eligible": true
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "xarray/core/dataarray.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 875,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED xarray/tests/test_dataarray.py::test_no_dict",
+          "PASSED xarray/tests/test_dataarray.py::test_subclass_slots",
+          "PASSED xarray/tests/test_dataarray.py::test_weakref",
+          "PASSED xarray/tests/test_dataarray.py::test_delete_coords",
+          "PASSED xarray/tests/test_dataarray.py::test_deepcopy_obj_array",
+          "SKIPPED [1] xarray/tests/test_dataarray.py:2681: needs to be fixed for shortcut=False, keep_attrs=False",
+          "FAILED xarray/tests/test_dataarray.py::TestDataArray::test_from_series_multiindex",
+          "= 1 failed, 877 passed, 1 skipped, 5 xfailed, 1 xpassed, 259 warnings in 17.07s ="
+        ]
+      },
+      "tools_count": 13,
+      "nonzero_tools": [
+        11
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 13,
+        "save": 3,
+        "verify": 2,
+        "submit": 1
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 8,
+          "command_prefix": "cd /testbed && grep -n \"def test_loc\\|loc\\[dict\\|\\.loc\\[\" xarray/tests/test_dataarray.py | head -60 && sed -n '1,60p' xarray/tests/test_dataarray.py",
+          "command_sha256": "ebe30cb958f4d7d14ba6d3f2a06c12213609528d07aff264b75db39bf9041551"
+        },
+        {
+          "tool": 9,
+          "command_prefix": "cd /testbed && python - <<'EOF'\nfrom pathlib import Path\n\nsource = Path('xarray/core/dataarray.py')\ntext = source.read_text()\nold = '        return self.data_array.sel(**key)\\n'\nnew = '        return self.data_array.sel(key)\\n'\nassert text.count(old) == 1, text.count(old)\nsource.write_text(text.replace(old, new))\n\ntests = Path('xarray/tests/test_dataarray.py')\ntext = tests.read_text()\nanchor = '''",
+          "command_sha256": "d3d42702deb8aacf5a0124d3ef2ba68987f9f767913b939812b482ea260919ef"
+        },
+        {
+          "tool": 10,
+          "command_prefix": "cd /testbed && git checkout -- xarray/tests/test_dataarray.py && git status --short && git diff -- xarray/core/dataarray.py && /opt/miniconda3/envs/testbed/bin/python /tmp/repro_method_dim.py 2>&1",
+          "command_sha256": "c2f16169dc232ba7de8ef44b73691441428694c55089a1fbdd1ded229e3533aa"
+        },
+        {
+          "tool": 11,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest xarray/tests/test_dataarray.py -q > /tmp/test_dataarray.log 2>&1; status=$?; tail -25 /tmp/test_dataarray.log; echo \"pytest_status=$status\"; echo '--- edge cases ---'; /opt/miniconda3/envs/testbed/bin/python - <<'EOF'\nimport numpy as np\nfrom xarray import DataArray\n\nfor name in ['method', 'tolerance', 'drop', 'indexers']:\n    da = Da",
+          "command_sha256": "a7cd0251e9e2a25d3ae7e22b7b1ed40dc99b33d04f1e11bffcca90dc8846d11a"
+        },
+        {
+          "tool": 12,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python - <<'EOF'\nimport numpy as np\nfrom xarray import DataArray\n\nfor name in ['method', 'tolerance', 'drop', 'indexers']:\n    da = DataArray(\n        np.arange(4).reshape(2, 2),\n        dims=['x', name],\n        coords={'x': ['a', 'b'], name: ['c', 'd']},\n    )\n    expected = da.isel({'x': 0, name: 0})\n    mapping = dict(x='a', **{name: 'c'})\n    as",
+          "command_sha256": "f503dba71879092a8ad2def1ca2af2a5406f0669f881f04ff1ae01896508b58f"
+        },
+        {
+          "tool": 13,
+          "command_prefix": "cd /testbed && git diff --check && git status --short && git diff -- xarray/core/dataarray.py xarray/core/dataset.py xarray/core/indexing.py xarray/tests/test_dataarray.py && sha256sum xarray/core/dataarray.py xarray/core/dataset.py xarray/core/indexing.py xarray/tests/test_dataarray.py",
+          "command_sha256": "e6ffe890af758ace70bc3098a7efb8b0b020f26525cd60fc2a2af9d83b8a7370"
+        }
+      ],
+      "source_sha256": {
+        "result.json": "c046749068da5f92386fd752df6d9d548d5809dd08aea5aa36bb521bf0ae678a",
+        "trial.json": "e894b89946a3e2193317d1aca93e5db853abcc3249e375b97e701dc9432d9217",
+        "model.jsonl": "ff8f8ad870540e8f71008d0e9feb168bee444f74128a88aace45e1bf5300ba88",
+        "controller.jsonl": "cc4805810ccc36ae51f143a036625a4c1906d27dbd2ea20dd1b16c259aeef4c2",
+        "final-verification.json": "ceeb3fb3a4387b6f28d4ab7fef2682d7c864dbd984d7293d812f4e2a40806d09",
+        "candidates/candidate-002.json": "cda18cdd5bf8e54b2a93221b09f3a39fd51d6439ce3dbee81bf18c9dde5a304f",
+        "candidates/candidate-003.json": "8a76af2b179fe303907c327820f090dd976d93529a38b74323dd629c5a0ab7f0",
+        "candidates/candidate-001.json": "365c168e1eea40d72d649bce30eb11e50dd680097a5f5516597a3067f551bfb2",
+        "candidate.patch": "e3c08b25fd67e1749afb35cafa794688d3c5b6e6699bfcad15f3708c895a4403",
+        "swe-official/pydata__xarray-4695-C0-r1/course-mini-swe-agent/pydata__xarray-4695/patch.diff": "e3c08b25fd67e1749afb35cafa794688d3c5b6e6699bfcad15f3708c895a4403",
+        "swe-official/pydata__xarray-4695-C0-r1/course-mini-swe-agent/pydata__xarray-4695/report.json": "47e80e65760bcc73be89a205a42674a527bc6d3e31cbaffa883ef33e6ef17999",
+        "swe-official/pydata__xarray-4695-C0-r1/course-mini-swe-agent/pydata__xarray-4695/test_output.txt": "c8bcb756c983c80738465fcedf3afc1e1dbd5782e193e216287b8fdaac160a8b",
+        "swe-official/pydata__xarray-4695-C0-r1/course-mini-swe-agent/pydata__xarray-4695/run_instance.log": "7752ffbf549ed8f5a504de1a2be725348cabd80a5589ff1688daff26b277ca1f",
+        "swe-official/pydata__xarray-4695-C0-r1/course-mini-swe-agent/pydata__xarray-4695/eval.sh": "84a434604635d3524233db895a82f6616ed28fa1559ef6e02fe447274872ad33",
+        "tools.jsonl": "705bee008b0196eeb1e0023d16b1758eab55ecfad5e97c4874ed7d352d75aab6"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "Complete model event structures/per-call native usage and all tool command text; substantive issue, test/guard and baseline-failure outputs read, source-dump text sampled. Full candidate patch and original grader acceptance/report scope read. Not word-for-word reading of all reasoning.",
+      "protocol_sha256": "47b0b0b12a7e78394477bc696b552543495dab4a17110429b28f26dc1899a1e0"
+    },
+    {
+      "arm": "repeat",
+      "task": "pydata__xarray-4695",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-4695-C0-r2",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": false,
+      "wall_seconds": 298.2267782080453,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795632711.7301419,
+        "native_session_id": "1dc1a3ea-298c-437d-a289-3f31122a636e",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "48d6def22714d5a8aefe089a3ebc1e57f3091cae3e8cdeb5602fc235b1ea5cdb"
+      },
+      "event_counts": {
+        "request": 21,
+        "cli_process_started": 21,
+        "response": 21,
+        "billing_verified": 21
+      },
+      "native_sessions": [
+        "1dc1a3ea-298c-437d-a289-3f31122a636e"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a2140cd29570ada6b7d991465938c7",
+          0,
+          6754,
+          165
+        ],
+        [
+          2,
+          "01a2140ce75f79898901d411f6f25de2",
+          0,
+          7716,
+          224
+        ],
+        [
+          3,
+          "01a2140cfc3c7dfeac34c28194af42b6",
+          0,
+          8606,
+          208
+        ],
+        [
+          4,
+          "01a2140d107978c0b38f04e6d0e1869c",
+          0,
+          11678,
+          575
+        ],
+        [
+          5,
+          "01a2140d2cf172bf956b69dbab6b0e68",
+          0,
+          14990,
+          352
+        ],
+        [
+          6,
+          "01a2140d466874dfad35d81b2e25df91",
+          0,
+          16269,
+          330
+        ],
+        [
+          7,
+          "01a2140d60d6743db369199834094802",
+          0,
+          16794,
+          189
+        ],
+        [
+          8,
+          "01a2140d768c7306a64b1aed42f5e94e",
+          0,
+          17136,
+          252
+        ],
+        [
+          9,
+          "01a2140d96677a1eac4030147b196260",
+          0,
+          18073,
+          182
+        ],
+        [
+          10,
+          "01a2140dc4137f41ad8b7b971b5ee7e1",
+          0,
+          18556,
+          664
+        ],
+        [
+          11,
+          "01a2140de7d3786e8f73086c6a811c71",
+          0,
+          19486,
+          157
+        ],
+        [
+          12,
+          "01a2140dfc2879d39e6a0e6b9f393d91",
+          0,
+          22240,
+          1022
+        ],
+        [
+          13,
+          "01a2140e290979a5bde3ec8a5a769395",
+          0,
+          23572,
+          749
+        ],
+        [
+          14,
+          "01a2140e60a474248e7ab1e937764e4b",
+          0,
+          25365,
+          243
+        ],
+        [
+          15,
+          "01a2140e92fd79c8a784e95c2c650440",
+          0,
+          26749,
+          907
+        ],
+        [
+          16,
+          "01a2140eb8b67b1895c4494b722b3c61",
+          0,
+          27914,
+          415
+        ],
+        [
+          17,
+          "01a2140f62b7779986c45a5990f2454a",
+          0,
+          29224,
+          595
+        ],
+        [
+          18,
+          "01a2140f9d657b838fe40eaa1287963a",
+          0,
+          30352,
+          1827
+        ],
+        [
+          19,
+          "01a2140ff2737f689fce1d28707d4631",
+          0,
+          32587,
+          655
+        ],
+        [
+          20,
+          "01a214102cb071c8874ee84c4bc4c0e5",
+          0,
+          33501,
+          486
+        ],
+        [
+          21,
+          "01a2141082e37ed3846f804939037e32",
+          0,
+          34810,
+          443
+        ]
+      ],
+      "input_tokens": 442372,
+      "output_tokens": 10640,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "69af347d935d5a49ab48992aa630c9ee6515d5037975939cc756bb234d8c0a2a",
+        "protected_unchanged": false,
+        "restored_candidate": null,
+        "valid_verification": false,
+        "evidence": {
+          "public-regression": {
+            "state": "protected_dependency_changed",
+            "returncode": null,
+            "snapshot": null
+          }
+        },
+        "elapsed_seconds": 255.12171504099388
+      },
+      "controller_event_counts": {
+        "candidate_operation": 7,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "69af347d935d5a49ab48992aa630c9ee6515d5037975939cc756bb234d8c0a2a",
+          "eligible": false
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "69af347d935d5a49ab48992aa630c9ee6515d5037975939cc756bb234d8c0a2a",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "xarray/core/dataarray.py",
+        "xarray/tests/test_dataarray.py"
+      ],
+      "protected_test_patch_paths": [
+        "xarray/tests/test_dataarray.py"
+      ],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 875,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED xarray/tests/test_dataarray.py::test_no_dict",
+          "PASSED xarray/tests/test_dataarray.py::test_subclass_slots",
+          "PASSED xarray/tests/test_dataarray.py::test_weakref",
+          "PASSED xarray/tests/test_dataarray.py::test_delete_coords",
+          "PASSED xarray/tests/test_dataarray.py::test_deepcopy_obj_array",
+          "SKIPPED [1] xarray/tests/test_dataarray.py:2681: needs to be fixed for shortcut=False, keep_attrs=False",
+          "FAILED xarray/tests/test_dataarray.py::TestDataArray::test_from_series_multiindex",
+          "= 1 failed, 877 passed, 1 skipped, 5 xfailed, 1 xpassed, 259 warnings in 17.02s ="
+        ]
+      },
+      "tools_count": 17,
+      "nonzero_tools": [
+        5,
+        7,
+        15
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 17,
+        "save": 2,
+        "verify": 1,
+        "submit": 1
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 4,
+          "command_prefix": "cd /testbed && grep -n \"def sel\" xarray/core/dataarray.py xarray/core/dataset.py xarray/core/dataarray.py | head && printf '\\n--- either_dict_or_kwargs ---\\n' && grep -R \"def either_dict_or_kwargs\" -n xarray && sed -n '20,80p' xarray/core/utils.py && printf '\\n--- DataArray.sel ---\\n' && sed -n '1050,1175p' xarray/core/dataarray.py && printf '\\n--- loc tests ---\\n' && grep -n \"\\.loc\\[dict\\|\\.loc\\[",
+          "command_sha256": "29642d5820001dd095196a5f92c6961054c15f31564bd0a95fea7a08b530eb86"
+        },
+        {
+          "tool": 10,
+          "command_prefix": "cd /testbed && sed -n '1040,1175p' xarray/tests/test_dataarray.py && printf '\\n--- imports/helpers ---\\n' && sed -n '1,45p' xarray/tests/test_dataarray.py && printf '\\n--- git log ---\\n' && git log -5 --oneline",
+          "command_sha256": "0cf478f14d640097c54bef3df40ee8c5c1034b0fa2967f2c05d4123f119326dc"
+        },
+        {
+          "tool": 12,
+          "command_prefix": "cd /testbed && python - <<'EOF'\nfrom pathlib import Path\npath = Path(\"xarray/tests/test_dataarray.py\")\ntext = path.read_text()\nanchor = '''    def test_loc_assign(self):\n'''\ntest = '''    @pytest.mark.parametrize(\"dim\", [\"method\", \"tolerance\", \"drop\", \"indexers\"])\n    def test_loc_with_reserved_dimension_name(self, dim):\n        da = DataArray(\n            np.arange(4).reshape(2, 2),\n            d",
+          "command_sha256": "1a8af3527dea4b0e6d0531848b6c0cf2450cf73131ac2cb2623a4b5afa980875"
+        },
+        {
+          "tool": 13,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest xarray/tests/test_dataarray.py xarray/tests/test_dataset.py xarray/tests/test_indexing.py -q 2>&1 | tail -40",
+          "command_sha256": "c2a29bc4fd2ed2ae8889e4cb9a20c091cd3e16ca61777dabdb1595b57d2a8722"
+        },
+        {
+          "tool": 14,
+          "command_prefix": "cd /testbed && rm -rf /tmp/xarray-baseline && git worktree add --detach /tmp/xarray-baseline HEAD >/tmp/worktree.log 2>&1 && cd /tmp/xarray-baseline && PYTHONPATH=/tmp/xarray-baseline /opt/miniconda3/envs/testbed/bin/python -m pytest --no-header -q xarray/tests/test_dataarray.py::TestDataArray::test_from_series_multiindex xarray/tests/test_dataset.py::TestDataset::test_sel_categorical xarray/tests",
+          "command_sha256": "6eff6434f1a91a9ac1f30592a0d79dd0c0af3a1a08f4233fc787152978e63f6b"
+        },
+        {
+          "tool": 17,
+          "command_prefix": "cd /testbed && git diff --check && git diff --stat && git diff && /opt/miniconda3/envs/testbed/bin/python -m pytest xarray/tests/test_dataarray.py -q -k \"loc\" 2>&1 | tail -3",
+          "command_sha256": "3930295a905b2dda84d5575e5d2e9f5caf8fd05b47c20a4dbc8ffdff55067b06"
+        }
+      ],
+      "source_sha256": {
+        "result.json": "47fbc5ee25bdd6438da91007879f07277bf11c3e489c1f6bedb4654d7fa7611a",
+        "trial.json": "e894b89946a3e2193317d1aca93e5db853abcc3249e375b97e701dc9432d9217",
+        "model.jsonl": "087788482e8923dcbef658acf042ee5bf86c5431dba5c099e802d2693f0b7f5b",
+        "controller.jsonl": "1d925874a30ce65c167e7c4ca51c7cf4e50a421975d900ccf3dd80e4e334a11f",
+        "final-verification.json": "7d59b9f3798d9c18aea2e90fb437dfc3e45e8c1395b9f0182a095d842bef1ac9",
+        "candidates/candidate-002.json": "1f620079253d9052b3f4999bbdd7d026c008496072ad7af3a0129f26bb839451",
+        "candidates/candidate-001.json": "8b47882a923f2a56eb33443649e6dbc670d4e8b2e9d5a48a0582fd78541acd40",
+        "candidate.patch": "2cfa368eadbeb818a7f698c5ae4487676bbb3894fac039178b1659a773671cf0",
+        "swe-official/pydata__xarray-4695-C0-r2/course-mini-swe-agent/pydata__xarray-4695/patch.diff": "2cfa368eadbeb818a7f698c5ae4487676bbb3894fac039178b1659a773671cf0",
+        "swe-official/pydata__xarray-4695-C0-r2/course-mini-swe-agent/pydata__xarray-4695/report.json": "47e80e65760bcc73be89a205a42674a527bc6d3e31cbaffa883ef33e6ef17999",
+        "swe-official/pydata__xarray-4695-C0-r2/course-mini-swe-agent/pydata__xarray-4695/test_output.txt": "4696bb80ad8ccd9bf3e3abb3953575d2e3f6f5c20fbb4d717ef3f4af44fa81d5",
+        "swe-official/pydata__xarray-4695-C0-r2/course-mini-swe-agent/pydata__xarray-4695/run_instance.log": "a1a346a6982ea42e82e13260cf8a3c52354befe90eaafc33d8216eca35c10ec0",
+        "swe-official/pydata__xarray-4695-C0-r2/course-mini-swe-agent/pydata__xarray-4695/eval.sh": "84a434604635d3524233db895a82f6616ed28fa1559ef6e02fe447274872ad33",
+        "tools.jsonl": "a8d6e8ed329325b095d59a3530160abdbb58dc75f770b294d1fc0927aa2ad69d"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "Complete model event structures/per-call native usage and all tool command text; substantive issue, test/guard and baseline-failure outputs read, source-dump text sampled. Full candidate patch and original grader acceptance/report scope read. Not word-for-word reading of all reasoning.",
+      "protocol_sha256": "47b0b0b12a7e78394477bc696b552543495dab4a17110429b28f26dc1899a1e0"
+    }
+  ],
+  "shared_source_sha256": {
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pydata__xarray-4695-C0-r1.protocol.json": "47b0b0b12a7e78394477bc696b552543495dab4a17110429b28f26dc1899a1e0",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-4695-C0-r2.protocol.json": "47b0b0b12a7e78394477bc696b552543495dab4a17110429b28f26dc1899a1e0"
+  },
+  "reviewer_actions": {
+    "read_original_closed_runs_only": true,
+    "changed_original_run_or_score": false,
+    "changed_STOP": false,
+    "qualification_is_separate_engineering": true
+  }
+}

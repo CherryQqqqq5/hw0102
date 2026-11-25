@@ -1,0 +1,2851 @@
+{
+  "schema_version": 1,
+  "status": "AUDITED_SIX_CLOSED_ORIGINAL_POSITIONS_WITH_STATED_LIMITS",
+  "original_core_audit_complete": true,
+  "final_225_admission": false,
+  "final_delivery_admission": false,
+  "blocking_findings": [],
+  "authority": {
+    "path": "work/parallel-free-evaluation-20261124/hy4-original225-final-20261126/summary.json",
+    "sha256": "7bbb62a23fc0679038448370cb7da109c3febc9016cdc3ff58e867aee3d0a2ba",
+    "observed_utc": "2026-11-25T22:33:23.179295+00:00",
+    "groups": {
+      "dsh": {
+        "required": 75,
+        "completed": 75,
+        "passed": 69,
+        "qualified_passed": 69,
+        "actual_requests": 1200
+      },
+      "main": {
+        "required": 75,
+        "completed": 75,
+        "passed": 71,
+        "qualified_passed": 69,
+        "actual_requests": 1342
+      },
+      "repeat": {
+        "required": 75,
+        "completed": 75,
+        "passed": 73,
+        "qualified_passed": 72,
+        "actual_requests": 1236
+      }
+    },
+    "original_positions": 225,
+    "predecessor_original_positions": 219,
+    "selection": "Exact complete run_dir set difference between fixed219 summary and immutable original225 summary: tune-mjcf and sklearn10908 in all three arms. All6 selected without consulting passed labels.",
+    "predecessor219_row_objects_exactly_unchanged": true,
+    "excluded": "Sixteen final scoped revision positions, three guidance ablations, two pytest preservation positions and final joined75x3/PDF/package acceptance are separate. No live ablation/preservation content was read."
+  },
+  "predecessor_authority": {
+    "path": "work/parallel-free-evaluation-20261124/hy4-snapshot-0507-20261126/summary.json",
+    "sha256": "f93115883af15c70bd6621b65cdf62c05afc593f6923070cc8b19e32ec670803",
+    "observed_utc": "2026-11-25T21:06:06.206093+00:00"
+  },
+  "predecessor_review": {
+    "path": "work/parallel-free-evaluation-20261124/independent-core-after210-incremental-20261126.json",
+    "sha256": "bb14a45ca0f481cf55c718b1c38d678ecb58962717aa7b7d8c8894c3280fd0e3"
+  },
+  "audit_work": {
+    "path": "work/parallel-free-evaluation-20261124/final-six-audit-work-20261126.json",
+    "sha256": "d734104a526758ca9f5700b311c214b6f1a3a2ed7a0a09dafc08335812944446",
+    "bytes": 119130,
+    "status": "DRAFT_SIX_OF_SIX_AUDITED_PENDING_FORMAL_INCREMENTAL_RECORD",
+    "historical_versions": [
+      {
+        "sha256": "aa0dd93864dceb9b4ec295ae0c04cbf599a117b623e3d52aecf318af1a23cf1e",
+        "bytes": 25388,
+        "status": "DRAFT_PARTIAL_ONE_OF_SIX_AUDITED",
+        "saved_as": "historical digest reference to earlier mutable work-file version; no archived preimage file required or claimed",
+        "change": "Appended only the two newly closed main/DSH tune audits and updated aggregate work counters to3/6; retained the prior repeat row."
+      },
+      {
+        "sha256": "2084df95c70b2b3fb56a42a78c821d11a5369d98aac0dac9f5478cd5538eef28",
+        "bytes": 61628,
+        "status": "DRAFT_PARTIAL_THREE_OF_SIX_AUDITED",
+        "saved_as": "Historical digest reference to mutable work-file predecessor; no separate archive claimed",
+        "change": "Appended only three closed sklearn10908 audits and new immutable225 snapshot reference; retained preceding three tune row objects."
+      }
+    ],
+    "handling": "The appendable private work record is retained. This separate record binds its completed six-position source audit plus immutable225 metadata."
+  },
+  "reused_reviews": [
+    {
+      "path": "work/parallel-free-evaluation-20261124/independent-closed177-review-20261126.json",
+      "sha256": "cb1dfd62c93b21771f35ed4ab527668e18d575593ea17fdfe90d5a7f8ce88df1",
+      "scope": "Previously completed source/trajectory audit; reused unchanged through fixed219 and receipt/session inventories, not re-read word-for-word"
+    },
+    {
+      "path": "work/sklearn-25232-semantics-20261126/completed-review.json",
+      "sha256": "ee70b77ba884f073c2400cb20ce20999befe266a4e7db16b02e81461728fb36a",
+      "scope": "Previously audited scoped revision identity inventory only; not counted in original-core score denominator"
+    },
+    {
+      "path": "work/xarray-4695-preservation-20261126/completed-review.json",
+      "sha256": "97f92aa9b5aadf1327fc22648a1e7084076293ae39ec8f19cc60b353b88b1d27",
+      "scope": "Previously audited scoped revision identity inventory only; not counted in original-core score denominator"
+    }
+  ],
+  "totals_recomputed": {
+    "new_original_positions": 6,
+    "by_arm": {
+      "main": {
+        "positions": 2,
+        "requests": 30
+      },
+      "dsh": {
+        "positions": 2,
+        "requests": 49
+      },
+      "repeat": {
+        "positions": 2,
+        "requests": 68
+      }
+    },
+    "raw_passed": 6,
+    "raw_failed": 0,
+    "C0_positions": 4,
+    "C0_final_public_and_protected_passed": 4,
+    "B0_control_not_applicable": 2,
+    "requests": 147,
+    "responses": 147,
+    "distinct_own_zero_credit_receipts": 147,
+    "unknown_requests_in_these6": 0,
+    "new_native_sessions": 6,
+    "tool_records": 130,
+    "input_tokens": 3871862,
+    "output_tokens": 82192,
+    "scored_wall_seconds": 5712.427778208046,
+    "original225": {
+      "raw_passed": 213,
+      "raw_failed": 12,
+      "complete_own_zero_receipts": 3778,
+      "by_arm": {
+        "dsh": {
+          "required": 75,
+          "completed": 75,
+          "passed": 69,
+          "qualified_passed": 69,
+          "actual_requests": 1200
+        },
+        "main": {
+          "required": 75,
+          "completed": 75,
+          "passed": 71,
+          "qualified_passed": 69,
+          "actual_requests": 1342
+        },
+        "repeat": {
+          "required": 75,
+          "completed": 75,
+          "passed": 73,
+          "qualified_passed": 72,
+          "actual_requests": 1236
+        }
+      },
+      "all_main_repeat_qualified_pass": false
+    },
+    "known_source_audited_union": {
+      "original225_plus14_actual_scoped_plus5_oldJSON_scored_positions": 244,
+      "complete_own_zero_IDs_excluding_known_mechanical_prefix": 4318,
+      "known_mechanical_prefix_IDs": 11,
+      "complete_IDs_with_that_prefix": 4329,
+      "native_sessions": 248
+    },
+    "historical_unknown_calls_preserved": 35,
+    "scope": "The known Hy4 history only. Missing historical amounts/identity/usage stay null; no other provider's policy proofs are treated as Hy4 zero-credit receipts. Mechanical extra cost is additional to scored attempts."
+  },
+  "identity_check": {
+    "baseline_before_six": {
+      "IDs": 4182,
+      "sessions": 242
+    },
+    "tune_three": {
+      "new_IDs": 97,
+      "new_sessions": 3,
+      "ID_intersection": 0,
+      "session_intersection": 0
+    },
+    "sklearn10908_three": {
+      "prior_IDs": 4279,
+      "prior_sessions": 245,
+      "new_IDs": 50,
+      "new_sessions": 3,
+      "ID_intersection": 0,
+      "session_intersection": 0
+    },
+    "all_six": {
+      "new_IDs": 147,
+      "new_sessions": 6,
+      "cross_position_ID_intersection": 0,
+      "cross_position_session_intersection": 0,
+      "known_union_IDs": 4329,
+      "known_union_sessions": 248
+    },
+    "receipt_rule": "Frozen verify_free_response applied to every new response; one newly observed own provider messageId/rawUsage per response, exact billing_verified fresh-ID list/credit0/request and provider identity, attempt1,64000 cap, monotone request/response/billing times. Existing completed tune audit source hashes were rechecked."
+  },
+  "actual_checks": {
+    "run_source_bindings": 95,
+    "shared_source_bindings": 26,
+    "frozen_inputs": "All6 actual original result/task/framework/configuration/model/backend/runtime/limits match their actual frozen definitions and immutable225 row SHA fields. No legacy result/protocol is relabeled into a later runtime.",
+    "original_pin": "Each resource record matches original task pin exactly and exclusive=true. SWE clean checkout base/image trees match with no modified paths or executable-bit changes. Existing actual resource receipts read; no VM/Docker calls.",
+    "actual_grader": "All3 tune original4-test reports passed. All3 sklearn original reports resolved1 FAIL_TO_PASS test_feature_names +47 PASS_TO_PASS, no infrastructure failure. Saved production patch bytes exactly equal actual original grader patch.diff in each SWE position.",
+    "currentness": "Four C0 current final public/protected flags true; candidate ordering and evidence kept as originally recorded, including early ineligible saves. DSH B0 has no C0 final-control and is explicitly not applicable.",
+    "human_read_depth": "New sklearn10908: all41 tool commands and meaningful outputs plus50 model event structures/individual receipts read; relevant original production and test code/full task, candidates/controller and original grader outputs read. Previously completed three tune trajectories were reused, with source hashes rechecked. Model reasoning and repetitive conda/build boilerplate were not read word-for-word.",
+    "original219_reuse": "Every previous219 summary row object exactly equals its immutable225 counterpart. Prior semantic audit is referenced; old219 raw trajectories were not re-read or fully rehashed.",
+    "no_new_execution": {
+      "model_calls": 0,
+      "original_grader_calls": 0,
+      "VM_operations": 0,
+      "financial_changes": 0,
+      "Git_operations": 0
+    }
+  },
+  "retained_original_labels": {
+    "raw_false": [
+      {
+        "arm": "dsh",
+        "task": "model-extraction-relu-logits",
+        "run_dir": "work/vmshare/performance75-dsh-hy4-v10/model-extraction-relu-logits-B0-r1",
+        "passed": false,
+        "qualified_passed": false
+      },
+      {
+        "arm": "dsh",
+        "task": "pydata__xarray-4687",
+        "run_dir": "work/vmshare/performance75-dsh-hy4-v10/pydata__xarray-4687-B0-r1",
+        "passed": false,
+        "qualified_passed": false
+      },
+      {
+        "arm": "dsh",
+        "task": "extract-elf",
+        "run_dir": "work/vmshare/performance75-dsh-hy4-v10/extract-elf-B0-r1",
+        "passed": false,
+        "qualified_passed": false
+      },
+      {
+        "arm": "dsh",
+        "task": "video-processing",
+        "run_dir": "work/vmshare/performance75-dsh-hy4-v10/video-processing-B0-r1",
+        "passed": false,
+        "qualified_passed": false
+      },
+      {
+        "arm": "dsh",
+        "task": "django__django-12193",
+        "run_dir": "work/vmshare/performance75-dsh-hy4-v10/django__django-12193-B0-r1",
+        "passed": false,
+        "qualified_passed": false
+      },
+      {
+        "arm": "dsh",
+        "task": "pydata__xarray-2905",
+        "run_dir": "work/vmshare/performance75-dsh-hy4-v10/pydata__xarray-2905-B0-r1",
+        "passed": false,
+        "qualified_passed": false
+      },
+      {
+        "arm": "main",
+        "task": "django__django-13346",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-13346-C0-r1",
+        "passed": false,
+        "qualified_passed": false
+      },
+      {
+        "arm": "main",
+        "task": "feal-linear-cryptanalysis",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/feal-linear-cryptanalysis-C0-r1",
+        "passed": false,
+        "qualified_passed": false
+      },
+      {
+        "arm": "main",
+        "task": "pydata__xarray-2905",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pydata__xarray-2905-C0-r1",
+        "passed": false,
+        "qualified_passed": false
+      },
+      {
+        "arm": "main",
+        "task": "pytest-dev__pytest-7205",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pytest-dev__pytest-7205-C0-r1",
+        "passed": false,
+        "qualified_passed": false
+      },
+      {
+        "arm": "repeat",
+        "task": "pydata__xarray-2905",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-2905-C0-r2",
+        "passed": false,
+        "qualified_passed": false
+      },
+      {
+        "arm": "repeat",
+        "task": "pytest-dev__pytest-7205",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pytest-dev__pytest-7205-C0-r2",
+        "passed": false,
+        "qualified_passed": false
+      }
+    ],
+    "raw_true_but_unqualified": [
+      {
+        "arm": "main",
+        "task": "model-extraction-relu-logits",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/model-extraction-relu-logits-C0-r1",
+        "passed": true,
+        "qualified_passed": false,
+        "final_protected_unchanged": true,
+        "final_valid_verification": false
+      },
+      {
+        "arm": "main",
+        "task": "pytest-dev__pytest-5631",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pytest-dev__pytest-5631-C0-r1",
+        "passed": true,
+        "qualified_passed": false,
+        "final_protected_unchanged": false,
+        "final_valid_verification": false
+      },
+      {
+        "arm": "repeat",
+        "task": "pydata__xarray-4695",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-4695-C0-r2",
+        "passed": true,
+        "qualified_passed": false,
+        "final_protected_unchanged": false,
+        "final_valid_verification": false
+      }
+    ],
+    "rule": "These true/false/qualified labels remain original. Later scoped repair successes cannot replace original score history."
+  },
+  "findings_and_limits": [
+    {
+      "severity": "P2",
+      "scope": "tune-mjcf",
+      "finding": "All final tuned files change solver/numerical options only; all other physical XML elements equal the public reference. Actual grader and finite/sample self-tests support these runs, not every possible initialization or physical scenario. Original printed state difference0.0000 is rounded.",
+      "action": "Retain actual local timing and the existing image-architecture limitation. Do not claim exactzero, generalnative performance, or causal framework advantage."
+    },
+    {
+      "severity": "P2",
+      "scope": "tune DSH",
+      "finding": "Legacy B0 finalXML has no native artifact capture; its1309B/digest are reconstructed from actual public-reference and final writer text. Its early400seed background test never produced a full result.",
+      "action": "Keep reconstructed-vs-captured distinction and failed/time-limited selftest evidence. Final80seeds are two completed batches; no all400 or separate80-finite certificate."
+    },
+    {
+      "severity": "P2",
+      "scope": "sklearn10908 C0",
+      "finding": "Registered public check is original test_text.py -k vocab:10 pass/38 deselected, not a dedicated constructor-vocabulary issue verifier. Both models independently run issue reproducers/edge cases and actual original target tests pass.",
+      "action": "Do not attribute issue detection to the registered check or describe C0 as automatic per-step verification."
+    },
+    {
+      "severity": "P2",
+      "scope": "sklearn10908 repeated development",
+      "finding": "Scratch edge test initially fails because its a/b/c tokens are rejected by the existing default token pattern; only scratch data is corrected to aa/bb/cc. An early EMPTY_VOCAB label catches broadValueError including NotFittedError.",
+      "action": "Preserve those debug facts and distinguish final exact outputs/real grader from loose pre-fix print labels; no original test tampering observed."
+    },
+    {
+      "severity": "P2",
+      "scope": "DSH B0 and scientific comparison",
+      "finding": "DSH uses shared _check_vocabulary responsibility instead of only get_feature_names; its original regression scope passes. B0 qualified passthrough is not C0 public/protected evidence. Raw grades and different procedure lengths do not isolate a causal framework or verification benefit.",
+      "action": "Keep actual protocol and applicable-control nulls, source patch scope and whole-chain cost."
+    },
+    {
+      "severity": "LIMIT",
+      "scope": "original225 vs final joined method",
+      "finding": "Original225 are complete with213rawtrue/12false and three rawtrue-unqualified positions. This record does not verify final sixteen scoped revisions, future/ongoing ablation3 or preservation2 or final effective75x3 combination.",
+      "action": "Perform separate final joined-source/protocol/receipt review once those actual records close."
+    }
+  ],
+  "rows": [
+    {
+      "arm": "repeat",
+      "task": "tune-mjcf",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/tune-mjcf-C0-r2",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 2381.6486858749995,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795640050.39065,
+        "native_session_id": "31b88d1c-f5bd-4ab1-b849-352535ebadc1",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "be5b7ff2abf5e7a8b3c75e4e1252b4540c02d67da013f28a2f6c009ee667e59e"
+      },
+      "event_counts": {
+        "request": 50,
+        "cli_process_started": 50,
+        "response": 50,
+        "billing_verified": 50
+      },
+      "native_sessions": [
+        "31b88d1c-f5bd-4ab1-b849-352535ebadc1"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a2147ccc1f74bdafdb8e4a1ec25667",
+          0,
+          5349,
+          189
+        ],
+        [
+          2,
+          "01a2147ce0ac77699fc221d010fbea96",
+          0,
+          7657,
+          793
+        ],
+        [
+          3,
+          "01a2147d0a2a72ca972d407766a89162",
+          0,
+          8895,
+          1047
+        ],
+        [
+          4,
+          "01a2147e10527833987fda12c1abf96c",
+          0,
+          10583,
+          943
+        ],
+        [
+          5,
+          "01a2147f99bd7befb63a2809c4e27a98",
+          0,
+          12671,
+          2210
+        ],
+        [
+          6,
+          "01a21481ad767d67b8a36aca3fe1fc38",
+          0,
+          17926,
+          568
+        ],
+        [
+          7,
+          "01a21481d29473879c138d783a3e6bc9",
+          0,
+          18892,
+          1261
+        ],
+        [
+          8,
+          "01a214826062735485725dd96c064eab",
+          0,
+          20759,
+          431
+        ],
+        [
+          9,
+          "01a214827e807171b9a4f246c18dc655",
+          0,
+          21493,
+          176
+        ],
+        [
+          10,
+          "01a2148292e57f29a730104b1f05963c",
+          0,
+          22774,
+          125
+        ],
+        [
+          11,
+          "01a21482a68e748eaa99d682a615c1a8",
+          0,
+          23104,
+          1109
+        ],
+        [
+          12,
+          "01a21483fdd175f7ba3276a1989b0f44",
+          0,
+          24679,
+          296
+        ],
+        [
+          13,
+          "01a2148418aa74bc8b3fe1925606fc2b",
+          0,
+          25109,
+          239
+        ],
+        [
+          14,
+          "01a214842f66759a833cce325b28c06d",
+          0,
+          25840,
+          1156
+        ],
+        [
+          15,
+          "01a21484e85c716f8c2dae59c1214c01",
+          0,
+          27260,
+          94
+        ],
+        [
+          16,
+          "01a21484fc757844a3dab5f934b5140c",
+          0,
+          27627,
+          1126
+        ],
+        [
+          17,
+          "01a21486d94575279a8ca2afa4786421",
+          0,
+          29086,
+          1706
+        ],
+        [
+          18,
+          "01a21487a47b70818e94d17f5ad65795",
+          0,
+          31102,
+          1586
+        ],
+        [
+          19,
+          "01a21487e0ad72f8b62fa0feedbd1a30",
+          0,
+          32842,
+          1252
+        ],
+        [
+          20,
+          "01a2148974a57336acc234dc74ea4fe6",
+          0,
+          35029,
+          865
+        ],
+        [
+          21,
+          "01a21489a17979b68c0145cc8bfc011e",
+          0,
+          36093,
+          664
+        ],
+        [
+          22,
+          "01a21489d4357f9189301f89cf35f8f7",
+          0,
+          37929,
+          972
+        ],
+        [
+          23,
+          "01a2148a017672f3b8244f59ae87133e",
+          0,
+          39349,
+          1508
+        ],
+        [
+          24,
+          "01a2148bd8e57db786bf24f2a538cda0",
+          0,
+          41289,
+          278
+        ],
+        [
+          25,
+          "01a2148daf6674b9a8fe927cdd469e7b",
+          0,
+          42851,
+          783
+        ],
+        [
+          26,
+          "01a2148e07d37c2cb07846a0a2c55f7e",
+          0,
+          43793,
+          1252
+        ],
+        [
+          27,
+          "01a2148e8a7275a2b83968d18287b282",
+          0,
+          45837,
+          978
+        ],
+        [
+          28,
+          "01a2148eb7a173bb82141b3e8246dda1",
+          0,
+          47084,
+          913
+        ],
+        [
+          29,
+          "01a2148edd5f78608e185e26d31da993",
+          0,
+          48161,
+          538
+        ],
+        [
+          30,
+          "01a2148f632c75b384b43f827691c149",
+          0,
+          49426,
+          776
+        ],
+        [
+          31,
+          "01a21490812b736d934d3b860de290ec",
+          0,
+          51156,
+          1213
+        ],
+        [
+          32,
+          "01a21491420275eeb1ee09282eaa5467",
+          0,
+          54012,
+          802
+        ],
+        [
+          33,
+          "01a214916ad17119acdb0054559f7e9e",
+          0,
+          55613,
+          1058
+        ],
+        [
+          34,
+          "01a21491aa7973ac8c55a292d1d14d4b",
+          0,
+          57021,
+          971
+        ],
+        [
+          35,
+          "01a21491e6e87d2dbd2be2e6bb87fc25",
+          0,
+          58299,
+          1392
+        ],
+        [
+          36,
+          "01a21492d7867462ac6ce28819293284",
+          0,
+          61704,
+          1027
+        ],
+        [
+          37,
+          "01a214940e52712688e201ed19ec43dc",
+          0,
+          63134,
+          970
+        ],
+        [
+          38,
+          "01a2149606de76b09c0c7be9e9087c71",
+          0,
+          64290,
+          425
+        ],
+        [
+          39,
+          "01a2149698b67378b215eab28efbd5ce",
+          0,
+          65895,
+          995
+        ],
+        [
+          40,
+          "01a2149895007d46be703d54029a479e",
+          0,
+          66980,
+          538
+        ],
+        [
+          41,
+          "01a2149923b1758c9e3257aff41fc3c5",
+          0,
+          68104,
+          573
+        ],
+        [
+          42,
+          "01a2149a1f497203b44d0dee60304cbb",
+          0,
+          69522,
+          402
+        ],
+        [
+          43,
+          "01a2149b173370e7a93d52e5b19c4c37",
+          0,
+          70628,
+          863
+        ],
+        [
+          44,
+          "01a2149bb55d71a39ef6eea85707318c",
+          0,
+          71643,
+          517
+        ],
+        [
+          45,
+          "01a2149c421c7a8ca3b0233261310667",
+          0,
+          73211,
+          493
+        ],
+        [
+          46,
+          "01a2149d44cf736fad54ea05d8576ceb",
+          0,
+          73884,
+          944
+        ],
+        [
+          47,
+          "01a2149e5ea57764b7c65ebd5ea7066d",
+          0,
+          75072,
+          719
+        ],
+        [
+          48,
+          "01a214a00ce173e8a5f3e86a6624fd40",
+          0,
+          75979,
+          151
+        ],
+        [
+          49,
+          "01a214a0234f7ca1b2cefe96fe614e46",
+          0,
+          76407,
+          74
+        ],
+        [
+          50,
+          "01a214a0411173b181d09be053a5dba7",
+          0,
+          76808,
+          207
+        ]
+      ],
+      "input_tokens": 2189851,
+      "output_tokens": 40168,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "903aad67fb1cdb74f9019f42dfc01de48962c98e26286c63d0b4b2a34d2556ba",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-artifact": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "44509bf47800cef09883c03481d7ea8c4f1331287ee86040dc653a22835af8d2  /app/model.xml\n"
+          }
+        },
+        "elapsed_seconds": 2330.9747851670254
+      },
+      "controller_event_counts": {
+        "candidate_operation": 6,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "903aad67fb1cdb74f9019f42dfc01de48962c98e26286c63d0b4b2a34d2556ba",
+          "eligible": false
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "29cec35ea4bdcd5207754ad833104a14673b771dacdd1fa43503e0b7aed46e14",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "903aad67fb1cdb74f9019f42dfc01de48962c98e26286c63d0b4b2a34d2556ba",
+          "eligible": false
+        }
+      ],
+      "native_capture": {
+        "registered": true,
+        "artifacts": [
+          {
+            "source": "/app/model.xml",
+            "status": "ok",
+            "type": "file",
+            "path": "tune-mjcf__RyFeksv/artifacts/app/model.xml",
+            "sha256": "44509bf47800cef09883c03481d7ea8c4f1331287ee86040dc653a22835af8d2",
+            "bytes": 1373,
+            "sha_present_in_final_public_snapshot": true
+          }
+        ],
+        "model_requests_by_capture": 0
+      },
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "============================= test session starts ==============================",
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_model_ref_unchanged",
+          "PASSED ../tests/test_outputs.py::test_tuned_model_exists",
+          "PASSED ../tests/test_outputs.py::test_correctness",
+          "PASSED ../tests/test_outputs.py::test_model_speed",
+          "============================== 4 passed in 30.73s =============================="
+        ]
+      },
+      "tools_count": 46,
+      "nonzero_tools": [
+        5,
+        6,
+        14,
+        17,
+        19,
+        27,
+        36,
+        38
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 46,
+        "save": 2,
+        "verify": 1,
+        "submit": 1
+      },
+      "source_sha256": {
+        "result.json": "9b11bc107665d6f45a2fa8c3e5d647c7d6e18f52b2bd6d6f94cb4c5a248347e3",
+        "trial.json": "63e7e35037d2524de20c03918da7cd6fa0566142cb84d184caa772a7111e0593",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/tune-mjcf-C0-r2.protocol.json": "eb8211a7f2d4660f2249c0495c33ddd412958ba5201a0e6179cd2f072bb524d5",
+        "tune-mjcf__RyFeksv/agent/model.jsonl": "2e7ea3c7b5dbb57a5d44e29403c53be3f6243b2a3aeea009557ba81a2acdac2c",
+        "tune-mjcf__RyFeksv/agent/controller.jsonl": "73e8c3dcac098eda7d5cf4bd2e05555a4a1bf65193ae2efac363198bdd67cd02",
+        "tune-mjcf__RyFeksv/agent/final-verification.json": "555bc50f009a82b4d3b3bacf7780850e2a42b86184bbda04d6687f1c4134c198",
+        "tune-mjcf__RyFeksv/agent/candidates/candidate-002.json": "3caf0fd3dba7f547bdb1b982111fee7ef8668cf0aceb0643c9e36ac8ec84a7b0",
+        "tune-mjcf__RyFeksv/agent/candidates/candidate-001.json": "91a11f1dfe2f2e49cff7df440245b3c8e5b8fa2346abb91f9f43477fc3128886",
+        "artifact-capture.json": "b7c76e70bb7acf003415e54304d81f1f47428d49560c52a2545b10c999820dd1",
+        "artifact-capture-config.json": "4109d0c973790993c7aeb584da941d800ed57b2b742a36e046ae3e0ffe1bcf85",
+        "tune-mjcf__RyFeksv/artifacts/manifest.json": "c995a93e5b8302da1a6c6fe1c692f386e9d5022a7ccaca4da2d6634428008a6a",
+        "tune-mjcf__RyFeksv/artifacts/app/model.xml": "44509bf47800cef09883c03481d7ea8c4f1331287ee86040dc653a22835af8d2",
+        "tune-mjcf__RyFeksv/result.json": "b832667826d663102fca663428d5f21d3a43f7a53499d57864c8e6508cd27f6e",
+        "tune-mjcf__RyFeksv/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "tune-mjcf__RyFeksv/verifier/test-stdout.txt": "69c93ab8446d3d5578f5d291ddf09467a72727b77a3e74b032f946562f01d532",
+        "tune-mjcf__RyFeksv/agent/tools.jsonl": "572370e99306aed48c088c5386657f2ac885eb522b3c923833f182a6e93f923f",
+        "tune-mjcf/instruction.md": "c7fb299b6c6d6c9a2dcd95c5938e6f902ddad1cb02aee875d369cb7eae584b1f"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "new_structural_scan_pending_deep_tool_semantic_read",
+      "protocol_sha256": "eb8211a7f2d4660f2249c0495c33ddd412958ba5201a0e6179cd2f072bb524d5",
+      "native_artifact_byte_links": {
+        "bytes": 1373,
+        "sha256": "44509bf47800cef09883c03481d7ea8c4f1331287ee86040dc653a22835af8d2",
+        "matches_last_actual_writer_from_public_reference": true,
+        "only_added_option": true,
+        "candidate002_payload_same": true,
+        "candidate002_eligible": false,
+        "public_snapshot_same": true,
+        "parameters": {
+          "timestep": "0.002",
+          "jacobian": "dense",
+          "solver": "PGS",
+          "iterations": "100"
+        },
+        "flag": {
+          "warmstart": "disable"
+        }
+      },
+      "identity_crosscheck": {
+        "prior_ids": 4182,
+        "prior_sessions": 242,
+        "new_ids": 50,
+        "new_sessions": 1,
+        "id_intersection": 0,
+        "session_intersection": 0,
+        "new_session": "31b88d1c-f5bd-4ab1-b849-352535ebadc1",
+        "limited_union_ids": 4232,
+        "limited_union_sessions": 243
+      },
+      "semantic_review": {
+        "status": "ONE_CLOSED_REPEAT_TUNE_POSITION_AUDITED_WITH_STATED_LIMITS",
+        "final225_admission": false,
+        "blocking_findings": [],
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/tune-mjcf-C0-r2",
+        "actual_review_depth": "All50 model-event structures/individual own-zero receipts;all46 complete bash commands and meaningful output;public instruction/reference XML/eval shown by tool1;native XML,2candidates/controller/final and actual4-test original grade. Reasoning not read word-for-word.",
+        "result": {
+          "raw": true,
+          "qualified": true,
+          "wall_seconds": 2381.6486858749995,
+          "original_tests_passed": 4,
+          "reported_candidate_mean_seconds": 0.4276,
+          "reported_reference_mean_seconds": 0.9543,
+          "reported_speedup": "2.23x",
+          "reported_time_percentage": 0.45,
+          "reported_state_difference": "0.0000 (rounded display,not exactly zero)"
+        },
+        "final_parameters": {
+          "timestep": 0.002,
+          "jacobian": "dense",
+          "solver": "PGS",
+          "iterations": 100,
+          "warmstart": "disable"
+        },
+        "source_scope": "After removing the newly added option element,normalized XML tree equals the original reference. Captured bytes exactly reconstruct from the public reference and tool46 writer. Physical bodies/geoms/contacts/equality/actuator/plugin properties unchanged. No custom plugin/binary/runtime required by finalXML.",
+        "source_preservation": "All observed commands leave original model_ref.xml and eval.py unmodified;CandidateStore final protected=true,official test_model_ref_unchanged passes.",
+        "native_currentness": {
+          "xml_sha256": "44509bf47800cef09883c03481d7ea8c4f1331287ee86040dc653a22835af8d2",
+          "bytes": 1373,
+          "candidate002_payload_same": true,
+          "candidate002_eligible": false,
+          "save_step": 48,
+          "verification_step": 49,
+          "submission_step": 50,
+          "final_current_public_and_protected": true
+        },
+        "public_check_limit": "Registered public-artifact only checks nonempty XML and ElementTree parse. It is not simulation-equivalence or speed proof;those come from the public eval/self-tests and actual original grader.",
+        "selftests": [
+          {
+            "tool": 45,
+            "configuration": "20 seeds from default_rng1234,including warmstart-disabled PGS100 semantically matching final option",
+            "result": "max1.2141319607715528e-6,median2.797787854755089e-7,bad0",
+            "limit": "NumPy array max is finite;final file is written afterward,so map this to the same semantic option variant rather than claiming identical file bytes at this earlier step."
+          },
+          {
+            "tool": 46,
+            "configuration": "Final exactXML;50 seeds from default_rng9876;1000steps at0.002s vs originalreference",
+            "result": "reported max1.3428822210823088e-6,median3.16940711321545e-7,count>1e-5=0",
+            "limit": "Explicitnp.isfinite rerun only first5seeds. Pythonmax(list)/comparison count alone is not an independent all50 finite certificate. Actual original/publiceval correctness separately checks NaN/Inf."
+          }
+        ],
+        "retained_debug_failures": "Earlier physical-parameter/flags/timestep candidates,unstableNaN warnings,schema errors,missingScipy and command timeouts remain. Tool24/27-31 hardcodes750 steps for bothmodels and therefore simulates reference only1.5s vs candidate2s;those.5state differences are faulty debug comparisons,not final validation. Later tools32/33 correct step count. The100seed test at38 times out;the100split batches39-41 concern an earlier disabled-contact/flags candidate,not final.",
+        "timing_scope": "Originalreported times apply to one actual localoriginal pin/environment and its benchmark timing procedure. Public eval draws fresh random seeds independently for model/ref timing arrays despite itssame-seedcomment;correctness uses the same seed. No architecture speed causalclaim or externalnative performance equivalence.",
+        "information_access": "Provided model_ref.xml/eval.py and installed MuJoCo headers/librarystrings inspected. No observed hidden grader/answer retrieval or otherattemptcandidate reuse.",
+        "reviewer_actions": {
+          "new_model_calls": 0,
+          "new_original_grader_calls": 0,
+          "new_VM_operations": 0,
+          "new_source_files": 0
+        },
+        "final_review_handling": "Keep these notes/source/receipts for the single combined219→225 six-positionreview once all6closed. Do not add a separate new single-runreview file."
+      }
+    },
+    {
+      "arm": "main",
+      "task": "tune-mjcf",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/tune-mjcf-C0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 663.255054457928,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795644650.414349,
+        "native_session_id": "32d58d8c-9999-48a0-bf3f-e61700dedc42",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "be5b7ff2abf5e7a8b3c75e4e1252b4540c02d67da013f28a2f6c009ee667e59e"
+      },
+      "event_counts": {
+        "request": 13,
+        "cli_process_started": 13,
+        "response": 13,
+        "billing_verified": 13
+      },
+      "native_sessions": [
+        "32d58d8c-9999-48a0-bf3f-e61700dedc42"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a214c2fe6f71018938f58b079f3f37",
+          0,
+          5349,
+          260
+        ],
+        [
+          2,
+          "01a214c313907dc0bdecdad298876072",
+          0,
+          7731,
+          653
+        ],
+        [
+          3,
+          "01a214c3e5c976a1982300e365edfa92",
+          0,
+          8758,
+          1896
+        ],
+        [
+          4,
+          "01a214c41bb87223880af9e7ff2107fc",
+          0,
+          10974,
+          883
+        ],
+        [
+          5,
+          "01a214c4c6a57d9394297d017ce6f98a",
+          0,
+          12692,
+          2357
+        ],
+        [
+          6,
+          "01a214c6d7d1741a84e2aeee06953f16",
+          0,
+          15126,
+          808
+        ],
+        [
+          7,
+          "01a214c84d517167ae0479b6926780ba",
+          0,
+          17058,
+          1339
+        ],
+        [
+          8,
+          "01a214c9312d72d58218543648c48137",
+          0,
+          18624,
+          583
+        ],
+        [
+          9,
+          "01a214cac8d47655903ffb58ea721d56",
+          0,
+          20408,
+          285
+        ],
+        [
+          10,
+          "01a214cae00e79e8b9812574e2409adf",
+          0,
+          20967,
+          117
+        ],
+        [
+          11,
+          "01a214cafaa478d1b16d38e3285403a2",
+          0,
+          21414,
+          541
+        ],
+        [
+          12,
+          "01a214cb16737ffeadaad395ca5a4570",
+          0,
+          22274,
+          743
+        ],
+        [
+          13,
+          "01a214cc2b8f7f518269979a520e2e3f",
+          0,
+          23491,
+          625
+        ]
+      ],
+      "input_tokens": 204866,
+      "output_tokens": 11090,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "4a528d3a875514c816beecacf3f26eca0fd5d86613eb4725dcca5190200cf7b3",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-artifact": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "59df4ad473bf99c226845d54678c90c658e02cc9b5343c70d74b8af7f618ec33  /app/model.xml\n"
+          }
+        },
+        "elapsed_seconds": 610.7685019589262
+      },
+      "controller_event_counts": {
+        "candidate_operation": 6,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "4a528d3a875514c816beecacf3f26eca0fd5d86613eb4725dcca5190200cf7b3",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "4a528d3a875514c816beecacf3f26eca0fd5d86613eb4725dcca5190200cf7b3",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "4a528d3a875514c816beecacf3f26eca0fd5d86613eb4725dcca5190200cf7b3",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "4a528d3a875514c816beecacf3f26eca0fd5d86613eb4725dcca5190200cf7b3",
+          "eligible": false
+        }
+      ],
+      "native_capture": {
+        "registered": true,
+        "artifacts": [
+          {
+            "source": "/app/model.xml",
+            "status": "ok",
+            "type": "file",
+            "path": "tune-mjcf__LqetSKY/artifacts/app/model.xml",
+            "sha256": "59df4ad473bf99c226845d54678c90c658e02cc9b5343c70d74b8af7f618ec33",
+            "bytes": 1295,
+            "sha_present_in_final_public_snapshot": true
+          }
+        ],
+        "model_requests_by_capture": 0
+      },
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "============================= test session starts ==============================",
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_model_ref_unchanged",
+          "PASSED ../tests/test_outputs.py::test_tuned_model_exists",
+          "PASSED ../tests/test_outputs.py::test_correctness",
+          "PASSED ../tests/test_outputs.py::test_model_speed",
+          "============================== 4 passed in 32.21s =============================="
+        ],
+        "actual_four_test_report": {
+          "count": 4,
+          "tests": [
+            "test_model_ref_unchanged",
+            "test_tuned_model_exists",
+            "test_correctness",
+            "test_model_speed"
+          ],
+          "reported_candidate_mean_seconds": 0.4423,
+          "reported_reference_mean_seconds": 1.0085,
+          "reported_speedup": "2.28x",
+          "reported_time_percentage": 0.44,
+          "state_difference_display": "0.0000, rounded four-decimal display; not exact zero"
+        }
+      },
+      "tools_count": 10,
+      "nonzero_tools": [
+        2,
+        3,
+        5
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 10,
+        "save": 2,
+        "verify": 1
+      },
+      "source_sha256": {
+        "result.json": "61223b6d1e0bd96bd999af859c90599931eb432aae02a075f4f57123cfeeb21f",
+        "trial.json": "63e7e35037d2524de20c03918da7cd6fa0566142cb84d184caa772a7111e0593",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/tune-mjcf-C0-r1.protocol.json": "eb8211a7f2d4660f2249c0495c33ddd412958ba5201a0e6179cd2f072bb524d5",
+        "tune-mjcf__LqetSKY/agent/model.jsonl": "06a666e160b2384420c97bff24be7678f35245214a9867c39c03a4fe3f109457",
+        "tune-mjcf__LqetSKY/agent/controller.jsonl": "37b396b1b2d1928c1cc71465e851fff8dc010a0574a8d2ff3d20cb677a1eab40",
+        "tune-mjcf__LqetSKY/agent/final-verification.json": "12eccafd1f1eebfe2d102becbbab6789a74e8708b35286adb2a4ffaee9243c75",
+        "tune-mjcf__LqetSKY/agent/candidates/candidate-002.json": "afc96d7d814b35c229a966402a0be47626c467f1b1ae1f82acfe7e5a9322621e",
+        "tune-mjcf__LqetSKY/agent/candidates/candidate-001.json": "89c616ef19d55ccf97e5c4bbbe56f6a854e8c54527fdf635becbcdf4313b9574",
+        "artifact-capture.json": "935e46b8c14f7defeca36e61295c7f0d3babcab5f9d6190d17a29da3ac515874",
+        "artifact-capture-config.json": "983a339dfc0ba26c71984b5f9d32f693d9d250a178a845e7f1e6ae710e5e78a6",
+        "tune-mjcf__LqetSKY/artifacts/manifest.json": "c995a93e5b8302da1a6c6fe1c692f386e9d5022a7ccaca4da2d6634428008a6a",
+        "tune-mjcf__LqetSKY/artifacts/app/model.xml": "59df4ad473bf99c226845d54678c90c658e02cc9b5343c70d74b8af7f618ec33",
+        "tune-mjcf__LqetSKY/result.json": "a9fd6b91b954205a3144654ffc48f4a582d760d708a9b364dd0c31fb26fb19d8",
+        "tune-mjcf__LqetSKY/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "tune-mjcf__LqetSKY/verifier/test-stdout.txt": "53636006c634d0b00ae0fafafcd30b9d0ec83db4b76ad1144d3c0ef596c4b01a",
+        "tune-mjcf__LqetSKY/agent/tools.jsonl": "edd4213a24bc7fc6a14b145ba6bcf5dcfa8ca0cfa7459fca22ca02ff96831d5f",
+        "tune-mjcf/instruction.md": "c7fb299b6c6d6c9a2dcd95c5938e6f902ddad1cb02aee875d369cb7eae584b1f"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All 13 actual model event structures and individual fresh own-zero receipts; all 10 complete tool commands and meaningful returned stdout; complete task instruction and task-provided original XML/eval shown by tool1; complete actual four-test original grader stdout/reward. Both candidate records/payloads, controller, final verification and native XML read and byte-linked. Model reasoning not read word-for-word.",
+      "protocol_sha256": "eb8211a7f2d4660f2249c0495c33ddd412958ba5201a0e6179cd2f072bb524d5",
+      "identity_crosscheck": {
+        "prior_ids": 4232,
+        "prior_sessions": 243,
+        "new_ids": 13,
+        "new_sessions": 1,
+        "id_intersection": 0,
+        "session_intersection": 0,
+        "new_session": "32d58d8c-9999-48a0-bf3f-e61700dedc42"
+      },
+      "native_artifact_byte_links": {
+        "bytes": 1295,
+        "sha256": "59df4ad473bf99c226845d54678c90c658e02cc9b5343c70d74b8af7f618ec33",
+        "source_bytes_independently_captured": true,
+        "digest_status": "native_capture_and_candidates_verified",
+        "candidates": {
+          "candidate-001.json": {
+            "source_sha256": "89c616ef19d55ccf97e5c4bbbe56f6a854e8c54527fdf635becbcdf4313b9574",
+            "eligible": false,
+            "artifact_digest": "4a528d3a875514c816beecacf3f26eca0fd5d86613eb4725dcca5190200cf7b3",
+            "payload_sha256": "59df4ad473bf99c226845d54678c90c658e02cc9b5343c70d74b8af7f618ec33"
+          },
+          "candidate-002.json": {
+            "source_sha256": "afc96d7d814b35c229a966402a0be47626c467f1b1ae1f82acfe7e5a9322621e",
+            "eligible": true,
+            "artifact_digest": "4a528d3a875514c816beecacf3f26eca0fd5d86613eb4725dcca5190200cf7b3",
+            "payload_sha256": "59df4ad473bf99c226845d54678c90c658e02cc9b5343c70d74b8af7f618ec33"
+          }
+        }
+      },
+      "semantic_review": {
+        "status": "CLOSED_ORIGINAL_TUNE_AUDITED_WITH_STATED_LIMITS",
+        "final225_admission": false,
+        "blocking_findings": [],
+        "task_contract": "Original instruction asks <=60% reference simulation time over two simulated seconds, full physics state within atol=1e-5 without NaN/Inf, original model_ref.xml unchanged, model.xml deliverable and fresh MuJoCo installation. It explicitly warns against changing body physical properties.",
+        "final_parameters": {
+          "solver": "PGS",
+          "iterations": "50"
+        },
+        "original_reference_sha256": "f3561cbea5bb024886e9627e795c8f60a3984bd749853073bbd433d0e49bf0b7",
+        "physical_property_comparison": "Removing the single newly added option element makes the final/reconstructed XML canonical tree equal to complete tool1 original XML. Original body/geom/size/mass-related specification, joints and damping, cable stiffness/vmax, equality, contacts/exclusions, actuator and builtin mujoco.elasticity.cable plugin unchanged. No final custom plugin/binary or alternate code injected.",
+        "source_preservation": "All observed executed commands read original model_ref.xml and eval.py without writing them. Actual original test_model_ref_unchanged passes. Hidden /tests source and private benchmark answers were not observed in these tool commands.",
+        "registered_public_check": "The C0 registered public-artifact command checks nonempty XML and ElementTree parse only. It does not independently establish simulation equivalence, finite state, or speed. Those have separate task-provided eval/self-tests and actual original grader support.",
+        "timing_scope": "Reported original speed and elapsed times apply to these actual local pinned/environment executions. Public eval correctness uses matched random seed and explicitly rejects NaN/Inf. Its two 20-run timing arrays draw independent fresh seeds despite its same-seed comment. Printed means and state difference have four-decimal precision. No native-hardware equivalence, architecture causation or method causal gain is inferred.",
+        "information_access": "Complete provided model_ref.xml and eval.py inspected. DSH additionally examines expanded compiled XML generated from that public reference and its own /proc Python process command lines; these reveal its own harness startup paths, not an observed hidden grader or solution read. No retrieval of another candidate/engineering reference was observed.",
+        "original_tests_scope": "Actual four original tests pass; they cover reference preservation, artifact existence, one correctness draw plus finite checks, and benchmark timing. They do not prove every random initialization, all possible physical scenarios or all numerical semantic properties.",
+        "reviewer_actions": {
+          "new_model_calls": 0,
+          "new_original_grader_calls": 0,
+          "new_VM_operations": 0,
+          "new_financial_operations": 0
+        },
+        "native_currentness": {
+          "bytes": 1295,
+          "xml_sha256": "59df4ad473bf99c226845d54678c90c658e02cc9b5343c70d74b8af7f618ec33",
+          "actual_writer_tool": 8,
+          "first_save_step": 9,
+          "first_save_eligible": false,
+          "verification_step": 10,
+          "second_save_step": 11,
+          "second_save_eligible": true,
+          "final_step": 13,
+          "final_reason": "submission",
+          "final_current_public_and_protected": true,
+          "artifact_digest": "4a528d3a875514c816beecacf3f26eca0fd5d86613eb4725dcca5190200cf7b3",
+          "details": "Both saved candidate file payloads and native captured final XML match exact bytes reconstructed from tool1 reference plus tool8 writer. Step12 is read-only diff/hash/20-seed audit/eval; step13 bash submission marker follows. No model.xml write after public verify."
+        },
+        "selftests": [
+          {
+            "tool": 7,
+            "scope": "Eight seeds [0,1,2,3,4,17,101,2024] for solver variants; PGS50 numerically matches final option",
+            "reported_max_element_error": 0.000001473,
+            "reported_max_state_norm_error": 0.000004577,
+            "limit": "Variant test predates final file writer."
+          },
+          {
+            "tool": 8,
+            "scope": "Final exact XML written, then three task-provided eval.py runs",
+            "result": "All three succeeded; reported time fractions0.52/0.45/0.44, state differences printed0.0000."
+          },
+          {
+            "tool": 9,
+            "actual_model_step": 12,
+            "scope": "Final byte-unchanged model and original reference, seeds0..19, same1000 steps at0.002s; each simulation explicitly asserts np.isfinite(state).all and pairwise np.allclose(atol=1e-5)",
+            "result": "20/20 seeds passed; reported max element3.718e-6; max state norm1.001e-5. The norm is a descriptive aggregate, not the per-element allclose criterion. Final task-provided eval also succeeded."
+          }
+        ],
+        "retained_debug_failures": "Initial identical-reference timing fails speed; incorrect MuJoCo attribute accesses nm/neq; long sweep tool5 times out; early timestep variants have larger errors; invalid disableflags attribute tests reject. None are silently promoted to the final candidate."
+      }
+    },
+    {
+      "arm": "dsh",
+      "task": "tune-mjcf",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-dsh-hy4-v10/tune-mjcf-B0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 2213.261492458987,
+      "runtime_root": "work/frozen-performance-dsh-parallel-guard-20261124",
+      "protocol_configuration": "B0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795642442.054446,
+        "native_session_id": "4cc6fe44-92fd-4284-9dde-dcb2bc35ff8e",
+        "history_count": 2,
+        "history_roles": [
+          "user",
+          "user"
+        ],
+        "initial_history_sha256": "e15cea0f42b00b065397d0bee5c97a81898117e2e5454f68261626c5a6a56290"
+      },
+      "event_counts": {
+        "request": 34,
+        "cli_process_started": 34,
+        "response": 34,
+        "billing_verified": 34
+      },
+      "native_sessions": [
+        "4cc6fe44-92fd-4284-9dde-dcb2bc35ff8e"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a214a14b3872dfbec333b8509119c5",
+          0,
+          4445,
+          153
+        ],
+        [
+          2,
+          "01a214a1617a77769bfd0ca10862e2b5",
+          0,
+          6220,
+          703
+        ],
+        [
+          3,
+          "01a214a189c77a77a595ef4a0ff9e6b7",
+          0,
+          7205,
+          96
+        ],
+        [
+          4,
+          "01a214a243be75549a9caafeeff53db3",
+          0,
+          7528,
+          1218
+        ],
+        [
+          5,
+          "01a214a26fd876fa87486f255af91131",
+          0,
+          9522,
+          130
+        ],
+        [
+          6,
+          "01a214a2862c7dd5b9fe8a47e5d10260",
+          0,
+          9781,
+          1129
+        ],
+        [
+          7,
+          "01a214a48caa72aabac37ee24ee76f11",
+          0,
+          12425,
+          605
+        ],
+        [
+          8,
+          "01a214a528997f66854a228164c79c44",
+          0,
+          13361,
+          938
+        ],
+        [
+          9,
+          "01a214a66b9a747693de1f9794debe13",
+          0,
+          15067,
+          1107
+        ],
+        [
+          10,
+          "01a214a8776a77069f41c9c950c56805",
+          0,
+          16641,
+          160
+        ],
+        [
+          11,
+          "01a214aa6eaf70678965041bee7d7a7c",
+          0,
+          17270,
+          209
+        ],
+        [
+          12,
+          "01a214aa8ed37eb496542a333d5faeee",
+          0,
+          17564,
+          591
+        ],
+        [
+          13,
+          "01a214ab9f77706590a867d1272c486f",
+          0,
+          18235,
+          99
+        ],
+        [
+          14,
+          "01a214abb91873cfa1b4970dfd4b6bef",
+          0,
+          18439,
+          148
+        ],
+        [
+          15,
+          "01a214ad5a1b73798661c72dce763b92",
+          0,
+          18667,
+          147
+        ],
+        [
+          16,
+          "01a214ad9e7a7497bb0362198e7c0f9e",
+          0,
+          18881,
+          131
+        ],
+        [
+          17,
+          "01a214adef937f82830d7a3baaf8458b",
+          0,
+          22949,
+          115
+        ],
+        [
+          18,
+          "01a214ae0bef73608dcfe6f69e8fd8fd",
+          0,
+          23473,
+          79
+        ],
+        [
+          19,
+          "01a214b002037b3cb92cdbcebcc48dbe",
+          0,
+          23670,
+          76
+        ],
+        [
+          20,
+          "01a214b014f674dd8df6d07acf7a6ac8",
+          0,
+          23826,
+          653
+        ],
+        [
+          21,
+          "01a214b21369754ea6b15a2050ecddf5",
+          0,
+          24849,
+          118
+        ],
+        [
+          22,
+          "01a214b30ef478b9a3e60e12e981cb44",
+          0,
+          25146,
+          89
+        ],
+        [
+          23,
+          "01a214b403a77630971eb49a514f957b",
+          0,
+          25414,
+          51
+        ],
+        [
+          24,
+          "01a214b4f78a763f8d4581a279c0c11a",
+          0,
+          25642,
+          686
+        ],
+        [
+          25,
+          "01a214b5f60e7d608bc7e09d04df482d",
+          0,
+          26568,
+          900
+        ],
+        [
+          26,
+          "01a214b77fda7c069cc1e461d33bedaa",
+          0,
+          27676,
+          339
+        ],
+        [
+          27,
+          "01a214b882fe7300a494eac0612e1a37",
+          0,
+          28179,
+          90
+        ],
+        [
+          28,
+          "01a214ba61737af69dda485c9a58fdb2",
+          0,
+          28544,
+          221
+        ],
+        [
+          29,
+          "01a214bb948775bab19863a369e6060a",
+          0,
+          29165,
+          441
+        ],
+        [
+          30,
+          "01a214bbaede75138481a3bc2f9b331c",
+          0,
+          30171,
+          1166
+        ],
+        [
+          31,
+          "01a214bd8dd377d08967df317c7ca89d",
+          0,
+          31637,
+          573
+        ],
+        [
+          32,
+          "01a214bf7a55784c8091496ebbfa99fe",
+          0,
+          32477,
+          75
+        ],
+        [
+          33,
+          "01a214c16ff17934857ca9def33cc7c6",
+          0,
+          33020,
+          301
+        ],
+        [
+          34,
+          "01a214c20b9b71b1b1e00456ed6b3a6a",
+          0,
+          33642,
+          171
+        ]
+      ],
+      "input_tokens": 707299,
+      "output_tokens": 13708,
+      "final_control": null,
+      "controller_event_counts": {},
+      "candidate_records": [],
+      "matching_final_candidates": [],
+      "native_capture": null,
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "============================= test session starts ==============================",
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_model_ref_unchanged",
+          "PASSED ../tests/test_outputs.py::test_tuned_model_exists",
+          "PASSED ../tests/test_outputs.py::test_correctness",
+          "PASSED ../tests/test_outputs.py::test_model_speed",
+          "============================== 4 passed in 31.30s =============================="
+        ],
+        "actual_four_test_report": {
+          "count": 4,
+          "tests": [
+            "test_model_ref_unchanged",
+            "test_tuned_model_exists",
+            "test_correctness",
+            "test_model_speed"
+          ],
+          "reported_candidate_mean_seconds": 0.4399,
+          "reported_reference_mean_seconds": 0.9466,
+          "reported_speedup": "2.15x",
+          "reported_time_percentage": 0.46,
+          "state_difference_display": "0.0000, rounded four-decimal display; not exact zero"
+        }
+      },
+      "tools_count": 33,
+      "nonzero_tools": [],
+      "sdk_event_counts": {
+        "session": 1,
+        "agent/inbox/spliced": 2,
+        "turn/start": 1,
+        "step/start": 34,
+        "system/message": 1,
+        "user/message": 2,
+        "request/header": 1,
+        "request/context": 1,
+        "assistant/message": 34,
+        "tool/call": 33,
+        "tool/result": 33,
+        "step/end": 34,
+        "turn/end": 1
+      },
+      "proposed_structured_actions": {
+        "unknown": 34
+      },
+      "source_sha256": {
+        "result.json": "e868f1f31a9a6452e4bc5a4dc37a5218c7fbbdcae5f29b996f2f71d2ed64c66e",
+        "trial.json": "e924d856de6e81cb4f10b3abef32842b53671ab68eff72485f847d75fd127e56",
+        "protocol:work/vmshare/performance75-dsh-hy4-v10/tune-mjcf-B0-r1.protocol.json": "ea3a1a4a9cf8965cf922d04e2fc52bb44ce69fc625a279a47116a4b0954b8f7a",
+        "tune-mjcf__UKbTzQK/agent/model.jsonl": "44baff2ce4ddf3787f427bd3f178d390bc0eabda21a9958267983913b95d1c56",
+        "tune-mjcf__UKbTzQK/result.json": "ee725a5c22e847588bf27c9032499843a9298dd5c29cc9cf8251cb08d73c8480",
+        "tune-mjcf__UKbTzQK/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "tune-mjcf__UKbTzQK/verifier/test-stdout.txt": "e45bdb6ffa3704db2ded1170e051aa85e0b5a8bddd1c237a10bda0d08dde9dc6",
+        "tune-mjcf__UKbTzQK/agent/dsh/dsh-home/sessions/--app--/course-task/session.v4.jsonl": "c3e920d268fbeff4330587d0ca700f7067b02ebfeef07be1a36210520a69768d",
+        "tune-mjcf/instruction.md": "c7fb299b6c6d6c9a2dcd95c5938e6f902ddad1cb02aee875d369cb7eae584b1f"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All 34 actual model event structures and individual fresh own-zero receipts; all 33 complete tool commands and meaningful returned stdout; complete task instruction and task-provided original XML/eval shown by tool1; complete actual four-test original grader stdout/reward. All 33 SDK tool-call/result pairs read; B0 has no C0 controller/candidates or native final XML capture. Model reasoning not read word-for-word.",
+      "protocol_sha256": "ea3a1a4a9cf8965cf922d04e2fc52bb44ce69fc625a279a47116a4b0954b8f7a",
+      "identity_crosscheck": {
+        "prior_ids": 4232,
+        "prior_sessions": 243,
+        "new_ids": 34,
+        "new_sessions": 1,
+        "id_intersection": 0,
+        "session_intersection": 0,
+        "new_session": "4cc6fe44-92fd-4284-9dde-dcb2bc35ff8e"
+      },
+      "native_artifact_byte_links": {
+        "bytes": 1309,
+        "sha256": "693a94aa62bb5d82b4ca228e7efbf320d7ecf333d5364aca194f9760223cf168",
+        "source_bytes_independently_captured": false,
+        "digest_status": "reconstructed_from_tool1_reference_and_tool31_writer_not_independently_captured",
+        "candidates": {}
+      },
+      "semantic_review": {
+        "status": "CLOSED_ORIGINAL_TUNE_AUDITED_WITH_STATED_LIMITS",
+        "final225_admission": false,
+        "blocking_findings": [],
+        "task_contract": "Original instruction asks <=60% reference simulation time over two simulated seconds, full physics state within atol=1e-5 without NaN/Inf, original model_ref.xml unchanged, model.xml deliverable and fresh MuJoCo installation. It explicitly warns against changing body physical properties.",
+        "final_parameters": {
+          "solver": "PGS",
+          "iterations": "50",
+          "tolerance": "0"
+        },
+        "original_reference_sha256": "f3561cbea5bb024886e9627e795c8f60a3984bd749853073bbd433d0e49bf0b7",
+        "physical_property_comparison": "Removing the single newly added option element makes the final/reconstructed XML canonical tree equal to complete tool1 original XML. Original body/geom/size/mass-related specification, joints and damping, cable stiffness/vmax, equality, contacts/exclusions, actuator and builtin mujoco.elasticity.cable plugin unchanged. No final custom plugin/binary or alternate code injected.",
+        "source_preservation": "All observed executed commands read original model_ref.xml and eval.py without writing them. Actual original test_model_ref_unchanged passes. Hidden /tests source and private benchmark answers were not observed in these tool commands.",
+        "registered_public_check": "B0 DSH has no C0 registered-check/CandidateStore/controller policy. The stored qualified_passed boolean is actual analyzer B0 raw passthrough, not evidence of current-passed public checks or protected final-control.",
+        "timing_scope": "Reported original speed and elapsed times apply to these actual local pinned/environment executions. Public eval correctness uses matched random seed and explicitly rejects NaN/Inf. Its two 20-run timing arrays draw independent fresh seeds despite its same-seed comment. Printed means and state difference have four-decimal precision. No native-hardware equivalence, architecture causation or method causal gain is inferred.",
+        "information_access": "Complete provided model_ref.xml and eval.py inspected. DSH additionally examines expanded compiled XML generated from that public reference and its own /proc Python process command lines; these reveal its own harness startup paths, not an observed hidden grader or solution read. No retrieval of another candidate/engineering reference was observed.",
+        "original_tests_scope": "Actual four original tests pass; they cover reference preservation, artifact existence, one correctness draw plus finite checks, and benchmark timing. They do not prove every random initialization, all possible physical scenarios or all numerical semantic properties.",
+        "reviewer_actions": {
+          "new_model_calls": 0,
+          "new_original_grader_calls": 0,
+          "new_VM_operations": 0,
+          "new_financial_operations": 0
+        },
+        "native_currentness": {
+          "actual_last_writer_tool": 31,
+          "last_writer_option": {
+            "solver": "PGS",
+            "iterations": "50",
+            "tolerance": "0"
+          },
+          "observed_final_bytes": 1309,
+          "exact_final_native_bytes_available": false,
+          "reconstructed_xml_sha256": "693a94aa62bb5d82b4ca228e7efbf320d7ecf333d5364aca194f9760223cf168",
+          "details": "Tool31 writes model.xml from original reference with only the option addition. Tool32 and33 run task eval; tool33 full diff, option line and ls byte count agree. The reconstructed SHA is not a captured artifact SHA and no candidate/controller chain exists in legacy B0. Original grader receives the retained environment and reports reference unchanged plus existence/correctness/speed passes; exact grader-input XML bytes are not independently archived."
+        },
+        "selftests": [
+          {
+            "tool": 31,
+            "scope": "Actual finalPGS50/tolerance0 configuration written both to model.xml and own /tmp/pgs100.xml. Sequential checker covers seeds0..39 and9000..9039, 80 completed pairs at1000steps",
+            "result": "Both batches report bad=0, max element8.563e-15/2.941e-14 and max state norm3.417e-14/7.271e-14.",
+            "limit": "Checker calls np.allclose and computes differences but lacks an explicit per-simulation np.isfinite assertion; do not label this an independent80-seed finite certificate. Actual task eval and original grader separately include finite checks."
+          },
+          {
+            "tool": 32,
+            "scope": "Same final model repeated task eval",
+            "result": "Three full successful evals time fractions0.47/0.45/0.47; fourth correctness returned0.0000 but the command times out during reference timing. Fifth was not reached."
+          },
+          {
+            "tool": 33,
+            "scope": "Last read-only diff/complete task eval/ls/option",
+            "result": "Complete final eval succeeds, reported0.4580/ref0.9653 sec,2.12x,0.47 time fraction. This selftest is distinct from preserved actual original grader0.4399/ref0.9466 sec."
+          }
+        ],
+        "retained_debug_failures": "Missing initial model.xml and MuJoCo attribute/API errors; original-as-candidate speed failure; broad sweep RK4 instability and timeout; 400seed multiprocessing and follow-up100seed attempts time out; nohup400seed process later absent with no result beyond nohup notice, so not counted as400 successful tests. Sequential ranges and earlierPGS100/tolerance variants are separate, not assigned to finalPGS50/tol0. IntermediatePGS100/tol0 eval had one reported0.61 fraction and failed; later final configuration differs. /proc scan tool29 observes only harness processes after background attempt ended."
+      },
+      "final_control_applicability": "not_applicable_B0"
+    },
+    {
+      "arm": "main",
+      "task": "scikit-learn__scikit-learn-10908",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/scikit-learn__scikit-learn-10908-C0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 162.40342570806388,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795645620.887208,
+        "native_session_id": "fd35e10c-eacd-498a-a9c8-65872e90be07",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "def653295518f3d49933085c942be46cfba29d3b51826dbef456ad3507bff69f"
+      },
+      "event_counts": {
+        "request": 17,
+        "cli_process_started": 17,
+        "response": 17,
+        "billing_verified": 17
+      },
+      "native_sessions": [
+        "fd35e10c-eacd-498a-a9c8-65872e90be07"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a214d1cbf17fb9afb1b79e28660441",
+          0,
+          5821,
+          213
+        ],
+        [
+          2,
+          "01a214d1e2cf797b96c70165e6f07704",
+          0,
+          6914,
+          218
+        ],
+        [
+          3,
+          "01a214d2079374e0b3ffcfe8d8be46da",
+          0,
+          10647,
+          665
+        ],
+        [
+          4,
+          "01a214d2274671238ae75e9d3198230c",
+          0,
+          14369,
+          1201
+        ],
+        [
+          5,
+          "01a214d24d7e7b47a477d74a5d6188dc",
+          0,
+          15698,
+          196
+        ],
+        [
+          6,
+          "01a214d2641e7d6abdf9ddb22d4e13b2",
+          0,
+          16471,
+          229
+        ],
+        [
+          7,
+          "01a214d2789074d4ba315f3ee502147c",
+          0,
+          17009,
+          390
+        ],
+        [
+          8,
+          "01a214d29a997402be590a48b1d6317f",
+          0,
+          18231,
+          139
+        ],
+        [
+          9,
+          "01a214d2b33c70a9bfa2430cc8f5fa64",
+          0,
+          18567,
+          988
+        ],
+        [
+          10,
+          "01a214d2da3b7fc089f11a028ad5f479",
+          0,
+          20083,
+          231
+        ],
+        [
+          11,
+          "01a214d2f57e7418877e4c387dcb0cf0",
+          0,
+          20587,
+          1225
+        ],
+        [
+          12,
+          "01a214d3245f78ea80a5b618dbe6898d",
+          0,
+          21963,
+          154
+        ],
+        [
+          13,
+          "01a214d33fdd7666a7e240328aff90af",
+          0,
+          22245,
+          107
+        ],
+        [
+          14,
+          "01a214d36059702c8c48dc35b5b21d35",
+          0,
+          22818,
+          301
+        ],
+        [
+          15,
+          "01a214d378f1775a872d918854a712a8",
+          0,
+          24101,
+          419
+        ],
+        [
+          16,
+          "01a214d3a29c7b9fa7bebfe2169f0bf1",
+          0,
+          24893,
+          570
+        ],
+        [
+          17,
+          "01a214d3c5257efca828f96fd452530b",
+          0,
+          25827,
+          89
+        ]
+      ],
+      "input_tokens": 306244,
+      "output_tokens": 7335,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "fc840574b93a646ca4399a090c76c4b4d7215a397b760aed4fd450ff9019e6d2",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "3df8040636b1a759dbb0c4303c9929f8706f72e6026f2ee2787ff65757d76221  sklearn/feature_extraction/text.py\naaa60b2921f4c7b9d4c82956ad48795fb4516100b5fa38cf70feaf0c50281de4  sklearn/feature_extraction/tests/test_text.py\n"
+          }
+        },
+        "elapsed_seconds": 136.2275040000677
+      },
+      "controller_event_counts": {
+        "candidate_operation": 7,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "fc840574b93a646ca4399a090c76c4b4d7215a397b760aed4fd450ff9019e6d2",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "fc840574b93a646ca4399a090c76c4b4d7215a397b760aed4fd450ff9019e6d2",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "fc840574b93a646ca4399a090c76c4b4d7215a397b760aed4fd450ff9019e6d2",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "fc840574b93a646ca4399a090c76c4b4d7215a397b760aed4fd450ff9019e6d2",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "sklearn/feature_extraction/text.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 47,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_tfidfvectorizer_binary",
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_tfidfvectorizer_export_idf",
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_vectorizer_vocab_clone",
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_vectorizer_string_object_as_input",
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_vectorizers_invalid_ngram_range[vec0]",
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_vectorizers_invalid_ngram_range[vec1]",
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_vectorizers_invalid_ngram_range[vec2]",
+          "======================== 48 passed, 4 warnings in 1.68s ========================"
+        ]
+      },
+      "tools_count": 13,
+      "nonzero_tools": [
+        4,
+        5
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 13,
+        "save": 2,
+        "verify": 1,
+        "submit": 1
+      },
+      "source_sha256": {
+        "result.json": "0b5ec530ebcd9598a79bcfdb8248b49083ff76018357e84c5126c3985317deb7",
+        "trial.json": "098e6308c8699e7277e269b16c033c436ecb5e1555d9129db3632bb32ec3df7d",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/scikit-learn__scikit-learn-10908-C0-r1.protocol.json": "b94eff717999bcbf0fbcf5ae72a39f235cdaee46e38a7da2f9db4e92dec28d32",
+        "model.jsonl": "3997f24c226c166d4b401117d59aa8525a0b3ba78b27ce75436b583644dc372b",
+        "controller.jsonl": "3da25effbf8452cddfa63e12f8aef2b52e28f831d788003299ce168fa178f475",
+        "final-verification.json": "2d684bd4b48cbd9c31465e90e426c9dba453b754a2d6146cc3dcebb4c4de4db0",
+        "candidates/candidate-002.json": "f048f4808d28a498e799e8551dc40243f170a702870392241348074fbdd3bfd1",
+        "candidates/candidate-001.json": "199380b0dfb1d28af5e56e7eea37a83e23fe658ab57583184cd6a30a9d39df75",
+        "candidate.patch": "e4a1b67d8e70f1a2f7199770ff28e22c9add612a2a603829e20782598f14bb8c",
+        "swe-official/scikit-learn__scikit-learn-10908-C0-r1/course-mini-swe-agent/scikit-learn__scikit-learn-10908/patch.diff": "e4a1b67d8e70f1a2f7199770ff28e22c9add612a2a603829e20782598f14bb8c",
+        "swe-official/scikit-learn__scikit-learn-10908-C0-r1/course-mini-swe-agent/scikit-learn__scikit-learn-10908/report.json": "900c92d49ef98f5540f78d019ff8f6f3390aca3a941a3b8f54729e77848f74fc",
+        "swe-official/scikit-learn__scikit-learn-10908-C0-r1/course-mini-swe-agent/scikit-learn__scikit-learn-10908/test_output.txt": "60f497b42a902b3dc41048d67bb63d09c6f9066f9219dabe48965320360d42f7",
+        "swe-official/scikit-learn__scikit-learn-10908-C0-r1/course-mini-swe-agent/scikit-learn__scikit-learn-10908/run_instance.log": "2c41faf8ab3ae967bb90977900724f359afae8e35bfdb777b0bb9e2130a6f613",
+        "swe-official/scikit-learn__scikit-learn-10908-C0-r1/course-mini-swe-agent/scikit-learn__scikit-learn-10908/eval.sh": "ac1849db74accc26d8542096e7d2a47afb07d4f58184a7db63d2112598f4f8d5",
+        "tools.jsonl": "7aa66afddad514775bdc127db0d949532b98036a0e37a6b3dbf7cda8828f2505",
+        "instruction.txt": "f823d7de7beccbb9791d8b8a3167861c3c70d9acb0ba3fa2fb2bcd9d31e9ee35",
+        "checkout.json": "bede7b7706cb03c87a50081c10000fed83ea9554eee5eef5b648b84341fcaa95",
+        "execution-budget.json": "3a6d32378b6b7cf4f6d7a510fbdf45c4d2af102c69dda78910a27fd117e9964e",
+        ".controller-input.json": "d2a8222f1c5357eca3e400cae07c17911fc8cb933df6f3781a79b847e282d47b"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All 17 model event structures/individual fresh own-zero receipts; all 13 complete tool commands and meaningful stdout/stderr; full instruction, actual production patch, relevant original production/test code shown by tools, complete original grader report and all48 actual test-result lines. Both candidate metadata/file payloads, all controller verification/save/final events and final snapshots. Model reasoning not read word-for-word; verbose repeated conda/build setup was structurally inspected, not read line-for-line.",
+      "protocol_sha256": "b94eff717999bcbf0fbcf5ae72a39f235cdaee46e38a7da2f9db4e92dec28d32",
+      "identity_crosscheck": {
+        "prior_ids": 4279,
+        "prior_sessions": 245,
+        "new_ids": 17,
+        "new_sessions": 1,
+        "id_intersection": 0,
+        "session_intersection": 0,
+        "new_session": "fd35e10c-eacd-498a-a9c8-65872e90be07"
+      },
+      "production_patch_and_candidate_links": {
+        "arm": "main",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/scikit-learn__scikit-learn-10908-C0-r1",
+        "protocol_sha256": "b94eff717999bcbf0fbcf5ae72a39f235cdaee46e38a7da2f9db4e92dec28d32",
+        "resource_sha256": "fd04fb1bc7ade72c1e67c4b089effc5b1c613728aa405402e52e24b2cb05bd4c",
+        "original_pin": "sha256:8727c0f7bfb76c294cfef16c9fe3d0dc9ddf313e7c0fb3e8e9cbc74c4955404c",
+        "actual_pin_matches": true,
+        "checkout_sha256": "bede7b7706cb03c87a50081c10000fed83ea9554eee5eef5b648b84341fcaa95",
+        "execution_budget_sha256": "3a6d32378b6b7cf4f6d7a510fbdf45c4d2af102c69dda78910a27fd117e9964e",
+        "candidate_patch_sha256": "e4a1b67d8e70f1a2f7199770ff28e22c9add612a2a603829e20782598f14bb8c",
+        "original_grader_patch_sha256": "e4a1b67d8e70f1a2f7199770ff28e22c9add612a2a603829e20782598f14bb8c",
+        "grader_patch_byte_identical": true,
+        "candidate_payloads": {
+          "candidate-001.json": {
+            "source_sha256": "199380b0dfb1d28af5e56e7eea37a83e23fe658ab57583184cd6a30a9d39df75",
+            "eligible": false,
+            "artifact_digest": "fc840574b93a646ca4399a090c76c4b4d7215a397b760aed4fd450ff9019e6d2",
+            "payload_sha256": "3df8040636b1a759dbb0c4303c9929f8706f72e6026f2ee2787ff65757d76221",
+            "payload_bytes": 54888,
+            "git_blob_sha1": "789e101cc7e1961eb97c24eb4dc907fc5d2393ad"
+          },
+          "candidate-002.json": {
+            "source_sha256": "f048f4808d28a498e799e8551dc40243f170a702870392241348074fbdd3bfd1",
+            "eligible": true,
+            "artifact_digest": "fc840574b93a646ca4399a090c76c4b4d7215a397b760aed4fd450ff9019e6d2",
+            "payload_sha256": "3df8040636b1a759dbb0c4303c9929f8706f72e6026f2ee2787ff65757d76221",
+            "payload_bytes": 54888,
+            "git_blob_sha1": "789e101cc7e1961eb97c24eb4dc907fc5d2393ad"
+          }
+        },
+        "production_source_sha256": "3df8040636b1a759dbb0c4303c9929f8706f72e6026f2ee2787ff65757d76221",
+        "production_source_git_blob_sha1": "789e101cc7e1961eb97c24eb4dc907fc5d2393ad",
+        "base_source_git_blob_sha1": "9b1ebd6320b297f5a40f800ee711ed8edc668f02",
+        "base_source_sha256": "571ace969ad97db0c6651e7747359e7cc3c6e99c5d0b32924425ba6986e2c1a1",
+        "production_file_bytes": 54888,
+        "production_source_status": "captured_candidate_payload",
+        "report_sha256": "900c92d49ef98f5540f78d019ff8f6f3390aca3a941a3b8f54729e77848f74fc",
+        "test_stdout_sha256": "60f497b42a902b3dc41048d67bb63d09c6f9066f9219dabe48965320360d42f7",
+        "original_tests_passed": 48,
+        "original_target_tests": [
+          "sklearn/feature_extraction/tests/test_text.py::test_feature_names"
+        ],
+        "other_original_tests_passed": 47
+      },
+      "semantic_review": {
+        "status": "CLOSED_ORIGINAL_SKLEARN10908_AUDITED_WITH_STATED_LIMITS",
+        "blocking_findings": [],
+        "final_delivery_admission": false,
+        "actual_review_depth": "All 17 model event structures/individual fresh own-zero receipts; all 13 complete tool commands and meaningful stdout/stderr; full instruction, actual production patch, relevant original production/test code shown by tools, complete original grader report and all48 actual test-result lines. Both candidate metadata/file payloads, all controller verification/save/final events and final snapshots. Model reasoning not read word-for-word; verbose repeated conda/build setup was structurally inspected, not read line-for-line.",
+        "task_semantics": "get_feature_names must materialize the constructor-supplied vocabulary before fitted-state checking, including ordering by vocabulary indices; absence of supplied/learned vocabulary must still raise NotFittedError. Existing production tests/configuration are to be preserved.",
+        "production_change": "CountVectorizer.get_feature_names now mirrors transform's existing conditional _validate_vocabulary call when vocabulary_ is absent; fitted/empty checking and sorting by feature index remain. TfidfVectorizer inherits it.",
+        "source_scope": "Final patch changes only sklearn/feature_extraction/text.py. Clean checkout has task base67d06b18c68ee4452768f8a1e868565dd4354abf and image setup commitde60d3cc1d489509f0d7fe1ad141171628d3d4b7 with identical tree d7e9da7c13c10167281372f397c7313c52c46077, zero changed paths/modes. All three resource receipts show exact original pin8727c0f7…95404c and exclusive resource lease; no VM query was performed.",
+        "input_and_information_access": "Only issue-provided corpus/vocabulary, repository production/tests, existing build/interpreter discovery and local Git history were observed. Broad find commands searched interpreter/build paths; no hidden grader/answer file read or other-run/engineering candidate retrieval was observed. Model-created reproducer/edge checks live outside the repository under container /tmp; reviewer did not access host /tmp.",
+        "test_preservation": "No observed tool edits original repository tests or configuration. Both C0 final status/diff show production-only changes and unchanged test_text.py dependency snapshot aaa60b2921f4c7b9d4c82956ad48795fb4516100b5fa38cf70feaf0c50281de4. Actual original grader separately restores/applies its own evaluation-test patch and restores afterward; those are grader actions, not model test tampering.",
+        "original_grader_scope": {
+          "resolved": true,
+          "patch_successfully_applied": true,
+          "infra_failure": false,
+          "target_test": "sklearn/feature_extraction/tests/test_text.py::test_feature_names",
+          "target_passed": 1,
+          "pass_to_pass": 47,
+          "total_passed": 48,
+          "reported_warnings": 4,
+          "task_module_only": true,
+          "whole_sklearn_suite_claim": false,
+          "original_grader_patch_matches_saved_patch": true
+        },
+        "protocol_and_budget": "Actual modelhy4flash-free/providerhy4-flash-free/codebuddy, one persistent new native session,500calls/3600s/120s commands/64000 output cap/strict wall/0timeout retries. Every actual request has attempt1; all corresponding billing_verified events match its one fresh rawUsage.credit0 native identity.",
+        "public_check_scope": "Actual registered check runs original test_text.py -k vocab:10 passed/38 deselected. It covers existing vocabulary regressions, not an independent dedicated pre-fit feature-name issue reproducer. Model-created task/edge checks and original target evaluation separately support the issue semantics. C0 only ran this check when explicitly requested; no automatic per-step checking is inferred.",
+        "production_currentness": "Both saved candidate production payloads are byte-identical; their full-file SHA appears in the current final public snapshot. Removing only the actual inserted block reconstructs the original full-file Git blob9b1ebd6320b297f5a40f800ee711ed8edc668f02; candidate/patch new blob also agrees. Saved candidate.patch equals original grader patch.diff exactly.",
+        "action_sequence": {
+          "patch_tool": 9,
+          "save1": 10,
+          "verify": 13,
+          "save2": 16,
+          "submit": 17
+        },
+        "reviewer_actions": {
+          "new_model_calls": 0,
+          "new_original_grader_calls": 0,
+          "new_VM_operations": 0,
+          "new_financial_operations": 0
+        },
+        "interpretation_limit": "This is source/trajectory/actual original-score evidence for these fixed attempts. It does not isolate a causal advantage of a framework or verification instruction, and it does not certify unrelated scikit-learn APIs.",
+        "selftests": "Before production edit, actual Python3.6 reproducer observes supplied-vocabulary NotFittedError while no-vocabulary error remains. After edit: issue list and inheritedTfidf names return; valid mapping order, generator/transform, set, no-vocabulary and malformed vocabulary cases pass in tool10. Original test_text module48 passes in tool11 and pipeline+dict-vectorizer40 passes in tool13. These are distinct model self-tests, not extra original grader calls.",
+        "retained_failures": "Initial default Python cannot import installed legacy sklearn; default3.11 fails cpython36 build import; model locates and uses existing testbedPython3.6. Initial mapping example has noncontiguous indices and correctly becomes a ValueError after fix; later self-test uses a valid mapping. No error is silently classified as a whole-suite pass."
+      }
+    },
+    {
+      "arm": "repeat",
+      "task": "scikit-learn__scikit-learn-10908",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/scikit-learn__scikit-learn-10908-C0-r2",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 157.94257912505418,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795645326.700305,
+        "native_session_id": "ab8b9566-9368-4982-b663-9a7b2f93719a",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "def653295518f3d49933085c942be46cfba29d3b51826dbef456ad3507bff69f"
+      },
+      "event_counts": {
+        "request": 18,
+        "cli_process_started": 18,
+        "response": 18,
+        "billing_verified": 18
+      },
+      "native_sessions": [
+        "ab8b9566-9368-4982-b663-9a7b2f93719a"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a214cd50847f53aae9999289d313ef",
+          0,
+          5821,
+          184
+        ],
+        [
+          2,
+          "01a214cd65a27795a9510101698cbd82",
+          0,
+          6830,
+          231
+        ],
+        [
+          3,
+          "01a214cd807d76a4b8136eccf9010ecb",
+          0,
+          9972,
+          408
+        ],
+        [
+          4,
+          "01a214cd99017112a15d16f276cfae9d",
+          0,
+          12109,
+          629
+        ],
+        [
+          5,
+          "01a214cdb5f37959a7b86f097dccc484",
+          0,
+          12896,
+          199
+        ],
+        [
+          6,
+          "01a214cdccdc7a5cb052b1bae72df7f5",
+          0,
+          15220,
+          359
+        ],
+        [
+          7,
+          "01a214cde7067d389a4e286654758677",
+          0,
+          16760,
+          463
+        ],
+        [
+          8,
+          "01a214ce050d7bd1a18350ddec4a67e4",
+          0,
+          17453,
+          198
+        ],
+        [
+          9,
+          "01a214ce1e9c76ed8cfa24c3c29da523",
+          0,
+          17853,
+          819
+        ],
+        [
+          10,
+          "01a214ce3d8a74feb2ee6c5d6ca78432",
+          0,
+          18927,
+          340
+        ],
+        [
+          11,
+          "01a214ce56ba7a8aa2d13a6e2a4a18bb",
+          0,
+          19553,
+          157
+        ],
+        [
+          12,
+          "01a214ce6eaf7d62a7c5466a9a54863e",
+          0,
+          19984,
+          230
+        ],
+        [
+          13,
+          "01a214ce8fe0712388ceb876ffef34a5",
+          0,
+          20507,
+          1401
+        ],
+        [
+          14,
+          "01a214cebceb7ce1b6e28b391c21b9ae",
+          0,
+          22175,
+          288
+        ],
+        [
+          15,
+          "01a214cee03e7c149afd1fe2be9a6c44",
+          0,
+          22564,
+          97
+        ],
+        [
+          16,
+          "01a214ceff9b700980d7dde7be4aac6c",
+          0,
+          23129,
+          401
+        ],
+        [
+          17,
+          "01a214cf1ae57ff98b0ed09ccd9cb6f5",
+          0,
+          23905,
+          167
+        ],
+        [
+          18,
+          "01a214cf31127340ba4a1c084e776aea",
+          0,
+          24558,
+          219
+        ]
+      ],
+      "input_tokens": 310216,
+      "output_tokens": 6790,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "4204cc2c3af0da09add9210d88450adf349d6c78b1280c735d5c80fcf46f3432",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "07355c9d08a10ca6e41446cdcc6693bed5e1683595456d93a1f52eb11c9b5b88  sklearn/feature_extraction/text.py\naaa60b2921f4c7b9d4c82956ad48795fb4516100b5fa38cf70feaf0c50281de4  sklearn/feature_extraction/tests/test_text.py\n"
+          }
+        },
+        "elapsed_seconds": 130.72495699999854
+      },
+      "controller_event_counts": {
+        "candidate_operation": 7,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "4204cc2c3af0da09add9210d88450adf349d6c78b1280c735d5c80fcf46f3432",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "4204cc2c3af0da09add9210d88450adf349d6c78b1280c735d5c80fcf46f3432",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "4204cc2c3af0da09add9210d88450adf349d6c78b1280c735d5c80fcf46f3432",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "4204cc2c3af0da09add9210d88450adf349d6c78b1280c735d5c80fcf46f3432",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "sklearn/feature_extraction/text.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 47,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_tfidfvectorizer_binary",
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_tfidfvectorizer_export_idf",
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_vectorizer_vocab_clone",
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_vectorizer_string_object_as_input",
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_vectorizers_invalid_ngram_range[vec0]",
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_vectorizers_invalid_ngram_range[vec1]",
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_vectorizers_invalid_ngram_range[vec2]",
+          "======================== 48 passed, 4 warnings in 1.66s ========================"
+        ]
+      },
+      "tools_count": 14,
+      "nonzero_tools": [
+        4,
+        6,
+        12
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 14,
+        "save": 2,
+        "verify": 1,
+        "submit": 1
+      },
+      "source_sha256": {
+        "result.json": "3a09209817d6f5761fcf1f33c7843f931265bd229eba8ff173e054c772adaf44",
+        "trial.json": "098e6308c8699e7277e269b16c033c436ecb5e1555d9129db3632bb32ec3df7d",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/scikit-learn__scikit-learn-10908-C0-r2.protocol.json": "b94eff717999bcbf0fbcf5ae72a39f235cdaee46e38a7da2f9db4e92dec28d32",
+        "model.jsonl": "4da640e420ef9e3b46f2b18396071b2a27260309030089b148362fd1b9769e8a",
+        "controller.jsonl": "da56b121f5e1b4613891b5149121c8d6850a524e4c61c2d7858c4945b0b8abfd",
+        "final-verification.json": "c7d27b8d116570ee0034777f63fe8926d841e500ae6f577b234efacebf78e5d3",
+        "candidates/candidate-002.json": "6b915fabe1b9499614cb9dbe9239057fdc3addee613271743445e0b0cb71c4de",
+        "candidates/candidate-001.json": "bb50edad1ef8fd00cf941e020ce1d59f6c245661f6c4de4e2f95908dba232acf",
+        "candidate.patch": "ab5a2c7b678bc0986c8dbaff1429eb272fcbc4bdc680ba025d7beb64da46f6f7",
+        "swe-official/scikit-learn__scikit-learn-10908-C0-r2/course-mini-swe-agent/scikit-learn__scikit-learn-10908/patch.diff": "ab5a2c7b678bc0986c8dbaff1429eb272fcbc4bdc680ba025d7beb64da46f6f7",
+        "swe-official/scikit-learn__scikit-learn-10908-C0-r2/course-mini-swe-agent/scikit-learn__scikit-learn-10908/report.json": "900c92d49ef98f5540f78d019ff8f6f3390aca3a941a3b8f54729e77848f74fc",
+        "swe-official/scikit-learn__scikit-learn-10908-C0-r2/course-mini-swe-agent/scikit-learn__scikit-learn-10908/test_output.txt": "e06924d3044c8c5bdd8dae9bec3ca765ca13e31d7ef868bab419c002d4265afe",
+        "swe-official/scikit-learn__scikit-learn-10908-C0-r2/course-mini-swe-agent/scikit-learn__scikit-learn-10908/run_instance.log": "5c8cf8ee04650b76e4edeb32993f39077e29ffea112100c4490b71896209688e",
+        "swe-official/scikit-learn__scikit-learn-10908-C0-r2/course-mini-swe-agent/scikit-learn__scikit-learn-10908/eval.sh": "ac1849db74accc26d8542096e7d2a47afb07d4f58184a7db63d2112598f4f8d5",
+        "tools.jsonl": "a993ed1567ccbd72603894c615dc6f728adf831ce826aabe6e05dda2ff994da4",
+        "instruction.txt": "f823d7de7beccbb9791d8b8a3167861c3c70d9acb0ba3fa2fb2bcd9d31e9ee35",
+        "checkout.json": "bede7b7706cb03c87a50081c10000fed83ea9554eee5eef5b648b84341fcaa95",
+        "execution-budget.json": "8280f96563298970630e295571db4d06a0300bca1996e823d5aa5a4bbadd4c13",
+        ".controller-input.json": "d2a8222f1c5357eca3e400cae07c17911fc8cb933df6f3781a79b847e282d47b"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All 18 model event structures/individual fresh own-zero receipts; all 14 complete tool commands and meaningful stdout/stderr; full instruction, actual production patch, relevant original production/test code shown by tools, complete original grader report and all48 actual test-result lines. Both candidate metadata/file payloads, all controller verification/save/final events and final snapshots. Model reasoning not read word-for-word; verbose repeated conda/build setup was structurally inspected, not read line-for-line.",
+      "protocol_sha256": "b94eff717999bcbf0fbcf5ae72a39f235cdaee46e38a7da2f9db4e92dec28d32",
+      "identity_crosscheck": {
+        "prior_ids": 4279,
+        "prior_sessions": 245,
+        "new_ids": 18,
+        "new_sessions": 1,
+        "id_intersection": 0,
+        "session_intersection": 0,
+        "new_session": "ab8b9566-9368-4982-b663-9a7b2f93719a"
+      },
+      "production_patch_and_candidate_links": {
+        "arm": "repeat",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/scikit-learn__scikit-learn-10908-C0-r2",
+        "protocol_sha256": "b94eff717999bcbf0fbcf5ae72a39f235cdaee46e38a7da2f9db4e92dec28d32",
+        "resource_sha256": "0779712389c9512a9524077dff323a2d18033c4bb4f7f344152e350b39f6f71c",
+        "original_pin": "sha256:8727c0f7bfb76c294cfef16c9fe3d0dc9ddf313e7c0fb3e8e9cbc74c4955404c",
+        "actual_pin_matches": true,
+        "checkout_sha256": "bede7b7706cb03c87a50081c10000fed83ea9554eee5eef5b648b84341fcaa95",
+        "execution_budget_sha256": "8280f96563298970630e295571db4d06a0300bca1996e823d5aa5a4bbadd4c13",
+        "candidate_patch_sha256": "ab5a2c7b678bc0986c8dbaff1429eb272fcbc4bdc680ba025d7beb64da46f6f7",
+        "original_grader_patch_sha256": "ab5a2c7b678bc0986c8dbaff1429eb272fcbc4bdc680ba025d7beb64da46f6f7",
+        "grader_patch_byte_identical": true,
+        "candidate_payloads": {
+          "candidate-001.json": {
+            "source_sha256": "bb50edad1ef8fd00cf941e020ce1d59f6c245661f6c4de4e2f95908dba232acf",
+            "eligible": false,
+            "artifact_digest": "4204cc2c3af0da09add9210d88450adf349d6c78b1280c735d5c80fcf46f3432",
+            "payload_sha256": "07355c9d08a10ca6e41446cdcc6693bed5e1683595456d93a1f52eb11c9b5b88",
+            "payload_bytes": 54887,
+            "git_blob_sha1": "d282cb414d0f502355a78f8324cc23ab54c1bd9a"
+          },
+          "candidate-002.json": {
+            "source_sha256": "6b915fabe1b9499614cb9dbe9239057fdc3addee613271743445e0b0cb71c4de",
+            "eligible": true,
+            "artifact_digest": "4204cc2c3af0da09add9210d88450adf349d6c78b1280c735d5c80fcf46f3432",
+            "payload_sha256": "07355c9d08a10ca6e41446cdcc6693bed5e1683595456d93a1f52eb11c9b5b88",
+            "payload_bytes": 54887,
+            "git_blob_sha1": "d282cb414d0f502355a78f8324cc23ab54c1bd9a"
+          }
+        },
+        "production_source_sha256": "07355c9d08a10ca6e41446cdcc6693bed5e1683595456d93a1f52eb11c9b5b88",
+        "production_source_git_blob_sha1": "d282cb414d0f502355a78f8324cc23ab54c1bd9a",
+        "base_source_git_blob_sha1": "9b1ebd6320b297f5a40f800ee711ed8edc668f02",
+        "base_source_sha256": "571ace969ad97db0c6651e7747359e7cc3c6e99c5d0b32924425ba6986e2c1a1",
+        "production_file_bytes": 54887,
+        "production_source_status": "captured_candidate_payload",
+        "report_sha256": "900c92d49ef98f5540f78d019ff8f6f3390aca3a941a3b8f54729e77848f74fc",
+        "test_stdout_sha256": "e06924d3044c8c5bdd8dae9bec3ca765ca13e31d7ef868bab419c002d4265afe",
+        "original_tests_passed": 48,
+        "original_target_tests": [
+          "sklearn/feature_extraction/tests/test_text.py::test_feature_names"
+        ],
+        "other_original_tests_passed": 47
+      },
+      "semantic_review": {
+        "status": "CLOSED_ORIGINAL_SKLEARN10908_AUDITED_WITH_STATED_LIMITS",
+        "blocking_findings": [],
+        "final_delivery_admission": false,
+        "actual_review_depth": "All 18 model event structures/individual fresh own-zero receipts; all 14 complete tool commands and meaningful stdout/stderr; full instruction, actual production patch, relevant original production/test code shown by tools, complete original grader report and all48 actual test-result lines. Both candidate metadata/file payloads, all controller verification/save/final events and final snapshots. Model reasoning not read word-for-word; verbose repeated conda/build setup was structurally inspected, not read line-for-line.",
+        "task_semantics": "get_feature_names must materialize the constructor-supplied vocabulary before fitted-state checking, including ordering by vocabulary indices; absence of supplied/learned vocabulary must still raise NotFittedError. Existing production tests/configuration are to be preserved.",
+        "production_change": "CountVectorizer.get_feature_names now mirrors transform's existing conditional _validate_vocabulary call when vocabulary_ is absent; fitted/empty checking and sorting by feature index remain. TfidfVectorizer inherits it.",
+        "source_scope": "Final patch changes only sklearn/feature_extraction/text.py. Clean checkout has task base67d06b18c68ee4452768f8a1e868565dd4354abf and image setup commitde60d3cc1d489509f0d7fe1ad141171628d3d4b7 with identical tree d7e9da7c13c10167281372f397c7313c52c46077, zero changed paths/modes. All three resource receipts show exact original pin8727c0f7…95404c and exclusive resource lease; no VM query was performed.",
+        "input_and_information_access": "Only issue-provided corpus/vocabulary, repository production/tests, existing build/interpreter discovery and local Git history were observed. Broad find commands searched interpreter/build paths; no hidden grader/answer file read or other-run/engineering candidate retrieval was observed. Model-created reproducer/edge checks live outside the repository under container /tmp; reviewer did not access host /tmp.",
+        "test_preservation": "No observed tool edits original repository tests or configuration. Both C0 final status/diff show production-only changes and unchanged test_text.py dependency snapshot aaa60b2921f4c7b9d4c82956ad48795fb4516100b5fa38cf70feaf0c50281de4. Actual original grader separately restores/applies its own evaluation-test patch and restores afterward; those are grader actions, not model test tampering.",
+        "original_grader_scope": {
+          "resolved": true,
+          "patch_successfully_applied": true,
+          "infra_failure": false,
+          "target_test": "sklearn/feature_extraction/tests/test_text.py::test_feature_names",
+          "target_passed": 1,
+          "pass_to_pass": 47,
+          "total_passed": 48,
+          "reported_warnings": 4,
+          "task_module_only": true,
+          "whole_sklearn_suite_claim": false,
+          "original_grader_patch_matches_saved_patch": true
+        },
+        "protocol_and_budget": "Actual modelhy4flash-free/providerhy4-flash-free/codebuddy, one persistent new native session,500calls/3600s/120s commands/64000 output cap/strict wall/0timeout retries. Every actual request has attempt1; all corresponding billing_verified events match its one fresh rawUsage.credit0 native identity.",
+        "public_check_scope": "Actual registered check runs original test_text.py -k vocab:10 passed/38 deselected. It covers existing vocabulary regressions, not an independent dedicated pre-fit feature-name issue reproducer. Model-created task/edge checks and original target evaluation separately support the issue semantics. C0 only ran this check when explicitly requested; no automatic per-step checking is inferred.",
+        "production_currentness": "Both saved candidate production payloads are byte-identical; their full-file SHA appears in the current final public snapshot. Removing only the actual inserted block reconstructs the original full-file Git blob9b1ebd6320b297f5a40f800ee711ed8edc668f02; candidate/patch new blob also agrees. Saved candidate.patch equals original grader patch.diff exactly.",
+        "action_sequence": {
+          "patch_tool": 10,
+          "save1": 11,
+          "verify": 15,
+          "save2": 16,
+          "submit": 18
+        },
+        "reviewer_actions": {
+          "new_model_calls": 0,
+          "new_original_grader_calls": 0,
+          "new_VM_operations": 0,
+          "new_financial_operations": 0
+        },
+        "interpretation_limit": "This is source/trajectory/actual original-score evidence for these fixed attempts. It does not isolate a causal advantage of a framework or verification instruction, and it does not certify unrelated scikit-learn APIs.",
+        "selftests": "Base reproducer shows fixed-vocabulary issue; post-edit reproducer succeeds and original no-vocabulary remains NotFittedError. Full original public text module48 passes. Extra mapping/set/inheritedTfidf/transform/invalid-vocabulary checks eventually pass after correcting the scratch fixture.",
+        "retained_failures": "DefaultPython/import/ABI mismatch and testbedPython3.6 ASCII source-read failure retained; production edit first fails before writing, then succeeds with explicit UTF8. Scratch tool12 fits one-character tokens under default token pattern and fails empty-vocabulary; tool13 changes only the scratch fixture to aa/bb/cc and passes, not repository tests. Base scratch EMPTY_VOCAB label catches ValueError including its NotFittedError subclass, so that printed PASS alone is not proof of the intended empty-vocabulary exception message. Final output explicitly reports empty vocabulary passed to fit and original grader passes."
+      }
+    },
+    {
+      "arm": "dsh",
+      "task": "scikit-learn__scikit-learn-10908",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-dsh-hy4-v10/scikit-learn__scikit-learn-10908-B0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 133.91654058301356,
+      "runtime_root": "work/frozen-performance-dsh-parallel-guard-20261124",
+      "protocol_configuration": "B0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795645492.20417,
+        "native_session_id": "649e752b-830f-49cd-a9cf-e9568a282bd2",
+        "history_count": 2,
+        "history_roles": [
+          "user",
+          "user"
+        ],
+        "initial_history_sha256": "678dc1da3c6fa0a88a4f831e03b8873a2ff86ca9dbb0e79016ccf43540bdc0da"
+      },
+      "event_counts": {
+        "request": 15,
+        "cli_process_started": 15,
+        "response": 15,
+        "billing_verified": 15
+      },
+      "native_sessions": [
+        "649e752b-830f-49cd-a9cf-e9568a282bd2"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a214cfd5787d03accc365a9b3049ab",
+          0,
+          4901,
+          38
+        ],
+        [
+          2,
+          "01a214cfeb66722f941e0a96e4e82c31",
+          0,
+          5705,
+          68
+        ],
+        [
+          3,
+          "01a214cffd8271a9a807689431ea914f",
+          0,
+          5989,
+          90
+        ],
+        [
+          4,
+          "01a214d00faa7f0cab48767d1c440d96",
+          0,
+          7715,
+          127
+        ],
+        [
+          5,
+          "01a214d022c87f0a98bb1ed108f489cc",
+          0,
+          8060,
+          55
+        ],
+        [
+          6,
+          "01a214d0342574b2a2fd357d09e0f7ce",
+          0,
+          8943,
+          136
+        ],
+        [
+          7,
+          "01a214d058c7739cb8977d675692f941",
+          0,
+          9299,
+          947
+        ],
+        [
+          8,
+          "01a214d078b97550a6b9d7e71440a9b3",
+          0,
+          11140,
+          302
+        ],
+        [
+          9,
+          "01a214d09048763ab187ae995497dda2",
+          0,
+          11685,
+          252
+        ],
+        [
+          10,
+          "01a214d0a7dd71138e92a863385c9f21",
+          0,
+          12404,
+          81
+        ],
+        [
+          11,
+          "01a214d0bc9c76eea48eb8f23b16e21f",
+          0,
+          12630,
+          113
+        ],
+        [
+          12,
+          "01a214d0d34272849c1b2c75658b3bc3",
+          0,
+          13148,
+          262
+        ],
+        [
+          13,
+          "01a214d0ee047c18b01b69a4a5755149",
+          0,
+          13672,
+          60
+        ],
+        [
+          14,
+          "01a214d109e07f70b93df8eeba8c4b4f",
+          0,
+          13838,
+          308
+        ],
+        [
+          15,
+          "01a214d138b373aab4bc7302d066b69e",
+          0,
+          14257,
+          262
+        ]
+      ],
+      "input_tokens": 153386,
+      "output_tokens": 3101,
+      "final_control": null,
+      "controller_event_counts": {},
+      "candidate_records": [],
+      "matching_final_candidates": [],
+      "native_capture": null,
+      "patch_paths": [
+        "sklearn/feature_extraction/text.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 47,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_tfidfvectorizer_binary",
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_tfidfvectorizer_export_idf",
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_vectorizer_vocab_clone",
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_vectorizer_string_object_as_input",
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_vectorizers_invalid_ngram_range[vec0]",
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_vectorizers_invalid_ngram_range[vec1]",
+          "PASSED sklearn/feature_extraction/tests/test_text.py::test_vectorizers_invalid_ngram_range[vec2]",
+          "======================== 48 passed, 4 warnings in 1.67s ========================"
+        ]
+      },
+      "tools_count": 14,
+      "nonzero_tools": [],
+      "sdk_event_counts": {
+        "session": 1,
+        "agent/inbox/spliced": 2,
+        "turn/start": 1,
+        "step/start": 15,
+        "system/message": 1,
+        "user/message": 2,
+        "request/header": 1,
+        "request/context": 1,
+        "assistant/message": 15,
+        "tool/call": 14,
+        "tool/result": 14,
+        "step/end": 15,
+        "turn/end": 1
+      },
+      "proposed_structured_actions": {
+        "unknown": 15
+      },
+      "source_sha256": {
+        "result.json": "8b0847e06cbd0dd13ead0bc72ef862f8f80fef71c2918cb7d75768672836e118",
+        "trial.json": "986cee683a7ec6c520f871e5eed38658e33c4e4952a6223bf0034b335ec7fa2d",
+        "protocol:work/vmshare/performance75-dsh-hy4-v10/scikit-learn__scikit-learn-10908-B0-r1.protocol.json": "6ad09e4d849782fb7f1e8d7447208edc2fb9b07634a6ceeb09ef754c5a006cff",
+        "model.jsonl": "7344c884efff3fb5f654addd67f629a5b300ecaafb93f357c370f237658499f8",
+        "candidate.patch": "196f3a946f2affc60ad2335a7bc864fc62858c17ed50891f61fa749b22cf5f45",
+        "swe-official/scikit-learn__scikit-learn-10908-B0-r1/course-mini-swe-agent/scikit-learn__scikit-learn-10908/patch.diff": "196f3a946f2affc60ad2335a7bc864fc62858c17ed50891f61fa749b22cf5f45",
+        "swe-official/scikit-learn__scikit-learn-10908-B0-r1/course-mini-swe-agent/scikit-learn__scikit-learn-10908/report.json": "900c92d49ef98f5540f78d019ff8f6f3390aca3a941a3b8f54729e77848f74fc",
+        "swe-official/scikit-learn__scikit-learn-10908-B0-r1/course-mini-swe-agent/scikit-learn__scikit-learn-10908/test_output.txt": "61bdb87fe7ff498d8bae34622089b3fff2afbbd26e53d6eb94350f4ae113e44d",
+        "swe-official/scikit-learn__scikit-learn-10908-B0-r1/course-mini-swe-agent/scikit-learn__scikit-learn-10908/run_instance.log": "5a74540ac5c58d4d8d5b15a697de8e699330f2953bc1101ae8e1f53a0b5e5e6f",
+        "swe-official/scikit-learn__scikit-learn-10908-B0-r1/course-mini-swe-agent/scikit-learn__scikit-learn-10908/eval.sh": "ac1849db74accc26d8542096e7d2a47afb07d4f58184a7db63d2112598f4f8d5",
+        "dsh/dsh-home/sessions/--testbed--/course-task/session.v4.jsonl": "c55871de1444047a4fc8f27f58d80d40ce8bc4ffc3293557442d675f4f66dd79",
+        "instruction.txt": "f823d7de7beccbb9791d8b8a3167861c3c70d9acb0ba3fa2fb2bcd9d31e9ee35",
+        "checkout.json": "bede7b7706cb03c87a50081c10000fed83ea9554eee5eef5b648b84341fcaa95",
+        "execution-budget.json": "5d03a9063f15381a306025131e427d6ecbb73074c94189e709461102c188e3f7"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All 15 model event structures/individual fresh own-zero receipts; all 14 complete tool commands and meaningful stdout/stderr; full instruction, actual production patch, relevant original production/test code shown by tools, complete original grader report and all48 actual test-result lines. All SDK tool calls/results; no mini-swe CandidateStore/final policy exists in B0. Model reasoning not read word-for-word; verbose repeated conda/build setup was structurally inspected, not read line-for-line.",
+      "protocol_sha256": "6ad09e4d849782fb7f1e8d7447208edc2fb9b07634a6ceeb09ef754c5a006cff",
+      "identity_crosscheck": {
+        "prior_ids": 4279,
+        "prior_sessions": 245,
+        "new_ids": 15,
+        "new_sessions": 1,
+        "id_intersection": 0,
+        "session_intersection": 0,
+        "new_session": "649e752b-830f-49cd-a9cf-e9568a282bd2"
+      },
+      "production_patch_and_candidate_links": {
+        "arm": "dsh",
+        "run_dir": "work/vmshare/performance75-dsh-hy4-v10/scikit-learn__scikit-learn-10908-B0-r1",
+        "protocol_sha256": "6ad09e4d849782fb7f1e8d7447208edc2fb9b07634a6ceeb09ef754c5a006cff",
+        "resource_sha256": "231ea5f42ecf5455a048803361dd0708f306e8fb52e00d3ad5088e2ce0e1db2e",
+        "original_pin": "sha256:8727c0f7bfb76c294cfef16c9fe3d0dc9ddf313e7c0fb3e8e9cbc74c4955404c",
+        "actual_pin_matches": true,
+        "checkout_sha256": "bede7b7706cb03c87a50081c10000fed83ea9554eee5eef5b648b84341fcaa95",
+        "execution_budget_sha256": "5d03a9063f15381a306025131e427d6ecbb73074c94189e709461102c188e3f7",
+        "candidate_patch_sha256": "196f3a946f2affc60ad2335a7bc864fc62858c17ed50891f61fa749b22cf5f45",
+        "original_grader_patch_sha256": "196f3a946f2affc60ad2335a7bc864fc62858c17ed50891f61fa749b22cf5f45",
+        "grader_patch_byte_identical": true,
+        "candidate_payloads": {},
+        "production_source_sha256": "2a6b0201e05390f4688cf1c7e49b586ce1300ea3d446b2a87f4037044ef325bf",
+        "production_source_git_blob_sha1": "0f0842303e429e5a091b65de8e38f7707c6c5d3d",
+        "base_source_git_blob_sha1": "9b1ebd6320b297f5a40f800ee711ed8edc668f02",
+        "base_source_sha256": "571ace969ad97db0c6651e7747359e7cc3c6e99c5d0b32924425ba6986e2c1a1",
+        "production_file_bytes": 54888,
+        "production_source_status": "locally_reconstructed_from_common_base_and_actual_patch_not_native_captured",
+        "report_sha256": "900c92d49ef98f5540f78d019ff8f6f3390aca3a941a3b8f54729e77848f74fc",
+        "test_stdout_sha256": "61bdb87fe7ff498d8bae34622089b3fff2afbbd26e53d6eb94350f4ae113e44d",
+        "original_tests_passed": 48,
+        "original_target_tests": [
+          "sklearn/feature_extraction/tests/test_text.py::test_feature_names"
+        ],
+        "other_original_tests_passed": 47
+      },
+      "semantic_review": {
+        "status": "CLOSED_ORIGINAL_SKLEARN10908_AUDITED_WITH_STATED_LIMITS",
+        "blocking_findings": [],
+        "final_delivery_admission": false,
+        "actual_review_depth": "All 15 model event structures/individual fresh own-zero receipts; all 14 complete tool commands and meaningful stdout/stderr; full instruction, actual production patch, relevant original production/test code shown by tools, complete original grader report and all48 actual test-result lines. All SDK tool calls/results; no mini-swe CandidateStore/final policy exists in B0. Model reasoning not read word-for-word; verbose repeated conda/build setup was structurally inspected, not read line-for-line.",
+        "task_semantics": "get_feature_names must materialize the constructor-supplied vocabulary before fitted-state checking, including ordering by vocabulary indices; absence of supplied/learned vocabulary must still raise NotFittedError. Existing production tests/configuration are to be preserved.",
+        "production_change": "Shared VectorizerMixin._check_vocabulary now conditionally invokes existing _validate_vocabulary when vocabulary_ is absent. Existing fitted/error/empty checks remain. Its callers include get_feature_names and inverse_transform; this is a broader responsibility layer than the two mini-swe patches, not a different target task.",
+        "source_scope": "Final patch changes only sklearn/feature_extraction/text.py. Clean checkout has task base67d06b18c68ee4452768f8a1e868565dd4354abf and image setup commitde60d3cc1d489509f0d7fe1ad141171628d3d4b7 with identical tree d7e9da7c13c10167281372f397c7313c52c46077, zero changed paths/modes. All three resource receipts show exact original pin8727c0f7…95404c and exclusive resource lease; no VM query was performed.",
+        "input_and_information_access": "Only issue-provided corpus/vocabulary, repository production/tests, existing build/interpreter discovery and local Git history were observed. Broad find commands searched interpreter/build paths; no hidden grader/answer file read or other-run/engineering candidate retrieval was observed. Model-created reproducer/edge checks live outside the repository under container /tmp; reviewer did not access host /tmp.",
+        "test_preservation": "No observed tool edits original repository tests or configuration. Both C0 final status/diff show production-only changes and unchanged test_text.py dependency snapshot aaa60b2921f4c7b9d4c82956ad48795fb4516100b5fa38cf70feaf0c50281de4. Actual original grader separately restores/applies its own evaluation-test patch and restores afterward; those are grader actions, not model test tampering.",
+        "original_grader_scope": {
+          "resolved": true,
+          "patch_successfully_applied": true,
+          "infra_failure": false,
+          "target_test": "sklearn/feature_extraction/tests/test_text.py::test_feature_names",
+          "target_passed": 1,
+          "pass_to_pass": 47,
+          "total_passed": 48,
+          "reported_warnings": 4,
+          "task_module_only": true,
+          "whole_sklearn_suite_claim": false,
+          "original_grader_patch_matches_saved_patch": true
+        },
+        "protocol_and_budget": "Actual modelhy4flash-free/providerhy4-flash-free/codebuddy, one persistent new native session,500calls/3600s/120s commands/64000 output cap/strict wall/0timeout retries. Every actual request has attempt1; all corresponding billing_verified events match its one fresh rawUsage.credit0 native identity.",
+        "public_check_scope": "B0 has no C0 registered check/final protected verification. Its qualified_passed is the historical analyzer's raw passthrough and is not a C0 evidence certificate.",
+        "production_currentness": "candidate.patch exactly equals grader patch.diff; Git blob identity of the production source reconstructed in memory from common verified base plus actual DSH patch agrees with patch metadata. No independent native full-file/candidate capture exists, so reconstructed source SHA is labeled as such.",
+        "action_sequence": {
+          "patch_tool": 8
+        },
+        "reviewer_actions": {
+          "new_model_calls": 0,
+          "new_original_grader_calls": 0,
+          "new_VM_operations": 0,
+          "new_financial_operations": 0
+        },
+        "interpretation_limit": "This is source/trajectory/actual original-score evidence for these fixed attempts. It does not isolate a causal advantage of a framework or verification instruction, and it does not certify unrelated scikit-learn APIs.",
+        "selftests": "After shared-helper production edit and interpreter correction, actual Python3.6 custom checks show constructor list/dict/set ordering and inheritedTfidf names, and print expected absent-vocabulary/empty-vocabulary errors. Actual text module48 and wider feature_extraction directory84 pass; the custom print-only checks are not all assertions and are not called a formal full boundary proof.",
+        "retained_failures": "First defaultPython invocation fails legacy compiled-extension import; existing testbedPython3.6 is discovered and used. No base-before-edit dynamic reproducer was run in this DSH trajectory; original source and issue establish the pre-edit path, not a fabricated observed base failure."
+      },
+      "final_control_applicability": "not_applicable_B0"
+    }
+  ],
+  "shared_source_sha256": {
+    "work/parallel-free-evaluation-20261124/hy4-snapshot-0507-20261126/summary.json": "f93115883af15c70bd6621b65cdf62c05afc593f6923070cc8b19e32ec670803",
+    "work/parallel-free-evaluation-20261124/independent-core-after210-incremental-20261126.json": "bb14a45ca0f481cf55c718b1c38d678ecb58962717aa7b7d8c8894c3280fd0e3",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/tune-mjcf-C0-r2.protocol.json": "eb8211a7f2d4660f2249c0495c33ddd412958ba5201a0e6179cd2f072bb524d5",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/tune-mjcf-C0-r2.resources.json": "e8530f8ad40e1c42f2d0bcc30edad9e9410aa4d58d5a0f5083b22cb7ccdd1088",
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/codebuddy_free.py": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/tune-mjcf-C0-r1.protocol.json": "eb8211a7f2d4660f2249c0495c33ddd412958ba5201a0e6179cd2f072bb524d5",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/tune-mjcf-C0-r1.resources.json": "5d0a753281f344261a83a238a396fab021f4c11f6a419b6db28a20978f449331",
+    "work/vmshare/performance75-dsh-hy4-v10/tune-mjcf-B0-r1.protocol.json": "ea3a1a4a9cf8965cf922d04e2fc52bb44ce69fc625a279a47116a4b0954b8f7a",
+    "work/vmshare/performance75-dsh-hy4-v10/tune-mjcf-B0-r1.resources.json": "086c79ad62afeca86726f0b62c389958aa90946b3b59b22db24555c714feeb62",
+    "work/parallel-free-evaluation-20261124/independent-closed177-review-20261126.json": "cb1dfd62c93b21771f35ed4ab527668e18d575593ea17fdfe90d5a7f8ce88df1",
+    "work/parallel-free-evaluation-20261124/independent-core-after177-incremental-20261126.json": "95581af5dbbd37b11bc24a0c9a0b1b989fe80b2ba4d346c6d38e1efc03add715",
+    "work/parallel-free-evaluation-20261124/independent-core-after187-incremental-20261126.json": "b9a91501391ad5a0bd20a042ddea7162696fcf0d593a2f4db378b8268326c2ff",
+    "work/parallel-free-evaluation-20261124/independent-core-after201-incremental-20261126.json": "03855ded614da431df49ccf9164a5324e59bc50c7c94c2758832525b418376db",
+    "work/sklearn-25232-semantics-20261126/completed-review.json": "ee70b77ba884f073c2400cb20ce20999befe266a4e7db16b02e81461728fb36a",
+    "work/xarray-4695-preservation-20261126/completed-review.json": "97f92aa9b5aadf1327fc22648a1e7084076293ae39ec8f19cc60b353b88b1d27",
+    "work/free-recovery35-20261126/hy4-plans/checks.json": "8f1b3a87b197a93c3f4441095495dc3a835bb8f29712336949767a92e308dff4",
+    "work/free-recovery35-20261126/hy4-plans/tasks.json": "756f111c06a2d757c3034dd6134abbefa454d5371e5153e6afcaabd1bd3a8be2",
+    "work/vmshare/performance75-dsh-hy4-v10/tasks.json": "500e27356f70e58dfe394828e698c43cce331a0a7aa8bb8bc4f4effd8ce4a13c",
+    "work/vmshare/performance75-dsh-hy4-v10/environment-pins.json": "4cccb2ad44c00d4257ea8f9e89c2e2fcf19d21d1d1bec55a4e7661d9449c282e",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/scikit-learn__scikit-learn-10908-C0-r1.protocol.json": "b94eff717999bcbf0fbcf5ae72a39f235cdaee46e38a7da2f9db4e92dec28d32",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/scikit-learn__scikit-learn-10908-C0-r1.resources.json": "fd04fb1bc7ade72c1e67c4b089effc5b1c613728aa405402e52e24b2cb05bd4c",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/scikit-learn__scikit-learn-10908-C0-r2.protocol.json": "b94eff717999bcbf0fbcf5ae72a39f235cdaee46e38a7da2f9db4e92dec28d32",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/scikit-learn__scikit-learn-10908-C0-r2.resources.json": "0779712389c9512a9524077dff323a2d18033c4bb4f7f344152e350b39f6f71c",
+    "work/vmshare/performance75-dsh-hy4-v10/scikit-learn__scikit-learn-10908-B0-r1.protocol.json": "6ad09e4d849782fb7f1e8d7447208edc2fb9b07634a6ceeb09ef754c5a006cff",
+    "work/vmshare/performance75-dsh-hy4-v10/scikit-learn__scikit-learn-10908-B0-r1.resources.json": "231ea5f42ecf5455a048803361dd0708f306e8fb52e00d3ad5088e2ce0e1db2e",
+    "work/parallel-free-evaluation-20261124/hy4-original225-final-20261126/summary.json": "7bbb62a23fc0679038448370cb7da109c3febc9016cdc3ff58e867aee3d0a2ba",
+    "work/parallel-free-evaluation-20261124/final-six-audit-work-20261126.json": "d734104a526758ca9f5700b311c214b6f1a3a2ed7a0a09dafc08335812944446"
+  },
+  "reviewer_output": {
+    "new_files": [
+      "work/parallel-free-evaluation-20261124/independent-core-after219-incremental-20261126.json"
+    ],
+    "updated_work_file_only": "work/parallel-free-evaluation-20261124/final-six-audit-work-20261126.json",
+    "new_model_calls": 0,
+    "new_original_grader_calls": 0,
+    "new_VM_operations": 0
+  }
+}

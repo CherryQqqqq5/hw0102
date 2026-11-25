@@ -1,0 +1,829 @@
+{
+  "schema_version": 1,
+  "status": "APPROVE_WITH_STATED_LIMITS",
+  "blocking_findings": [],
+  "frozen_plan": {
+    "path": "work/xarray-4695-preservation-20261126/frozen/plan.json",
+    "sha256": "d2636d6a5c9842d031922f15465a0166374e73e453297644f99f1f51e891e079"
+  },
+  "trials": {
+    "task": "pydata__xarray-4695",
+    "queue": "work/vmshare/performance-xarray-loc-preservation-v20-20261126",
+    "fixed_labels": [
+      "loc-preserve-main-r1",
+      "loc-preserve-repeat-r2"
+    ],
+    "model": "hy4flash-free",
+    "backend": "codebuddy",
+    "configuration": "C0",
+    "framework": "mini-swe",
+    "runtime_root": "work/frozen-performance-hy4-submit-boundary-v20",
+    "limits": {
+      "model_calls": 500,
+      "wall_seconds": 3600,
+      "command_seconds": 120,
+      "max_output_tokens": 64000,
+      "timeout_retries": 0,
+      "strict_wall": true
+    }
+  },
+  "totals": {
+    "actual_sessions": 2,
+    "original_passed": 2,
+    "final_public_and_protected_passed": 2,
+    "actual_requests": 38,
+    "complete_responses": 38,
+    "own_zero_receipts": 38,
+    "unknown_requests_in_these_two_runs": 0,
+    "new_native_sessions": 2,
+    "bash_commands": 32,
+    "structured_save_proposals": 4,
+    "structured_verify_proposals": 2,
+    "submission_rejections_observed": 0,
+    "input_tokens": 743896,
+    "output_tokens": 15529,
+    "summed_wall_seconds": 481.0495425419649,
+    "original_grader_invocations_in_model_runs": 2,
+    "reviewer_new_model_calls": 0,
+    "reviewer_new_original_grader_calls": 0,
+    "reviewer_VM_calls": 0
+  },
+  "rows": [
+    {
+      "arm": "main",
+      "task": "pydata__xarray-4695",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance-xarray-loc-preservation-v20-20261126/pydata__xarray-4695-C0-loc-preserve-main-r1",
+      "revision_scope": "loc_preservation",
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 262.55551545799244,
+      "runtime_root": "work/frozen-performance-hy4-submit-boundary-v20",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795637048.2544231,
+        "native_session_id": "e4f3f7c6-ecfd-4d91-86e9-1c0362062dd6",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "b9cde786f1aa1df3a6da3e519af6eeefebda8486e579c00ab12135218005912b"
+      },
+      "event_counts": {
+        "request": 20,
+        "cli_process_started": 20,
+        "response": 20,
+        "billing_verified": 20
+      },
+      "native_sessions": [
+        "e4f3f7c6-ecfd-4d91-86e9-1c0362062dd6"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a2144efdf37eb6af12eb0cc7dfd50b",
+          0,
+          6913,
+          335
+        ],
+        [
+          2,
+          "01a2144f18ea7ab6bfc4fac86efa3834",
+          0,
+          8055,
+          407
+        ],
+        [
+          3,
+          "01a2144f33547f42a4764c5a75831a63",
+          0,
+          9038,
+          337
+        ],
+        [
+          4,
+          "01a2144f4ab470aea7f7d3df4be1258a",
+          0,
+          9644,
+          403
+        ],
+        [
+          5,
+          "01a2144f6b92727b9cc935296ff30b93",
+          0,
+          10908,
+          156
+        ],
+        [
+          6,
+          "01a2144f8ecb7d44a6949759cf74bdc8",
+          0,
+          11849,
+          501
+        ],
+        [
+          7,
+          "01a2144faa4270d5aa37f66d6c3a9177",
+          0,
+          15828,
+          578
+        ],
+        [
+          8,
+          "01a2144fc6ca7bc696421e82b50f1b69",
+          0,
+          18676,
+          739
+        ],
+        [
+          9,
+          "01a2144ff53d703bb59f5d1994889e82",
+          0,
+          19712,
+          149
+        ],
+        [
+          10,
+          "01a214500e977f07abdf3e60c884abaa",
+          0,
+          20132,
+          1585
+        ],
+        [
+          11,
+          "01a2145043fd76239a0da5e20145f6f9",
+          0,
+          22059,
+          383
+        ],
+        [
+          12,
+          "01a2145065c472d7be83dd02f53e3b9c",
+          0,
+          22717,
+          371
+        ],
+        [
+          13,
+          "01a2145088da7f86b0cc6492fbabef6e",
+          0,
+          23257,
+          385
+        ],
+        [
+          14,
+          "01a21450a9fc72c6836d14ab91fca998",
+          0,
+          23810,
+          345
+        ],
+        [
+          15,
+          "01a21450cc627f6c986039cf00ef0017",
+          0,
+          25477,
+          250
+        ],
+        [
+          16,
+          "01a2145188907022b64d46ee61af456a",
+          0,
+          28916,
+          758
+        ],
+        [
+          17,
+          "01a21451c3df713dba5c682b70993ea6",
+          0,
+          30464,
+          428
+        ],
+        [
+          18,
+          "01a21451e79f7356bf50ad526368971b",
+          0,
+          31036,
+          90
+        ],
+        [
+          19,
+          "01a2145214837c489b5cde5673eb19b8",
+          0,
+          32408,
+          196
+        ],
+        [
+          20,
+          "01a214522c2f7933b9a8f2042d71bc82",
+          0,
+          33072,
+          527
+        ]
+      ],
+      "input_tokens": 403971,
+      "output_tokens": 8923,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "9d7d89c1bf7cd3857598040719ca8307e404e8ac87f4cdcfdb819915a3ebec6c",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "4ad6113256b568dcccf2c92833e521d9c7a14bb5d9ccd30dc3375d8c65b9ec56  xarray/core/dataarray.py\n62e9eec7500bc7c9755b81c00e3a070b9166d9098ac3aa6202d2f5c706a19c35  xarray/core/dataset.py\n7e44016de9c43cc57cdc1a6bd4e6dbe7774467cf1865f76e93d72efed24ce90e  xarray/core/indexing.py\n05325f6d363c1ac6f4351ac7109c2fd883761893b04bd51776623bb3273bd02c  xarray/tests/test_dataarray.py\n"
+          }
+        },
+        "elapsed_seconds": 218.049780667061
+      },
+      "controller_event_counts": {
+        "candidate_operation": 7,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "9d7d89c1bf7cd3857598040719ca8307e404e8ac87f4cdcfdb819915a3ebec6c",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "69af347d935d5a49ab48992aa630c9ee6515d5037975939cc756bb234d8c0a2a",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "9d7d89c1bf7cd3857598040719ca8307e404e8ac87f4cdcfdb819915a3ebec6c",
+          "eligible": true
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "xarray/core/dataarray.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 875,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED xarray/tests/test_dataarray.py::test_no_dict",
+          "PASSED xarray/tests/test_dataarray.py::test_subclass_slots",
+          "PASSED xarray/tests/test_dataarray.py::test_weakref",
+          "PASSED xarray/tests/test_dataarray.py::test_delete_coords",
+          "PASSED xarray/tests/test_dataarray.py::test_deepcopy_obj_array",
+          "SKIPPED [1] xarray/tests/test_dataarray.py:2681: needs to be fixed for shortcut=False, keep_attrs=False",
+          "FAILED xarray/tests/test_dataarray.py::TestDataArray::test_from_series_multiindex",
+          "= 1 failed, 877 passed, 1 skipped, 5 xfailed, 1 xpassed, 259 warnings in 17.21s ="
+        ]
+      },
+      "tools_count": 17,
+      "nonzero_tools": [
+        5,
+        9,
+        10,
+        11,
+        12,
+        14
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 17,
+        "save": 2,
+        "verify": 1
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 7,
+          "command_prefix": "cd /testbed && printf '%s\\n' '--- Dataset _LocIndexer ---' && nl -ba xarray/core/dataset.py | sed -n '488,515p' && printf '%s\\n' '--- DataArray.sel ---' && nl -ba xarray/core/dataarray.py | sed -n '1135,1210p' && printf '%s\\n' '--- either_dict_or_kwargs ---' && grep -R \"def either_dict_or_kwargs\" -n xarray && sed -n '/def either_dict_or_kwargs/,/^def /p' xarray/core/utils.py | head -80 && printf '",
+          "command_sha256": "899f75f576d57155faa644f73897d8b589f82b1729c57405bc8e0764980bfe10"
+        },
+        {
+          "tool": 9,
+          "command_prefix": "cd /testbed && cat > /tmp/selftest_method_dim.py <<'EOF'\nimport numpy as np\nimport xarray as xr\nfrom xarray.testing import assert_identical\n\ndata = np.arange(4).reshape(2, 2)\n\n# Exact reproducer and equivalent positional form.\nda = xr.DataArray(\n    data,\n    dims=[\"dim1\", \"method\"],\n    coords={\"dim1\": [\"x\", \"y\"], \"method\": [\"a\", \"b\"]},\n)\nassert da.loc[dict(dim1=\"x\", method=\"a\")].item() == 0\nasse",
+          "command_sha256": "bd99411209f7e2da37b74fd4f97a7b0f16c81351570a876bdc35f08b2c80be3a"
+        },
+        {
+          "tool": 10,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python - <<'EOF'\nfrom pathlib import Path\np = Path('/tmp/selftest_method_dim.py')\ns = p.read_text()\ns = s.replace('da.sel(method=slice(\"a\", \"b\"))', 'da.sel(dict(method=slice(\"a\", \"b\")))')\ns = s.replace('ds = da.to_dataset(name=\"v\") if False else xr.DataArray(\\n', 'ds = xr.DataArray(\\n')\np.write_text(s)\nEOF\n/opt/miniconda3/envs/testbed/bin/python /tmp",
+          "command_sha256": "b66d19cd94b97d28d53fe022e85d8aacdf16e71689d7b40f88fb4602c4fd060d"
+        },
+        {
+          "tool": 11,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python - <<'EOF'\nfrom pathlib import Path\np = Path('/tmp/selftest_method_dim.py')\ns = p.read_text()\nstart = s.index('# Dict-like keys need not be valid Python keyword names.')\nend = s.index('# Dataset.loc already followed')\np.write_text(s[:start] + s[end:])\nEOF\n/opt/miniconda3/envs/testbed/bin/python /tmp/selftest_method_dim.py && printf '\\n--- pytes",
+          "command_sha256": "206a6dfa2903d7f767b71693c3b6cf2a06ba1bedcad40f9d3fb8d737460f078f"
+        },
+        {
+          "tool": 12,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python - <<'EOF'\nfrom pathlib import Path\np = Path('/tmp/selftest_method_dim.py')\ns = p.read_text()\ns = s.replace('ds = xr.DataArray(\\n    data,\\n', 'ds = xr.DataArray(\\n    data.copy(),\\n')\np.write_text(s)\nEOF\n/opt/miniconda3/envs/testbed/bin/python /tmp/selftest_method_dim.py && printf '\\n--- pytest targeted modules ---\\n' && /opt/miniconda3/envs/t",
+          "command_sha256": "e5e09eabda2ac5c675dbd9c5d5a741de828db499e0eebbcb95f6f1a05b2440ba"
+        },
+        {
+          "tool": 14,
+          "command_prefix": "cd /testbed && sed -i '37s/data\\.copy()/np.arange(4).reshape(2, 2)/' /tmp/selftest_method_dim.py && /opt/miniconda3/envs/testbed/bin/python /tmp/selftest_method_dim.py && printf '\\n--- pytest targeted modules ---\\n' && /opt/miniconda3/envs/testbed/bin/python -m pytest -q xarray/tests/test_dataarray.py xarray/tests/test_dataset.py",
+          "command_sha256": "7e16b32b24d6208c23f54052ab3279521fecf14ddff33092c8a5f5dbe63ecf7e"
+        },
+        {
+          "tool": 15,
+          "command_prefix": "cd /testbed && set +e\ngit stash push -- xarray/core/dataarray.py >/tmp/stash_baseline.log 2>&1\n/opt/miniconda3/envs/testbed/bin/python -m pytest -q \\\n  'xarray/tests/test_dataarray.py::TestDataArray::test_from_series_multiindex' \\\n  'xarray/tests/test_dataset.py::TestDataset::test_sel_categorical' \\\n  'xarray/tests/test_dataset.py::TestDataset::test_sel_categorical_error' \\\n  'xarray/tests/test_da",
+          "command_sha256": "d4cb2074885ffd3791a763cc9c7ffed5d7f0190253cef5ac1dbf1da783796618"
+        }
+      ],
+      "source_sha256": {
+        "instruction.txt": "b694f62153bf5219670f7badbc5369c172ca99681e0449a182f71b4795182ee2",
+        "checkout.json": "b3c5cfa61434ceed93d243d3760e578c587d5aa88536bf472915c14efa8be6ae",
+        "execution-budget.json": "e381a116d82021fdf47b9c044b0c3cd6fff39f1dcb0288b3c81de0174a8f8ab8",
+        "agent.json": "714ea42d8804957904b100e6e809328835465d8c2dc97bdc65e7071ac36021f2",
+        "result.json": "36b3f89922e1f0b20c2ddfcbaa0f9f71e5c939122ed155d0f01f35fa1b216cb8",
+        "trial.json": "e894b89946a3e2193317d1aca93e5db853abcc3249e375b97e701dc9432d9217",
+        "model.jsonl": "fa7dc114dfba37a5fd8e987182f0093890ab70fd0a5850c7f79409becd9a4065",
+        "controller.jsonl": "a23f5b911f9672729b1e785ab57d7200b9c86fbf28d22bfe64a3d97c564d435f",
+        "final-verification.json": "0cff1ae338ab83cb0d92e2814908c28b6b4e091b46cc2e15c4dfd7bcaa72c004",
+        "candidates/candidate-002.json": "7adaef961f94e411a7f21250509a285755d16365bb9b0fcc973e9c0e72a633d5",
+        "candidates/candidate-001.json": "67e21c4ec89410140f6a58ef1b5a25abeb00e117890e67279e357954b5183afa",
+        "candidate.patch": "e3c08b25fd67e1749afb35cafa794688d3c5b6e6699bfcad15f3708c895a4403",
+        "swe-official/pydata__xarray-4695-C0-loc-preserve-main-r1/course-mini-swe-agent/pydata__xarray-4695/patch.diff": "e3c08b25fd67e1749afb35cafa794688d3c5b6e6699bfcad15f3708c895a4403",
+        "swe-official/pydata__xarray-4695-C0-loc-preserve-main-r1/course-mini-swe-agent/pydata__xarray-4695/report.json": "47e80e65760bcc73be89a205a42674a527bc6d3e31cbaffa883ef33e6ef17999",
+        "swe-official/pydata__xarray-4695-C0-loc-preserve-main-r1/course-mini-swe-agent/pydata__xarray-4695/test_output.txt": "ed10077c28f4a00645e2457b674d92531fae62e9b437250fb335ff452e75391b",
+        "swe-official/pydata__xarray-4695-C0-loc-preserve-main-r1/course-mini-swe-agent/pydata__xarray-4695/run_instance.log": "656cd8ed676e707fb56e05440e2a3cb9fe327e7adf7fc7201fd9bf7a417a8100",
+        "swe-official/pydata__xarray-4695-C0-loc-preserve-main-r1/course-mini-swe-agent/pydata__xarray-4695/eval.sh": "84a434604635d3524233db895a82f6616ed28fa1559ef6e02fe447274872ad33",
+        "tools.jsonl": "7b085545cf65ad1503730d1c66856030061101686a650f1858f55a233a3d4750"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model event structures,individual own-use receipts,all bash command structures and meaningful stdout/stderr,full controller chain,complete candidate/production/grader patch and original grade report read;not word-for-word reading of all reasoning.",
+      "protocol_sha256": "3d9bd2b7b15718da5ca14ffc1e77cf7a71116feb5e03cbdf13104ab996beb64c",
+      "final_saved_candidate_byte_link": [
+        {
+          "id": "candidate-002",
+          "eligible": true,
+          "digest": "9d7d89c1bf7cd3857598040719ca8307e404e8ac87f4cdcfdb819915a3ebec6c",
+          "sha256": "4ad6113256b568dcccf2c92833e521d9c7a14bb5d9ccd30dc3375d8c65b9ec56",
+          "mode": 438
+        }
+      ]
+    },
+    {
+      "arm": "repeat",
+      "task": "pydata__xarray-4695",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance-xarray-loc-preservation-v20-20261126/pydata__xarray-4695-C0-loc-preserve-repeat-r2",
+      "revision_scope": "loc_preservation",
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 218.49402708397247,
+      "runtime_root": "work/frozen-performance-hy4-submit-boundary-v20",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795637312.490124,
+        "native_session_id": "1ccbb57b-87ca-480d-9b92-065147c646a0",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "b9cde786f1aa1df3a6da3e519af6eeefebda8486e579c00ab12135218005912b"
+      },
+      "event_counts": {
+        "request": 18,
+        "cli_process_started": 18,
+        "response": 18,
+        "billing_verified": 18
+      },
+      "native_sessions": [
+        "1ccbb57b-87ca-480d-9b92-065147c646a0"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a2145305a270bc80e4c5fa08400993",
+          0,
+          6913,
+          158
+        ],
+        [
+          2,
+          "01a214531ae77fd5863e3e32ff32318d",
+          0,
+          7871,
+          344
+        ],
+        [
+          3,
+          "01a2145331b578f08c64f94ef9d7298b",
+          0,
+          8372,
+          182
+        ],
+        [
+          4,
+          "01a2145345b17709a6c73bacf9e86a21",
+          0,
+          8688,
+          297
+        ],
+        [
+          5,
+          "01a214535c1574569153fc6adf79c361",
+          0,
+          9306,
+          120
+        ],
+        [
+          6,
+          "01a2145377fd70798bcb9d1a28dd177b",
+          0,
+          10224,
+          339
+        ],
+        [
+          7,
+          "01a21453906277a3ac9013505268afe2",
+          0,
+          13943,
+          342
+        ],
+        [
+          8,
+          "01a21453a88276639852258b31bda47a",
+          0,
+          16199,
+          279
+        ],
+        [
+          9,
+          "01a21453bf847bb0b83e39189646cd5b",
+          0,
+          19984,
+          1019
+        ],
+        [
+          10,
+          "01a21453ecb9746599883ea9d8c73737",
+          0,
+          21581,
+          118
+        ],
+        [
+          11,
+          "01a2145404aa7f6d9d012b26e049781a",
+          0,
+          21971,
+          1700
+        ],
+        [
+          12,
+          "01a2145440eb77b09185d9d288bcd622",
+          0,
+          23960,
+          202
+        ],
+        [
+          13,
+          "01a214545fb771ee991dbdfe0043ca2d",
+          0,
+          24533,
+          177
+        ],
+        [
+          14,
+          "01a214547d287e2abd269a6748fe2e6c",
+          0,
+          25008,
+          461
+        ],
+        [
+          15,
+          "01a214552f0b734fbd54da0a64990c78",
+          0,
+          28669,
+          232
+        ],
+        [
+          16,
+          "01a214555fc9719a8b8b316c0b1896dc",
+          0,
+          30183,
+          262
+        ],
+        [
+          17,
+          "01a214557a5275ce94b7f3dc191caa04",
+          0,
+          30913,
+          276
+        ],
+        [
+          18,
+          "01a214559af4790ba7bcf67ea6900893",
+          0,
+          31607,
+          98
+        ]
+      ],
+      "input_tokens": 339925,
+      "output_tokens": 6606,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "ba4c6042c3986e21673b61160578ff86744d7f398f6a519ef7c98c2c886850b5",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "cea0b1559835f60d22b86d7b1d08af145c3c79ff3d804dc0dce3e53866d86ee2  xarray/core/dataarray.py\n62e9eec7500bc7c9755b81c00e3a070b9166d9098ac3aa6202d2f5c706a19c35  xarray/core/dataset.py\n7e44016de9c43cc57cdc1a6bd4e6dbe7774467cf1865f76e93d72efed24ce90e  xarray/core/indexing.py\n05325f6d363c1ac6f4351ac7109c2fd883761893b04bd51776623bb3273bd02c  xarray/tests/test_dataarray.py\n"
+          }
+        },
+        "elapsed_seconds": 175.93534341698978
+      },
+      "controller_event_counts": {
+        "candidate_operation": 7,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "ba4c6042c3986e21673b61160578ff86744d7f398f6a519ef7c98c2c886850b5",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "ba4c6042c3986e21673b61160578ff86744d7f398f6a519ef7c98c2c886850b5",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "ba4c6042c3986e21673b61160578ff86744d7f398f6a519ef7c98c2c886850b5",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "ba4c6042c3986e21673b61160578ff86744d7f398f6a519ef7c98c2c886850b5",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "xarray/core/dataarray.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 875,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED xarray/tests/test_dataarray.py::test_no_dict",
+          "PASSED xarray/tests/test_dataarray.py::test_subclass_slots",
+          "PASSED xarray/tests/test_dataarray.py::test_weakref",
+          "PASSED xarray/tests/test_dataarray.py::test_delete_coords",
+          "PASSED xarray/tests/test_dataarray.py::test_deepcopy_obj_array",
+          "SKIPPED [1] xarray/tests/test_dataarray.py:2681: needs to be fixed for shortcut=False, keep_attrs=False",
+          "FAILED xarray/tests/test_dataarray.py::TestDataArray::test_from_series_multiindex",
+          "= 1 failed, 877 passed, 1 skipped, 5 xfailed, 1 xpassed, 259 warnings in 17.13s ="
+        ]
+      },
+      "tools_count": 15,
+      "nonzero_tools": [
+        2,
+        3,
+        5,
+        10,
+        11,
+        13
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 15,
+        "save": 2,
+        "verify": 1
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 13,
+          "command_prefix": "cd /testbed && echo '=== changed tracked files ===' && git diff --name-only && echo '=== protected diffs ===' && git diff -- xarray/tests setup.cfg conftest.py && echo '=== targeted tests ===' && /opt/miniconda3/envs/testbed/bin/python -m pytest xarray/tests/test_dataarray.py xarray/tests/test_dataset.py -q",
+          "command_sha256": "143a6a7b362a8c4539d683b100fb56b17288c3ca5add6d8ad72096a9c3564b2e"
+        }
+      ],
+      "source_sha256": {
+        "instruction.txt": "b694f62153bf5219670f7badbc5369c172ca99681e0449a182f71b4795182ee2",
+        "checkout.json": "b3c5cfa61434ceed93d243d3760e578c587d5aa88536bf472915c14efa8be6ae",
+        "execution-budget.json": "5d9b04c96ab9267ac8818a879013424487f6391cb30213ecd21cb5839edaa204",
+        "agent.json": "757bdf88982d4803b2e7ad51200bfbffaa0d43f75d177565503715831de52e82",
+        "result.json": "70395a13123df788f76437a2168546f900b7b0d4ffe20b8222175843e14b9b36",
+        "trial.json": "e894b89946a3e2193317d1aca93e5db853abcc3249e375b97e701dc9432d9217",
+        "model.jsonl": "fca2671370de69b408fe7f0de903255a19c63462b0b8880f7ccfc750c0755716",
+        "controller.jsonl": "cdb935e21fce03bcdd55f37461c8c0d38547670728bba44015f9eff75ec9189c",
+        "final-verification.json": "c2e3c6e3f32b77f754e46f3c0e6267519b89a44c84985a0414a6b8423bcea0bf",
+        "candidates/candidate-002.json": "c8b94b0de9c3d984487bc5a1ece90e74c4ec0ebac1b45961941c75cfbb15869e",
+        "candidates/candidate-001.json": "e37bae96b65251ae07c66319403882cdb84fa181f3045a19a7e5832ff8db189a",
+        "candidate.patch": "2ca6510c074a7af20957c8604f91653f016d5a0b009607f9df995237bb586693",
+        "swe-official/pydata__xarray-4695-C0-loc-preserve-repeat-r2/course-mini-swe-agent/pydata__xarray-4695/patch.diff": "2ca6510c074a7af20957c8604f91653f016d5a0b009607f9df995237bb586693",
+        "swe-official/pydata__xarray-4695-C0-loc-preserve-repeat-r2/course-mini-swe-agent/pydata__xarray-4695/report.json": "47e80e65760bcc73be89a205a42674a527bc6d3e31cbaffa883ef33e6ef17999",
+        "swe-official/pydata__xarray-4695-C0-loc-preserve-repeat-r2/course-mini-swe-agent/pydata__xarray-4695/test_output.txt": "035a38d3b0cd51775283a090fef0e5bdec9a4f45b4640b9f177f23a8ebf7ec7d",
+        "swe-official/pydata__xarray-4695-C0-loc-preserve-repeat-r2/course-mini-swe-agent/pydata__xarray-4695/run_instance.log": "6506cf0d4174f675bfbf8bfc5e0bedb1d7ba2f10c2bd1308fdb2d129ffd7f11c",
+        "swe-official/pydata__xarray-4695-C0-loc-preserve-repeat-r2/course-mini-swe-agent/pydata__xarray-4695/eval.sh": "84a434604635d3524233db895a82f6616ed28fa1559ef6e02fe447274872ad33",
+        "tools.jsonl": "803b1425695310aabda0c87ddd7cee702439d45c7b79c10aa16fdfef5df867f3"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model event structures,individual own-use receipts,all bash command structures and meaningful stdout/stderr,full controller chain,complete candidate/production/grader patch and original grade report read;not word-for-word reading of all reasoning.",
+      "protocol_sha256": "3d9bd2b7b15718da5ca14ffc1e77cf7a71116feb5e03cbdf13104ab996beb64c",
+      "final_saved_candidate_byte_link": [
+        {
+          "id": "candidate-001",
+          "eligible": false,
+          "digest": "ba4c6042c3986e21673b61160578ff86744d7f398f6a519ef7c98c2c886850b5",
+          "sha256": "cea0b1559835f60d22b86d7b1d08af145c3c79ff3d804dc0dce3e53866d86ee2",
+          "mode": 420
+        },
+        {
+          "id": "candidate-002",
+          "eligible": true,
+          "digest": "ba4c6042c3986e21673b61160578ff86744d7f398f6a519ef7c98c2c886850b5",
+          "sha256": "cea0b1559835f60d22b86d7b1d08af145c3c79ff3d804dc0dce3e53866d86ee2",
+          "mode": 420
+        }
+      ]
+    }
+  ],
+  "shared_source_sha256": {
+    "work/xarray-4695-preservation-20261126/frozen/plan.json": "d2636d6a5c9842d031922f15465a0166374e73e453297644f99f1f51e891e079",
+    "work/xarray-4695-preservation-20261126/execution-review.json": "674344efadc0c8ad905a95ee3fbce0a95ec4cceaf3bd96f2f5668b3782251d36",
+    "work/xarray-4695-preservation-20261126/inputs/tasks.json": "62dc1c36c18d0ed3cb91cdbbbdf9f40b9c943f0d6618a6ac92b35894063aee20",
+    "work/xarray-4695-preservation-20261126/inputs/checks.json": "3ec1051716e742443b4fd682e843dd4897fc216b1434a9200406626e45358dde",
+    "work/hy4-submit-boundary-20261125/runtime-manifest.json": "c83b2e16c3da5cc9ce98e5471437987dffbdf4fff2da4fa149f49f1db507933a",
+    "work/frozen-performance-hy4-submit-boundary-v20/course_eval/codebuddy_free.py": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+    "work/frozen-performance-hy4-submit-boundary-v20/course_eval/controller.py": "4708caca205d61bcaeb41e390d9089288cb88c365a7be2541fb282909faf48c7",
+    "work/frozen-performance-hy4-submit-boundary-v20/course_eval/terminal_runtime.py": "4f57d7dabc961ebb85a45b429bbd808ae70796a3ac20af985194c11c76b2af5b",
+    "work/parallel-free-evaluation-20261124/independent-closed177-review-20261126.json": "cb1dfd62c93b21771f35ed4ab527668e18d575593ea17fdfe90d5a7f8ce88df1",
+    "work/parallel-free-evaluation-20261124/independent-core-after177-incremental-20261126.json": "95581af5dbbd37b11bc24a0c9a0b1b989fe80b2ba4d346c6d38e1efc03add715",
+    "work/parallel-free-evaluation-20261124/independent-core-after187-incremental-20261126.json": "b9a91501391ad5a0bd20a042ddea7162696fcf0d593a2f4db378b8268326c2ff",
+    "work/sklearn-25232-semantics-20261126/completed-review.json": "ee70b77ba884f073c2400cb20ce20999befe266a4e7db16b02e81461728fb36a",
+    "work/vmshare/performance-xarray-loc-preservation-v20-20261126/pydata__xarray-4695-C0-loc-preserve-main-r1.protocol.json": "3d9bd2b7b15718da5ca14ffc1e77cf7a71116feb5e03cbdf13104ab996beb64c",
+    "work/xarray-4695-preservation-20261126/main-single-review.json": "ef73955749eece973d1b12b96de540e74b2d0af01a5656fb91e7968dc54d1c3c",
+    "work/vmshare/performance-xarray-loc-preservation-v20-20261126/pydata__xarray-4695-C0-loc-preserve-repeat-r2.protocol.json": "3d9bd2b7b15718da5ca14ffc1e77cf7a71116feb5e03cbdf13104ab996beb64c"
+  },
+  "identity_check": {
+    "previously_audited_IDs": 3772,
+    "previously_audited_sessions": 222,
+    "new_unique_IDs": 38,
+    "new_sessions": 2,
+    "cross_new_positions_ID_intersection": 0,
+    "cross_new_sessions_intersection": 0,
+    "historical_ID_intersection": 0,
+    "historical_session_intersection": 0,
+    "known_union_IDs": 3810,
+    "known_union_sessions": 224,
+    "scope": "Source-audited prior201 original core plus twelve completed earlier scoped revisions,five old JSON development rows and eleven known mechanical-prefix calls. No claim that newer/live original core after201 was scanned."
+  },
+  "historical_originals_retained": [
+    {
+      "arm": "main",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pydata__xarray-4695-C0-r1",
+      "passed": true,
+      "qualified_passed": true,
+      "known_own_zero_calls": 19,
+      "result_sha256": "c046749068da5f92386fd752df6d9d548d5809dd08aea5aa36bb521bf0ae678a",
+      "protocol_sha256": "47b0b0b12a7e78394477bc696b552543495dab4a17110429b28f26dc1899a1e0"
+    },
+    {
+      "arm": "repeat",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-4695-C0-r2",
+      "passed": true,
+      "qualified_passed": false,
+      "known_own_zero_calls": 21,
+      "result_sha256": "47fbc5ee25bdd6438da91007879f07277bf11c3e489c1f6bedb4654d7fa7611a",
+      "protocol_sha256": "47b0b0b12a7e78394477bc696b552543495dab4a17110429b28f26dc1899a1e0"
+    }
+  ],
+  "original_score_scope": {
+    "each": {
+      "raw_resolved": true,
+      "FAIL_TO_PASS_success": 1,
+      "PASS_TO_PASS_success": 875,
+      "original_grader_patch_matches_candidate": true
+    },
+    "stdout": "Each original grader's actual stdout remains1 failed,877 passed,1 skipped,5 xfailed,1 xpassed,259 warnings. The task-level resolved=true result follows its declared F2P/P2P target sets.",
+    "non_target_failure": {
+      "test": "xarray/tests/test_dataarray.py::TestDataArray::test_from_series_multiindex",
+      "mechanism": "pandas optional-dependency xarray>=0.19.0 check while original pin provides0.16.3.dev24+ga4cf03327.d20261125"
+    },
+    "broad_visible_suites": "Both actual model trajectories run original DataArray/Dataset suites and see5 failed,1789 passed,17 skipped,6 xfailed,4 xpassed. Main's tool15 actual untouched-production replay reproduces the same five named failures. Repeat has no separate pristine-base replay;the same-pin main evidence is a documented comparison,not a fabricated repeat run.",
+    "whole_suite_pass_claimed": false
+  },
+  "functional_and_source_review": {
+    "task": "The visible issue's .loc mapping for a dimension named method fails before either patch and succeeds afterward in each actual tool transcript.",
+    "main_production_fix": "DataArray._LocIndexer.__getitem__: self.data_array.sel(**key) → self.data_array.sel(key).",
+    "repeat_production_fix": "The same responsibility changes to self.data_array.sel(indexers=key),using the public parameter name instead of expanding dimension names as API keyword arguments.",
+    "patch_scope": "Both complete candidate.patch files contain only that single production line. They match actual original grader patch.diff bytes. Tests and configuration are absent from both final diffs.",
+    "checkout": "Both actual checkout records have zero changed paths/executable-bit changes and identical base_tree/image_tree2452479f6f4c2de000d4f024a9b815c75c273d2a despite differing commit labels. Original image pin remainsfe6074de116357f2b6f1b3b964726cd02b866f68509f3e74d3a58c48a778ac6d.",
+    "access": "All32 actual bash commands were directly read. They inspect original public source/tests/environment and scratch files;none observed retrieves hidden grader/gold/archived candidates or engineering reference. Initial request history is identical across the two fresh native sessions and contains no qualification/reference paths inspected by the reviewer.",
+    "protection": "Each actual trajectory reports an empty original test/config diff before final verification. Registered final snapshot preserves original xarray/tests/test_dataarray.py SHA05325f6d363c1ac6f4351ac7109c2fd883761893b04bd51776623bb3273bd02c. Final protected and valid are true.",
+    "artifact": "Final eligible candidate production bytes match the final registered snapshot. The actual graded patches match complete final candidate patches;this SWE task uses candidate/grader evidence rather than a terminal native-artifact capture."
+  },
+  "feedback_adoption": {
+    "scope": "Observed guidance/check/save use only;not a causal estimate andnot a claim that rejection caused either success.",
+    "main": {
+      "first_ineligible_save_step": 9,
+      "reason": "public-regression pending",
+      "registered_check_step": 18,
+      "registered_check_passed": 5,
+      "eligible_save_step": 19,
+      "submit_step": 20,
+      "protected_failure_or_submit_rejection": false,
+      "scratch_feedback": "Tools9-14 revise only scratch assertions:reserved sel keyword misuse,unsupported integer dimension and reused mutable data. Original tests remain unedited.",
+      "final_candidate_mode_note": "Candidate001 is0644 and candidate002 is0666 after the recorded baseline stash/pop;their file SHA is identical4ad611…ec56. Digest differences alone do not identify an answer source."
+    },
+    "repeat": {
+      "first_ineligible_save_step": 10,
+      "reason": "public-regression pending",
+      "registered_check_step": 15,
+      "registered_check_passed": 5,
+      "eligible_save_step": 16,
+      "submit_step": 18,
+      "protected_failure_or_submit_rejection": false,
+      "scratch_feedback": "Tool10's pad expectation10 is wrong for x=1.2;tool11 changes it to20. The backfill expectation20 then fails;tool12 changes it to30. These correct self-created assertion expectations and leave production/original tests unchanged."
+    },
+    "submit_path": "Actual bash sentinel output is converted by the reviewed controller into operation=submit before the C0 check at controller.py:359-389. Both actual submits take the accepted current-passed/protected path. The rejected path was established separately by zero-model engineering qualification,not by these two model trajectories.",
+    "bundle": "The prospective variable combines three preservation instructions and reuse of reviewed v20 C0 submission checks. These two successes do not isolate guidance versus gate benefit or prove all-task improvement."
+  },
+  "preservation_and_cost_interpretation": [
+    "The original main/repeat40 own-zero calls and rawtrue/rawtrue outcomes remain intact,including old repeat qualifiedfalse. The new38 calls are additional revised-method development/evaluation cost,not replacement fee receipts for the old attempts.",
+    "Both old original raw scores were already true,so the new pair is not a raw-score gain. Its observed result is two new task-functional and final-public/protected-qualified deliveries.",
+    "The original core225 and all other prospective scopes remain separate. This review admits only these exact two fixed slots,not final75x2 or complete225.",
+    "The final gates certify registered evidence/protection,not every transitive dependency or all possible repository accesses. This is not a complete operating-system sandbox.",
+    "The originally registered public subset also passes on unmodified base despite the visible issue. Original task grading and actual issue reproduction remain independent functional evidence."
+  ],
+  "role_boundary": "This agent authored the separate zero-model qualification/freezer earlier;the parent independently reviewed/admitted them. This record is a subsequent direct review of actual model outputs,not an independent re-authoring of engineering qualification or a new model/grader execution.",
+  "limits": [
+    "All model-event structures and per-call own rawUsage.credit0 were checked with the actual frozen free-response validator;repeated cumulative usage was not counted as new requests. Missing historical identity/amount/usage elsewhere stays unknown.",
+    "Complete final patches,all32 commands and meaningful failure/test outputs were read;model reasoning was not read word-for-word. Broader suite outputs were read at failure/summary locations.",
+    "Public test protection in this record is the registered dependency scope plus observed no-edit tool trajectory,not an assertion that every possible test/configuration is enforced by an OS policy.",
+    "No live original core/SPARQL or other in-flight model/session was opened. No model request,container,original grader,STOP/score/plan/runtime/source edit or score-based resampling was performed.",
+    "The earlier main-single-review remains unchanged and documents its actual one-session observation;this is the first standard two-session completed review."
+  ]
+}

@@ -1,0 +1,4661 @@
+{
+  "source_batch": "confirmation-hy4flash-free-v16",
+  "original_scores": 270,
+  "original_passed": 207,
+  "original_failed": 63,
+  "format_exit_runs": 52,
+  "format_exit_and_original_failed": 48,
+  "reasoning_only_4096_tail_and_original_failed": 36,
+  "last_native_reasoning_only_4096_tail_and_original_failed": 37,
+  "rounds": [
+    {
+      "repeat": 1,
+      "arm": "B0",
+      "trials": 30,
+      "passed": 29,
+      "format_exits": 0,
+      "model_calls": 284,
+      "model_responses": 284,
+      "input_tokens": 6654121,
+      "output_tokens": 615199,
+      "native_usage_records": 367,
+      "native_output_tokens": 615199,
+      "native_reasoning_tokens": 532990,
+      "recovered_actions": 56
+    },
+    {
+      "repeat": 1,
+      "arm": "C0",
+      "trials": 30,
+      "passed": 28,
+      "format_exits": 0,
+      "model_calls": 343,
+      "model_responses": 343,
+      "input_tokens": 6252380,
+      "output_tokens": 608749,
+      "native_usage_records": 387,
+      "native_output_tokens": 608749,
+      "native_reasoning_tokens": 504059,
+      "recovered_actions": 20
+    },
+    {
+      "repeat": 1,
+      "arm": "C1",
+      "trials": 30,
+      "passed": 25,
+      "format_exits": 1,
+      "model_calls": 320,
+      "model_responses": 320,
+      "input_tokens": 5752264,
+      "output_tokens": 601845,
+      "native_usage_records": 366,
+      "native_output_tokens": 601845,
+      "native_reasoning_tokens": 503603,
+      "recovered_actions": 26
+    },
+    {
+      "repeat": 2,
+      "arm": "B0",
+      "trials": 30,
+      "passed": 19,
+      "format_exits": 10,
+      "model_calls": 282,
+      "model_responses": 282,
+      "input_tokens": 4843967,
+      "output_tokens": 522959,
+      "native_usage_records": 306,
+      "native_output_tokens": 522959,
+      "native_reasoning_tokens": 465476,
+      "recovered_actions": 18
+    },
+    {
+      "repeat": 2,
+      "arm": "C0",
+      "trials": 30,
+      "passed": 20,
+      "format_exits": 9,
+      "model_calls": 305,
+      "model_responses": 305,
+      "input_tokens": 4776723,
+      "output_tokens": 504572,
+      "native_usage_records": 305,
+      "native_output_tokens": 504572,
+      "native_reasoning_tokens": 440276,
+      "recovered_actions": 0
+    },
+    {
+      "repeat": 2,
+      "arm": "C1",
+      "trials": 30,
+      "passed": 22,
+      "format_exits": 9,
+      "model_calls": 296,
+      "model_responses": 296,
+      "input_tokens": 4382926,
+      "output_tokens": 493880,
+      "native_usage_records": 297,
+      "native_output_tokens": 493880,
+      "native_reasoning_tokens": 427632,
+      "recovered_actions": 1
+    },
+    {
+      "repeat": 3,
+      "arm": "B0",
+      "trials": 30,
+      "passed": 20,
+      "format_exits": 10,
+      "model_calls": 267,
+      "model_responses": 267,
+      "input_tokens": 4436899,
+      "output_tokens": 487051,
+      "native_usage_records": 288,
+      "native_output_tokens": 487051,
+      "native_reasoning_tokens": 434795,
+      "recovered_actions": 18
+    },
+    {
+      "repeat": 3,
+      "arm": "C0",
+      "trials": 30,
+      "passed": 23,
+      "format_exits": 6,
+      "model_calls": 330,
+      "model_responses": 330,
+      "input_tokens": 5031927,
+      "output_tokens": 520804,
+      "native_usage_records": 337,
+      "native_output_tokens": 520804,
+      "native_reasoning_tokens": 441707,
+      "recovered_actions": 5
+    },
+    {
+      "repeat": 3,
+      "arm": "C1",
+      "trials": 30,
+      "passed": 21,
+      "format_exits": 7,
+      "model_calls": 318,
+      "model_responses": 318,
+      "input_tokens": 5101916,
+      "output_tokens": 551464,
+      "native_usage_records": 321,
+      "native_output_tokens": 551464,
+      "native_reasoning_tokens": 485511,
+      "recovered_actions": 1
+    }
+  ],
+  "format_failure_details": [
+    {
+      "run_id": "C-aider-go__alphametics-B0-r2",
+      "arm": "B0",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        3,
+        4,
+        5
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-aider-go__alphametics-B0-r2/model.jsonl"
+    },
+    {
+      "run_id": "C-aider-go__alphametics-B0-r3",
+      "arm": "B0",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        3,
+        4,
+        5
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-aider-go__alphametics-B0-r3/model.jsonl"
+    },
+    {
+      "run_id": "C-aider-go__alphametics-C0-r2",
+      "arm": "C0",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        3,
+        4,
+        5
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-aider-go__alphametics-C0-r2/model.jsonl"
+    },
+    {
+      "run_id": "C-aider-go__alphametics-C0-r3",
+      "arm": "C0",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        3,
+        4,
+        5
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-aider-go__alphametics-C0-r3/model.jsonl"
+    },
+    {
+      "run_id": "C-aider-go__alphametics-C1-r1",
+      "arm": "C1",
+      "repeat": 1,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": false,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": false,
+      "last_three_request_ids": [
+        3,
+        4,
+        5
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096,
+          4096,
+          3427
+        ],
+        [
+          4096,
+          4096,
+          1971
+        ],
+        [
+          4096,
+          4096,
+          1242
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096,
+          2339,
+          1396
+        ],
+        [
+          4096,
+          2494,
+          102
+        ],
+        [
+          4096,
+          3159,
+          130
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-aider-go__alphametics-C1-r1/model.jsonl"
+    },
+    {
+      "run_id": "C-aider-go__alphametics-C1-r2",
+      "arm": "C1",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": false,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": false,
+      "last_three_request_ids": [
+        5,
+        6,
+        7
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          3672
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-aider-go__alphametics-C1-r2/model.jsonl"
+    },
+    {
+      "run_id": "C-aider-go__alphametics-C1-r3",
+      "arm": "C1",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        3,
+        4,
+        5
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-aider-go__alphametics-C1-r3/model.jsonl"
+    },
+    {
+      "run_id": "C-aider-go__beer-song-C1-r2",
+      "arm": "C1",
+      "repeat": 2,
+      "passed": true,
+      "last_three_single_native_reasoning_only_4096_without_action": false,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": false,
+      "last_three_request_ids": [
+        5,
+        6,
+        7
+      ],
+      "last_three_native_output_tokens": [
+        [
+          2707
+        ],
+        [
+          1854
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          2621
+        ],
+        [
+          1767
+        ],
+        [
+          4014
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-aider-go__beer-song-C1-r2/model.jsonl"
+    },
+    {
+      "run_id": "C-aider-java__change-B0-r2",
+      "arm": "B0",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        3,
+        4,
+        5
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-aider-java__change-B0-r2/model.jsonl"
+    },
+    {
+      "run_id": "C-aider-java__change-B0-r3",
+      "arm": "B0",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        4,
+        5,
+        6
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-aider-java__change-B0-r3/model.jsonl"
+    },
+    {
+      "run_id": "C-aider-java__change-C0-r2",
+      "arm": "C0",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": false,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": false,
+      "last_three_request_ids": [
+        3,
+        4,
+        5
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          3534
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-aider-java__change-C0-r2/model.jsonl"
+    },
+    {
+      "run_id": "C-aider-java__change-C1-r2",
+      "arm": "C1",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": false,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": false,
+      "last_three_request_ids": [
+        3,
+        4,
+        5
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          3525
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-aider-java__change-C1-r2/model.jsonl"
+    },
+    {
+      "run_id": "C-aider-java__change-C1-r3",
+      "arm": "C1",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": false,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": false,
+      "last_three_request_ids": [
+        4,
+        5,
+        6
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          3756
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-aider-java__change-C1-r3/model.jsonl"
+    },
+    {
+      "run_id": "C-aider-python__rest-api-B0-r2",
+      "arm": "B0",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        5,
+        6,
+        7
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-aider-python__rest-api-B0-r2/model.jsonl"
+    },
+    {
+      "run_id": "C-aider-python__rest-api-C0-r2",
+      "arm": "C0",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": false,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": false,
+      "last_three_request_ids": [
+        3,
+        4,
+        5
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          3222
+        ],
+        [
+          4096
+        ],
+        [
+          3184
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-aider-python__rest-api-C0-r2/model.jsonl"
+    },
+    {
+      "run_id": "C-aider-python__rest-api-C1-r2",
+      "arm": "C1",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": false,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": false,
+      "last_three_request_ids": [
+        4,
+        5,
+        6
+      ],
+      "last_three_native_output_tokens": [
+        [
+          3912
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          2506
+        ],
+        [
+          3971
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-aider-python__rest-api-C1-r2/model.jsonl"
+    },
+    {
+      "run_id": "C-swe-django__django-11999-B0-r2",
+      "arm": "B0",
+      "repeat": 2,
+      "passed": true,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        20,
+        21,
+        22
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-swe-django__django-11999-B0-r2/model.jsonl"
+    },
+    {
+      "run_id": "C-swe-django__django-11999-B0-r3",
+      "arm": "B0",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": false,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": false,
+      "last_three_request_ids": [
+        9,
+        10,
+        11
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          3998
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-swe-django__django-11999-B0-r3/model.jsonl"
+    },
+    {
+      "run_id": "C-swe-pydata__xarray-4687-B0-r2",
+      "arm": "B0",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": false,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        13,
+        14,
+        15
+      ],
+      "last_three_native_output_tokens": [
+        [
+          2003,
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          1710,
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-swe-pydata__xarray-4687-B0-r2/model.jsonl"
+    },
+    {
+      "run_id": "C-swe-pydata__xarray-4687-B0-r3",
+      "arm": "B0",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        15,
+        16,
+        17
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-swe-pydata__xarray-4687-B0-r3/model.jsonl"
+    },
+    {
+      "run_id": "C-swe-pydata__xarray-4687-C0-r3",
+      "arm": "C0",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": false,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": false,
+      "last_three_request_ids": [
+        19,
+        20,
+        21
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          2596
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          3754
+        ],
+        [
+          4049
+        ],
+        [
+          2154
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-swe-pydata__xarray-4687-C0-r3/model.jsonl"
+    },
+    {
+      "run_id": "C-swe-pytest-dev__pytest-7490-B0-r2",
+      "arm": "B0",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        13,
+        14,
+        15
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-swe-pytest-dev__pytest-7490-B0-r2/model.jsonl"
+    },
+    {
+      "run_id": "C-swe-scikit-learn__scikit-learn-25232-C0-r2",
+      "arm": "C0",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": false,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": false,
+      "last_three_request_ids": [
+        14,
+        15,
+        16
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          3975
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-swe-scikit-learn__scikit-learn-25232-C0-r2/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-db-wal-recovery-B0-r3",
+      "arm": "B0",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        4,
+        5,
+        6
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-db-wal-recovery-B0-r3/db-wal-recovery__gVbKdRp/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-db-wal-recovery-C0-r2",
+      "arm": "C0",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        4,
+        5,
+        6
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-db-wal-recovery-C0-r2/db-wal-recovery__4dR9oHX/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-db-wal-recovery-C1-r2",
+      "arm": "C1",
+      "repeat": 2,
+      "passed": true,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        4,
+        5,
+        6
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-db-wal-recovery-C1-r2/db-wal-recovery__C6JfxC7/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-db-wal-recovery-C1-r3",
+      "arm": "C1",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        16,
+        17,
+        18
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-db-wal-recovery-C1-r3/db-wal-recovery__ifMvgWJ/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-distribution-search-B0-r2",
+      "arm": "B0",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        2,
+        3,
+        4
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-distribution-search-B0-r2/distribution-search__qKPLUJx/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-distribution-search-B0-r3",
+      "arm": "B0",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        2,
+        3,
+        4
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-distribution-search-B0-r3/distribution-search__Mr6WPuW/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-distribution-search-C0-r2",
+      "arm": "C0",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        3,
+        4,
+        5
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-distribution-search-C0-r2/distribution-search__YWA5vhE/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-distribution-search-C0-r3",
+      "arm": "C0",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        2,
+        3,
+        4
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-distribution-search-C0-r3/distribution-search__rU7jMgs/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-distribution-search-C1-r3",
+      "arm": "C1",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        2,
+        3,
+        4
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-distribution-search-C1-r3/distribution-search__Tuyw2Xo/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-feal-linear-cryptanalysis-B0-r2",
+      "arm": "B0",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        2,
+        3,
+        4
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-feal-linear-cryptanalysis-B0-r2/feal-linear-cryptanalysis__uDM8myj/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-feal-linear-cryptanalysis-B0-r3",
+      "arm": "B0",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        2,
+        3,
+        4
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-feal-linear-cryptanalysis-B0-r3/feal-linear-cryptanalysis__AkC6aYy/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-feal-linear-cryptanalysis-C0-r2",
+      "arm": "C0",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        2,
+        3,
+        4
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-feal-linear-cryptanalysis-C0-r2/feal-linear-cryptanalysis__vTBEkgN/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-feal-linear-cryptanalysis-C0-r3",
+      "arm": "C0",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        3,
+        4,
+        5
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-feal-linear-cryptanalysis-C0-r3/feal-linear-cryptanalysis__sdzPa58/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-feal-linear-cryptanalysis-C1-r2",
+      "arm": "C1",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        2,
+        3,
+        4
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-feal-linear-cryptanalysis-C1-r2/feal-linear-cryptanalysis__42MyGPX/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-feal-linear-cryptanalysis-C1-r3",
+      "arm": "C1",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        2,
+        3,
+        4
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-feal-linear-cryptanalysis-C1-r3/feal-linear-cryptanalysis__wgaudkK/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-modernize-scientific-stack-C1-r2",
+      "arm": "C1",
+      "repeat": 2,
+      "passed": true,
+      "last_three_single_native_reasoning_only_4096_without_action": false,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": false,
+      "last_three_request_ids": [
+        7,
+        8,
+        9
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          1527
+        ],
+        [
+          1277
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          1481
+        ],
+        [
+          1219
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-modernize-scientific-stack-C1-r2/modernize-scientific-stack__U9vDUPD/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-multi-source-data-merger-B0-r2",
+      "arm": "B0",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        3,
+        4,
+        5
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-multi-source-data-merger-B0-r2/multi-source-data-merger__nPnHXjT/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-multi-source-data-merger-B0-r3",
+      "arm": "B0",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        3,
+        4,
+        5
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-multi-source-data-merger-B0-r3/multi-source-data-merger__77MyZnG/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-multi-source-data-merger-C0-r2",
+      "arm": "C0",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        3,
+        4,
+        5
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-multi-source-data-merger-C0-r2/multi-source-data-merger__XQszY39/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-multi-source-data-merger-C0-r3",
+      "arm": "C0",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": false,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": false,
+      "last_three_request_ids": [
+        4,
+        5,
+        6
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          3570
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-multi-source-data-merger-C0-r3/multi-source-data-merger__FQKvSCf/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-multi-source-data-merger-C1-r2",
+      "arm": "C1",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        4,
+        5,
+        6
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-multi-source-data-merger-C1-r2/multi-source-data-merger__V9fKHVG/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-multi-source-data-merger-C1-r3",
+      "arm": "C1",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        3,
+        4,
+        5
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-multi-source-data-merger-C1-r3/multi-source-data-merger__25yPP5d/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-polyglot-rust-c-B0-r2",
+      "arm": "B0",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        1,
+        2,
+        3
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-polyglot-rust-c-B0-r2/polyglot-rust-c__UvHKzbE/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-polyglot-rust-c-B0-r3",
+      "arm": "B0",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        2,
+        3,
+        4
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-polyglot-rust-c-B0-r3/polyglot-rust-c__4XXE4de/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-polyglot-rust-c-C0-r2",
+      "arm": "C0",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        2,
+        3,
+        4
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-polyglot-rust-c-C0-r2/polyglot-rust-c__pPdhEXU/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-polyglot-rust-c-C0-r3",
+      "arm": "C0",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        2,
+        3,
+        4
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-polyglot-rust-c-C0-r3/polyglot-rust-c__ESBNuy3/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-polyglot-rust-c-C1-r2",
+      "arm": "C1",
+      "repeat": 2,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        2,
+        3,
+        4
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-polyglot-rust-c-C1-r2/polyglot-rust-c__ED3FMWt/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-polyglot-rust-c-C1-r3",
+      "arm": "C1",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        3,
+        4,
+        5
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-polyglot-rust-c-C1-r3/polyglot-rust-c__nXSmmT9/agent/model.jsonl"
+    },
+    {
+      "run_id": "C-terminal-prove-plus-comm-B0-r3",
+      "arm": "B0",
+      "repeat": 3,
+      "passed": false,
+      "last_three_single_native_reasoning_only_4096_without_action": true,
+      "last_three_final_native_segments_reasoning_only_4096_without_action": true,
+      "last_three_request_ids": [
+        3,
+        4,
+        5
+      ],
+      "last_three_native_output_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "last_three_native_reasoning_tokens": [
+        [
+          4096
+        ],
+        [
+          4096
+        ],
+        [
+          4096
+        ]
+      ],
+      "source": "confirmation-hy4flash-free-v16/C-terminal-prove-plus-comm-B0-r3/prove-plus-comm__AnVb2xK/agent/model.jsonl"
+    }
+  ],
+  "real_submit_schema_mismatches": [
+    {
+      "run_id": "C-aider-cpp__all-your-base-C0-r1",
+      "request_id": 8,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...he verified candidate.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": "c4abd7d7cbf5bd0e0e6a3c51f4e6a3c51",
+        "note": "Implemented all_your_base::convert, passed the original suite and standalone edge-case tests, and saved the verified candidate."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1626,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...he verified candidate.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-cpp__all-your-base-C0-r3",
+      "request_id": 17,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...domized checks passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "candidate_id": "candidate-002",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "note": "Final submission after public-suite and boundary/randomized checks passed."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2293,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...domized checks passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-cpp__all-your-base-C0-r3",
+      "request_id": 18,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...te_id': 'candidate-002'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "candidate_id": "candidate-002"
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 3098,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...te_id': 'candidate-002'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-cpp__gigasecond-C0-r1",
+      "request_id": 4,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'candidate_id': None, 'c..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "candidate_id": null,
+        "check_id": null,
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "note": "Implemented gigasecond.h/gigasecond.cpp; /aider/benchmark/cpp-test.sh passed all 5 tests.",
+        "operation": "submit"
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2353,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'candidate_id': None, 'c..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-cpp__gigasecond-C0-r1",
+      "request_id": 5,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...provided tests passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": null,
+        "note": "Implementation complete; all provided tests passed."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 240,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...provided tests passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-cpp__gigasecond-C0-r3",
+      "request_id": 9,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...d candidate was saved.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "candidate_id": "candidate-001",
+        "note": "Implemented gigasecond::advance in gigasecond.cpp/gigasecond.h using Boost posix_time seconds(1000000000); public suite passed all 5 assertions and the verified candidate was saved."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1236,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...d candidate was saved.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-cpp__gigasecond-C1-r1",
+      "request_id": 5,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '... visible tests passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": null,
+        "note": "gigasecond::advance implemented by adding 1,000,000,000 Boost posix seconds; all visible tests passed."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2962,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '... visible tests passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-cpp__gigasecond-C1-r3",
+      "request_id": 9,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...d gigasecond solution.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": null,
+        "note": "Submit the saved, publicly verified gigasecond solution."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1800,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...d gigasecond solution.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-go__alphametics-C0-r1",
+      "request_id": 10,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...l public suite passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "note": "Implemented alphametics.Solve with column-wise backtracking, leading-zero and uniqueness constraints; original public suite passed."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 462,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...l public suite passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-go__beer-song-C0-r1",
+      "request_id": 7,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...mt, and go vet passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": null,
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Implemented beer_song.go; public check passed; saved candidate-001; final uncached tests, gofmt, and go vet passed."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2228,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...mt, and go vet passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-go__beer-song-C1-r1",
+      "request_id": 7,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ified candidate saved.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": null,
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Beer song implementation complete; public suite and boundary checks passed; verified candidate saved."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 875,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ified candidate saved.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-go__beer-song-C1-r2",
+      "request_id": 5,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'candidate_id': None, 'c..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "candidate_id": null,
+        "check_id": null,
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "note": "Public suite passed; implementation is complete.",
+        "operation": "submit"
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2707,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'candidate_id': None, 'c..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-go__beer-song-C1-r2",
+      "request_id": 6,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'candidate_id': None, 'c..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "candidate_id": null,
+        "check_id": null,
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "note": "Implementation passes the original Go test suite and the registered public check.",
+        "operation": "submit"
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1854,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'candidate_id': None, 'c..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        },
+        {
+          "role": "user",
+          "content": "Public verification of the changed candidate: []"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-go__beer-song-C1-r3",
+      "request_id": 5,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...pecial cases readable.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "candidate_id": "candidate-001",
+        "note": "Public suite passes. The implementation centralizes verse formatting in small helpers, avoids duplicated lyrics, and keeps the special cases readable."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2080,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...pecial cases readable.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-java__change-C0-r3",
+      "request_id": 10,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...d in an isolated copy.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": null,
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Implementation completed; public suite passed and all original disabled tests plus edge cases passed in an isolated copy."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 635,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...d in an isolated copy.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-javascript__house-C0-r2",
+      "request_id": 7,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...d and candidate saved.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Implementation complete; public suite passed and candidate saved."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 864,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...d and candidate saved.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-javascript__house-C0-r2",
+      "request_id": 8,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ified candidate saved.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "candidate_id": "candidate-001",
+        "note": "Implementation passes the public suite and semantic edge checks; verified candidate saved."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1015,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ified candidate saved.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-javascript__house-C1-r2",
+      "request_id": 5,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ved passing candidate.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": null,
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Final submission after verified public suite and saved passing candidate."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1470,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ved passing candidate.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-javascript__house-C1-r3",
+      "request_id": 6,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...rified implementation.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": null,
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Final submission after passing the public suite and saving the verified implementation."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1741,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...rified implementation.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        },
+        {
+          "role": "user",
+          "content": "Public verification of the changed candidate: []"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-javascript__sum-of-multiples-C1-r1",
+      "request_id": 10,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...tom edge cases passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": null,
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Submit verified solution: sum-of-multiples.js deduplicates positive multiples below the limit with a Set and returns their sum. Public suite 16/16 passed; lint and custom edge cases passed."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1447,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...tom edge cases passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        },
+        {
+          "role": "user",
+          "content": "Public verification of the changed candidate: []"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-javascript__sum-of-multiples-C1-r3",
+      "request_id": 7,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...n passed all 16 tests.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": null,
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Implementation completed; public-suite verification passed all 16 tests."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2625,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...n passed all 16 tests.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-python__grep-C0-r2",
+      "request_id": 6,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...he public suite check.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "note": "Implemented grep.py, ran pytest successfully, and passed the public suite check."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2452,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...he public suite check.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-python__grep-C0-r3",
+      "request_id": 9,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'candidate_id': 'candida..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "candidate_id": "candidate-002",
+        "check_id": null,
+        "command": null,
+        "note": "Final verified grep.py implementation: public suite passed and boundary checks passed.",
+        "operation": "submit"
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1389,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'candidate_id': 'candida..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-python__grep-C0-r3",
+      "request_id": 10,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ND_SUBMIT_FINAL_OUTPUT'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT"
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2618,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ND_SUBMIT_FINAL_OUTPUT'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-python__grep-C1-r1",
+      "request_id": 8,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...25; edge cases passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": null,
+        "note": "Verified final grep.py implementation: public suite passed 25/25; edge cases passed."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1655,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...25; edge cases passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        },
+        {
+          "role": "user",
+          "content": "Public verification of the changed candidate: []"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-python__grep-C1-r3",
+      "request_id": 9,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '... saving candidate-001.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": null,
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Submit completed grep.py implementation. Verified with public-suite (25 passed) and additional boundary checks; no changes were made after saving candidate-001."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2502,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '... saving candidate-001.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-python__rest-api-C0-r1",
+      "request_id": 10,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ge-case checks passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "candidate_id": "candidate-002",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "note": "Submitted verified rest_api.py implementation: public suite passed 9/9 and additional edge-case checks passed."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1276,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ge-case checks passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-python__rest-api-C0-r3",
+      "request_id": 8,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...d candidate was saved.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "candidate_id": "candidate-001",
+        "note": "Implemented rest_api.py; public-suite passed 9/9 and candidate was saved."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 867,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...d candidate was saved.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-python__rest-api-C1-r1",
+      "request_id": 7,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...se checks; submitting.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Final candidate passes the public suite and edge-case checks; submitting."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2955,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...se checks; submitting.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-python__rest-api-C1-r1",
+      "request_id": 8,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...g the saved candidate.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": null,
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "RestAPI implementation verified with `public-suite` (9 passed); submitting the saved candidate."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 3152,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...g the saved candidate.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        },
+        {
+          "role": "user",
+          "content": "Public verification of the changed candidate: []"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-rust__accumulate-C0-r2",
+      "request_id": 3,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'candidate_id': None, 'c..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "candidate_id": null,
+        "check_id": null,
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "note": "Implemented generic map/accumulate in src/lib.rs and verified all 12 tests pass.",
+        "operation": "submit"
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1839,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'candidate_id': None, 'c..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-rust__accumulate-C0-r3",
+      "request_id": 6,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...d public suite passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": null,
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Submit verified candidate: generic FnMut-based map implementation using an explicit loop; all tests and public suite passed."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2087,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...d public suite passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-rust__accumulate-C1-r2",
+      "request_id": 3,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'candidate_id': None, 'c..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "candidate_id": null,
+        "check_id": null,
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "note": "Implemented generic map in src/lib.rs without std map/collect; full suite passed.",
+        "operation": "submit"
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2404,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'candidate_id': None, 'c..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-aider-rust__accumulate-C1-r3",
+      "request_id": 4,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ubmitting final state.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": null,
+        "note": "Implementation complete and public suite passed; submitting final state."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2245,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ubmitting final state.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-swe-django__django-11999-C0-r3",
+      "request_id": 21,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...e public check passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "note": "Field.contribute_to_class() now avoids overwriting a locally defined get_FIELD_display() override, and the public check passed."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 460,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...e public check passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-swe-django__django-11999-C1-r3",
+      "request_id": 22,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'candidate_id': 'candida..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "candidate_id": "candidate-001",
+        "check_id": null,
+        "command": null,
+        "note": "Fixed Field.contribute_to_class() to skip installing the generated get_FOO_display() method when a custom method is already present. Public check public-issue passed; candidate saved as candidate-001.",
+        "operation": "submit"
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2663,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'candidate_id': 'candida..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-swe-django__django-12193-C0-r2",
+      "request_id": 14,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'candidate_id': 'candida..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "candidate_id": "candidate-002",
+        "check_id": null,
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "note": "Final candidate verified: public-issue passed; working tree contains only the intended split-array widget fix.",
+        "operation": "submit"
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2013,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'candidate_id': 'candida..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-swe-django__django-12193-C1-r3",
+      "request_id": 12,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ot leak checked state.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": null,
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Submit verified candidate-001: SplitArrayWidget copies attrs per subwidget so CheckboxInput mutations do not leak checked state."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1437,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ot leak checked state.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-swe-django__django-14855-C0-r2",
+      "request_id": 24,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'candidate_id': 'candida..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "candidate_id": "candidate-002",
+        "check_id": null,
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "note": "Submit verified final candidate with the minimal production fix.",
+        "operation": "submit"
+      },
+      "next_request_exists": false,
+      "last_native_output_tokens": 570,
+      "next_request_added_messages": [],
+      "followup_local_rejection_feedback": false
+    },
+    {
+      "run_id": "C-swe-pydata__xarray-4687-C0-r1",
+      "request_id": 24,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'candidate_id': 'candida..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "candidate_id": "candidate-001",
+        "check_id": null,
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "note": "Final candidate adds keep_attrs support to xr.where, forwards it to apply_ufunc, and preserves attributes from value inputs when the condition has none. Public check passed.",
+        "operation": "submit"
+      },
+      "next_request_exists": false,
+      "last_native_output_tokens": 790,
+      "next_request_added_messages": [],
+      "followup_local_rejection_feedback": false
+    },
+    {
+      "run_id": "C-swe-pydata__xarray-4687-C1-r1",
+      "request_id": 19,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...targeted tests passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": null,
+        "note": "Implemented keep_attrs support in xarray.where; public verification and targeted tests passed."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2923,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...targeted tests passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-swe-pydata__xarray-7393-C0-r2",
+      "request_id": 21,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ssed with no failures.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "candidate_id": "candidate-001",
+        "note": "Final candidate fixes PandasMultiIndexingAdapter.__array__ to materialize MultiIndex level values using the stored coordinate dtype. Public issue check passed; 1029 targeted tests passed with no failures."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 3673,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ssed with no failures.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-swe-pytest-dev__pytest-5631-C1-r1",
+      "request_id": 13,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...4 pre-existing skips).'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Fixed src/_pytest/compat.py num_mock_patch_args to identify mock DEFAULT replacements by identity rather than equality, avoiding ambiguous truth-value errors for array-like `new` values. Public check passed; edge cases and 23 existing compat/integration tests passed (4 pre-existing skips)."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2885,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...4 pre-existing skips).'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-swe-pytest-dev__pytest-5631-C1-r1",
+      "request_id": 14,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '... 4 pre-existing skips.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Fixed src/_pytest/compat.py to compare mock patch replacement values against DEFAULT sentinels by identity rather than equality, avoiding ambiguous truth-value errors for NumPy arrays. Public regression check passed; edge-case assertions passed; testing/test_compat.py and testing/python/integration.py passed with 23 passing and 4 pre-existing skips."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 551,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '... 4 pre-existing skips.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-swe-pytest-dev__pytest-5631-C1-r2",
+      "request_id": 17,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...and edge cases passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": null,
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Fixed num_mock_patch_args to detect mock.DEFAULT sentinels by identity rather than equality, preventing NumPy array truth-value errors during collection. Public numpy-array patch check passed; targeted reproducer, mock-decoration tests, and edge cases passed."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1712,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...and edge cases passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-swe-pytest-dev__pytest-7490-C1-r2",
+      "request_id": 15,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'candidate_id': 'candida..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "candidate_id": "candidate-001",
+        "check_id": null,
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "note": "Dynamic xfail marker refresh implemented and verified; saved candidate is ready.",
+        "operation": "submit"
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 997,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'candidate_id': 'candida..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-swe-pytest-dev__pytest-7490-C1-r2",
+      "request_id": 18,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...st_skipping.py passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": null,
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Submitting restored verified fix: refresh xfail evaluation after the call phase so dynamically added xfail markers are honored. Public check passed and testing/test_skipping.py passed."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2839,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...st_skipping.py passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        },
+        {
+          "role": "user",
+          "content": "Public verification of the changed candidate: []"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-swe-scikit-learn__scikit-learn-11310-C1-r1",
+      "request_id": 12,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...targeted tests passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": null,
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "BaseSearchCV now records refit_time_ around best-estimator refitting; public check and targeted tests passed."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1907,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...targeted tests passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-swe-scikit-learn__scikit-learn-11310-C1-r3",
+      "request_id": 13,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...date is candidate-001.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": null,
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Implemented refit_time_ in BaseSearchCV.fit by timing the best-estimator refit with time.time(), documented it for GridSearchCV and RandomizedSearchCV, and verified behavior including refit=False, n_jobs=2, multi-metric refit, and y=None. Public check passed and saved candidate is candidate-001."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 888,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...date is candidate-001.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-swe-scikit-learn__scikit-learn-13124-C0-r1",
+      "request_id": 13,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'candidate_id': 'candida..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "candidate_id": "candidate-001",
+        "check_id": null,
+        "command": null,
+        "note": "Fixed StratifiedKFold shuffling by creating one RandomState per split computation and sharing it across class-specific KFolds, so class permutations differ with random_state while stratification is preserved. Public check passed; 61 existing split tests passed; semantic edge cases passed.",
+        "operation": "submit"
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1607,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'candidate_id': 'candida..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-swe-scikit-learn__scikit-learn-13124-C0-r2",
+      "request_id": 13,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'candidate_id': 'candida..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "candidate_id": "candidate-002",
+        "check_id": null,
+        "command": null,
+        "note": "Submitted verified fix: StratifiedKFold shares a single RandomState across per-class KFold splitters so integer random_state values produce different stratified partitions.",
+        "operation": "submit"
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1857,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'candidate_id': 'candida..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-swe-scikit-learn__scikit-learn-25232-C1-r3",
+      "request_id": 19,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...argeted checks passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Added fill_value to IterativeImputer, forwarded it to the internal SimpleImputer, documented it, and handled NaN constant-fill initialization. Public and targeted checks passed."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2848,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...argeted checks passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-terminal-distribution-search-C0-r1",
+      "request_id": 5,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '... to 10.0 within 0.001.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "candidate_id": "candidate-001",
+        "check_id": null,
+        "command": null,
+        "note": "Submit the verified solution: /app/dist.npy passed public-task with shape (150000), finite positive probabilities, sum 1.0, and both KL divergences equal to 10.0 within 0.001."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 509,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '... to 10.0 within 0.001.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-terminal-fix-code-vulnerability-C1-r1",
+      "request_id": 11,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...all 367 visible tests.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Final submission: restored CRLF/NUL header validation in /app/bottle.py, created /app/report.jsonl with /app/bottle.py and cwe-93, and passed public verification with all 367 visible tests."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2262,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...all 367 visible tests.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-terminal-fix-code-vulnerability-C1-r1",
+      "request_id": 12,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...all 367 visible tests.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "candidate_id": "candidate-001",
+        "note": "Final verified candidate: restored CRLF/NUL validation in /app/bottle.py and reported CWE-93 in /app/report.jsonl. Public verification passed all 367 visible tests."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1348,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...all 367 visible tests.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        },
+        {
+          "role": "user",
+          "content": "Public verification of the changed candidate: []"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-terminal-fix-code-vulnerability-C1-r2",
+      "request_id": 8,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '... semantic checks pass.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": null,
+        "note": "Restored ValueError validation for CR/LF/NUL in header name/value helpers, created report.jsonl with /app/bottle.py and cwe-93, and verified 367 visible tests plus targeted semantic checks pass."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1968,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '... semantic checks pass.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-terminal-log-summary-date-ranges-C0-r1",
+      "request_id": 5,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '.../summary.csv artifact.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": null,
+        "note": "Public verification passed; submitting the final /app/summary.csv artifact."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 165,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '.../summary.csv artifact.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-terminal-log-summary-date-ranges-C0-r1",
+      "request_id": 6,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '.../summary.csv artifact.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "candidate_id": "candidate-001",
+        "note": "Submit verified /app/summary.csv artifact."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1065,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '.../summary.csv artifact.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-terminal-log-summary-date-ranges-C0-r2",
+      "request_id": 6,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ng the final solution.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": null,
+        "note": "Public check passed; /app/summary.csv is complete and verified, so submitting the final solution."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1532,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ng the final solution.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-terminal-log-summary-date-ranges-C1-r1",
+      "request_id": 5,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '.../summary.csv verified.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": null,
+        "note": "Public check passed; /app/summary.csv verified."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 2048,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '.../summary.csv verified.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-terminal-modernize-scientific-stack-C0-r3",
+      "request_id": 4,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...strained dependencies.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": null,
+        "note": "Implementation complete; public-task verification passed with exact station means and valid constrained dependencies."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 3066,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...strained dependencies.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-terminal-modernize-scientific-stack-C1-r2",
+      "request_id": 8,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ript and requirements.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "note": "Public check passed; submitting completed modernized script and requirements."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1527,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ript and requirements.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        },
+        {
+          "role": "user",
+          "content": "Public verification of the changed candidate: []"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-terminal-modernize-scientific-stack-C1-r2",
+      "request_id": 9,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, check_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...yzer and requirements.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "candidate_id": "candidate-001",
+        "check_id": "public-task",
+        "command": null,
+        "note": "Public check passed; submitting the verified modernized climate analyzer and requirements."
+      },
+      "next_request_exists": false,
+      "last_native_output_tokens": 1277,
+      "next_request_added_messages": [],
+      "followup_local_rejection_feedback": false
+    },
+    {
+      "run_id": "C-terminal-multi-source-data-merger-C0-r1",
+      "request_id": 11,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...complete and verified.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": null,
+        "note": "Public check passed; /app/merged_users.parquet and /app/conflicts.json are complete and verified."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1807,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...complete and verified.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-terminal-multi-source-data-merger-C1-r1",
+      "request_id": 8,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'candidate_id': 'candida..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "candidate_id": "candidate-002",
+        "check_id": null,
+        "command": null,
+        "note": "Submitting the verified eligible candidate with /app/merged_users.parquet and /app/conflicts.json. Public check passed: 4 users, correct schema/types/dates, A>B>C priority, all mappings, and 3 conflicts with complete values.",
+        "operation": "submit"
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1693,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'candidate_id': 'candida..., 'operation': 'submit'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-terminal-polyglot-rust-c-C1-r1",
+      "request_id": 7,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...for all checked cases.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": null,
+        "note": "Polyglot main.rs compiles with rustc and g++ and matches Fibonacci outputs for all checked cases."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1697,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...for all checked cases.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-terminal-prove-plus-comm-C1-r2",
+      "request_id": 5,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ified by public check.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "note": "Completed proof compiles; plus_comm.v and plus_comm.vo verified by public check."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1459,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...ified by public check.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-terminal-prove-plus-comm-C1-r3",
+      "request_id": 7,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...l public verification.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": null,
+        "check_id": null,
+        "candidate_id": "candidate-001",
+        "note": "Submit completed plus_comm.v and plus_comm.vo after successful public verification."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 874,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, candidate_id is not valid for submit [type=value_error, input_value={'operation': 'submit', '...l public verification.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-terminal-vulnerable-secret-C0-r2",
+      "request_id": 6,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...c verification passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "note": "Extracted FLAG{b4ff3r_0v3rfl0w_m4st3r_k3y_2024} to /app/results.txt; public verification passed."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1725,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...c verification passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-terminal-vulnerable-secret-C1-r1",
+      "request_id": 6,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...; public check passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "check_id": null,
+        "candidate_id": null,
+        "note": "Verified /app/results.txt contains FLAG{b4ff3r_0v3rfl0w_m4st3r_k3y_2024}; public check passed."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1143,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...; public check passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        },
+        {
+          "role": "user",
+          "content": "Public verification of the changed candidate: []"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    },
+    {
+      "run_id": "C-terminal-vulnerable-secret-C1-r2",
+      "request_id": 6,
+      "sent_schema_accepts": true,
+      "local_validator_error": "1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...lic-task check passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error",
+      "action": {
+        "operation": "submit",
+        "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+        "note": "Extraction verified: /app/results.txt contains FLAG{b4ff3r_0v3rfl0w_m4st3r_k3y_2024}; public-task check passed."
+      },
+      "next_request_exists": true,
+      "last_native_output_tokens": 1273,
+      "next_request_added_messages": [
+        {
+          "role": "user",
+          "content": "Invalid structured output: 1 validation error for ControlAction\n  Value error, command is not valid for submit [type=value_error, input_value={'operation': 'submit', '...lic-task check passed.'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/value_error"
+        },
+        {
+          "role": "user",
+          "content": "Public verification of the changed candidate: []"
+        }
+      ],
+      "followup_local_rejection_feedback": true
+    }
+  ],
+  "real_empty_feedback_requests": [
+    {
+      "run_id": "C-aider-cpp__all-your-base-C1-r2",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-cpp__all-your-base-C1-r2",
+      "request_id": 9,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-cpp__all-your-base-C1-r2",
+      "request_id": 11,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-cpp__gigasecond-C1-r3",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-cpp__gigasecond-C1-r3",
+      "request_id": 9,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-go__beer-song-C1-r1",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-go__beer-song-C1-r2",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-java__change-C1-r1",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-javascript__house-C1-r3",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-javascript__sum-of-multiples-C1-r1",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-javascript__sum-of-multiples-C1-r1",
+      "request_id": 9,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-javascript__sum-of-multiples-C1-r1",
+      "request_id": 11,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-javascript__sum-of-multiples-C1-r3",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-python__grep-C1-r1",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-python__grep-C1-r1",
+      "request_id": 9,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-python__grep-C1-r2",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-python__grep-C1-r3",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-python__grep-C1-r3",
+      "request_id": 9,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-python__rest-api-C1-r1",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-python__rest-api-C1-r1",
+      "request_id": 9,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-aider-rust__accumulate-C1-r2",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-swe-django__django-11999-C1-r1",
+      "request_id": 14,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-swe-django__django-11999-C1-r1",
+      "request_id": 16,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-swe-pytest-dev__pytest-7490-C1-r2",
+      "request_id": 19,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-terminal-distribution-search-C1-r1",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-terminal-fix-code-vulnerability-C1-r1",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-terminal-fix-code-vulnerability-C1-r1",
+      "request_id": 9,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-terminal-fix-code-vulnerability-C1-r1",
+      "request_id": 11,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-terminal-fix-code-vulnerability-C1-r1",
+      "request_id": 13,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-terminal-log-summary-date-ranges-C1-r1",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-terminal-modernize-scientific-stack-C1-r1",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-terminal-modernize-scientific-stack-C1-r2",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-terminal-modernize-scientific-stack-C1-r2",
+      "request_id": 9,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-terminal-polyglot-rust-c-C1-r1",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-terminal-prove-plus-comm-C1-r3",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-terminal-vulnerable-secret-C1-r1",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    },
+    {
+      "run_id": "C-terminal-vulnerable-secret-C1-r2",
+      "request_id": 7,
+      "content": "Public verification of the changed candidate: []"
+    }
+  ],
+  "polyglot_cross_version_cases": [
+    {
+      "run_id": "C-terminal-polyglot-rust-c-B0-r1",
+      "passed": true,
+      "protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185",
+      "requests": [
+        {
+          "request_id": 1,
+          "native_output_tokens": [
+            266
+          ],
+          "native_reasoning_tokens": [
+            191
+          ],
+          "history_roles": [
+            "user"
+          ],
+          "history_has_reasoning_content": false
+        },
+        {
+          "request_id": 2,
+          "native_output_tokens": [
+            4096,
+            4096,
+            3650
+          ],
+          "native_reasoning_tokens": [
+            4096,
+            4096,
+            2596
+          ],
+          "history_roles": [
+            "user",
+            "assistant",
+            "tool"
+          ],
+          "history_has_reasoning_content": false
+        },
+        {
+          "request_id": 3,
+          "native_output_tokens": [
+            477
+          ],
+          "native_reasoning_tokens": [
+            422
+          ],
+          "history_roles": [
+            "user",
+            "assistant",
+            "tool",
+            "assistant",
+            "tool"
+          ],
+          "history_has_reasoning_content": false
+        }
+      ],
+      "recovered_action_request_ids": [
+        2
+      ]
+    },
+    {
+      "run_id": "C-terminal-polyglot-rust-c-B0-r2",
+      "passed": false,
+      "protocol_commit": "abad82197a3b7833478261a0360f2eae873efdaa",
+      "requests": [
+        {
+          "request_id": 1,
+          "native_output_tokens": [
+            4096
+          ],
+          "native_reasoning_tokens": [
+            4096
+          ],
+          "history_roles": [
+            "user"
+          ],
+          "history_has_reasoning_content": false
+        },
+        {
+          "request_id": 2,
+          "native_output_tokens": [
+            4096
+          ],
+          "native_reasoning_tokens": [
+            4096
+          ],
+          "history_roles": [
+            "user",
+            "user"
+          ],
+          "history_has_reasoning_content": false
+        },
+        {
+          "request_id": 3,
+          "native_output_tokens": [
+            4096
+          ],
+          "native_reasoning_tokens": [
+            4096
+          ],
+          "history_roles": [
+            "user",
+            "user",
+            "user"
+          ],
+          "history_has_reasoning_content": false
+        }
+      ],
+      "recovered_action_request_ids": []
+    }
+  ],
+  "new_model_requests": 0,
+  "new_original_grader_executions": 0,
+  "protocol_matched_descriptive_pairs": [
+    {
+      "reference": "B0",
+      "treatment": "C1",
+      "task_repeat_pairs": 87,
+      "reference_passed": 67,
+      "treatment_passed": 66,
+      "interpretation": "Post-hoc source-protocol match only; subset composition varies, not a new causal experiment"
+    },
+    {
+      "reference": "C0",
+      "treatment": "C1",
+      "task_repeat_pairs": 87,
+      "reference_passed": 68,
+      "treatment_passed": 65,
+      "interpretation": "Post-hoc source-protocol match only; subset composition varies, not a new causal experiment"
+    },
+    {
+      "reference": "B0",
+      "treatment": "C0",
+      "task_repeat_pairs": 86,
+      "reference_passed": 66,
+      "treatment_passed": 68,
+      "interpretation": "Post-hoc source-protocol match only; subset composition varies, not a new causal experiment"
+    }
+  ],
+  "submit_conflict_evidence": {
+    "responses": 71,
+    "runs": 60,
+    "immediate_next_request_added_rejection": 68,
+    "no_next_request": 3,
+    "last_native_output_at_cap": 0
+  },
+  "same_protocol_complete_triples": [
+    {
+      "protocol_commit": "32b5ef17552b0a64a94511c5ff0e24834308d7b4",
+      "repeat": 1,
+      "tasks": 2,
+      "benchmarks": {
+        "aider": 0,
+        "swe": 1,
+        "terminal": 1
+      },
+      "arms": {
+        "B0": {
+          "trials": 2,
+          "passed": 2,
+          "model_calls": 25,
+          "output_tokens": 67653,
+          "median_execution_seconds": 377.9958413955028,
+          "format_exits": 0,
+          "run_ids": [
+            "C-swe-pydata__xarray-7393-B0-r1",
+            "C-terminal-feal-linear-cryptanalysis-B0-r1"
+          ]
+        },
+        "C0": {
+          "trials": 2,
+          "passed": 2,
+          "model_calls": 34,
+          "output_tokens": 67785,
+          "median_execution_seconds": 364.80511631250556,
+          "format_exits": 0,
+          "run_ids": [
+            "C-swe-pydata__xarray-7393-C0-r1",
+            "C-terminal-feal-linear-cryptanalysis-C0-r1"
+          ]
+        },
+        "C1": {
+          "trials": 2,
+          "passed": 1,
+          "model_calls": 29,
+          "output_tokens": 96186,
+          "median_execution_seconds": 457.74821197950223,
+          "format_exits": 0,
+          "run_ids": [
+            "C-swe-pydata__xarray-7393-C1-r1",
+            "C-terminal-feal-linear-cryptanalysis-C1-r1"
+          ]
+        }
+      },
+      "task_ids": [
+        "feal-linear-cryptanalysis",
+        "pydata__xarray-7393"
+      ]
+    },
+    {
+      "protocol_commit": "8430f57529f77271ab12dcaf443061b7ce8b1185",
+      "repeat": 1,
+      "tasks": 14,
+      "benchmarks": {
+        "aider": 8,
+        "swe": 3,
+        "terminal": 3
+      },
+      "arms": {
+        "B0": {
+          "trials": 14,
+          "passed": 14,
+          "model_calls": 104,
+          "output_tokens": 173934,
+          "median_execution_seconds": 101.27067425000132,
+          "format_exits": 0,
+          "run_ids": [
+            "C-aider-cpp__all-your-base-B0-r1",
+            "C-aider-go__alphametics-B0-r1",
+            "C-aider-go__beer-song-B0-r1",
+            "C-aider-javascript__house-B0-r1",
+            "C-aider-javascript__sum-of-multiples-B0-r1",
+            "C-aider-python__grep-B0-r1",
+            "C-aider-python__rest-api-B0-r1",
+            "C-aider-rust__accumulate-B0-r1",
+            "C-swe-django__django-12193-B0-r1",
+            "C-swe-django__django-14855-B0-r1",
+            "C-swe-scikit-learn__scikit-learn-13124-B0-r1",
+            "C-terminal-modernize-scientific-stack-B0-r1",
+            "C-terminal-polyglot-rust-c-B0-r1",
+            "C-terminal-vulnerable-secret-B0-r1"
+          ]
+        },
+        "C0": {
+          "trials": 14,
+          "passed": 13,
+          "model_calls": 123,
+          "output_tokens": 228698,
+          "median_execution_seconds": 160.7603639995068,
+          "format_exits": 0,
+          "run_ids": [
+            "C-aider-cpp__all-your-base-C0-r1",
+            "C-aider-go__alphametics-C0-r1",
+            "C-aider-go__beer-song-C0-r1",
+            "C-aider-javascript__house-C0-r1",
+            "C-aider-javascript__sum-of-multiples-C0-r1",
+            "C-aider-python__grep-C0-r1",
+            "C-aider-python__rest-api-C0-r1",
+            "C-aider-rust__accumulate-C0-r1",
+            "C-swe-django__django-12193-C0-r1",
+            "C-swe-django__django-14855-C0-r1",
+            "C-swe-scikit-learn__scikit-learn-13124-C0-r1",
+            "C-terminal-modernize-scientific-stack-C0-r1",
+            "C-terminal-polyglot-rust-c-C0-r1",
+            "C-terminal-vulnerable-secret-C0-r1"
+          ]
+        },
+        "C1": {
+          "trials": 14,
+          "passed": 12,
+          "model_calls": 132,
+          "output_tokens": 228707,
+          "median_execution_seconds": 153.48485354149307,
+          "format_exits": 1,
+          "run_ids": [
+            "C-aider-cpp__all-your-base-C1-r1",
+            "C-aider-go__alphametics-C1-r1",
+            "C-aider-go__beer-song-C1-r1",
+            "C-aider-javascript__house-C1-r1",
+            "C-aider-javascript__sum-of-multiples-C1-r1",
+            "C-aider-python__grep-C1-r1",
+            "C-aider-python__rest-api-C1-r1",
+            "C-aider-rust__accumulate-C1-r1",
+            "C-swe-django__django-12193-C1-r1",
+            "C-swe-django__django-14855-C1-r1",
+            "C-swe-scikit-learn__scikit-learn-13124-C1-r1",
+            "C-terminal-modernize-scientific-stack-C1-r1",
+            "C-terminal-polyglot-rust-c-C1-r1",
+            "C-terminal-vulnerable-secret-C1-r1"
+          ]
+        }
+      },
+      "task_ids": [
+        "cpp/all-your-base",
+        "django__django-12193",
+        "django__django-14855",
+        "go/alphametics",
+        "go/beer-song",
+        "javascript/house",
+        "javascript/sum-of-multiples",
+        "modernize-scientific-stack",
+        "polyglot-rust-c",
+        "python/grep",
+        "python/rest-api",
+        "rust/accumulate",
+        "scikit-learn__scikit-learn-13124",
+        "vulnerable-secret"
+      ]
+    },
+    {
+      "protocol_commit": "fadb4083ac1bbf63bec97095d0702943a40f92ff",
+      "repeat": 1,
+      "tasks": 12,
+      "benchmarks": {
+        "aider": 2,
+        "swe": 5,
+        "terminal": 5
+      },
+      "arms": {
+        "B0": {
+          "trials": 12,
+          "passed": 11,
+          "model_calls": 130,
+          "output_tokens": 271352,
+          "median_execution_seconds": 148.4504447295185,
+          "format_exits": 0,
+          "run_ids": [
+            "C-aider-cpp__gigasecond-B0-r1",
+            "C-aider-java__change-B0-r1",
+            "C-swe-pydata__xarray-4687-B0-r1",
+            "C-swe-pytest-dev__pytest-5631-B0-r1",
+            "C-swe-pytest-dev__pytest-7490-B0-r1",
+            "C-swe-scikit-learn__scikit-learn-11310-B0-r1",
+            "C-swe-scikit-learn__scikit-learn-25232-B0-r1",
+            "C-terminal-db-wal-recovery-B0-r1",
+            "C-terminal-fix-code-vulnerability-B0-r1",
+            "C-terminal-log-summary-date-ranges-B0-r1",
+            "C-terminal-multi-source-data-merger-B0-r1",
+            "C-terminal-prove-plus-comm-B0-r1"
+          ]
+        },
+        "C0": {
+          "trials": 12,
+          "passed": 11,
+          "model_calls": 169,
+          "output_tokens": 270235,
+          "median_execution_seconds": 221.32646672951523,
+          "format_exits": 0,
+          "run_ids": [
+            "C-aider-cpp__gigasecond-C0-r1",
+            "C-aider-java__change-C0-r1",
+            "C-swe-pydata__xarray-4687-C0-r1",
+            "C-swe-pytest-dev__pytest-5631-C0-r1",
+            "C-swe-pytest-dev__pytest-7490-C0-r1",
+            "C-swe-scikit-learn__scikit-learn-11310-C0-r1",
+            "C-swe-scikit-learn__scikit-learn-25232-C0-r1",
+            "C-terminal-db-wal-recovery-C0-r1",
+            "C-terminal-fix-code-vulnerability-C0-r1",
+            "C-terminal-log-summary-date-ranges-C0-r1",
+            "C-terminal-multi-source-data-merger-C0-r1",
+            "C-terminal-prove-plus-comm-C0-r1"
+          ]
+        },
+        "C1": {
+          "trials": 12,
+          "passed": 10,
+          "model_calls": 136,
+          "output_tokens": 235302,
+          "median_execution_seconds": 187.1465817499993,
+          "format_exits": 0,
+          "run_ids": [
+            "C-aider-cpp__gigasecond-C1-r1",
+            "C-aider-java__change-C1-r1",
+            "C-swe-pydata__xarray-4687-C1-r1",
+            "C-swe-pytest-dev__pytest-5631-C1-r1",
+            "C-swe-pytest-dev__pytest-7490-C1-r1",
+            "C-swe-scikit-learn__scikit-learn-11310-C1-r1",
+            "C-swe-scikit-learn__scikit-learn-25232-C1-r1",
+            "C-terminal-db-wal-recovery-C1-r1",
+            "C-terminal-fix-code-vulnerability-C1-r1",
+            "C-terminal-log-summary-date-ranges-C1-r1",
+            "C-terminal-multi-source-data-merger-C1-r1",
+            "C-terminal-prove-plus-comm-C1-r1"
+          ]
+        }
+      },
+      "task_ids": [
+        "cpp/gigasecond",
+        "db-wal-recovery",
+        "fix-code-vulnerability",
+        "java/change",
+        "log-summary-date-ranges",
+        "multi-source-data-merger",
+        "prove-plus-comm",
+        "pydata__xarray-4687",
+        "pytest-dev__pytest-5631",
+        "pytest-dev__pytest-7490",
+        "scikit-learn__scikit-learn-11310",
+        "scikit-learn__scikit-learn-25232"
+      ]
+    },
+    {
+      "protocol_commit": "7c7679a44cc36dc3f6d35525bc57960cbd72aa51",
+      "repeat": 2,
+      "tasks": 14,
+      "benchmarks": {
+        "aider": 3,
+        "swe": 5,
+        "terminal": 6
+      },
+      "arms": {
+        "B0": {
+          "trials": 14,
+          "passed": 8,
+          "model_calls": 134,
+          "output_tokens": 260688,
+          "median_execution_seconds": 109.60493352048798,
+          "format_exits": 5,
+          "run_ids": [
+            "C-aider-cpp__gigasecond-B0-r2",
+            "C-aider-java__change-B0-r2",
+            "C-aider-javascript__house-B0-r2",
+            "C-swe-pydata__xarray-4687-B0-r2",
+            "C-swe-pytest-dev__pytest-5631-B0-r2",
+            "C-swe-pytest-dev__pytest-7490-B0-r2",
+            "C-swe-scikit-learn__scikit-learn-11310-B0-r2",
+            "C-swe-scikit-learn__scikit-learn-25232-B0-r2",
+            "C-terminal-db-wal-recovery-B0-r2",
+            "C-terminal-distribution-search-B0-r2",
+            "C-terminal-fix-code-vulnerability-B0-r2",
+            "C-terminal-log-summary-date-ranges-B0-r2",
+            "C-terminal-multi-source-data-merger-B0-r2",
+            "C-terminal-prove-plus-comm-B0-r2"
+          ]
+        },
+        "C0": {
+          "trials": 14,
+          "passed": 9,
+          "model_calls": 151,
+          "output_tokens": 267914,
+          "median_execution_seconds": 131.34148908301722,
+          "format_exits": 5,
+          "run_ids": [
+            "C-aider-cpp__gigasecond-C0-r2",
+            "C-aider-java__change-C0-r2",
+            "C-aider-javascript__house-C0-r2",
+            "C-swe-pydata__xarray-4687-C0-r2",
+            "C-swe-pytest-dev__pytest-5631-C0-r2",
+            "C-swe-pytest-dev__pytest-7490-C0-r2",
+            "C-swe-scikit-learn__scikit-learn-11310-C0-r2",
+            "C-swe-scikit-learn__scikit-learn-25232-C0-r2",
+            "C-terminal-db-wal-recovery-C0-r2",
+            "C-terminal-distribution-search-C0-r2",
+            "C-terminal-fix-code-vulnerability-C0-r2",
+            "C-terminal-log-summary-date-ranges-C0-r2",
+            "C-terminal-multi-source-data-merger-C0-r2",
+            "C-terminal-prove-plus-comm-C0-r2"
+          ]
+        },
+        "C1": {
+          "trials": 14,
+          "passed": 11,
+          "model_calls": 148,
+          "output_tokens": 242366,
+          "median_execution_seconds": 134.04342279100092,
+          "format_exits": 3,
+          "run_ids": [
+            "C-aider-cpp__gigasecond-C1-r2",
+            "C-aider-java__change-C1-r2",
+            "C-aider-javascript__house-C1-r2",
+            "C-swe-pydata__xarray-4687-C1-r2",
+            "C-swe-pytest-dev__pytest-5631-C1-r2",
+            "C-swe-pytest-dev__pytest-7490-C1-r2",
+            "C-swe-scikit-learn__scikit-learn-11310-C1-r2",
+            "C-swe-scikit-learn__scikit-learn-25232-C1-r2",
+            "C-terminal-db-wal-recovery-C1-r2",
+            "C-terminal-distribution-search-C1-r2",
+            "C-terminal-fix-code-vulnerability-C1-r2",
+            "C-terminal-log-summary-date-ranges-C1-r2",
+            "C-terminal-multi-source-data-merger-C1-r2",
+            "C-terminal-prove-plus-comm-C1-r2"
+          ]
+        }
+      },
+      "task_ids": [
+        "cpp/gigasecond",
+        "db-wal-recovery",
+        "distribution-search",
+        "fix-code-vulnerability",
+        "java/change",
+        "javascript/house",
+        "log-summary-date-ranges",
+        "multi-source-data-merger",
+        "prove-plus-comm",
+        "pydata__xarray-4687",
+        "pytest-dev__pytest-5631",
+        "pytest-dev__pytest-7490",
+        "scikit-learn__scikit-learn-11310",
+        "scikit-learn__scikit-learn-25232"
+      ]
+    },
+    {
+      "protocol_commit": "7d4d4917353a3aaca0a3cf60b371949b8221559d",
+      "repeat": 2,
+      "tasks": 1,
+      "benchmarks": {
+        "aider": 0,
+        "swe": 0,
+        "terminal": 1
+      },
+      "arms": {
+        "B0": {
+          "trials": 1,
+          "passed": 0,
+          "model_calls": 4,
+          "output_tokens": 12491,
+          "median_execution_seconds": 86.45100712499698,
+          "format_exits": 1,
+          "run_ids": [
+            "C-terminal-feal-linear-cryptanalysis-B0-r2"
+          ]
+        },
+        "C0": {
+          "trials": 1,
+          "passed": 0,
+          "model_calls": 4,
+          "output_tokens": 12642,
+          "median_execution_seconds": 91.4037631660176,
+          "format_exits": 1,
+          "run_ids": [
+            "C-terminal-feal-linear-cryptanalysis-C0-r2"
+          ]
+        },
+        "C1": {
+          "trials": 1,
+          "passed": 0,
+          "model_calls": 4,
+          "output_tokens": 12595,
+          "median_execution_seconds": 92.28631341701839,
+          "format_exits": 1,
+          "run_ids": [
+            "C-terminal-feal-linear-cryptanalysis-C1-r2"
+          ]
+        }
+      },
+      "task_ids": [
+        "feal-linear-cryptanalysis"
+      ]
+    },
+    {
+      "protocol_commit": "abad82197a3b7833478261a0360f2eae873efdaa",
+      "repeat": 2,
+      "tasks": 14,
+      "benchmarks": {
+        "aider": 7,
+        "swe": 4,
+        "terminal": 3
+      },
+      "arms": {
+        "B0": {
+          "trials": 14,
+          "passed": 10,
+          "model_calls": 127,
+          "output_tokens": 226724,
+          "median_execution_seconds": 88.66575879199081,
+          "format_exits": 4,
+          "run_ids": [
+            "C-aider-cpp__all-your-base-B0-r2",
+            "C-aider-go__alphametics-B0-r2",
+            "C-aider-go__beer-song-B0-r2",
+            "C-aider-javascript__sum-of-multiples-B0-r2",
+            "C-aider-python__grep-B0-r2",
+            "C-aider-python__rest-api-B0-r2",
+            "C-aider-rust__accumulate-B0-r2",
+            "C-swe-django__django-11999-B0-r2",
+            "C-swe-django__django-12193-B0-r2",
+            "C-swe-django__django-14855-B0-r2",
+            "C-swe-scikit-learn__scikit-learn-13124-B0-r2",
+            "C-terminal-modernize-scientific-stack-B0-r2",
+            "C-terminal-polyglot-rust-c-B0-r2",
+            "C-terminal-vulnerable-secret-B0-r2"
+          ]
+        },
+        "C0": {
+          "trials": 14,
+          "passed": 10,
+          "model_calls": 128,
+          "output_tokens": 192927,
+          "median_execution_seconds": 102.9045900205092,
+          "format_exits": 3,
+          "run_ids": [
+            "C-aider-cpp__all-your-base-C0-r2",
+            "C-aider-go__alphametics-C0-r2",
+            "C-aider-go__beer-song-C0-r2",
+            "C-aider-javascript__sum-of-multiples-C0-r2",
+            "C-aider-python__grep-C0-r2",
+            "C-aider-python__rest-api-C0-r2",
+            "C-aider-rust__accumulate-C0-r2",
+            "C-swe-django__django-11999-C0-r2",
+            "C-swe-django__django-12193-C0-r2",
+            "C-swe-django__django-14855-C0-r2",
+            "C-swe-scikit-learn__scikit-learn-13124-C0-r2",
+            "C-terminal-modernize-scientific-stack-C0-r2",
+            "C-terminal-polyglot-rust-c-C0-r2",
+            "C-terminal-vulnerable-secret-C0-r2"
+          ]
+        },
+        "C1": {
+          "trials": 14,
+          "passed": 10,
+          "model_calls": 125,
+          "output_tokens": 208598,
+          "median_execution_seconds": 126.67316493749968,
+          "format_exits": 5,
+          "run_ids": [
+            "C-aider-cpp__all-your-base-C1-r2",
+            "C-aider-go__alphametics-C1-r2",
+            "C-aider-go__beer-song-C1-r2",
+            "C-aider-javascript__sum-of-multiples-C1-r2",
+            "C-aider-python__grep-C1-r2",
+            "C-aider-python__rest-api-C1-r2",
+            "C-aider-rust__accumulate-C1-r2",
+            "C-swe-django__django-11999-C1-r2",
+            "C-swe-django__django-12193-C1-r2",
+            "C-swe-django__django-14855-C1-r2",
+            "C-swe-scikit-learn__scikit-learn-13124-C1-r2",
+            "C-terminal-modernize-scientific-stack-C1-r2",
+            "C-terminal-polyglot-rust-c-C1-r2",
+            "C-terminal-vulnerable-secret-C1-r2"
+          ]
+        }
+      },
+      "task_ids": [
+        "cpp/all-your-base",
+        "django__django-11999",
+        "django__django-12193",
+        "django__django-14855",
+        "go/alphametics",
+        "go/beer-song",
+        "javascript/sum-of-multiples",
+        "modernize-scientific-stack",
+        "polyglot-rust-c",
+        "python/grep",
+        "python/rest-api",
+        "rust/accumulate",
+        "scikit-learn__scikit-learn-13124",
+        "vulnerable-secret"
+      ]
+    },
+    {
+      "protocol_commit": "081a796c7bceca10e390fa983c18173289c4fe7a",
+      "repeat": 3,
+      "tasks": 23,
+      "benchmarks": {
+        "aider": 10,
+        "swe": 6,
+        "terminal": 7
+      },
+      "arms": {
+        "B0": {
+          "trials": 23,
+          "passed": 18,
+          "model_calls": 193,
+          "output_tokens": 313258,
+          "median_execution_seconds": 106.99096825002925,
+          "format_exits": 5,
+          "run_ids": [
+            "C-aider-cpp__all-your-base-B0-r3",
+            "C-aider-cpp__gigasecond-B0-r3",
+            "C-aider-go__alphametics-B0-r3",
+            "C-aider-go__beer-song-B0-r3",
+            "C-aider-java__change-B0-r3",
+            "C-aider-javascript__house-B0-r3",
+            "C-aider-javascript__sum-of-multiples-B0-r3",
+            "C-aider-python__grep-B0-r3",
+            "C-aider-python__rest-api-B0-r3",
+            "C-aider-rust__accumulate-B0-r3",
+            "C-swe-django__django-12193-B0-r3",
+            "C-swe-django__django-14855-B0-r3",
+            "C-swe-pytest-dev__pytest-5631-B0-r3",
+            "C-swe-pytest-dev__pytest-7490-B0-r3",
+            "C-swe-scikit-learn__scikit-learn-11310-B0-r3",
+            "C-swe-scikit-learn__scikit-learn-13124-B0-r3",
+            "C-terminal-db-wal-recovery-B0-r3",
+            "C-terminal-distribution-search-B0-r3",
+            "C-terminal-fix-code-vulnerability-B0-r3",
+            "C-terminal-log-summary-date-ranges-B0-r3",
+            "C-terminal-modernize-scientific-stack-B0-r3",
+            "C-terminal-polyglot-rust-c-B0-r3",
+            "C-terminal-vulnerable-secret-B0-r3"
+          ]
+        },
+        "C0": {
+          "trials": 23,
+          "passed": 19,
+          "model_calls": 226,
+          "output_tokens": 328118,
+          "median_execution_seconds": 126.96162529097637,
+          "format_exits": 3,
+          "run_ids": [
+            "C-aider-cpp__all-your-base-C0-r3",
+            "C-aider-cpp__gigasecond-C0-r3",
+            "C-aider-go__alphametics-C0-r3",
+            "C-aider-go__beer-song-C0-r3",
+            "C-aider-java__change-C0-r3",
+            "C-aider-javascript__house-C0-r3",
+            "C-aider-javascript__sum-of-multiples-C0-r3",
+            "C-aider-python__grep-C0-r3",
+            "C-aider-python__rest-api-C0-r3",
+            "C-aider-rust__accumulate-C0-r3",
+            "C-swe-django__django-12193-C0-r3",
+            "C-swe-django__django-14855-C0-r3",
+            "C-swe-pytest-dev__pytest-5631-C0-r3",
+            "C-swe-pytest-dev__pytest-7490-C0-r3",
+            "C-swe-scikit-learn__scikit-learn-11310-C0-r3",
+            "C-swe-scikit-learn__scikit-learn-13124-C0-r3",
+            "C-terminal-db-wal-recovery-C0-r3",
+            "C-terminal-distribution-search-C0-r3",
+            "C-terminal-fix-code-vulnerability-C0-r3",
+            "C-terminal-log-summary-date-ranges-C0-r3",
+            "C-terminal-modernize-scientific-stack-C0-r3",
+            "C-terminal-polyglot-rust-c-C0-r3",
+            "C-terminal-vulnerable-secret-C0-r3"
+          ]
+        },
+        "C1": {
+          "trials": 23,
+          "passed": 17,
+          "model_calls": 219,
+          "output_tokens": 350067,
+          "median_execution_seconds": 144.66344979201676,
+          "format_exits": 5,
+          "run_ids": [
+            "C-aider-cpp__all-your-base-C1-r3",
+            "C-aider-cpp__gigasecond-C1-r3",
+            "C-aider-go__alphametics-C1-r3",
+            "C-aider-go__beer-song-C1-r3",
+            "C-aider-java__change-C1-r3",
+            "C-aider-javascript__house-C1-r3",
+            "C-aider-javascript__sum-of-multiples-C1-r3",
+            "C-aider-python__grep-C1-r3",
+            "C-aider-python__rest-api-C1-r3",
+            "C-aider-rust__accumulate-C1-r3",
+            "C-swe-django__django-12193-C1-r3",
+            "C-swe-django__django-14855-C1-r3",
+            "C-swe-pytest-dev__pytest-5631-C1-r3",
+            "C-swe-pytest-dev__pytest-7490-C1-r3",
+            "C-swe-scikit-learn__scikit-learn-11310-C1-r3",
+            "C-swe-scikit-learn__scikit-learn-13124-C1-r3",
+            "C-terminal-db-wal-recovery-C1-r3",
+            "C-terminal-distribution-search-C1-r3",
+            "C-terminal-fix-code-vulnerability-C1-r3",
+            "C-terminal-log-summary-date-ranges-C1-r3",
+            "C-terminal-modernize-scientific-stack-C1-r3",
+            "C-terminal-polyglot-rust-c-C1-r3",
+            "C-terminal-vulnerable-secret-C1-r3"
+          ]
+        }
+      },
+      "task_ids": [
+        "cpp/all-your-base",
+        "cpp/gigasecond",
+        "db-wal-recovery",
+        "distribution-search",
+        "django__django-12193",
+        "django__django-14855",
+        "fix-code-vulnerability",
+        "go/alphametics",
+        "go/beer-song",
+        "java/change",
+        "javascript/house",
+        "javascript/sum-of-multiples",
+        "log-summary-date-ranges",
+        "modernize-scientific-stack",
+        "polyglot-rust-c",
+        "pytest-dev__pytest-5631",
+        "pytest-dev__pytest-7490",
+        "python/grep",
+        "python/rest-api",
+        "rust/accumulate",
+        "scikit-learn__scikit-learn-11310",
+        "scikit-learn__scikit-learn-13124",
+        "vulnerable-secret"
+      ]
+    },
+    {
+      "protocol_commit": "7c7679a44cc36dc3f6d35525bc57960cbd72aa51",
+      "repeat": 3,
+      "tasks": 2,
+      "benchmarks": {
+        "aider": 0,
+        "swe": 1,
+        "terminal": 1
+      },
+      "arms": {
+        "B0": {
+          "trials": 2,
+          "passed": 1,
+          "model_calls": 19,
+          "output_tokens": 32761,
+          "median_execution_seconds": 190.3781656670035,
+          "format_exits": 1,
+          "run_ids": [
+            "C-swe-pydata__xarray-7393-B0-r3",
+            "C-terminal-feal-linear-cryptanalysis-B0-r3"
+          ]
+        },
+        "C0": {
+          "trials": 2,
+          "passed": 1,
+          "model_calls": 29,
+          "output_tokens": 49020,
+          "median_execution_seconds": 244.84536941698752,
+          "format_exits": 1,
+          "run_ids": [
+            "C-swe-pydata__xarray-7393-C0-r3",
+            "C-terminal-feal-linear-cryptanalysis-C0-r3"
+          ]
+        },
+        "C1": {
+          "trials": 2,
+          "passed": 1,
+          "model_calls": 23,
+          "output_tokens": 42879,
+          "median_execution_seconds": 241.82769927097252,
+          "format_exits": 1,
+          "run_ids": [
+            "C-swe-pydata__xarray-7393-C1-r3",
+            "C-terminal-feal-linear-cryptanalysis-C1-r3"
+          ]
+        }
+      },
+      "task_ids": [
+        "feal-linear-cryptanalysis",
+        "pydata__xarray-7393"
+      ]
+    },
+    {
+      "protocol_commit": "84d7e94b0592d7d07c0afc2fd452e6bf23d49aa4",
+      "repeat": 3,
+      "tasks": 3,
+      "benchmarks": {
+        "aider": 0,
+        "swe": 1,
+        "terminal": 2
+      },
+      "arms": {
+        "B0": {
+          "trials": 3,
+          "passed": 1,
+          "model_calls": 27,
+          "output_tokens": 66512,
+          "median_execution_seconds": 108.74675341701368,
+          "format_exits": 2,
+          "run_ids": [
+            "C-swe-scikit-learn__scikit-learn-25232-B0-r3",
+            "C-terminal-multi-source-data-merger-B0-r3",
+            "C-terminal-prove-plus-comm-B0-r3"
+          ]
+        },
+        "C0": {
+          "trials": 3,
+          "passed": 2,
+          "model_calls": 32,
+          "output_tokens": 60664,
+          "median_execution_seconds": 123.17228908301331,
+          "format_exits": 1,
+          "run_ids": [
+            "C-swe-scikit-learn__scikit-learn-25232-C0-r3",
+            "C-terminal-multi-source-data-merger-C0-r3",
+            "C-terminal-prove-plus-comm-C0-r3"
+          ]
+        },
+        "C1": {
+          "trials": 3,
+          "passed": 2,
+          "model_calls": 33,
+          "output_tokens": 65417,
+          "median_execution_seconds": 117.50233891699463,
+          "format_exits": 1,
+          "run_ids": [
+            "C-swe-scikit-learn__scikit-learn-25232-C1-r3",
+            "C-terminal-multi-source-data-merger-C1-r3",
+            "C-terminal-prove-plus-comm-C1-r3"
+          ]
+        }
+      },
+      "task_ids": [
+        "multi-source-data-merger",
+        "prove-plus-comm",
+        "scikit-learn__scikit-learn-25232"
+      ]
+    }
+  ],
+  "grouping_rule": "Post-hoc: retain every task-repeat with all three arms and identical protocol_commit, group by protocol and repeat; no score filter"
+}

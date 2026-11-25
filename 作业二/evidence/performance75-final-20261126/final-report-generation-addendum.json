@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "record_kind": "independent_final_report_generation_and_evidence_packaging_addendum",
+  "observed_utc": "2026-11-25T23:12:46Z",
+  "reviewer": "/root/parallel_capacity_review",
+  "status": "APPROVE_WITH_STATED_LIMITS",
+  "blocking_findings_remaining": 0,
+  "blocking_findings": [],
+  "original_scientific_review": {
+    "path": "work/parallel-free-evaluation-20261124/final-source-and-trace-review-20261126.json",
+    "sha256": "5d49487ebd98cb8f6b536aab40b1be6eeb90fdc149ee7d001178728975f551f2",
+    "modified": false,
+    "source_summary_sha256": "adff31af130194be2c54f8f1006e0c702451e4f5828edbdeb62d610da57a2057",
+    "remaining36_source_bindings_rehashed_and_match": true,
+    "renderer_binding_resolved_through_explicit_archived_original_bytes": true,
+    "source_versions": [
+      {
+        "source_path": "work/render_hy4_final_reports.py",
+        "scientific_review_expected_sha256": "264fba250190867a999c6a7f36c3bac3fba9e9a76fc0aa829f9b038721bf603b",
+        "explicit_archived_version": "work/final-pdf-generation-repair-20261126/renderer-before-repeat-summary.py.txt",
+        "published_overlay_version": "work/hw0102-publish/shared/reproduction-report-tools-20261126/work/render_hy4_final_reports.py",
+        "current_sha256": "fb8ca3f1fb1e1479ef81022084fbcafb1d3294228919c31b933363fe8b06d2e1"
+      }
+    ],
+    "scope": "The original scientific review continues to bind renderer264f,not the newfb8renderer. This addendum records the narrow subsequent production-generation repair; it neither rewrites the old review nor changes its scientific result/causal limitations."
+  },
+  "renderer_repair": {
+    "original_failure": "The actual complete producer groups.repeat exposes actual_requests and lacks summed_wall_seconds. Archived scored_cost_table instead indexed requests and therefore raised KeyError('requests'). Earlier small preview fixtures used describe-shaped groups and did not exercise this real producer boundary.",
+    "actual_old_failure_reproduced": "KeyError:requests",
+    "current_actual_table_function_passed": true,
+    "changed_functions": [
+      "work2_items",
+      "scored_cost_table"
+    ],
+    "change1": "scored_cost_table now reads the existing independent_repeats.all75.right describe-shaped matched group,whose requests and summed_wall_seconds are actually present.",
+    "change2": "The table row and explanatory denominator say independent-repeat matched group rather than full group.",
+    "module_AST_after_normalizing_only_declared_changes_equals_archived_module_AST": true,
+    "load_function_AST_unchanged": true,
+    "billing_calculation_AST_unchanged": true,
+    "completion_and_final_review_gates_AST_unchanged": true,
+    "producer_source_unchanged": true,
+    "producer_sha256": "2aee4a2ab4381a0abbaf9c0a115ee7755d007befab451839cce8cc468c070ca2",
+    "real_report_data_sha256": "62c90ea21e23dc818ff23bad7641029d8ac17ab98c8d0bfff8953131f705fca4",
+    "real_summary_sha256": "adff31af130194be2c54f8f1006e0c702451e4f5828edbdeb62d610da57a2057",
+    "matched_repeat_group_source": "independent_repeats.all75.right",
+    "matched_repeat_recomputed_from75_actual_effective_rows": {
+      "completed": 75,
+      "passed": 75,
+      "qualified_passed": 75,
+      "requests": 1209,
+      "input_tokens": 29615186,
+      "output_tokens": 770087,
+      "summed_wall_seconds": 18699.98927571217,
+      "median_wall_seconds": 147.1590207500849
+    },
+    "formatted_summed_wall_seconds": "18,700.0",
+    "time_scope": "Sum of recorded scored-attempt wall seconds for the75matched repeats,not parallel batch elapsed time or all logical-position recovery costs. The known unscored prefixes remain separate.",
+    "scientific_results_and_unknown35_unchanged": true,
+    "no_new_model_or_grader_execution": true
+  },
+  "actual_outputs": {
+    "pdfs": [
+      {
+        "path": "outputs/231880296_邱昱宁_作业一.pdf",
+        "sha256": "31e35af29d6683dbd89e4404db6f232e19e0fde0459add0adb799dd45fb404a7",
+        "bytes": 252017,
+        "pages": 6,
+        "repeat_matched_cost_label_present": false,
+        "formatted_repeat_time_present": false
+      },
+      {
+        "path": "outputs/231880296_邱昱宁_作业二.pdf",
+        "sha256": "db573c37b56506643ff28b8d340572506bec7c860727f7f91de7c25a6ac90a52",
+        "bytes": 356374,
+        "pages": 15,
+        "repeat_matched_cost_label_present": true,
+        "formatted_repeat_time_present": true
+      }
+    ],
+    "page_counts_verified": [
+      6,
+      15
+    ],
+    "assignment2_actual_extracted_text_has_repeat_matched_label_and18700_seconds": true,
+    "independent_check_rendered_new_pdf": false,
+    "independent_check_full_page_visual_QA": false,
+    "parent_full_page_visual_QA_in_progress_at_request": true,
+    "scope": "This check reads actual finished PDF bytes,counts pages and extracts the repaired table text. Full-page visual QA,final staged privacy scan,remote byte equality and final submission packaging remain separate delivery checks."
+  },
+  "guidance_export_finalizer": {
+    "path": "work/parallel-free-evaluation-20261124/finalize_guidance_export.py",
+    "source_read_in_full": true,
+    "plan_sha256": "a61385dd661d8b9074e154896b74e37bf073176d5e2e25e0961fa750a0d00e2e",
+    "behavior": "Requires the pre-existing mature-sanitizer output without an index; checks the exact frozen plan/state/run labels and original result/individual usage,then adds original native captures,source/export hashes,protocol and snapshots. Existing verify_run and complete export verify remain in use.",
+    "actual_filtered_export_verify": {
+      "stage": "complete_three_guidance_ablations",
+      "unique_original_scored_runs": 3,
+      "raw_passed": 3,
+      "actual_requests": 31,
+      "all_core_and_revision_positions_exported": true,
+      "new_model_calls": 0
+    },
+    "actual_runs": 3,
+    "actual_own_zero_receipts": 31,
+    "no_new_original_or_model_score_created": true,
+    "exact_original_v18_full_guidance_reference_scope_preserved": true,
+    "no_original_sanitizer_or_frozen_runtime_modified": true
+  },
+  "scored_evidence_archives": {
+    "packager": "work/package_completed_performance_evidence.py",
+    "source_read_in_full": true,
+    "core_index_members_match_exact_final_acceptance246_run_set_and_raw_results": true,
+    "unique_physical_scored_runs": 249,
+    "core_and_development_runs": 246,
+    "separate_guidance_runs": 3,
+    "raw_passed": 237,
+    "raw_failed": 12,
+    "actual_own_zero_receipts": 4379,
+    "receipt_scope": "4348scored core/development receipts plus31guidance-off receipts. The11known unscored mechanical-prefix receipts are not included in these scored archives and must remain in their separate interruption evidence.",
+    "archive_members_verified": 4191,
+    "archive_uncompressed_bytes_streamed": 440088549,
+    "parts": [
+      {
+        "file": "performance75-final-20261126-part1.zip",
+        "sha256": "1cbb686893846b42f4fe8b8adf2597142dfa6417acfb63aa6787b0d9d85fcd9a",
+        "bytes": 23236973,
+        "members": 1362,
+        "stream_sha_and_CRC_verified": true
+      },
+      {
+        "file": "performance75-final-20261126-part2.zip",
+        "sha256": "dea32564819190f898ba80e09277562efee01f76f5b2778ee5b5f36a79120853",
+        "bytes": 72840031,
+        "members": 3,
+        "stream_sha_and_CRC_verified": true
+      },
+      {
+        "file": "performance75-final-20261126-part3.zip",
+        "sha256": "d4ea3847a72478b5b1f507a8aeec2fae48170d544b7dea6d939d67107f632b34",
+        "bytes": 28685480,
+        "members": 2826,
+        "stream_sha_and_CRC_verified": true
+      }
+    ],
+    "all_member_names_unique_and_relative_without_dotdot": true,
+    "all_members_match_manifest_sha_and_bytes": true,
+    "all_members_fully_streamed_for_SHA256_and_ZIP_CRC": true,
+    "archives_not_rebuilt_by_reviewer": true,
+    "source_export_directories_not_mutated": true,
+    "whole_submission_completeness_claimed": false,
+    "scope": "These threeZIPs contain scored filtered evidence only. Retained unscored/unknown cost views,source versions,full code,metadata,final PDFs and the final submission note remain separate required delivery members."
+  },
+  "metadata_assembly": {
+    "owner": "work/assemble_final_performance_metadata.py",
+    "source_read_in_full": true,
+    "provenance": "work/hw0102-publish/作业二/evidence/performance75-final-20261126/PROVENANCE.json",
+    "copied_files": 78,
+    "copied_export_bytes": 6160215,
+    "all78_current_source_sha_bytes_and_export_sha_bytes_rechecked": true,
+    "actual_scrub_recomputed_using_exact_raw_decode_without_newline_translation": true,
+    "code_members_preserved_byte_for_byte": true,
+    "JSON_metadata_uses_existing_mature_scrub": true,
+    "raw_source_and_scrubbed_export_SHA_separately_recorded": true,
+    "source_code_tools_copies_equal_current_owner_bytes": true,
+    "existing249_scored_archive_and_original942_source_manifests_not_changed": true,
+    "all_metadata_raw_source_byte_identity_claimed": false,
+    "offline_engineering_regeneration_from_scrubbed_metadata_alone_claimed": false,
+    "scope": "Provenance explicitly distinguishes source bytes from scrubbed export bytes. Existing published metadata references and already-archived VM-share case sources remain references;raw private sessions,credentials,VM/SDK trees and reconstruction caches are not added by this helper."
+  },
+  "findings": [
+    {
+      "priority": "P1",
+      "status": "FIXED_IN_NEW_RENDERER_AND_INDEPENDENTLY_REPRODUCED",
+      "id": "REAL_FULL_REPEAT_SCHEMA_MISMATCH",
+      "evidence": "Archived264fscored_cost_table raises requests KeyError on actual full producer data;newfb8table consumes the source-bound75repeat matched rows with1209requests and18699.98927571217summed seconds. No score/fee/completion gate changed."
+    }
+  ],
+  "limits": [
+    "The unchanged original5d4948scientific review is not silently rebound to a newer renderer;its expected264fbytes remain available in the explicit preimage and published overlay.",
+    "The old preview fixture passed only its describe-shaped input. Its prior success is preserved with that limited coverage;the real full-schema generation failure is retained here.",
+    "No original225or revision trajectory was re-read in full for this addendum,no model/container/original grader ran,and no STOP,plan,scope,live source or scientific result was modified.",
+    "Current scientific score,unknown35and per-attempt/full-chain cost limits remain those stated by the exact original scientific review.",
+    "The archive hashes and full4191member CRC/SHA checks establish byte equality with their filtered inventories;this addendum does not replace the separate final all-metadata/staged sensitive-data scan or full-page visual QA.",
+    "No Git mutation,upload,remote publication verification or final user-submission action was performed."
+  ],
+  "source_sha256": {
+    "work/parallel-free-evaluation-20261124/finalize_guidance_export.py": "4475d2219526694bf1a167e17e5652cfeaa8c3799469fb13e07f7304c5295299",
+    "work/package_completed_performance_evidence.py": "17e341366620210a8cc469824d430730a164ac1c0e5aaaa637609ce4e7c5dc58",
+    "work/assemble_final_performance_metadata.py": "70e4759ee804d156d3dd0d8035a0672fe4e68f55a3b3612bc378e41621c8edd8",
+    "work/parallel-free-evaluation-20261124/final-guidance-evidence-20261126/index.json": "bf6c1273199250b1adc6c3f1a9aa78f4d73bd819ff8324992bf1ef3f38d06369",
+    "work/parallel-free-evaluation-20261124/final-evidence/index.json": "21c941255a254585c94819cd7ae011ffc21c7ecf4a77f168c1dad82b9bd046f4",
+    "work/hw0102-publish/作业二/evidence/performance75-final-20261126/ARCHIVE_MANIFEST.json": "6bd25a35b310157da2c718acd9f38af4b6e53a1c6271173c5b851d04dc7a558c",
+    "work/hw0102-publish/作业二/evidence/performance75-final-20261126/PROVENANCE.json": "08b56e112fd7a9d63f1fd1b967fdef43af3586ee01823825a800fc14bce86c6b",
+    "work/parallel-free-evaluation-20261124/final-source-and-trace-review-20261126.json": "5d49487ebd98cb8f6b536aab40b1be6eeb90fdc149ee7d001178728975f551f2",
+    "work/final-pdf-generation-repair-20261126/renderer-before-repeat-summary.py.txt": "264fba250190867a999c6a7f36c3bac3fba9e9a76fc0aa829f9b038721bf603b",
+    "work/render_hy4_final_reports.py": "fb8ca3f1fb1e1479ef81022084fbcafb1d3294228919c31b933363fe8b06d2e1",
+    "work/hw0102-publish/shared/reproduction-report-tools-20261126/work/render_hy4_final_reports.py": "264fba250190867a999c6a7f36c3bac3fba9e9a76fc0aa829f9b038721bf603b",
+    "work/parallel-free-evaluation-20261124/report-data-final75-20261126.json": "62c90ea21e23dc818ff23bad7641029d8ac17ab98c8d0bfff8953131f705fca4",
+    "work/parallel-free-evaluation-20261124/prepare_report_data.py": "2aee4a2ab4381a0abbaf9c0a115ee7755d007befab451839cce8cc468c070ca2",
+    "work/parallel-free-evaluation-20261124/joint-final75-20261126/summary.json": "adff31af130194be2c54f8f1006e0c702451e4f5828edbdeb62d610da57a2057",
+    "outputs/231880296_邱昱宁_作业一.pdf": "31e35af29d6683dbd89e4404db6f232e19e0fde0459add0adb799dd45fb404a7",
+    "outputs/231880296_邱昱宁_作业二.pdf": "db573c37b56506643ff28b8d340572506bec7c860727f7f91de7c25a6ac90a52"
+  }
+}

@@ -1,0 +1,1218 @@
+{
+  "schema_version": 1,
+  "record_kind": "completed_prospective_task_revision_review",
+  "reviewer": "/root/parallel_capacity_review",
+  "review_date": "2026-11-25",
+  "status": "APPROVE_WITH_STATED_LIMITS",
+  "blocking_findings": [],
+  "task": "pydata__xarray-2905",
+  "review_actions": {
+    "new_model_requests": 0,
+    "new_vm_executions": 0,
+    "new_grader_executions": 0,
+    "only_written_file": "work/xarray-2905-semantics-20261125/completed-review.json"
+  },
+  "review_depth": {
+    "model_events": "Complete structural traversal of all47 request/CLI-start/response/billing groups and their own fresh native identities, rawUsage credit and token records. Native reasoning prose was read selectively; not a word-for-word review of all model reasoning.",
+    "tools": "All40 actual bash commands and return codes read. Meaningful repro, edits, environment discovery, failure, self-test, broad-suite baseline comparison and final outputs read in full or targeted sections; repetitive source listings and long warning/test-name lists inspected structurally/representatively.",
+    "controller": "All controller event structures and candidate/final records traversed; all three actual public verification outputs parsed with26 named cases each; candidate source bytes decoded and parsed.",
+    "grading": "Both complete original grader report structures traversed, actual stdout summaries/exit codes read, grader-received patch bytes SHA-compared with final candidate.patch. No grader was re-executed."
+  },
+  "frozen_plan": {
+    "path": "work/xarray-2905-semantics-20261125/frozen/plan.json",
+    "sha256": "b44b0c45781bb3386a89ffc7530154fa5391e5ee7814bbd8a4cf4d05ea6e90d1",
+    "bound_files_rehashed": 147,
+    "drift": [],
+    "prospective_labels": [
+      "object-contract-main-r1",
+      "object-contract-repeat-r2"
+    ],
+    "runtime": "work/frozen-performance-hy4-sql-layout-v18",
+    "same_budget": "hy4flash-free/C0/mini-swe,500calls/3600seconds/120commandseconds/64000outputtokens/0retries",
+    "original_pin": "sha256:23c72d6ce177631efc8094bf28418e3a960d96ca23e8ad727a18c644de257e9f"
+  },
+  "totals": {
+    "completed_fixed_positions": 2,
+    "original_passed": 2,
+    "final_public_and_protected_passed": 2,
+    "actual_new_requests": 47,
+    "own_fresh_zero_credit_records": 47,
+    "input_tokens": 1200636,
+    "output_tokens": 22184,
+    "native_sessions": 2,
+    "prior_records_only_compared_for_identity": 13,
+    "prior_unique_generations_compared": 478,
+    "all_compared_unique_generations": 525,
+    "new_message_identity_cross_intersections": 0,
+    "new_session_cross_intersections": 0,
+    "historical_unknown_calls_preserved": 24
+  },
+  "mechanism": {
+    "original_first_substantive_defect": "The original shared as_compatible_data() applied getattr(data,'values',data) to arbitrary user objects. Both actual repros showed an object with values=5 stored as5 and losing identity.",
+    "main_actual_patch": "Only xarray/core/variable.py changes. Shared conversion unwraps only xr.DataArray,pd.Series,pd.DataFrame,pd.Index; arbitrary objects retain object identity. pd.Index is already returned through NON_NUMPY_SUPPORTED_ARRAY_TYPES and is redundant in the later tuple.",
+    "repeat_actual_patch": "Only the same shared conversion changes. Unwraps xr.DataArray,pd.Series,pd.DataFrame; existing Variable and pd.Index early-return paths remain. No tests/configuration patch.",
+    "observed_public_contract": "Three task-derived arbitrary-object forms across shared conversion, Variable/DataArray constructors and Variable/direct/loc assignment (18), plus eight original named-container/scalar cases (8), total26.",
+    "first_corrections": "Main initially included pd.Categorical in the unwrap tuple; its own repro exposed AttributeError because Categorical has no values attribute, and the next edit removed it. Repeat implemented the narrow named-container tuple in one production edit; its later self-test errors were invalid test use of Variable.loc and were fixed only in its scratch repro.",
+    "public_feedback_adoption_boundary": "The coverage supplied public named-container guidance before solving. Both exact registered public checks returned26/26 after the production fix. The trace supports adoption of explicit type recognition and actual use of verify/save; it does not establish a causal method benefit without the separately planned ablation.",
+    "upstream_read_boundary": "Both attempted to fetch current official variable.py, and both actual curl attempts failed DNS. Main read historical public issue-linked commit5e801894 from2017, not the unavailable current upstream source."
+  },
+  "findings": [
+    {
+      "priority": "INFO",
+      "blocking": false,
+      "subject": "Main broad-suite negatives retained and compared with unpatched source",
+      "evidence": "Tool16 broad variable/dataarray/dataset/indexing/formatting run:6failed,2310passed,17skipped,78xfail,26xpass. Tool17 temporarily restored only variable.py and reran precisely the six failing public tests: the same six failed, BASELINE_STATUS=1, then restored the patch. Five raise pandas minimum-xarray-version ImportError; polyfit_warnings expects one warning but observes three. Original tests were not edited.",
+      "claim_limit": "Do not claim the whole broad xarray suite passed. The recorded comparison supports pre-existing environment/version/warning failures rather than a new regression for those six."
+    },
+    {
+      "priority": "INFO",
+      "blocking": false,
+      "subject": "Main candidate digest changed because source permissions changed",
+      "evidence": "Main candidate001 and002 source bytes both SHA8a6800999cd19e2d20dd025bd95b09236db2363f1daec75b01975ce5cae1fd98. The actual baseline checkout/copy cycle changed file mode0644(decimal420) to0666(decimal438), changing artifact_digest. A later real26/26 verify and eligible candidate002 bind the final105462... digest. The submitted grader patch bytes match final candidate.patch.",
+      "claim_limit": "The grader patch verifies source patch bytes and normal Git file semantics, not every non-executable permission bit from CandidateStore. Do not describe the digest change as a different semantic patch or claim complete filesystem mode equality."
+    },
+    {
+      "priority": "INFO",
+      "blocking": false,
+      "subject": "Repeat broader-suite failure and explicit exclusion remain visible",
+      "evidence": "Tool13 stopped after public test_from_series_multiindex failed with pandas requiring xarray>=0.19 while pinned checkout is0.16.3.dev122. Tool15 then reported original variable suite365pass/71xfail/22xpass and dataarray882pass/1skip/1deselected/6xfail/1xpass, explicitly excluding that test. Main's unpatched comparison independently reproduced the same version error.",
+      "claim_limit": "Do not describe repeat's full unfiltered dataarray suite as passing."
+    },
+    {
+      "priority": "INFO",
+      "blocking": false,
+      "subject": "Hidden-source/cache search attempts and actual returned boundary",
+      "evidence": "Main searched /testbed and container scratch for HasValues/ModelResult and searched installed xarray/pip cache paths. Returned material was public repository/docs, its own scratch reproducer and empty cache results. Both inspected public repository code/history; both current-upstream downloads failed. No recorded command read original grader metadata/answer patch and no hidden answer content was observed.",
+      "claim_limit": "This is a review of recorded executed commands and outputs, not a proof about unrecorded host/provider internals."
+    }
+  ],
+  "candidate_source_consistency": [
+    {
+      "path": "work/vmshare/performance-xarray-object-contract-v1-20261125/pydata__xarray-2905-C0-object-contract-main-r1",
+      "candidates": [
+        {
+          "name": "candidate-001.json",
+          "mode": 420,
+          "source_sha256": "8a6800999cd19e2d20dd025bd95b09236db2363f1daec75b01975ce5cae1fd98",
+          "source_bytes": 104437,
+          "function_compiles": true,
+          "artifact_digest": "4b708438ae1bbd3a92d3c129bf90cae10595236b74efee4157e973665037c31a",
+          "eligible": false
+        },
+        {
+          "name": "candidate-002.json",
+          "mode": 438,
+          "source_sha256": "8a6800999cd19e2d20dd025bd95b09236db2363f1daec75b01975ce5cae1fd98",
+          "source_bytes": 104437,
+          "function_compiles": true,
+          "artifact_digest": "105462f23ae3a672e5098ebee6e1821bcfd8fa80beb4f78bace6c04cf8e68e9b",
+          "eligible": true
+        }
+      ]
+    },
+    {
+      "path": "work/vmshare/performance-xarray-object-contract-v1-20261125/pydata__xarray-2905-C0-object-contract-repeat-r2",
+      "candidates": [
+        {
+          "name": "candidate-001.json",
+          "mode": 420,
+          "source_sha256": "a3dc2e4ba032170a4cfd2d1dc2b16c7b64741db0c5a160fa14f865b97f7e7331",
+          "source_bytes": 104379,
+          "function_compiles": true,
+          "artifact_digest": "d7fb1f654c1ad200e43a2bd901ad57d0a2c307d15c553de9154a59be1cf86679",
+          "eligible": false
+        },
+        {
+          "name": "candidate-002.json",
+          "mode": 420,
+          "source_sha256": "a3dc2e4ba032170a4cfd2d1dc2b16c7b64741db0c5a160fa14f865b97f7e7331",
+          "source_bytes": 104379,
+          "function_compiles": true,
+          "artifact_digest": "d7fb1f654c1ad200e43a2bd901ad57d0a2c307d15c553de9154a59be1cf86679",
+          "eligible": true
+        }
+      ]
+    }
+  ],
+  "identity_and_cost": {
+    "all47_native_fee_records_individually_reconciled": true,
+    "request_response_billing_ids_exactly_paired": true,
+    "per_request_fresh_record_count": 1,
+    "request_model": "hy4flash-free",
+    "provider_model": "hy4-flash-free",
+    "rawUsage_credit": 0,
+    "provider_result_cost_usd": 0,
+    "cumulative_usage_not_counted_as_new_generations": true,
+    "actual_credit_vs_nominal_credit": "The fee decision uses each fresh native rawUsage.credit=0. Provider original_credit may show a nominal undiscounted amount and is not treated as a charged amount.",
+    "comparison": "The new24/23 identifiers and two sessions are disjoint within/across the new pair and from all13 listed completed historical positions. Historical records were re-read for identity/cost-source SHA bookkeeping; their full trajectories were not re-reviewed in this increment.",
+    "previous_unique_ids": 478,
+    "previous_unique_sessions": 13,
+    "previous_cross_collisions": [],
+    "compared_historical_positions": [
+      {
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pydata__xarray-2905-C0-r1",
+        "passed": false,
+        "own_fresh_ids": 20,
+        "fresh_ids_sha256": "38fd2d72ec2558c59ca0ffea0dacdfe1ec23f480bebfb3b1c1b86e77fee514d6",
+        "session_ids": [
+          "45d6dc2f-c149-4d3a-8145-8aa3f57772f4"
+        ],
+        "within_duplicates": [],
+        "new47_message_id_intersection": [],
+        "new2_session_intersection": [],
+        "model_sha256": "6d149e8629b8beaefc7138824fc678821c6469e029c64af970cf86466c0235bb",
+        "result_sha256": "ea24d6d9822e9b8b92788af63c95731daa880c8fc0716459dd259af2e72a0521"
+      },
+      {
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-2905-C0-r2",
+        "passed": false,
+        "own_fresh_ids": 30,
+        "fresh_ids_sha256": "6ca603d97866b76073fd730320c0610de8b5183110f5890a3585eecd476a1e36",
+        "session_ids": [
+          "8608c3d2-9bbf-4d1c-b0db-5ae6c5d15395"
+        ],
+        "within_duplicates": [],
+        "new47_message_id_intersection": [],
+        "new2_session_intersection": [],
+        "model_sha256": "c5faec1fef52f2649e4518e5f2f3eb6996ab8fc8a65cba0bdaa89091119860ea",
+        "result_sha256": "9df8bb9240cbc00f25626261c4b7e379e65ffc3f21094494be38e464bd1d26a9"
+      },
+      {
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/feal-linear-cryptanalysis-C0-r1",
+        "passed": false,
+        "own_fresh_ids": 81,
+        "fresh_ids_sha256": "26fca145b532c7adadeaf369ddccb82d90ff2598425918d5b747b73dad73e512",
+        "session_ids": [
+          "be6370a6-89d0-4372-8365-c287dc8e8d81"
+        ],
+        "within_duplicates": [],
+        "new47_message_id_intersection": [],
+        "new2_session_intersection": [],
+        "model_sha256": "def810d0d41cc6f9fb879b73df25948344fe2fa66764f72086f8c974be7de29d",
+        "result_sha256": "529734497083979666f2233400bb4534c2f3d13ff2904ac366050494a91055e3"
+      },
+      {
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/feal-linear-cryptanalysis-C0-r2",
+        "passed": true,
+        "own_fresh_ids": 18,
+        "fresh_ids_sha256": "8a37fa721a6feb679933fa689fbb445a2124acae3a5b0e54553dadba764c1d2d",
+        "session_ids": [
+          "0e63ec43-a8dc-49ff-aa31-c05072fb44f1"
+        ],
+        "within_duplicates": [],
+        "new47_message_id_intersection": [],
+        "new2_session_intersection": [],
+        "model_sha256": "9db5010ffe2875e40f12595d8da6cef896e29f73f8710503a62dab5b77d45057",
+        "result_sha256": "d47512d19ce87526f4a4f6ca5ceffc0a6cd4f2749c1fde6e846f00fba0c776cb"
+      },
+      {
+        "run_dir": "work/vmshare/performance-json-types-revision-20261125/django__django-13346-C0-json-types-revision-main-r1",
+        "passed": true,
+        "own_fresh_ids": 45,
+        "fresh_ids_sha256": "2e1cd50b3cb9af64eddbf8d72910d0578c6e718f0fba3fdc442ff3c47830814f",
+        "session_ids": [
+          "db00677f-b1f6-4fcc-a7e1-20a7ebaf6187"
+        ],
+        "within_duplicates": [],
+        "new47_message_id_intersection": [],
+        "new2_session_intersection": [],
+        "model_sha256": "b19cdefc48b73064ea010e055289c2b88b1a08ae1d59ee363253e11d3f49bcaa",
+        "result_sha256": "0346102daa63aa5bf06c8247588161ace730bebc2124ca78811bf3d951183aa5"
+      },
+      {
+        "run_dir": "work/vmshare/performance-json-types-revision-20261125/django__django-13346-C0-json-types-revision-repeat-r2",
+        "passed": true,
+        "own_fresh_ids": 36,
+        "fresh_ids_sha256": "eaac199f08a534ca7ed35af5ee2d06119cacf88029ee917781e86dd807d92f88",
+        "session_ids": [
+          "67718d88-0348-4506-a8a1-cdd465822d2e"
+        ],
+        "within_duplicates": [],
+        "new47_message_id_intersection": [],
+        "new2_session_intersection": [],
+        "model_sha256": "d4454fda624946fd31626f16e3cbc5df099fd9686dcdb76099d35241d59b2e2b",
+        "result_sha256": "ec23d7fb58f9c4c4203b8df971c54f4ed1b84b1dfacf074bc10b8aec2e89145b"
+      },
+      {
+        "run_dir": "work/vmshare/performance-json-contract-v2-20261125/django__django-13346-C0-json-contract-main-r3",
+        "passed": true,
+        "own_fresh_ids": 70,
+        "fresh_ids_sha256": "13ea9e06494a7e771590eba8b444541fe1a8ac4a67f6246d02737575bcbaced6",
+        "session_ids": [
+          "1ea8ca84-2475-4c41-b607-4914842b4ec8"
+        ],
+        "within_duplicates": [],
+        "new47_message_id_intersection": [],
+        "new2_session_intersection": [],
+        "model_sha256": "c6a4691f5e4d07ee1b9b103f4a41209c8b2cef53ec317cd38962a01e26f6fc49",
+        "result_sha256": "60ec95c8b84b54ebf95ad27f2841c81aceb3ec4ae4e541a7a24f2bd496da65dd"
+      },
+      {
+        "run_dir": "work/vmshare/performance-json-contract-v2-20261125/django__django-13346-C0-json-contract-repeat-r4",
+        "passed": true,
+        "own_fresh_ids": 47,
+        "fresh_ids_sha256": "34135bd1682aa0a4cb970a39817bbf6738ef11ba98f3a27ebcd98eaccdf5a906",
+        "session_ids": [
+          "dec3842e-c2f2-4192-9bc1-3a5723c6e338"
+        ],
+        "within_duplicates": [],
+        "new47_message_id_intersection": [],
+        "new2_session_intersection": [],
+        "model_sha256": "f5a777d2824aab43b5936a2dc366780e8832a7a44adced8138a36a38c650fc20",
+        "result_sha256": "66bd0a08b6cbf310df79b5226184915a1fe9e0cf462bf26e62ca9434281d464c"
+      },
+      {
+        "run_dir": "work/vmshare/performance-json-oracle-guided-v3-20261125/django__django-13346-C0-json-oracle-guided-main-r5",
+        "passed": true,
+        "own_fresh_ids": 47,
+        "fresh_ids_sha256": "f2caa49f344c20ba861080aca50739dfff1675cc0e62fe17ebc606f29324d739",
+        "session_ids": [
+          "5dbdbe37-c661-412c-a6fc-50f52076db86"
+        ],
+        "within_duplicates": [],
+        "new47_message_id_intersection": [],
+        "new2_session_intersection": [],
+        "model_sha256": "178ee9b481b86c49f83f1fea0946cdba0c3b128157b963fe428811a897ee990d",
+        "result_sha256": "e373c746bbe717bc439960a344265bf5275ecedd29848dd3c0f70f19c74dbc0d"
+      },
+      {
+        "run_dir": "work/vmshare/performance-json-oracle-ascii-v4-20261125/django__django-13346-C0-json-oracle-ascii-main-r7",
+        "passed": true,
+        "own_fresh_ids": 41,
+        "fresh_ids_sha256": "c739cedf26976ddf60f2a4a9468c36ff8aeaa99acfbb90a8bceda87e19769945",
+        "session_ids": [
+          "8fa8aacd-f5e4-4584-9d00-4f3e2c48f191"
+        ],
+        "within_duplicates": [],
+        "new47_message_id_intersection": [],
+        "new2_session_intersection": [],
+        "model_sha256": "65b41806c0af047cda7a92d5e78b2d0b5205c64c974dca2a1efc2f18149aea65",
+        "result_sha256": "0c7f239b186cc6bb72b0c563d65dc22cb9c520aaa4b0ef12e895d242b0c44547"
+      },
+      {
+        "run_dir": "work/vmshare/performance-json-oracle-ascii-v4-20261125/django__django-13346-C0-json-oracle-ascii-repeat-r8",
+        "passed": true,
+        "own_fresh_ids": 28,
+        "fresh_ids_sha256": "49b12d55553933ca7737cbabd7bffa4526c54679975a3d1f3016ca26e8cd47ab",
+        "session_ids": [
+          "59ecaa44-905d-4aa8-890f-b322ec531336"
+        ],
+        "within_duplicates": [],
+        "new47_message_id_intersection": [],
+        "new2_session_intersection": [],
+        "model_sha256": "0725fb4688319d7193bc0c18d84249de370cbffac9955cad90b9499ad64f55dc",
+        "result_sha256": "7c2df9731c7a8525f634652f98a161c67ef18aabeec2ee2b5a824a328c686315"
+      },
+      {
+        "run_dir": "work/vmshare/performance-feal-linear-v19-20261125/feal-linear-cryptanalysis-C0-feal-linear-main-readmission-r1",
+        "passed": true,
+        "own_fresh_ids": 7,
+        "fresh_ids_sha256": "be4c4cf14d78b3407e15609a63e5e409b00884ff6e5757413141ea9fedfe461c",
+        "session_ids": [
+          "dbe0a8f8-9d8c-46fa-ad23-6493d0024d90"
+        ],
+        "within_duplicates": [],
+        "new47_message_id_intersection": [],
+        "new2_session_intersection": [],
+        "model_sha256": "b5bd0d17d50a5ab6759db4071367dba9ad0c2ce75b3069ce15758e9d8541fdc2",
+        "result_sha256": "75c64efecae744f73594306864950ba2086fcf300134d0209edda9f404f94941"
+      },
+      {
+        "run_dir": "work/vmshare/performance-feal-linear-v19-20261125/feal-linear-cryptanalysis-C0-feal-linear-repeat-r2",
+        "passed": true,
+        "own_fresh_ids": 8,
+        "fresh_ids_sha256": "204f5f09805b7327ad88aeb940a23e13163c2b28d0736e8e37f71bbc1fd3c41a",
+        "session_ids": [
+          "a4f57863-446c-4957-98e2-dfd09b7e0fc9"
+        ],
+        "within_duplicates": [],
+        "new47_message_id_intersection": [],
+        "new2_session_intersection": [],
+        "model_sha256": "e3c65ba67b8e07accbbee194d8b71d5448e95025d4dcecec135aec2dd15a7b4f",
+        "result_sha256": "c6392bdea7d8a64c5c36adef42d40a58ee15601a06cca6b39aab5e1c11feb58e"
+      }
+    ]
+  },
+  "old_outcome_boundary": "Original Xarray main false20 own generations and repeat false30 remain unchanged and SHA-bound. These two fixed prospective revisions are additional evidence/cost; no original false score is overwritten or normalized away.",
+  "claim_limits": [
+    "Two task-local prospective sessions passed. This review covers these two completed Xarray positions only, with no claim that the original225 or a new75-task cohort is complete.",
+    "The eventual four-task combined policy requires71x2 task-input-identical inherited records plus all8 fixed prospective revision results, with complete original225 and all required ablations. These two passes alone do not perform that acceptance join.",
+    "The checked contract concerns task-derived opaque objects and the listed supported containers. It does not establish every xarray/NumPy/pandas object protocol or full historical pandas Panel compatibility; Panel is absent in this actual pandas1.5.3 environment.",
+    "C0 supplies an optional structured verify/save interface. Both models actually invoked it; do not describe C0 as an automatic-check policy or generalize this observed invocation to every C0 run.",
+    "The independent public engineering reference qualified once before these sessions and was not the model candidate or a fresh model score. No new model, VM or grader was invoked by this review.",
+    "The original historical24 unknown calls are preserved and are not counted as zero-credit requests."
+  ],
+  "shared_source_sha256": {
+    "work/xarray-2905-semantics-20261125/frozen/plan.json": "b44b0c45781bb3386a89ffc7530154fa5391e5ee7814bbd8a4cf4d05ea6e90d1",
+    "work/xarray-2905-semantics-20261125/public_object_probe.py": "8b380d5cdcb17e17cdcbc0e87d3ae577bc8c514691fff9523a383930ab010d81",
+    "work/xarray-2905-semantics-20261125/admission-review.json": "3969bedd04aaafb610fb2eba1ef49549032c8ad77b35d5b61384c811d59f41f5",
+    "work/xarray-2905-semantics-20261125/root-cause-review.json": "ff16462a62652be2cebdfe798599569f6b77692caf76a049ddfee5f23fa5c049",
+    "scripts/export_performance_evidence.py": "5b9d3d297c9c738a4240277df6cc64ef9c52828d8601ccf1acdbf39d8a890c5e",
+    "course_eval/codebuddy_free.py": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28"
+  },
+  "rows": [
+    {
+      "run_dir": "work/vmshare/performance-xarray-object-contract-v1-20261125/pydata__xarray-2905-C0-object-contract-main-r1",
+      "result": {
+        "task": "pydata__xarray-2905",
+        "wall_seconds": 389.0283112920588,
+        "exit_status": "Submitted",
+        "submission": "",
+        "scoreable": true,
+        "passed": true,
+        "grader_seconds": 46.82067804201506
+      },
+      "metrics": {
+        "task": "pydata__xarray-2905",
+        "passed": true,
+        "wall_seconds": 389.0283112920588,
+        "actual_requests": 24,
+        "verified_zero_credit_requests": 24,
+        "fresh_native_usage_records": 24,
+        "native_session_count": 1,
+        "model_calls": 24,
+        "model_responses": 24,
+        "model_request_retries": 0,
+        "model_request_timeouts": 0,
+        "provider_turns": 24,
+        "tool_calls": 20,
+        "input_tokens": 633411,
+        "output_tokens": 11343,
+        "cached_input_tokens": 582144,
+        "submission_check_opportunities": 0,
+        "stale_at_submission": 0,
+        "deliverable_checkpoints": 0,
+        "deliverable_reminders": 0,
+        "usage_unreturned_requests": 0,
+        "usage_missing_input_responses": 0,
+        "usage_missing_output_responses": 0,
+        "usage_missing_cache_responses": 0,
+        "provider_reported_cost_usd": 0
+      },
+      "protocol_sha256": "5c95919d622ea587a8871536c7970afb489b9388f9085e1aae99a25ddc52093e",
+      "native_session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+      "individual_native_receipts": [
+        {
+          "request_id": 1,
+          "message_id": "01a20fd8e16a7ffaae52d7230f9238f3",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 6070,
+          "output_tokens": 168,
+          "operation": "bash"
+        },
+        {
+          "request_id": 2,
+          "message_id": "01a20fd8f61973f1b11fb3a27d7400a1",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 7151,
+          "output_tokens": 198,
+          "operation": "bash"
+        },
+        {
+          "request_id": 3,
+          "message_id": "01a20fd90b0f7644abf0bfef8d7202ce",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 10807,
+          "output_tokens": 211,
+          "operation": "bash"
+        },
+        {
+          "request_id": 4,
+          "message_id": "01a20fd9205175c2a9cb2fdb5961a34e",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 13227,
+          "output_tokens": 379,
+          "operation": "bash"
+        },
+        {
+          "request_id": 5,
+          "message_id": "01a20fd93c127ca1aee6bbff7ce9f1da",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 16905,
+          "output_tokens": 912,
+          "operation": "bash"
+        },
+        {
+          "request_id": 6,
+          "message_id": "01a20fd963b77d80b8b7c3c1c9703300",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 18056,
+          "output_tokens": 240,
+          "operation": "bash"
+        },
+        {
+          "request_id": 7,
+          "message_id": "01a20fd9809a79d1b6536947947074d4",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 18544,
+          "output_tokens": 456,
+          "operation": "bash"
+        },
+        {
+          "request_id": 8,
+          "message_id": "01a20fd9ae2b7b8b9a51e72824c18866",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 19247,
+          "output_tokens": 718,
+          "operation": "bash"
+        },
+        {
+          "request_id": 9,
+          "message_id": "01a20fd9cedf7091927185b9938d52da",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 20075,
+          "output_tokens": 864,
+          "operation": "bash"
+        },
+        {
+          "request_id": 10,
+          "message_id": "01a20fd9f6ef7c3292592b9154168b92",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 21805,
+          "output_tokens": 162,
+          "operation": "bash"
+        },
+        {
+          "request_id": 11,
+          "message_id": "01a20fda0bfa7d849e85973e278480ee",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 24134,
+          "output_tokens": 236,
+          "operation": "bash"
+        },
+        {
+          "request_id": 12,
+          "message_id": "01a20fda246b75f581e4188736299012",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 24806,
+          "output_tokens": 378,
+          "operation": "bash"
+        },
+        {
+          "request_id": 13,
+          "message_id": "01a20fda44137dd5ba32b49ca3d37795",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 25292,
+          "output_tokens": 2094,
+          "operation": "bash"
+        },
+        {
+          "request_id": 14,
+          "message_id": "01a20fda97a877449bc5026be9a17953",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 27907,
+          "output_tokens": 562,
+          "operation": "bash"
+        },
+        {
+          "request_id": 15,
+          "message_id": "01a20fdb1ff37ba09f5b09df44b873eb",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 30095,
+          "output_tokens": 96,
+          "operation": "save"
+        },
+        {
+          "request_id": 16,
+          "message_id": "01a20fdb38ac79caa70ee283b848151b",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 30462,
+          "output_tokens": 1566,
+          "operation": "bash"
+        },
+        {
+          "request_id": 17,
+          "message_id": "01a20fdb7b3279b2ba8cb99741741986",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 32317,
+          "output_tokens": 309,
+          "operation": "bash"
+        },
+        {
+          "request_id": 18,
+          "message_id": "01a20fdba446781b839d46d1e9a50a25",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 33062,
+          "output_tokens": 110,
+          "operation": "verify"
+        },
+        {
+          "request_id": 19,
+          "message_id": "01a20fdbdf147fc5baad4fcbc430f019",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 34985,
+          "output_tokens": 340,
+          "operation": "bash"
+        },
+        {
+          "request_id": 20,
+          "message_id": "01a20fdcd45674e4a09ed66559fac53c",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 38599,
+          "output_tokens": 497,
+          "operation": "bash"
+        },
+        {
+          "request_id": 21,
+          "message_id": "01a20fdd1136786893a56184ef059e4b",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 42292,
+          "output_tokens": 479,
+          "operation": "bash"
+        },
+        {
+          "request_id": 22,
+          "message_id": "01a20fdd98987f908e93fa11a1a1e3d5",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 44399,
+          "output_tokens": 109,
+          "operation": "verify"
+        },
+        {
+          "request_id": 23,
+          "message_id": "01a20fddd545718aae401638cd17a692",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 46326,
+          "output_tokens": 154,
+          "operation": "save"
+        },
+        {
+          "request_id": 24,
+          "message_id": "01a20fddee9671e69f687ad8c344734e",
+          "session_id": "24b05907-4ae2-4bfb-954f-d51904c648ad",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 46848,
+          "output_tokens": 105,
+          "operation": "bash"
+        }
+      ],
+      "model_event_counts": {
+        "request": 24,
+        "cli_process_started": 24,
+        "response": 24,
+        "billing_verified": 24
+      },
+      "tool_count": 20,
+      "tool_returncodes": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "controller_events": {
+        "candidate_operation": 9,
+        "candidate_saved": 2,
+        "verification": 2,
+        "final_artifact": 1
+      },
+      "verifications": [
+        {
+          "step": 18,
+          "state": "passed",
+          "total": 26,
+          "passed": 26,
+          "artifact_digest": "4b708438ae1bbd3a92d3c129bf90cae10595236b74efee4157e973665037c31a",
+          "before": "8a6800999cd19e2d20dd025bd95b09236db2363f1daec75b01975ce5cae1fd98  xarray/core/variable.py\nea31ba3514fe24a1ae4b7120bd8c1076468aceb7f15602bf99de604062d8b412  xarray/tests/test_variable.py\n",
+          "after": "8a6800999cd19e2d20dd025bd95b09236db2363f1daec75b01975ce5cae1fd98  xarray/core/variable.py\nea31ba3514fe24a1ae4b7120bd8c1076468aceb7f15602bf99de604062d8b412  xarray/tests/test_variable.py\n",
+          "stdout_sha256": "76931d8c74ff4ff37747cddabc0cf5815ca7848e51a430c965d45d49b3290347"
+        },
+        {
+          "step": 22,
+          "state": "passed",
+          "total": 26,
+          "passed": 26,
+          "artifact_digest": "105462f23ae3a672e5098ebee6e1821bcfd8fa80beb4f78bace6c04cf8e68e9b",
+          "before": "8a6800999cd19e2d20dd025bd95b09236db2363f1daec75b01975ce5cae1fd98  xarray/core/variable.py\nea31ba3514fe24a1ae4b7120bd8c1076468aceb7f15602bf99de604062d8b412  xarray/tests/test_variable.py\n",
+          "after": "8a6800999cd19e2d20dd025bd95b09236db2363f1daec75b01975ce5cae1fd98  xarray/core/variable.py\nea31ba3514fe24a1ae4b7120bd8c1076468aceb7f15602bf99de604062d8b412  xarray/tests/test_variable.py\n",
+          "stdout_sha256": "272c4caafcee169b574a55336b7c346ee030679b0518e41877fcc1d2b4761023"
+        }
+      ],
+      "candidate_saves": [
+        {
+          "step": 15,
+          "candidate_id": "candidate-001",
+          "artifact_digest": "4b708438ae1bbd3a92d3c129bf90cae10595236b74efee4157e973665037c31a",
+          "eligible": false
+        },
+        {
+          "step": 23,
+          "candidate_id": "candidate-002",
+          "artifact_digest": "105462f23ae3a672e5098ebee6e1821bcfd8fa80beb4f78bace6c04cf8e68e9b",
+          "eligible": true
+        }
+      ],
+      "final": {
+        "reason": "submission",
+        "artifact_digest": "105462f23ae3a672e5098ebee6e1821bcfd8fa80beb4f78bace6c04cf8e68e9b",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "8a6800999cd19e2d20dd025bd95b09236db2363f1daec75b01975ce5cae1fd98  xarray/core/variable.py\nea31ba3514fe24a1ae4b7120bd8c1076468aceb7f15602bf99de604062d8b412  xarray/tests/test_variable.py\n"
+          }
+        },
+        "elapsed_seconds": 338.52674550004303
+      },
+      "grader": {
+        "patch_byte_identical": true,
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 364,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "real_stdout_summary": [
+          "========== 365 passed, 71 xfailed, 22 xpassed, 112 warnings in 22.72s =========="
+        ],
+        "exit_zero": true
+      },
+      "source_sha256": {
+        ".controller-input.json": "46ef2b9daa8906a307835118a84fc2ad68fc7b1f298c23b97bb260dc180bd077",
+        "agent.json": "61f2141e1f4adf1c4d24dee1bcfaf38ac90e742e2300a2d17622c64ecda93ec1",
+        "candidate.patch": "c6c56dfc5a07af64c1183ca11f2e1ba16da0c13292e01954f5dc6fb98f3530c6",
+        "candidates/candidate-001.json": "9dee3e5d8eba99ade9b7916c4ce4694656dee899a3bcbc0bd75ea491e4cc1beb",
+        "candidates/candidate-002.json": "9e3c6fb6fbc6bf5811563526f03f95e3c6cdb09f288fd5c590d476777176eddc",
+        "checkout.json": "71022e148691f898642f5b0486f5a31de843dda63239a73ad0d6ff8ce138976f",
+        "controller.jsonl": "9dc3b0623574003f0bc2763a98845b556bfdc4dc8288e408332f487e7f5923d3",
+        "execution-budget.json": "9e7b8ecf30fc18d0bdfe5b2222c0e00efaa3acb7a1b3e37dc06e2c68b53483c3",
+        "final-verification.json": "92a4942b73eb47aa8855f4699b84bdb85f299f64d8334e3df7ecde7b82007ae1",
+        "instruction.txt": "435624152feff395e935ee0acebc249d8bc398fff222ae654a9666f57a8db6ee",
+        "model.jsonl": "7b59187b5ecf0096eb34c71be3b62da8ae4973aab370131f1bec32b7e4bdedad",
+        "result.json": "fc10d2d286efd15af5711ca3dd14b38acd9cefd41714e2212c2ea6b5302ceea8",
+        "swe-official/pydata__xarray-2905-C0-object-contract-main-r1/course-mini-swe-agent/pydata__xarray-2905/eval.sh": "47aeb0950a39832f65e0105d3c962f58aef5320af4e1b311eedae1d71f545a6f",
+        "swe-official/pydata__xarray-2905-C0-object-contract-main-r1/course-mini-swe-agent/pydata__xarray-2905/patch.diff": "c6c56dfc5a07af64c1183ca11f2e1ba16da0c13292e01954f5dc6fb98f3530c6",
+        "swe-official/pydata__xarray-2905-C0-object-contract-main-r1/course-mini-swe-agent/pydata__xarray-2905/report.json": "27b1d107a34b33256368dc7f8cf9daa6c4c36af249d527699ba174201b690850",
+        "swe-official/pydata__xarray-2905-C0-object-contract-main-r1/course-mini-swe-agent/pydata__xarray-2905/run_instance.log": "df08a712d3615008d4e297ffb4e172b8e596033130f36a5b547cf1549168495c",
+        "swe-official/pydata__xarray-2905-C0-object-contract-main-r1/course-mini-swe-agent/pydata__xarray-2905/test_output.txt": "6fdf3bfe18f88a4324b99601149f40be9d94d045580016a049ccb1ee92e01f92",
+        "tools.jsonl": "42c5067b0485a9f80ae5889e74898db3fd85211f9d8b4b4dfefc78a9ec2b0aac",
+        "trial.json": "cd7f5b88be2c1777fc9a4249280ba64cb0a7c765a27eaf1e2bb698d75dab96de"
+      }
+    },
+    {
+      "run_dir": "work/vmshare/performance-xarray-object-contract-v1-20261125/pydata__xarray-2905-C0-object-contract-repeat-r2",
+      "result": {
+        "task": "pydata__xarray-2905",
+        "wall_seconds": 307.39247279195115,
+        "exit_status": "Submitted",
+        "submission": "",
+        "scoreable": true,
+        "passed": true,
+        "grader_seconds": 45.87945966597181
+      },
+      "metrics": {
+        "task": "pydata__xarray-2905",
+        "passed": true,
+        "wall_seconds": 307.39247279195115,
+        "actual_requests": 23,
+        "verified_zero_credit_requests": 23,
+        "fresh_native_usage_records": 23,
+        "native_session_count": 1,
+        "model_calls": 23,
+        "model_responses": 23,
+        "model_request_retries": 0,
+        "model_request_timeouts": 0,
+        "provider_turns": 23,
+        "tool_calls": 20,
+        "input_tokens": 567225,
+        "output_tokens": 10841,
+        "cached_input_tokens": 523264,
+        "submission_check_opportunities": 0,
+        "stale_at_submission": 0,
+        "deliverable_checkpoints": 0,
+        "deliverable_reminders": 0,
+        "usage_unreturned_requests": 0,
+        "usage_missing_input_responses": 0,
+        "usage_missing_output_responses": 0,
+        "usage_missing_cache_responses": 0,
+        "provider_reported_cost_usd": 0
+      },
+      "protocol_sha256": "5c95919d622ea587a8871536c7970afb489b9388f9085e1aae99a25ddc52093e",
+      "native_session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+      "individual_native_receipts": [
+        {
+          "request_id": 1,
+          "message_id": "01a20fded6c674b0bd0eadbc84b04e7d",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 6070,
+          "output_tokens": 177,
+          "operation": "bash"
+        },
+        {
+          "request_id": 2,
+          "message_id": "01a20fdeeba67107839850b739257c67",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 7020,
+          "output_tokens": 199,
+          "operation": "bash"
+        },
+        {
+          "request_id": 3,
+          "message_id": "01a20fdeff8b75608b93a0467481d9a6",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 7672,
+          "output_tokens": 235,
+          "operation": "bash"
+        },
+        {
+          "request_id": 4,
+          "message_id": "01a20fdf149179dd8c6febbf54f62f34",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 10490,
+          "output_tokens": 414,
+          "operation": "bash"
+        },
+        {
+          "request_id": 5,
+          "message_id": "01a20fdf2c817d04a673bfb3f4fca7c9",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 11906,
+          "output_tokens": 271,
+          "operation": "bash"
+        },
+        {
+          "request_id": 6,
+          "message_id": "01a20fdf456779c5865e33684b3607ea",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 12720,
+          "output_tokens": 328,
+          "operation": "bash"
+        },
+        {
+          "request_id": 7,
+          "message_id": "01a20fdf794b7e268cc560a47fbc07f1",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 13270,
+          "output_tokens": 996,
+          "operation": "bash"
+        },
+        {
+          "request_id": 8,
+          "message_id": "01a20fdf9a2d760f81037d7cb5b40b52",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 17449,
+          "output_tokens": 520,
+          "operation": "bash"
+        },
+        {
+          "request_id": 9,
+          "message_id": "01a20fdfb58e76dfae40f4751f0abff1",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 20113,
+          "output_tokens": 212,
+          "operation": "bash"
+        },
+        {
+          "request_id": 10,
+          "message_id": "01a20fdfca3d71c689a062ba3b54583e",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 23545,
+          "output_tokens": 449,
+          "operation": "bash"
+        },
+        {
+          "request_id": 11,
+          "message_id": "01a20fdfe20a701f9947ce8f98d07d7c",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 24100,
+          "output_tokens": 608,
+          "operation": "bash"
+        },
+        {
+          "request_id": 12,
+          "message_id": "01a20fdfffe5740b9e11d7e1b9d10a48",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 26017,
+          "output_tokens": 348,
+          "operation": "bash"
+        },
+        {
+          "request_id": 13,
+          "message_id": "01a20fe0254578ada05716ac23787b88",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 27786,
+          "output_tokens": 1652,
+          "operation": "bash"
+        },
+        {
+          "request_id": 14,
+          "message_id": "01a20fe051bf76bf8c31444e6f9af368",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 30104,
+          "output_tokens": 93,
+          "operation": "save"
+        },
+        {
+          "request_id": 15,
+          "message_id": "01a20fe069d377d4909736a809361e6e",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 30471,
+          "output_tokens": 278,
+          "operation": "bash"
+        },
+        {
+          "request_id": 16,
+          "message_id": "01a20fe0f77278e9ab25c3a4b0518b1d",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 32582,
+          "output_tokens": 1843,
+          "operation": "bash"
+        },
+        {
+          "request_id": 17,
+          "message_id": "01a20fe137e37880905b2198e516be1d",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 34609,
+          "output_tokens": 435,
+          "operation": "bash"
+        },
+        {
+          "request_id": 18,
+          "message_id": "01a20fe1fa6c7e4fa97d6cbac150d318",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 35694,
+          "output_tokens": 983,
+          "operation": "bash"
+        },
+        {
+          "request_id": 19,
+          "message_id": "01a20fe21de1739593076d0fffbea9ad",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 36851,
+          "output_tokens": 146,
+          "operation": "bash"
+        },
+        {
+          "request_id": 20,
+          "message_id": "01a20fe236137919876ce1ef6802636d",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 37762,
+          "output_tokens": 185,
+          "operation": "verify"
+        },
+        {
+          "request_id": 21,
+          "message_id": "01a20fe273197806a4389ce3011624c0",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 39774,
+          "output_tokens": 183,
+          "operation": "save"
+        },
+        {
+          "request_id": 22,
+          "message_id": "01a20fe28a36701a93d668d9375ab14b",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 40329,
+          "output_tokens": 156,
+          "operation": "bash"
+        },
+        {
+          "request_id": 23,
+          "message_id": "01a20fe2ac737c088562077c86b0dbdf",
+          "session_id": "723d8a56-11ba-4b91-b531-1da784625561",
+          "request_model": "hy4flash-free",
+          "provider_model": "hy4-flash-free",
+          "actual_credit": 0,
+          "input_tokens": 40891,
+          "output_tokens": 130,
+          "operation": "bash"
+        }
+      ],
+      "model_event_counts": {
+        "request": 23,
+        "cli_process_started": 23,
+        "response": 23,
+        "billing_verified": 23
+      },
+      "tool_count": 20,
+      "tool_returncodes": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "controller_events": {
+        "candidate_operation": 7,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "verifications": [
+        {
+          "step": 20,
+          "state": "passed",
+          "total": 26,
+          "passed": 26,
+          "artifact_digest": "d7fb1f654c1ad200e43a2bd901ad57d0a2c307d15c553de9154a59be1cf86679",
+          "before": "a3dc2e4ba032170a4cfd2d1dc2b16c7b64741db0c5a160fa14f865b97f7e7331  xarray/core/variable.py\nea31ba3514fe24a1ae4b7120bd8c1076468aceb7f15602bf99de604062d8b412  xarray/tests/test_variable.py\n",
+          "after": "a3dc2e4ba032170a4cfd2d1dc2b16c7b64741db0c5a160fa14f865b97f7e7331  xarray/core/variable.py\nea31ba3514fe24a1ae4b7120bd8c1076468aceb7f15602bf99de604062d8b412  xarray/tests/test_variable.py\n",
+          "stdout_sha256": "03ffbc2218b63672b2ee374121f7b77bd49ac6b50b602789d420103d5a7bafed"
+        }
+      ],
+      "candidate_saves": [
+        {
+          "step": 14,
+          "candidate_id": "candidate-001",
+          "artifact_digest": "d7fb1f654c1ad200e43a2bd901ad57d0a2c307d15c553de9154a59be1cf86679",
+          "eligible": false
+        },
+        {
+          "step": 21,
+          "candidate_id": "candidate-002",
+          "artifact_digest": "d7fb1f654c1ad200e43a2bd901ad57d0a2c307d15c553de9154a59be1cf86679",
+          "eligible": true
+        }
+      ],
+      "final": {
+        "reason": "submission",
+        "artifact_digest": "d7fb1f654c1ad200e43a2bd901ad57d0a2c307d15c553de9154a59be1cf86679",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "a3dc2e4ba032170a4cfd2d1dc2b16c7b64741db0c5a160fa14f865b97f7e7331  xarray/core/variable.py\nea31ba3514fe24a1ae4b7120bd8c1076468aceb7f15602bf99de604062d8b412  xarray/tests/test_variable.py\n"
+          }
+        },
+        "elapsed_seconds": 258.37707299995236
+      },
+      "grader": {
+        "patch_byte_identical": true,
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 364,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "real_stdout_summary": [
+          "========== 365 passed, 71 xfailed, 22 xpassed, 112 warnings in 23.00s =========="
+        ],
+        "exit_zero": true
+      },
+      "source_sha256": {
+        ".controller-input.json": "46ef2b9daa8906a307835118a84fc2ad68fc7b1f298c23b97bb260dc180bd077",
+        "agent.json": "3c3ccadb5e073a6de551eb5379c0483a27ff485b7065050aac84253627184b38",
+        "candidate.patch": "32289afa5bdb55636c260a5aab247ad6bcc189913ad43c60207e3c0985d1ec90",
+        "candidates/candidate-001.json": "e8456365476d40218ee3fe4575abd6597079c5e56ae65781224f1019d20ad15f",
+        "candidates/candidate-002.json": "48e8a93659c380dc10af28aaf159c0a64d39e2341ce41f69ab5483b2ed94744c",
+        "checkout.json": "71022e148691f898642f5b0486f5a31de843dda63239a73ad0d6ff8ce138976f",
+        "controller.jsonl": "081bf3837d8aae6077a00e7237ae0d826fb682823d3581a322a7be5057016a22",
+        "execution-budget.json": "643ac6e9a959b833a7bc206a60d1ed65796ee7789bb822f8cba183054e24efb2",
+        "final-verification.json": "ed64a4382c62510f0e741be04ddcce2d1334e3225b0687eb32efb59167d9d6b4",
+        "instruction.txt": "435624152feff395e935ee0acebc249d8bc398fff222ae654a9666f57a8db6ee",
+        "model.jsonl": "27e59f35d673a61a71958b1c9d2f049ffd1401d0df2d7ca15a67cd7d3e042c4d",
+        "result.json": "b61f1c4a20dc10e5b232521581b89ff40f9643e03a7689ad23efe81a43172630",
+        "swe-official/pydata__xarray-2905-C0-object-contract-repeat-r2/course-mini-swe-agent/pydata__xarray-2905/eval.sh": "47aeb0950a39832f65e0105d3c962f58aef5320af4e1b311eedae1d71f545a6f",
+        "swe-official/pydata__xarray-2905-C0-object-contract-repeat-r2/course-mini-swe-agent/pydata__xarray-2905/patch.diff": "32289afa5bdb55636c260a5aab247ad6bcc189913ad43c60207e3c0985d1ec90",
+        "swe-official/pydata__xarray-2905-C0-object-contract-repeat-r2/course-mini-swe-agent/pydata__xarray-2905/report.json": "27b1d107a34b33256368dc7f8cf9daa6c4c36af249d527699ba174201b690850",
+        "swe-official/pydata__xarray-2905-C0-object-contract-repeat-r2/course-mini-swe-agent/pydata__xarray-2905/run_instance.log": "73a0a565a781c9d70138a189c910fb7ba82ef3500e5bb9f544ebd88a9f5338a8",
+        "swe-official/pydata__xarray-2905-C0-object-contract-repeat-r2/course-mini-swe-agent/pydata__xarray-2905/test_output.txt": "7a9b49d8622e798871ffbeee97607e49b8c982ebab56f72d72b5e28c5f87b626",
+        "tools.jsonl": "de413e3aed4813f12a3527da951e7cbdb9aa3b9d8b51aff8d3600519beb706cf",
+        "trial.json": "cd7f5b88be2c1777fc9a4249280ba64cb0a7c765a27eaf1e2bb698d75dab96de"
+      }
+    }
+  ]
+}

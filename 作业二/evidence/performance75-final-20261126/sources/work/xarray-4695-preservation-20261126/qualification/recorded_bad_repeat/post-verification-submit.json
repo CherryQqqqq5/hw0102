@@ -1,0 +1,5 @@
+{
+  "output": "{\"submission_rejected\": true, \"protected_unchanged\": false, \"checks\": {\"public-regression\": {\"state\": \"protected_dependency_changed\", \"returncode\": null, \"snapshot\": null}}, \"required_check_ids\": [\"public-regression\"], \"next_action\": \"Restore changed protected dependencies,run structured verify(check_id) for each required check,save,and submit again. Bash self-tests do not register verification.\"}\nBudget: 3585.5s, 497 decisions remaining.",
+  "returncode": 1,
+  "exception_info": ""
+}

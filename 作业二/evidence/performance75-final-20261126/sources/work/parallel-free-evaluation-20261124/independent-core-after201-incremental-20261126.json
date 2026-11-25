@@ -1,0 +1,3150 @@
+{
+  "schema_version": 1,
+  "status": "AUDITED_NINE_CLOSED_ORIGINAL_POSITIONS_WITH_STATED_LIMITS",
+  "final_225_admission": false,
+  "blocking_findings": [],
+  "authority": {
+    "path": "work/parallel-free-evaluation-20261124/hy4-snapshot-0423-20261126/summary.json",
+    "sha256": "f54c91fd310a4eba52438476472c6d885fbc782f6ef584fff261514d2ce153a4",
+    "original_positions": 210,
+    "groups": {
+      "main": 70,
+      "dsh": 70,
+      "repeat": 70
+    },
+    "selection": "Complete run_dir set difference from the201 previously source-audited original positions. All9 resulting positions included;no selection by score.",
+    "excluded": "Current/live original positions after this fixed210 snapshot,including pytest7571. Scoped loc38 calls are in the prior identity baseline,not original-core rows."
+  },
+  "reused_reviews": [
+    {
+      "path": "work/parallel-free-evaluation-20261124/independent-closed177-review-20261126.json",
+      "sha256": "cb1dfd62c93b21771f35ed4ab527668e18d575593ea17fdfe90d5a7f8ce88df1",
+      "scope": "Prior177 core and its ten then-completed scoped revisions;historical findings preserved."
+    },
+    {
+      "path": "work/parallel-free-evaluation-20261124/independent-core-after177-incremental-20261126.json",
+      "sha256": "95581af5dbbd37b11bc24a0c9a0b1b989fe80b2ba4d346c6d38e1efc03add715",
+      "scope": "Original177→187."
+    },
+    {
+      "path": "work/parallel-free-evaluation-20261124/independent-core-after187-incremental-20261126.json",
+      "sha256": "b9a91501391ad5a0bd20a042ddea7162696fcf0d593a2f4db378b8268326c2ff",
+      "scope": "Original187→201."
+    },
+    {
+      "path": "work/xarray-4695-preservation-20261126/completed-review.json",
+      "sha256": "97f92aa9b5aadf1327fc22648a1e7084076293ae39ec8f19cc60b353b88b1d27",
+      "scope": "Its38 new revised-method IDs/two sessions enter only historical uniqueness checking here;not original-core scores."
+    }
+  ],
+  "totals_recomputed": {
+    "new_original_positions": 9,
+    "by_arm": {
+      "main": 4,
+      "dsh": 3,
+      "repeat": 2
+    },
+    "raw_passed": 9,
+    "raw_failed": 0,
+    "C0_positions": 6,
+    "C0_final_public_and_protected_passed": 6,
+    "B0_control_not_applicable": 3,
+    "requests": 176,
+    "responses": 176,
+    "distinct_own_zero_credit_receipts": 176,
+    "unknown_requests_in_these9": 0,
+    "new_native_sessions": 9,
+    "tool_records": 152,
+    "input_tokens": 4531953,
+    "output_tokens": 101548,
+    "original210": {
+      "raw_passed": 198,
+      "raw_failed": 12,
+      "complete_own_zero_receipts": 3435
+    },
+    "known_source_audited_union": {
+      "original210_plus14_actual_scoped_plus5_oldJSON_scored_positions": 229,
+      "complete_own_zero_IDs_excluding_known_mechanical_prefix": 3975,
+      "known_mechanical_prefix_IDs": 11,
+      "complete_IDs_with_that_prefix": 3986,
+      "native_sessions": 233
+    },
+    "scope": "Known source-audited view only. Earlier unexpanded SQL pilots/development and different-provider costs are not silently added or treated as zero."
+  },
+  "identity_check": {
+    "prior_IDs": 3810,
+    "prior_sessions": 224,
+    "new_IDs": 176,
+    "new_sessions": 9,
+    "ID_intersection": 0,
+    "session_intersection": 0,
+    "known_union_IDs": 3986,
+    "known_union_sessions": 233,
+    "baseline": "Prior3810 IDs/224sessions,including separately reviewed loc38,NaN79,five old JSON development runs and eleven known mechanical-prefix calls.",
+    "receipt_rule": "Count only each response's one newly observed native messageId/rawUsage with credit0;do not count cumulative prior usage again. Actual model/request identity and exact billing_verified fresh-ID list were checked."
+  },
+  "actual_checks": {
+    "existing_new_run_source_bindings_rechecked": 127,
+    "additional_instruction_checkout_budget_agent_bindings": 18,
+    "frozen_protocol_and_input": "All9 actual result/trial/protocol/task/model/backend/framework/configuration/limits/interpreter resolutions matched frozen definitions;no input_protocol_issues. Actual score/protocol/model trace SHAs also match the fixed210 authority.",
+    "billing": "Actual frozen v18 verify_free_response was applied to each complete response. All176 actual calls are attempt1/configured64000,own actual Hy4 identity and own credit0. No request errors or unfinished requests occur in these9.",
+    "artifact_currentness": [
+      {
+        "arm": "main",
+        "task": "password-recovery",
+        "final_digest": "2224cf3066ca88a28c7c2bf2fe1bfc5f3d0b7cc7a145c3a5dba3032563d7bbe1",
+        "matching_verification_steps": [
+          8
+        ],
+        "candidate_saved_records": 0
+      },
+      {
+        "arm": "main",
+        "task": "pydata__xarray-7393",
+        "final_digest": "c33847d723f69814b754399140e06d3276a950dc0c187e73d07bfee14e1ad4ff",
+        "matching_verification_steps": [
+          16,
+          25
+        ],
+        "candidate_saved_records": 3
+      },
+      {
+        "arm": "main",
+        "task": "pytest-dev__pytest-7490",
+        "final_digest": "f2c526a118b82427ad6a44a0020b1d3f753b17bc30d5af4a6108f1f7d72ca987",
+        "matching_verification_steps": [
+          16,
+          25
+        ],
+        "candidate_saved_records": 2
+      },
+      {
+        "arm": "main",
+        "task": "sparql-university",
+        "final_digest": "594b11cdd2806e64ca1884f96537feba2876a0da176c8e2a875157c6ec192ae9",
+        "matching_verification_steps": [
+          12
+        ],
+        "candidate_saved_records": 2
+      },
+      {
+        "arm": "repeat",
+        "task": "pytest-dev__pytest-7490",
+        "final_digest": "dfffee935e97b20e1835e9ff27e9fb8cdb70d6153c86c5ebb47d901fcb928086",
+        "matching_verification_steps": [
+          19
+        ],
+        "candidate_saved_records": 2
+      },
+      {
+        "arm": "repeat",
+        "task": "sparql-university",
+        "final_digest": "f245e0f703e3e07921be4d664c487caa51f3ec81f7d287ff1b6f2cf8da7fa408",
+        "matching_verification_steps": [
+          15
+        ],
+        "candidate_saved_records": 1
+      }
+    ],
+    "terminal_native_artifacts": [
+      {
+        "arm": "main",
+        "task": "password-recovery",
+        "source": "/app/recovered_passwords.txt",
+        "sha256": "aeaed7ccde128246741678a543504d69c1c38530c734bd4434633b848fb5270c",
+        "bytes": 24,
+        "matches_final_public_snapshot": true,
+        "matching_saved_candidate_files": [],
+        "saved_candidate_limit": "No save occurred;native final capture/public snapshot/original grader provide the byte link"
+      },
+      {
+        "arm": "main",
+        "task": "sparql-university",
+        "source": "/app/solution.sparql",
+        "sha256": "b0e576420e9d050b0a9f4ecb7dc0b31c2dff73c3a4f9738010b2f98410018af4",
+        "bytes": 2056,
+        "matches_final_public_snapshot": true,
+        "matching_saved_candidate_files": [
+          {
+            "candidate": "sparql-university__4RrxB9m/agent/candidates/candidate-002.json",
+            "eligible": true,
+            "mode": 438
+          }
+        ],
+        "saved_candidate_limit": null
+      },
+      {
+        "arm": "repeat",
+        "task": "sparql-university",
+        "source": "/app/solution.sparql",
+        "sha256": "329398a2bdcae7a1e8639d9b86a77d7729f06d0aa9f2bc6453bdcc6a714b9d20",
+        "bytes": 2265,
+        "matches_final_public_snapshot": true,
+        "matching_saved_candidate_files": [
+          {
+            "candidate": "sparql-university__PrDCUwU/agent/candidates/candidate-001.json",
+            "eligible": false,
+            "mode": 438
+          }
+        ],
+        "saved_candidate_limit": null
+      }
+    ],
+    "grader": "All five SWE candidate patches were compared byte-for-byte with actual grader patch.diff;all9 actual original report/reward/stdout ranges were read.",
+    "no_new_execution": "No model request,VM/container,original grader,source/score/STOP/plan/Git mutation."
+  },
+  "semantic_review": {
+    "pydata__xarray-7393": {
+      "arms": [
+        "main",
+        "dsh"
+      ],
+      "scope": "Both full final production patches,actual issue/reproducer,all49 tool commands,meaningful output/failures,original grade and main C0 artifacts;the earlier repeat review supplies only explicitly reused context.",
+      "responsibility": "PandasMultiIndexingAdapter.__array__ must apply its stored coordinate dtype when converting level values. Main uses np.asarray(levelIndex,dtype=dtype);DSH uses np.asarray(levelIndex.values,dtype=dtype). Both retain an explicit dtype argument and produce int32 after the original int32→int64 failure.",
+      "source_scope": "Only xarray/core/indexing.py changes;no original tests/configuration hunks.",
+      "original_grade": {
+        "each_FAIL_TO_PASS_success": 2,
+        "each_PASS_TO_PASS_success": 71,
+        "each_stdout_passed": 73,
+        "whole_suite_passed": false
+      },
+      "main_observations": [
+        "Tool6 reproduces original int32 vs stacked int64;tool14 actual issue returnsTrue and int32/float32/string/datetime/category checks preserve dtype.",
+        "Tool13's146 selected baseline tests pass even before the patch,showing their coverage limit. Tool15's four-module patched suite passes1029 with2 skipped/7 xfailed/2 xpassed.",
+        "Tool16 full-suite command times out;tool17 reads incomplete progress around39%,so no full-suite result is inferred.",
+        "Tool18 scratch expected only['b'] after selecting one coordinate from a Cartesian product. Tool19 prints actual['a','b','a','b'];tool20 corrects that scratch expectation and passes. Production/original tests are not changed for that assertion."
+      ],
+      "dsh_observations": [
+        "Tool10 independently reproduces dtype promotion and tool18 shows it fixed. Tool22 checks eight dtypes,multiple levels,round trip and explicit float64 conversion.",
+        "Visible focused suites pass119 indexing tests,71 indexes tests,389 dataset tests and910 DataArray/Variable tests.",
+        "Tool23's broad -x run yields1 failure/1285 passed:TestH5NetCDFData.test_complex_error[None]. Tool24 actually stashes the hunk and reproduces both parameter failures on untouched production before restoring the hunk.",
+        "Tool25 broader run times out or is reported OOM by native SDK. It is not called a pass;native shell status0 from piping to tail is not a pytest-success proof."
+      ],
+      "C0_currentness_boundary": "Main's registered dependency snapshot names core/indexes.py while its actual patch changes core/indexing.py. The actual verification steps16 and25 have the final artifact_digest;all later writes are scratch/no-production edits. This observed link does not prove that the declared dependency list covers all transitive code.",
+      "source_access": "Original public repository source/tests/blame/ancestor history were used;no observed hidden grader/gold retrieval."
+    },
+    "pytest-dev__pytest-7490": {
+      "arms": [
+        "main",
+        "repeat",
+        "dsh"
+      ],
+      "scope": "All three complete production/grade patches,actual problem description and final code sample,all66 tool commands with meaningful outputs,controller records and original grade ranges. The long pasted pip inventory was not read word-for-word.",
+      "responsibility": "After pytest_runtest_call yields back from the test body,re-evaluate xfail marks if the prior evaluation wasNone,so request.node.add_marker(xfail) affects report generation. Main checks the store;repeat/DSH use the earlier localxfailed variable. Each actual issue changes failed→xfailed.",
+      "original_grade": {
+        "each_FAIL_TO_PASS_success": 2,
+        "each_PASS_TO_PASS_success": 78,
+        "each_stdout_passed": 81,
+        "actual_command": "pytest -rA testing/test_skipping.py"
+      },
+      "generated_file": [
+        {
+          "arm": "main",
+          "runtime_generated_fixture_bytes": 129,
+          "source_sha256": "a1c36d26f31bc0ae15a19418d725c98ed9765c152366a7a41acc19d8b8d7974e",
+          "exact_registered_template": true,
+          "saved_candidate_file_keys": [
+            {
+              "id": "candidate-002",
+              "files": [
+                "src/_pytest/skipping.py"
+              ]
+            },
+            {
+              "id": "candidate-001",
+              "files": [
+                "src/_pytest/skipping.py"
+              ]
+            }
+          ]
+        },
+        {
+          "arm": "repeat",
+          "runtime_generated_fixture_bytes": 129,
+          "source_sha256": "a1c36d26f31bc0ae15a19418d725c98ed9765c152366a7a41acc19d8b8d7974e",
+          "exact_registered_template": true,
+          "saved_candidate_file_keys": [
+            {
+              "id": "candidate-002",
+              "files": [
+                "src/_pytest/skipping.py"
+              ]
+            },
+            {
+              "id": "candidate-001",
+              "files": [
+                "src/_pytest/skipping.py"
+              ]
+            }
+          ]
+        }
+      ],
+      "generated_file_interpretation": "The two C0 patch.diff files also include the129-byte .course-public-check/test_public_issue.py. It is exactly the string written by the unchanged registered public command,not a model edit to original protected testing/. CandidateStore only stores the production file;the complete actual grader-delivered patch includes the generated public reproducer. The original grader explicitly invokes testing/test_skipping.py.",
+      "main_broad_suite": [
+        "Original issue fails at tool6 and xfails after tool11. Visible original skipping suite79passes. Strict/raises/runxfail scratch negatives include expected exit1 and are not semantic task failures.",
+        "Tool17 refers to nonexistent testing/test_python.py and runs no tests. Tool19 collection fails because hypothesis is absent.",
+        "Tool20 reports7 failed/545 passed/26 skipped/2 xfailed. Tool21 actually restores untouched skipping.py and reproduces the same seven failures,then restores the production patch.",
+        "The seven named failures are TestModule.test_import_prepend_append,TestTracebackCutting.test_filter_traceback_path_no_longer_valid,three TestFillFixtures plugin extension/autouse cases,TestFixtureManagerParseFactories.test_package_fixture_complex and TestParameterizedSubRequest.test_non_relative_path. No whole-suite pass is claimed."
+      ],
+      "repeat_broad_suite": [
+        "Actual issue fails at tool12 and xfails after tool14 patch/tool15 replay. Original skipping suite79passes.",
+        "Tool18 whole-suite collection errors require missing xmlschema and hypothesis. Tool19 ignoring those modules times out124. Tool20 selected four modules passes237 with2 xfailed.",
+        "Public self-created strict XPASS/raises mismatch/runxfail outputs deliberately retain expected failures."
+      ],
+      "dsh_broad_suite": [
+        "Actual issue fails at tool11,then xfails and original skipping suite79passes after tool15 fix.",
+        "Tool19 broad collection reports missing xmlschema/hypothesis;tool20 timeout-or-OOM is not a pass.",
+        "Tool22's one failed strict-XPASS plus one xfailed is the intended strict-marker scratch contrast,not a failed original task score."
+      ],
+      "information_access_boundary": [
+        "All three read provided local ancestor/refactor history includingc9737ae91 and3e6fe92b7. This is open-repository repair,not evidence of solving with source history hidden.",
+        "Main attempted to fetch official public6.0.1 source,but curl reports DNS resolution failure;no fetched source was observed.",
+        "DSH runs git fsck --unreachable (no objects returned) and probes future6.x tags (none present);repeat searches all history for the issue/dynamic-xfail words but gets older ancestors. These searches are retained as observed attempts,not falsely described as absent or as successful gold retrieval."
+      ],
+      "preservation": "No original testing/config hunk appears in any final patch. C0 final registered/protection states are true;B0 has no C0 protection guarantee."
+    },
+    "sparql-university": {
+      "arms": [
+        "main",
+        "repeat",
+        "dsh"
+      ],
+      "scope": "Actual supplied task,three complete query implementations,last-write commands,all29 tools and meaningful failed engine/parser checks,three original grade outputs and C0 captured final bytes.",
+      "semantics": "All three qualify full professors with an EU affiliation and a>10 distinct-current-students department,then separately aggregate all work-country affiliations including non-EU countries. Qualifying EU and large departments may differ as allowed by the task. Date2025-08-16 is respected in actual queries.",
+      "original_grade": "All three original graders execute the query and pass the three declared output/execution tests.",
+      "model_self_check_limit": "No model trajectory successfully runs an actual SPARQL engine:DSH has neither python nor python3;C0 has public Python but rdflib absent and package downloads fail DNS. C0 temporary regex parsers initially fail or countzero,then are repaired to reproduce the expected data-derived three-professor set. Those scripts are not called SPARQL engine verification.",
+      "currentness": "C0 registered public-artifact command is only test -s /app/solution.sparql. Its valid/protected result establishes retained file/currentness,not query semantics. Semantic execution evidence comes from the actual original grader.",
+      "DSH_generalization_limit": {
+        "priority": "P2",
+        "finding": "Its VALUES EU list contains26 codes and omitsSE. Main/repeat contain27. The actual provided graph's country values areCH,ES,PT,GR,FR,US,DE,so this omission does not change this fixed instance result.",
+        "consequence": "Preserve rawtrue;do not claim the DSH query has been validated on arbitrary EU-country graphs. No new task-local revision or model rerun is requested."
+      },
+      "native_artifact_limit": "Main/repeat captured2056/2265-byte queries match final public snapshots and saved candidate bytes. Old DSH has no independent native artifact capture;only its last query write and actual original grade are available."
+    },
+    "password-recovery": {
+      "arms": [
+        "main"
+      ],
+      "scope": "Actual task and all8 commands/meaningful outputs,original two-test grade,controller and24-byte native final capture. Earlier repeat/DSH issue reviews are reused only as prior history.",
+      "behavior": "It inspects intended forensic data under/app/varsea,ZIP headers/fragments and checks the reconstructed candidate's documented format plus CRC32 b0725dc4. Actual tool5 CRC matches the public ZIP checksum;the original grader confirms the password.",
+      "access_boundary": "Tool2 also scans container/tmp,/root,/home for the same launchcode/password pattern and examines deleted/proc file descriptors. Visible hits are the intended/app data;no hidden grader/answer retrieval was observed. This broader read is stated rather than calling the entire process strictly/app-only.",
+      "public_check_limit": "The registered public command only checks that recovered_passwords.txt is nonempty. It is not a semantic password proof. File format/CRC in actual self-tests and the preserved original grader supply additional evidence.",
+      "saved_candidate_limit": "No save action/candidate file exists in this original v18 C0 run. The final captured24 bytes match its final public-check snapshot and actual two-test original grade;no saved candidate is invented and qualified=true follows the actual old definition.",
+      "secret_handling": "Recovered benchmark secret is not embedded in this review;only byte length,SHA/checksum mechanism and source references are retained.",
+      "incidental_failure": "Tool6's optional xxd display fails because xxd is unavailable;the delivered artifact and later checks remain present."
+    }
+  },
+  "limits": [
+    "This closes only original201→fixed210. It is not225 completion,final75x2 admission,final PDF approval or a new experiment.",
+    "All152 tool command structures and meaningful outputs were directly read. Complete final patches,critical self-tests and original grade ranges were deep-read. Model reasoning was not read word-for-word;some long repository display output is already clipped by the original SDK.",
+    "All nine positions have original rawtrue and176 complete own-zero receipts. Prior rawfalse/null and rawtrue-but-unqualified records are not changed. Accepted historical unknowns are not zero receipts.",
+    "The prior3810-ID baseline includes revised-method loc38;these38 are not added to original-core counts. Identity totals are limited to the explicitly source-audited history,not every older experiment or other provider.",
+    "C0 is requested registration,not automatic per-step checking. Save eligibility and final public/protected status are distinct. B0 final control is not applicable,not zero.",
+    "No actual new model,grader,VM/container,Git/STOP/source/plan mutation or read of live pytest7571/core records occurred."
+  ],
+  "rows": [
+    {
+      "arm": "dsh",
+      "task": "pydata__xarray-7393",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-dsh-hy4-v10/pydata__xarray-7393-B0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 452.90422516700346,
+      "runtime_root": "work/frozen-performance-dsh-parallel-guard-20261124",
+      "protocol_configuration": "B0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795635587.914151,
+        "native_session_id": "cdc32e56-6ed1-4fdd-b10b-98ec3c3d4b2a",
+        "history_count": 2,
+        "history_roles": [
+          "user",
+          "user"
+        ],
+        "initial_history_sha256": "6fca1374a4eeb061c8d2af84130d87ab8fd748643518e73058daad20c5e26f0b"
+      },
+      "event_counts": {
+        "request": 28,
+        "cli_process_started": 28,
+        "response": 28,
+        "billing_verified": 28
+      },
+      "native_sessions": [
+        "cdc32e56-6ed1-4fdd-b10b-98ec3c3d4b2a"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a21438b8727874a04ebd29fe96f968",
+          0,
+          5182,
+          80
+        ],
+        [
+          2,
+          "01a21438cec170debf51d801c0d84c56",
+          0,
+          6073,
+          101
+        ],
+        [
+          3,
+          "01a21438e31a7d7182fd1902b28431af",
+          0,
+          6820,
+          122
+        ],
+        [
+          4,
+          "01a21438f68a7ea1a804067621d2796a",
+          0,
+          9584,
+          110
+        ],
+        [
+          5,
+          "01a214390a747134a24a62fb42a8b5c8",
+          0,
+          11782,
+          280
+        ],
+        [
+          6,
+          "01a21439245d7d15a4493e0536ed2eab",
+          0,
+          14796,
+          146
+        ],
+        [
+          7,
+          "01a214393cb77aa7815dfa8a8229258d",
+          0,
+          16019,
+          138
+        ],
+        [
+          8,
+          "01a21439524f74f3b601cee0275fcaa6",
+          0,
+          16957,
+          349
+        ],
+        [
+          9,
+          "01a214396d29728c8ca9e1c7a8dfecc4",
+          0,
+          17468,
+          133
+        ],
+        [
+          10,
+          "01a2143993e87c3e81256dcd0497e6cb",
+          0,
+          18040,
+          247
+        ],
+        [
+          11,
+          "01a21439b1737efb8f0b496018ad33c1",
+          0,
+          18466,
+          152
+        ],
+        [
+          12,
+          "01a21439c7d17ed6ad316104280d543a",
+          0,
+          19433,
+          184
+        ],
+        [
+          13,
+          "01a21439dc537bd38f47445d1304b48b",
+          0,
+          20654,
+          511
+        ],
+        [
+          14,
+          "01a21439f8a072c9aa5d1601b058c4ea",
+          0,
+          21998,
+          101
+        ],
+        [
+          15,
+          "01a2143a0c857d55b7145bd9ad270653",
+          0,
+          23832,
+          1482
+        ],
+        [
+          16,
+          "01a2143a3f82797aa805c87cf7e4bc11",
+          0,
+          25625,
+          863
+        ],
+        [
+          17,
+          "01a2143a678b7385bbead3b1f95a0edf",
+          0,
+          26618,
+          550
+        ],
+        [
+          18,
+          "01a2143a85cd7130a35eb2864b64d865",
+          0,
+          27230,
+          195
+        ],
+        [
+          19,
+          "01a2143aa0957a298a2a672da5c29df4",
+          0,
+          27529,
+          109
+        ],
+        [
+          20,
+          "01a2143acefa77549f8e337b78dae1f3",
+          0,
+          27759,
+          69
+        ],
+        [
+          21,
+          "01a2143af39478168d02a8677124c575",
+          0,
+          27930,
+          59
+        ],
+        [
+          22,
+          "01a2143b2f9a7f4587630d8eb17f9baf",
+          0,
+          28357,
+          805
+        ],
+        [
+          23,
+          "01a2143b58a67c0fa6790aaea0a69e7d",
+          0,
+          29424,
+          112
+        ],
+        [
+          24,
+          "01a2143c09be7befb6ced7121a952b10",
+          0,
+          30270,
+          198
+        ],
+        [
+          25,
+          "01a2143c34087797b79da84fb45edf8a",
+          0,
+          31044,
+          138
+        ],
+        [
+          26,
+          "01a2143e35277f2ab25062b758a4678a",
+          0,
+          31295,
+          144
+        ],
+        [
+          27,
+          "01a2143eaa097799b9399b84dda13036",
+          0,
+          31821,
+          168
+        ],
+        [
+          28,
+          "01a2143ec57279f09746ac153e7e8bc9",
+          0,
+          32255,
+          910
+        ]
+      ],
+      "input_tokens": 604261,
+      "output_tokens": 8456,
+      "final_control": null,
+      "controller_event_counts": {},
+      "candidate_records": [],
+      "matching_final_candidates": [],
+      "native_capture": null,
+      "patch_paths": [
+        "xarray/core/indexing.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 2,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 71,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED xarray/tests/test_indexes.py::TestIndexes::test_copy_indexes[pd_index]",
+          "PASSED xarray/tests/test_indexes.py::TestIndexes::test_copy_indexes[xr_index]",
+          "PASSED xarray/tests/test_indexes.py::test_safe_cast_to_index",
+          "PASSED xarray/tests/test_indexes.py::test_safe_cast_to_index_cftimeindex",
+          "PASSED xarray/tests/test_indexes.py::test_safe_cast_to_index_datetime_datetime",
+          "PASSED xarray/tests/test_indexes.py::test_restore_dtype_on_multiindexes[int32]",
+          "PASSED xarray/tests/test_indexes.py::test_restore_dtype_on_multiindexes[float32]",
+          "============================== 73 passed in 1.18s =============================="
+        ]
+      },
+      "tools_count": 27,
+      "nonzero_tools": [],
+      "sdk_event_counts": {
+        "session": 1,
+        "agent/inbox/spliced": 2,
+        "turn/start": 1,
+        "step/start": 28,
+        "system/message": 1,
+        "user/message": 2,
+        "request/header": 1,
+        "request/context": 1,
+        "assistant/message": 28,
+        "tool/call": 27,
+        "tool/result": 27,
+        "step/end": 28,
+        "turn/end": 1
+      },
+      "proposed_structured_actions": {
+        "unknown": 28
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 14,
+          "command_prefix": "{\"command\":\"cd /testbed && sed -n '440,480p' xarray/tests/test_indexes.py && echo \\\"=== more context ===\\\" && sed -n '320,410p' xarray/tests/test_indexes.py\"}",
+          "command_sha256": "183e476377292c6f83044c7da094babca9a94e041230f0e7a12d583d5778f191"
+        },
+        {
+          "tool": 19,
+          "command_prefix": "{\"command\":\"cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest xarray/tests/test_indexing.py -q --tb=short 2>&1 | tail -20\"}",
+          "command_sha256": "c885db3b2584f2cb68108321dc09bdd5392a5392d530cb59342b2d4166a9f90e"
+        },
+        {
+          "tool": 20,
+          "command_prefix": "{\"command\":\"cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest xarray/tests/test_indexes.py -q --tb=short 2>&1 | tail -20\"}",
+          "command_sha256": "078e0c0eaa33517f68daa8dcfd6f27d3baf34e46f9d985f6f24c85192829d7d6"
+        },
+        {
+          "tool": 21,
+          "command_prefix": "{\"command\":\"cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest xarray/tests/test_dataset.py -q --tb=short 2>&1 | tail -20\"}",
+          "command_sha256": "c1fa55d9b356d258a36a38d4b37ba0b9001ba1b819c8735d42d10cdb062f2a10"
+        },
+        {
+          "tool": 23,
+          "command_prefix": "{\"command\":\"cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest xarray/tests/ -q --tb=short -x 2>&1 | tail -25\"}",
+          "command_sha256": "593e6150c42e2b7b008f2704e17703b989c3878be3dde30197420b8d293b5caa"
+        },
+        {
+          "tool": 24,
+          "command_prefix": "{\"command\":\"cd /testbed && git diff && echo \\\"=== Stashing fix ===\\\" && git stash && /opt/miniconda3/envs/testbed/bin/python -m pytest xarray/tests/test_backends.py::TestH5NetCDFData::test_complex_error -q --tb=short 2>&1 | tail -10 && echo \\\"=== Restoring fix ===\\\" && git stash pop\"}",
+          "command_sha256": "4934346f336fc1fb3bb6076db9d2fc2276a91724580e4208be638a8ea91c91e1"
+        },
+        {
+          "tool": 25,
+          "command_prefix": "{\"command\":\"cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest xarray/tests/ -q --tb=short --deselect=\\\"xarray/tests/test_backends.py::TestH5NetCDFData::test_complex_error\\\" 2>&1 | tail -20\"}",
+          "command_sha256": "8c38a7ff28c9ed063310b0e6b4dbacb8a90121e9169cd501025691f54ed90d6b"
+        },
+        {
+          "tool": 26,
+          "command_prefix": "{\"command\":\"cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest xarray/tests/test_dataarray.py xarray/tests/test_variable.py -q --tb=short 2>&1 | tail -15\"}",
+          "command_sha256": "8362eaf5fd80e8d1dc61e330ed63a71bf83820f4c9ed1f81d94a367c229280ca"
+        }
+      ],
+      "source_sha256": {
+        "instruction.txt": "f1dc0e8a0e67b23d6aed47c8b75afc33db4a0f3404a3b024a6da729b64de8473",
+        "checkout.json": "9c3e785e2df2f9e0eed53198c706579b9e476377fafbe9f40c929c916a695f0c",
+        "execution-budget.json": "1095d7015c8694ddb06d91290a25180e93835dd37e0c0e45286fae60daa1f132",
+        "result.json": "76475572e345416a9a63a48273716f6e65a1c938b28387c59bda54eeeba9086b",
+        "trial.json": "93f8429785330f20d3b71859ae2ed79c638342ed0dda7f2fc5eb6b44833ed46e",
+        "model.jsonl": "cf7f81f3ae920aa61b10b8bcce505440be243d31cf2a9607c72364dc540226e4",
+        "candidate.patch": "512c25be4b3f8a9ba6632b134be63332c318594322de49045a61127465296b9e",
+        "swe-official/pydata__xarray-7393-B0-r1/course-mini-swe-agent/pydata__xarray-7393/patch.diff": "512c25be4b3f8a9ba6632b134be63332c318594322de49045a61127465296b9e",
+        "swe-official/pydata__xarray-7393-B0-r1/course-mini-swe-agent/pydata__xarray-7393/report.json": "46272ad8d3cccdfb2ae7477d1ed417ed966f33a95743f190d1aec531dad890bb",
+        "swe-official/pydata__xarray-7393-B0-r1/course-mini-swe-agent/pydata__xarray-7393/test_output.txt": "8d7556484373a0beee95a256c2a630d29a2778bb85da677475d91579259a52e2",
+        "swe-official/pydata__xarray-7393-B0-r1/course-mini-swe-agent/pydata__xarray-7393/run_instance.log": "afc03e7c0e9e2d8df4c6ad70bbc7e0f57ebcfa4b19e57c19ff7fc40ce595eb40",
+        "swe-official/pydata__xarray-7393-B0-r1/course-mini-swe-agent/pydata__xarray-7393/eval.sh": "5009bae3fb5ca665d194cc5c3a6ffb2aed9b3962837240a68a66c0d0c9463e4b",
+        "dsh/dsh-home/sessions/--testbed--/course-task/session.v4.jsonl": "2682272020131a08726b5b958bc2fc9cefb48c54c0d3c6088f8ff6d57199c30e"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures,individual fresh-own usage receipts,all tool command structures and meaningful output/error summaries,complete candidate and original-grader patches,controller/currentness and artifact byte links were reviewed. Model reasoning and long irrelevant package inventories were not read word-for-word.",
+      "protocol_sha256": "086f34d8c35422ef05917bc524fb09560cc2bf1c1e8b90a0398a8c963ae0c4af",
+      "control_applicability": "B0: C0 registration/protection/candidate-selection does not apply",
+      "currentness_link": null,
+      "native_artifact_byte_links": []
+    },
+    {
+      "arm": "dsh",
+      "task": "pytest-dev__pytest-7490",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-dsh-hy4-v10/pytest-dev__pytest-7490-B0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 324.4023349590134,
+      "runtime_root": "work/frozen-performance-dsh-parallel-guard-20261124",
+      "protocol_configuration": "B0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795636435.4287722,
+        "native_session_id": "0b9a4739-fc28-413f-ad7c-3c69962b8e4a",
+        "history_count": 2,
+        "history_roles": [
+          "user",
+          "user"
+        ],
+        "initial_history_sha256": "716e88aca379df134a654d2355ec8184de666c6ca1dcb023574dd86fce334252"
+      },
+      "event_counts": {
+        "request": 23,
+        "cli_process_started": 23,
+        "response": 23,
+        "billing_verified": 23
+      },
+      "native_sessions": [
+        "0b9a4739-fc28-413f-ad7c-3c69962b8e4a"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a21445a4387714b0328e0a7ef25ad6",
+          0,
+          9646,
+          60
+        ],
+        [
+          2,
+          "01a21445ba2e785d8584c8550a3e5d76",
+          0,
+          9884,
+          81
+        ],
+        [
+          3,
+          "01a21445ceb07959ae4ccbc8f6e03971",
+          0,
+          12867,
+          97
+        ],
+        [
+          4,
+          "01a21445e28770a3b91b26becd177c71",
+          0,
+          15400,
+          278
+        ],
+        [
+          5,
+          "01a21445f9fe781b8187f64a7dd31f64",
+          0,
+          17518,
+          86
+        ],
+        [
+          6,
+          "01a214460c7c724fbda448b15d5924bd",
+          0,
+          20386,
+          175
+        ],
+        [
+          7,
+          "01a2144622c8711fb02db0c422c29284",
+          0,
+          22018,
+          667
+        ],
+        [
+          8,
+          "01a21446410e7ede96cf5f81bfe36744",
+          0,
+          22805,
+          109
+        ],
+        [
+          9,
+          "01a2144653fa7604aa45f4e9b29e14e9",
+          0,
+          23711,
+          90
+        ],
+        [
+          10,
+          "01a2144667fd7be59eba2823b6c3c1c7",
+          0,
+          23910,
+          82
+        ],
+        [
+          11,
+          "01a214467f6d7ea290b579714d5b5d3d",
+          0,
+          24083,
+          65
+        ],
+        [
+          12,
+          "01a2144692b87cb4a1192aa7dce62d01",
+          0,
+          24487,
+          98
+        ],
+        [
+          13,
+          "01a21446a82077628629ed2511604350",
+          0,
+          26136,
+          64
+        ],
+        [
+          14,
+          "01a21446bb097c63920c96ea78f3fe41",
+          0,
+          27250,
+          368
+        ],
+        [
+          15,
+          "01a21446e03579a5a64e5178a86dda83",
+          0,
+          27789,
+          1154
+        ],
+        [
+          16,
+          "01a2144706247794a8f4c8249bd4f3ef",
+          0,
+          29260,
+          102
+        ],
+        [
+          17,
+          "01a21447299f79409b1a7a9b758fd145",
+          0,
+          29662,
+          429
+        ],
+        [
+          18,
+          "01a2144743eb7688bbfeda57c851b0d0",
+          0,
+          30860,
+          156
+        ],
+        [
+          19,
+          "01a2144759ff7b0aa9d244203208b5b4",
+          0,
+          31215,
+          1071
+        ],
+        [
+          20,
+          "01a2144790c370999f0b897438c5daf5",
+          0,
+          32679,
+          83
+        ],
+        [
+          21,
+          "01a214498fbe7f7f8d2b07cae66ed977",
+          0,
+          32875,
+          1333
+        ],
+        [
+          22,
+          "01a21449b757771abeef674a5085e8e1",
+          0,
+          34455,
+          234
+        ],
+        [
+          23,
+          "01a21449ce987f74bcc1e3c84cca17d8",
+          0,
+          34876,
+          481
+        ]
+      ],
+      "input_tokens": 563772,
+      "output_tokens": 7363,
+      "final_control": null,
+      "controller_event_counts": {},
+      "candidate_records": [],
+      "matching_final_candidates": [],
+      "native_capture": null,
+      "patch_paths": [
+        "src/_pytest/skipping.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 2,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 78,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED testing/test_skipping.py::test_xfail_item",
+          "PASSED testing/test_skipping.py::test_module_level_skip_error",
+          "PASSED testing/test_skipping.py::test_module_level_skip_with_allow_module_level",
+          "PASSED testing/test_skipping.py::test_invalid_skip_keyword_parameter",
+          "PASSED testing/test_skipping.py::test_mark_xfail_item",
+          "PASSED testing/test_skipping.py::test_summary_list_after_errors",
+          "PASSED testing/test_skipping.py::test_relpath_rootdir",
+          "============================== 81 passed in 2.40s =============================="
+        ]
+      },
+      "tools_count": 22,
+      "nonzero_tools": [],
+      "sdk_event_counts": {
+        "session": 1,
+        "agent/inbox/spliced": 2,
+        "turn/start": 1,
+        "step/start": 23,
+        "system/message": 1,
+        "user/message": 2,
+        "request/header": 1,
+        "request/context": 1,
+        "assistant/message": 23,
+        "tool/call": 22,
+        "tool/result": 22,
+        "step/end": 23,
+        "turn/end": 1
+      },
+      "proposed_structured_actions": {
+        "unknown": 23
+      },
+      "tool_screen_flags": [],
+      "source_sha256": {
+        "instruction.txt": "f8b42c8982f0090723284a8709bbb88e8a3e5e36e843727ba8c5a89238714dd6",
+        "checkout.json": "d5ca656e71dd65eff9c8bd8e08d688fcb8573c4a98e3239eee0683a9dc6826c2",
+        "execution-budget.json": "fd423bdfcb2aaf1b106855fb10afa88988f2d1891c9f31ae4eead25942a8557a",
+        "result.json": "a538e4cc048d26f29409097919bce8e3e6530c4200e3e5296eb5a76ce8a3aeb3",
+        "trial.json": "047b5cd64a4197e2cdf9c0a3310a6f325524ce0d0ba3da288ac165c80dcbc630",
+        "model.jsonl": "5fa408c7df058371b973f54fb613c99607d051be159dfde4e5c1a00f5b3b62b2",
+        "candidate.patch": "5881011758cdc58e79abafd35e4d804cf0d4ad35677a30178d1693df52813a8d",
+        "swe-official/pytest-dev__pytest-7490-B0-r1/course-mini-swe-agent/pytest-dev__pytest-7490/patch.diff": "5881011758cdc58e79abafd35e4d804cf0d4ad35677a30178d1693df52813a8d",
+        "swe-official/pytest-dev__pytest-7490-B0-r1/course-mini-swe-agent/pytest-dev__pytest-7490/report.json": "49465f0d1a72efd381837314cb7d5e0011b7bd0c1b3e2df6383ffbca152556ba",
+        "swe-official/pytest-dev__pytest-7490-B0-r1/course-mini-swe-agent/pytest-dev__pytest-7490/test_output.txt": "ffc6ed15feb4c8a36db1e06f22d8ee998ffadd6a654d1a8d7c4f90ed1779fb2b",
+        "swe-official/pytest-dev__pytest-7490-B0-r1/course-mini-swe-agent/pytest-dev__pytest-7490/run_instance.log": "223f9090cb096343300795fc68f3a58f17ec03193c5dff04dea425e91897d5f5",
+        "swe-official/pytest-dev__pytest-7490-B0-r1/course-mini-swe-agent/pytest-dev__pytest-7490/eval.sh": "a2876e477856dcfecfeb82797775b8ebf4b33ff59638e56ad3edb3ccf37f7a38",
+        "dsh/dsh-home/sessions/--testbed--/course-task/session.v4.jsonl": "38831cc1c18521107d9be31a404087e2366a8113ac00073d30469046905639a5"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures,individual fresh-own usage receipts,all tool command structures and meaningful output/error summaries,complete candidate and original-grader patches,controller/currentness and artifact byte links were reviewed. Model reasoning and long irrelevant package inventories were not read word-for-word.",
+      "protocol_sha256": "05fb7372fa6664598c265cd51b7879d4903e0b48eb42ada6a0b5c45d3ce8835f",
+      "control_applicability": "B0: C0 registration/protection/candidate-selection does not apply",
+      "currentness_link": null,
+      "native_artifact_byte_links": []
+    },
+    {
+      "arm": "dsh",
+      "task": "sparql-university",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-dsh-hy4-v10/sparql-university-B0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 119.1250645830296,
+      "runtime_root": "work/frozen-performance-dsh-parallel-guard-20261124",
+      "protocol_configuration": "B0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795637542.792852,
+        "native_session_id": "c2d8c2b5-0245-4d63-a61a-ce6b1229ca09",
+        "history_count": 2,
+        "history_roles": [
+          "user",
+          "user"
+        ],
+        "initial_history_sha256": "d4b5e27e940d97d8c0b461e14ca18abef161ba820f29a0c2a56167afb4049359"
+      },
+      "event_counts": {
+        "request": 8,
+        "cli_process_started": 8,
+        "response": 8,
+        "billing_verified": 8,
+        "external_format_recovery": 1
+      },
+      "native_sessions": [
+        "c2d8c2b5-0245-4d63-a61a-ce6b1229ca09"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a2145688b9767c80203b8e927e3552",
+          0,
+          4590,
+          173
+        ],
+        [
+          2,
+          "01a214569efd7cffad7357354f46525c",
+          0,
+          7380,
+          54
+        ],
+        [
+          3,
+          "01a21456aefc7c1e82377f39852ae25c",
+          0,
+          9148,
+          118
+        ],
+        [
+          4,
+          "01a21456c4ad75658377956c7bfc8b0e",
+          0,
+          11368,
+          5647
+        ],
+        [
+          5,
+          "01a2145734e6722bad60f9832db23d43",
+          0,
+          17647,
+          244
+        ],
+        [
+          6,
+          "01a214574a1676bf8ba1b4b925f60dd3",
+          0,
+          17968,
+          131
+        ],
+        [
+          7,
+          "01a214575c957004938943b09faab39c",
+          0,
+          18175,
+          5026
+        ],
+        [
+          8,
+          "01a21457c8857fe5b5523b6d3838f3d3",
+          0,
+          23263,
+          88
+        ]
+      ],
+      "input_tokens": 109539,
+      "output_tokens": 11481,
+      "final_control": null,
+      "controller_event_counts": {},
+      "candidate_records": [],
+      "matching_final_candidates": [],
+      "native_capture": null,
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "test_outputs.py::test_sparql_runs_without_error",
+          "test_outputs.py::test_sparql_runs_without_error",
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_sparql_file_exists",
+          "PASSED ../tests/test_outputs.py::test_sparql_runs_without_error",
+          "PASSED ../tests/test_outputs.py::test_sparql_query_results",
+          "======================= 3 passed, 581 warnings in 0.79s ========================"
+        ]
+      },
+      "tools_count": 6,
+      "nonzero_tools": [],
+      "sdk_event_counts": {
+        "session": 1,
+        "agent/inbox/spliced": 2,
+        "turn/start": 1,
+        "step/start": 7,
+        "system/message": 1,
+        "user/message": 2,
+        "request/header": 1,
+        "request/context": 1,
+        "assistant/message": 7,
+        "tool/call": 6,
+        "tool/result": 6,
+        "step/end": 7,
+        "turn/end": 1
+      },
+      "proposed_structured_actions": {
+        "unknown": 7
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 4,
+          "command_prefix": "{\"command\":\"cd /app && cat > solution.sparql <<'EOF'\\nPREFIX uni: <http://university.org/ontology/>\\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\\n\\nSELECT ?professorName (GROUP_CONCAT(DISTINCT ?country; separator=\\\", \\\") AS ?countries)\\nWHERE {\\n  ?professor uni:hasName ?professorName ;\\n             uni:role ?role .\\n  FILTER(CONTAINS(STR(?role), \\\"Professor\\\") &&\\n         !CONTAINS(STR(?rol",
+          "command_sha256": "bc651cba1209d6d23784423dcdac1ca8f0297f2e25a817ab264ba6a2d1741216"
+        }
+      ],
+      "source_sha256": {
+        "result.json": "1261a612e93adf4306524d11d76ce392a2ffe1d42cc84e90f841ba9a1ebc776f",
+        "trial.json": "0a234994392dc706438531f158923599ff5c177d338b20e6114a95630c979f33",
+        "sparql-university__ogkBAGs/agent/model.jsonl": "ff0f0a226798c7ab4dfcb97ff1407c67475547e91cbc25d4e594a774b12a02e6",
+        "sparql-university__ogkBAGs/result.json": "d1a4267093c496aee137bf1cd60dd2b40ff5444a36cde43c2b73b029e06c3450",
+        "sparql-university__ogkBAGs/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "sparql-university__ogkBAGs/verifier/test-stdout.txt": "dc7b71bececc2ec8a3eed56714482fc1f2e68f91b9f6e4be72b5d699c6d8363a",
+        "sparql-university__ogkBAGs/agent/dsh/dsh-home/sessions/--app--/course-task/session.v4.jsonl": "49293e1c2345f4e4b48ddb415051ec4f219ebbd13e75168ddf784444007ee983",
+        "sparql-university/instruction.md": "22eeab47d3b27b06df2627b3c21cfbd579ed7dcc85ebcb7c4b3a241c3c35f449"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures,individual fresh-own usage receipts,all tool command structures and meaningful output/error summaries,complete candidate and original-grader patches,controller/currentness and artifact byte links were reviewed. Model reasoning and long irrelevant package inventories were not read word-for-word.",
+      "protocol_sha256": "7b44ad21825a473ee51fa3137ef0be175196a3a1b363845c7e954cbc99be0a2a",
+      "control_applicability": "B0: C0 registration/protection/candidate-selection does not apply",
+      "currentness_link": null,
+      "native_artifact_byte_links": []
+    },
+    {
+      "arm": "main",
+      "task": "password-recovery",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/password-recovery-C0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 140.85875450004824,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795635443.338361,
+        "native_session_id": "9173643b-6547-46a8-9b99-a6890a018bb7",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "69d593db14f3ad02d6178f2f40e1b6f3d418fcd269a8894c535ddd5d14837e79"
+      },
+      "event_counts": {
+        "request": 9,
+        "cli_process_started": 9,
+        "response": 9,
+        "billing_verified": 9
+      },
+      "native_sessions": [
+        "9173643b-6547-46a8-9b99-a6890a018bb7"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a214369223745d9fa68e0adb8ed609",
+          0,
+          5328,
+          406
+        ],
+        [
+          2,
+          "01a21436c05b77dbbdc508bc3329a73e",
+          0,
+          6298,
+          482
+        ],
+        [
+          3,
+          "01a21436ee0273539b81a7bc628435db",
+          0,
+          8081,
+          1035
+        ],
+        [
+          4,
+          "01a214373876715faf9d8b985019ebc5",
+          0,
+          14241,
+          2414
+        ],
+        [
+          5,
+          "01a21437856c7a669d423a9fe126b35b",
+          0,
+          17314,
+          1053
+        ],
+        [
+          6,
+          "01a21437b60677719d2a1b022fa6f5d8",
+          0,
+          18533,
+          940
+        ],
+        [
+          7,
+          "01a21437fb3d7033a066cd0f1d0a2cb6",
+          0,
+          20050,
+          631
+        ],
+        [
+          8,
+          "01a214381d17769ea10ba7393915b296",
+          0,
+          22162,
+          247
+        ],
+        [
+          9,
+          "01a214383c89746f8dc247d856ada85b",
+          0,
+          22742,
+          182
+        ]
+      ],
+      "input_tokens": 134749,
+      "output_tokens": 7390,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "2224cf3066ca88a28c7c2bf2fe1bfc5f3d0b7cc7a145c3a5dba3032563d7bbe1",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-artifact": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "aeaed7ccde128246741678a543504d69c1c38530c734bd4434633b848fb5270c  /app/recovered_passwords.txt\n"
+          }
+        },
+        "elapsed_seconds": 121.25872675003484
+      },
+      "controller_event_counts": {
+        "candidate_operation": 4,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [],
+      "matching_final_candidates": [],
+      "native_capture": {
+        "registered": true,
+        "artifacts": [
+          {
+            "source": "/app/recovered_passwords.txt",
+            "status": "ok",
+            "type": "file",
+            "path": "password-recovery__9eDJeLk/artifacts/app/recovered_passwords.txt",
+            "sha256": "aeaed7ccde128246741678a543504d69c1c38530c734bd4434633b848fb5270c",
+            "bytes": 24,
+            "sha_present_in_final_public_snapshot": true
+          }
+        ],
+        "model_requests_by_capture": 0
+      },
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "============================= test session starts ==============================",
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_recovery_file_exists",
+          "PASSED ../tests/test_outputs.py::test_password_match",
+          "============================== 2 passed in 0.09s ==============================="
+        ]
+      },
+      "tools_count": 8,
+      "nonzero_tools": [
+        6
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 8,
+        "verify": 1
+      },
+      "tool_screen_flags": [],
+      "source_sha256": {
+        "result.json": "8a2059725718076db76dff4542ae8ac0f7d786ec5bcf7cf68d1df22e30a0e867",
+        "trial.json": "3621357be07bde26161a91d8db0677be0ece7630ed1ca289b87e72938a467673",
+        "password-recovery__9eDJeLk/agent/model.jsonl": "f439a0a06f5344019688d1a9b8bfe0a18ab24322d14590229ac55a2a10ca8502",
+        "password-recovery__9eDJeLk/agent/controller.jsonl": "22a4f7e85065e55fef527756e877a51a9ba975a772783f66cd64516827449e1e",
+        "password-recovery__9eDJeLk/agent/final-verification.json": "85fae7c0e531781a7756bde9f9366b2cbdcc82ccfb00614b69a6edd595b977d8",
+        "artifact-capture.json": "149483b8fe6b0082626bb28ae2038db5cf71e5e1d6d284dd53279305c3f6e154",
+        "artifact-capture-config.json": "c5023cb4607df67ea49749e42e81d73275cc5a7ec631184c8291cecbf29181b4",
+        "password-recovery__9eDJeLk/artifacts/manifest.json": "be61ce082bf770beacae7ba64b076446583c8df91faf753669ec7da9f9dc2e25",
+        "password-recovery__9eDJeLk/artifacts/app/recovered_passwords.txt": "aeaed7ccde128246741678a543504d69c1c38530c734bd4434633b848fb5270c",
+        "password-recovery__9eDJeLk/result.json": "280cb30888a4d9f0391bdf88f95df2be8cbe510ee5f1e8da75423aab60f79d3c",
+        "password-recovery__9eDJeLk/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "password-recovery__9eDJeLk/verifier/test-stdout.txt": "61fc8fd8fec3a8e89748df080af0ea83ad60d791648317e18bb481d3348dcb02",
+        "password-recovery__9eDJeLk/agent/tools.jsonl": "79e07e890df36c1a76d2a8809713db55355b41ee1413ec004d612615bb1d4ec1",
+        "password-recovery/instruction.md": "bc4f501148805bbccdb94a5c5b745f1ce9564f04ef0fe36bc37c3ca20b7810a5"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures,individual fresh-own usage receipts,all tool command structures and meaningful output/error summaries,complete candidate and original-grader patches,controller/currentness and artifact byte links were reviewed. Model reasoning and long irrelevant package inventories were not read word-for-word.",
+      "protocol_sha256": "4bee912306fbab0db23cea9a5a2b9b6af7953aea361023bfb301c2d45f014627",
+      "control_applicability": "Original v18 C0: preserve actual current public/protection result;save is not a qualification requirement in this old runtime.",
+      "currentness_link": {
+        "arm": "main",
+        "task": "password-recovery",
+        "final_digest": "2224cf3066ca88a28c7c2bf2fe1bfc5f3d0b7cc7a145c3a5dba3032563d7bbe1",
+        "matching_verification_steps": [
+          8
+        ],
+        "candidate_saved_records": 0
+      },
+      "native_artifact_byte_links": [
+        {
+          "arm": "main",
+          "task": "password-recovery",
+          "source": "/app/recovered_passwords.txt",
+          "sha256": "aeaed7ccde128246741678a543504d69c1c38530c734bd4434633b848fb5270c",
+          "bytes": 24,
+          "matches_final_public_snapshot": true,
+          "matching_saved_candidate_files": [],
+          "saved_candidate_limit": "No save occurred;native final capture/public snapshot/original grader provide the byte link"
+        }
+      ]
+    },
+    {
+      "arm": "main",
+      "task": "pydata__xarray-7393",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pydata__xarray-7393-C0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 390.2372998330975,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795636037.15793,
+        "native_session_id": "3db73d3c-8985-4c9a-8055-4a9fb0163d0a",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "13451e63c0fe21123850a52f7113cabef53f62516f20fab32f3142356547dd55"
+      },
+      "event_counts": {
+        "request": 27,
+        "cli_process_started": 27,
+        "response": 27,
+        "billing_verified": 27
+      },
+      "native_sessions": [
+        "3db73d3c-8985-4c9a-8055-4a9fb0163d0a"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a2143f901279ebbf7024662af24c30",
+          0,
+          6089,
+          248
+        ],
+        [
+          2,
+          "01a2143fa5f87587b642c10c5ba9219a",
+          0,
+          7202,
+          232
+        ],
+        [
+          3,
+          "01a2143fbe157e968976b16f76db823c",
+          0,
+          10238,
+          362
+        ],
+        [
+          4,
+          "01a2143fd75a793c84b475c255ed492d",
+          0,
+          14336,
+          245
+        ],
+        [
+          5,
+          "01a2143ff05c7a909bb157fb70614590",
+          0,
+          14834,
+          467
+        ],
+        [
+          6,
+          "01a214400d9f74bfa4a070ca776ecb09",
+          0,
+          15653,
+          281
+        ],
+        [
+          7,
+          "01a2144028ba73d580b051ae22dd9c2d",
+          0,
+          16284,
+          492
+        ],
+        [
+          8,
+          "01a2144049e47bb68155bcd88e3f4c21",
+          0,
+          19765,
+          556
+        ],
+        [
+          9,
+          "01a214406b11755187352055067ac9de",
+          0,
+          21944,
+          503
+        ],
+        [
+          10,
+          "01a214408ea47eb8ac7420638a4e28c5",
+          0,
+          24874,
+          920
+        ],
+        [
+          11,
+          "01a21440b1bf75e586fbb812efe1bc00",
+          0,
+          28305,
+          737
+        ],
+        [
+          12,
+          "01a21440d4ee7e6983b2bdb8774b6d40",
+          0,
+          32832,
+          465
+        ],
+        [
+          13,
+          "01a21440f2b3770c87122bfde501a91d",
+          0,
+          35638,
+          1268
+        ],
+        [
+          14,
+          "01a214413ca6749d9119f6de2b2b6562",
+          0,
+          37322,
+          1024
+        ],
+        [
+          15,
+          "01a2144163ee7c75a137035434cc0d57",
+          0,
+          38673,
+          245
+        ],
+        [
+          16,
+          "01a214417ec67da4a726a5f3701855c9",
+          0,
+          39189,
+          85
+        ],
+        [
+          17,
+          "01a214419e497bdd8e46dc0b8eb4c343",
+          0,
+          39707,
+          124
+        ],
+        [
+          18,
+          "01a21441b6b17c0f9fe0ffb5a6044462",
+          0,
+          40151,
+          221
+        ],
+        [
+          19,
+          "01a214421c6678d3bd145d4cfbdf6921",
+          0,
+          41203,
+          232
+        ],
+        [
+          20,
+          "01a2144408847c5ba75cd3de6a12fe11",
+          0,
+          41530,
+          193
+        ],
+        [
+          21,
+          "01a214441f647a9f9cb6205c803134ae",
+          0,
+          42780,
+          1002
+        ],
+        [
+          22,
+          "01a214444b637bbcbf1cfa1c87a3a7e7",
+          0,
+          43916,
+          521
+        ],
+        [
+          23,
+          "01a214446d7d7474b4b6b42120488192",
+          0,
+          45073,
+          644
+        ],
+        [
+          24,
+          "01a2144494bc774483c431c63379f2f7",
+          0,
+          45816,
+          174
+        ],
+        [
+          25,
+          "01a21444aa907d868f8414ded519e2c9",
+          0,
+          46302,
+          97
+        ],
+        [
+          26,
+          "01a21444c8a7785cb68ebfcc6c97ae47",
+          0,
+          46831,
+          84
+        ],
+        [
+          27,
+          "01a21444de3b7920ad8abf8f0b5a3036",
+          0,
+          47235,
+          154
+        ]
+      ],
+      "input_tokens": 843722,
+      "output_tokens": 11576,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "c33847d723f69814b754399140e06d3276a950dc0c187e73d07bfee14e1ad4ff",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-issue": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "2be048a5c6672dfd00c021ce13c40fd32017931c87d2df511c08fd6d5394abeb  xarray/core/indexes.py\n"
+          }
+        },
+        "elapsed_seconds": 354.94058241695166
+      },
+      "controller_event_counts": {
+        "candidate_operation": 10,
+        "candidate_saved": 3,
+        "verification": 2,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "c33847d723f69814b754399140e06d3276a950dc0c187e73d07bfee14e1ad4ff",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "c33847d723f69814b754399140e06d3276a950dc0c187e73d07bfee14e1ad4ff",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "c33847d723f69814b754399140e06d3276a950dc0c187e73d07bfee14e1ad4ff",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "c33847d723f69814b754399140e06d3276a950dc0c187e73d07bfee14e1ad4ff",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "xarray/core/indexing.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 2,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 71,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED xarray/tests/test_indexes.py::TestIndexes::test_copy_indexes[pd_index]",
+          "PASSED xarray/tests/test_indexes.py::TestIndexes::test_copy_indexes[xr_index]",
+          "PASSED xarray/tests/test_indexes.py::test_safe_cast_to_index",
+          "PASSED xarray/tests/test_indexes.py::test_safe_cast_to_index_cftimeindex",
+          "PASSED xarray/tests/test_indexes.py::test_safe_cast_to_index_datetime_datetime",
+          "PASSED xarray/tests/test_indexes.py::test_restore_dtype_on_multiindexes[int32]",
+          "PASSED xarray/tests/test_indexes.py::test_restore_dtype_on_multiindexes[float32]",
+          "============================== 73 passed in 1.15s =============================="
+        ]
+      },
+      "tools_count": 22,
+      "nonzero_tools": [
+        3,
+        5,
+        6,
+        8,
+        9,
+        16,
+        18
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 22,
+        "save": 3,
+        "verify": 2
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 10,
+          "command_prefix": "cd /testbed && grep -R \"PandasMultiIndexingAdapter\" -n xarray | head -40 && printf '\\n--- dtype-related stack tests ---\\n' && grep -R \"stack.*dtype\\|dtype.*stack\\|level_coords_dtype\\|int32\" -n xarray/tests/test_dataset.py xarray/tests/test_indexes.py xarray/tests/test_indexing.py | head -100 && printf '\\n--- git blame adapter __array__ ---\\n' && git blame -L 1524,1550 xarray/core/indexing.py && pr",
+          "command_sha256": "9e55939f0872d5b930fdbe8783cea16b9ae27b55fe4eb5ec8c83a68729ee02cc"
+        },
+        {
+          "tool": 11,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python - <<'PY'\nimport numpy as np, pandas as pd\nidx = pd.Index(np.array([0,1], dtype='i4'))\ncodes, levels = idx.factorize()\nprint('factorize', type(levels), levels, levels.dtype, codes, codes.dtype)\nmi = pd.MultiIndex(levels=[levels], codes=[codes], sortorder=0, names=['a'])\nprint('explicit levels', mi.levels[0], mi.levels[0].dtype, mi.get_level_val",
+          "command_sha256": "e29a0447d684e631c8990caf722980646f0683697afcba52f5c6a000e102ecf6"
+        },
+        {
+          "tool": 12,
+          "command_prefix": "cd /testbed && nl -ba xarray/core/indexing.py | sed -n '1405,1448p' && printf '\\n--- adapter copy section ---\\n' && nl -ba xarray/core/indexing.py | sed -n '1560,1605p' && printf '\\n--- full create_variables test context ---\\n' && nl -ba xarray/tests/test_indexes.py | sed -n '420,470p'",
+          "command_sha256": "f996d6dd445ee909d28c2f9e9c8ae14572650e40d5c8dccc65289e88ff927e3f"
+        },
+        {
+          "tool": 13,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python - <<'PY'\nimport numpy as np, pandas as pd, xarray as xr\ncases = {\n  'int32': np.array([0,1], dtype='i4'),\n  'float32': np.array([0.5,1.5], dtype='f4'),\n  'str': np.array(['a','b'], dtype='U1'),\n  'datetime': np.array(['2020-01-01','2020-01-02'], dtype='datetime64[ns]'),\n  'category': pd.Categorical(['a','b']),\n}\nfor name, vals in cases.items()",
+          "command_sha256": "c8aefad478c66027271db586c5f4d61660a200f580a540d2d5c866eeb2ceeea7"
+        },
+        {
+          "tool": 15,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest -q xarray/tests/test_indexes.py xarray/tests/test_indexing.py xarray/tests/test_dataset.py xarray/tests/test_dataarray.py > /tmp/regression_tests.log 2>&1; rc=$?; tail -30 /tmp/regression_tests.log; exit $rc",
+          "command_sha256": "4026b76f7e6b9e631ff4ef860bc95994f1b7f13ceb6c009f10e029bba482c90f"
+        }
+      ],
+      "source_sha256": {
+        "instruction.txt": "f1dc0e8a0e67b23d6aed47c8b75afc33db4a0f3404a3b024a6da729b64de8473",
+        "checkout.json": "9c3e785e2df2f9e0eed53198c706579b9e476377fafbe9f40c929c916a695f0c",
+        "execution-budget.json": "52138dbe5328b0793545b65205df7dafc3eba8773b33ae5498a0eadedbd66110",
+        "agent.json": "bca6902f8869e2c0e5ee3709a914168fdad68150caa88980eb29ae59f5d57ded",
+        "result.json": "1cbf28fe26b577fdc95b55bd10b47563ef554ec47000a2151b7332c62aaa7bcd",
+        "trial.json": "350aba317917053bb98e5683c4bcba162070e9f87d6e094a70d861b2df7e2453",
+        "model.jsonl": "b8876f79305276d7d2039f1b98263004c4d17badf03a4075afbc1795dc8dc632",
+        "controller.jsonl": "675dc7b666b30cd8d283a4c0fe98098c7461b052b54d5a358246806c82c4a476",
+        "final-verification.json": "2cf3fdc85273552fdbe87a0a9bf45762f5388cebcd7c8c97d074a4da809a37e0",
+        "candidates/candidate-002.json": "742d22d17187e34ab6d33ea8c7b1509fee46a472b58a3bf4c4a311f0104fd3bb",
+        "candidates/candidate-001.json": "3807a80eb14cf96243678b168985712bcf3daff476bf125b1248b7b82702f917",
+        "candidate.patch": "a2643742c98895ede187ae915785d21b8d2a2a99d5c91870235f5267f8ba1cab",
+        "swe-official/pydata__xarray-7393-C0-r1/course-mini-swe-agent/pydata__xarray-7393/patch.diff": "a2643742c98895ede187ae915785d21b8d2a2a99d5c91870235f5267f8ba1cab",
+        "swe-official/pydata__xarray-7393-C0-r1/course-mini-swe-agent/pydata__xarray-7393/report.json": "46272ad8d3cccdfb2ae7477d1ed417ed966f33a95743f190d1aec531dad890bb",
+        "swe-official/pydata__xarray-7393-C0-r1/course-mini-swe-agent/pydata__xarray-7393/test_output.txt": "d7387d74c74e31a0326f6c238da5f93c3e16423eb5142796ad5e50492a1e54ce",
+        "swe-official/pydata__xarray-7393-C0-r1/course-mini-swe-agent/pydata__xarray-7393/run_instance.log": "8a8dc45d242ed243ce2d5ff3ab7139f9b820fa2da10d0fa0e14c79d5a3d171b1",
+        "swe-official/pydata__xarray-7393-C0-r1/course-mini-swe-agent/pydata__xarray-7393/eval.sh": "5009bae3fb5ca665d194cc5c3a6ffb2aed9b3962837240a68a66c0d0c9463e4b",
+        "tools.jsonl": "9abef783341d826080f90a986fd09d9f57e1ff57bf69d2c32bb0c8df4dfd6509"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures,individual fresh-own usage receipts,all tool command structures and meaningful output/error summaries,complete candidate and original-grader patches,controller/currentness and artifact byte links were reviewed. Model reasoning and long irrelevant package inventories were not read word-for-word.",
+      "protocol_sha256": "f4a1339724d1c6d6ec1fe94e441153e356f2b936f4cba6ce4fb97fdb532ce5d3",
+      "control_applicability": "Original v18 C0: preserve actual current public/protection result;save is not a qualification requirement in this old runtime.",
+      "currentness_link": {
+        "arm": "main",
+        "task": "pydata__xarray-7393",
+        "final_digest": "c33847d723f69814b754399140e06d3276a950dc0c187e73d07bfee14e1ad4ff",
+        "matching_verification_steps": [
+          16,
+          25
+        ],
+        "candidate_saved_records": 3
+      },
+      "native_artifact_byte_links": []
+    },
+    {
+      "arm": "main",
+      "task": "pytest-dev__pytest-7490",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pytest-dev__pytest-7490-C0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 290.0756359170191,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795636755.394606,
+        "native_session_id": "7e2f4aba-a531-48b2-b61c-0623c10eef61",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "ad8aff50d2de9c88df119b1c7c32c01048dbdc4b6e05d59c03fc6df3013439dd"
+      },
+      "event_counts": {
+        "request": 27,
+        "cli_process_started": 27,
+        "response": 27,
+        "billing_verified": 27
+      },
+      "native_sessions": [
+        "7e2f4aba-a531-48b2-b61c-0623c10eef61"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a2144a8546705f98ce7db0e5d0ab47",
+          0,
+          10568,
+          179
+        ],
+        [
+          2,
+          "01a2144a9c6a71388dd11a2c3630aac4",
+          0,
+          11568,
+          243
+        ],
+        [
+          3,
+          "01a2144ab314718586ab43837f4937d5",
+          0,
+          15485,
+          919
+        ],
+        [
+          4,
+          "01a2144ada5c7649b7a69fc3c6718e4b",
+          0,
+          19186,
+          344
+        ],
+        [
+          5,
+          "01a2144af3a976f6aa5f1185a2b566c6",
+          0,
+          20666,
+          305
+        ],
+        [
+          6,
+          "01a2144b13437ab3818fc42562fa3977",
+          0,
+          21233,
+          210
+        ],
+        [
+          7,
+          "01a2144b2b4c7b56888c5cf32da88ddc",
+          0,
+          21878,
+          1400
+        ],
+        [
+          8,
+          "01a2144b5ad47c33a68f82164009c04c",
+          0,
+          24898,
+          321
+        ],
+        [
+          9,
+          "01a2144b7368785d943818ef6f82816a",
+          0,
+          28536,
+          197
+        ],
+        [
+          10,
+          "01a2144b8d38710db0c5fcf77cc88716",
+          0,
+          30345,
+          144
+        ],
+        [
+          11,
+          "01a2144ba2b2765da267da238e210e37",
+          0,
+          31623,
+          2446
+        ],
+        [
+          12,
+          "01a2144bf81c7b8a89751ed2cc4e6506",
+          0,
+          34526,
+          156
+        ],
+        [
+          13,
+          "01a2144c13bb764083683e8463396fb3",
+          0,
+          34959,
+          152
+        ],
+        [
+          14,
+          "01a2144c38217d929d1efcd7810867f1",
+          0,
+          35256,
+          887
+        ],
+        [
+          15,
+          "01a2144c6c3c74d082b1d73116d04667",
+          0,
+          36916,
+          1150
+        ],
+        [
+          16,
+          "01a2144c9e2d71edb390f2ce6f462ee4",
+          0,
+          38156,
+          119
+        ],
+        [
+          17,
+          "01a2144cb9f9787d93c0bd30995e8f9e",
+          0,
+          38775,
+          491
+        ],
+        [
+          18,
+          "01a2144cd8ba713a853bff4e5804e8e4",
+          0,
+          39361,
+          245
+        ],
+        [
+          19,
+          "01a2144cf07b72e8b6b77af83e7d91be",
+          0,
+          39722,
+          859
+        ],
+        [
+          20,
+          "01a2144d12b97e969fe734ef24b865a9",
+          0,
+          40699,
+          148
+        ],
+        [
+          21,
+          "01a2144d2ab871f79388f1c0a3cced58",
+          0,
+          41317,
+          141
+        ],
+        [
+          22,
+          "01a2144d44e07ad39327a7130b71a7cd",
+          0,
+          41780,
+          185
+        ],
+        [
+          23,
+          "01a2144dc179771899ca7c9b9e29084b",
+          0,
+          45076,
+          743
+        ],
+        [
+          24,
+          "01a2144debc8741385e696b8060e6150",
+          0,
+          46194,
+          829
+        ],
+        [
+          25,
+          "01a2144e20967fcc91efdb2e6891a2c2",
+          0,
+          47469,
+          149
+        ],
+        [
+          26,
+          "01a2144e3f4c7c108e0762f561d7a24d",
+          0,
+          48116,
+          91
+        ],
+        [
+          27,
+          "01a2144e54d57854a58f2722cebb9b65",
+          0,
+          48531,
+          103
+        ]
+      ],
+      "input_tokens": 892839,
+      "output_tokens": 13156,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "f2c526a118b82427ad6a44a0020b1d3f753b17bc30d5af4a6108f1f7d72ca987",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-issue": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "85351583ec303464086f95239bc08a5da10cf5f7d52733b200de1560f6336c67  src/_pytest/skipping.py\n"
+          }
+        },
+        "elapsed_seconds": 256.74073754192796
+      },
+      "controller_event_counts": {
+        "candidate_operation": 9,
+        "candidate_saved": 2,
+        "verification": 2,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "f2c526a118b82427ad6a44a0020b1d3f753b17bc30d5af4a6108f1f7d72ca987",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "f2c526a118b82427ad6a44a0020b1d3f753b17bc30d5af4a6108f1f7d72ca987",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "f2c526a118b82427ad6a44a0020b1d3f753b17bc30d5af4a6108f1f7d72ca987",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "f2c526a118b82427ad6a44a0020b1d3f753b17bc30d5af4a6108f1f7d72ca987",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        ".course-public-check/test_public_issue.py",
+        "src/_pytest/skipping.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 2,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 78,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED testing/test_skipping.py::test_xfail_item",
+          "PASSED testing/test_skipping.py::test_module_level_skip_error",
+          "PASSED testing/test_skipping.py::test_module_level_skip_with_allow_module_level",
+          "PASSED testing/test_skipping.py::test_invalid_skip_keyword_parameter",
+          "PASSED testing/test_skipping.py::test_mark_xfail_item",
+          "PASSED testing/test_skipping.py::test_summary_list_after_errors",
+          "PASSED testing/test_skipping.py::test_relpath_rootdir",
+          "============================== 81 passed in 2.41s =============================="
+        ]
+      },
+      "tools_count": 23,
+      "nonzero_tools": [],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 23,
+        "save": 2,
+        "verify": 2
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 15,
+          "command_prefix": "cd /testbed && curl -fsSL --max-time 12 https://raw.githubusercontent.com/pytest-dev/pytest/6.0.1/src/_pytest/skipping.py 2>/tmp/curl.err | sed -n '240,290p' || { echo 'network unavailable'; cat /tmp/curl.err; }",
+          "command_sha256": "fc8d7c60a47fe09626478db6461eac545bc7003cbf5fccf0e97b76b0d03a2444"
+        },
+        {
+          "tool": 16,
+          "command_prefix": "cd /testbed && curl -fsSL --max-time 12 -o /tmp/skipping-6.0.1.py https://raw.githubusercontent.com/pytest-dev/pytest/6.0.1/src/_pytest/skipping.py; echo \"curl_exit=$?\"; wc -l /tmp/skipping-6.0.1.py 2>/dev/null; grep -n -A28 -B6 \"def pytest_runtest_call\" /tmp/skipping-6.0.1.py 2>/dev/null || true",
+          "command_sha256": "350fdeccfa0a50dcec764a0959e32c73748342a6062a7986da7fd9f0ea299a9e"
+        }
+      ],
+      "source_sha256": {
+        "instruction.txt": "f8b42c8982f0090723284a8709bbb88e8a3e5e36e843727ba8c5a89238714dd6",
+        "checkout.json": "d5ca656e71dd65eff9c8bd8e08d688fcb8573c4a98e3239eee0683a9dc6826c2",
+        "execution-budget.json": "2dfbbcdec839b99cd64cebe0f774ba88c00250067d1056c7a817d183075dd5eb",
+        "agent.json": "06f5fd12cec8d9541631fbf570e57e75f1504f50c8c4ac7c710597f419184568",
+        "result.json": "758f686610be73771a2d3a3c18d182fa262f7cb2e0af341a55d7e6f6ec311732",
+        "trial.json": "8a0a961b93271534e577f94f3c7ade1794015d3a538c240f3cbf2eb3eacbcfe6",
+        "model.jsonl": "38504dd0176bf1fa67cfeb5543554db533bd4522899e1d2faf00013c011c9497",
+        "controller.jsonl": "39884d3f17438339f462a596ad0c1b715e11fb9fc765e9875b2f94d838a140b2",
+        "final-verification.json": "d50ee55e2d11224133f92fb840fd6b3f4d1f1970e3f6a79bee8c54a05ba51696",
+        "candidates/candidate-002.json": "a8643cd543265ded09e209bbb8c9c193089a07fbfde1431d041da97a82d41bef",
+        "candidates/candidate-001.json": "e2cea3b1f16d283b59353f8f1a4d239370d1957ad5f204cd83c2c6bfd676e655",
+        "candidate.patch": "6a0f4c78e0f153784bc23e3231d3bcd3294e7faf567ac4fbc74056e9329fa87a",
+        "swe-official/pytest-dev__pytest-7490-C0-r1/course-mini-swe-agent/pytest-dev__pytest-7490/patch.diff": "6a0f4c78e0f153784bc23e3231d3bcd3294e7faf567ac4fbc74056e9329fa87a",
+        "swe-official/pytest-dev__pytest-7490-C0-r1/course-mini-swe-agent/pytest-dev__pytest-7490/report.json": "49465f0d1a72efd381837314cb7d5e0011b7bd0c1b3e2df6383ffbca152556ba",
+        "swe-official/pytest-dev__pytest-7490-C0-r1/course-mini-swe-agent/pytest-dev__pytest-7490/test_output.txt": "83a83f93cc376e431d23a72372aea7b5941b94daf712f2e0969887e67c4dc6c3",
+        "swe-official/pytest-dev__pytest-7490-C0-r1/course-mini-swe-agent/pytest-dev__pytest-7490/run_instance.log": "97df0177c63fc9ff7de2da816fbaf623ebe4030e66f2f0647d495bb08569f7a8",
+        "swe-official/pytest-dev__pytest-7490-C0-r1/course-mini-swe-agent/pytest-dev__pytest-7490/eval.sh": "a2876e477856dcfecfeb82797775b8ebf4b33ff59638e56ad3edb3ccf37f7a38",
+        "tools.jsonl": "a251580d649a42aa6fca8621e2061f708b60ed551dc93f8833db5d6fd1cb1da2"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures,individual fresh-own usage receipts,all tool command structures and meaningful output/error summaries,complete candidate and original-grader patches,controller/currentness and artifact byte links were reviewed. Model reasoning and long irrelevant package inventories were not read word-for-word.",
+      "protocol_sha256": "95d63820e13b8a276cb52f63934af233ed1cb4122eea48dae42367f08742c41e",
+      "control_applicability": "Original v18 C0: preserve actual current public/protection result;save is not a qualification requirement in this old runtime.",
+      "currentness_link": {
+        "arm": "main",
+        "task": "pytest-dev__pytest-7490",
+        "final_digest": "f2c526a118b82427ad6a44a0020b1d3f753b17bc30d5af4a6108f1f7d72ca987",
+        "matching_verification_steps": [
+          16,
+          25
+        ],
+        "candidate_saved_records": 2
+      },
+      "native_artifact_byte_links": [],
+      "runtime_generated_patch_file": {
+        "arm": "main",
+        "runtime_generated_fixture_bytes": 129,
+        "source_sha256": "a1c36d26f31bc0ae15a19418d725c98ed9765c152366a7a41acc19d8b8d7974e",
+        "exact_registered_template": true,
+        "saved_candidate_file_keys": [
+          {
+            "id": "candidate-002",
+            "files": [
+              "src/_pytest/skipping.py"
+            ]
+          },
+          {
+            "id": "candidate-001",
+            "files": [
+              "src/_pytest/skipping.py"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "arm": "main",
+      "task": "sparql-university",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/sparql-university-C0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 187.313526416081,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795637658.5658822,
+        "native_session_id": "f822b5d8-217c-49bd-89b3-b9b9c89e6566",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "414eae2e0ba663fd474d35ddbd739f3384727f8ef572546cab357188ffedc6f6"
+      },
+      "event_counts": {
+        "request": 14,
+        "cli_process_started": 14,
+        "response": 14,
+        "billing_verified": 14
+      },
+      "native_sessions": [
+        "f822b5d8-217c-49bd-89b3-b9b9c89e6566"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a214584d9a7417b86154382aab45ea",
+          0,
+          5505,
+          204
+        ],
+        [
+          2,
+          "01a21458648d78d881a4db421884b9cb",
+          0,
+          8687,
+          496
+        ],
+        [
+          3,
+          "01a214588129784890e37e29033fd9e0",
+          0,
+          12176,
+          4280
+        ],
+        [
+          4,
+          "01a21458e0b17d6591209187fcd5efcd",
+          0,
+          17429,
+          270
+        ],
+        [
+          5,
+          "01a21458f8d1753e9165f163bbb20f88",
+          0,
+          17963,
+          1174
+        ],
+        [
+          6,
+          "01a21459235379599990432b6f392caf",
+          0,
+          19371,
+          441
+        ],
+        [
+          7,
+          "01a214595fc97f39a85e2359c3a229e9",
+          0,
+          20527,
+          2984
+        ],
+        [
+          8,
+          "01a21459a2337e73818a5b8b712b3752",
+          0,
+          24486,
+          2941
+        ],
+        [
+          9,
+          "01a21459eb13756dbe1ef45556ba7867",
+          0,
+          27665,
+          1281
+        ],
+        [
+          10,
+          "01a2145a117e7fa08bebe0200f871a97",
+          0,
+          29216,
+          712
+        ],
+        [
+          11,
+          "01a2145a30827b7c962bafab4aedae8b",
+          0,
+          31666,
+          2921
+        ],
+        [
+          12,
+          "01a2145a74847cb9b850643760c024fe",
+          0,
+          34954,
+          188
+        ],
+        [
+          13,
+          "01a2145a91ec7fde9d1e2232bc74d7df",
+          0,
+          35490,
+          811
+        ],
+        [
+          14,
+          "01a2145ab4b77a80a95667b404285120",
+          0,
+          36611,
+          160
+        ]
+      ],
+      "input_tokens": 321746,
+      "output_tokens": 18863,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "594b11cdd2806e64ca1884f96537feba2876a0da176c8e2a875157c6ec192ae9",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-artifact": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "b0e576420e9d050b0a9f4ecb7dc0b31c2dff73c3a4f9738010b2f98410018af4  /app/solution.sparql\n"
+          }
+        },
+        "elapsed_seconds": 164.98255062499084
+      },
+      "controller_event_counts": {
+        "candidate_operation": 6,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "594b11cdd2806e64ca1884f96537feba2876a0da176c8e2a875157c6ec192ae9",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "acb8da48e5465914172e2e7900bcd4dbd0983a27f187dcc05f300904e9828b68",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "594b11cdd2806e64ca1884f96537feba2876a0da176c8e2a875157c6ec192ae9",
+          "eligible": true
+        }
+      ],
+      "native_capture": {
+        "registered": true,
+        "artifacts": [
+          {
+            "source": "/app/solution.sparql",
+            "status": "ok",
+            "type": "file",
+            "path": "sparql-university__4RrxB9m/artifacts/app/solution.sparql",
+            "sha256": "b0e576420e9d050b0a9f4ecb7dc0b31c2dff73c3a4f9738010b2f98410018af4",
+            "bytes": 2056,
+            "sha_present_in_final_public_snapshot": true
+          }
+        ],
+        "model_requests_by_capture": 0
+      },
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "test_outputs.py::test_sparql_runs_without_error",
+          "test_outputs.py::test_sparql_runs_without_error",
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_sparql_file_exists",
+          "PASSED ../tests/test_outputs.py::test_sparql_runs_without_error",
+          "PASSED ../tests/test_outputs.py::test_sparql_query_results",
+          "======================= 3 passed, 581 warnings in 1.23s ========================"
+        ]
+      },
+      "tools_count": 10,
+      "nonzero_tools": [
+        3,
+        5,
+        6
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 10,
+        "save": 2,
+        "verify": 1,
+        "submit": 1
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 3,
+          "command_prefix": "cat > /app/solution.sparql <<'EOF'\nPREFIX uni: <http://university.org/ontology/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?professorName (GROUP_CONCAT(DISTINCT ?country; separator=\", \") AS ?countries)\nWHERE {\n  ?professor a uni:Person ;\n             uni:hasName ?professorName ;\n             uni:role ?role .\n\n  # A full professor: \"Professor ...\" but not Assistant/Associate/etc.\n  FI",
+          "command_sha256": "cef1db061c8dc366611d45bb1fd55f0db7f9a861c87090cc7f5f431354879b4a"
+        },
+        {
+          "tool": 4,
+          "command_prefix": "set +e\nprintf '%s\\n' '--- package managers / interpreters ---'\nfor x in pip3 python3 python node npm bundle gem apt-get wget curl git; do printf '%-10s ' \"$x\"; command -v \"$x\" || echo NO; done\nprintf '%s\\n' '--- python pip module ---'\npython3 -m pip --version 2>&1 | head -n 3\nprintf '%s\\n' '--- search for rdflib bundles ---'\nfind /usr /opt /root -maxdepth 6 -type d -name 'rdflib' 2>/dev/null | hea",
+          "command_sha256": "667b157de945df4474ea59fcd5bf511c5c30710476deb209683afde8a9b5966c"
+        },
+        {
+          "tool": 6,
+          "command_prefix": "cat > /app/solution.sparql <<'EOF'\nPREFIX uni: <http://university.org/ontology/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?professorName (GROUP_CONCAT(DISTINCT ?country; separator=\", \") AS ?countries)\nWHERE {\n  ?professor a uni:Person ;\n             uni:hasName ?professorName ;\n             uni:role ?role .\n\n  # A full professor: \"Professor ...\" but not Assistant/Associate/etc.\n  FI",
+          "command_sha256": "29b117103d9ffe0c655ae1ce38e55e0d1ebec0d3c03c1925d1c02c509c439d45"
+        }
+      ],
+      "source_sha256": {
+        "result.json": "43b725f2c6e5d91c56b99d00834f72ee381b63a7d132119e61e455020b29ffa6",
+        "trial.json": "ce588c4c6bd22b72ce6114acc6bbccd208588c09e586b8ebb365851e8f0a0439",
+        "sparql-university__4RrxB9m/agent/model.jsonl": "4a64563fd7ebb0b6b774ebfb145c935317d05762b1a79a4d7ed61fd51cd7e8da",
+        "sparql-university__4RrxB9m/agent/controller.jsonl": "690b676e9d53755f886803d52a32386a445b6401818c69342a63f6a981275db7",
+        "sparql-university__4RrxB9m/agent/final-verification.json": "113cd6798f639180a4808188be65a69bf65d4076f7359dfd51487edefc013c93",
+        "sparql-university__4RrxB9m/agent/candidates/candidate-002.json": "27efe2a65f50bcdeb6ad93dc613ef69e892668a6abe4356aa0af642c795fa5ef",
+        "sparql-university__4RrxB9m/agent/candidates/candidate-001.json": "19adc3c968092aa339f76545018e53cc45ceb7ddda9354ac8c96a972589af1a7",
+        "artifact-capture.json": "43c3105b96b410d0775cce3b94fa9f4912c6d7ba11f10b4dff7dde7d4ab24ec5",
+        "artifact-capture-config.json": "4a081b7f10d21dc08084faf8621702f011e2c5904b740a41f0b466e2e90b34aa",
+        "sparql-university__4RrxB9m/artifacts/manifest.json": "5654dfc60a6d14494690eba87013cc9f362eed8ffc73cdd7dbd6b8367e92b426",
+        "sparql-university__4RrxB9m/artifacts/app/solution.sparql": "b0e576420e9d050b0a9f4ecb7dc0b31c2dff73c3a4f9738010b2f98410018af4",
+        "sparql-university__4RrxB9m/result.json": "f90aff6942a3f6183d994c1674551d4141ab76af00c3d07f8af3efa09696401a",
+        "sparql-university__4RrxB9m/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "sparql-university__4RrxB9m/verifier/test-stdout.txt": "3e39a640334d6160a85a25f48d8064a80ac71b87614e48936b759ce53b87f2ba",
+        "sparql-university__4RrxB9m/agent/tools.jsonl": "983c127aa40b64a6347b6618cb9078c97529c6c799be4d2f2da2f7d8bba4d461",
+        "sparql-university/instruction.md": "22eeab47d3b27b06df2627b3c21cfbd579ed7dcc85ebcb7c4b3a241c3c35f449"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures,individual fresh-own usage receipts,all tool command structures and meaningful output/error summaries,complete candidate and original-grader patches,controller/currentness and artifact byte links were reviewed. Model reasoning and long irrelevant package inventories were not read word-for-word.",
+      "protocol_sha256": "31d812cc603e0e993f84afad98a34df2b1c59d9c3880f01bcf9ad380dd295056",
+      "control_applicability": "Original v18 C0: preserve actual current public/protection result;save is not a qualification requirement in this old runtime.",
+      "currentness_link": {
+        "arm": "main",
+        "task": "sparql-university",
+        "final_digest": "594b11cdd2806e64ca1884f96537feba2876a0da176c8e2a875157c6ec192ae9",
+        "matching_verification_steps": [
+          12
+        ],
+        "candidate_saved_records": 2
+      },
+      "native_artifact_byte_links": [
+        {
+          "arm": "main",
+          "task": "sparql-university",
+          "source": "/app/solution.sparql",
+          "sha256": "b0e576420e9d050b0a9f4ecb7dc0b31c2dff73c3a4f9738010b2f98410018af4",
+          "bytes": 2056,
+          "matches_final_public_snapshot": true,
+          "matching_saved_candidate_files": [
+            {
+              "candidate": "sparql-university__4RrxB9m/agent/candidates/candidate-002.json",
+              "eligible": true,
+              "mode": 438
+            }
+          ],
+          "saved_candidate_limit": null
+        }
+      ]
+    },
+    {
+      "arm": "repeat",
+      "task": "pytest-dev__pytest-7490",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pytest-dev__pytest-7490-C0-r2",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 358.7338770420756,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795635012.592065,
+        "native_session_id": "b4aada6e-85ec-470f-8e8b-1794390c6734",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "ad8aff50d2de9c88df119b1c7c32c01048dbdc4b6e05d59c03fc6df3013439dd"
+      },
+      "event_counts": {
+        "request": 24,
+        "cli_process_started": 24,
+        "response": 24,
+        "billing_verified": 24
+      },
+      "native_sessions": [
+        "b4aada6e-85ec-470f-8e8b-1794390c6734"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a2142feee2796c9ba919ada28b63de",
+          0,
+          10568,
+          246
+        ],
+        [
+          2,
+          "01a21430078b714e8bc8d66b2a32b94c",
+          0,
+          12267,
+          266
+        ],
+        [
+          3,
+          "01a214301e9f7290a0aa22035fc0ed4d",
+          0,
+          16185,
+          649
+        ],
+        [
+          4,
+          "01a214303e87731e85c81158e2f8cbbb",
+          0,
+          18360,
+          262
+        ],
+        [
+          5,
+          "01a21430559a7a0faaefe9bb7f6aae22",
+          0,
+          21876,
+          602
+        ],
+        [
+          6,
+          "01a21430773b7f859e9bdedb2a33e9ba",
+          0,
+          25641,
+          323
+        ],
+        [
+          7,
+          "01a214309062797c85d1596ee924dcda",
+          0,
+          27783,
+          417
+        ],
+        [
+          8,
+          "01a21430aa4c702a9ca84209c61d205c",
+          0,
+          28335,
+          196
+        ],
+        [
+          9,
+          "01a21430c3a97aa79f204e0342c1b36a",
+          0,
+          29066,
+          220
+        ],
+        [
+          10,
+          "01a21430fe407022bce34d4ef310c5d0",
+          0,
+          30343,
+          333
+        ],
+        [
+          11,
+          "01a214311c797bcd98f4d07dfb906744",
+          0,
+          30937,
+          204
+        ],
+        [
+          12,
+          "01a2143134667579b2180ccaecb39e23",
+          0,
+          31384,
+          230
+        ],
+        [
+          13,
+          "01a214314c3e71c69b8302ab11ec14e3",
+          0,
+          31961,
+          566
+        ],
+        [
+          14,
+          "01a21431693e7f818106145e51a3bad9",
+          0,
+          33141,
+          1975
+        ],
+        [
+          15,
+          "01a21431a16e7d9b87df7949751c431b",
+          0,
+          35580,
+          132
+        ],
+        [
+          16,
+          "01a21431b7037b6eb9eb50e2ff2183cb",
+          0,
+          35965,
+          387
+        ],
+        [
+          17,
+          "01a21431d3ac7d759aad680c278ef102",
+          0,
+          36624,
+          788
+        ],
+        [
+          18,
+          "01a21431f9937399b2f8a79e9e8e9a71",
+          0,
+          38003,
+          172
+        ],
+        [
+          19,
+          "01a214321db57861bce1bc99b3494ec8",
+          0,
+          38316,
+          656
+        ],
+        [
+          20,
+          "01a2143244f57c94a6038783a6828da2",
+          0,
+          39480,
+          520
+        ],
+        [
+          21,
+          "01a21432774f7486ba8e73f23026c9d8",
+          0,
+          40725,
+          204
+        ],
+        [
+          22,
+          "01a2143463697b6ea8f3a9a28ea96fa5",
+          0,
+          41024,
+          209
+        ],
+        [
+          23,
+          "01a2143496297e0ebe89d75025ce6a2c",
+          0,
+          41434,
+          160
+        ],
+        [
+          24,
+          "01a21434ad25766ca62254a2f27d6daa",
+          0,
+          41921,
+          855
+        ]
+      ],
+      "input_tokens": 736919,
+      "output_tokens": 10572,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "dfffee935e97b20e1835e9ff27e9fb8cdb70d6153c86c5ebb47d901fcb928086",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-issue": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "64f5b4b0173a8e651c6f0724b21f6e125a4384f03da429bf60b97faffd204fbb  src/_pytest/skipping.py\n"
+          }
+        },
+        "elapsed_seconds": 324.2730907080695
+      },
+      "controller_event_counts": {
+        "candidate_operation": 7,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "dfffee935e97b20e1835e9ff27e9fb8cdb70d6153c86c5ebb47d901fcb928086",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "dfffee935e97b20e1835e9ff27e9fb8cdb70d6153c86c5ebb47d901fcb928086",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "dfffee935e97b20e1835e9ff27e9fb8cdb70d6153c86c5ebb47d901fcb928086",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "dfffee935e97b20e1835e9ff27e9fb8cdb70d6153c86c5ebb47d901fcb928086",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        ".course-public-check/test_public_issue.py",
+        "src/_pytest/skipping.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 2,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 78,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED testing/test_skipping.py::test_xfail_item",
+          "PASSED testing/test_skipping.py::test_module_level_skip_error",
+          "PASSED testing/test_skipping.py::test_module_level_skip_with_allow_module_level",
+          "PASSED testing/test_skipping.py::test_invalid_skip_keyword_parameter",
+          "PASSED testing/test_skipping.py::test_mark_xfail_item",
+          "PASSED testing/test_skipping.py::test_summary_list_after_errors",
+          "PASSED testing/test_skipping.py::test_relpath_rootdir",
+          "============================== 81 passed in 2.42s =============================="
+        ]
+      },
+      "tools_count": 21,
+      "nonzero_tools": [
+        6,
+        19
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 21,
+        "save": 2,
+        "verify": 1
+      },
+      "tool_screen_flags": [],
+      "source_sha256": {
+        "instruction.txt": "f8b42c8982f0090723284a8709bbb88e8a3e5e36e843727ba8c5a89238714dd6",
+        "checkout.json": "d5ca656e71dd65eff9c8bd8e08d688fcb8573c4a98e3239eee0683a9dc6826c2",
+        "execution-budget.json": "13d69823bbc49f6b34629018f9674ed60a9c74cecf7bc5fd08050b2626fc1a9e",
+        "agent.json": "1cec0e859b2a12d472b3d91e53a992bb641c90094c32a63fa8ff8178be88ca0e",
+        "result.json": "0b05f1e320d7d11eefab3669735c25686237d8caee49687a7b9accdd91bd9c25",
+        "trial.json": "8a0a961b93271534e577f94f3c7ade1794015d3a538c240f3cbf2eb3eacbcfe6",
+        "model.jsonl": "074849178597f204a07b5d44ac000c88dc6afb95b3511c0588be8c14f87d5110",
+        "controller.jsonl": "f4354fa662d7c649b7dc75422b63ae79d784e3fc3856775c7e7f2720cc2d46a6",
+        "final-verification.json": "571cb2d1b0206f78bd639ec492f6c9fb8945d0c709a77f4a541aa8eb457d57bc",
+        "candidates/candidate-002.json": "36f92e2c962298c7bfa6330220ba8b3b3eee48b0acbc862154612733810fad27",
+        "candidates/candidate-001.json": "12dbc84c495715473aff3791bb954dcd299f7f320b33c7bceab2f28f45ad1bfb",
+        "candidate.patch": "d4fbd0925028abd715d9e6591c72001a93a327a1fd4466d9a244b0096d940ea3",
+        "swe-official/pytest-dev__pytest-7490-C0-r2/course-mini-swe-agent/pytest-dev__pytest-7490/patch.diff": "d4fbd0925028abd715d9e6591c72001a93a327a1fd4466d9a244b0096d940ea3",
+        "swe-official/pytest-dev__pytest-7490-C0-r2/course-mini-swe-agent/pytest-dev__pytest-7490/report.json": "49465f0d1a72efd381837314cb7d5e0011b7bd0c1b3e2df6383ffbca152556ba",
+        "swe-official/pytest-dev__pytest-7490-C0-r2/course-mini-swe-agent/pytest-dev__pytest-7490/test_output.txt": "7a9b9397a7c4f9b1893ebc92a30a625b86807d914787b15e585a16483d3a0485",
+        "swe-official/pytest-dev__pytest-7490-C0-r2/course-mini-swe-agent/pytest-dev__pytest-7490/run_instance.log": "42ab47fd4b40d530c662203d575b13e5e46cdf151641d7ef02bde8db62ced067",
+        "swe-official/pytest-dev__pytest-7490-C0-r2/course-mini-swe-agent/pytest-dev__pytest-7490/eval.sh": "a2876e477856dcfecfeb82797775b8ebf4b33ff59638e56ad3edb3ccf37f7a38",
+        "tools.jsonl": "022357b359c782e7014463ad6fbaea594e46ab781c3999cd4ec74ae891456b96"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures,individual fresh-own usage receipts,all tool command structures and meaningful output/error summaries,complete candidate and original-grader patches,controller/currentness and artifact byte links were reviewed. Model reasoning and long irrelevant package inventories were not read word-for-word.",
+      "protocol_sha256": "95d63820e13b8a276cb52f63934af233ed1cb4122eea48dae42367f08742c41e",
+      "control_applicability": "Original v18 C0: preserve actual current public/protection result;save is not a qualification requirement in this old runtime.",
+      "currentness_link": {
+        "arm": "repeat",
+        "task": "pytest-dev__pytest-7490",
+        "final_digest": "dfffee935e97b20e1835e9ff27e9fb8cdb70d6153c86c5ebb47d901fcb928086",
+        "matching_verification_steps": [
+          19
+        ],
+        "candidate_saved_records": 2
+      },
+      "native_artifact_byte_links": [],
+      "runtime_generated_patch_file": {
+        "arm": "repeat",
+        "runtime_generated_fixture_bytes": 129,
+        "source_sha256": "a1c36d26f31bc0ae15a19418d725c98ed9765c152366a7a41acc19d8b8d7974e",
+        "exact_registered_template": true,
+        "saved_candidate_file_keys": [
+          {
+            "id": "candidate-002",
+            "files": [
+              "src/_pytest/skipping.py"
+            ]
+          },
+          {
+            "id": "candidate-001",
+            "files": [
+              "src/_pytest/skipping.py"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "arm": "repeat",
+      "task": "sparql-university",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/sparql-university-C0-r2",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 182.35761258297134,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795637535.600676,
+        "native_session_id": "4286f00e-185a-4510-8431-d36acc9ad88a",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "414eae2e0ba663fd474d35ddbd739f3384727f8ef572546cab357188ffedc6f6"
+      },
+      "event_counts": {
+        "request": 16,
+        "cli_process_started": 16,
+        "response": 16,
+        "billing_verified": 16
+      },
+      "native_sessions": [
+        "4286f00e-185a-4510-8431-d36acc9ad88a"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a214566f3a7553b563feb1706109bf",
+          0,
+          5502,
+          211
+        ],
+        [
+          2,
+          "01a2145687c77cecb45d7f4bd3a9c3db",
+          0,
+          7946,
+          143
+        ],
+        [
+          3,
+          "01a214569c8e734b9c1185bb99648232",
+          0,
+          11170,
+          794
+        ],
+        [
+          4,
+          "01a21456c29c7464b1e40b89a9c55af8",
+          0,
+          12802,
+          4810
+        ],
+        [
+          5,
+          "01a21457356b704f9d58574724362d88",
+          0,
+          18466,
+          211
+        ],
+        [
+          6,
+          "01a214577072763aab0a6cb193c3bc90",
+          0,
+          19356,
+          288
+        ],
+        [
+          7,
+          "01a2145787877d51850382137c9d9901",
+          0,
+          19747,
+          1593
+        ],
+        [
+          8,
+          "01a21457bb377da6abb1a36d5330d50e",
+          0,
+          21500,
+          426
+        ],
+        [
+          9,
+          "01a21457d91f74e9a43c22388e1edf09",
+          0,
+          22113,
+          187
+        ],
+        [
+          10,
+          "01a21457f42472a28f3ead521f0ba336",
+          0,
+          23088,
+          390
+        ],
+        [
+          11,
+          "01a214580f9e72969686a1daadd26aac",
+          0,
+          23663,
+          214
+        ],
+        [
+          12,
+          "01a214582efb7535a02f096e77d28c64",
+          0,
+          25175,
+          1374
+        ],
+        [
+          13,
+          "01a214585f0771028b79803323a66ffa",
+          0,
+          27628,
+          536
+        ],
+        [
+          14,
+          "01a214587e5a76af8d2ab55949fead32",
+          0,
+          28383,
+          74
+        ],
+        [
+          15,
+          "01a2145892d276faa709484744f65067",
+          0,
+          28725,
+          66
+        ],
+        [
+          16,
+          "01a21458ac28794a85141765789d8031",
+          0,
+          29142,
+          1374
+        ]
+      ],
+      "input_tokens": 324406,
+      "output_tokens": 12691,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "f245e0f703e3e07921be4d664c487caa51f3ec81f7d287ff1b6f2cf8da7fa408",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-artifact": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "329398a2bdcae7a1e8639d9b86a77d7729f06d0aa9f2bc6453bdcc6a714b9d20  /app/solution.sparql\n"
+          }
+        },
+        "elapsed_seconds": 161.4140089590801
+      },
+      "controller_event_counts": {
+        "candidate_operation": 5,
+        "candidate_saved": 1,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "f245e0f703e3e07921be4d664c487caa51f3ec81f7d287ff1b6f2cf8da7fa408",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "f245e0f703e3e07921be4d664c487caa51f3ec81f7d287ff1b6f2cf8da7fa408",
+          "eligible": false
+        }
+      ],
+      "native_capture": {
+        "registered": true,
+        "artifacts": [
+          {
+            "source": "/app/solution.sparql",
+            "status": "ok",
+            "type": "file",
+            "path": "sparql-university__PrDCUwU/artifacts/app/solution.sparql",
+            "sha256": "329398a2bdcae7a1e8639d9b86a77d7729f06d0aa9f2bc6453bdcc6a714b9d20",
+            "bytes": 2265,
+            "sha_present_in_final_public_snapshot": true
+          }
+        ],
+        "model_requests_by_capture": 0
+      },
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "test_outputs.py::test_sparql_runs_without_error",
+          "test_outputs.py::test_sparql_runs_without_error",
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_sparql_file_exists",
+          "PASSED ../tests/test_outputs.py::test_sparql_runs_without_error",
+          "PASSED ../tests/test_outputs.py::test_sparql_query_results",
+          "======================= 3 passed, 581 warnings in 0.80s ========================"
+        ]
+      },
+      "tools_count": 13,
+      "nonzero_tools": [
+        7,
+        8,
+        10
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 13,
+        "save": 1,
+        "verify": 1,
+        "submit": 1
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 4,
+          "command_prefix": "cat > /app/solution.sparql <<'SPARQL'\nPREFIX uni: <http://university.org/ontology/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n\nSELECT ?professorName (GROUP_CONCAT(DISTINCT ?country; separator=\", \") AS ?countries)\nWHERE {\n  # Professors who satisfy the EU-affiliation and large-department conditions.\n  {\n    SELECT DISTINCT ?professor\n    WHERE {\n      ?professor uni:role ?role .\n      # Only ",
+          "command_sha256": "ba8cec92e0d9529f2c14f5456d797ee6c9f258f31d17e26931c44812c8af276c"
+        }
+      ],
+      "source_sha256": {
+        "result.json": "2be16c58a09cd44bee7d0710c73826b5873ae1ad7735b0f59b151fb17ecc37b9",
+        "trial.json": "ce588c4c6bd22b72ce6114acc6bbccd208588c09e586b8ebb365851e8f0a0439",
+        "sparql-university__PrDCUwU/agent/model.jsonl": "0ea59f725b525b30b1a22eaeb76320578bd8e0dd93134fd49bd8a15d0eeb4d11",
+        "sparql-university__PrDCUwU/agent/controller.jsonl": "3b6ee3f587c859ed37594d6eae3fbfd5082d5d62d1abc1705c4b8e1ba2cea175",
+        "sparql-university__PrDCUwU/agent/final-verification.json": "5ebbeeae4abe89e8bfef1f16bc15739ea4e2879a58d4f918977f52cb75cf89a0",
+        "sparql-university__PrDCUwU/agent/candidates/candidate-001.json": "2b32d2db8c2454d982821ea87e327b4e5f913c0cd1254648f27204d9657c92c9",
+        "artifact-capture.json": "3ba63fe516c175e5f99b6f46adc9d1d865f340349906e1b062b7c8f909c753fc",
+        "artifact-capture-config.json": "eaf112c14aaa00e4612ccb0a2391bd42a767f2c05a53e920be4bd960ae67a2a2",
+        "sparql-university__PrDCUwU/artifacts/manifest.json": "5654dfc60a6d14494690eba87013cc9f362eed8ffc73cdd7dbd6b8367e92b426",
+        "sparql-university__PrDCUwU/artifacts/app/solution.sparql": "329398a2bdcae7a1e8639d9b86a77d7729f06d0aa9f2bc6453bdcc6a714b9d20",
+        "sparql-university__PrDCUwU/result.json": "68b8ca5285a49c86fd1e86fc4895a2910da302e04f6f2039968e8c316a9825af",
+        "sparql-university__PrDCUwU/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "sparql-university__PrDCUwU/verifier/test-stdout.txt": "c243abfa1017f60a8ddcc7c39199ee1c2d864e869bf088ceecd2b859e5a4e144",
+        "sparql-university__PrDCUwU/agent/tools.jsonl": "7c91685c3f4c87eb5309b710c01bed3a03e04fdc890de4b7128cf17cbc2d4a81",
+        "sparql-university/instruction.md": "22eeab47d3b27b06df2627b3c21cfbd579ed7dcc85ebcb7c4b3a241c3c35f449"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures,individual fresh-own usage receipts,all tool command structures and meaningful output/error summaries,complete candidate and original-grader patches,controller/currentness and artifact byte links were reviewed. Model reasoning and long irrelevant package inventories were not read word-for-word.",
+      "protocol_sha256": "31d812cc603e0e993f84afad98a34df2b1c59d9c3880f01bcf9ad380dd295056",
+      "control_applicability": "Original v18 C0: preserve actual current public/protection result;save is not a qualification requirement in this old runtime.",
+      "currentness_link": {
+        "arm": "repeat",
+        "task": "sparql-university",
+        "final_digest": "f245e0f703e3e07921be4d664c487caa51f3ec81f7d287ff1b6f2cf8da7fa408",
+        "matching_verification_steps": [
+          15
+        ],
+        "candidate_saved_records": 1
+      },
+      "native_artifact_byte_links": [
+        {
+          "arm": "repeat",
+          "task": "sparql-university",
+          "source": "/app/solution.sparql",
+          "sha256": "329398a2bdcae7a1e8639d9b86a77d7729f06d0aa9f2bc6453bdcc6a714b9d20",
+          "bytes": 2265,
+          "matches_final_public_snapshot": true,
+          "matching_saved_candidate_files": [
+            {
+              "candidate": "sparql-university__PrDCUwU/agent/candidates/candidate-001.json",
+              "eligible": false,
+              "mode": 438
+            }
+          ],
+          "saved_candidate_limit": null
+        }
+      ]
+    }
+  ],
+  "shared_source_sha256": {
+    "work/parallel-free-evaluation-20261124/hy4-snapshot-0423-20261126/summary.json": "f54c91fd310a4eba52438476472c6d885fbc782f6ef584fff261514d2ce153a4",
+    "work/parallel-free-evaluation-20261124/independent-closed177-review-20261126.json": "cb1dfd62c93b21771f35ed4ab527668e18d575593ea17fdfe90d5a7f8ce88df1",
+    "work/parallel-free-evaluation-20261124/independent-core-after177-incremental-20261126.json": "95581af5dbbd37b11bc24a0c9a0b1b989fe80b2ba4d346c6d38e1efc03add715",
+    "work/parallel-free-evaluation-20261124/independent-core-after187-incremental-20261126.json": "b9a91501391ad5a0bd20a042ddea7162696fcf0d593a2f4db378b8268326c2ff",
+    "work/sklearn-25232-semantics-20261126/completed-review.json": "ee70b77ba884f073c2400cb20ce20999befe266a4e7db16b02e81461728fb36a",
+    "work/xarray-4695-preservation-20261126/completed-review.json": "97f92aa9b5aadf1327fc22648a1e7084076293ae39ec8f19cc60b353b88b1d27",
+    "work/free-recovery35-20261126/hy4-plans/main-plan.json": "ac01bbdef1ef007b5f959d7b6673cfe033d47aad14729979465722015bcbdcba",
+    "work/free-recovery35-20261126/hy4-plans/repeat-plan.json": "b430c029ac373ab5ae1cd83bdc195353dd24cdeff1341f3f347eeac77e29d32a",
+    "work/free-recovery35-20261126/hy4-plans/tasks.json": "756f111c06a2d757c3034dd6134abbefa454d5371e5153e6afcaabd1bd3a8be2",
+    "work/free-recovery35-20261126/hy4-plans/checks.json": "8f1b3a87b197a93c3f4441095495dc3a835bb8f29712336949767a92e308dff4",
+    "work/vmshare/performance75-dsh-hy4-v10/tasks.json": "500e27356f70e58dfe394828e698c43cce331a0a7aa8bb8bc4f4effd8ce4a13c",
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/codebuddy_free.py": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+    "work/vmshare/performance75-dsh-hy4-v10/pydata__xarray-7393-B0-r1.protocol.json": "086f34d8c35422ef05917bc524fb09560cc2bf1c1e8b90a0398a8c963ae0c4af",
+    "work/vmshare/performance75-dsh-hy4-v10/pytest-dev__pytest-7490-B0-r1.protocol.json": "05fb7372fa6664598c265cd51b7879d4903e0b48eb42ada6a0b5c45d3ce8835f",
+    "work/vmshare/performance75-dsh-hy4-v10/sparql-university-B0-r1.protocol.json": "7b44ad21825a473ee51fa3137ef0be175196a3a1b363845c7e954cbc99be0a2a",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/resolved-inputs/password-recovery.json": "17e2828a1d5f4926a391c7c58ffe4ea7d460634d51173f4b7f76b46429e12340",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/password-recovery-C0-r1.protocol.json": "4bee912306fbab0db23cea9a5a2b9b6af7953aea361023bfb301c2d45f014627",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pydata__xarray-7393-C0-r1.protocol.json": "f4a1339724d1c6d6ec1fe94e441153e356f2b936f4cba6ce4fb97fdb532ce5d3",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pytest-dev__pytest-7490-C0-r1.protocol.json": "95d63820e13b8a276cb52f63934af233ed1cb4122eea48dae42367f08742c41e",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/resolved-inputs/sparql-university.json": "3fc0a0a01101335edd3b1f45193b816f21ecb6a6f29889280990ce730905dd71",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/sparql-university-C0-r1.protocol.json": "31d812cc603e0e993f84afad98a34df2b1c59d9c3880f01bcf9ad380dd295056",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pytest-dev__pytest-7490-C0-r2.protocol.json": "95d63820e13b8a276cb52f63934af233ed1cb4122eea48dae42367f08742c41e",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/resolved-inputs/sparql-university.json": "3fc0a0a01101335edd3b1f45193b816f21ecb6a6f29889280990ce730905dd71",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/sparql-university-C0-r2.protocol.json": "31d812cc603e0e993f84afad98a34df2b1c59d9c3880f01bcf9ad380dd295056"
+  }
+}

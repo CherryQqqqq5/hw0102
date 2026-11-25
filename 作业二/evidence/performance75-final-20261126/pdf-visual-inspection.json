@@ -1,0 +1,53 @@
+{
+  "pdfs": [
+    {
+      "sha256": "31e35af29d6683dbd89e4404db6f232e19e0fde0459add0adb799dd45fb404a7",
+      "pages": 6
+    },
+    {
+      "sha256": "db573c37b56506643ff28b8d340572506bec7c860727f7f91de7c25a6ac90a52",
+      "pages": 15
+    }
+  ],
+  "pages_visually_inspected": {
+    "assignment1": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "assignment2": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ]
+  },
+  "contact_sheet_sha256": {
+    "work/final75-pdf-qa-20261126/assignment-1-contact-1.png": "0e5c9a27317b93fd481336109e413a65775f66f4ba10a084fd04c787269e87b4",
+    "work/final75-pdf-qa-20261126/assignment-1-contact-2.png": "294c6b32cb71d41fedcbc634edf5c2d10b12284ebcafee512c9649ca52b8d481",
+    "work/final75-pdf-qa-20261126/assignment-2-contact-1.png": "7353d08a527fee9b1cdd5589fdde664281cb70448a63566b6cf892e6cef58fa6",
+    "work/final75-pdf-qa-20261126/assignment-2-contact-2.png": "b6c21445a1fe5179a526f8cd17ac42538988701867b4b32ec8458b2dad780af3",
+    "work/final75-pdf-qa-20261126/assignment-2-contact-3.png": "9079b81a51809692e7081be584f6c33253172f74e31e2e2600920c073496ce2f",
+    "work/final75-pdf-qa-20261126/assignment-2-contact-4.png": "7aae319c36a1044920df4692b8437c3fff94445ad91c9644e4b867787bbedad4"
+  },
+  "all21_actual_pages_visually_inspected": true,
+  "visual_findings": [],
+  "text_values_source_links_and_page_bounds": "passed in separately bound structural check",
+  "formal_audience_lint": "passed on both extracted full texts",
+  "layout_result": "All21 pages readable; no cropped glyphs, overlaps, unwanted blank pages or missing table headers. Repeated headers at normal table page breaks retained.",
+  "new_model_calls": 0
+}

@@ -1,0 +1,15 @@
+{
+  "reason": "zero_model_preservation_diagnostic",
+  "artifact_digest": "9d7d89c1bf7cd3857598040719ca8307e404e8ac87f4cdcfdb819915a3ebec6c",
+  "protected_unchanged": false,
+  "restored_candidate": null,
+  "valid_verification": false,
+  "evidence": {
+    "public-regression": {
+      "state": "protected_dependency_changed",
+      "returncode": null,
+      "snapshot": null
+    }
+  },
+  "elapsed_seconds": 15.369031250011176
+}

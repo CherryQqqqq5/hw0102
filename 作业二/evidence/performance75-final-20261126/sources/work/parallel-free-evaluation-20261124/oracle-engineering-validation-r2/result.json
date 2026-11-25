@@ -1,0 +1,248 @@
+{
+  "new_model_calls": 0,
+  "new_original_grader_executions": 0,
+  "independent_model_repeat": false,
+  "original_result_sha256": "245d925067534f1b28897c46da1111d0a7ce3589df1d55dafb89155a8074fbf3",
+  "original_model_patch_sha256": "74cf86b7b4ff9c408d0fe33161af7e261b61e988c795974629553b505fabb491",
+  "engineering_repair_patch_sha256": "48c1d8ed37e035b6d5ab1f13b23a4d879a024803263a08b0e35eed1f69a375eb",
+  "fixture_sha256": "4cb58223fad24f12c4e97373c75ebabe81b51db9e4e76152d9ff64c520055ead",
+  "original_pin": "sha256:a58c4f201531ac127ef08636fccc8c0849dc747e6874cf53a3c83da8d851bb3b",
+  "original_files_and_score_unchanged": true,
+  "sqlite_cases_passed_before": 5,
+  "sqlite_cases_passed_after": 5,
+  "oracle_compiler_bound_cases_before": 0,
+  "oracle_compiler_bound_cases_after": 5,
+  "oracle_driver_and_server_executions": 0,
+  "before": {
+    "django_version": "3.2",
+    "django_source_file": "/testbed/django/__init__.py",
+    "sqlite_database_cases": [
+      {
+        "case": 0,
+        "actual_ids": [
+          1
+        ],
+        "expected_ids": [
+          1
+        ],
+        "passed": true
+      },
+      {
+        "case": 1,
+        "actual_ids": [
+          2
+        ],
+        "expected_ids": [
+          2
+        ],
+        "passed": true
+      },
+      {
+        "case": 2,
+        "actual_ids": [
+          3
+        ],
+        "expected_ids": [
+          3
+        ],
+        "passed": true
+      },
+      {
+        "case": 3,
+        "actual_ids": [
+          4
+        ],
+        "expected_ids": [
+          4
+        ],
+        "passed": true
+      },
+      {
+        "case": 4,
+        "actual_ids": [
+          5
+        ],
+        "expected_ids": [
+          5
+        ],
+        "passed": true
+      }
+    ],
+    "oracle_compiler_branch_cases": [
+      {
+        "case": 0,
+        "value": "O'Reilly",
+        "sql": "SELECT \"course_public_boundary_publicboundary\".\"id\", \"course_public_boundary_publicboundary\".\"payload\" FROM \"course_public_boundary_publicboundary\" WHERE COALESCE(JSON_QUERY(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"'), JSON_VALUE(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"')) IN (JSON_VALUE('{\"value\": \"O'Reilly\"}', '$.value'))",
+        "parameters": [],
+        "json_document_bound_separately": false,
+        "json_document_absent_from_sql": false
+      },
+      {
+        "case": 1,
+        "value": "Campus",
+        "sql": "SELECT \"course_public_boundary_publicboundary\".\"id\", \"course_public_boundary_publicboundary\".\"payload\" FROM \"course_public_boundary_publicboundary\" WHERE COALESCE(JSON_QUERY(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"'), JSON_VALUE(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"')) IN (JSON_VALUE('{\"value\": \"Campus\"}', '$.value'))",
+        "parameters": [],
+        "json_document_bound_separately": false,
+        "json_document_absent_from_sql": false
+      },
+      {
+        "case": 2,
+        "value": "x');SELECT 1--",
+        "sql": "SELECT \"course_public_boundary_publicboundary\".\"id\", \"course_public_boundary_publicboundary\".\"payload\" FROM \"course_public_boundary_publicboundary\" WHERE COALESCE(JSON_QUERY(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"'), JSON_VALUE(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"')) IN (JSON_VALUE('{\"value\": \"x');SELECT 1--\"}', '$.value'))",
+        "parameters": [],
+        "json_document_bound_separately": false,
+        "json_document_absent_from_sql": false
+      },
+      {
+        "case": 3,
+        "value": {
+          "publisher": "O'Reilly"
+        },
+        "sql": "SELECT \"course_public_boundary_publicboundary\".\"id\", \"course_public_boundary_publicboundary\".\"payload\" FROM \"course_public_boundary_publicboundary\" WHERE COALESCE(JSON_QUERY(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"'), JSON_VALUE(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"')) IN (JSON_QUERY('{\"value\": {\"publisher\": \"O'Reilly\"}}', '$.value'))",
+        "parameters": [],
+        "json_document_bound_separately": false,
+        "json_document_absent_from_sql": false
+      },
+      {
+        "case": 4,
+        "value": [
+          "O'Reilly",
+          "Campus"
+        ],
+        "sql": "SELECT \"course_public_boundary_publicboundary\".\"id\", \"course_public_boundary_publicboundary\".\"payload\" FROM \"course_public_boundary_publicboundary\" WHERE COALESCE(JSON_QUERY(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"'), JSON_VALUE(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"')) IN (JSON_QUERY('{\"value\": [\"O'Reilly\", \"Campus\"]}', '$.value'))",
+        "parameters": [],
+        "json_document_bound_separately": false,
+        "json_document_absent_from_sql": false
+      }
+    ],
+    "oracle_database_executions": 0,
+    "compiler_scope": "Real patched Django query compiler, selecting its Oracle SQL branch on a SQLite wrapper; this does not exercise an Oracle driver or server"
+  },
+  "after": {
+    "django_version": "3.2",
+    "django_source_file": "/testbed/django/__init__.py",
+    "sqlite_database_cases": [
+      {
+        "case": 0,
+        "actual_ids": [
+          1
+        ],
+        "expected_ids": [
+          1
+        ],
+        "passed": true
+      },
+      {
+        "case": 1,
+        "actual_ids": [
+          2
+        ],
+        "expected_ids": [
+          2
+        ],
+        "passed": true
+      },
+      {
+        "case": 2,
+        "actual_ids": [
+          3
+        ],
+        "expected_ids": [
+          3
+        ],
+        "passed": true
+      },
+      {
+        "case": 3,
+        "actual_ids": [
+          4
+        ],
+        "expected_ids": [
+          4
+        ],
+        "passed": true
+      },
+      {
+        "case": 4,
+        "actual_ids": [
+          5
+        ],
+        "expected_ids": [
+          5
+        ],
+        "passed": true
+      }
+    ],
+    "oracle_compiler_branch_cases": [
+      {
+        "case": 0,
+        "value": "O'Reilly",
+        "sql": "SELECT \"course_public_boundary_publicboundary\".\"id\", \"course_public_boundary_publicboundary\".\"payload\" FROM \"course_public_boundary_publicboundary\" WHERE COALESCE(JSON_QUERY(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"'), JSON_VALUE(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"')) IN (JSON_VALUE(%s, '$.value'))",
+        "parameters": [
+          "{\"value\": \"O'Reilly\"}"
+        ],
+        "json_document_bound_separately": true,
+        "json_document_absent_from_sql": true
+      },
+      {
+        "case": 1,
+        "value": "Campus",
+        "sql": "SELECT \"course_public_boundary_publicboundary\".\"id\", \"course_public_boundary_publicboundary\".\"payload\" FROM \"course_public_boundary_publicboundary\" WHERE COALESCE(JSON_QUERY(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"'), JSON_VALUE(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"')) IN (JSON_VALUE(%s, '$.value'))",
+        "parameters": [
+          "{\"value\": \"Campus\"}"
+        ],
+        "json_document_bound_separately": true,
+        "json_document_absent_from_sql": true
+      },
+      {
+        "case": 2,
+        "value": "x');SELECT 1--",
+        "sql": "SELECT \"course_public_boundary_publicboundary\".\"id\", \"course_public_boundary_publicboundary\".\"payload\" FROM \"course_public_boundary_publicboundary\" WHERE COALESCE(JSON_QUERY(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"'), JSON_VALUE(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"')) IN (JSON_VALUE(%s, '$.value'))",
+        "parameters": [
+          "{\"value\": \"x');SELECT 1--\"}"
+        ],
+        "json_document_bound_separately": true,
+        "json_document_absent_from_sql": true
+      },
+      {
+        "case": 3,
+        "value": {
+          "publisher": "O'Reilly"
+        },
+        "sql": "SELECT \"course_public_boundary_publicboundary\".\"id\", \"course_public_boundary_publicboundary\".\"payload\" FROM \"course_public_boundary_publicboundary\" WHERE COALESCE(JSON_QUERY(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"'), JSON_VALUE(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"')) IN (JSON_QUERY(%s, '$.value'))",
+        "parameters": [
+          "{\"value\": {\"publisher\": \"O'Reilly\"}}"
+        ],
+        "json_document_bound_separately": true,
+        "json_document_absent_from_sql": true
+      },
+      {
+        "case": 4,
+        "value": [
+          "O'Reilly",
+          "Campus"
+        ],
+        "sql": "SELECT \"course_public_boundary_publicboundary\".\"id\", \"course_public_boundary_publicboundary\".\"payload\" FROM \"course_public_boundary_publicboundary\" WHERE COALESCE(JSON_QUERY(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"'), JSON_VALUE(\"course_public_boundary_publicboundary\".\"payload\", '$.\"title\"')) IN (JSON_QUERY(%s, '$.value'))",
+        "parameters": [
+          "{\"value\": [\"O'Reilly\", \"Campus\"]}"
+        ],
+        "json_document_bound_separately": true,
+        "json_document_absent_from_sql": true
+      }
+    ],
+    "oracle_database_executions": 0,
+    "compiler_scope": "Real patched Django query compiler, selecting its Oracle SQL branch on a SQLite wrapper; this does not exercise an Oracle driver or server"
+  },
+  "interpretation": "A separately labelled engineering correction of an archived model candidate, not a replacement score or model improvement. SQLite behavior was executed; only SQL compilation and parameter separation were tested for Oracle.",
+  "actual_image_commit": "eb64be69cd2c4c3e3d921955c83882a1ff8b38d3",
+  "task_base_commit": "9c92924cd5d164701e2514e1c2d6574126bd7cc2",
+  "source_checkout": {
+    "base_commit": "9c92924cd5d164701e2514e1c2d6574126bd7cc2",
+    "image_commit": "eb64be69cd2c4c3e3d921955c83882a1ff8b38d3",
+    "base_tree": "fc423d33c20eea31f753c6cca05960a70a6f87d6",
+    "image_tree": "fc423d33c20eea31f753c6cca05960a70a6f87d6",
+    "status": "",
+    "changed_paths": 0,
+    "executable_bit_changes": 0
+  }
+}

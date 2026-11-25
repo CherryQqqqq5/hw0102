@@ -1,0 +1,56 @@
+{
+  "active": false,
+  "historical_unknown_calls": 35,
+  "accepted_total_unknown_calls": 35,
+  "pending_unverified_calls": 0,
+  "unverified_requests": [],
+  "acceptance": "是的，这种问题之后不用问我了，我每次都是一样的答案",
+  "standing_unknown_authorization": "work/free-experiment-unknown-authorization-20261124.json",
+  "previous_pending_stop": "work/free-recovery35-20261126/stop-before-accepting-35.json",
+  "accepted_unknown_evidence": "work/free-recovery35-20261126/accepted-unknown35.json",
+  "next_unknown_or_nonzero_must_stop": true,
+  "same_class_unknown_may_be_recorded_and_resumed_without_reasking": true,
+  "reason": "Exact unknown35 preserved;fresh verified free metadata;one registered null11999 readmission;unchanged original225 then3 then2",
+  "run_dir": "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2",
+  "unresolved_fee_stops": [],
+  "quota_pause": null,
+  "reset_free_metadata": {
+    "path": "work/free-recovery35-20261126/release-free-metadata-1795627192432265000/cloud-model-metadata.json",
+    "sha256": "e6e809268d5535e33bd104b8db61069dd63d3941030ba28203acd6b9873748ca",
+    "observed_utc": "2026-11-25T17:20:00.492533+00:00",
+    "model": {
+      "aliases": [
+        "hy4flash-dev"
+      ],
+      "credits": "x0.00 credits",
+      "descriptionEn": "A leaner, more efficient everyday workhorse, ideal for high-volume, large-scale tasks such as daily office work.",
+      "descriptionZh": "更轻量、更高效的日常主力模型。适合日常办公等高频、规模化场景",
+      "disabledMultimodal": false,
+      "id": "hy4flash-free",
+      "labels": [
+        "enterprise:selfhost"
+      ],
+      "maxAllowedSize": 1000000,
+      "maxInputTokens": 960000,
+      "maxOutputTokens": 64000,
+      "name": "Hy4 flash",
+      "onlyReasoning": true,
+      "reasoning": {
+        "canDisableThinking": false,
+        "defaultEffort": "high",
+        "summary": "auto",
+        "supportedEfforts": [
+          "high"
+        ]
+      },
+      "relatedModels": {
+        "builtin-lite": "wb-lite",
+        "lite": "hy4flash-free",
+        "reasoning": "hy4flash-free"
+      },
+      "supportsImages": true,
+      "supportsReasoning": true,
+      "supportsToolCall": true
+    }
+  }
+}

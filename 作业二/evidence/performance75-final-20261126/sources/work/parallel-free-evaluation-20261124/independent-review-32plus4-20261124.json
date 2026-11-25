@@ -1,0 +1,53 @@
+{
+  "reviewer": "/root/parallel_capacity_review",
+  "mode": "independent_read_only_source_trace_and_statistics_review",
+  "snapshot_observed_utc": "2026-11-24T14:54:07+00:00",
+  "status": "INFO",
+  "blocking_findings_remaining": 0,
+  "new_model_calls": 0,
+  "new_original_grader_executions": 0,
+  "previous_review": "independent-review-findings.json",
+  "new_main_positions": [
+    "django__django-14855", "go/alphametics", "fix-code-vulnerability", "django__django-15554",
+    "go/beer-song", "fix-git", "django__django-15987", "go/connect", "log-summary-date-ranges",
+    "django__django-16082", "go/trinary"
+  ],
+  "new_repeat_positions": [
+    "model-extraction-relu-logits", "pydata__xarray-4687", "extract-elf", "video-processing"
+  ],
+  "new_main_own_fresh_zero_credit_requests": 189,
+  "new_repeat_own_fresh_zero_credit_requests": 63,
+  "repeat_native_sessions_differ_from_main": true,
+  "repeat_fresh_message_id_intersection_with_main32": 0,
+  "repeat_first_request_history": "One public task message only",
+  "repeat_first_round_candidate_copied": false,
+  "statistics_review": {
+    "producer_sha256_at_review": "c79cff31f6e99ef3498d72f1d90e1f4a078037bb80df41efa18aebba976ee609",
+    "source_summary_sha256": "54c783141a84b8e40f7f56c628cc3d6de1b13711dabbac757115a7d60883e4ee",
+    "later_case_observation_and_historical_binding_additions_covered_by_this_review": false,
+    "paired_and_repeat_groups_recomputed": ["all75", "D30", "C30", "H15", "aider", "swe", "terminal"],
+    "all_values_matched": true,
+    "fresh_usage_not_cumulative_usage_counted": true,
+    "main32_passed": 32,
+    "same_task_dsh32_passed": 27,
+    "matched_tasks": 32,
+    "success_rate_difference_percentage_points": 15.625,
+    "repeat4_both_pass": 4,
+    "paired_mean_input_token_difference_main_minus_dsh": 23343,
+    "all_cost_measures_improved": false
+  },
+  "semantic_boundaries": [
+    "Django14855 implements the current_app remedy already supplied in the public task; it is not independent algorithm discovery.",
+    "Django15554 temporarily added self-authored regression tests in the original test file and restored it before final delivery. Final protected_unchanged does not mean the file was never touched.",
+    "Django15554 original independent42 tests passed. Its additional complete Django suite returned124, so a full-suite passing claim is unsupported.",
+    "Applicable final-control verification does not imply B0 positions such as fix-git have identical file protection checks.",
+    "The independently reviewed snapshot covers main32 and repeat4, not complete75 or complete independent repeats."
+  ],
+  "report_findings": [
+    "Formal rendering correctly requires225 core scores,3 supplementary scores and exact-summary independent review coverage.",
+    "Keep C0 verification model-requested and distinguish the Oracle compiler check from a live Oracle database.",
+    "Use old control-configuration comparison, including post-hoc same-protocol subsets, rather than an unqualified isolated causal ablation claim.",
+    "Previously audited270 and23-task sources must be bound explicitly; this review did not retrace their complete raw records."
+  ],
+  "inflight_positions_excluded": ["main:pydata__xarray-2905", "repeat:llm-inference-batching-scheduler"]
+}

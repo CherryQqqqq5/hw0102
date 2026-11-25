@@ -1,0 +1,6175 @@
+{
+  "schema_version": 1,
+  "record_kind": "independent_read_only_closed_core_increment_after_retained177",
+  "status": "AUDITED_TEN_CLOSED_ORIGINAL_POSITIONS_WITH_STATED_LIMITS",
+  "phase": "ANALYZE",
+  "is_final225_approval": false,
+  "scope": {
+    "frozen_at_utc": "2026-11-25T18:26:13.697143+00:00",
+    "authority": {
+      "path": "work/free-recovery35-20261126/accepted-unknown35.json",
+      "sha256": "a9ba318f97f32a6c2326c3f1488abfa93326d72b324e6105a8589f81902f22ca"
+    },
+    "prior_original_positions": 177,
+    "new_original_positions": 10,
+    "new_runs": [
+      {
+        "arm": "main",
+        "task": "django__django-11999",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-11999-C0-r1",
+        "initial_source_sha256": {
+          "result.json": "9530f51e00d246c5835134074cfebf685562bbb2d9b91f1964ec230c6d56d14a",
+          "trial.json": "730014c071c8ddc957edc0c0a2daa41cfaaeb37ccadc57dce273bbfef4230138"
+        },
+        "protocol_path": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-11999-C0-r1.protocol.json",
+        "protocol_sha256": "ba65e2f213550ab371912630565051cf60a19680ed0917c8d5c2da04a130e301"
+      },
+      {
+        "arm": "main",
+        "task": "django__django-12050",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-12050-C0-r1",
+        "initial_source_sha256": {
+          "result.json": "ca5c01f013eed8cbc43ab868063008730e8f58a848b3ef986fb10b6d2305d946",
+          "trial.json": "5685293e6a3b1186e689c3c9180d294b784adb05c44c5d30e739f583a83ccca8"
+        },
+        "protocol_path": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-12050-C0-r1.protocol.json",
+        "protocol_sha256": "26f62aa8d4c63a16a4da6aa321bcc64f1ce1a6c22faade87a4668ea96bdd50c1"
+      },
+      {
+        "arm": "main",
+        "task": "db-wal-recovery",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/db-wal-recovery-C0-r1",
+        "initial_source_sha256": {
+          "result.json": "dc1b456300f1fae591019d924c0e2238f9ba07ac5a2c00e2c3ebd1421b419163",
+          "trial.json": "e7c9373bc5472b505aaf32b507ea45ccd3227b7d866b70004c8064a3fc821fdd"
+        },
+        "protocol_path": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/db-wal-recovery-C0-r1.protocol.json",
+        "protocol_sha256": "0c17a07f4f5c50b8b724b98402b372580e25281b26fd376dc772c5baf511ae93"
+      },
+      {
+        "arm": "main",
+        "task": "django__django-12193",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-12193-C0-r1",
+        "initial_source_sha256": {
+          "result.json": "8903207595fb8be403efc41fdde3f30e1c12ac56e3f34ccdd565963f9f464c97",
+          "trial.json": "dede80d550bd298e9ebed668010397264a9ff83fef3ce0a8190118133d4349b0"
+        },
+        "protocol_path": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-12193-C0-r1.protocol.json",
+        "protocol_sha256": "f356f9b3b5996f69f32d40cff3835346122ef35ca38236db900de108a6fb643b"
+      },
+      {
+        "arm": "main",
+        "task": "mailman",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/mailman-B0-r1",
+        "initial_source_sha256": {
+          "result.json": "14f5c3bbbe56230ac3ffd574c22ccfbd398395cfce055dfdb6e3130a38b0813a",
+          "trial.json": "0afeef7b4ff04f4285ab8eefcb3d847a7ed8ee2a436afb755304d681ec3f3ce4"
+        },
+        "protocol_path": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/mailman-B0-r1.protocol.json",
+        "protocol_sha256": "0c781c6519d09121c6423002908208f6c4c6513c0ea9f8b449be1d2a8f7bcdca"
+      },
+      {
+        "arm": "repeat",
+        "task": "django__django-11999",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-upstream-error35-readmission-r2",
+        "initial_source_sha256": {
+          "result.json": "037db4255d9abe676a6172277ef7508f0f9e99ec3375266c5c70c3c1fcf36778",
+          "trial.json": "730014c071c8ddc957edc0c0a2daa41cfaaeb37ccadc57dce273bbfef4230138"
+        },
+        "protocol_path": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-upstream-error35-readmission-r2.protocol.json",
+        "protocol_sha256": "ba65e2f213550ab371912630565051cf60a19680ed0917c8d5c2da04a130e301"
+      },
+      {
+        "arm": "repeat",
+        "task": "django__django-12050",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-12050-C0-r2",
+        "initial_source_sha256": {
+          "result.json": "bdc64d10a1e6a99ef267313830fa46c623269146ca35b796a497781ae6c7fa00",
+          "trial.json": "5685293e6a3b1186e689c3c9180d294b784adb05c44c5d30e739f583a83ccca8"
+        },
+        "protocol_path": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-12050-C0-r2.protocol.json",
+        "protocol_sha256": "26f62aa8d4c63a16a4da6aa321bcc64f1ce1a6c22faade87a4668ea96bdd50c1"
+      },
+      {
+        "arm": "repeat",
+        "task": "db-wal-recovery",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/db-wal-recovery-C0-r2",
+        "initial_source_sha256": {
+          "result.json": "8c55da2531e3832c53abdece7d049eec532cd44aaa62b8e91bfa32d34ce14841",
+          "trial.json": "e7c9373bc5472b505aaf32b507ea45ccd3227b7d866b70004c8064a3fc821fdd"
+        },
+        "protocol_path": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/db-wal-recovery-C0-r2.protocol.json",
+        "protocol_sha256": "0c17a07f4f5c50b8b724b98402b372580e25281b26fd376dc772c5baf511ae93"
+      },
+      {
+        "arm": "repeat",
+        "task": "django__django-12193",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-12193-C0-r2",
+        "initial_source_sha256": {
+          "result.json": "c028753aac2e8ea8843bdb4e11a59d3d1c66945602674440ac0b3d3992f57870",
+          "trial.json": "dede80d550bd298e9ebed668010397264a9ff83fef3ce0a8190118133d4349b0"
+        },
+        "protocol_path": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-12193-C0-r2.protocol.json",
+        "protocol_sha256": "f356f9b3b5996f69f32d40cff3835346122ef35ca38236db900de108a6fb643b"
+      },
+      {
+        "arm": "repeat",
+        "task": "mailman",
+        "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/mailman-B0-r2",
+        "initial_source_sha256": {
+          "result.json": "913d8892fa3de5c9017b7911bc8ec72a245611423615e529ffcfc3e65ce41e8c",
+          "trial.json": "0afeef7b4ff04f4285ab8eefcb3d847a7ed8ee2a436afb755304d681ec3f3ce4"
+        },
+        "protocol_path": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/mailman-B0-r2.protocol.json",
+        "protocol_sha256": "0c781c6519d09121c6423002908208f6c4c6513c0ea9f8b449be1d2a8f7bcdca"
+      }
+    ],
+    "discovery_state_observations": [
+      {
+        "arm": "main",
+        "path": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/state.json",
+        "observed_sha256": "70d2704b9132a9198f6919ccf9e87e774b96c1ded36fcc261049c1db1338c084",
+        "status": "running",
+        "current_task_excluded": "modernize-scientific-stack",
+        "closed_policy_count": 62,
+        "parent_plan": "work/free-recovery35-20261126/hy4-plans/main-plan.json",
+        "parent_plan_sha256": "ac01bbdef1ef007b5f959d7b6673cfe033d47aad14729979465722015bcbdcba",
+        "mutable_state_used_only_for_discovery": true
+      },
+      {
+        "arm": "repeat",
+        "path": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/state.json",
+        "observed_sha256": "2674bbcc00c147f30409c6d0cea300635b0bcb72ecf9007aa3cb747d14f9cfae",
+        "status": "running",
+        "current_task_excluded": "modernize-scientific-stack",
+        "closed_policy_count": 62,
+        "parent_plan": "work/free-recovery35-20261126/hy4-plans/repeat-plan.json",
+        "parent_plan_sha256": "b430c029ac373ab5ae1cd83bdc195353dd24cdeff1341f3f347eeac77e29d32a",
+        "mutable_state_used_only_for_discovery": true
+      }
+    ],
+    "mutable_queue_states_used_only_for_discovery": true,
+    "newly_finished_later_positions_not_added": true,
+    "excluded_inflight_core_task_at_snapshot": "modernize-scientific-stack",
+    "excluded_other_cohorts": [
+      "The new NaN contract pair,including its subsequently closed main pilot",
+      "NVIDIA/MiniMax/OpenRouter",
+      "Any later core result outside this exact10-run source set"
+    ]
+  },
+  "prior_review_reuse": {
+    "path": "work/parallel-free-evaluation-20261124/independent-closed177-review-20261126.json",
+    "sha256": "cb1dfd62c93b21771f35ed4ab527668e18d575593ea17fdfe90d5a7f8ce88df1",
+    "scope": "Reuse its177-original plus10-scoped structural/fee/source findings;do not repeat or expand its deep-reading claim. The earlier ReLU rawtrue/qualifiedfalse and pytest5631 rawtrue/protectedfalse and all12 core false remain unchanged."
+  },
+  "totals_recomputed": {
+    "new_original_positions": 10,
+    "new_original_passed": 10,
+    "new_original_failed": 0,
+    "new_C0_positions": 8,
+    "new_C0_final_public_and_protected_passed": 8,
+    "new_B0_positions": 2,
+    "new_actual_requests": 260,
+    "new_own_zero_credit_receipts": 260,
+    "new_input_tokens": 8441436,
+    "new_output_tokens": 152530,
+    "new_scored_wall_seconds": 3890.6171770002693,
+    "new_recorded_bash_tool_events": 239,
+    "core_original_count_as_frozen": 187,
+    "core_original_raw_passed": 175,
+    "core_original_raw_failed": 12,
+    "core_original_actual_requests": 3088,
+    "known_hy4_generation_union_with_previously_reviewed_scoped_development_and_mechanical_prefix": 3522,
+    "known_native_session_union_with_previously_reviewed_scoped_development_and_mechanical_attempts": 206
+  },
+  "cumulative_original_groups_as_of_this_frozen_set": {
+    "main": {
+      "completed": 62,
+      "raw_passed": 58,
+      "qualified_passed_numeric": 56,
+      "requests": 1132
+    },
+    "repeat": {
+      "completed": 62,
+      "raw_passed": 60,
+      "qualified_passed_numeric": 60,
+      "requests": 965
+    },
+    "dsh": {
+      "completed": 63,
+      "raw_passed": 57,
+      "qualified_passed_numeric": 57,
+      "requests": 991
+    }
+  },
+  "identity_check": {
+    "new_receipts": 260,
+    "new_distinct_ids": 260,
+    "new_distinct_native_sessions": 10,
+    "prior_scored_and_known_cost_ids_including_prefix35": 3262,
+    "prior_known_native_sessions": 196,
+    "intersections_with_prior_ids": 0,
+    "intersections_with_prior_native_sessions": 0
+  },
+  "retained_prior_interruption35": {
+    "trace_sha256": "069d2f368f8f0a1a47cf989c420d8687e3a5d09e657bdd86fc2b6e0b03a0c0c3",
+    "event_counts": {
+      "request": 8,
+      "cli_process_started": 8,
+      "response": 7,
+      "billing_verified": 7,
+      "request_error": 1
+    },
+    "complete_own_zero_prefix": 7,
+    "unknown_request": 8,
+    "actual_amount": null,
+    "actual_usage": null,
+    "complete_actual_model_identity": null,
+    "actual_generation_id": null,
+    "prefix_already_in_prior_known_history_union_not_added_twice": true,
+    "source": "work/free-recovery35-20261126/accepted-unknown35.json",
+    "meaning": "The old8-request interruption remains null/unscoreable. Its7 complete own-zero receipts are historical extra cost;request8 has no complete identity/usage/amount. The new repeat29 is one distinct fixed mechanical readmission,not a semantic low-score resample."
+  },
+  "initial_prompt_comparison": [
+    {
+      "task": "django__django-11999",
+      "exact_first_history_equal": true,
+      "after_only_kernel_banner_normalization_equal": true,
+      "main_sha256": "d8100772993a585bc7dfd032f805fc5f93582c0a550d9673751a6c43b782ad2a",
+      "repeat_sha256": "d8100772993a585bc7dfd032f805fc5f93582c0a550d9673751a6c43b782ad2a"
+    },
+    {
+      "task": "django__django-12050",
+      "exact_first_history_equal": true,
+      "after_only_kernel_banner_normalization_equal": true,
+      "main_sha256": "aefe4e10c6071f1d20aa5b8c0177d24327572fc20f49dc9c263f66bb3cca45e3",
+      "repeat_sha256": "aefe4e10c6071f1d20aa5b8c0177d24327572fc20f49dc9c263f66bb3cca45e3"
+    },
+    {
+      "task": "db-wal-recovery",
+      "exact_first_history_equal": true,
+      "after_only_kernel_banner_normalization_equal": true,
+      "main_sha256": "2d429a0296b5762d8a2c6bf96c9a3b12ee3d6bfd85c027fae81785204d2cf6f3",
+      "repeat_sha256": "2d429a0296b5762d8a2c6bf96c9a3b12ee3d6bfd85c027fae81785204d2cf6f3"
+    },
+    {
+      "task": "django__django-12193",
+      "exact_first_history_equal": true,
+      "after_only_kernel_banner_normalization_equal": true,
+      "main_sha256": "4277611f7838991d916b55975be7f30508501de656bc42cdd69d929593137e30",
+      "repeat_sha256": "4277611f7838991d916b55975be7f30508501de656bc42cdd69d929593137e30"
+    },
+    {
+      "task": "mailman",
+      "exact_first_history_equal": true,
+      "after_only_kernel_banner_normalization_equal": true,
+      "main_sha256": "fc12aa2661373471ebde7cc7b3de75decafbbc6e75233dafbb55f83dc52d08b9",
+      "repeat_sha256": "fc12aa2661373471ebde7cc7b3de75decafbbc6e75233dafbb55f83dc52d08b9"
+    }
+  ],
+  "runtime_checks": {
+    "source_unchanged_against_actual_R35_parent": true,
+    "scoped_v20_not_applied_to_these_original_core_positions": true,
+    "client_permissions_octal": "0o644",
+    "all10_original_resource_pin_ids_checked": true,
+    "per_actual_attempt_limits": {
+      "model_calls": 500,
+      "wall_seconds": 3600,
+      "command_seconds": 120,
+      "max_output_tokens": 64000,
+      "timeout_retries": 0,
+      "strict_wall": true
+    },
+    "no_full_SDK_or_whole_tree_rehash": true
+  },
+  "review_depth": {
+    "all10": "Streamed actual model event structures and all260 individual own receipts using frozen verify_free_response;matched result/trial/protocol/task/runtime/limits;all239 bash-event records fingerprinted and screened;all original grade reports/rewards read;all6 full production patches read and matched to original-grader patch inputs.",
+    "meaningful_deep_reading": "Read all5 distinct task instructions;public Controller outputs,save/verify/final chains;Django defect/reproducer/final patch logic and selected import/locale/test-failure stacks;both WAL repair/extraction sequences and captured artifacts;Mailman service setup,provided eval usage,selected configuration writes and independent join/post/leave smoke outputs.",
+    "model_reasoning": "Not read word for word;no claim of full semantic verification of every generated thought or all unprinted large source dumps.",
+    "host_only_independent_check": "Read captured SQLite databases withmode=ro&immutable=1,compared sorted11 rows to captured JSON and checked clear WAL magic;no file mutation,no container or grader.",
+    "not_checked": [
+      "No new original grader or VM execution",
+      "No reconstruction of every transient Mailman service file;B0 has no native final service configuration capture",
+      "No full PostgreSQL server test;110 PostgreSQL-specific cases were skipped",
+      "No complete Django-suite pass claim;model-local stub/locale/import errors and command timeouts remain in original traces",
+      "No new NaN model trajectory in this10-run review"
+    ]
+  },
+  "findings": [
+    {
+      "id": "AF177-01",
+      "severity": "P2_PROCESS_CLAIM_LIMIT",
+      "task": "django__django-11999",
+      "arm": "main",
+      "tools": [
+        14,
+        15,
+        16
+      ],
+      "finding": "The agent attempted GitHub issue and PR endpoints for11999,and searched task/benchmark metadata and wheels. Both HTTP attempts failed DNS;metadata/wheel searches returned empty. Related local repository history was read,including old generic changes,not an observed retrieved target gold fix.",
+      "effect": "Do not claim the trajectory never tried answer/history search or that isolation is a complete sandbox guarantee;no actual gold retrieval or score/receipt corruption was observed."
+    },
+    {
+      "id": "AF177-02",
+      "severity": "INFO_TEST_SCOPE_LIMIT",
+      "tasks": [
+        "django__django-11999",
+        "django__django-12050",
+        "django__django-12193"
+      ],
+      "finding": "Several model-local broad tests failed from wrong interpreter/missing dependencies,ad hoc scratch stubs,ASCII locale or timeout. Repeat12193 tool32's sole631-test error is test_modelchoicefield failing sqlite table forms_tests_choicemodel absence,not an inferred CheckboxInput regression. Original graders independently ran31,11 and122 tests respectively;12193's122 include110 skips.",
+      "effect": "Report actual original tracked coverage and original stdout;do not turn scratch-suite failures into a hidden score rewrite or claim complete framework/server validation."
+    },
+    {
+      "id": "AF177-03",
+      "severity": "INFO_CONTROL_AND_CAPTURE_LIMIT",
+      "finding": "All8 C0 final public/protected states passed,but some final-byte-matching saved candidates remaineligiblefalse because save preceded verification. Both Mailman positions areB0;their numeric qualified field equals raw and supplies no protected/final-check certification. Both WAL native captures explicitly markmain.db-shmfailed;the three available artifacts matched saved candidate bytes.",
+      "effect": "Current verification,eligible saved candidate and native artifact completeness are separate evidence fields. C0 remains requested checks rather than automatic C1 behavior."
+    },
+    {
+      "id": "AF177-04",
+      "severity": "INFO_TASK_WORDING_AND_SERVICE_SCOPE",
+      "task": "mailman",
+      "finding": "The task explicitly permits/app/eval.py;both agents read and ran it and developed separate smoke tests. Main's final subscription_policy isopen;repeat usesconfirm. Both observed fresh-user smoke flows include confirmation and nonmoderated join/post/leave. The prompt parenthetically namesopen while also requiring user confirmation;the installed enum comments distinguishopen(no confirmation) fromconfirm.",
+      "effect": "Preserve both actualrawtrue/reward1. Do not claim identical final enum configuration or mandatory confirmation for every already-verified/rejoining address;those cases were not independently executed. The prompt wording and configured policy distinction remain explicit rather than silently redefining the original score."
+    }
+  ],
+  "blocking_findings_in_new_billing_or_original_score_source_integrity": [],
+  "unresolved_prior_semantic_findings": "The original177 review's25232 NaN semantic P1 remains historical and is not retroactively removed by this core increment. Its prospective contract revision is outside this review and requires the separately requested closed-pair audit.",
+  "shared_source_sha256": {
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/codebuddy_free.py": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/controller.py": "6c136191b64eca3ac069c1fd147eea60e200587f8a76657cfcf2b5f4e2174b62",
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/candidate_io.py": "307457f8eeff702f1a8f7b9f43bb69138bec908a9f8783ae5795c45fe1c1802c",
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/verification.py": "5ae7a4eb9753740e0f5385b99655fe5d144bf49ec6ef8ca0784a930f5308c424",
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/benchmarks.py": "57d478adda9d4f1770eae34740b0a9c4c1d5c5da5b99fb541ffe859553cdb665",
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/agent.py": "22814d396ad3027d79ff44e916d365db014657ff644a7e8cf51db8c5f828b2c2",
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/terminal_runtime.py": "3ba50400ac7b4d5d6e9a19382c91e728aeb5905141c5d167d2519fc796757f05",
+    "work/codebuddy/node_modules/@tencent-ai/codebuddy-code/dist/codebuddy-headless.js": "bfc167075d229f101878a378e6c5f9a8c2b64463545dd5ffb3881d6417040915",
+    "work/free-recovery35-20261126/accepted-unknown35.json": "a9ba318f97f32a6c2326c3f1488abfa93326d72b324e6105a8589f81902f22ca",
+    "work/free-recovery35-20261126/hy4-plans/main-plan.json": "ac01bbdef1ef007b5f959d7b6673cfe033d47aad14729979465722015bcbdcba",
+    "work/free-recovery35-20261126/hy4-plans/repeat-plan.json": "b430c029ac373ab5ae1cd83bdc195353dd24cdeff1341f3f347eeac77e29d32a",
+    "work/parallel-free-evaluation-20261124/independent-closed177-review-20261126.json": "cb1dfd62c93b21771f35ed4ab527668e18d575593ea17fdfe90d5a7f8ce88df1"
+  },
+  "rows": [
+    {
+      "arm": "main",
+      "task": "django__django-11999",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-11999-C0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 748.949602458044,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795627644.7609248,
+        "native_session_id": "dad17b99-e034-4eaf-b2a0-31815fc5da47",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "5f046d5f1e34253f231c8bf87e6012d32263d59bff4a87a150e7ff3a4dd3df77"
+      },
+      "event_counts": {
+        "request": 36,
+        "cli_process_started": 36,
+        "response": 36,
+        "billing_verified": 36
+      },
+      "native_sessions": [
+        "dad17b99-e034-4eaf-b2a0-31815fc5da47"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a213bf80a5712297e24c2691f4bdcf",
+          0,
+          5359,
+          199
+        ],
+        [
+          2,
+          "01a213bf9e98765087e729735fc823f0",
+          0,
+          6317,
+          404
+        ],
+        [
+          3,
+          "01a213bfbfbe778686ee21c23097238f",
+          0,
+          9095,
+          1094
+        ],
+        [
+          4,
+          "01a213bffc047e1599f2ae0ebfa1e539",
+          0,
+          13226,
+          297
+        ],
+        [
+          5,
+          "01a213c01ec77e4aa85dc537ac553040",
+          0,
+          15359,
+          431
+        ],
+        [
+          6,
+          "01a213c0423c73ee8d70af499e6387a1",
+          0,
+          17466,
+          306
+        ],
+        [
+          7,
+          "01a213c06469768fbffd680123eb97da",
+          0,
+          18044,
+          289
+        ],
+        [
+          8,
+          "01a213c087d677e7a88cbbd51a008e49",
+          0,
+          19416,
+          283
+        ],
+        [
+          9,
+          "01a213c0a804794da763f7f225e6db23",
+          0,
+          20165,
+          211
+        ],
+        [
+          10,
+          "01a213c0cd767b07b1f952e3334ca951",
+          0,
+          20875,
+          951
+        ],
+        [
+          11,
+          "01a213c108877be2bdc17ac8a4b37ca4",
+          0,
+          22724,
+          204
+        ],
+        [
+          12,
+          "01a213c1240774c3836da5210ec1d3c2",
+          0,
+          23943,
+          2168
+        ],
+        [
+          13,
+          "01a213c1b458714586f90b2a079ce529",
+          0,
+          26569,
+          278
+        ],
+        [
+          14,
+          "01a213c1d3ca70a8a5c96f6d5387b5b1",
+          0,
+          30415,
+          359
+        ],
+        [
+          15,
+          "01a213c1f4db7fd4b2a155f852475efc",
+          0,
+          30908,
+          417
+        ],
+        [
+          16,
+          "01a213c222e775638d12bad2eecc8dc8",
+          0,
+          31429,
+          416
+        ],
+        [
+          17,
+          "01a213c24afd75d18594fbb0075cbd56",
+          0,
+          31938,
+          2858
+        ],
+        [
+          18,
+          "01a213c2b2577ea08d06e260d0d1a1e0",
+          0,
+          35166,
+          123
+        ],
+        [
+          19,
+          "01a213c2d64c7444837e5b4c00c6b744",
+          0,
+          35565,
+          319
+        ],
+        [
+          20,
+          "01a213c3028171c59fb54868e2ef1444",
+          0,
+          36333,
+          161
+        ],
+        [
+          21,
+          "01a213c328437485a09e046a9db728df",
+          0,
+          37183,
+          222
+        ],
+        [
+          22,
+          "01a213c3471672db8873eb1cbb02c343",
+          0,
+          37527,
+          1009
+        ],
+        [
+          23,
+          "01a213c37f607413bf50676429e41540",
+          0,
+          38872,
+          499
+        ],
+        [
+          24,
+          "01a213c416d77a5fb8f2a0f36c5408a3",
+          0,
+          40217,
+          360
+        ],
+        [
+          25,
+          "01a213c4c60a7dcda3aeb6795588ba13",
+          0,
+          40842,
+          231
+        ],
+        [
+          26,
+          "01a213c4e6f3729c897cf3e2ade22ffb",
+          0,
+          41428,
+          183
+        ],
+        [
+          27,
+          "01a213c5048b7124b62184b321077d30",
+          0,
+          41793,
+          634
+        ],
+        [
+          28,
+          "01a213c709d07f1ea4a97f8f2eb6e94f",
+          0,
+          42516,
+          376
+        ],
+        [
+          29,
+          "01a213c7955e7ed0b343a32f4c4cc715",
+          0,
+          44939,
+          4883
+        ],
+        [
+          30,
+          "01a213c86b0e7a7ca6a1be33d9265eae",
+          0,
+          49934,
+          1228
+        ],
+        [
+          31,
+          "01a213c8b93d738f918f052ace7b1892",
+          0,
+          51941,
+          1139
+        ],
+        [
+          32,
+          "01a213c907107c6fa3ea7a23cc95b47a",
+          0,
+          53896,
+          746
+        ],
+        [
+          33,
+          "01a213c9a7a272818dcb7d3d6c49e26b",
+          0,
+          54760,
+          222
+        ],
+        [
+          34,
+          "01a213c9d52a75f888d0a4e785c4eb99",
+          0,
+          55309,
+          73
+        ],
+        [
+          35,
+          "01a213c9fab471289c29fb47e6fd01d4",
+          0,
+          55842,
+          253
+        ],
+        [
+          36,
+          "01a213ca1c0c7e22acb8db317c716c05",
+          0,
+          56652,
+          410
+        ]
+      ],
+      "input_tokens": 1193963,
+      "output_tokens": 24236,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "4b3019657caecab1bce3b0fd44109ebcf9144c5c465d788ca1aa2b56bd02db0c",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-issue": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "427ddf0e2d6a62af733839abf7e95e75dd3cd533d60937ef4e9ed7d4e8907fa5  django/db/models/fields/__init__.py\n"
+          }
+        },
+        "elapsed_seconds": 706.7318962090649
+      },
+      "controller_event_counts": {
+        "candidate_operation": 9,
+        "candidate_saved": 2,
+        "verification": 2,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "4b3019657caecab1bce3b0fd44109ebcf9144c5c465d788ca1aa2b56bd02db0c",
+          "eligible": false
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "47e9bcd4efca5046e615f4976f6d178cbf69f8caf6e0717d738ceed4b8ddfdc6",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "4b3019657caecab1bce3b0fd44109ebcf9144c5c465d788ca1aa2b56bd02db0c",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "django/db/models/fields/__init__.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 30,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": []
+      },
+      "tools_count": 32,
+      "nonzero_tools": [
+        5,
+        6,
+        19,
+        25
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 32,
+        "save": 2,
+        "verify": 2
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 14,
+          "command_sha256": "87aeaa14d1e06b92ee09908913b81e33207bba867494e21d0c36ac1d884b871a"
+        }
+      ],
+      "source_sha256": {
+        "result.json": "9530f51e00d246c5835134074cfebf685562bbb2d9b91f1964ec230c6d56d14a",
+        "trial.json": "730014c071c8ddc957edc0c0a2daa41cfaaeb37ccadc57dce273bbfef4230138",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-11999-C0-r1.protocol.json": "ba65e2f213550ab371912630565051cf60a19680ed0917c8d5c2da04a130e301",
+        "model.jsonl": "551f04f1bf25c5edea8743712ff57d63e28e55855fcb4983716bd98acc8e02d4",
+        "controller.jsonl": "f7d8433bc3c530ae05b6d9e3d5ef0e895bf53e22d02dd592106a36aba241e8b8",
+        "final-verification.json": "39bb421d00f2dbed24ab579ac86e2093b0449b0e6881fcf34e39f6c4896d3f18",
+        "candidates/candidate-002.json": "ef7b9e31ede279c410bba725a5f31a94fbf7479d78391040cf332bd9543a19cd",
+        "candidates/candidate-001.json": "93c69127839eb718a31e9dd0a1649176b17bd5371e68ec94310ea1ee1b353d33",
+        "candidate.patch": "130345fe9a6ec2e38230fdd6318457e269e8f7ab07ebf4a118320e3e61dba666",
+        "swe-official/django__django-11999-C0-r1/course-mini-swe-agent/django__django-11999/patch.diff": "130345fe9a6ec2e38230fdd6318457e269e8f7ab07ebf4a118320e3e61dba666",
+        "swe-official/django__django-11999-C0-r1/course-mini-swe-agent/django__django-11999/report.json": "a184f919d25dd01d13c03a8b300e3537ff8fc4491d1458c34d3ee61cc73c24b4",
+        "swe-official/django__django-11999-C0-r1/course-mini-swe-agent/django__django-11999/test_output.txt": "a7b4e969dcdc707b8ad9e6e8376591046e3d895f9e7ec3841b390831a2860910",
+        "swe-official/django__django-11999-C0-r1/course-mini-swe-agent/django__django-11999/run_instance.log": "504c4cebfc352de5b45299eb8ef5cf63a15dcaa2050a6e6520c0f854776f9a14",
+        "swe-official/django__django-11999-C0-r1/course-mini-swe-agent/django__django-11999/eval.sh": "cfa6c9d77e2f1bf32e21d48f7be5488adb8eae58b244cc754a0bf4579d1b278e",
+        "tools.jsonl": "f7f3064d01a5f44d76a29524fc4e21141528f845b367850e39ab9727d12bf36f"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model/request/response/billing and tool-event structures streamed;full production patches/instructions and selected meaningful test,repair,service outputs directly read. No claim of word-for-word full model reasoning or every large source-dump stdout.",
+      "additional_root_relative_source_sha256": {
+        "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-11999-C0-r1/instruction.txt": "13be080a1994751bc9f0c5d1b043a1fbd745f6c049501a5e65a2ca0eef5a4f8f",
+        "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-11999-C0-r1.resources.json": "8f0c3784e5c4721bc8c353ac94456c3f124e16305bba4da7ad6ccce1f8d6918e"
+      },
+      "resource_evidence": {
+        "task": "django__django-11999",
+        "benchmark": "swe",
+        "exclusive": true,
+        "actual_image_id": "sha256:3c7e7f035f611b17f2093ee6409364bc28cce8b9bac266b9590db762d197607e",
+        "returncode": 0,
+        "admitted_at": 1795627641.83201,
+        "released_at": 1795628391.4730828
+      },
+      "tool_fingerprint_columns": [
+        "tool",
+        "command_sha256",
+        "command_bytes",
+        "stdout_bytes",
+        "stderr_bytes",
+        "returncode"
+      ],
+      "tool_fingerprints": [
+        [
+          1,
+          "c8f4d97f0d8963ac29c5ebdb91c21edf90598a7f4aed22fbe6dbaef001dcd4ab",
+          44,
+          1637,
+          0,
+          0
+        ],
+        [
+          2,
+          "39389e3737460aa7432c9b57035d9036e9f0c7b764466ed687a131c1c00c4c07",
+          246,
+          7625,
+          0,
+          0
+        ],
+        [
+          3,
+          "3a4ec1bdfc7c2593fbd642a1c97e6a9707ac35be965a3b687831571804a0cd76",
+          321,
+          14267,
+          0,
+          0
+        ],
+        [
+          4,
+          "05f21e09c8c0e87ba8fbacc53703923dbf5ff7b56b5f0155006db6a250fe9aa0",
+          494,
+          6864,
+          0,
+          0
+        ],
+        [
+          5,
+          "0e5e155807efe807c1ef3fef63dee68a6bf31f84d71ac861e5e04262eb257b61",
+          919,
+          5014,
+          155,
+          1
+        ],
+        [
+          6,
+          "9b942970bb4fa3e1633750e3b920755ec81e479a18c8048d0f5ce6e301dc43b0",
+          304,
+          0,
+          441,
+          1
+        ],
+        [
+          7,
+          "3ff53a10a015fd5bd185783443da225753e2e6556baa788eb13b9081f6fbcbbd",
+          328,
+          2822,
+          0,
+          0
+        ],
+        [
+          8,
+          "f7cb5754e3c2c35b1f85fc064147cfbd0b56b3416078e91c1dea2dfa9b16f27e",
+          484,
+          845,
+          0,
+          0
+        ],
+        [
+          9,
+          "ccb10992059e009b481c6a225cd1e96bdfd3b2627777b97a6faee15017978edf",
+          288,
+          1237,
+          0,
+          0
+        ],
+        [
+          10,
+          "f4896f4f084443c53c8ec66a5a6c040dceb59fa208dbe585a487022af2cdc636",
+          480,
+          2479,
+          0,
+          0
+        ],
+        [
+          11,
+          "698ca266a1a6f1134f658c005e318059da51ae5092739cb1cf1eca4924c91a5b",
+          197,
+          2623,
+          0,
+          0
+        ],
+        [
+          12,
+          "84b74d883c3f9f5516f868924e45180d4d26e9afcd12d7e3368c7ff9244533fa",
+          731,
+          1281,
+          0,
+          0
+        ],
+        [
+          13,
+          "2ccefd6333eb807c8458e59182df55545283964d16dad6a3a4cf6cc0fc77d96e",
+          227,
+          12111,
+          0,
+          0
+        ],
+        [
+          14,
+          "87aeaa14d1e06b92ee09908913b81e33207bba867494e21d0c36ac1d884b871a",
+          254,
+          129,
+          0,
+          0
+        ],
+        [
+          15,
+          "ee543ef23cc59a47bf8bc3d803fe6fd4a8f1e8414fb62a2ea05fb618a7d4b802",
+          247,
+          29,
+          0,
+          0
+        ],
+        [
+          16,
+          "45743b6f861b6630f054e69ceb0305d25bec9518456ed1f08028254e29b5b41e",
+          184,
+          0,
+          0,
+          0
+        ],
+        [
+          17,
+          "5cb3ff22ea6e709880e5371c79d449b891d74f182fa62149c89d12dbdf26b3c3",
+          835,
+          985,
+          0,
+          0
+        ],
+        [
+          18,
+          "f6250629a34121ecca8845b1d188efc45106e008700f1cd466c98c2358289288",
+          175,
+          1927,
+          0,
+          0
+        ],
+        [
+          19,
+          "55df26a5b7b27287fdd8e10310ac516984c012ad5f0a62dd1f29ce157b4231c8",
+          166,
+          0,
+          70,
+          2
+        ],
+        [
+          20,
+          "775a2f9dce4952c31b9faff36b81b6b8ed516d42307acd73f51204265a456e3d",
+          3415,
+          707,
+          0,
+          0
+        ],
+        [
+          21,
+          "85dcba3bc08f11680098c843e7965d96470d0a53f982602b4215b88dd6581607",
+          376,
+          2252,
+          0,
+          0
+        ],
+        [
+          22,
+          "3a2217d96d6dfabef46264eaf08f17393df4b76d009ce53d70a7ce6dc609e7aa",
+          332,
+          464,
+          0,
+          0
+        ],
+        [
+          23,
+          "a91f01dde9fe6f0f36c72e9d8d801b158f12aafb782dafcb1bc543eed8bed04a",
+          249,
+          1051,
+          0,
+          0
+        ],
+        [
+          24,
+          "11357309d64922d2b7db12b3842cb729a01ffe8f0baefc7e1ce0d447d997d162",
+          289,
+          284,
+          0,
+          0
+        ],
+        [
+          25,
+          "929d23868686fa198c88ced34c0812cbf0ceef032abea6ca8eed9430891da149",
+          322,
+          0,
+          0,
+          124
+        ],
+        [
+          26,
+          "ffd9f8b6ddbdb933a72b1994d2e86dd29ade02c69d2df31c8e50ca7cfcb9793c",
+          558,
+          6617,
+          0,
+          0
+        ],
+        [
+          27,
+          "1bbde93f995705aefd2a2a7aa38da4e939637369d53f8ca9ea2ecc9f561c4fcf",
+          1023,
+          153,
+          0,
+          0
+        ],
+        [
+          28,
+          "8d642b664940c0a845fbfc2acbbea7753d75250362331684aa2a91324469e6c5",
+          1642,
+          2180,
+          0,
+          0
+        ],
+        [
+          29,
+          "130d67cfa73fb17372e158c03aa5822d41777de96e2e0d2ef29938679e4ebe3e",
+          1109,
+          2246,
+          0,
+          0
+        ],
+        [
+          30,
+          "c3973374e5318dccf648d2061aa9d29ffce1aa9e7d66ee7043b38d99dc7a7949",
+          640,
+          55,
+          0,
+          0
+        ],
+        [
+          31,
+          "544030b344d6936ccda67945351bcb295a6a0f44ae594eecfa11239b635399a0",
+          138,
+          1582,
+          0,
+          0
+        ],
+        [
+          32,
+          "2e2577cea459e468a3c7237d52cfd7c074569f65082e4f900514a7f20923eecd",
+          42,
+          38,
+          0,
+          0
+        ]
+      ],
+      "grader_execution_summary": [
+        "Ran 31 tests in 0.022s",
+        "OK",
+        "+ SWEBENCH_TEST_EXIT_CODE=0",
+        ">>>>> Test Exit Code: 0"
+      ],
+      "candidate_and_public_byte_check": {
+        "source_sha256": {
+          "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-11999-C0-r1.resources.warmup.json": "40d2f585a0affc6710beb6205a78dc94ca6c86733a5ccc737bfc2134fefa87d0"
+        },
+        "resource_pin_exact": true,
+        "matching_final_candidate_files": [
+          {
+            "candidate_id": "candidate-002",
+            "eligible": false,
+            "file_hashes": {
+              "django/db/models/fields/__init__.py": "427ddf0e2d6a62af733839abf7e95e75dd3cd533d60937ef4e9ed7d4e8907fa5"
+            },
+            "hash_present_in_final_public_snapshot": {
+              "django/db/models/fields/__init__.py": true
+            }
+          }
+        ],
+        "final_matching_public_feedback": [
+          {
+            "check_id": "public-issue",
+            "step": 34,
+            "reason": "requested",
+            "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"public-issue\", \"passed\": true, \"actual\": {\"display\": [\"something\", \"something\"]}, \"required\": \"overridden display method retained\"}]}\n",
+            "returncode": 0
+          }
+        ]
+      },
+      "control_state_applicable": true
+    },
+    {
+      "arm": "main",
+      "task": "django__django-12050",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-12050-C0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 210.03599945805036,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795628786.736301,
+        "native_session_id": "f7243586-2a55-43fd-814a-f8d5e767e3d4",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "97d31d4a933c04eb2563a3b359acc589fe892eb81afd957719a5252a2107da99"
+      },
+      "event_counts": {
+        "request": 23,
+        "cli_process_started": 23,
+        "response": 23,
+        "billing_verified": 23
+      },
+      "native_sessions": [
+        "f7243586-2a55-43fd-814a-f8d5e767e3d4"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a213d0edea79c691c2b4d68e75d383",
+          0,
+          5253,
+          221
+        ],
+        [
+          2,
+          "01a213d106377b6080749c38ff50a009",
+          0,
+          5609,
+          184
+        ],
+        [
+          3,
+          "01a213d11e8579b2aa71d21aa523bbe5",
+          0,
+          9180,
+          699
+        ],
+        [
+          4,
+          "01a213d13f307d73b012329b1563f5af",
+          0,
+          11122,
+          321
+        ],
+        [
+          5,
+          "01a213d1598974acaca845aac2cbe30a",
+          0,
+          12116,
+          264
+        ],
+        [
+          6,
+          "01a213d17561771eab2bb48ee2385cbf",
+          0,
+          12624,
+          209
+        ],
+        [
+          7,
+          "01a213d18d06703f83f77fe3ac7c805f",
+          0,
+          13303,
+          407
+        ],
+        [
+          8,
+          "01a213d1adc77b2ba85a35a692f1656a",
+          0,
+          14574,
+          210
+        ],
+        [
+          9,
+          "01a213d1c4ac7bc4a700d4ad4a9eb904",
+          0,
+          14950,
+          169
+        ],
+        [
+          10,
+          "01a213d1d9c57deeaf4488aabd307e4f",
+          0,
+          15305,
+          703
+        ],
+        [
+          11,
+          "01a213d1fa6b769ba4c9ff5dcc0f5157",
+          0,
+          16542,
+          729
+        ],
+        [
+          12,
+          "01a213d21ad47e25b4765b411c9efd30",
+          0,
+          17544,
+          183
+        ],
+        [
+          13,
+          "01a213d230fb707e8897100f80c60616",
+          0,
+          17948,
+          283
+        ],
+        [
+          14,
+          "01a213d24b72755dbe5bffd4f36128ab",
+          0,
+          18579,
+          724
+        ],
+        [
+          15,
+          "01a213d26cb77064b0ec474a08494f13",
+          0,
+          20006,
+          207
+        ],
+        [
+          16,
+          "01a213d28961701483e9f9835be46126",
+          0,
+          20758,
+          224
+        ],
+        [
+          17,
+          "01a213d2a0fb7b3589e6cb9355a090a8",
+          0,
+          22179,
+          267
+        ],
+        [
+          18,
+          "01a213d2bd357cd390141c21ccffae7c",
+          0,
+          22713,
+          73
+        ],
+        [
+          19,
+          "01a213d2e97a74238aa05539f39bc884",
+          0,
+          23303,
+          634
+        ],
+        [
+          20,
+          "01a213d30a767463988a9921c5f1bab1",
+          0,
+          25046,
+          722
+        ],
+        [
+          21,
+          "01a213d32bef7c348c844e548afa1cb3",
+          0,
+          25882,
+          229
+        ],
+        [
+          22,
+          "01a213d34d007562aa501f4f28d6486d",
+          0,
+          26608,
+          230
+        ],
+        [
+          23,
+          "01a213d365ee7a449d89b94d4866ffdb",
+          0,
+          27137,
+          187
+        ]
+      ],
+      "input_tokens": 398281,
+      "output_tokens": 8079,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "1043fe555b852ac61332d95834dea3a00739b600594dec98040352d9b5d38095",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "874132ab22d88d3e1c35ff8a965222d2404ade43158c90a114fdd0aa72b51397  django/db/models/sql/query.py\nc424dff394b40bc6ac2183d49ef8e66341dfbd2c1754e5604270844da93cd38c  tests/lookup/tests.py\n"
+          }
+        },
+        "elapsed_seconds": 169.5998524170136
+      },
+      "controller_event_counts": {
+        "candidate_operation": 6,
+        "candidate_saved": 1,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "1043fe555b852ac61332d95834dea3a00739b600594dec98040352d9b5d38095",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "1043fe555b852ac61332d95834dea3a00739b600594dec98040352d9b5d38095",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "django/db/models/sql/query.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 10,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": []
+      },
+      "tools_count": 21,
+      "nonzero_tools": [
+        4,
+        5,
+        8,
+        9,
+        11,
+        14
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 21,
+        "save": 1,
+        "verify": 1
+      },
+      "tool_screen_flags": [],
+      "source_sha256": {
+        "result.json": "ca5c01f013eed8cbc43ab868063008730e8f58a848b3ef986fb10b6d2305d946",
+        "trial.json": "5685293e6a3b1186e689c3c9180d294b784adb05c44c5d30e739f583a83ccca8",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-12050-C0-r1.protocol.json": "26f62aa8d4c63a16a4da6aa321bcc64f1ce1a6c22faade87a4668ea96bdd50c1",
+        "model.jsonl": "5b0924fdeefc128da6eef45de8ea058261e6a22e1f7aad2a7d46e4a0be6d8211",
+        "controller.jsonl": "4757d7151e2618850af2784b5813fb640988299e25e02d72b81f78a4f256a436",
+        "final-verification.json": "816fb24eee1568c9f0afa0ea038ec7ae0628f981cf89507f318ecc754dac308b",
+        "candidates/candidate-001.json": "33e4311e6c542c45dd1b0cfc3ebca2b835ec35fd7d01d04ac49a092cc7eb1746",
+        "candidate.patch": "dba19cb93f1b16c90d70dce232ca7414f7b0bef30c0b93cbec709ceb4abe6db8",
+        "swe-official/django__django-12050-C0-r1/course-mini-swe-agent/django__django-12050/patch.diff": "dba19cb93f1b16c90d70dce232ca7414f7b0bef30c0b93cbec709ceb4abe6db8",
+        "swe-official/django__django-12050-C0-r1/course-mini-swe-agent/django__django-12050/report.json": "44b3226a4771f2134381e3e8f800bd898ce4be30659dd5f33eeb2679413963ba",
+        "swe-official/django__django-12050-C0-r1/course-mini-swe-agent/django__django-12050/test_output.txt": "575d16ed0d008952b27a8e3f8409baeb20f8cdc940ed46b16204ae3e65c9f29f",
+        "swe-official/django__django-12050-C0-r1/course-mini-swe-agent/django__django-12050/run_instance.log": "08fd02feddfbb18c30dd03bc470ddc24859b29905f81966221f82f6d00698d13",
+        "swe-official/django__django-12050-C0-r1/course-mini-swe-agent/django__django-12050/eval.sh": "21d65bc43bf65afffff0e1acafccd7bc16b6a8488e880e091cdaf8544f40637d",
+        "tools.jsonl": "cddff94f919012be5119c3317f96921b89ec2decdeb56d8dfcad50e4032d16c8"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model/request/response/billing and tool-event structures streamed;full production patches/instructions and selected meaningful test,repair,service outputs directly read. No claim of word-for-word full model reasoning or every large source-dump stdout.",
+      "additional_root_relative_source_sha256": {
+        "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-12050-C0-r1/instruction.txt": "82fc440db540d3703097f11e1f310928749b573c7963976ffb2182e9e27e1624",
+        "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-12050-C0-r1.resources.json": "d00b2007967fd402d6317a47abebcac20287d4ea251b47060c2a0f59bdd5d89a"
+      },
+      "resource_evidence": {
+        "task": "django__django-12050",
+        "benchmark": "swe",
+        "exclusive": true,
+        "actual_image_id": "sha256:34773901589784072af940b29697018dc17b32e37b4ff135a153c99ac2c38dec",
+        "returncode": 0,
+        "admitted_at": 1795628784.1873941,
+        "released_at": 1795628994.897229
+      },
+      "tool_fingerprint_columns": [
+        "tool",
+        "command_sha256",
+        "command_bytes",
+        "stdout_bytes",
+        "stderr_bytes",
+        "returncode"
+      ],
+      "tool_fingerprints": [
+        [
+          1,
+          "94d4f3fcb85e7fd3c9c94aa72d003178901ffeb5157a8641a687c408b94b18fb",
+          96,
+          125,
+          0,
+          0
+        ],
+        [
+          2,
+          "ec5fb5c2880817d618cc413d7ca39ed900439e1c48fe34572955c000749bb76e",
+          192,
+          12334,
+          0,
+          0
+        ],
+        [
+          3,
+          "e1f444397cc54edaef674c393ce29bc8159a3b4ac5bd93d491569cbeccce6c3b",
+          389,
+          3227,
+          0,
+          0
+        ],
+        [
+          4,
+          "0c2dec8de8f03ff97c5f3816f24e0ea12f849c1a39b7728a7df6b7c37ed3ce0f",
+          730,
+          1841,
+          183,
+          1
+        ],
+        [
+          5,
+          "ae3d55317cbae83197fcef7f82e5b056c58186e478b0cd55f47032bc54d59a39",
+          159,
+          0,
+          371,
+          1
+        ],
+        [
+          6,
+          "92009f6a627021f274f43a3bf38cf49cc8024b2e019e784a13551f6a88fa0a4c",
+          251,
+          1072,
+          0,
+          0
+        ],
+        [
+          7,
+          "e424969abd50ec6bd63b58c1b0731f96d53ddb8d87bd3e80087040b562e6e6ee",
+          296,
+          1840,
+          0,
+          0
+        ],
+        [
+          8,
+          "a9928cbcd56fdc6fb1dca4ea95aba01ecb006167f69c53dfc0ed3efd93b6b713",
+          109,
+          0,
+          190,
+          1
+        ],
+        [
+          9,
+          "b8a1f48424517885419a98efae433e160599f6a8842c1e559f7d52edadb61649",
+          195,
+          21,
+          210,
+          1
+        ],
+        [
+          10,
+          "0c3e969d95f9df2fe9039cb4dc083081182d32a6a6c675c29c2eac622078cd6e",
+          575,
+          643,
+          785,
+          0
+        ],
+        [
+          11,
+          "bf05eaadf8f6365fe55efaedb6b10ceb6c4abf092a6cb71d298b4f4ef344cf35",
+          1216,
+          0,
+          560,
+          1
+        ],
+        [
+          12,
+          "066f8ca9266f5310b053374a0e2bfa13ea11292e406a8c141a64f85f4715551e",
+          376,
+          257,
+          0,
+          0
+        ],
+        [
+          13,
+          "1c99b2c997c1f7089d954cd4f1905d2d39132ca2ed05e1da3ec61565d8204263",
+          129,
+          738,
+          0,
+          0
+        ],
+        [
+          14,
+          "f8f1f0b484fad3b307a1e62f4d8bcfa4c7f144436049a11dd7ca1d3da6bec009",
+          380,
+          1964,
+          0,
+          2
+        ],
+        [
+          15,
+          "10910a00496c45e2466a8745df1de04bb5a6ab99b18fc84a3374195d0cb14673",
+          161,
+          1381,
+          0,
+          0
+        ],
+        [
+          16,
+          "82e4ada25e2c7d33d78f0be3ee8be6fdf18409abc1eb6b302478d951e356e778",
+          344,
+          3526,
+          0,
+          0
+        ],
+        [
+          17,
+          "35327623e78f1d6194cccf744e5d5a8e654bbbdb2ffde2a74bf3db28514d93f9",
+          110,
+          3720,
+          0,
+          0
+        ],
+        [
+          18,
+          "ae464ed1b3008d959fa352d41ce0122e434b69c04e33a7b6250caca208ad787e",
+          1377,
+          93,
+          0,
+          0
+        ],
+        [
+          19,
+          "30387190255b6ab4283a8359234e8010f1a068cd33a710c91965fad13f78489b",
+          149,
+          1281,
+          0,
+          0
+        ],
+        [
+          20,
+          "36549dbfdbc8eeca1a59098796ad9e435fc0b0ae183dc6929f7b96d5666ef759",
+          117,
+          723,
+          0,
+          0
+        ],
+        [
+          21,
+          "2e2577cea459e468a3c7237d52cfd7c074569f65082e4f900514a7f20923eecd",
+          42,
+          38,
+          0,
+          0
+        ]
+      ],
+      "grader_execution_summary": [
+        "Ran 11 tests in 0.005s",
+        "OK",
+        "+ SWEBENCH_TEST_EXIT_CODE=0",
+        ">>>>> Test Exit Code: 0"
+      ],
+      "candidate_and_public_byte_check": {
+        "source_sha256": {
+          "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-12050-C0-r1.resources.warmup.json": "0a284fed5b88acf3882f5dbf7874fa7f020be306a140c78dad7b9e413ea281f2"
+        },
+        "resource_pin_exact": true,
+        "matching_final_candidate_files": [
+          {
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "file_hashes": {
+              "django/db/models/sql/query.py": "874132ab22d88d3e1c35ff8a965222d2404ade43158c90a114fdd0aa72b51397"
+            },
+            "hash_present_in_final_public_snapshot": {
+              "django/db/models/sql/query.py": true
+            }
+          }
+        ],
+        "final_matching_public_feedback": [
+          {
+            "check_id": "public-regression",
+            "step": 18,
+            "reason": "requested",
+            "stdout": "Testing against Django installed in '/testbed/django'\nSystem check identified no issues (0 silenced).\n",
+            "returncode": 0
+          }
+        ]
+      },
+      "control_state_applicable": true
+    },
+    {
+      "arm": "main",
+      "task": "db-wal-recovery",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/db-wal-recovery-C0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 125.25381537503563,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795629006.6726558,
+        "native_session_id": "2145741d-1153-4f43-9576-a8574504d432",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "56f33bee30a1218d6bc1fc7def1913c039bf9218905cadb56f153f85425dd7ba"
+      },
+      "event_counts": {
+        "request": 9,
+        "cli_process_started": 9,
+        "response": 9,
+        "billing_verified": 9
+      },
+      "native_sessions": [
+        "2145741d-1153-4f43-9576-a8574504d432"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a213d44b187545a826b6b8ee34344c",
+          0,
+          5434,
+          299
+        ],
+        [
+          2,
+          "01a213d46414733695193dd0efe54c32",
+          0,
+          6582,
+          2037
+        ],
+        [
+          3,
+          "01a213d4a4ab7b6db0af47092b44a8fa",
+          0,
+          9395,
+          2783
+        ],
+        [
+          4,
+          "01a213d4fba674e48f36ba8c3c24cd42",
+          0,
+          12292,
+          874
+        ],
+        [
+          5,
+          "01a213d531b87fc589c0c71b766fed57",
+          0,
+          13907,
+          1472
+        ],
+        [
+          6,
+          "01a213d566177700bfaea0984a4a5799",
+          0,
+          16029,
+          206
+        ],
+        [
+          7,
+          "01a213d57d6d7511a1eb8a680a964907",
+          0,
+          16505,
+          125
+        ],
+        [
+          8,
+          "01a213d59aa57c04ab76bcf3a96f67e4",
+          0,
+          17397,
+          322
+        ],
+        [
+          9,
+          "01a213d5b6267c938dd53a903f7c0026",
+          0,
+          18075,
+          139
+        ]
+      ],
+      "input_tokens": 115616,
+      "output_tokens": 8257,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "414c8444b6ca0e1a16f33600898bde4c76f93385df7fabde937bc1b7e34d2e7d",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-task": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "aeb6491c4d573acb714eac8ebeffe96953ed93765ce48e8a7bb85dadad69ca6a  /app/recovered.json\n682055f65aadf6832b01cbadb753086e901ca5f6985c306014682e8bf68774a3  main.db\n"
+          }
+        },
+        "elapsed_seconds": 101.33329091593623
+      },
+      "controller_event_counts": {
+        "candidate_operation": 6,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "414c8444b6ca0e1a16f33600898bde4c76f93385df7fabde937bc1b7e34d2e7d",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "414c8444b6ca0e1a16f33600898bde4c76f93385df7fabde937bc1b7e34d2e7d",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "414c8444b6ca0e1a16f33600898bde4c76f93385df7fabde937bc1b7e34d2e7d",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "414c8444b6ca0e1a16f33600898bde4c76f93385df7fabde937bc1b7e34d2e7d",
+          "eligible": false
+        }
+      ],
+      "native_capture": {
+        "registered": true,
+        "artifacts": [
+          {
+            "source": "/app/recovered.json",
+            "status": "ok",
+            "type": "file",
+            "path": "db-wal-recovery__mA3guib/artifacts/app/recovered.json",
+            "sha256": "aeb6491c4d573acb714eac8ebeffe96953ed93765ce48e8a7bb85dadad69ca6a",
+            "bytes": 408,
+            "sha_present_in_final_public_snapshot": true
+          },
+          {
+            "source": "/app/main.db",
+            "status": "ok",
+            "type": "file",
+            "path": "db-wal-recovery__mA3guib/artifacts/app/main.db",
+            "sha256": "682055f65aadf6832b01cbadb753086e901ca5f6985c306014682e8bf68774a3",
+            "bytes": 8192,
+            "sha_present_in_final_public_snapshot": true,
+            "public_snapshot_source_token": "main.db"
+          },
+          {
+            "source": "/app/main.db-wal",
+            "status": "ok",
+            "type": "file",
+            "path": "db-wal-recovery__mA3guib/artifacts/app/main.db-wal",
+            "sha256": "a00cfbf891cb36157b7eca6df67f9920a0013769e446c2314ca204eef958c14c",
+            "bytes": 16512,
+            "sha_present_in_final_public_snapshot": false
+          },
+          {
+            "source": "/app/main.db-shm",
+            "status": "failed",
+            "type": "file"
+          }
+        ],
+        "model_requests_by_capture": 0,
+        "snapshot_path_note": "The public snapshot usesrelative main.db while capture uses/app/main.db;exact bytes/hash match after that declared path normalization. WAL bytes match the saved candidate but are not an individually hashed public-check dependency."
+      },
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "PASSED ../tests/test_outputs.py::test_recovered_json_exists",
+          "PASSED ../tests/test_outputs.py::test_recovered_json_is_valid",
+          "PASSED ../tests/test_outputs.py::test_recovered_data_structure",
+          "PASSED ../tests/test_outputs.py::test_recovered_data_sorted",
+          "PASSED ../tests/test_outputs.py::test_recovered_data_completeness",
+          "PASSED ../tests/test_outputs.py::test_no_duplicate_ids",
+          "PASSED ../tests/test_outputs.py::test_wal_was_decrypted",
+          "============================== 7 passed in 0.10s ==============================="
+        ]
+      },
+      "tools_count": 6,
+      "nonzero_tools": [
+        3
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 6,
+        "save": 2,
+        "verify": 1
+      },
+      "tool_screen_flags": [],
+      "source_sha256": {
+        "result.json": "dc1b456300f1fae591019d924c0e2238f9ba07ac5a2c00e2c3ebd1421b419163",
+        "trial.json": "e7c9373bc5472b505aaf32b507ea45ccd3227b7d866b70004c8064a3fc821fdd",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/db-wal-recovery-C0-r1.protocol.json": "0c17a07f4f5c50b8b724b98402b372580e25281b26fd376dc772c5baf511ae93",
+        "db-wal-recovery__mA3guib/agent/model.jsonl": "e65d245ca6a45e451a63d56e6ef7591a73a04b7b0fdefd4c7da0b63330e48e1b",
+        "db-wal-recovery__mA3guib/agent/controller.jsonl": "0940f9023fa48746f6f2da9d2e8bbd1ae9e279e902c6195df1ee915b2f93f712",
+        "db-wal-recovery__mA3guib/agent/final-verification.json": "d2f4b6536fe9041279a00cee167d1617cb6005a26c19152b94e9aa087cdae391",
+        "db-wal-recovery__mA3guib/agent/candidates/candidate-002.json": "c3f8900a6493250ff59338a59cd468dcefb07124f26d1c48f5bfc8814d865b76",
+        "db-wal-recovery__mA3guib/agent/candidates/candidate-001.json": "94ac86e239edc2061d19aee6a8bb0cb85fc794faf18948b0604dd0f685f500b8",
+        "artifact-capture.json": "52c8a9dfa819164bfa421b48e57093c15a041252fb095bd13e59b9d943d253fb",
+        "artifact-capture-config.json": "70cd4012601b7991811993d679772e2a637ebf6a047157e79cbcf0909465b120",
+        "db-wal-recovery__mA3guib/artifacts/manifest.json": "d88c42befd8b4d4b00105f92e35c8c4cc3e65eeec4fac6a353a680b098f2c772",
+        "db-wal-recovery__mA3guib/artifacts/app/recovered.json": "aeb6491c4d573acb714eac8ebeffe96953ed93765ce48e8a7bb85dadad69ca6a",
+        "db-wal-recovery__mA3guib/artifacts/app/main.db": "682055f65aadf6832b01cbadb753086e901ca5f6985c306014682e8bf68774a3",
+        "db-wal-recovery__mA3guib/artifacts/app/main.db-wal": "a00cfbf891cb36157b7eca6df67f9920a0013769e446c2314ca204eef958c14c",
+        "db-wal-recovery__mA3guib/result.json": "a7667f437317e244478f3c417fa80ec3b48736e7fbb2519c856ba836d69dbabf",
+        "db-wal-recovery__mA3guib/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "db-wal-recovery__mA3guib/verifier/test-stdout.txt": "83f8c72435fa9083a2989ae2ff27d3cf3178cdea71c610a2d627ebdef449978e",
+        "db-wal-recovery__mA3guib/agent/tools.jsonl": "041a0708fcd79e55afd9b7f9d63af35d47d88f80b462c76c0d1e9aff2d7edeaf",
+        "db-wal-recovery/instruction.md": "5a20375162921b8911c67035d1905df7fd335d1bed03044271e608b2c3c93b26"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model/request/response/billing and tool-event structures streamed;full production patches/instructions and selected meaningful test,repair,service outputs directly read. No claim of word-for-word full model reasoning or every large source-dump stdout.",
+      "additional_root_relative_source_sha256": {
+        "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/db-wal-recovery-C0-r1.resources.json": "9662eedc5c8be008b9c98e27a81389e10cee3b70b1244c39b3feaa76a35ddb69"
+      },
+      "resource_evidence": {
+        "task": "db-wal-recovery",
+        "benchmark": "terminal",
+        "exclusive": false,
+        "actual_image_id": "sha256:0e33ea5ec823975d1bd6c3778395c9f94251dd88f571146057bff6adb7e4594e",
+        "returncode": 0,
+        "admitted_at": 1795628996.89029,
+        "released_at": 1795629122.623107
+      },
+      "tool_fingerprint_columns": [
+        "tool",
+        "command_sha256",
+        "command_bytes",
+        "stdout_bytes",
+        "stderr_bytes",
+        "returncode"
+      ],
+      "tool_fingerprints": [
+        [
+          1,
+          "0953a981dbd0f4a0f7261e393b918d069183e5e78ae6a96056473a7b83eb29e3",
+          259,
+          1366,
+          0,
+          0
+        ],
+        [
+          2,
+          "f039daf59fb7b3856d56b446869816e8bce64b347c7643611119a1b2e7b78238",
+          1153,
+          1101,
+          0,
+          0
+        ],
+        [
+          3,
+          "8c68df3bf75bc89afb62766a56df0016c0e4d7f61f419c161842350aab03e2a1",
+          1124,
+          78,
+          0,
+          1
+        ],
+        [
+          4,
+          "0f7dbacca80db372921a0d4435ed534c72e3c8852baad5e9c7f512923580d7d2",
+          1391,
+          1008,
+          0,
+          0
+        ],
+        [
+          5,
+          "f2ea241a1c34e6df0b28570cec97030325884768ca104c4008b5247db98c1964",
+          1503,
+          1014,
+          0,
+          0
+        ],
+        [
+          6,
+          "2e2577cea459e468a3c7237d52cfd7c074569f65082e4f900514a7f20923eecd",
+          42,
+          38,
+          0,
+          0
+        ]
+      ],
+      "independent_captured_artifact_check": {
+        "read_only_sqlite_rows_equal_json": true,
+        "record_count": 11,
+        "ids_sorted_and_unique": true,
+        "clear_wal_magic": true,
+        "main_db_hash_in_public_snapshot": true,
+        "missing_shm_explicitly_retained": "failed",
+        "matching_saved_candidates": [
+          {
+            "candidate_id": "candidate-002",
+            "eligible": true,
+            "native_bytes_equal_candidate": {
+              "/app/recovered.json": true,
+              "/app/main.db": true,
+              "/app/main.db-wal": true
+            }
+          },
+          {
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "native_bytes_equal_candidate": {
+              "/app/recovered.json": true,
+              "/app/main.db": true,
+              "/app/main.db-wal": true
+            }
+          }
+        ]
+      },
+      "candidate_and_public_byte_check": {
+        "source_sha256": {},
+        "resource_pin_exact": true,
+        "matching_final_candidate_files": [
+          {
+            "candidate_id": "candidate-002",
+            "eligible": true,
+            "file_hashes": {
+              "/app/recovered.json": "aeb6491c4d573acb714eac8ebeffe96953ed93765ce48e8a7bb85dadad69ca6a",
+              "/app/main.db": "682055f65aadf6832b01cbadb753086e901ca5f6985c306014682e8bf68774a3",
+              "/app/main.db-wal": "a00cfbf891cb36157b7eca6df67f9920a0013769e446c2314ca204eef958c14c"
+            },
+            "hash_present_in_final_public_snapshot": {
+              "/app/recovered.json": true,
+              "/app/main.db": true,
+              "/app/main.db-wal": false
+            }
+          },
+          {
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "file_hashes": {
+              "/app/recovered.json": "aeb6491c4d573acb714eac8ebeffe96953ed93765ce48e8a7bb85dadad69ca6a",
+              "/app/main.db": "682055f65aadf6832b01cbadb753086e901ca5f6985c306014682e8bf68774a3",
+              "/app/main.db-wal": "a00cfbf891cb36157b7eca6df67f9920a0013769e446c2314ca204eef958c14c"
+            },
+            "hash_present_in_final_public_snapshot": {
+              "/app/recovered.json": true,
+              "/app/main.db": true,
+              "/app/main.db-wal": false
+            }
+          }
+        ],
+        "final_matching_public_feedback": [
+          {
+            "check_id": "public-task",
+            "step": 7,
+            "reason": "requested",
+            "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"eleven_ordered_records\", \"passed\": true, \"actual\": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], \"required\": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]}, {\"id\": \"record_fields\", \"passed\": true, \"actual\": \"record structure\", \"required\": \"integer id/value and string name, from the visible SQLite schema\"}, {\"id\": \"readable_repaired_database\", \"passed\": true, \"actual\": {\"sqlite_rows\": 11, \"json_matches_database\": true}, \"required\": \"SQLite reads all 11 rows from the repaired database/WAL and JSON matches them\"}], \"coverage_limit\": \"JSON is compared to the repaired SQLite state; the original encrypted WAL truth remains for independent grading.\"}\n",
+            "returncode": 0
+          }
+        ]
+      },
+      "control_state_applicable": true
+    },
+    {
+      "arm": "main",
+      "task": "django__django-12193",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-12193-C0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 229.06332962505985,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795629469.919879,
+        "native_session_id": "f10726e9-416c-4643-bf6c-26eca2ffd722",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "3acdecdbd1f9ca2c7c530054dc321b6d8aab77be40168da4fc3fa92f49f63d71"
+      },
+      "event_counts": {
+        "request": 23,
+        "cli_process_started": 23,
+        "response": 23,
+        "billing_verified": 23
+      },
+      "native_sessions": [
+        "f10726e9-416c-4643-bf6c-26eca2ffd722"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a213db5a5b79bf95068c6233437fc7",
+          0,
+          5381,
+          302
+        ],
+        [
+          2,
+          "01a213db7be37887b6391cafe7ad3233",
+          0,
+          9153,
+          388
+        ],
+        [
+          3,
+          "01a213db97c271e4b84dc83cb2d0823c",
+          0,
+          12944,
+          800
+        ],
+        [
+          4,
+          "01a213dbb85276fd8cbf8a183b803865",
+          0,
+          18084,
+          795
+        ],
+        [
+          5,
+          "01a213dbdaff7409a2da10e179470385",
+          0,
+          19043,
+          214
+        ],
+        [
+          6,
+          "01a213dbf05474fbb35715e4bba0ec2d",
+          0,
+          19541,
+          274
+        ],
+        [
+          7,
+          "01a213dc0b1f75bfa5693de49b03e7fb",
+          0,
+          21013,
+          362
+        ],
+        [
+          8,
+          "01a213dc4b4070b29e849a9d7394905a",
+          0,
+          22167,
+          155
+        ],
+        [
+          9,
+          "01a213dc64c1729187f3e429d45934f0",
+          0,
+          22870,
+          554
+        ],
+        [
+          10,
+          "01a213dc83147037baf5d797db09e818",
+          0,
+          24115,
+          468
+        ],
+        [
+          11,
+          "01a213dc9d8b7b8faa7ee64d497295bd",
+          0,
+          25892,
+          481
+        ],
+        [
+          12,
+          "01a213dcba6d72768bd92bc9d2970b1d",
+          0,
+          26624,
+          797
+        ],
+        [
+          13,
+          "01a213dcdd2c791ab4547c45bb941618",
+          0,
+          28624,
+          371
+        ],
+        [
+          14,
+          "01a213dcf8bc76c9a6707192d82e09fa",
+          0,
+          29189,
+          1249
+        ],
+        [
+          15,
+          "01a213dd21057346a021617612e775b1",
+          0,
+          30736,
+          142
+        ],
+        [
+          16,
+          "01a213dd3a0d7377a1ac5234b16b79db",
+          0,
+          31151,
+          218
+        ],
+        [
+          17,
+          "01a213dd55437681990fb43024e77f6c",
+          0,
+          31793,
+          435
+        ],
+        [
+          18,
+          "01a213dd77517c3999045362aa5e18c3",
+          0,
+          33269,
+          313
+        ],
+        [
+          19,
+          "01a213dd974e71d599e98067d52c3414",
+          0,
+          33748,
+          263
+        ],
+        [
+          20,
+          "01a213ddb577745598a713f61641852a",
+          0,
+          34515,
+          1756
+        ],
+        [
+          21,
+          "01a213ddeb1d72ab905f3c9741956f82",
+          0,
+          36353,
+          85
+        ],
+        [
+          22,
+          "01a213de08357218b6c07a288440108d",
+          0,
+          37228,
+          272
+        ],
+        [
+          23,
+          "01a213de206274e2b5fce6995dde9c9d",
+          0,
+          37777,
+          152
+        ]
+      ],
+      "input_tokens": 591210,
+      "output_tokens": 10846,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "e8d3284805a5fb23a560c091e22b9c77e22135ef19b377cf9ece5ecba34e2534",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-issue": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "a969b1303968e547ca4c44f4de4ab2857175f9bdeb1829eeb803a1caf6f31cbf  django/contrib/postgres/forms/array.py\n80420baa1ec12f3f9f3269b138b263cccaac412bc4f17597c40cc103673911be  django/forms/widgets.py\n"
+          }
+        },
+        "elapsed_seconds": 188.9938463330036
+      },
+      "controller_event_counts": {
+        "candidate_operation": 6,
+        "candidate_saved": 1,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "e8d3284805a5fb23a560c091e22b9c77e22135ef19b377cf9ece5ecba34e2534",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "e8d3284805a5fb23a560c091e22b9c77e22135ef19b377cf9ece5ecba34e2534",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "django/forms/widgets.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 11,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "test_value_omitted_from_data (postgres_tests.test_array.TestSplitFormWidget) ... skipped 'PostgreSQL specific tests'",
+          "test_blank_true (postgres_tests.test_array.TestValidation) ... skipped 'PostgreSQL specific tests'",
+          "test_nested_array_mismatch (postgres_tests.test_array.TestValidation) ... skipped 'PostgreSQL specific tests'",
+          "test_unbounded (postgres_tests.test_array.TestValidation) ... skipped 'PostgreSQL specific tests'",
+          "test_with_base_field_error_params (postgres_tests.test_array.TestValidation) ... skipped 'PostgreSQL specific tests'",
+          "test_with_size (postgres_tests.test_array.TestValidation) ... skipped 'PostgreSQL specific tests'",
+          "test_with_validators (postgres_tests.test_array.TestValidation) ... skipped 'PostgreSQL specific tests'",
+          "OK (skipped=110)"
+        ]
+      },
+      "tools_count": 21,
+      "nonzero_tools": [],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 21,
+        "save": 1,
+        "verify": 1
+      },
+      "tool_screen_flags": [],
+      "source_sha256": {
+        "result.json": "8903207595fb8be403efc41fdde3f30e1c12ac56e3f34ccdd565963f9f464c97",
+        "trial.json": "dede80d550bd298e9ebed668010397264a9ff83fef3ce0a8190118133d4349b0",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-12193-C0-r1.protocol.json": "f356f9b3b5996f69f32d40cff3835346122ef35ca38236db900de108a6fb643b",
+        "model.jsonl": "6fd4421217ffc1557ccaac55579e10e76cc3f722ded0711b296ac051a1cd269a",
+        "controller.jsonl": "cd09581db221f3e76d35a037e6208d5160b0812009a3b140df10714331b4fa78",
+        "final-verification.json": "e21499d23f498da9f9f4103605d833f2dbf084d7dd7d725dbc448aa0645fe557",
+        "candidates/candidate-001.json": "649ce09638d01d5f14f4d8430cd7b30b16196188e289c3792c9ddf45475abc31",
+        "candidate.patch": "31a2b82354f49fbbdabe0e55d0101ca1eec1b3886f799fc05e67b783a1eb8ec2",
+        "swe-official/django__django-12193-C0-r1/course-mini-swe-agent/django__django-12193/patch.diff": "31a2b82354f49fbbdabe0e55d0101ca1eec1b3886f799fc05e67b783a1eb8ec2",
+        "swe-official/django__django-12193-C0-r1/course-mini-swe-agent/django__django-12193/report.json": "fead81c0065b92aca65da47e3360d4f50084930a4b13df6dba2f4d4c4fc9097a",
+        "swe-official/django__django-12193-C0-r1/course-mini-swe-agent/django__django-12193/test_output.txt": "be7b652d452e27b78bde647ec0b5c326a2c0721042c0ffc720ca2906c42574a1",
+        "swe-official/django__django-12193-C0-r1/course-mini-swe-agent/django__django-12193/run_instance.log": "ae50828c52bbe42609a8af310c498259cb2c5437db7fbd0effce3c84232c3c1d",
+        "swe-official/django__django-12193-C0-r1/course-mini-swe-agent/django__django-12193/eval.sh": "9e55e07595b43c4d3201007d8f0d79a0eaa50b31913a3fc92bdb16aa174e003d",
+        "tools.jsonl": "e915904d98e45803b11d0226e3e563e94a255719b9288753d1d4667105cd2741"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model/request/response/billing and tool-event structures streamed;full production patches/instructions and selected meaningful test,repair,service outputs directly read. No claim of word-for-word full model reasoning or every large source-dump stdout.",
+      "additional_root_relative_source_sha256": {
+        "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-12193-C0-r1/instruction.txt": "5e2afb584fba939b65eeed0a4f94fbe7e5c7cfb53a0f14bb88bafe24da88ea12",
+        "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-12193-C0-r1.resources.json": "a9fe3bb99df56bb4916caf1fa67a2943d74a96777e528235cbb58c4722d719c3"
+      },
+      "resource_evidence": {
+        "task": "django__django-12193",
+        "benchmark": "swe",
+        "exclusive": true,
+        "actual_image_id": "sha256:f2f0882bb350e6c7b073569444629513f4c0bd6821f3610d243a26b2b4eae26e",
+        "returncode": 0,
+        "admitted_at": 1795629467.128266,
+        "released_at": 1795629696.9688692
+      },
+      "tool_fingerprint_columns": [
+        "tool",
+        "command_sha256",
+        "command_bytes",
+        "stdout_bytes",
+        "stderr_bytes",
+        "returncode"
+      ],
+      "tool_fingerprints": [
+        [
+          1,
+          "7f647550a93431ba258bc21e50bd80d0d23e91932e03a4f18ed9c52664662150",
+          211,
+          13445,
+          0,
+          0
+        ],
+        [
+          2,
+          "b88d356ea90704fb04e29eed272739eaea4e1183b1eccf5a68ba143ce0713c10",
+          378,
+          12026,
+          0,
+          0
+        ],
+        [
+          3,
+          "ce85cbf4b4b28b714f9afacc0fad19e127e9dc85280dc0e32611663ff1d50091",
+          369,
+          9828,
+          0,
+          0
+        ],
+        [
+          4,
+          "e4898bba0c3f5e90cd578d956ea2ad46eccbbbc8aedb060283f05bae00ef2772",
+          1321,
+          26,
+          182,
+          0
+        ],
+        [
+          5,
+          "3543f2a03e8d07e121d95c0d374c08d1a62232082951f30ffbc8019e14b26ac5",
+          134,
+          26,
+          450,
+          0
+        ],
+        [
+          6,
+          "cc77a6620d8c3a4807814180c4257d2432097b90580cfe2f57b7393518b64268",
+          402,
+          2866,
+          0,
+          0
+        ],
+        [
+          7,
+          "88400ec5769a9341d7c8d065e934298776e45f929115c16bfd097700bde1e5b5",
+          343,
+          2089,
+          0,
+          0
+        ],
+        [
+          8,
+          "89666476cc8dcb257bc4155fd05c362a2ab243be0167860425c1a84bd8337044",
+          167,
+          26,
+          1168,
+          0
+        ],
+        [
+          9,
+          "e9e5c7bb2bbf18fa57db25a7ea72a8fd304dbd6e9bc930863862bfe0b451020e",
+          683,
+          1006,
+          477,
+          0
+        ],
+        [
+          10,
+          "bf88c566c8228d296fa0e641455210d072b79a107d1c7c6cd68694b71679054b",
+          383,
+          3719,
+          32,
+          0
+        ],
+        [
+          11,
+          "9b0ec0633a0c87392629161e405e22044b9c40d2e87d23788d729c723eadb587",
+          933,
+          197,
+          249,
+          0
+        ],
+        [
+          12,
+          "9125f7541d01a9ead64a4ba4342ade16fbaa1492132456a95539e5bff247701b",
+          178,
+          3288,
+          0,
+          0
+        ],
+        [
+          13,
+          "885463744574ab10a48f547830acf071795e10312544e15033128b5fd31f775a",
+          509,
+          253,
+          0,
+          0
+        ],
+        [
+          14,
+          "fece60fc2e90b79724387bdb84d0fc1692ae9f621b5f8d0e7ea91a3745e02fe4",
+          919,
+          645,
+          0,
+          0
+        ],
+        [
+          15,
+          "0d1596c6f6c233b73d36acff2194cb30c4e79bf174a9c5fe82e1a859614351fb",
+          137,
+          1338,
+          0,
+          0
+        ],
+        [
+          16,
+          "6c402b8b6056edfc23ed55716f0dad375ef226c8b9c18b5731dc4208925242cc",
+          105,
+          2915,
+          0,
+          0
+        ],
+        [
+          17,
+          "148b8e06cd3edf2a27be26142650ff5a2058a55defdc572ee1731985a051f51f",
+          318,
+          206,
+          0,
+          0
+        ],
+        [
+          18,
+          "724549c7dd7aa1c7943f59550d8d148567e7fb5b8a9a6c4333b7ae7fb7c339bd",
+          133,
+          1350,
+          0,
+          0
+        ],
+        [
+          19,
+          "ad961f1643c0cfa0a621bb35945d2a4a8ce84435c15d7909dacdc87a072ac6de",
+          2792,
+          20,
+          0,
+          0
+        ],
+        [
+          20,
+          "8106f3bb1ae6b38d4b9632240efbe99d290d61473173d0f271753bd9247af03c",
+          189,
+          548,
+          0,
+          0
+        ],
+        [
+          21,
+          "2e2577cea459e468a3c7237d52cfd7c074569f65082e4f900514a7f20923eecd",
+          42,
+          38,
+          0,
+          0
+        ]
+      ],
+      "grader_execution_summary": [
+        "Ran 122 tests in 0.026s",
+        "OK (skipped=110)",
+        "+ SWEBENCH_TEST_EXIT_CODE=0",
+        ">>>>> Test Exit Code: 0"
+      ],
+      "candidate_and_public_byte_check": {
+        "source_sha256": {
+          "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/django__django-12193-C0-r1.resources.warmup.json": "9cb3265417e79781db77160ad1b6cbc76b97ae6e5308dbad269d865b32502893"
+        },
+        "resource_pin_exact": true,
+        "matching_final_candidate_files": [
+          {
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "file_hashes": {
+              "django/forms/widgets.py": "80420baa1ec12f3f9f3269b138b263cccaac412bc4f17597c40cc103673911be"
+            },
+            "hash_present_in_final_public_snapshot": {
+              "django/forms/widgets.py": true
+            }
+          }
+        ],
+        "final_matching_public_feedback": [
+          {
+            "check_id": "public-issue",
+            "step": 21,
+            "reason": "requested",
+            "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"public-issue\", \"passed\": true, \"actual\": {\"checked\": [true, false, true, false], \"direct_checkbox_cases\": [{\"value\": true, \"attrs_kind\": \"none\", \"caller_attrs_unchanged\": true, \"checked\": true}, {\"value\": true, \"attrs_kind\": \"dictionary\", \"caller_attrs_unchanged\": true, \"checked\": true}, {\"value\": false, \"attrs_kind\": \"none\", \"caller_attrs_unchanged\": true, \"checked\": false}, {\"value\": false, \"attrs_kind\": \"dictionary\", \"caller_attrs_unchanged\": true, \"checked\": false}]}, \"required\": {\"checked\": [true, false, true, false], \"caller_attrs_unchanged\": true, \"direct_checked_matches_boolean\": true}}]}\n",
+            "returncode": 0
+          }
+        ]
+      },
+      "control_state_applicable": true
+    },
+    {
+      "arm": "main",
+      "task": "mailman",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/mailman-B0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 779.834454792086,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "B0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795629851.732994,
+        "native_session_id": "6a26973d-4545-4256-84f9-5167f3d1d1e2",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "51f3faef9a7b0437391642fe97971fd8b9cc66f1820dae4deae956d7229cff1f"
+      },
+      "event_counts": {
+        "request": 46,
+        "cli_process_started": 46,
+        "response": 46,
+        "billing_verified": 46
+      },
+      "native_sessions": [
+        "6a26973d-4545-4256-84f9-5167f3d1d1e2"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a213e12ec9766aa10a38d1403da160",
+          0,
+          4617,
+          400
+        ],
+        [
+          2,
+          "01a213e1491b7ef38e5bf1e4eede3565",
+          0,
+          8537,
+          416
+        ],
+        [
+          3,
+          "01a213e167f27fdfb6ae7ed8bf152f46",
+          0,
+          10675,
+          573
+        ],
+        [
+          4,
+          "01a213e185ff7c4a8e9c26b351a7030a",
+          0,
+          14121,
+          598
+        ],
+        [
+          5,
+          "01a213e1ad8e76a4b46262e511af705e",
+          0,
+          18010,
+          515
+        ],
+        [
+          6,
+          "01a213e1d664775793b022e1c6340e94",
+          0,
+          21835,
+          1498
+        ],
+        [
+          7,
+          "01a213e209627b4587f838ba469d3379",
+          0,
+          23797,
+          457
+        ],
+        [
+          8,
+          "01a213e243167f42b5da2eefc336c55a",
+          0,
+          25802,
+          464
+        ],
+        [
+          9,
+          "01a213e276967128873e604fd7095629",
+          0,
+          29235,
+          436
+        ],
+        [
+          10,
+          "01a213e2a1d17edca444c4da1ddd2bc5",
+          0,
+          32031,
+          349
+        ],
+        [
+          11,
+          "01a213e2bfa979d3be4a95d18ddf03fd",
+          0,
+          35319,
+          1012
+        ],
+        [
+          12,
+          "01a213e2ead7719bb77760d6af05160c",
+          0,
+          39785,
+          1994
+        ],
+        [
+          13,
+          "01a213e329b77835967feb05d8550358",
+          0,
+          41946,
+          216
+        ],
+        [
+          14,
+          "01a213e345377e06ad9eb78ae962ee92",
+          0,
+          42777,
+          476
+        ],
+        [
+          15,
+          "01a213e36b337b08b64ffbfd973e8798",
+          0,
+          43756,
+          403
+        ],
+        [
+          16,
+          "01a213e38eaa741ea9d8e965bc8f8aa1",
+          0,
+          45552,
+          485
+        ],
+        [
+          17,
+          "01a213e3b6267495b9a4fe7b6417b0ec",
+          0,
+          46761,
+          2140
+        ],
+        [
+          18,
+          "01a213e3fe247bfb835793cd8bc10153",
+          0,
+          51913,
+          584
+        ],
+        [
+          19,
+          "01a213e4a7c07d00a9c9410f487ebe33",
+          0,
+          56967,
+          251
+        ],
+        [
+          20,
+          "01a213e4d0df779ca64af14d925706e6",
+          0,
+          57635,
+          1427
+        ],
+        [
+          21,
+          "01a213e54fcc7d97bff77c555e17ccf4",
+          0,
+          59591,
+          630
+        ],
+        [
+          22,
+          "01a213e57115719f9972e8bc6024cdbf",
+          0,
+          60325,
+          338
+        ],
+        [
+          23,
+          "01a213e58d4f7ff49d6bda241b1f41b8",
+          0,
+          61850,
+          621
+        ],
+        [
+          24,
+          "01a213e5d9f6775aa92d0e3687c6ec09",
+          0,
+          62944,
+          1489
+        ],
+        [
+          25,
+          "01a213e616427290bce8d9a2abf2d488",
+          0,
+          64852,
+          211
+        ],
+        [
+          26,
+          "01a213e649557532874179ea8dfec546",
+          0,
+          65216,
+          162
+        ],
+        [
+          27,
+          "01a213e661c27020a8362df0a9264033",
+          0,
+          65669,
+          147
+        ],
+        [
+          28,
+          "01a213e677af7834abdcd76d0db6a41f",
+          0,
+          65967,
+          111
+        ],
+        [
+          29,
+          "01a213e68bf97a6e9339ef25079615b2",
+          0,
+          67712,
+          606
+        ],
+        [
+          30,
+          "01a213e6cc567e599566b7e3847f5ecc",
+          0,
+          69427,
+          668
+        ],
+        [
+          31,
+          "01a213e6f47574e18b1ddcf194e096f8",
+          0,
+          70799,
+          398
+        ],
+        [
+          32,
+          "01a213e735ef72b98492ab657fa24407",
+          0,
+          72828,
+          135
+        ],
+        [
+          33,
+          "01a213e769e07c65a1f96839b84096b9",
+          0,
+          73500,
+          1388
+        ],
+        [
+          34,
+          "01a213e81dde7b73a60975cc82a768c5",
+          0,
+          75575,
+          334
+        ],
+        [
+          35,
+          "01a213e8411e7c3cbc939ec7a1357f58",
+          0,
+          76395,
+          149
+        ],
+        [
+          36,
+          "01a213e8dbd7782ba60516d7f9a16dbe",
+          0,
+          77594,
+          520
+        ],
+        [
+          37,
+          "01a213e8ff547225bd64fa743c78a2f6",
+          0,
+          82230,
+          465
+        ],
+        [
+          38,
+          "01a213e920ab770cb105145d3714202e",
+          0,
+          85280,
+          1166
+        ],
+        [
+          39,
+          "01a213e9f309790fb2db5bb2dedaa177",
+          0,
+          86862,
+          234
+        ],
+        [
+          40,
+          "01a213eab4d77a71a93cdb1c3ff417aa",
+          0,
+          88501,
+          451
+        ],
+        [
+          41,
+          "01a213ead8597f3cbdcec3d9de12503a",
+          0,
+          94291,
+          349
+        ],
+        [
+          42,
+          "01a213eb1cb775c79700976d6e7caf75",
+          0,
+          95786,
+          1802
+        ],
+        [
+          43,
+          "01a213eb77c573429201dbf5fd20135a",
+          0,
+          97684,
+          413
+        ],
+        [
+          44,
+          "01a213eba0a9711b8517b7d8d97c6d55",
+          0,
+          102582,
+          470
+        ],
+        [
+          45,
+          "01a213ebda93749faf9bfbc9187507bb",
+          0,
+          103152,
+          442
+        ],
+        [
+          46,
+          "01a213ec3d65723eb12c0e2fca56d7e8",
+          0,
+          104251,
+          145
+        ]
+      ],
+      "input_tokens": 2681934,
+      "output_tokens": 28538,
+      "final_control": null,
+      "controller_event_counts": {},
+      "candidate_records": [],
+      "matching_final_candidates": [],
+      "native_capture": null,
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_simple_local_delivery",
+          "PASSED ../tests/test_outputs.py::test_mlist_exists",
+          "PASSED ../tests/test_outputs.py::test_join_announce_leave_flow",
+          "======================== 3 passed, 9 warnings in 20.28s ========================"
+        ]
+      },
+      "tools_count": 46,
+      "nonzero_tools": [
+        6,
+        12,
+        19,
+        20,
+        21,
+        23,
+        26,
+        27,
+        30,
+        33,
+        35,
+        37,
+        39,
+        42,
+        44
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash_command": 46
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 5,
+          "command_sha256": "08ae9373db3814efbcde1a5c31504be77a77725475708dd87d9069b492e8ee61"
+        },
+        {
+          "tool": 17,
+          "command_sha256": "bf6c5f3507a663572eae80abc35c8c8e8c29fc1b562f52a77955f174011606e6"
+        },
+        {
+          "tool": 19,
+          "command_sha256": "66ce34a19c3a68370267f932c87ad792a6e8095adce68d451fbc5ff8bc0c206a"
+        },
+        {
+          "tool": 38,
+          "command_sha256": "c9e6db841afc6ac616ef573330918acdbe1e7917e230326003196f36ebff68f9"
+        },
+        {
+          "tool": 39,
+          "command_sha256": "e5baa4208079f76a28739c0215bd2f02ccb0fc6d13d69912672e258aeb147634"
+        }
+      ],
+      "source_sha256": {
+        "result.json": "14f5c3bbbe56230ac3ffd574c22ccfbd398395cfce055dfdb6e3130a38b0813a",
+        "trial.json": "0afeef7b4ff04f4285ab8eefcb3d847a7ed8ee2a436afb755304d681ec3f3ce4",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/mailman-B0-r1.protocol.json": "0c781c6519d09121c6423002908208f6c4c6513c0ea9f8b449be1d2a8f7bcdca",
+        "mailman__9em95pC/agent/model.jsonl": "6e5789c4dde3ac11af60f59b6e4d5a266c8766889ac0c2e70f4f67cd4a4fd910",
+        "mailman__9em95pC/result.json": "996b2152330c1b1565347e3cafa7c29032d9be060a2d2d11e35a490374cfe8f5",
+        "mailman__9em95pC/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "mailman__9em95pC/verifier/test-stdout.txt": "5416e3d3899c1eab17956099cd3510a37229d8885655945772f486d13f09d059",
+        "mailman__9em95pC/agent/tools.jsonl": "e9d026b9c90e34535c9068b5fc84827ebf08ebd87ae408f1c75493d4793ec8a3",
+        "mailman/instruction.md": "240d03a73e38087d40c55460d48a098c70143e911a279cffe2468f642322cdee"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model/request/response/billing and tool-event structures streamed;full production patches/instructions and selected meaningful test,repair,service outputs directly read. No claim of word-for-word full model reasoning or every large source-dump stdout.",
+      "additional_root_relative_source_sha256": {
+        "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/mailman-B0-r1.resources.json": "8ed84750dee29ed403ea908d2e7a0513c18bccc4ddb502bfb5364f96fad48d63"
+      },
+      "resource_evidence": {
+        "task": "mailman",
+        "benchmark": "terminal",
+        "exclusive": false,
+        "actual_image_id": "sha256:04fac73db7e2b4f49d43f09fbc2266a94d70131f07efa1393d370abc059f4094",
+        "returncode": 0,
+        "admitted_at": 1795629843.048002,
+        "released_at": 1795630623.48462
+      },
+      "tool_fingerprint_columns": [
+        "tool",
+        "command_sha256",
+        "command_bytes",
+        "stdout_bytes",
+        "stderr_bytes",
+        "returncode"
+      ],
+      "tool_fingerprints": [
+        [
+          1,
+          "1d4b1db326adea48f0ffae51ae7ca6262cdf01a13046af50048998db3d39b455",
+          591,
+          15120,
+          0,
+          0
+        ],
+        [
+          2,
+          "ad72d27f85492790f747f55b4b65cf0202a1d18a8c38299e2d43b209b134273c",
+          864,
+          4698,
+          0,
+          0
+        ],
+        [
+          3,
+          "4b6a322870a28a0063c537de7325299de0d9043bb2086b6310a6a72ec00e0baf",
+          845,
+          31113,
+          0,
+          0
+        ],
+        [
+          4,
+          "a5afa7c9e0f13ff934a031a3598d38909b2475d1a6a3bd245c1be4bcd27dc23e",
+          747,
+          17804,
+          0,
+          0
+        ],
+        [
+          5,
+          "08ae9373db3814efbcde1a5c31504be77a77725475708dd87d9069b492e8ee61",
+          585,
+          18029,
+          0,
+          0
+        ],
+        [
+          6,
+          "b17a3ae6061291de143842d339db6aead6670dc071d0523c51646dc01fedd7aa",
+          978,
+          1368,
+          0,
+          1
+        ],
+        [
+          7,
+          "eecfa9d24919c93c978759a7e27bbde83445d4b334aa257d989a2f956666f7cf",
+          994,
+          3696,
+          0,
+          0
+        ],
+        [
+          8,
+          "bd86a9a69ad5ffe3a25ff5c264dcf0213b81db7a3fe46481209151240860561d",
+          677,
+          15652,
+          0,
+          0
+        ],
+        [
+          9,
+          "2cecb6c594abefd70737b3ad8e9123944bb62280882ca5b328ffbcab75329661",
+          674,
+          7113,
+          0,
+          0
+        ],
+        [
+          10,
+          "dd18036443256cc75265d86adce9e8ca6a704335d4e6357bf34530853893e330",
+          638,
+          20866,
+          0,
+          0
+        ],
+        [
+          11,
+          "356a4af29a826abc3e03b15dfae881d99841d8d91bf6cd598c1cd930c0bc9cba",
+          847,
+          14960,
+          0,
+          0
+        ],
+        [
+          12,
+          "20aac927ea4054459edbc5ea543c9445282a9d4a8a1997347fd4f7095702cd5d",
+          1660,
+          270,
+          0,
+          1
+        ],
+        [
+          13,
+          "10460e3561cef4ff94d465c57e2ac880457cb0c0430bca6199779f7e7a5fa0dd",
+          478,
+          1865,
+          0,
+          0
+        ],
+        [
+          14,
+          "adb4895cd9de15affaafddf4af33f4b866b101b67b2ca39a358efe58b0032b49",
+          1489,
+          1286,
+          0,
+          0
+        ],
+        [
+          15,
+          "80f52c23208dbbcd13b0fb2071f0bc6be08039693d808c4730c0b1d138c8d170",
+          683,
+          3861,
+          0,
+          0
+        ],
+        [
+          16,
+          "fa70c40c52a1a8ba49e2a85b1b988ff632c12c09ca20deceeaf1e3441ff53065",
+          1483,
+          1925,
+          0,
+          0
+        ],
+        [
+          17,
+          "bf6c5f3507a663572eae80abc35c8c8e8c29fc1b562f52a77955f174011606e6",
+          1275,
+          8587,
+          0,
+          0
+        ],
+        [
+          18,
+          "7a5180ce166aff98af27e05fa00e287ca0fc67e57f0919bbf87a79a0c5094001",
+          709,
+          11652,
+          0,
+          0
+        ],
+        [
+          19,
+          "66ce34a19c3a68370267f932c87ad792a6e8095adce68d451fbc5ff8bc0c206a",
+          172,
+          917,
+          0,
+          1
+        ],
+        [
+          20,
+          "f0d44e95a4eb78adcba722d5b774634167dbc9916438df707d3a3e755bfed44e",
+          915,
+          1375,
+          0,
+          1
+        ],
+        [
+          21,
+          "b5c159b7bb63bff46364efdc5f4cb51ef5df1cb94725abe85ace1ca285745632",
+          1042,
+          70,
+          0,
+          1
+        ],
+        [
+          22,
+          "4bbd3864ef3db10e8554aa9ed2ccb48dd0af5a282f885bd1d18dbef4fe6ffa01",
+          255,
+          2902,
+          0,
+          0
+        ],
+        [
+          23,
+          "69fc43e0f331e17b212ca21e1afda70353488aa08cb5de47e95bd87891a3e3ba",
+          1278,
+          1118,
+          0,
+          1
+        ],
+        [
+          24,
+          "6949cfac906accc308d879ecaca5689a12d4a3f7a6b221b5dcf5c40c45861c30",
+          650,
+          957,
+          0,
+          0
+        ],
+        [
+          25,
+          "4068f8543b78658d0a9fd1f545852142f5234b61af758d10c2fa016e8b2115bb",
+          317,
+          217,
+          0,
+          0
+        ],
+        [
+          26,
+          "5b806cdf0e80d583ae2db83e658783151bc5fa3ef7a1319f1e1e701124bee1db",
+          296,
+          541,
+          0,
+          1
+        ],
+        [
+          27,
+          "a63d070b23c701602376143a059c15561ebd7c0dfafb033a8123f697b395299f",
+          339,
+          185,
+          0,
+          1
+        ],
+        [
+          28,
+          "39a89c8bc67f5e4e32cbca5f94066620454762828c54fcc86cf52eafff2b8ca2",
+          223,
+          3968,
+          0,
+          0
+        ],
+        [
+          29,
+          "80dff4a21af75b1ed3fb1becdafd4cef5fbb262e4859ff4600c148eaf8bc30fa",
+          703,
+          2651,
+          0,
+          0
+        ],
+        [
+          30,
+          "1dff5a7a49315b7b9361bfe6249f5e6b8b5bc0721ff9bf84db9fd671f00f675c",
+          921,
+          1837,
+          0,
+          1
+        ],
+        [
+          31,
+          "3ad3998205ff02ac39671821be43578f50415f8c05e04fc248686787281887eb",
+          942,
+          3848,
+          0,
+          0
+        ],
+        [
+          32,
+          "b4c5c71168aef3ebb5f2e028201635cbad8e5b06ac6334d86a458e2cc70bf74b",
+          25,
+          1409,
+          0,
+          0
+        ],
+        [
+          33,
+          "d85aa8d5b3a62855ec2d12bf3628a39f7175025ee301abd59aeef8c99719265d",
+          1843,
+          1757,
+          0,
+          1
+        ],
+        [
+          34,
+          "380e0eca88c0f89530af92de42abd1824165dedef5f57dd98acf8df01af41526",
+          515,
+          679,
+          0,
+          0
+        ],
+        [
+          35,
+          "d6531a44c2a35db593523733b46a75403428b76e0a6db7c274a7ff8535caa0d9",
+          146,
+          2310,
+          0,
+          1
+        ],
+        [
+          36,
+          "68f6cc9db0f50e05c71491466a7a821bfa445e38397d57b24f87dc0a3a68b725",
+          1178,
+          7838,
+          0,
+          0
+        ],
+        [
+          37,
+          "8b8434e2af042d68b360c33dfc0272a762ec81d3d190e0556d7d6f06fcc2369c",
+          1250,
+          8015,
+          0,
+          1
+        ],
+        [
+          38,
+          "c9e6db841afc6ac616ef573330918acdbe1e7917e230326003196f36ebff68f9",
+          1970,
+          910,
+          0,
+          0
+        ],
+        [
+          39,
+          "e5baa4208079f76a28739c0215bd2f02ccb0fc6d13d69912672e258aeb147634",
+          248,
+          3644,
+          0,
+          1
+        ],
+        [
+          40,
+          "0a152e36c1b4b0cdece820904b076e0aaaee54f7f29a6ad337ecf167047de57a",
+          1109,
+          12417,
+          0,
+          0
+        ],
+        [
+          41,
+          "b2505e036371bb2ac3d75196bd3292fa8d57347bf82d9ca1b9a96575b04ca32a",
+          453,
+          2924,
+          0,
+          0
+        ],
+        [
+          42,
+          "9ea57de78930a8d885d926c458b7522b75aecff40eb3c4d40b772916b8b0fffa",
+          1080,
+          95,
+          0,
+          1
+        ],
+        [
+          43,
+          "9a4cd0c87e696c899fa125e68d655e95a3a33899e9d1f5d94c70ddd3673b1cfc",
+          845,
+          10327,
+          0,
+          0
+        ],
+        [
+          44,
+          "f60502574838ba4d0fa2506d4689ec3d599312264dcafcc3613185f789088042",
+          965,
+          67,
+          0,
+          1
+        ],
+        [
+          45,
+          "adce8307ee0b5616a854f0614e9f5942c62f7afc561c2b0e538da7b536e38d43",
+          981,
+          1794,
+          0,
+          0
+        ],
+        [
+          46,
+          "2e2577cea459e468a3c7237d52cfd7c074569f65082e4f900514a7f20923eecd",
+          42,
+          38,
+          0,
+          0
+        ]
+      ],
+      "candidate_and_public_byte_check": {
+        "source_sha256": {},
+        "resource_pin_exact": true
+      },
+      "control_state_applicable": false,
+      "qualified_passed_scope": "B0 numeric field equals raw original pass;not a final protected/public-check certification"
+    },
+    {
+      "arm": "repeat",
+      "task": "django__django-11999",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-upstream-error35-readmission-r2",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 413.3006121669896,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795627228.799676,
+        "native_session_id": "824c6fc8-74fe-49a2-9d45-9874ce71fd24",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "5f046d5f1e34253f231c8bf87e6012d32263d59bff4a87a150e7ff3a4dd3df77"
+      },
+      "event_counts": {
+        "request": 29,
+        "cli_process_started": 29,
+        "response": 29,
+        "billing_verified": 29
+      },
+      "native_sessions": [
+        "824c6fc8-74fe-49a2-9d45-9874ce71fd24"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a213b928137161818aa688e1a14c71",
+          0,
+          5377,
+          204
+        ],
+        [
+          2,
+          "01a213b93e9277b69224120b339c445d",
+          0,
+          6345,
+          249
+        ],
+        [
+          3,
+          "01a213b955927757975efda9bad9b3e0",
+          0,
+          7265,
+          233
+        ],
+        [
+          4,
+          "01a213b96a7b764b92028cf84c799712",
+          0,
+          11345,
+          1340
+        ],
+        [
+          5,
+          "01a213b9a0847c3cac3d0cc7479a2cc1",
+          0,
+          14453,
+          180
+        ],
+        [
+          6,
+          "01a213b9b72e797284ab138379c53fbb",
+          0,
+          16366,
+          236
+        ],
+        [
+          7,
+          "01a213b9d21674e2857f671b92c01e86",
+          0,
+          17091,
+          177
+        ],
+        [
+          8,
+          "01a213b9e7907c8a859e7639b8c38f75",
+          0,
+          18450,
+          866
+        ],
+        [
+          9,
+          "01a213ba11dd73818d80499a65378f62",
+          0,
+          19522,
+          268
+        ],
+        [
+          10,
+          "01a213ba2c237798a5dce1bfa19afd02",
+          0,
+          20062,
+          188
+        ],
+        [
+          11,
+          "01a213ba44327047b9af64560c5cb71a",
+          0,
+          20832,
+          233
+        ],
+        [
+          12,
+          "01a213ba5dff7d2f89a4426b0db0dcd2",
+          0,
+          21333,
+          219
+        ],
+        [
+          13,
+          "01a213ba7a217c95a7ad8f2614225ffa",
+          0,
+          22175,
+          469
+        ],
+        [
+          14,
+          "01a213ba985b78e6824cf0918d4cf508",
+          0,
+          23116,
+          327
+        ],
+        [
+          15,
+          "01a213bab42c79a09906745bd456e14c",
+          0,
+          24634,
+          275
+        ],
+        [
+          16,
+          "01a213bacc5f74aba24ff4d049765b20",
+          0,
+          25790,
+          339
+        ],
+        [
+          17,
+          "01a213baebae7bdea0e5d31882566163",
+          0,
+          26991,
+          692
+        ],
+        [
+          18,
+          "01a213bb121a7099a4b6dcf964fb8584",
+          0,
+          28490,
+          1458
+        ],
+        [
+          19,
+          "01a213bb43a37aa788f7c2862a6ff7df",
+          0,
+          30068,
+          806
+        ],
+        [
+          20,
+          "01a213bb6592773d9c5fef23772e8eb3",
+          0,
+          31020,
+          514
+        ],
+        [
+          21,
+          "01a213bb870b733382ad84d5d8ad6fec",
+          0,
+          31987,
+          255
+        ],
+        [
+          22,
+          "01a213bba49d75b282939d4061a2a31f",
+          0,
+          32509,
+          311
+        ],
+        [
+          23,
+          "01a213bbc776793bafd483cb8615046d",
+          0,
+          33252,
+          1003
+        ],
+        [
+          24,
+          "01a213bc21c07e2890e04cf54a223763",
+          0,
+          34664,
+          380
+        ],
+        [
+          25,
+          "01a213bc3ce2758eb8e6c13b4cee4a95",
+          0,
+          35235,
+          680
+        ],
+        [
+          26,
+          "01a213bc5eb07ad28f0a4b893b7f199c",
+          0,
+          36035,
+          138
+        ],
+        [
+          27,
+          "01a213bc7ed572ceaa3229a007772307",
+          0,
+          36620,
+          1246
+        ],
+        [
+          28,
+          "01a213be87f87836b807da56bef56a36",
+          0,
+          37966,
+          519
+        ],
+        [
+          29,
+          "01a213beab6e70d099978b00324ab9d1",
+          0,
+          38805,
+          171
+        ]
+      ],
+      "input_tokens": 707798,
+      "output_tokens": 13976,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "6d11fb17638108c5b4c78870f26984315908bf2f6428c91f76ef870911d55413",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-issue": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "b5dffa44014d52c88f259d108474a5ee8f000794b4276ecb928c2a41900b3aff  django/db/models/fields/__init__.py\n"
+          }
+        },
+        "elapsed_seconds": 368.8768837499665
+      },
+      "controller_event_counts": {
+        "candidate_operation": 7,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "6d11fb17638108c5b4c78870f26984315908bf2f6428c91f76ef870911d55413",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "6d11fb17638108c5b4c78870f26984315908bf2f6428c91f76ef870911d55413",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "6d11fb17638108c5b4c78870f26984315908bf2f6428c91f76ef870911d55413",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "6d11fb17638108c5b4c78870f26984315908bf2f6428c91f76ef870911d55413",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "django/db/models/fields/__init__.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 30,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": []
+      },
+      "tools_count": 26,
+      "nonzero_tools": [
+        9,
+        12,
+        23,
+        25
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 26,
+        "save": 2,
+        "verify": 1
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 18,
+          "command_sha256": "e0230f1be236cef779c171dde5a5760562bf5e6d864adc57af18fb8cdc4f6002"
+        }
+      ],
+      "source_sha256": {
+        "result.json": "037db4255d9abe676a6172277ef7508f0f9e99ec3375266c5c70c3c1fcf36778",
+        "trial.json": "730014c071c8ddc957edc0c0a2daa41cfaaeb37ccadc57dce273bbfef4230138",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-upstream-error35-readmission-r2.protocol.json": "ba65e2f213550ab371912630565051cf60a19680ed0917c8d5c2da04a130e301",
+        "model.jsonl": "d5c75c8a1ed92edd9801259f0f707d53eae345dcf0f90f46ab22b261452836ac",
+        "controller.jsonl": "e37573239b33db50caabd63bdafe08f6255ed23264ba39c2d0bf877a03fd254e",
+        "final-verification.json": "5c94ab0878633e991efa5eaf592543fbcc38ecf1ce7272c7ec7b4829678de863",
+        "candidates/candidate-002.json": "32f3253c2b39cdd3c13989b14bfd41f80e578a9010c2d0180d3ec6f33665ba53",
+        "candidates/candidate-001.json": "48462046bba74bad778c18e05bec7eaff2484cc8686ca539b93cb812cfc9e9b9",
+        "candidate.patch": "705090e48306f037fe945fdc5ed00a1a579d8863a7a5a8bf1fe295ebdcf9e1e3",
+        "swe-official/django__django-11999-C0-upstream-error35-readmission-r2/course-mini-swe-agent/django__django-11999/patch.diff": "705090e48306f037fe945fdc5ed00a1a579d8863a7a5a8bf1fe295ebdcf9e1e3",
+        "swe-official/django__django-11999-C0-upstream-error35-readmission-r2/course-mini-swe-agent/django__django-11999/report.json": "a184f919d25dd01d13c03a8b300e3537ff8fc4491d1458c34d3ee61cc73c24b4",
+        "swe-official/django__django-11999-C0-upstream-error35-readmission-r2/course-mini-swe-agent/django__django-11999/test_output.txt": "1339eb10069d9ebba2c93dcd5970863c3fbebced2ab0ae68c230d9446a9b6951",
+        "swe-official/django__django-11999-C0-upstream-error35-readmission-r2/course-mini-swe-agent/django__django-11999/run_instance.log": "fa60cac5ff2c051c23472ae7e4a8d4ebe7d1cbb5310e489f253f73f130cc52bf",
+        "swe-official/django__django-11999-C0-upstream-error35-readmission-r2/course-mini-swe-agent/django__django-11999/eval.sh": "cfa6c9d77e2f1bf32e21d48f7be5488adb8eae58b244cc754a0bf4579d1b278e",
+        "tools.jsonl": "9d8bc251c95583baaa4804a6cd8a438d9f1084b0f977c2cd33652f61bcaca79f"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model/request/response/billing and tool-event structures streamed;full production patches/instructions and selected meaningful test,repair,service outputs directly read. No claim of word-for-word full model reasoning or every large source-dump stdout.",
+      "additional_root_relative_source_sha256": {
+        "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-upstream-error35-readmission-r2/instruction.txt": "13be080a1994751bc9f0c5d1b043a1fbd745f6c049501a5e65a2ca0eef5a4f8f",
+        "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-upstream-error35-readmission-r2.resources.json": "6f71ce938a6956515fa58491d2e380f38ec3d23b1ad2369370cade5f1ca3676d"
+      },
+      "resource_evidence": {
+        "task": "django__django-11999",
+        "benchmark": "swe",
+        "exclusive": true,
+        "actual_image_id": "sha256:3c7e7f035f611b17f2093ee6409364bc28cce8b9bac266b9590db762d197607e",
+        "returncode": 0,
+        "admitted_at": 1795627225.6704352,
+        "released_at": 1795627639.6437728
+      },
+      "tool_fingerprint_columns": [
+        "tool",
+        "command_sha256",
+        "command_bytes",
+        "stdout_bytes",
+        "stderr_bytes",
+        "returncode"
+      ],
+      "tool_fingerprints": [
+        [
+          1,
+          "22f5e4c4ddee195253dabaf66972785d785eedc3142cc9bafb0ae0100c06d4f5",
+          89,
+          1649,
+          0,
+          0
+        ],
+        [
+          2,
+          "36ff5fbaa35fd581bff0154de4b85194814a151f9b877454ab9549e69f78b7f8",
+          249,
+          1829,
+          55,
+          0
+        ],
+        [
+          3,
+          "72984582266cdabbc5d7678f29c1019bd5319b5cbfa5274a9fea944f74cd3520",
+          380,
+          10257,
+          0,
+          0
+        ],
+        [
+          4,
+          "568c81aa4802faae7ed6f0727c5d834abe6ed5817a481f0cb978aa5d0eec5041",
+          354,
+          5344,
+          0,
+          0
+        ],
+        [
+          5,
+          "7ada5ff5201362e6778bdcc0d165c55009ae1154f87367b3928f2ef66c7794ca",
+          186,
+          5482,
+          0,
+          0
+        ],
+        [
+          6,
+          "3845b75650f92a8a655c4eff95e0ca6e0275a890c9a964771b76aa05306d13d7",
+          210,
+          1420,
+          0,
+          0
+        ],
+        [
+          7,
+          "d071db83ce76e55f1624583dcc923a953216024fd086b25f61bd433eed847f80",
+          156,
+          3492,
+          0,
+          0
+        ],
+        [
+          8,
+          "1d8e907c92f5b729c0e52d45c11dcf29a1c0f3fe4d276768e49259181f6d7d14",
+          1093,
+          207,
+          155,
+          0
+        ],
+        [
+          9,
+          "03525ad04f57aeed76ce546007ca79772c7b915572f1e86e6068c1fb9a713e79",
+          317,
+          0,
+          441,
+          1
+        ],
+        [
+          10,
+          "538f7d3f5d39c9bfafa2d70dc6041d4033f1f47af10f5c58f75d64656e7b561b",
+          239,
+          1412,
+          0,
+          0
+        ],
+        [
+          11,
+          "f85d2724f91401f162326e2db60d84864902b4b9b9224560ef4dff5632599db2",
+          400,
+          403,
+          0,
+          0
+        ],
+        [
+          12,
+          "34e8181558040e9c4bf4b0121739d4768c8008725fd85a97bba923ce92fc4e20",
+          390,
+          1309,
+          105,
+          1
+        ],
+        [
+          13,
+          "f91bf1ab17901f4986eb9a2703ad9372e259737caebde14a89c99ac4523591c3",
+          347,
+          1092,
+          0,
+          0
+        ],
+        [
+          14,
+          "7c3306005c72ea3b024f83894e6f4817741eadb8d8b1a183fc88dbd57d9183ba",
+          242,
+          3213,
+          0,
+          0
+        ],
+        [
+          15,
+          "ecb73c11f0d8517041776bbadf84f997efa8fce10f6a5d4fb6305bd518028088",
+          300,
+          2773,
+          0,
+          0
+        ],
+        [
+          16,
+          "150cc9dfc49f061a9ad9d50f37911dae7610d4b6d8ba33019c8a00b5bbb0ad5c",
+          439,
+          2292,
+          0,
+          0
+        ],
+        [
+          17,
+          "c8bb2a4e4dc0d1c6b711c558daeba83b89d7decf57ca2948f201391a35e106c9",
+          1321,
+          2092,
+          0,
+          0
+        ],
+        [
+          18,
+          "e0230f1be236cef779c171dde5a5760562bf5e6d864adc57af18fb8cdc4f6002",
+          318,
+          31,
+          98,
+          0
+        ],
+        [
+          19,
+          "de00a05a0053e4c99cbc02395407cef6d2705d65c7c70c76fe5a8adaed2689c0",
+          239,
+          174,
+          0,
+          0
+        ],
+        [
+          20,
+          "cc889c4714afa26be52a6361424d30833f0d47073ce16d641cc54743679a6418",
+          981,
+          1177,
+          0,
+          0
+        ],
+        [
+          21,
+          "a8cf9b9ddb97191b281901b599cd2ec5bb0389a056132b3c37f887b4e16e94b5",
+          153,
+          1059,
+          0,
+          0
+        ],
+        [
+          22,
+          "45e440081bfe20fc1277a2ebfa1152542959798a1f754e20e31be12aa453a732",
+          2283,
+          904,
+          0,
+          0
+        ],
+        [
+          23,
+          "70a7319769c7abcb3a3a236d067047fa0b9114da135901badc178ae0f4477a54",
+          678,
+          0,
+          206,
+          1
+        ],
+        [
+          24,
+          "635641edc0812abe244461c271a67ac58b95a2539c110177099f844c8c1051f3",
+          2329,
+          165,
+          0,
+          0
+        ],
+        [
+          25,
+          "b551f84e0f970cca28d8cc039bfbc4a825f671bee3079f5a131b217bfeb22d7a",
+          180,
+          39,
+          0,
+          124
+        ],
+        [
+          26,
+          "2e2577cea459e468a3c7237d52cfd7c074569f65082e4f900514a7f20923eecd",
+          42,
+          38,
+          0,
+          0
+        ]
+      ],
+      "grader_execution_summary": [
+        "Ran 31 tests in 0.023s",
+        "OK",
+        "+ SWEBENCH_TEST_EXIT_CODE=0",
+        ">>>>> Test Exit Code: 0"
+      ],
+      "candidate_and_public_byte_check": {
+        "source_sha256": {
+          "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-upstream-error35-readmission-r2.resources.warmup.json": "e5046cd48e91324b4b57798b02389439b140fe944a34a6e3c205fee260b8cb4f"
+        },
+        "resource_pin_exact": true,
+        "matching_final_candidate_files": [
+          {
+            "candidate_id": "candidate-002",
+            "eligible": true,
+            "file_hashes": {
+              "django/db/models/fields/__init__.py": "b5dffa44014d52c88f259d108474a5ee8f000794b4276ecb928c2a41900b3aff"
+            },
+            "hash_present_in_final_public_snapshot": {
+              "django/db/models/fields/__init__.py": true
+            }
+          },
+          {
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "file_hashes": {
+              "django/db/models/fields/__init__.py": "b5dffa44014d52c88f259d108474a5ee8f000794b4276ecb928c2a41900b3aff"
+            },
+            "hash_present_in_final_public_snapshot": {
+              "django/db/models/fields/__init__.py": true
+            }
+          }
+        ],
+        "final_matching_public_feedback": [
+          {
+            "check_id": "public-issue",
+            "step": 26,
+            "reason": "requested",
+            "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"public-issue\", \"passed\": true, \"actual\": {\"display\": [\"something\", \"something\"]}, \"required\": \"overridden display method retained\"}]}\n",
+            "returncode": 0
+          }
+        ]
+      },
+      "control_state_applicable": true
+    },
+    {
+      "arm": "repeat",
+      "task": "django__django-12050",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-12050-C0-r2",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 221.53997870802414,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795628563.3761768,
+        "native_session_id": "a7b976b0-b2a5-41ef-9194-53d05ca2a71b",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "97d31d4a933c04eb2563a3b359acc589fe892eb81afd957719a5252a2107da99"
+      },
+      "event_counts": {
+        "request": 23,
+        "cli_process_started": 23,
+        "response": 23,
+        "billing_verified": 23
+      },
+      "native_sessions": [
+        "a7b976b0-b2a5-41ef-9194-53d05ca2a71b"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a213cd8b1a74de8e6bac5ecc880b46",
+          0,
+          5253,
+          156
+        ],
+        [
+          2,
+          "01a213cda23e7bf78b36e082bdb46e43",
+          0,
+          6250,
+          179
+        ],
+        [
+          3,
+          "01a213cdb69777819b3389d1e08c8301",
+          0,
+          7809,
+          274
+        ],
+        [
+          4,
+          "01a213cdcee87f818ffd3a1e1acd8cd2",
+          0,
+          8525,
+          141
+        ],
+        [
+          5,
+          "01a213cde2837de38a90725ba7bbf000",
+          0,
+          9321,
+          303
+        ],
+        [
+          6,
+          "01a213cdff1e735f86f31f6da2a50acd",
+          0,
+          10829,
+          137
+        ],
+        [
+          7,
+          "01a213ce15157724af7fcc40e4e1d018",
+          0,
+          11493,
+          689
+        ],
+        [
+          8,
+          "01a213ce33f77e6d856a30eca07d1e33",
+          0,
+          13618,
+          225
+        ],
+        [
+          9,
+          "01a213ce49a2751c9a6b13dce53f71f7",
+          0,
+          13978,
+          220
+        ],
+        [
+          10,
+          "01a213ce64967eec8de2a050f6d5b846",
+          0,
+          14810,
+          237
+        ],
+        [
+          11,
+          "01a213ce7d2e76aeb37fa5b7e8ae447c",
+          0,
+          16102,
+          637
+        ],
+        [
+          12,
+          "01a213ce9c99718687931e9321a0ead1",
+          0,
+          16828,
+          149
+        ],
+        [
+          13,
+          "01a213ced05677de94e88893eaafde75",
+          0,
+          18395,
+          918
+        ],
+        [
+          14,
+          "01a213cef78a7499b3bfab10ffcada27",
+          0,
+          20162,
+          556
+        ],
+        [
+          15,
+          "01a213cf2b507da6979e9b82e94a00ba",
+          0,
+          20812,
+          934
+        ],
+        [
+          16,
+          "01a213cf4fd9747a89f047bcc882f3d1",
+          0,
+          21887,
+          166
+        ],
+        [
+          17,
+          "01a213cf65a376aea423b770c6432b8f",
+          0,
+          22313,
+          373
+        ],
+        [
+          18,
+          "01a213cf80547dc289f2d8552d33ed5c",
+          0,
+          23086,
+          90
+        ],
+        [
+          19,
+          "01a213cf97297e8a936e6c2d7bfb46c4",
+          0,
+          23452,
+          89
+        ],
+        [
+          20,
+          "01a213cfb8fd77dfb9432e077d17372c",
+          0,
+          24075,
+          1400
+        ],
+        [
+          21,
+          "01a213cfe8b176fb9240f9c0e6ad126a",
+          0,
+          26302,
+          354
+        ],
+        [
+          22,
+          "01a213d005d475c29c09c67be54cbe17",
+          0,
+          27217,
+          685
+        ],
+        [
+          23,
+          "01a213d02baf7228897d073dc7828738",
+          0,
+          28362,
+          102
+        ]
+      ],
+      "input_tokens": 390879,
+      "output_tokens": 9014,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "3ac4cafbba736ea99a7cc3d8c41ac14c8e7c896be25d33d5effbebd2e0a432ed",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "9d2d3ab8add8295d627bb6a79e4ff1dfe5f307dbb8cd80ee90fcc96b7e811775  django/db/models/sql/query.py\nc424dff394b40bc6ac2183d49ef8e66341dfbd2c1754e5604270844da93cd38c  tests/lookup/tests.py\n"
+          }
+        },
+        "elapsed_seconds": 180.6263340000296
+      },
+      "controller_event_counts": {
+        "candidate_operation": 6,
+        "candidate_saved": 1,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "3ac4cafbba736ea99a7cc3d8c41ac14c8e7c896be25d33d5effbebd2e0a432ed",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "3ac4cafbba736ea99a7cc3d8c41ac14c8e7c896be25d33d5effbebd2e0a432ed",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "django/db/models/sql/query.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 10,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": []
+      },
+      "tools_count": 21,
+      "nonzero_tools": [
+        7,
+        8,
+        11,
+        13
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 21,
+        "save": 1,
+        "verify": 1
+      },
+      "tool_screen_flags": [],
+      "source_sha256": {
+        "result.json": "bdc64d10a1e6a99ef267313830fa46c623269146ca35b796a497781ae6c7fa00",
+        "trial.json": "5685293e6a3b1186e689c3c9180d294b784adb05c44c5d30e739f583a83ccca8",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-12050-C0-r2.protocol.json": "26f62aa8d4c63a16a4da6aa321bcc64f1ce1a6c22faade87a4668ea96bdd50c1",
+        "model.jsonl": "d6e241273c05060b9d2bba40225f67b2ce8012bed41671a6889597e108bd4832",
+        "controller.jsonl": "a4cb12059c7f5b124a8e154641f0d62eea34574ecb390d5710462a2230ef7977",
+        "final-verification.json": "33d3c9cfd1abde9e7a90d8f760046d77da4ca511e6743cc164e6686c8e9d6697",
+        "candidates/candidate-001.json": "1baa4689a00fae746ccc013c344b827668ba174f2a190eda590929e98c6faa0b",
+        "candidate.patch": "08af6e22fa66b28c47c3cd61192637cdcf2fca544718dc4d48f8f01fb469e63f",
+        "swe-official/django__django-12050-C0-r2/course-mini-swe-agent/django__django-12050/patch.diff": "08af6e22fa66b28c47c3cd61192637cdcf2fca544718dc4d48f8f01fb469e63f",
+        "swe-official/django__django-12050-C0-r2/course-mini-swe-agent/django__django-12050/report.json": "44b3226a4771f2134381e3e8f800bd898ce4be30659dd5f33eeb2679413963ba",
+        "swe-official/django__django-12050-C0-r2/course-mini-swe-agent/django__django-12050/test_output.txt": "a53a3fdb7a6fdbdec37e98ea7cb831448e6ce65fbdc2cc1e77a6dd51bb057d55",
+        "swe-official/django__django-12050-C0-r2/course-mini-swe-agent/django__django-12050/run_instance.log": "374ddaef3917cb19fe9ad92cafa49af3e389b12a9013481af6b041cd3f5d1d6c",
+        "swe-official/django__django-12050-C0-r2/course-mini-swe-agent/django__django-12050/eval.sh": "21d65bc43bf65afffff0e1acafccd7bc16b6a8488e880e091cdaf8544f40637d",
+        "tools.jsonl": "24ef1e9bfa7e9f41224927456aeecfe7019f540fc37d49b507ebffa7ba28fd30"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model/request/response/billing and tool-event structures streamed;full production patches/instructions and selected meaningful test,repair,service outputs directly read. No claim of word-for-word full model reasoning or every large source-dump stdout.",
+      "additional_root_relative_source_sha256": {
+        "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-12050-C0-r2/instruction.txt": "82fc440db540d3703097f11e1f310928749b573c7963976ffb2182e9e27e1624",
+        "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-12050-C0-r2.resources.json": "d2415472dbea1290ac38d14d1530a21797a00058113345e26a5335668fd7a97f"
+      },
+      "resource_evidence": {
+        "task": "django__django-12050",
+        "benchmark": "swe",
+        "exclusive": true,
+        "actual_image_id": "sha256:34773901589784072af940b29697018dc17b32e37b4ff135a153c99ac2c38dec",
+        "returncode": 0,
+        "admitted_at": 1795628560.694856,
+        "released_at": 1795628782.942121
+      },
+      "tool_fingerprint_columns": [
+        "tool",
+        "command_sha256",
+        "command_bytes",
+        "stdout_bytes",
+        "stderr_bytes",
+        "returncode"
+      ],
+      "tool_fingerprints": [
+        [
+          1,
+          "ca7ea41326b13e4f4b054b3f767c8cbc6b64c0a385a132b6aa78e3de090648c2",
+          59,
+          1779,
+          0,
+          0
+        ],
+        [
+          2,
+          "338d75af41b37b89a634c146ec4897d717eb9bf64927f7d1002315bb63ffc674",
+          286,
+          3827,
+          0,
+          0
+        ],
+        [
+          3,
+          "a3927e68e4fe8a4f973cf618977a8faadbc31b99271c035d2e2b0e19d979ad93",
+          301,
+          1094,
+          0,
+          0
+        ],
+        [
+          4,
+          "4dcdbf9b640f0839308678ee3985dff3dcd5bdd2be44f81d25f24e04881d289b",
+          177,
+          1966,
+          0,
+          0
+        ],
+        [
+          5,
+          "e87ff14ad70a8b05fe4e9fb747540b248b2c89d1ad4affa799bfbf4df36306cc",
+          311,
+          3126,
+          0,
+          0
+        ],
+        [
+          6,
+          "61dbfd90a4dece8507e47b9d5e8a300693877173c9d8019ef01631a0d38f29b7",
+          104,
+          1317,
+          0,
+          0
+        ],
+        [
+          7,
+          "42984ed3eb6a413ed8c8724656d907fbc0972b807f598db4089442b825d805ab",
+          688,
+          3970,
+          404,
+          1
+        ],
+        [
+          8,
+          "ed7fad57ec1e0590f6a9ee3a120be80f2fc863999bd68a2ab4b48cc44bee275e",
+          297,
+          113,
+          0,
+          1
+        ],
+        [
+          9,
+          "217656452a0676af2d92d5cf2e59d41e67e74e03b703fae5d552a2570f3d12bd",
+          384,
+          1481,
+          0,
+          0
+        ],
+        [
+          10,
+          "0a942561d353f8ffd33b10f1cbaa10ceb944188e08eb5d3f3beac8cfb9a8293d",
+          380,
+          2713,
+          0,
+          0
+        ],
+        [
+          11,
+          "6aae26c5f91c439f1dd9dd850c22dd03aedb645f8fb62338ea536f1b2430a230",
+          126,
+          0,
+          0,
+          1
+        ],
+        [
+          12,
+          "cbc6af341316c8c9da1304a37eb7169a123ea488e87f0d0481a2febe308a4dd0",
+          130,
+          4121,
+          0,
+          0
+        ],
+        [
+          13,
+          "257a926d21ecbc2bf98414f7889506303915ad0be20290e3313723f1efd8fa37",
+          1878,
+          0,
+          1978,
+          1
+        ],
+        [
+          14,
+          "e70c8cf3ad1c695ba0885296aacd1180664f29d2b799c930e81be284d54bac56",
+          1150,
+          23,
+          0,
+          0
+        ],
+        [
+          15,
+          "4017916a467e5af4d6909cd05d318b45da59c476c6a2afaa9f046b29df3916cc",
+          1033,
+          7,
+          151,
+          0
+        ],
+        [
+          16,
+          "7a53f6e57423d77f3c399226d14142ad191e0108916cba731bc54a965cd25ca2",
+          97,
+          311,
+          0,
+          0
+        ],
+        [
+          17,
+          "1eeea4760312335329d95866f1bc800e59158f1ea4a935ee5810c6d7ce0a2b08",
+          452,
+          811,
+          0,
+          0
+        ],
+        [
+          18,
+          "fe1d5fd579979c945242f04085dbc1a2167fda9a546709dedca945d92eb28bac",
+          1512,
+          7,
+          2080,
+          0
+        ],
+        [
+          19,
+          "b4371004a49ab07e94615e96b906265e9df0b1276a256a889d5e9427e715a8e8",
+          923,
+          1517,
+          0,
+          0
+        ],
+        [
+          20,
+          "3660b62f82633839a5834e1271f25c7a07a5089a60fe0cd5d659bddf7b144fe4",
+          356,
+          1024,
+          0,
+          0
+        ],
+        [
+          21,
+          "2e2577cea459e468a3c7237d52cfd7c074569f65082e4f900514a7f20923eecd",
+          42,
+          38,
+          0,
+          0
+        ]
+      ],
+      "grader_execution_summary": [
+        "Ran 11 tests in 0.004s",
+        "OK",
+        "+ SWEBENCH_TEST_EXIT_CODE=0",
+        ">>>>> Test Exit Code: 0"
+      ],
+      "candidate_and_public_byte_check": {
+        "source_sha256": {
+          "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-12050-C0-r2.resources.warmup.json": "f6ac5c8195d353a82772700f5d88e7b87985dd8ced5563610661698739b5e605"
+        },
+        "resource_pin_exact": true,
+        "matching_final_candidate_files": [
+          {
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "file_hashes": {
+              "django/db/models/sql/query.py": "9d2d3ab8add8295d627bb6a79e4ff1dfe5f307dbb8cd80ee90fcc96b7e811775"
+            },
+            "hash_present_in_final_public_snapshot": {
+              "django/db/models/sql/query.py": true
+            }
+          }
+        ],
+        "final_matching_public_feedback": [
+          {
+            "check_id": "public-regression",
+            "step": 19,
+            "reason": "requested",
+            "stdout": "Testing against Django installed in '/testbed/django'\nSystem check identified no issues (0 silenced).\n",
+            "returncode": 0
+          }
+        ]
+      },
+      "control_state_applicable": true
+    },
+    {
+      "arm": "repeat",
+      "task": "db-wal-recovery",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/db-wal-recovery-C0-r2",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 109.50601804198232,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795629006.6723158,
+        "native_session_id": "c08df899-098d-43a2-9afd-c2f2108e3f94",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "56f33bee30a1218d6bc1fc7def1913c039bf9218905cadb56f153f85425dd7ba"
+      },
+      "event_counts": {
+        "request": 7,
+        "cli_process_started": 7,
+        "response": 7,
+        "billing_verified": 7
+      },
+      "native_sessions": [
+        "c08df899-098d-43a2-9afd-c2f2108e3f94"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a213d44b407e3187ee1f6360944b9b",
+          0,
+          5440,
+          202
+        ],
+        [
+          2,
+          "01a213d4607d716ba3418c8ce2ebd9d7",
+          0,
+          5829,
+          710
+        ],
+        [
+          3,
+          "01a213d4819c75c4b69fd0d9c15c1dea",
+          0,
+          7644,
+          2699
+        ],
+        [
+          4,
+          "01a213d4cf5271c381ec58f5bc17b1a5",
+          0,
+          11044,
+          3732
+        ],
+        [
+          5,
+          "01a213d546ad7c08a1c8a8939869f6c3",
+          0,
+          16047,
+          122
+        ],
+        [
+          6,
+          "01a213d55ce37f98a263d5e322da338a",
+          0,
+          16439,
+          70
+        ],
+        [
+          7,
+          "01a213d577557955989cb0405c71fabd",
+          0,
+          17276,
+          165
+        ]
+      ],
+      "input_tokens": 79719,
+      "output_tokens": 7700,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "414c8444b6ca0e1a16f33600898bde4c76f93385df7fabde937bc1b7e34d2e7d",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-task": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "aeb6491c4d573acb714eac8ebeffe96953ed93765ce48e8a7bb85dadad69ca6a  /app/recovered.json\n682055f65aadf6832b01cbadb753086e901ca5f6985c306014682e8bf68774a3  main.db\n"
+          }
+        },
+        "elapsed_seconds": 84.65563362499233
+      },
+      "controller_event_counts": {
+        "candidate_operation": 5,
+        "candidate_saved": 1,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "414c8444b6ca0e1a16f33600898bde4c76f93385df7fabde937bc1b7e34d2e7d",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "414c8444b6ca0e1a16f33600898bde4c76f93385df7fabde937bc1b7e34d2e7d",
+          "eligible": false
+        }
+      ],
+      "native_capture": {
+        "registered": true,
+        "artifacts": [
+          {
+            "source": "/app/recovered.json",
+            "status": "ok",
+            "type": "file",
+            "path": "db-wal-recovery__o5tRPSi/artifacts/app/recovered.json",
+            "sha256": "aeb6491c4d573acb714eac8ebeffe96953ed93765ce48e8a7bb85dadad69ca6a",
+            "bytes": 408,
+            "sha_present_in_final_public_snapshot": true
+          },
+          {
+            "source": "/app/main.db",
+            "status": "ok",
+            "type": "file",
+            "path": "db-wal-recovery__o5tRPSi/artifacts/app/main.db",
+            "sha256": "682055f65aadf6832b01cbadb753086e901ca5f6985c306014682e8bf68774a3",
+            "bytes": 8192,
+            "sha_present_in_final_public_snapshot": true,
+            "public_snapshot_source_token": "main.db"
+          },
+          {
+            "source": "/app/main.db-wal",
+            "status": "ok",
+            "type": "file",
+            "path": "db-wal-recovery__o5tRPSi/artifacts/app/main.db-wal",
+            "sha256": "a00cfbf891cb36157b7eca6df67f9920a0013769e446c2314ca204eef958c14c",
+            "bytes": 16512,
+            "sha_present_in_final_public_snapshot": false
+          },
+          {
+            "source": "/app/main.db-shm",
+            "status": "failed",
+            "type": "file"
+          }
+        ],
+        "model_requests_by_capture": 0,
+        "snapshot_path_note": "The public snapshot usesrelative main.db while capture uses/app/main.db;exact bytes/hash match after that declared path normalization. WAL bytes match the saved candidate but are not an individually hashed public-check dependency."
+      },
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "PASSED ../tests/test_outputs.py::test_recovered_json_exists",
+          "PASSED ../tests/test_outputs.py::test_recovered_json_is_valid",
+          "PASSED ../tests/test_outputs.py::test_recovered_data_structure",
+          "PASSED ../tests/test_outputs.py::test_recovered_data_sorted",
+          "PASSED ../tests/test_outputs.py::test_recovered_data_completeness",
+          "PASSED ../tests/test_outputs.py::test_no_duplicate_ids",
+          "PASSED ../tests/test_outputs.py::test_wal_was_decrypted",
+          "============================== 7 passed in 0.10s ==============================="
+        ]
+      },
+      "tools_count": 5,
+      "nonzero_tools": [
+        1
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 5,
+        "save": 1,
+        "verify": 1
+      },
+      "tool_screen_flags": [],
+      "source_sha256": {
+        "result.json": "8c55da2531e3832c53abdece7d049eec532cd44aaa62b8e91bfa32d34ce14841",
+        "trial.json": "e7c9373bc5472b505aaf32b507ea45ccd3227b7d866b70004c8064a3fc821fdd",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/db-wal-recovery-C0-r2.protocol.json": "0c17a07f4f5c50b8b724b98402b372580e25281b26fd376dc772c5baf511ae93",
+        "db-wal-recovery__o5tRPSi/agent/model.jsonl": "8274dab37a73e463563643e00dfa7400289c2f19de7ae9d0960442de4be14e2f",
+        "db-wal-recovery__o5tRPSi/agent/controller.jsonl": "4556d41edc08357d540c77f03043c914c11cb0187b86bdffc6a51f032180ffd3",
+        "db-wal-recovery__o5tRPSi/agent/final-verification.json": "a3ebae953fbd55983a142cbd0171e807e23509222b8520329d4c5bff2a0a0df7",
+        "db-wal-recovery__o5tRPSi/agent/candidates/candidate-001.json": "43ebb0d15f25c77099acf5dc6d5140a2fdb99d73fc4319581e3a5702e132be7f",
+        "artifact-capture.json": "98f6af1d82231e0de6023bef9ce34940d1b5aad350a7abb88b30a285a59769f7",
+        "artifact-capture-config.json": "d24fb1084ab14848cef75fc16c61f7581827b61ce9e702a0d11ee6be13f60c4b",
+        "db-wal-recovery__o5tRPSi/artifacts/manifest.json": "d88c42befd8b4d4b00105f92e35c8c4cc3e65eeec4fac6a353a680b098f2c772",
+        "db-wal-recovery__o5tRPSi/artifacts/app/recovered.json": "aeb6491c4d573acb714eac8ebeffe96953ed93765ce48e8a7bb85dadad69ca6a",
+        "db-wal-recovery__o5tRPSi/artifacts/app/main.db": "682055f65aadf6832b01cbadb753086e901ca5f6985c306014682e8bf68774a3",
+        "db-wal-recovery__o5tRPSi/artifacts/app/main.db-wal": "a00cfbf891cb36157b7eca6df67f9920a0013769e446c2314ca204eef958c14c",
+        "db-wal-recovery__o5tRPSi/result.json": "a93acda1cab192875e47e4571236397d710c5d7438ca8d65be28685a2d1bd9ad",
+        "db-wal-recovery__o5tRPSi/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "db-wal-recovery__o5tRPSi/verifier/test-stdout.txt": "83f8c72435fa9083a2989ae2ff27d3cf3178cdea71c610a2d627ebdef449978e",
+        "db-wal-recovery__o5tRPSi/agent/tools.jsonl": "5403de1cca1e74501cb8bd1387b482a31fa7720b48ba0bdbb2196f390b26384a",
+        "db-wal-recovery/instruction.md": "5a20375162921b8911c67035d1905df7fd335d1bed03044271e608b2c3c93b26"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model/request/response/billing and tool-event structures streamed;full production patches/instructions and selected meaningful test,repair,service outputs directly read. No claim of word-for-word full model reasoning or every large source-dump stdout.",
+      "additional_root_relative_source_sha256": {
+        "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/db-wal-recovery-C0-r2.resources.json": "6c76b7382571dccff83d6c4aeaba6adf09ce5322a9c35cb91f6e576c979988d5"
+      },
+      "resource_evidence": {
+        "task": "db-wal-recovery",
+        "benchmark": "terminal",
+        "exclusive": false,
+        "actual_image_id": "sha256:0e33ea5ec823975d1bd6c3778395c9f94251dd88f571146057bff6adb7e4594e",
+        "returncode": 0,
+        "admitted_at": 1795628996.859062,
+        "released_at": 1795629106.9029608
+      },
+      "tool_fingerprint_columns": [
+        "tool",
+        "command_sha256",
+        "command_bytes",
+        "stdout_bytes",
+        "stderr_bytes",
+        "returncode"
+      ],
+      "tool_fingerprints": [
+        [
+          1,
+          "ddf732b29368c29a79da787574b643009332ed7c764562e03099b6dd9f33ee64",
+          116,
+          202,
+          0,
+          127
+        ],
+        [
+          2,
+          "8e9994fa902b7a7e9d8f945b7741083402178cd15ad95cad7e25502af5d80b4d",
+          1085,
+          2217,
+          0,
+          0
+        ],
+        [
+          3,
+          "a812a8e8ec90d3f343b3049eba4bbfe2ef7d978c4a31526440f4e082d768b806",
+          878,
+          1059,
+          0,
+          0
+        ],
+        [
+          4,
+          "8fa76a32b624c40249cb4c7b6c5b1ac4dee1fdd5b37178ccd79f1b0112fb34f8",
+          2735,
+          1740,
+          0,
+          0
+        ],
+        [
+          5,
+          "2e2577cea459e468a3c7237d52cfd7c074569f65082e4f900514a7f20923eecd",
+          42,
+          38,
+          0,
+          0
+        ]
+      ],
+      "independent_captured_artifact_check": {
+        "read_only_sqlite_rows_equal_json": true,
+        "record_count": 11,
+        "ids_sorted_and_unique": true,
+        "clear_wal_magic": true,
+        "main_db_hash_in_public_snapshot": true,
+        "missing_shm_explicitly_retained": "failed",
+        "matching_saved_candidates": [
+          {
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "native_bytes_equal_candidate": {
+              "/app/recovered.json": true,
+              "/app/main.db": true,
+              "/app/main.db-wal": true
+            }
+          }
+        ]
+      },
+      "candidate_and_public_byte_check": {
+        "source_sha256": {},
+        "resource_pin_exact": true,
+        "matching_final_candidate_files": [
+          {
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "file_hashes": {
+              "/app/recovered.json": "aeb6491c4d573acb714eac8ebeffe96953ed93765ce48e8a7bb85dadad69ca6a",
+              "/app/main.db": "682055f65aadf6832b01cbadb753086e901ca5f6985c306014682e8bf68774a3",
+              "/app/main.db-wal": "a00cfbf891cb36157b7eca6df67f9920a0013769e446c2314ca204eef958c14c"
+            },
+            "hash_present_in_final_public_snapshot": {
+              "/app/recovered.json": true,
+              "/app/main.db": true,
+              "/app/main.db-wal": false
+            }
+          }
+        ],
+        "final_matching_public_feedback": [
+          {
+            "check_id": "public-task",
+            "step": 6,
+            "reason": "requested",
+            "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"eleven_ordered_records\", \"passed\": true, \"actual\": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], \"required\": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]}, {\"id\": \"record_fields\", \"passed\": true, \"actual\": \"record structure\", \"required\": \"integer id/value and string name, from the visible SQLite schema\"}, {\"id\": \"readable_repaired_database\", \"passed\": true, \"actual\": {\"sqlite_rows\": 11, \"json_matches_database\": true}, \"required\": \"SQLite reads all 11 rows from the repaired database/WAL and JSON matches them\"}], \"coverage_limit\": \"JSON is compared to the repaired SQLite state; the original encrypted WAL truth remains for independent grading.\"}\n",
+            "returncode": 0
+          }
+        ]
+      },
+      "control_state_applicable": true
+    },
+    {
+      "arm": "repeat",
+      "task": "django__django-12193",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-12193-C0-r2",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 333.62344583298545,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795629134.9938402,
+        "native_session_id": "f4fb9d30-b0a9-4766-8847-c7646c71b72c",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "3acdecdbd1f9ca2c7c530054dc321b6d8aab77be40168da4fc3fa92f49f63d71"
+      },
+      "event_counts": {
+        "request": 37,
+        "cli_process_started": 37,
+        "response": 37,
+        "billing_verified": 37
+      },
+      "native_sessions": [
+        "f4fb9d30-b0a9-4766-8847-c7646c71b72c"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a213d63e4e7935ad8095f0841daa65",
+          0,
+          5381,
+          196
+        ],
+        [
+          2,
+          "01a213d655f67e84be5528fe0620a292",
+          0,
+          6372,
+          221
+        ],
+        [
+          3,
+          "01a213d66df970f59f71c74f96f8a974",
+          0,
+          10037,
+          194
+        ],
+        [
+          4,
+          "01a213d683f67347af1bfb40071f6468",
+          0,
+          11976,
+          646
+        ],
+        [
+          5,
+          "01a213d6a1f67bd59a9c213b04cfaecb",
+          0,
+          14588,
+          1607
+        ],
+        [
+          6,
+          "01a213d6daa577eda65159b06e693dc7",
+          0,
+          16453,
+          293
+        ],
+        [
+          7,
+          "01a213d6f7aa71cc91d52cbea83699dc",
+          0,
+          17637,
+          261
+        ],
+        [
+          8,
+          "01a213d70ead727a82a6b34143b26841",
+          0,
+          18153,
+          241
+        ],
+        [
+          9,
+          "01a213d725c37bb198e5d58c18077cab",
+          0,
+          18701,
+          342
+        ],
+        [
+          10,
+          "01a213d7405a75088a538a8830cb270e",
+          0,
+          19708,
+          276
+        ],
+        [
+          11,
+          "01a213d779447a70bbc42133b2120516",
+          0,
+          20657,
+          372
+        ],
+        [
+          12,
+          "01a213d79a2a74b093cdfaa27af41a02",
+          0,
+          22431,
+          936
+        ],
+        [
+          13,
+          "01a213d7c33076fb9f842ad2158fb0fa",
+          0,
+          23638,
+          453
+        ],
+        [
+          14,
+          "01a213d7e53d7189b5fc399eeee586ea",
+          0,
+          24446,
+          233
+        ],
+        [
+          15,
+          "01a213d7feae7b0aa08d78b5a01abefe",
+          0,
+          27159,
+          419
+        ],
+        [
+          16,
+          "01a213d81adb7af2ac0844592bcaa32d",
+          0,
+          27759,
+          695
+        ],
+        [
+          17,
+          "01a213d83b4474b9acb1843849119a93",
+          0,
+          29011,
+          594
+        ],
+        [
+          18,
+          "01a213d85d5a747b8cc7544939239fe0",
+          0,
+          30035,
+          135
+        ],
+        [
+          19,
+          "01a213d8783877c1ada323f7a61b24ad",
+          0,
+          30448,
+          89
+        ],
+        [
+          20,
+          "01a213d896c177b19aeb9da5c8839984",
+          0,
+          31337,
+          359
+        ],
+        [
+          21,
+          "01a213d8b17177528e7596431586427c",
+          0,
+          33372,
+          278
+        ],
+        [
+          22,
+          "01a213d8ccdf7855a2ccf0e65f7c7ba5",
+          0,
+          34581,
+          487
+        ],
+        [
+          23,
+          "01a213d8e9467f72926136ebd320878b",
+          0,
+          36338,
+          485
+        ],
+        [
+          24,
+          "01a213d90c25753ebaefc28e2302e013",
+          0,
+          38214,
+          514
+        ],
+        [
+          25,
+          "01a213d92ae17ef78c5a29af12e385a2",
+          0,
+          38894,
+          542
+        ],
+        [
+          26,
+          "01a213d94d067025aee841d0ee069a75",
+          0,
+          40166,
+          534
+        ],
+        [
+          27,
+          "01a213d96c44783d9f3b00f413c1c23b",
+          0,
+          41311,
+          412
+        ],
+        [
+          28,
+          "01a213d98a8a71f8aaeadcb306f6351c",
+          0,
+          42380,
+          394
+        ],
+        [
+          29,
+          "01a213d9a5467f23a00167cbaf98357f",
+          0,
+          43385,
+          700
+        ],
+        [
+          30,
+          "01a213d9c542749bbdfa9b0b3f3799c4",
+          0,
+          44680,
+          130
+        ],
+        [
+          31,
+          "01a213d9da7b76a18068df2d660aa390",
+          0,
+          45793,
+          491
+        ],
+        [
+          32,
+          "01a213d9f84d7871a63701f252f7f20b",
+          0,
+          46530,
+          740
+        ],
+        [
+          33,
+          "01a213da1f2f7a5881290bd3d050d8ca",
+          0,
+          49005,
+          723
+        ],
+        [
+          34,
+          "01a213da40157d1e80d1ffe6a895a053",
+          0,
+          50149,
+          351
+        ],
+        [
+          35,
+          "01a213da61e6771591e3eb61da2a318c",
+          0,
+          51807,
+          238
+        ],
+        [
+          36,
+          "01a213da7b73742abca90853da882de0",
+          0,
+          52392,
+          207
+        ],
+        [
+          37,
+          "01a213da96857f6583e2cd0485698f64",
+          0,
+          52978,
+          267
+        ]
+      ],
+      "input_tokens": 1147902,
+      "output_tokens": 16055,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "0c2a5f422a3988ed109c878a49ef16be3fde1cc07c8d0b8a8e0bf12a64bfe092",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-issue": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "a969b1303968e547ca4c44f4de4ab2857175f9bdeb1829eeb803a1caf6f31cbf  django/contrib/postgres/forms/array.py\n50d7819d7fadfa8450725f4fe2f212de41544a983834c12e18fd291eac9b02b4  django/forms/widgets.py\n"
+          }
+        },
+        "elapsed_seconds": 293.2821104169125
+      },
+      "controller_event_counts": {
+        "candidate_operation": 7,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "0c2a5f422a3988ed109c878a49ef16be3fde1cc07c8d0b8a8e0bf12a64bfe092",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "0c2a5f422a3988ed109c878a49ef16be3fde1cc07c8d0b8a8e0bf12a64bfe092",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "0c2a5f422a3988ed109c878a49ef16be3fde1cc07c8d0b8a8e0bf12a64bfe092",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "0c2a5f422a3988ed109c878a49ef16be3fde1cc07c8d0b8a8e0bf12a64bfe092",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "django/forms/widgets.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 11,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "test_value_omitted_from_data (postgres_tests.test_array.TestSplitFormWidget) ... skipped 'PostgreSQL specific tests'",
+          "test_blank_true (postgres_tests.test_array.TestValidation) ... skipped 'PostgreSQL specific tests'",
+          "test_nested_array_mismatch (postgres_tests.test_array.TestValidation) ... skipped 'PostgreSQL specific tests'",
+          "test_unbounded (postgres_tests.test_array.TestValidation) ... skipped 'PostgreSQL specific tests'",
+          "test_with_base_field_error_params (postgres_tests.test_array.TestValidation) ... skipped 'PostgreSQL specific tests'",
+          "test_with_size (postgres_tests.test_array.TestValidation) ... skipped 'PostgreSQL specific tests'",
+          "skipped 'PostgreSQL specific tests'",
+          "OK (skipped=110)"
+        ]
+      },
+      "tools_count": 34,
+      "nonzero_tools": [
+        5,
+        9,
+        12,
+        13,
+        15,
+        19,
+        21,
+        23,
+        24,
+        25,
+        26,
+        27,
+        30,
+        31,
+        32
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 34,
+        "save": 2,
+        "verify": 1
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 25,
+          "command_sha256": "4a30676300c49626d9934efcb86df1a5af1c16f8fa78a372cf7f8a73e87babf9"
+        }
+      ],
+      "source_sha256": {
+        "result.json": "c028753aac2e8ea8843bdb4e11a59d3d1c66945602674440ac0b3d3992f57870",
+        "trial.json": "dede80d550bd298e9ebed668010397264a9ff83fef3ce0a8190118133d4349b0",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-12193-C0-r2.protocol.json": "f356f9b3b5996f69f32d40cff3835346122ef35ca38236db900de108a6fb643b",
+        "model.jsonl": "e3fa94681c1c98b2925592b220e419a55647216391d9a308086205ba474be324",
+        "controller.jsonl": "a1a44a90a23fbaa00dde254d2e133aa4b41f840973d84f8e2d3bd3f1d5bfff26",
+        "final-verification.json": "00dd8c9e9adbdf8c0c4dde3d4d91677e8b8b069a9414a949e83e6963759579fb",
+        "candidates/candidate-002.json": "f15e8458a421c2e872d71374b6ce0dc0883f2f857a2037dd65c28c21e27b7f56",
+        "candidates/candidate-001.json": "8afd1aa99c91ddebca6a1902ddafa0cf4e82e2bdec1ed8e560b1101adb0fb3c1",
+        "candidate.patch": "4cb9fd1a5c7ef55e0ace8ce597bf219fcba53da88e236f44913bc2a36c4d36a7",
+        "swe-official/django__django-12193-C0-r2/course-mini-swe-agent/django__django-12193/patch.diff": "4cb9fd1a5c7ef55e0ace8ce597bf219fcba53da88e236f44913bc2a36c4d36a7",
+        "swe-official/django__django-12193-C0-r2/course-mini-swe-agent/django__django-12193/report.json": "fead81c0065b92aca65da47e3360d4f50084930a4b13df6dba2f4d4c4fc9097a",
+        "swe-official/django__django-12193-C0-r2/course-mini-swe-agent/django__django-12193/test_output.txt": "37d745ed0bffda50f9f32ccb7a194572e1d701df259ae0c9db83bb791e4a85a3",
+        "swe-official/django__django-12193-C0-r2/course-mini-swe-agent/django__django-12193/run_instance.log": "c9aa48ce52b67f21cd96d4e316d138c4b4f57d3881922f31d38eb7518773fdc5",
+        "swe-official/django__django-12193-C0-r2/course-mini-swe-agent/django__django-12193/eval.sh": "9e55e07595b43c4d3201007d8f0d79a0eaa50b31913a3fc92bdb16aa174e003d",
+        "tools.jsonl": "d995320b56768e870f13513b8717831ff6b9b513f306f8321961e50d38a31739"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model/request/response/billing and tool-event structures streamed;full production patches/instructions and selected meaningful test,repair,service outputs directly read. No claim of word-for-word full model reasoning or every large source-dump stdout.",
+      "additional_root_relative_source_sha256": {
+        "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-12193-C0-r2/instruction.txt": "5e2afb584fba939b65eeed0a4f94fbe7e5c7cfb53a0f14bb88bafe24da88ea12",
+        "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-12193-C0-r2.resources.json": "686ca1b1e6970db48d94369396b37dd4f3cdc114d6c47694e2f77267b1d97c15"
+      },
+      "resource_evidence": {
+        "task": "django__django-12193",
+        "benchmark": "swe",
+        "exclusive": true,
+        "actual_image_id": "sha256:f2f0882bb350e6c7b073569444629513f4c0bd6821f3610d243a26b2b4eae26e",
+        "returncode": 0,
+        "admitted_at": 1795629132.431246,
+        "released_at": 1795629466.760523
+      },
+      "tool_fingerprint_columns": [
+        "tool",
+        "command_sha256",
+        "command_bytes",
+        "stdout_bytes",
+        "stderr_bytes",
+        "returncode"
+      ],
+      "tool_fingerprints": [
+        [
+          1,
+          "2d4337ce08c617f3d30de6b3ffd1e1a0c7db4b1fb8dbc57b81fe2fe516ec631a",
+          113,
+          1676,
+          0,
+          0
+        ],
+        [
+          2,
+          "58d7d2edbf80b7819867cd05206c2cbc9a0b3a85eabd6229bfe9786804af06b6",
+          278,
+          12117,
+          0,
+          0
+        ],
+        [
+          3,
+          "2f0ab5ce4dd6c2e8403fbf9e77d1ecc5c46effb1c7c9ecbd5a1217edac1351b2",
+          222,
+          4952,
+          0,
+          0
+        ],
+        [
+          4,
+          "0845100b9ab9a0ceb8e4eae1e40c32dcaae9654d55cde405fef5732833b42517",
+          321,
+          4244,
+          0,
+          0
+        ],
+        [
+          5,
+          "6e8e8fd3d172c0cb899c7109a7e0a5fa4fced3803c2e7b23d563493f63f203a9",
+          1303,
+          0,
+          455,
+          1
+        ],
+        [
+          6,
+          "9a6f2f7c0c3c982541f8f682d64fa3a4a1729e0c7038ba09f3dd63f55603edc8",
+          353,
+          2313,
+          0,
+          0
+        ],
+        [
+          7,
+          "c1bb7c4ce77f363deda55afd1179a23a38789c919999823f9c590f3fbfcd15b7",
+          353,
+          460,
+          0,
+          0
+        ],
+        [
+          8,
+          "4ee64f5a450cd77ce77d5140c2b668bf19be998302cab7958bd505a6c33c7d62",
+          406,
+          514,
+          0,
+          0
+        ],
+        [
+          9,
+          "33642483ced1f2abfd77a9a9a7eca6d20f63b3ca5f5331f408f8aa1d064dad38",
+          328,
+          767,
+          635,
+          1
+        ],
+        [
+          10,
+          "728c604ab22f25218fbe784b312bc097841f86ae663a507315e86127a7c51181",
+          130,
+          1728,
+          0,
+          0
+        ],
+        [
+          11,
+          "e390692cb6ca43985f84eb32fc7c34b2cbb220fb55c53c0d3cdcdefc27c529a1",
+          397,
+          3500,
+          0,
+          0
+        ],
+        [
+          12,
+          "1563c0336441a99bd1f4556daafbe4899c6951d6b1363f33b038b99bacbf79e5",
+          1695,
+          0,
+          509,
+          1
+        ],
+        [
+          13,
+          "9bd854740e6fb682d70743aca3c019176df5bf66ae5d1f6910d099819980a94c",
+          155,
+          35,
+          657,
+          1
+        ],
+        [
+          14,
+          "d8e78b04747d30800071a15c1fccaacca4001d59d29fc104019aefd21c8233af",
+          236,
+          6962,
+          0,
+          0
+        ],
+        [
+          15,
+          "d486801c969e28cc9fa22df532dc270b240179e8571d05d72134b6542f5baff1",
+          363,
+          253,
+          0,
+          1
+        ],
+        [
+          16,
+          "d88d3a32ca9572e7cadb8029fb2b90b73d95f74981f09b0ba3163e048c0e80b7",
+          842,
+          1346,
+          0,
+          0
+        ],
+        [
+          17,
+          "71e21e21b73b09b74fe0332f317c5f7268b1a717e7ae56a32f5ef19fe59a4af6",
+          1616,
+          641,
+          0,
+          0
+        ],
+        [
+          18,
+          "f476ced18a8a59b97bbe9dd6c55c9970ac9e23c8678b38f1859aafb377bc04b9",
+          377,
+          3755,
+          0,
+          0
+        ],
+        [
+          19,
+          "b3ccb08bd856c9c90468aed4fd9ab647adfb6ecd098e209e879e6ea42e5eaa2a",
+          637,
+          0,
+          2489,
+          1
+        ],
+        [
+          20,
+          "7eec94f6b2b0984bf9da879058b4f54dda365bd3ecebdd8d5a7d2ef11fbec8a7",
+          990,
+          2637,
+          1696,
+          0
+        ],
+        [
+          21,
+          "3be35dc45d0dda204a759b3937b62d51095a02f1def152f4aff23ec388d46f84",
+          1004,
+          750,
+          3072,
+          1
+        ],
+        [
+          22,
+          "d40ef574d54f2fbafec26c0b67e267d54d509f933bad46016097066a7d869780",
+          755,
+          15,
+          271,
+          0
+        ],
+        [
+          23,
+          "1634480ca963d433aa1387dd0c3f1bb23314316bba7f6cf1cbdc28046234d591",
+          1109,
+          76,
+          1926,
+          1
+        ],
+        [
+          24,
+          "c510cc090d03a0910df4bd067387f0dbc09072f018e343ba06f3318dfd4c88d0",
+          1054,
+          0,
+          1766,
+          1
+        ],
+        [
+          25,
+          "4a30676300c49626d9934efcb86df1a5af1c16f8fa78a372cf7f8a73e87babf9",
+          1133,
+          159,
+          1766,
+          1
+        ],
+        [
+          26,
+          "c510cc090d03a0910df4bd067387f0dbc09072f018e343ba06f3318dfd4c88d0",
+          1054,
+          0,
+          1766,
+          1
+        ],
+        [
+          27,
+          "228c37ff1489bc0599f3c91e61a98cbc75b20ebfce4d6849a800df4eef18b028",
+          942,
+          0,
+          1315,
+          1
+        ],
+        [
+          28,
+          "68956d661772b6809f49aa11b954e69eaaec82a74b052d40c849590eee45ede1",
+          126,
+          3213,
+          0,
+          0
+        ],
+        [
+          29,
+          "bc05fe88583d38b673a45ba733b5a035e49a8799e394b6498c64909e189a989a",
+          1295,
+          267,
+          0,
+          0
+        ],
+        [
+          30,
+          "9684c38ce9f34cd3912d95169ce6810f10f5fe3a90b7135e2d9e5922afae40fa",
+          806,
+          15,
+          5956,
+          1
+        ],
+        [
+          31,
+          "321e8c5854c4a4c683022cd5097cc3148832dcb29fd17b1c1ffa23187d59b4f3",
+          1560,
+          0,
+          929,
+          1
+        ],
+        [
+          32,
+          "2b860851f45bbac228fac2026a55ab8be5b557f6fe0f059e398aeeee1faa52ec",
+          883,
+          15,
+          4247,
+          1
+        ],
+        [
+          33,
+          "e5e4d05f833e65c42d3fcf2c79dd1ce05d08f428989347b4f86e6b210a4cf678",
+          251,
+          730,
+          0,
+          0
+        ],
+        [
+          34,
+          "2e2577cea459e468a3c7237d52cfd7c074569f65082e4f900514a7f20923eecd",
+          42,
+          38,
+          0,
+          0
+        ]
+      ],
+      "grader_execution_summary": [
+        "Ran 122 tests in 0.029s",
+        "OK (skipped=110)",
+        "+ SWEBENCH_TEST_EXIT_CODE=0",
+        ">>>>> Test Exit Code: 0"
+      ],
+      "candidate_and_public_byte_check": {
+        "source_sha256": {
+          "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-12193-C0-r2.resources.warmup.json": "40bc88742f9bb8f3d1922a2fb1809824e2ee7771f1fada2e0d646d2c81e95fb0"
+        },
+        "resource_pin_exact": true,
+        "matching_final_candidate_files": [
+          {
+            "candidate_id": "candidate-002",
+            "eligible": true,
+            "file_hashes": {
+              "django/forms/widgets.py": "50d7819d7fadfa8450725f4fe2f212de41544a983834c12e18fd291eac9b02b4"
+            },
+            "hash_present_in_final_public_snapshot": {
+              "django/forms/widgets.py": true
+            }
+          },
+          {
+            "candidate_id": "candidate-001",
+            "eligible": false,
+            "file_hashes": {
+              "django/forms/widgets.py": "50d7819d7fadfa8450725f4fe2f212de41544a983834c12e18fd291eac9b02b4"
+            },
+            "hash_present_in_final_public_snapshot": {
+              "django/forms/widgets.py": true
+            }
+          }
+        ],
+        "final_matching_public_feedback": [
+          {
+            "check_id": "public-issue",
+            "step": 19,
+            "reason": "requested",
+            "stdout": "{\"passed\": true, \"conditions\": [{\"id\": \"public-issue\", \"passed\": true, \"actual\": {\"checked\": [true, false, true, false], \"direct_checkbox_cases\": [{\"value\": true, \"attrs_kind\": \"none\", \"caller_attrs_unchanged\": true, \"checked\": true}, {\"value\": true, \"attrs_kind\": \"dictionary\", \"caller_attrs_unchanged\": true, \"checked\": true}, {\"value\": false, \"attrs_kind\": \"none\", \"caller_attrs_unchanged\": true, \"checked\": false}, {\"value\": false, \"attrs_kind\": \"dictionary\", \"caller_attrs_unchanged\": true, \"checked\": false}]}, \"required\": {\"checked\": [true, false, true, false], \"caller_attrs_unchanged\": true, \"direct_checked_matches_boolean\": true}}]}\n",
+            "returncode": 0
+          }
+        ]
+      },
+      "control_state_applicable": true
+    },
+    {
+      "arm": "repeat",
+      "task": "mailman",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/mailman-B0-r2",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 719.509920542012,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "B0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795629851.73293,
+        "native_session_id": "41860e42-e779-427a-879c-99f42ce6e397",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "51f3faef9a7b0437391642fe97971fd8b9cc66f1820dae4deae956d7229cff1f"
+      },
+      "event_counts": {
+        "request": 27,
+        "cli_process_started": 27,
+        "response": 27,
+        "billing_verified": 27
+      },
+      "native_sessions": [
+        "41860e42-e779-427a-879c-99f42ce6e397"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a213e12ed17611885ed34139709532",
+          0,
+          4614,
+          348
+        ],
+        [
+          2,
+          "01a213e14a847626ad6edf4eaf91c567",
+          0,
+          7894,
+          418
+        ],
+        [
+          3,
+          "01a213e16854776ab1563d63f233bc75",
+          0,
+          11425,
+          668
+        ],
+        [
+          4,
+          "01a213e18d807ef59f3ba1c5be1c02fa",
+          0,
+          13413,
+          354
+        ],
+        [
+          5,
+          "01a213e1afb57749bbca6a31a6f2b96f",
+          0,
+          17521,
+          659
+        ],
+        [
+          6,
+          "01a213e1da5372bca9bc3e6c258b0593",
+          0,
+          19351,
+          445
+        ],
+        [
+          7,
+          "01a213e2041a770180792f083366cf3a",
+          0,
+          22946,
+          294
+        ],
+        [
+          8,
+          "01a213e2264774b1972391c23918c906",
+          0,
+          26391,
+          3344
+        ],
+        [
+          9,
+          "01a213e28f61706db17584f1bb8947ed",
+          0,
+          31547,
+          2055
+        ],
+        [
+          10,
+          "01a213e2dac57e109cae9175318775da",
+          0,
+          34693,
+          577
+        ],
+        [
+          11,
+          "01a213e30e6875e6bcf13a665fc667e3",
+          0,
+          36675,
+          1378
+        ],
+        [
+          12,
+          "01a213e343797d4d94736a091bc7f213",
+          0,
+          39808,
+          2783
+        ],
+        [
+          13,
+          "01a213e3a3a57541aa2ab1051b5ce167",
+          0,
+          42843,
+          783
+        ],
+        [
+          14,
+          "01a213e3d8d67f8bb34480ce2e95f5a3",
+          0,
+          44051,
+          402
+        ],
+        [
+          15,
+          "01a213e47996723d8535f5045b97716b",
+          0,
+          46563,
+          463
+        ],
+        [
+          16,
+          "01a213e49cf1781595674587f77df7a8",
+          0,
+          47464,
+          1266
+        ],
+        [
+          17,
+          "01a213e4d80576958d880b8a5821c144",
+          0,
+          49085,
+          862
+        ],
+        [
+          18,
+          "01a213e55b747dcc8f27c3191b4bb28c",
+          0,
+          50597,
+          1448
+        ],
+        [
+          19,
+          "01a213e764ff7ee9a5de3f3b5858cff6",
+          0,
+          52111,
+          558
+        ],
+        [
+          20,
+          "01a213e792957e7f88cf3a63bc2c4eec",
+          0,
+          52881,
+          820
+        ],
+        [
+          21,
+          "01a213e7c76f740580289bdb7eb74d31",
+          0,
+          58036,
+          1733
+        ],
+        [
+          22,
+          "01a213e9e6d97233b5df0ba1929b7bee",
+          0,
+          61018,
+          484
+        ],
+        [
+          23,
+          "01a213ea0a297da09be788b7814f7487",
+          0,
+          67003,
+          905
+        ],
+        [
+          24,
+          "01a213ea96747cc09c99852ba1619b1f",
+          0,
+          69441,
+          523
+        ],
+        [
+          25,
+          "01a213eabd447fce85f49c1f09783ce0",
+          0,
+          73374,
+          990
+        ],
+        [
+          26,
+          "01a213eb15387e35bfb55776657bfb1d",
+          0,
+          75686,
+          1154
+        ],
+        [
+          27,
+          "01a213eb69067521ac1688cb650f839a",
+          0,
+          77703,
+          115
+        ]
+      ],
+      "input_tokens": 1134134,
+      "output_tokens": 25829,
+      "final_control": null,
+      "controller_event_counts": {},
+      "candidate_records": [],
+      "matching_final_candidates": [],
+      "native_capture": null,
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_simple_local_delivery",
+          "PASSED ../tests/test_outputs.py::test_mlist_exists",
+          "PASSED ../tests/test_outputs.py::test_join_announce_leave_flow",
+          "======================== 3 passed, 9 warnings in 14.33s ========================"
+        ]
+      },
+      "tools_count": 27,
+      "nonzero_tools": [
+        9,
+        12,
+        18,
+        21,
+        23
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash_command": 27
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 10,
+          "command_sha256": "318eaab6a593d0a8d275028c994e40f6191091e6bda9d688edbcadd917002edf"
+        },
+        {
+          "tool": 11,
+          "command_sha256": "23c900e2da7c1a2cd6d5ebb12c37b9fb675a1b8fe8176b5669a3b168d1be6f40"
+        },
+        {
+          "tool": 12,
+          "command_sha256": "748c4b287ceb5e74971dc798883406de02d0a44a6929e2420d723313903d1ad5"
+        },
+        {
+          "tool": 13,
+          "command_sha256": "a240e3451c77a536f5c5a71bb9790cd4bca5e2d2ebd8d15479187fff86cdd066"
+        }
+      ],
+      "source_sha256": {
+        "result.json": "913d8892fa3de5c9017b7911bc8ec72a245611423615e529ffcfc3e65ce41e8c",
+        "trial.json": "0afeef7b4ff04f4285ab8eefcb3d847a7ed8ee2a436afb755304d681ec3f3ce4",
+        "protocol:work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/mailman-B0-r2.protocol.json": "0c781c6519d09121c6423002908208f6c4c6513c0ea9f8b449be1d2a8f7bcdca",
+        "mailman__yVasmia/agent/model.jsonl": "26281026345058bd56844fbcf70d2345e5ec72e183193fea923296670593e300",
+        "mailman__yVasmia/result.json": "5abcbad218841edc412c610cf960fd7da7c0bf3a909c8c76430c09e1bc024e46",
+        "mailman__yVasmia/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "mailman__yVasmia/verifier/test-stdout.txt": "9b6c39811a7466f34cc222a946fe18b43460855072238a3955a98a3f4ba41c55",
+        "mailman__yVasmia/agent/tools.jsonl": "126c6ba0164daec41b1a809d0b6561d4aa2e9d5caa10829e911633788736ce06",
+        "mailman/instruction.md": "240d03a73e38087d40c55460d48a098c70143e911a279cffe2468f642322cdee"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model/request/response/billing and tool-event structures streamed;full production patches/instructions and selected meaningful test,repair,service outputs directly read. No claim of word-for-word full model reasoning or every large source-dump stdout.",
+      "additional_root_relative_source_sha256": {
+        "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/mailman-B0-r2.resources.json": "547d4f4fb520be998b98cfdbd1413f2e6d784a387e2734eea3595d181fe5f81c"
+      },
+      "resource_evidence": {
+        "task": "mailman",
+        "benchmark": "terminal",
+        "exclusive": false,
+        "actual_image_id": "sha256:04fac73db7e2b4f49d43f09fbc2266a94d70131f07efa1393d370abc059f4094",
+        "returncode": 0,
+        "admitted_at": 1795629842.8869472,
+        "released_at": 1795630563.073589
+      },
+      "tool_fingerprint_columns": [
+        "tool",
+        "command_sha256",
+        "command_bytes",
+        "stdout_bytes",
+        "stderr_bytes",
+        "returncode"
+      ],
+      "tool_fingerprints": [
+        [
+          1,
+          "bad7a88aabaf36d9c8ddf8f4c1eba706651feec012801f758b02a1e32ff38c14",
+          397,
+          7610,
+          0,
+          0
+        ],
+        [
+          2,
+          "eb062d6fdde461befd4b1d2c2f058fc634a39876d790e78d0a2216546733b7c2",
+          675,
+          15006,
+          0,
+          0
+        ],
+        [
+          3,
+          "5b0f4c34d61ef06ad745b746fc51cd9dd34ce4c2ae6fb71dfc6f1561a2625fb7",
+          748,
+          3559,
+          0,
+          0
+        ],
+        [
+          4,
+          "50bf489e88d27bcecab9d70a0b64d5605f1205b88bb0a3466b0bfc22cbdb126e",
+          595,
+          9514,
+          0,
+          0
+        ],
+        [
+          5,
+          "c29e739216532f02a468d165df0b71279889b3e5e1826999162c6155425b1a35",
+          827,
+          3934,
+          0,
+          0
+        ],
+        [
+          6,
+          "974ba6823077ae2fc381322125d301a2240f21b6781a441f2b4ec9278bae34a0",
+          590,
+          15082,
+          0,
+          0
+        ],
+        [
+          7,
+          "fac297a1532e9eeeeffb83f7515e6f57813867951c6d0d16680e525d051a9ab7",
+          509,
+          10019,
+          0,
+          0
+        ],
+        [
+          8,
+          "ec05e410ff1d23242bcf03e4af9f890a940c8dbb5f5c93fe155098c58ad4ce43",
+          640,
+          5141,
+          0,
+          0
+        ],
+        [
+          9,
+          "df4fc2675af5420d308593a2aaf0354afd6e569c3678733c2b0433d73686c523",
+          1484,
+          3141,
+          0,
+          1
+        ],
+        [
+          10,
+          "318eaab6a593d0a8d275028c994e40f6191091e6bda9d688edbcadd917002edf",
+          1390,
+          3433,
+          0,
+          0
+        ],
+        [
+          11,
+          "23c900e2da7c1a2cd6d5ebb12c37b9fb675a1b8fe8176b5669a3b168d1be6f40",
+          542,
+          6379,
+          0,
+          0
+        ],
+        [
+          12,
+          "748c4b287ceb5e74971dc798883406de02d0a44a6929e2420d723313903d1ad5",
+          2414,
+          447,
+          0,
+          1
+        ],
+        [
+          13,
+          "a240e3451c77a536f5c5a71bb9790cd4bca5e2d2ebd8d15479187fff86cdd066",
+          2036,
+          1100,
+          0,
+          0
+        ],
+        [
+          14,
+          "0dad53f62df07e35f7d6a8d337eb9120094e65799ba3aa1132318bbc6ef4973b",
+          633,
+          5187,
+          0,
+          0
+        ],
+        [
+          15,
+          "800106853d08d36f40471b9f0104cbc9f95f1c58c701939f0683ca2b7b4e1b03",
+          415,
+          952,
+          0,
+          0
+        ],
+        [
+          16,
+          "3378daf53e861b2e459abd44293c9d9128a13cc218baf8d076bcd27b1848f0bc",
+          685,
+          804,
+          0,
+          0
+        ],
+        [
+          17,
+          "b2003ccf702229c3826ed9b27cd2b78537d533df68b0bd49974d23d26055c914",
+          603,
+          1772,
+          0,
+          0
+        ],
+        [
+          18,
+          "48113f6c5a04242ee31ec21898bad26271c78962edef2d3c0f0f78929db223bd",
+          2302,
+          0,
+          0,
+          124
+        ],
+        [
+          19,
+          "e35ea64f8dbb11085ca9d7a82db931dd49828a4f65474b019fc233fed3e4f03d",
+          987,
+          308,
+          0,
+          0
+        ],
+        [
+          20,
+          "60cec830404794be671deb9dbc8f040b1d13e045ca472d866195c148d76dfe6d",
+          716,
+          9612,
+          0,
+          0
+        ],
+        [
+          21,
+          "967be583bdc77e1e96be6266014d6b369714cf15c54fc3ca2199870d100481c4",
+          1602,
+          3408,
+          0,
+          124
+        ],
+        [
+          22,
+          "cfb3967b0725e3748740a89a4148ea152b32f060b3507a54c2f71a8b8870debf",
+          992,
+          10977,
+          0,
+          0
+        ],
+        [
+          23,
+          "cc202e3f2dd4ae279c6248a55447813b8ce83f65430819f49491a6c6d066339d",
+          1173,
+          4467,
+          0,
+          1
+        ],
+        [
+          24,
+          "57996ed8a8baace83432ef1214eb31a95bfaa735618ec29e0f38f148f18f1d55",
+          780,
+          6924,
+          0,
+          0
+        ],
+        [
+          25,
+          "6796bf541e241604be7f2fd1e8daa0f3dede347727769140e89016b86879ad4e",
+          2042,
+          3814,
+          0,
+          0
+        ],
+        [
+          26,
+          "3887615273756d40dff881f750e48ce596d002b41801ba93b23c4dd520b02951",
+          792,
+          2370,
+          0,
+          0
+        ],
+        [
+          27,
+          "2e2577cea459e468a3c7237d52cfd7c074569f65082e4f900514a7f20923eecd",
+          42,
+          38,
+          0,
+          0
+        ]
+      ],
+      "candidate_and_public_byte_check": {
+        "source_sha256": {},
+        "resource_pin_exact": true
+      },
+      "control_state_applicable": false,
+      "qualified_passed_scope": "B0 numeric field equals raw original pass;not a final protected/public-check certification"
+    }
+  ],
+  "reviewer_actions": {
+    "new_model_calls": 0,
+    "new_original_grader_calls": 0,
+    "VM_or_Docker_calls": 0,
+    "signals_sent": 0,
+    "STOP_modified": false,
+    "experiment_or_report_source_modified": false,
+    "prior_review_modified": false
+  }
+}

@@ -1,0 +1,1421 @@
+{
+  "record_kind": "independent_completed_prospective_json_revision_review",
+  "reviewer": "parallel_capacity_review",
+  "review_date": "2026-11-25",
+  "project_root": "[project]",
+  "scope": {
+    "phase": "ANALYZE",
+    "final_positions": 2,
+    "task": "django__django-13346",
+    "configuration": "C0",
+    "reviewed_labels": [
+      "json-oracle-ascii-main-r7",
+      "json-oracle-ascii-repeat-r8"
+    ],
+    "scope_limit": "Completed r7/r8 on the original task plus fixed69 public contract. This is not a complete75/150/225 audit, a live multi-backend integration test, or acceptance of inherited73x2 results.",
+    "source_paths": "Each row source_sha256 key is relative to row.run_dir; protocol_sha256 binds its adjacent .protocol.json. Shared sources are project-relative."
+  },
+  "review_actions": {
+    "new_model_calls": 0,
+    "new_original_grader_calls": 0,
+    "vm_or_docker_commands": 0,
+    "experiment_source_edits": 0,
+    "authorized_evidence_file_only": true,
+    "total_tool_commands_read": 60,
+    "model_events": "All69 actual request/CLI/response/individual billing envelopes scanned; cumulative usage is not recounted as fresh generations.",
+    "source_and_reasoning_scope": "Complete final patches/changed implementations, all tool commands and meaningful stdout, all controller structure; selected model reasoning deep-read. No claim of word-for-word review of every model thought or unchanged source dump.",
+    "prewrite_source_checks": {
+      "review_sources_checked": 68,
+      "plan_bindings_checked": 165,
+      "mismatch": [],
+      "plan_mismatch": [],
+      "both_final_modules_compile_without_execution": true
+    }
+  },
+  "conclusion": {
+    "status": "APPROVE_WITH_RECORDED_LIMITS",
+    "new_P0": 0,
+    "new_P1": 0,
+    "raw_original_passed": 2,
+    "qualified_passed": 2,
+    "final_public_69_of_69": [
+      true,
+      true
+    ],
+    "final_protected_unchanged": [
+      true,
+      true
+    ],
+    "known_inherited_limit": "Nested KeyTransform used as an element of an IN RHS list can emit None(...) from the original parent mixin calling param.as_sql directly; this existing path is outside the six supported expression-list cases and was not fixed by either final patch.",
+    "no_claim_of_general_orm_compatibility": true
+  },
+  "frozen_plan": {
+    "path": "work/json-in-semantics-20261125/oracle-bool/ascii-transport/frozen/plan.json",
+    "sha256": "22dbb73f419807b047496d69b7271233b03b273a76fdf89230ec1c0caed742f1",
+    "all_files_checked": 165,
+    "binding_mismatches": [],
+    "prospective_trials": [
+      "json-oracle-ascii-main-r7",
+      "json-oracle-ascii-repeat-r8"
+    ],
+    "queue": "work/vmshare/performance-json-oracle-ascii-v4-20261125",
+    "budget": {
+      "model_calls": 500,
+      "wall_seconds": 3600,
+      "command_seconds": 120,
+      "max_output_tokens": 64000,
+      "timeout_retries": 0,
+      "strict_wall": true
+    },
+    "model": "hy4flash-free",
+    "pin": "sha256:a58c4f201531ac127ef08636fccc8c0849dc747e6874cf53a3c83da8d851bb3b",
+    "runtime": "work/frozen-performance-hy4-sql-layout-v18",
+    "source_sha256": {
+      "work/json-in-semantics-20261125/oracle-bool/ascii-transport/frozen/plan.json": "22dbb73f419807b047496d69b7271233b03b273a76fdf89230ec1c0caed742f1",
+      "work/json-in-semantics-20261125/oracle-bool/ascii-transport/inputs/tasks.json": "5bf0c1cd3074d80e53a062a9908c88fc4c207431c2911c31d01709f9965a8d52",
+      "work/json-in-semantics-20261125/oracle-bool/ascii-transport/inputs/checks.json": "50dc79485e0022c814b522459dae65b54540273b3cabfd529827699a361c0c90",
+      "work/json-in-semantics-20261125/oracle-bool/ascii-transport/qualification/result.json": "4f481e173a19c7fac362b102dd83e35fb54f8c5247b848f1d1e4cc2c192f685e",
+      "work/json-in-semantics-20261125/oracle-bool/ascii-transport/retirement.json": "3780b9b4cb713cf7715795b16ccc3c9a955005c363844a60cca6fbd619336da4"
+    },
+    "model_input_boundary": "Only original instruction, visible repository/tests, fixed public command and published mature-hook/Oracle-type guidance; engineering reference patch is bound for qualification provenance and is not supplied in the model prompt.",
+    "actual_protocol_and_task_match_plan": true,
+    "other74_task_inputs_not_modified_by_this_revision": true
+  },
+  "totals": {
+    "final_actual_model_generations": 69,
+    "final_own_fresh_zero_credit_receipts": 69,
+    "final_distinct_native_sessions": 2,
+    "final_input_tokens": 3019017,
+    "final_output_tokens": 42602,
+    "final_cached_input_tokens_already_in_input_total": 2863296,
+    "request_retries": 0,
+    "missing_usage_requests": 0,
+    "prior_development_positions": 5,
+    "prior_development_generations": 245,
+    "prior_development_own_zero_receipts": 245,
+    "final_plus_prior_json_generations": 314,
+    "historical_unknown_calls": 24,
+    "historical_unknown_boundary": "The preserved24 historical unknowns are not counted as fresh zero receipts. Core/pilots/engineering grader costs are outside this314-generation JSON subset.",
+    "malformed_action_generations_included": 2
+  },
+  "identity_audit": {
+    "r7_r8_message_intersection": [],
+    "r7_r8_native_session_intersection": [],
+    "final69_vs_prior245_message_intersection": [],
+    "final2_vs_prior5_native_session_intersection": [],
+    "final_distinct_message_ids": 69,
+    "final_distinct_native_sessions": 2,
+    "prior_distinct_message_ids": 245,
+    "prior_distinct_native_sessions": 5,
+    "combined_distinct_message_ids": 314
+  },
+  "retired_r6": {
+    "directory_absent": true,
+    "resource_admitted_at": null,
+    "model_calls": 0,
+    "grader_calls": 0,
+    "resources_path": "work/vmshare/performance-json-oracle-guided-v3-20261125/django__django-13346-C0-json-oracle-guided-repeat-r6.resources.json",
+    "resources_sha256": "330fba96861befa2a8c836f6d68c071827dfaf419d2af10f124c4403cc6f5764"
+  },
+  "financial_stop_active_at_review": false,
+  "preserved_development": [
+    {
+      "run_dir": "work/vmshare/performance-json-types-revision-20261125/django__django-13346-C0-json-types-revision-repeat-r2",
+      "review_scope": "Cost/identity/result/final reconsumption only; earlier semantic reviews are not repeated here.",
+      "actual_requests": 36,
+      "own_fresh_zero_credit_receipts": 36,
+      "raw_original_passed": true,
+      "original_wall_seconds": 544.1839129580185,
+      "input_tokens": 1573532,
+      "output_tokens": 29921,
+      "original_final_public": true,
+      "original_final_protected": true,
+      "qualified_under_its_original_contract": true,
+      "native_session_ids": [
+        "67718d88-0348-4506-a8a1-cdd465822d2e"
+      ],
+      "message_count": 36,
+      "source_sha256": {
+        "model.jsonl": "d4454fda624946fd31626f16e3cbc5df099fd9686dcdb76099d35241d59b2e2b",
+        "result.json": "ec23d7fb58f9c4c4203b8df971c54f4ed1b84b1dfacf074bc10b8aec2e89145b",
+        "final-verification.json": "9b63cb0019d4703a6144b8a6030338cb6dec9d8a009a63c5a8325485f6c79799",
+        "candidate.patch": "0a93580a50aed97a5914556ea2ba3f170224f882641e08882017382d208ebc6b"
+      },
+      "disposition": "Retain original score and all costs; subsequent expanded contracts found regressions, so this is prior development evidence, not a final-policy replacement score."
+    },
+    {
+      "run_dir": "work/vmshare/performance-json-types-revision-20261125/django__django-13346-C0-json-types-revision-main-r1",
+      "review_scope": "Cost/identity/result/final reconsumption only; earlier semantic reviews are not repeated here.",
+      "actual_requests": 45,
+      "own_fresh_zero_credit_receipts": 45,
+      "raw_original_passed": true,
+      "original_wall_seconds": 559.147848166991,
+      "input_tokens": 2044551,
+      "output_tokens": 23673,
+      "original_final_public": true,
+      "original_final_protected": true,
+      "qualified_under_its_original_contract": true,
+      "native_session_ids": [
+        "db00677f-b1f6-4fcc-a7e1-20a7ebaf6187"
+      ],
+      "message_count": 45,
+      "source_sha256": {
+        "model.jsonl": "b19cdefc48b73064ea010e055289c2b88b1a08ae1d59ee363253e11d3f49bcaa",
+        "result.json": "0346102daa63aa5bf06c8247588161ace730bebc2124ca78811bf3d951183aa5",
+        "final-verification.json": "7dce16efd0928c3aac6181619e827deb96d76d5c066b2c291056d56fce0f1ae5",
+        "candidate.patch": "b8807e2dd095593fd6a6dde38caf9195af9a4cc47ae7c4c87cc52ba5da9c7a39"
+      },
+      "disposition": "Retain original score and all costs; subsequent expanded contracts found regressions, so this is prior development evidence, not a final-policy replacement score."
+    },
+    {
+      "run_dir": "work/vmshare/performance-json-contract-v2-20261125/django__django-13346-C0-json-contract-main-r3",
+      "review_scope": "Cost/identity/result/final reconsumption only; earlier semantic reviews are not repeated here.",
+      "actual_requests": 70,
+      "own_fresh_zero_credit_receipts": 70,
+      "raw_original_passed": true,
+      "original_wall_seconds": 735.7600288749672,
+      "input_tokens": 6231990,
+      "output_tokens": 46086,
+      "original_final_public": true,
+      "original_final_protected": true,
+      "qualified_under_its_original_contract": true,
+      "native_session_ids": [
+        "1ea8ca84-2475-4c41-b607-4914842b4ec8"
+      ],
+      "message_count": 70,
+      "source_sha256": {
+        "model.jsonl": "c6a4691f5e4d07ee1b9b103f4a41209c8b2cef53ec317cd38962a01e26f6fc49",
+        "result.json": "60ec95c8b84b54ebf95ad27f2841c81aceb3ec4ae4e541a7a24f2bd496da65dd",
+        "final-verification.json": "b5db8ee3a88dd11a7ca16e17efe5ef41db1dae5e89b0f3e7e1dddc287f2dbec7",
+        "candidate.patch": "dc37a895b902693f9588379c09e3c5fc5e24378ec401ce1faa4a0178295b4329"
+      },
+      "disposition": "Retain original score and all costs; subsequent expanded contracts found regressions, so this is prior development evidence, not a final-policy replacement score."
+    },
+    {
+      "run_dir": "work/vmshare/performance-json-contract-v2-20261125/django__django-13346-C0-json-contract-repeat-r4",
+      "review_scope": "Cost/identity/result/final reconsumption only; earlier semantic reviews are not repeated here.",
+      "actual_requests": 47,
+      "own_fresh_zero_credit_receipts": 47,
+      "raw_original_passed": true,
+      "original_wall_seconds": 572.3689613749739,
+      "input_tokens": 2228925,
+      "output_tokens": 24509,
+      "original_final_public": true,
+      "original_final_protected": true,
+      "qualified_under_its_original_contract": true,
+      "native_session_ids": [
+        "dec3842e-c2f2-4192-9bc1-3a5723c6e338"
+      ],
+      "message_count": 47,
+      "source_sha256": {
+        "model.jsonl": "f5a777d2824aab43b5936a2dc366780e8832a7a44adced8138a36a38c650fc20",
+        "result.json": "66bd0a08b6cbf310df79b5226184915a1fe9e0cf462bf26e62ca9434281d464c",
+        "final-verification.json": "1f74049916d462d7b899171a764c5fa0fcfb7b9eb55ffc4dab955277d8eab428",
+        "candidate.patch": "154628317cf06712ca0a65e560f0e970e6ed79ed0c3d17ea33dd90e9164ee9ac"
+      },
+      "disposition": "Retain original score and all costs; subsequent expanded contracts found regressions, so this is prior development evidence, not a final-policy replacement score."
+    },
+    {
+      "run_dir": "work/vmshare/performance-json-oracle-guided-v3-20261125/django__django-13346-C0-json-oracle-guided-main-r5",
+      "review_scope": "Cost/identity/result/final reconsumption only; earlier semantic reviews are not repeated here.",
+      "actual_requests": 47,
+      "own_fresh_zero_credit_receipts": 47,
+      "raw_original_passed": true,
+      "original_wall_seconds": 533.93695737503,
+      "input_tokens": 2073856,
+      "output_tokens": 23754,
+      "original_final_public": false,
+      "original_final_protected": true,
+      "qualified_under_its_original_contract": false,
+      "native_session_ids": [
+        "5dbdbe37-c661-412c-a6fc-50f52076db86"
+      ],
+      "message_count": 47,
+      "source_sha256": {
+        "model.jsonl": "178ee9b481b86c49f83f1fea0946cdba0c3b128157b963fe428811a897ee990d",
+        "result.json": "e373c746bbe717bc439960a344265bf5275ecedd29848dd3c0f70f19c74dbc0d",
+        "final-verification.json": "d6f7ce5a2cbbf1e31c086ccb4dea9a35d5e5636a7fc92c394ed1b55948ebb1e0",
+        "candidate.patch": "5db3d4b5ecb47a7565915e08663fcfc0eced2adb59d64d71a0d8e1be4819c1ba"
+      },
+      "disposition": "Retain original true and original qualified=false despite later0-model transport postcheck passing;47own-zero generations stay development cost."
+    }
+  ],
+  "findings": [
+    {
+      "severity": "recorded_fixed_within_session",
+      "position": "r8",
+      "first_public_score": "65/69",
+      "cause": "Oracle JSON documents were interpolated into literals;3 value-isolation cases and one apostrophe-string adapter failed.",
+      "actual_repair": "Response24/tool21 switches documents to bound parameters; response25 verifies69/69. Original candidate001, failed verification and their generations remain.",
+      "final_P1": false
+    },
+    {
+      "severity": "existing_parent_path_limit",
+      "positions": [
+        "r7",
+        "r8"
+      ],
+      "evidence": "r7 tools22/23/25 expose nested-KeyTransform RHS failure; tool32 directly calls unchanged FieldGetDbPrepValueIterableMixin.resolve_expression_parameter and reproduces None(...). r8 tool17 independently exhibits the same nested-KeyTransform failure.",
+      "disposition": "Report inherited limitation, not a newly introduced final-patch regression. r7 removes only the unsupported case from a self-authored temporary harness; registered checks and original tests are unchanged."
+    },
+    {
+      "severity": "invalid_model_actions_preserved",
+      "positions": [
+        {
+          "label": "r7",
+          "response": 6
+        },
+        {
+          "label": "r8",
+          "response": 12
+        }
+      ],
+      "evidence": "Actual next request contains Invalid structured output/ControlAction validation error. No corresponding container command executes.",
+      "disposition": "Both generations remain in the41+28 own-zero cost totals; recovery occurs within the same fixed sessions and original budget."
+    },
+    {
+      "severity": "source_boundary",
+      "positions": [
+        "r7",
+        "r8"
+      ],
+      "evidence": "Model attempted public upstream/cached source/history searches; r7 also explicitly searched task/gold-patch metadata. Network requests failed DNS; searches returned visible source/history, own temporary scripts or sysfs entries, with no observed hidden grader/answer obtained.",
+      "disposition": "Do not claim the model made no search attempt or independently discovered mature hooks without guidance."
+    }
+  ],
+  "claim_limits": [
+    "Oracle/MySQL evidence is controlled compiled RHS/type/parameter behavior with a limited SQLite JSON adapter; zero live Oracle/MySQL server validation is claimed.",
+    "Actual original grader is the unchanged SQLite SWE test suite:75tests,8skips,FAIL_TO_PASS2/PASS_TO_PASS65 in each final run.",
+    "C0 checks are explicit model-invoked verify operations: one in r7, two in r8; do not describe them as autonomous automatic checking.",
+    "Actual use of the public mature hook and feedback is shown; this pair alone does not isolate a causal configuration benefit or establish transfer to unrelated tasks.",
+    "The original225 and five old JSON development outcomes/costs remain separate. r5 original qualified=false is not changed by the passing engineering postcheck. No inheritance join/whole-cohort acceptance is performed here."
+  ],
+  "shared_source_sha256": {
+    "work/json-in-semantics-20261125/oracle-bool/ascii-transport/frozen/plan.json": "22dbb73f419807b047496d69b7271233b03b273a76fdf89230ec1c0caed742f1",
+    "work/json-in-semantics-20261125/oracle-bool/ascii-transport/inputs/tasks.json": "5bf0c1cd3074d80e53a062a9908c88fc4c207431c2911c31d01709f9965a8d52",
+    "work/json-in-semantics-20261125/oracle-bool/ascii-transport/inputs/checks.json": "50dc79485e0022c814b522459dae65b54540273b3cabfd529827699a361c0c90",
+    "work/json-in-semantics-20261125/oracle-bool/ascii-transport/qualification/result.json": "4f481e173a19c7fac362b102dd83e35fb54f8c5247b848f1d1e4cc2c192f685e",
+    "work/json-in-semantics-20261125/oracle-bool/ascii-transport/retirement.json": "3780b9b4cb713cf7715795b16ccc3c9a955005c363844a60cca6fbd619336da4",
+    "work/vmshare/performance-json-oracle-guided-v3-20261125/django__django-13346-C0-json-oracle-guided-repeat-r6.resources.json": "330fba96861befa2a8c836f6d68c071827dfaf419d2af10f124c4403cc6f5764",
+    "scripts/export_performance_evidence.py": "5b9d3d297c9c738a4240277df6cc64ef9c52828d8601ccf1acdbf39d8a890c5e",
+    "scripts/summarize_performance_comparison.py": "e21af1ae9e27f3865a3d71510f8bec8276557d74b984095ed9be51ccbe158472"
+  },
+  "rows": [
+    {
+      "label": "json-oracle-ascii-main-r7",
+      "run_dir": "work/vmshare/performance-json-oracle-ascii-v4-20261125/django__django-13346-C0-json-oracle-ascii-main-r7",
+      "metrics": {
+        "task": "django__django-13346",
+        "passed": true,
+        "wall_seconds": 389.3829518329585,
+        "actual_requests": 41,
+        "verified_zero_credit_requests": 41,
+        "fresh_native_usage_records": 41,
+        "native_session_count": 1,
+        "model_calls": 41,
+        "model_responses": 41,
+        "model_request_retries": 0,
+        "model_request_timeouts": 0,
+        "provider_turns": 41,
+        "tool_calls": 37,
+        "input_tokens": 2114225,
+        "output_tokens": 26270,
+        "cached_input_tokens": 2024128,
+        "submission_check_opportunities": 0,
+        "stale_at_submission": 0,
+        "deliverable_checkpoints": 0,
+        "deliverable_reminders": 0,
+        "usage_unreturned_requests": 0,
+        "usage_missing_input_responses": 0,
+        "usage_missing_output_responses": 0,
+        "usage_missing_cache_responses": 0,
+        "provider_reported_cost_usd": 0
+      },
+      "control": {
+        "final_control_applicable": true,
+        "final_control_state": "valid",
+        "final_protected_unchanged": true,
+        "final_valid_verification": true,
+        "final_verification_sha256": "efb163935e3bf897731972ba48461a8934ee7b138a368810554d7d114a2978ba"
+      },
+      "native_session_ids": [
+        "8fa8aacd-f5e4-4584-9d00-4f3e2c48f191"
+      ],
+      "fresh_receipts": [
+        {
+          "request_id": 1,
+          "message_id": "01a20f9fce6f7fc7a250a232c133396e",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 2,
+          "message_id": "01a20f9fe53a73d2a00fe68315853699",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 3,
+          "message_id": "01a20f9ffb2a72f988784d7c35562d45",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 4,
+          "message_id": "01a20fa011d170e2845bbd0ff701cfe9",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 5,
+          "message_id": "01a20fa02d067fcf981bbc3e7c8914f0",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 6,
+          "message_id": "01a20fa054b3744e995f2342e1e12069",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 7,
+          "message_id": "01a20fa0698d77feb2fb4ebf92be5ec6",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 8,
+          "message_id": "01a20fa07e4f7191b7cd13e42490a7cd",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 9,
+          "message_id": "01a20fa0971d73b38b2a6e6c17471fd9",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 10,
+          "message_id": "01a20fa0af4471b89377128d95d0703b",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 11,
+          "message_id": "01a20fa0dd9077069ff1238f0645543b",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 12,
+          "message_id": "01a20fa102c57822a277d927a42450a4",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 13,
+          "message_id": "01a20fa136287e12b239d9a20e984e88",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 14,
+          "message_id": "01a20fa14e4970d0aa1d4618c4f79f9e",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 15,
+          "message_id": "01a20fa16ee17cb497271b8bf2e83ae6",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 16,
+          "message_id": "01a20fa195ff715796d1bfb2d37803c1",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 17,
+          "message_id": "01a20fa1bd27770abc3cffc91a185c0a",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 18,
+          "message_id": "01a20fa1e00371f99aecd11ba8bd7ea0",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 19,
+          "message_id": "01a20fa214877717863f237975ae53ec",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 20,
+          "message_id": "01a20fa237d6769fbe3eda1f0bd9a632",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 21,
+          "message_id": "01a20fa2679b7f219273139f1fade2d1",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 22,
+          "message_id": "01a20fa281647d22af327a9b4e2938e0",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 23,
+          "message_id": "01a20fa2a4147f688b9d82b5a4d832e5",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 24,
+          "message_id": "01a20fa2c8b672f4bccab545a0716476",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 25,
+          "message_id": "01a20fa2ed6a7e4dbb8e4e7a5b16162d",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 26,
+          "message_id": "01a20fa3237b73c4bd66aa3f73673b60",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 27,
+          "message_id": "01a20fa33f277e94938311befa820b20",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 28,
+          "message_id": "01a20fa35ea97cd2b5244ed06fd69317",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 29,
+          "message_id": "01a20fa383a37fd889281a0f7e8b8b68",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 30,
+          "message_id": "01a20fa3a30b7655b0e508d6a85436f9",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 31,
+          "message_id": "01a20fa3bd877daf80d28164a46be1a0",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 32,
+          "message_id": "01a20fa3d58e7408bd21206786676c52",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 33,
+          "message_id": "01a20fa3f9bc7b77b7fa2cdec68334ea",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 34,
+          "message_id": "01a20fa4172070af9ec21290c31788cb",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 35,
+          "message_id": "01a20fa439ba768e96b6b5adddddd262",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 36,
+          "message_id": "01a20fa45e75780190d4e8ea6810cef2",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 37,
+          "message_id": "01a20fa4809e7dd4bdd939a5acd50194",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 38,
+          "message_id": "01a20fa4a65c7db8a615786773b266b9",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 39,
+          "message_id": "01a20fa4c87170309cc3b279d7226869",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 40,
+          "message_id": "01a20fa4e4947ae9b57654790ae8891d",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 41,
+          "message_id": "01a20fa4fc377a8ba10718bc948ee458",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        }
+      ],
+      "model_events": {
+        "request": 41,
+        "cli_process_started": 41,
+        "response": 41,
+        "billing_verified": 41
+      },
+      "controller_events": {
+        "candidate_operation": 7,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "tool_count": 37,
+      "schema_error_response_numbers": [
+        6
+      ],
+      "review_scope": {
+        "instruction_read_completely": true,
+        "complete_final_patch_and_changed_function_read": true,
+        "complete_final_module_syntax_checked_without_execution": true,
+        "all_37_tool_commands_read": true,
+        "meaningful_stdout_and_failed_actions_read": true,
+        "all_model_event_envelopes_and_controller_events_scanned": true,
+        "selected_reasoning_deep_read": [
+          18,
+          19,
+          20,
+          23,
+          24,
+          35,
+          36,
+          38,
+          40
+        ],
+        "reasoning_word_for_word_all": false,
+        "large_unchanged_source_dumps_word_for_word_all": false
+      },
+      "implementation_scope": {
+        "hook": "resolve_expression_parameter",
+        "delegates_to_super": true,
+        "expression_guard": "not hasattr(param, 'as_sql')",
+        "native_json_backend_parameters_preserved": true,
+        "oracle_value_conversion": "json.loads(param), select JSON_QUERY for list/dict else JSON_VALUE; bind json.dumps({'value':value}) through %s",
+        "non_oracle_conversion": "JSON_EXTRACT(prepared placeholder,'$')",
+        "parent_in_chunking_and_prep_retained": true
+      },
+      "adoption_chain": [
+        {
+          "response": 20,
+          "tool": 19,
+          "action": "Writes the mature per-parameter hook, delegates to super(), wraps Oracle values as bound JSON documents."
+        },
+        {
+          "response": 21,
+          "action": "Saves initial candidate, pending public verification and ineligible."
+        },
+        {
+          "response": 23,
+          "action": "Explicitly requests public-regression; actual69/69 pass."
+        },
+        {
+          "response": 40,
+          "action": "Saves final eligible candidate with the same production artifact digest."
+        },
+        {
+          "response": 41,
+          "action": "Submits; final public/protected true and original grader passes."
+        }
+      ],
+      "public_verifications": [
+        {
+          "controller_step": 22,
+          "state": "passed",
+          "returncode": 0,
+          "artifact_digest": "2f23b3a7d63e54efb01e8a5f94e84a5226c8819143a37697efdc93be7c18757a",
+          "before_equals_after": true,
+          "groups": {
+            "sqlite_database_cases": {
+              "total": 48,
+              "passed": 48
+            },
+            "sqlite_expression_cases": {
+              "total": 6,
+              "passed": 6
+            },
+            "oracle_parameter_separation_cases": {
+              "total": 3,
+              "passed": 3
+            },
+            "backend_rhs_string_cases": {
+              "total": 10,
+              "passed": 10
+            },
+            "oracle_bool_rhs_string_cases": {
+              "total": 2,
+              "passed": 2
+            }
+          },
+          "failed_cases": [],
+          "oracle_bool_cases": [
+            {
+              "value": true,
+              "expected_string": "true",
+              "tier": "compiled_Oracle_singleton_bool_RHS_on_limited_SQLite_JSON1_adapter",
+              "rhs_sql": "(JSON_VALUE(%s, '$.value'))",
+              "parameters": [
+                "{\"value\": true}"
+              ],
+              "adapted_sql": "(COURSE_JSON_VALUE(%s, '$.value'))",
+              "parameters_separate": true,
+              "placeholder_count_match": true,
+              "actual_value": "true",
+              "passed": true
+            },
+            {
+              "value": false,
+              "expected_string": "false",
+              "tier": "compiled_Oracle_singleton_bool_RHS_on_limited_SQLite_JSON1_adapter",
+              "rhs_sql": "(JSON_VALUE(%s, '$.value'))",
+              "parameters": [
+                "{\"value\": false}"
+              ],
+              "adapted_sql": "(COURSE_JSON_VALUE(%s, '$.value'))",
+              "parameters_separate": true,
+              "placeholder_count_match": true,
+              "actual_value": "false",
+              "passed": true
+            }
+          ],
+          "existing_public_suite": {
+            "total": 74,
+            "skipped": 8,
+            "passed": true
+          },
+          "stdout_sha256": "8f31a2a54ab86ea7904ec950e6baf47ee2b3c276f714cfd3628c597e2faac83c",
+          "stderr_sha256": "949276e2dd229317b7a6df47cb3fd2d708da72786ed77dc9558578db09089454"
+        }
+      ],
+      "grade_counts": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 65,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      },
+      "original_grader_summary": {
+        "resolved": true,
+        "infra_failure": false,
+        "total_tests": 75,
+        "skipped": 8,
+        "failed": 0,
+        "backend": "SQLite",
+        "stdout_lines": 499
+      },
+      "original_scored_patch_equals_candidate": true,
+      "candidate_eligible": true,
+      "candidate_equals_final_digest": true,
+      "final_candidate_source_sha256": "2d808065b3aba4c4db38e26235d90638f03ff878cd77dc011e99b178bbda8945",
+      "hook_line": 482,
+      "final": {
+        "reason": "submission",
+        "artifact_digest": "2f23b3a7d63e54efb01e8a5f94e84a5226c8819143a37697efdc93be7c18757a",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "2d808065b3aba4c4db38e26235d90638f03ff878cd77dc011e99b178bbda8945  django/db/models/fields/json.py\n5d5dafdc759a6f01ab524a7a8d710ea9b4b1582c569a3d1a5ae536ee4e6fec34  tests/model_fields/test_jsonfield.py\n"
+          }
+        },
+        "elapsed_seconds": 346.9288016660139
+      },
+      "notes": [
+        "Actual instruction provides original JSONField key IN issue; extra inputs are registered69 public cases and published mature hook/Oracle type guidance; no engineering reference patch is in actual first request.",
+        "Tool19/response20 writes final hook patch; response23 explicitly invokes public-regression;69 cases pass, then extra supported edge tests and399-test model_fields suite pass; source patch unchanged after first implementation.",
+        "Tools22/23/25 reveal nested KeyTransform RHS list emits None(...); tool32 directly calls unchanged parent FieldGetDbPrepValueIterableMixin.resolve_expression_parameter and reproduces same result. Model removes only that self-authored/tmp case; inherited limitation is not a newly introduced regression or included69-case support claim.",
+        "Tools8/10/17/33 attempt public upstream fetch/cache/task metadata or gold patch search. Network fetch fails DNS; task/gold search returns no match; recent-file scan lists own temporary scripts and/sys entries. No observed hidden grader/answer obtained.",
+        "Final C0 protected=true, final original test file SHA5d5dafdc759a6f01ab524a7a8d710ea9b4b1582c569a3d1a5ae536ee4e6fec34 unchanged; full patch touches production JSON file only.",
+        "Oracle evidence remains compiled branches plus limited SQLite JSON adapters, no MySQL/Oracle server execution. No full ORM correctness claim."
+      ],
+      "source_sha256": {
+        "model.jsonl": "65b41806c0af047cda7a92d5e78b2d0b5205c64c974dca2a1efc2f18149aea65",
+        "result.json": "0c7f239b186cc6bb72b0c563d65dc22cb9c520aaa4b0ef12e895d242b0c44547",
+        "candidate.patch": "32b03f6941090da82c8c3aa30fdaf6574e3bf60b49d66116578581c3d33bd2e4",
+        ".controller-input.json": "6b7ab5956d54fc5d10925aee9c05f4665c33f294b99026dbe461b4c4d0ab5f67",
+        "instruction.txt": "8d2d1cfc56aaa886ff4ab118a2a4c732d09d9cc559cc257cb713c865e1d7001a",
+        "checkout.json": "1bfad2066151759bf4020afd13e9a1b48e0106a7d0cda2d915a7fcac43eb2656",
+        "controller.jsonl": "0652871d59313d146d9ef62382c721c32c93ad1d9701f407fb806dddb13f7392",
+        "agent.json": "4cc72f5e18f46b36c5a21867ca90e7ac6cea4c2080693069e640fa808a2193b9",
+        "final-verification.json": "efb163935e3bf897731972ba48461a8934ee7b138a368810554d7d114a2978ba",
+        "execution-budget.json": "997bd7ee9dfaf75837ce98052ad1d368eb5cfbcfae7d2251bdd02ac98572b975",
+        "tools.jsonl": "e4c08916937be158513d5156f7fd18b4bcbcaa9f4f19cf5766cde5cd21b50cd2",
+        "trial.json": "c521329881dd7db64e14bb5ed519a1d57bf35ce2c1733c39f5a949f27c97f61c",
+        "candidates/candidate-002.json": "9898de3c6eb434c40304aa6a02215051946d18a601d0e6b8c682808b4efea7d3",
+        "candidates/candidate-001.json": "8564e6f539956f6e6632c92d972c493a68e69f465e066859774c7f0065e1bec7",
+        "swe-official/django__django-13346-C0-json-oracle-ascii-main-r7/course-mini-swe-agent/django__django-13346/patch.diff": "32b03f6941090da82c8c3aa30fdaf6574e3bf60b49d66116578581c3d33bd2e4",
+        "swe-official/django__django-13346-C0-json-oracle-ascii-main-r7/course-mini-swe-agent/django__django-13346/report.json": "5d4433ce356d139292c981bfb30081f9633cfb920c8e5ffbf0c7129f90eb663c",
+        "swe-official/django__django-13346-C0-json-oracle-ascii-main-r7/course-mini-swe-agent/django__django-13346/eval.sh": "11a9a121c03a20e39e3175d8fcd584b978f51028ab03f5ff32336521ffb17def",
+        "swe-official/django__django-13346-C0-json-oracle-ascii-main-r7/course-mini-swe-agent/django__django-13346/test_output.txt": "23ef0f0d480b2991151294818b24fe509b79aa31dadacb36e96d2e1157ec15e6",
+        "swe-official/django__django-13346-C0-json-oracle-ascii-main-r7/course-mini-swe-agent/django__django-13346/run_instance.log": "6234616527a1d782a615aa3c22c137220187fd8e39e0767ad14d02b90d38117d"
+      },
+      "protocol_sha256": "9b1de816ebfb560d6bedf739c3ffa70232e8e22e551664e8f001496307e5ecc6",
+      "final_source_compiled_without_execution": true
+    },
+    {
+      "label": "json-oracle-ascii-repeat-r8",
+      "run_dir": "work/vmshare/performance-json-oracle-ascii-v4-20261125/django__django-13346-C0-json-oracle-ascii-repeat-r8",
+      "metrics": {
+        "task": "django__django-13346",
+        "passed": true,
+        "wall_seconds": 297.740838333033,
+        "actual_requests": 28,
+        "verified_zero_credit_requests": 28,
+        "fresh_native_usage_records": 28,
+        "native_session_count": 1,
+        "model_calls": 28,
+        "model_responses": 28,
+        "model_request_retries": 0,
+        "model_request_timeouts": 0,
+        "provider_turns": 28,
+        "tool_calls": 23,
+        "input_tokens": 904792,
+        "output_tokens": 16332,
+        "cached_input_tokens": 839168,
+        "submission_check_opportunities": 0,
+        "stale_at_submission": 0,
+        "deliverable_checkpoints": 0,
+        "deliverable_reminders": 0,
+        "usage_unreturned_requests": 0,
+        "usage_missing_input_responses": 0,
+        "usage_missing_output_responses": 0,
+        "usage_missing_cache_responses": 0,
+        "provider_reported_cost_usd": 0
+      },
+      "control": {
+        "final_control_applicable": true,
+        "final_control_state": "valid",
+        "final_protected_unchanged": true,
+        "final_valid_verification": true,
+        "final_verification_sha256": "91522e30c4dea4de5f5bbba1f73359cd6a11b782029a3e3d0ce97df8dc69c9fa"
+      },
+      "native_session_ids": [
+        "59ecaa44-905d-4aa8-890f-b322ec531336"
+      ],
+      "fresh_receipts": [
+        {
+          "request_id": 1,
+          "message_id": "01a20fa5c7157856b6f770f30768ab4b",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 2,
+          "message_id": "01a20fa5de2c7bb0a06f47d1edcf30f7",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 3,
+          "message_id": "01a20fa5f31a7ab8839e0a35bde73fa6",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 4,
+          "message_id": "01a20fa609427939a9c892dbed9a4fb9",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 5,
+          "message_id": "01a20fa6240d762085ac9720b1ccf297",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 6,
+          "message_id": "01a20fa640667972bc4b09a7cf4b2126",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 7,
+          "message_id": "01a20fa65eb57fcb948d5cddb2acd3a3",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 8,
+          "message_id": "01a20fa67cfb721eb2db77cbbc6662fa",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 9,
+          "message_id": "01a20fa698c87f41b184cf3544377997",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 10,
+          "message_id": "01a20fa6ba7873b2803574a4dbafdd18",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 11,
+          "message_id": "01a20fa6d6717829bea2f43f729489e9",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 12,
+          "message_id": "01a20fa6fcd17bf7b650d151c2899fbc",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 13,
+          "message_id": "01a20fa7136370cbaf7e97eff21ce56b",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 14,
+          "message_id": "01a20fa74be673e5923fd7aa1a4d6c9d",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 15,
+          "message_id": "01a20fa7b8407ffabc0ed4d433b56d9b",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 16,
+          "message_id": "01a20fa7d67774958f8035f9a507d256",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 17,
+          "message_id": "01a20fa7f4367053a1a7e99464eb5fd0",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 18,
+          "message_id": "01a20fa80d557a15aa77ed699721fbcc",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 19,
+          "message_id": "01a20fa836867700a857e066555ba146",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 20,
+          "message_id": "01a20fa857e37d4493b4770c92d2b6e3",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 21,
+          "message_id": "01a20fa88bbe72899663b114cc872deb",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 22,
+          "message_id": "01a20fa8acbe7954a8e7e68d2846032d",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 23,
+          "message_id": "01a20fa8dfed79a78c4693e278eb1fd2",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 24,
+          "message_id": "01a20fa901497b9d82fa1af1a0429c10",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 25,
+          "message_id": "01a20fa933737c5b99c03df9381b1269",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 26,
+          "message_id": "01a20fa9551c734394d6807347cc653d",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 27,
+          "message_id": "01a20fa97abe756fab8a30cbd1da66e0",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        },
+        {
+          "request_id": 28,
+          "message_id": "01a20fa991e67f38a1d34d89764e6bb9",
+          "model": "hy4-flash-free",
+          "requestModelId": "hy4flash-free",
+          "credit": 0
+        }
+      ],
+      "model_events": {
+        "request": 28,
+        "cli_process_started": 28,
+        "response": 28,
+        "billing_verified": 28
+      },
+      "controller_events": {
+        "candidate_operation": 9,
+        "candidate_saved": 2,
+        "verification": 2,
+        "final_artifact": 1
+      },
+      "tool_count": 23,
+      "schema_error_response_numbers": [
+        12
+      ],
+      "review_scope": {
+        "instruction_read_completely": true,
+        "complete_final_patch_and_changed_function_read": true,
+        "complete_final_module_syntax_checked_without_execution": true,
+        "all_23_tool_commands_read": true,
+        "meaningful_stdout_and_failed_actions_read": true,
+        "all_model_event_envelopes_and_controller_events_scanned": true,
+        "selected_reasoning_deep_read": [
+          23,
+          24,
+          25
+        ],
+        "reasoning_word_for_word_all": false,
+        "large_unchanged_source_dumps_word_for_word_all": false
+      },
+      "implementation_scope": {
+        "hook": "resolve_expression_parameter",
+        "delegates_to_super": true,
+        "expression_guard": "not hasattr(param, 'resolve_expression')",
+        "native_json_backend_parameters_preserved": true,
+        "oracle_value_conversion": "json.loads(param), select JSON_QUERY for list/dict else JSON_VALUE; bind json.dumps({'value':value}) through %s",
+        "non_oracle_conversion": "JSON_EXTRACT(prepared placeholder,'$')",
+        "parent_in_chunking_and_prep_retained": true
+      },
+      "adoption_chain": [
+        {
+          "response": 15,
+          "tool": 14,
+          "action": "Writes mature per-parameter hook but initially interpolates Oracle JSON documents into quoted SQL literals."
+        },
+        {
+          "response": 17,
+          "action": "Saves initial ineligible candidate; actual candidate001 remains archived."
+        },
+        {
+          "response": 23,
+          "action": "Explicit public-regression gives65/69:48 SQLite+6 expression+2 bool pass,0/3 parameter separation and9/10 backend strings pass."
+        },
+        {
+          "response": 24,
+          "tool": 21,
+          "action": "Actual reasoning identifies apostrophe syntax error and failed value isolation; changes only Oracle document delivery to a bound parameter."
+        },
+        {
+          "response": 25,
+          "action": "Explicitly rechecks the same registered contract;69/69 pass."
+        },
+        {
+          "response": 27,
+          "action": "Saves final eligible candidate after414-test model-side suite,10skips,OK."
+        },
+        {
+          "response": 28,
+          "action": "Submits; final public/protected true and original grader passes."
+        }
+      ],
+      "public_verifications": [
+        {
+          "controller_step": 22,
+          "state": "failed",
+          "returncode": 1,
+          "artifact_digest": "bd6f02a9b468a68c8200106f09ecef7ca35f6106229376515501336639bfbd67",
+          "before_equals_after": true,
+          "groups": {
+            "sqlite_database_cases": {
+              "total": 48,
+              "passed": 48
+            },
+            "sqlite_expression_cases": {
+              "total": 6,
+              "passed": 6
+            },
+            "oracle_parameter_separation_cases": {
+              "total": 3,
+              "passed": 0
+            },
+            "backend_rhs_string_cases": {
+              "total": 10,
+              "passed": 9
+            },
+            "oracle_bool_rhs_string_cases": {
+              "total": 2,
+              "passed": 2
+            }
+          },
+          "failed_cases": [
+            {
+              "group": "oracle_parameter_separation_cases",
+              "value": "O'Reilly-course-bound-value",
+              "validation_tier": "real_ORM_Oracle_SQL_branch_on_SQLite_wrapper",
+              "sql": "SELECT \"course_public_json_types_publicjsonvalue\".\"id\", \"course_public_json_types_publicjsonvalue\".\"payload\" FROM \"course_public_json_types_publicjsonvalue\" WHERE COALESCE(JSON_QUERY(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"'), JSON_VALUE(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"')) IN (JSON_VALUE('{\"value\": \"O'Reilly-course-bound-value\"}', '$.value'))",
+              "parameters": [],
+              "value_bound": false,
+              "value_absent_from_sql": false,
+              "scalar_parameters": true,
+              "passed": false
+            },
+            {
+              "group": "oracle_parameter_separation_cases",
+              "value": [
+                "O'Reilly-course-bound-value",
+                false
+              ],
+              "validation_tier": "real_ORM_Oracle_SQL_branch_on_SQLite_wrapper",
+              "sql": "SELECT \"course_public_json_types_publicjsonvalue\".\"id\", \"course_public_json_types_publicjsonvalue\".\"payload\" FROM \"course_public_json_types_publicjsonvalue\" WHERE COALESCE(JSON_QUERY(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"'), JSON_VALUE(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"')) IN (JSON_QUERY('{\"value\": [\"O'Reilly-course-bound-value\", false]}', '$.value'))",
+              "parameters": [],
+              "value_bound": false,
+              "value_absent_from_sql": false,
+              "scalar_parameters": true,
+              "passed": false
+            },
+            {
+              "group": "oracle_parameter_separation_cases",
+              "value": {
+                "nested": "O'Reilly-course-bound-value"
+              },
+              "validation_tier": "real_ORM_Oracle_SQL_branch_on_SQLite_wrapper",
+              "sql": "SELECT \"course_public_json_types_publicjsonvalue\".\"id\", \"course_public_json_types_publicjsonvalue\".\"payload\" FROM \"course_public_json_types_publicjsonvalue\" WHERE COALESCE(JSON_QUERY(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"'), JSON_VALUE(\"course_public_json_types_publicjsonvalue\".\"payload\", '$.\"sample\"')) IN (JSON_QUERY('{\"value\": {\"nested\": \"O'Reilly-course-bound-value\"}}', '$.value'))",
+              "parameters": [],
+              "value_bound": false,
+              "value_absent_from_sql": false,
+              "scalar_parameters": true,
+              "passed": false
+            },
+            {
+              "group": "backend_rhs_string_cases",
+              "vendor": "oracle",
+              "value": "O'Reilly-course-bound",
+              "tier": "compiled_singleton_RHS_string_decoding_on_SQLite_JSON1_adapter",
+              "controlled_mysql_is_mariadb": false,
+              "passed": false,
+              "error_type": "OperationalError",
+              "error": "near \"Reilly\": syntax error"
+            }
+          ],
+          "oracle_bool_cases": [
+            {
+              "value": true,
+              "expected_string": "true",
+              "tier": "compiled_Oracle_singleton_bool_RHS_on_limited_SQLite_JSON1_adapter",
+              "rhs_sql": "(JSON_VALUE('{\"value\": true}', '$.value'))",
+              "parameters": [],
+              "adapted_sql": "(COURSE_JSON_VALUE('{\"value\": true}', '$.value'))",
+              "parameters_separate": false,
+              "placeholder_count_match": true,
+              "actual_value": "true",
+              "passed": true
+            },
+            {
+              "value": false,
+              "expected_string": "false",
+              "tier": "compiled_Oracle_singleton_bool_RHS_on_limited_SQLite_JSON1_adapter",
+              "rhs_sql": "(JSON_VALUE('{\"value\": false}', '$.value'))",
+              "parameters": [],
+              "adapted_sql": "(COURSE_JSON_VALUE('{\"value\": false}', '$.value'))",
+              "parameters_separate": false,
+              "placeholder_count_match": true,
+              "actual_value": "false",
+              "passed": true
+            }
+          ],
+          "existing_public_suite": {
+            "total": 74,
+            "skipped": 8,
+            "passed": true
+          },
+          "stdout_sha256": "7327d16678231cd1af4b073c047c45be0d8445fefcf85a83954ab5f4e4a0b0cc",
+          "stderr_sha256": "cac61857276693a243c1c49ae8206d9bd8813a97d132299f65c410be4cf48277"
+        },
+        {
+          "controller_step": 24,
+          "state": "passed",
+          "returncode": 0,
+          "artifact_digest": "560bf0d24c2327b19e7328c140f5231660ad44f73a825c88fc39bca08a8a2cbc",
+          "before_equals_after": true,
+          "groups": {
+            "sqlite_database_cases": {
+              "total": 48,
+              "passed": 48
+            },
+            "sqlite_expression_cases": {
+              "total": 6,
+              "passed": 6
+            },
+            "oracle_parameter_separation_cases": {
+              "total": 3,
+              "passed": 3
+            },
+            "backend_rhs_string_cases": {
+              "total": 10,
+              "passed": 10
+            },
+            "oracle_bool_rhs_string_cases": {
+              "total": 2,
+              "passed": 2
+            }
+          },
+          "failed_cases": [],
+          "oracle_bool_cases": [
+            {
+              "value": true,
+              "expected_string": "true",
+              "tier": "compiled_Oracle_singleton_bool_RHS_on_limited_SQLite_JSON1_adapter",
+              "rhs_sql": "(JSON_VALUE(%s, '$.value'))",
+              "parameters": [
+                "{\"value\": true}"
+              ],
+              "adapted_sql": "(COURSE_JSON_VALUE(%s, '$.value'))",
+              "parameters_separate": true,
+              "placeholder_count_match": true,
+              "actual_value": "true",
+              "passed": true
+            },
+            {
+              "value": false,
+              "expected_string": "false",
+              "tier": "compiled_Oracle_singleton_bool_RHS_on_limited_SQLite_JSON1_adapter",
+              "rhs_sql": "(JSON_VALUE(%s, '$.value'))",
+              "parameters": [
+                "{\"value\": false}"
+              ],
+              "adapted_sql": "(COURSE_JSON_VALUE(%s, '$.value'))",
+              "parameters_separate": true,
+              "placeholder_count_match": true,
+              "actual_value": "false",
+              "passed": true
+            }
+          ],
+          "existing_public_suite": {
+            "total": 74,
+            "skipped": 8,
+            "passed": true
+          },
+          "stdout_sha256": "8f31a2a54ab86ea7904ec950e6baf47ee2b3c276f714cfd3628c597e2faac83c",
+          "stderr_sha256": "3edea986211aab1826916629fda383458124ff97ee91a01fe6e9eddc4791a259"
+        }
+      ],
+      "grade_counts": {
+        "FAIL_TO_PASS": {
+          "success": 2,
+          "failure": 0
+        },
+        "PASS_TO_PASS": {
+          "success": 65,
+          "failure": 0
+        },
+        "FAIL_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        },
+        "PASS_TO_FAIL": {
+          "success": 0,
+          "failure": 0
+        }
+      },
+      "original_grader_summary": {
+        "resolved": true,
+        "infra_failure": false,
+        "total_tests": 75,
+        "skipped": 8,
+        "failed": 0,
+        "backend": "SQLite",
+        "stdout_lines": 503
+      },
+      "original_scored_patch_equals_candidate": true,
+      "candidate_eligible": true,
+      "candidate_equals_final_digest": true,
+      "final_candidate_source_sha256": "217ad38b28cef872c8d98687c2cf80f674366cac432444366e58fc821ea4dd4f",
+      "hook_line": 426,
+      "final": {
+        "reason": "submission",
+        "artifact_digest": "560bf0d24c2327b19e7328c140f5231660ad44f73a825c88fc39bca08a8a2cbc",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "217ad38b28cef872c8d98687c2cf80f674366cac432444366e58fc821ea4dd4f  django/db/models/fields/json.py\n5d5dafdc759a6f01ab524a7a8d710ea9b4b1582c569a3d1a5ae536ee4e6fec34  tests/model_fields/test_jsonfield.py\n"
+          }
+        },
+        "elapsed_seconds": 256.03541104204487
+      },
+      "notes": [
+        "Initial Python environment lacks Django/asgiref; uses existing Python3.6 testbed environment after diagnosis. Failed attempts remain in the actual23 tools.",
+        "Original visible74-test suite initially passes despite the target __in defect. Reproducer demonstrates exact id1 versus IN id3 before repair; after hook both id1.",
+        "Tool17 confirms ordinary types/arrays/objects and Value/F/RawSQL cases while nested KeyTransform RHS list raises inherited None(...) SQL error; no production workaround added for that separate parent limitation.",
+        "Tool5 upstream curl and tool12 pip download fail DNS; local cache search returns only/testbed source and no cached Django file. Tool13 git fsck returns no dangling objects. No hidden grader/answer read observed.",
+        "First public check exposes dangerous-string literal interpolation and apostrophe syntax error. Same model session repairs to document binding, then same69cases pass; no new independent session or discarded first-attempt cost.",
+        "Two original-grade outcomes do not prove live Oracle/MySQL server compatibility."
+      ],
+      "source_sha256": {
+        "model.jsonl": "0725fb4688319d7193bc0c18d84249de370cbffac9955cad90b9499ad64f55dc",
+        "result.json": "7c2df9731c7a8525f634652f98a161c67ef18aabeec2ee2b5a824a328c686315",
+        "candidate.patch": "493b3b6f0d8ffa92d53cb85b4e7aeb68c10650b45e9ecf9fb6dee6fc78582de2",
+        ".controller-input.json": "6b7ab5956d54fc5d10925aee9c05f4665c33f294b99026dbe461b4c4d0ab5f67",
+        "instruction.txt": "8d2d1cfc56aaa886ff4ab118a2a4c732d09d9cc559cc257cb713c865e1d7001a",
+        "checkout.json": "1bfad2066151759bf4020afd13e9a1b48e0106a7d0cda2d915a7fcac43eb2656",
+        "controller.jsonl": "65a3456029ac804b19babeeecf3cfddff89ce34f6cabb8c530bcc7226c23dc9a",
+        "agent.json": "e77212d5b5de675d9d120f30a1a9e8b8f0e7316ea79de50285b00d3419e6dee7",
+        "final-verification.json": "91522e30c4dea4de5f5bbba1f73359cd6a11b782029a3e3d0ce97df8dc69c9fa",
+        "execution-budget.json": "bfe9a9a8d462ef2a634e58170f8fa010a50cc052e19400b83868377a4ff37eae",
+        "tools.jsonl": "c07f42e87527d01a68eba080e8f714fef500ba2c8b740f413641a63c2f0edf95",
+        "trial.json": "c521329881dd7db64e14bb5ed519a1d57bf35ce2c1733c39f5a949f27c97f61c",
+        "candidates/candidate-002.json": "7988e1b5522ecfd908e4c025e9b2337e4fe20c2071a435f53bf3883ff8b3b16b",
+        "candidates/candidate-001.json": "fc00077c20636b4c7bc03d6b5e18f2b097e9e6659c6789a6bf529cd30376b133",
+        "swe-official/django__django-13346-C0-json-oracle-ascii-repeat-r8/course-mini-swe-agent/django__django-13346/patch.diff": "493b3b6f0d8ffa92d53cb85b4e7aeb68c10650b45e9ecf9fb6dee6fc78582de2",
+        "swe-official/django__django-13346-C0-json-oracle-ascii-repeat-r8/course-mini-swe-agent/django__django-13346/report.json": "5d4433ce356d139292c981bfb30081f9633cfb920c8e5ffbf0c7129f90eb663c",
+        "swe-official/django__django-13346-C0-json-oracle-ascii-repeat-r8/course-mini-swe-agent/django__django-13346/eval.sh": "11a9a121c03a20e39e3175d8fcd584b978f51028ab03f5ff32336521ffb17def",
+        "swe-official/django__django-13346-C0-json-oracle-ascii-repeat-r8/course-mini-swe-agent/django__django-13346/test_output.txt": "ef1610f72cbe0d5ef45ca7e851f10878e98d4c7d3903e4307143a52a09b6d119",
+        "swe-official/django__django-13346-C0-json-oracle-ascii-repeat-r8/course-mini-swe-agent/django__django-13346/run_instance.log": "8774bf314aa17a13051c65ddd03edbbed4227c37305cdc1845a199fd2f62e43d"
+      },
+      "protocol_sha256": "9b1de816ebfb560d6bedf739c3ffa70232e8e22e551664e8f001496307e5ecc6",
+      "final_source_compiled_without_execution": true
+    }
+  ]
+}

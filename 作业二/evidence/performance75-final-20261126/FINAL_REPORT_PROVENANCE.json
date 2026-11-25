@@ -1,0 +1,31 @@
+{
+  "files": {
+    "final-report-generation-addendum.json": {
+      "source": "work/parallel-free-evaluation-20261124/final-report-generation-addendum-20261126.json",
+      "source_sha256": "81a6a7ab0fec465067bde955da2b0f7ec15f13b01b404da1bddb98254a12506b",
+      "export_sha256": "81a6a7ab0fec465067bde955da2b0f7ec15f13b01b404da1bddb98254a12506b",
+      "byte_identical": true,
+      "source_bytes": 13144,
+      "export_bytes": 13144
+    },
+    "pdf-structural-and-values-check.json": {
+      "source": "work/final75-pdf-qa-20261126/structural-and-values-check.json",
+      "source_sha256": "7cd83ab28041a031f6bfbe24040c64a7a889c05a4aec42d83cf88c642cf9227d",
+      "export_sha256": "2c942201555f24e934b0e3f16abafd9964eb12a63dc041a802e33020f15e4645",
+      "byte_identical": false,
+      "source_bytes": 3751,
+      "export_bytes": 3627
+    },
+    "pdf-visual-inspection.json": {
+      "source": "work/final75-pdf-qa-20261126/visual-inspection.json",
+      "source_sha256": "9c3dbd745cd780db8c5a553425045d39de0b5285998e6810b0f26344bcfeee5d",
+      "export_sha256": "9c3dbd745cd780db8c5a553425045d39de0b5285998e6810b0f26344bcfeee5d",
+      "byte_identical": true,
+      "source_bytes": 1782,
+      "export_bytes": 1782
+    }
+  },
+  "final_renderer_sha256": "fb8ca3f1fb1e1479ef81022084fbcafb1d3294228919c31b933363fe8b06d2e1",
+  "final_science_review_sha256": "5d49487ebd98cb8f6b536aab40b1be6eeb90fdc149ee7d001178728975f551f2",
+  "new_model_calls": 0
+}

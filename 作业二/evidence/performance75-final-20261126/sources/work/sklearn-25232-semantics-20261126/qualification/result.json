@@ -1,0 +1,675 @@
+{
+  "phase": "actual_c0_public_contract_and_separate_original_grader_passed",
+  "new_model_calls": 0,
+  "original_grader_calls": 1,
+  "pin": "sha256:2b2069e2a3f12ddcf3fc1c811468da25f2b349a08ea0dd98a5dbe3eecb0c4ca1",
+  "source_plan_sha256": "ac01bbdef1ef007b5f959d7b6673cfe033d47aad14729979465722015bcbdcba",
+  "driver_sha256": "93e1c2e28840a811a51661d33a47e19a6225f2bc70c789dad91692aa07297bae",
+  "probe_sha256": "f6010196c49f3592d24b70236a3181407862f706066808ae73123b564ff6391b",
+  "reference_patch_sha256": "27b55c94443191235d091337c0564936d1ec7dc7e0bc56f8fc943b3f8d00bb03",
+  "reference_source_sha256": "c32a9bb7b018e533533b17be4618babe25a93b6c257572e43097251408ce02c6",
+  "actual_loaded_runtime_modules": {
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/agent.py": "22814d396ad3027d79ff44e916d365db014657ff644a7e8cf51db8c5f828b2c2",
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/benchmarks.py": "57d478adda9d4f1770eae34740b0a9c4c1d5c5da5b99fb541ffe859553cdb665",
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/controller.py": "6c136191b64eca3ac069c1fd147eea60e200587f8a76657cfcf2b5f4e2174b62",
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/docker_target.py": "2ed262a331ad7b15b0b937e315fbc39b7c73ab6821e1e52c3d9b657cf792ae83",
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/verification.py": "5ae7a4eb9753740e0f5385b99655fe5d144bf49ec6ef8ca0784a930f5308c424"
+  },
+  "new_tasks_sha256": "9a16f2ef3ab66282c575237c0fb18daf15084eb0e9eb081d350bbfcc6dae8e94",
+  "new_checks_sha256": "41614c33a15c42e35e07bc16a1af81f5ec21f46259d2e9e383e8c2c2c0515d30",
+  "source_original_scores_sha256": {
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/scikit-learn__scikit-learn-25232-C0-r1/result.json": "a53a8557884150688b36e97fdd9c73e47ff1abc81e15c62adf9bffed395f4b49",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/scikit-learn__scikit-learn-25232-C0-r2/result.json": "6be5ea566ac25113cb6a9826206459040f3b693701c2f1dedc8347a96601767c"
+  },
+  "variants": [
+    {
+      "variant": "base",
+      "patch_sha256": null,
+      "state": "failed",
+      "final": {
+        "reason": "zero_model_public_nan_contract_qualification",
+        "artifact_digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": false,
+        "evidence": {
+          "public-issue": {
+            "state": "failed",
+            "returncode": 1,
+            "snapshot": null
+          }
+        },
+        "elapsed_seconds": 7.454783249995671
+      },
+      "details": {
+        "passed": false,
+        "total": 12,
+        "cases": [
+          {
+            "name": "existing_mean_strategy",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 2,
+            "warnings": [
+              "ConvergenceWarning"
+            ]
+          },
+          {
+            "name": "constant_initial:None",
+            "passed": false,
+            "error_type": "TypeError",
+            "error": "__init__() got an unexpected keyword argument 'fill_value'",
+            "warnings": []
+          },
+          {
+            "name": "constant_initial:10.0",
+            "passed": false,
+            "error_type": "TypeError",
+            "error": "__init__() got an unexpected keyword argument 'fill_value'",
+            "warnings": []
+          },
+          {
+            "name": "constant_initial:-3.0",
+            "passed": false,
+            "error_type": "TypeError",
+            "error": "__init__() got an unexpected keyword argument 'fill_value'",
+            "warnings": []
+          },
+          {
+            "name": "nan_initial_without_iteration",
+            "passed": false,
+            "error_type": "TypeError",
+            "error": "__init__() got an unexpected keyword argument 'fill_value'",
+            "warnings": []
+          },
+          {
+            "name": "tree_nan_fit:nan:keep=False",
+            "passed": false,
+            "error_type": "TypeError",
+            "error": "__init__() got an unexpected keyword argument 'fill_value'",
+            "warnings": []
+          },
+          {
+            "name": "tree_nan_fit:nan:keep=True",
+            "passed": false,
+            "error_type": "TypeError",
+            "error": "__init__() got an unexpected keyword argument 'fill_value'",
+            "warnings": []
+          },
+          {
+            "name": "tree_nan_fit:-1.0:keep=False",
+            "passed": false,
+            "error_type": "TypeError",
+            "error": "__init__() got an unexpected keyword argument 'fill_value'",
+            "warnings": []
+          },
+          {
+            "name": "tree_nan_fit:-1.0:keep=True",
+            "passed": false,
+            "error_type": "TypeError",
+            "error": "__init__() got an unexpected keyword argument 'fill_value'",
+            "warnings": []
+          },
+          {
+            "name": "fitted_feature_range:keep=False",
+            "passed": false,
+            "error_type": "TypeError",
+            "error": "__init__() got an unexpected keyword argument 'fill_value'",
+            "warnings": []
+          },
+          {
+            "name": "fitted_feature_range:keep=True",
+            "passed": false,
+            "error_type": "TypeError",
+            "error": "__init__() got an unexpected keyword argument 'fill_value'",
+            "warnings": []
+          },
+          {
+            "name": "fill_value_ignored_for_mean",
+            "passed": false,
+            "error_type": "TypeError",
+            "error": "__init__() got an unexpected keyword argument 'fill_value'",
+            "warnings": []
+          }
+        ],
+        "scope": "Public task-derived fill_value, NaN-tolerant tree iteration and fitted transform feature range. Each training feature has observations;no hidden grader inputs, gold patch or model candidate reference."
+      },
+      "actual_verification_sha256": "52bbc3eeb4d98993b93354ff6356ba37d21a4f00eb5c1f35de85dcf4208d444d",
+      "actual_public_probe_process_sha256": "f607be56bd4508fdff3967aca630cd52d12c688c908d9d3fbb358935a781e2b7"
+    },
+    {
+      "variant": "actual_main",
+      "patch_sha256": "8f9f789571747b5adacf3e2b98b9e6f7e8859a04e8ebaa7474c17a0a9139bd25",
+      "state": "failed",
+      "final": {
+        "reason": "zero_model_public_nan_contract_qualification",
+        "artifact_digest": "07724a16272a098fcda7ed7e674d2bd6a0cbf22d1d062a5833332a941fc899c8",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": false,
+        "evidence": {
+          "public-issue": {
+            "state": "failed",
+            "returncode": 1,
+            "snapshot": null
+          }
+        },
+        "elapsed_seconds": 9.707195041002706
+      },
+      "details": {
+        "passed": false,
+        "total": 12,
+        "cases": [
+          {
+            "name": "existing_mean_strategy",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 2,
+            "warnings": [
+              "ConvergenceWarning"
+            ]
+          },
+          {
+            "name": "constant_initial:None",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 0,
+            "warnings": []
+          },
+          {
+            "name": "constant_initial:10.0",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 0,
+            "warnings": []
+          },
+          {
+            "name": "constant_initial:-3.0",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 0,
+            "warnings": []
+          },
+          {
+            "name": "nan_initial_without_iteration",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 0,
+            "warnings": []
+          },
+          {
+            "name": "tree_nan_fit:nan:keep=False",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 1,
+            "imputed_values": [
+              4.333333333333333,
+              4.666666666666667
+            ],
+            "warnings": [
+              "ConvergenceWarning"
+            ]
+          },
+          {
+            "name": "tree_nan_fit:nan:keep=True",
+            "passed": false,
+            "error_type": "AssertionError",
+            "error": "0",
+            "warnings": []
+          },
+          {
+            "name": "tree_nan_fit:-1.0:keep=False",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 1,
+            "imputed_values": [
+              4.333333333333333,
+              4.666666666666667
+            ],
+            "warnings": [
+              "ConvergenceWarning"
+            ]
+          },
+          {
+            "name": "tree_nan_fit:-1.0:keep=True",
+            "passed": false,
+            "error_type": "AssertionError",
+            "error": "0",
+            "warnings": []
+          },
+          {
+            "name": "fitted_feature_range:keep=False",
+            "passed": false,
+            "error_type": "IndexError",
+            "error": "index 1 is out of bounds for axis 1 with size 1",
+            "warnings": []
+          },
+          {
+            "name": "fitted_feature_range:keep=True",
+            "passed": false,
+            "error_type": "AssertionError",
+            "error": "[[nan, 3.0], [nan, 5.0], [nan, 7.0], [nan, 9.0]]",
+            "warnings": []
+          },
+          {
+            "name": "fill_value_ignored_for_mean",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 0,
+            "warnings": []
+          }
+        ],
+        "scope": "Public task-derived fill_value, NaN-tolerant tree iteration and fitted transform feature range. Each training feature has observations;no hidden grader inputs, gold patch or model candidate reference."
+      },
+      "actual_verification_sha256": "f68efc2509341aa8fd0775a87ab5422f383ee94c0cba8f149ae9a9f94bc41c89",
+      "actual_public_probe_process_sha256": "b4b6600c52d223d64ccc48a835f56c21a2689ed423665f92ed0ba1c521823bdd"
+    },
+    {
+      "variant": "actual_repeat",
+      "patch_sha256": "c70ee0015006574c0b20ccd0df584a9e0cf6d3f91a6f9801a214da0a597fe938",
+      "state": "failed",
+      "final": {
+        "reason": "zero_model_public_nan_contract_qualification",
+        "artifact_digest": "a297c888a14fcb40cddc3cf3e1d83f363714d858a604ee9026a169d0bf287036",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": false,
+        "evidence": {
+          "public-issue": {
+            "state": "failed",
+            "returncode": 1,
+            "snapshot": null
+          }
+        },
+        "elapsed_seconds": 9.733462583040819
+      },
+      "details": {
+        "passed": false,
+        "total": 12,
+        "cases": [
+          {
+            "name": "existing_mean_strategy",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 2,
+            "warnings": [
+              "ConvergenceWarning"
+            ]
+          },
+          {
+            "name": "constant_initial:None",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 0,
+            "warnings": []
+          },
+          {
+            "name": "constant_initial:10.0",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 0,
+            "warnings": []
+          },
+          {
+            "name": "constant_initial:-3.0",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 0,
+            "warnings": []
+          },
+          {
+            "name": "nan_initial_without_iteration",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 0,
+            "warnings": []
+          },
+          {
+            "name": "tree_nan_fit:nan:keep=False",
+            "passed": false,
+            "error_type": "AssertionError",
+            "error": "0",
+            "warnings": []
+          },
+          {
+            "name": "tree_nan_fit:nan:keep=True",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 1,
+            "imputed_values": [
+              4.333333333333333,
+              4.666666666666667
+            ],
+            "warnings": [
+              "ConvergenceWarning"
+            ]
+          },
+          {
+            "name": "tree_nan_fit:-1.0:keep=False",
+            "passed": false,
+            "error_type": "AssertionError",
+            "error": "0",
+            "warnings": []
+          },
+          {
+            "name": "tree_nan_fit:-1.0:keep=True",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 1,
+            "imputed_values": [
+              4.333333333333333,
+              4.666666666666667
+            ],
+            "warnings": [
+              "ConvergenceWarning"
+            ]
+          },
+          {
+            "name": "fitted_feature_range:keep=False",
+            "passed": false,
+            "error_type": "AssertionError",
+            "error": "[[nan, 3.0], [nan, 5.0], [nan, 7.0], [nan, 9.0]]",
+            "warnings": []
+          },
+          {
+            "name": "fitted_feature_range:keep=True",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 1,
+            "transformed_missing_column": [
+              4.0,
+              4.0,
+              4.0,
+              4.0
+            ],
+            "warnings": []
+          },
+          {
+            "name": "fill_value_ignored_for_mean",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 0,
+            "warnings": []
+          }
+        ],
+        "scope": "Public task-derived fill_value, NaN-tolerant tree iteration and fitted transform feature range. Each training feature has observations;no hidden grader inputs, gold patch or model candidate reference."
+      },
+      "actual_verification_sha256": "2ab5405256d7179a91fa97b80107f0c7da0099ae7fb3ecdf88371cd7b22b5a0e",
+      "actual_public_probe_process_sha256": "f75df3f416d9a9d6f431fb9902388e833840e26748c30da5447947144fe39de6"
+    },
+    {
+      "variant": "public_reference",
+      "patch_sha256": "27b55c94443191235d091337c0564936d1ec7dc7e0bc56f8fc943b3f8d00bb03",
+      "state": "passed",
+      "final": {
+        "reason": "zero_model_public_nan_contract_qualification",
+        "artifact_digest": "4a6fbed7e9b5b3e33e901c630c6ed0205e917f8df6565a309d454e5b8f5b0a01",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-issue": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "c32a9bb7b018e533533b17be4618babe25a93b6c257572e43097251408ce02c6  sklearn/impute/_iterative.py\n"
+          }
+        },
+        "elapsed_seconds": 9.75252012501005
+      },
+      "details": {
+        "passed": true,
+        "total": 12,
+        "cases": [
+          {
+            "name": "existing_mean_strategy",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 2,
+            "warnings": [
+              "ConvergenceWarning"
+            ]
+          },
+          {
+            "name": "constant_initial:None",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 0,
+            "warnings": []
+          },
+          {
+            "name": "constant_initial:10.0",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 0,
+            "warnings": []
+          },
+          {
+            "name": "constant_initial:-3.0",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 0,
+            "warnings": []
+          },
+          {
+            "name": "nan_initial_without_iteration",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 0,
+            "warnings": []
+          },
+          {
+            "name": "tree_nan_fit:nan:keep=False",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 1,
+            "imputed_values": [
+              4.333333333333333,
+              4.666666666666667
+            ],
+            "warnings": [
+              "ConvergenceWarning"
+            ]
+          },
+          {
+            "name": "tree_nan_fit:nan:keep=True",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 1,
+            "imputed_values": [
+              4.333333333333333,
+              4.666666666666667
+            ],
+            "warnings": [
+              "ConvergenceWarning"
+            ]
+          },
+          {
+            "name": "tree_nan_fit:-1.0:keep=False",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 1,
+            "imputed_values": [
+              4.333333333333333,
+              4.666666666666667
+            ],
+            "warnings": [
+              "ConvergenceWarning"
+            ]
+          },
+          {
+            "name": "tree_nan_fit:-1.0:keep=True",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 1,
+            "imputed_values": [
+              4.333333333333333,
+              4.666666666666667
+            ],
+            "warnings": [
+              "ConvergenceWarning"
+            ]
+          },
+          {
+            "name": "fitted_feature_range:keep=False",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 1,
+            "transformed_missing_column": [
+              4.0,
+              4.0,
+              4.0,
+              4.0
+            ],
+            "warnings": []
+          },
+          {
+            "name": "fitted_feature_range:keep=True",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 1,
+            "transformed_missing_column": [
+              4.0,
+              4.0,
+              4.0,
+              4.0
+            ],
+            "warnings": []
+          },
+          {
+            "name": "fill_value_ignored_for_mean",
+            "passed": true,
+            "shape": [
+              4,
+              2
+            ],
+            "n_iter": 0,
+            "warnings": []
+          }
+        ],
+        "scope": "Public task-derived fill_value, NaN-tolerant tree iteration and fitted transform feature range. Each training feature has observations;no hidden grader inputs, gold patch or model candidate reference."
+      },
+      "actual_verification_sha256": "ab61491d3f4a65f9613e3a1083184f22965202a2ae66766c98ad2db07c2a88d9",
+      "actual_public_probe_process_sha256": "f299eb6d52f4a6b92105918730b6290ed2bd89da2419c135fb398e237ae04f8d",
+      "numeric_negative_controls": [
+        {
+          "operation": "tree",
+          "value": 0.0,
+          "rejected": true
+        },
+        {
+          "operation": "transform",
+          "value": 0.0,
+          "rejected": true
+        },
+        {
+          "operation": "tree",
+          "value": 1.0,
+          "rejected": true
+        },
+        {
+          "operation": "transform",
+          "value": 1.0,
+          "rejected": true
+        }
+      ]
+    }
+  ],
+  "scope": "Public12 independent observations-bearing training cases. Exact original pin, real C0 snapshot/verify/finish and preserved original tests. Independent engineering reference is not a model candidate or model input.",
+  "original_grader_function_invocations": 1,
+  "original_grader_test_outputs": [
+    "work/sklearn-25232-semantics-20261126/qualification/reference-original-grade/swe-official/reference-original-grade/course-mini-swe-agent/scikit-learn__scikit-learn-25232/test_output.txt"
+  ],
+  "separate_engineering_original_grade": {
+    "scoreable": true,
+    "passed": true,
+    "grader_seconds": 96.61294770799577
+  },
+  "original_model_scores_unchanged": true
+}

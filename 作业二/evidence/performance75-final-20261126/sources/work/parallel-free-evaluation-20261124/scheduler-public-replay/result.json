@@ -1,0 +1,88 @@
+{
+  "new_model_calls": 0,
+  "new_original_scores": 0,
+  "old_results_unchanged": true,
+  "same_pristine_public_inputs": true,
+  "reused_existing_public_checker": true,
+  "source_of_limits": "The original public instruction.md tables, not the hidden original grader",
+  "failed_original_rejected": true,
+  "passed_original_accepted": true,
+  "performance_benefit_of_registering_this_checker_in_a_new_model_run": "not_yet_measured",
+  "failed_conditions": [
+    {
+      "id": "scheduler.bucket_1.cost",
+      "passed": false,
+      "status": "fail",
+      "actual": 2483023679002.0,
+      "required": {
+        "operator": "<",
+        "value": 300000000000.0
+      }
+    },
+    {
+      "id": "scheduler.bucket_1.pad_ratio",
+      "passed": false,
+      "status": "fail",
+      "actual": 1.436299756799152,
+      "required": {
+        "operator": "<",
+        "value": 0.055
+      }
+    },
+    {
+      "id": "scheduler.bucket_1.p95_latency_ms",
+      "passed": false,
+      "status": "fail",
+      "actual": 13156573.743999999,
+      "required": {
+        "operator": "<",
+        "value": 2100000.0
+      }
+    },
+    {
+      "id": "scheduler.bucket_2.cost",
+      "passed": false,
+      "status": "fail",
+      "actual": 1667270105808.0,
+      "required": {
+        "operator": "<",
+        "value": 48000000000.0
+      }
+    },
+    {
+      "id": "scheduler.bucket_2.pad_ratio",
+      "passed": false,
+      "status": "fail",
+      "actual": 4.042977874947213,
+      "required": {
+        "operator": "<",
+        "value": 0.15
+      }
+    },
+    {
+      "id": "scheduler.bucket_2.p95_latency_ms",
+      "passed": false,
+      "status": "fail",
+      "actual": 3410409.7759999996,
+      "required": {
+        "operator": "<",
+        "value": 210000.0
+      }
+    },
+    {
+      "id": "scheduler.global_shape_cap",
+      "passed": false,
+      "status": "fail",
+      "actual": 15,
+      "required": {
+        "operator": "<=",
+        "value": 8,
+        "scope": "both buckets"
+      }
+    }
+  ],
+  "results": {
+    "nvidia_actual_failed": "work/parallel-free-evaluation-20261124/scheduler-public-replay/nvidia_actual_failed.json",
+    "hy4_actual_passed": "work/parallel-free-evaluation-20261124/scheduler-public-replay/hy4_actual_passed.json"
+  }
+}

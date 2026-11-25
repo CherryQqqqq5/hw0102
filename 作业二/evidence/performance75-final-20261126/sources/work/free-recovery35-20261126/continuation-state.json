@@ -1,0 +1,59 @@
+{
+  "pid": 50651,
+  "status": "actual_stages_closed_require_parent_final_audit_and_report",
+  "accepted_unknown_count": 35,
+  "config_sha256": "de9240a8a36493faf8c454f914ad729407fa2389198e288f20cf6d48f067633d",
+  "old_actor_states": [],
+  "free_metadata": {
+    "path": "work/free-recovery35-20261126/fresh-free-metadata/cloud-model-metadata.json",
+    "sha256": "1229abde8c560c3337a05b179a3a457ad85091894af0a482f4c24f9e80ea470e",
+    "observed_utc": "2026-11-25T17:20:08.846120+00:00",
+    "model": {
+      "aliases": [
+        "hy4flash-dev"
+      ],
+      "credits": "x0.00 credits",
+      "descriptionEn": "A leaner, more efficient everyday workhorse, ideal for high-volume, large-scale tasks such as daily office work.",
+      "descriptionZh": "更轻量、更高效的日常主力模型。适合日常办公等高频、规模化场景",
+      "disabledMultimodal": false,
+      "id": "hy4flash-free",
+      "labels": [
+        "enterprise:selfhost"
+      ],
+      "maxAllowedSize": 1000000,
+      "maxInputTokens": 960000,
+      "maxOutputTokens": 64000,
+      "name": "Hy4 flash",
+      "onlyReasoning": true,
+      "reasoning": {
+        "canDisableThinking": false,
+        "defaultEffort": "high",
+        "summary": "auto",
+        "supportedEfforts": [
+          "high"
+        ]
+      },
+      "relatedModels": {
+        "builtin-lite": "wb-lite",
+        "lite": "hy4flash-free",
+        "reasoning": "hy4flash-free"
+      },
+      "supportsImages": true,
+      "supportsReasoning": true,
+      "supportsToolCall": true
+    }
+  },
+  "core_original225_present": true,
+  "ablation": {
+    "scored": 3,
+    "raw_passed": 3,
+    "qualified_passed": null,
+    "plan_sha256": "a61385dd661d8b9074e154896b74e37bf073176d5e2e25e0961fa750a0d00e2e"
+  },
+  "preservation": {
+    "scored": 2,
+    "raw_passed": 2,
+    "qualified_passed": 2,
+    "plan_sha256": "618aaebb91efb3cb760f79c4f1470705c51129e506331eb2e84e355e71ff3adf"
+  }
+}

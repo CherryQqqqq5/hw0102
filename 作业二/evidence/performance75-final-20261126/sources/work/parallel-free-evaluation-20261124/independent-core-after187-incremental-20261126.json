@@ -1,0 +1,4001 @@
+{
+  "schema_version": 1,
+  "status": "AUDITED_FOURTEEN_CLOSED_ORIGINAL_POSITIONS_WITH_STATED_LIMITS",
+  "final_225_admission": false,
+  "blocking_findings": [],
+  "open_original_protocol_findings": [
+    {
+      "priority": "P1",
+      "task": "pydata__xarray-4695",
+      "arm": "repeat",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-4695-C0-r2",
+      "finding": "Original raw passed remains true, but adding a regression test to protected xarray/tests/test_dataarray.py made the actual registered check protected_dependency_changed. The model ignored that state, saved an ineligible candidate, and submitted with final protected=false and valid=false.",
+      "precise_chain": {
+        "test_edit_tool": 12,
+        "registered_check_step": 14,
+        "ineligible_save_step": 15,
+        "invalid_submit_step": 21
+      },
+      "consequence": "This old original position is not a qualified policy success. The separate prospective v20 preservation pair is not included in this core snapshot."
+    }
+  ],
+  "authority": {
+    "path": "work/parallel-free-evaluation-20261124/hy4-snapshot-0338-20261126/summary.json",
+    "sha256": "7f5ded18b162dca0a0ff355baef5871a5ac4aa17c1dcd43d7e8df69c0cc3e1d4",
+    "fixed_original_rows": 201,
+    "groups": {
+      "main": 66,
+      "dsh": 67,
+      "repeat": 68
+    },
+    "selection": "Exact run-directory set difference from the previously source-bound original187, including every resulting row. No selection by passed/failed status.",
+    "excluded": "All live/new original rows after this fixed201 snapshot and both prospective xarray4695 preservation runs."
+  },
+  "reused_reviews": [
+    {
+      "path": "work/parallel-free-evaluation-20261124/independent-closed177-review-20261126.json",
+      "sha256": "cb1dfd62c93b21771f35ed4ab527668e18d575593ea17fdfe90d5a7f8ce88df1",
+      "scope": "Previously audited original177 plus ten then-completed scoped revisions; its historical limits and findings are retained."
+    },
+    {
+      "path": "work/parallel-free-evaluation-20261124/independent-core-after177-incremental-20261126.json",
+      "sha256": "95581af5dbbd37b11bc24a0c9a0b1b989fe80b2ba4d346c6d38e1efc03add715",
+      "scope": "Ten additional original positions187; their earlier raw results, limits and source evidence are reused."
+    },
+    {
+      "path": "work/sklearn-25232-semantics-20261126/completed-review.json",
+      "sha256": "ee70b77ba884f073c2400cb20ce20999befe266a4e7db16b02e81461728fb36a",
+      "scope": "Only the79 known IDs/two sessions enter the cross-history uniqueness check; the new NaN model results are not original-core rows here."
+    }
+  ],
+  "totals_recomputed": {
+    "new_original_positions": 14,
+    "by_arm": {
+      "main": 4,
+      "repeat": 6,
+      "dsh": 4
+    },
+    "raw_passed": 14,
+    "raw_failed": 0,
+    "C0_positions": 10,
+    "C0_final_valid_and_protected": 9,
+    "C0_final_invalid_and_unprotected": 1,
+    "B0_positions_control_not_applicable": 4,
+    "requests": 171,
+    "responses": 171,
+    "distinct_complete_own_zero_receipts": 171,
+    "unknown_requests_in_these14": 0,
+    "input_tokens": 3479297,
+    "output_tokens": 117558,
+    "tool_records": 132,
+    "original201": {
+      "raw_passed": 189,
+      "raw_failed": 12,
+      "complete_own_zero_receipts": 3259
+    },
+    "scoped_and_old_development_closed_view": {
+      "original201_plus12_scoped_plus5_old_JSON_positions": 218,
+      "known_own_zero_receipts_excluding_mechanical_prefix": 3761
+    },
+    "all_previously_audited_known_cost_union_including11_mechanical_prefix": 3772
+  },
+  "identity_check": {
+    "prior_known_IDs": 3601,
+    "prior_sessions": 208,
+    "new_IDs": 171,
+    "new_sessions": 14,
+    "intersection_IDs": 0,
+    "intersection_sessions": 0,
+    "union_IDs": 3772,
+    "union_sessions": 222,
+    "prior_basis": "Prior187 core + ten earlier scoped revisions + five old JSON development runs + eleven complete mechanical-prefix calls =3522 IDs/206 sessions, then separately reviewed NaN79 IDs/two sessions.",
+    "cumulative_usage_policy": "Only one newly observed own providerData.messageId/rawUsage per response is counted; cumulative prior native usage items are not added again.",
+    "no_cost_reclassification": "Historical missing amount/identity/usage stays unknown. Accepted financial history is not a per-request zero receipt."
+  },
+  "actual_checks": {
+    "source_bindings_rechecked": 212,
+    "input_and_protocol": "All14 actual result/trial/protocol/model/backend/framework/configuration/limits/task objects and interpreter resolution matched the frozen manifests. No input_protocol_issues.",
+    "fee": "Used the actual frozen v18 verify_free_response on each actual response, matched fresh IDs with billing_verified and native sessions, required own rawUsage.credit=0 and actual/requested Hy4 identities, attempt1 and64000 configured cap.",
+    "original_grade": "Read all14 actual original grade reports/reward/stdout and, for four SWE rows, compared complete candidate.patch with the patch delivered to the original grader.",
+    "native_artifacts": "Compared19 successful captured terminal files byte-for-byte against candidate records having the final artifact_digest; all17 files that are actually in final public dependency snapshots match those snapshot hashes. Two requirements.txt files are captured/candidate-bound but outside the public dependency snapshots. OpenSSL key modes are0600. No legacy DSH capture is invented.",
+    "no_reexecution": "No model request, original grader, VM/container command, pipeline activation, STOP write or source/plan modification was performed."
+  },
+  "semantic_review": {
+    "pydata__xarray-4695": {
+      "scope": "All three actual patches, original instruction, actual tools and important outputs, original grader report/stdout and C0 control chain; root-cause review reused and re-read.",
+      "production_fix": "All three change DataArray._LocIndexer.__getitem__ from self.data_array.sel(**key) to self.data_array.sel(key), separating dimension names such as method/tolerance/drop/indexers from API keyword arguments.",
+      "good_main": "It briefly added a regression to the protected test file, then restored that original file at tool10, kept the one-line production fix and tested equivalent cases in scratch. Final registered/protected state is true.",
+      "bad_repeat": "It retained the15-line added test in the protected original file, ignored protected_dependency_changed and submitted an ineligible final candidate. Raw grader true remains true; qualified false remains false.",
+      "DSH": "Only the one-line production hunk; actual reserved-dimension reproduction and four collision names passed. B0 has no C0 protection registration.",
+      "original_grade": {
+        "FAIL_TO_PASS_success": 1,
+        "PASS_TO_PASS_success": 875,
+        "raw_resolved": true,
+        "whole_stdout_exit": 1,
+        "whole_stdout_summary": "1 failed,877 passed,1 skipped,5 xfailed,1 xpassed"
+      },
+      "non_target_failure": {
+        "test": "xarray/tests/test_dataarray.py::TestDataArray::test_from_series_multiindex",
+        "call": "df.stack('alpha').to_xarray()",
+        "responsibility": "pandas.compat._optional.py:171 version check",
+        "error": "Pandas requires xarray>=0.19.0, while the original pin reports0.16.3.dev24+ga4cf03327.d20261125",
+        "actual_base_evidence": "Main tool12 and repeat tool14 executed unchanged production/base worktree comparisons that reproduced the associated MultiIndex/categorical failures."
+      },
+      "scorer_boundary": "The actual eval.sh resets the original test_dataarray.py before installing its own evaluation test patch. Raw resolved does not certify agent preservation of the test tree.",
+      "new_preservation_pair": "Not consumed in this review; its original fixed plan and later completed review must stand separately."
+    },
+    "pydata__xarray-7393": {
+      "scope": "Repeat only; entire final production patch and instruction, all33 commands, actual registered feedback/candidates, original grader and meaningful broad-suite failure output. Reasoning text was sampled, not read word-for-word.",
+      "fix": "PandasMultiIndexingAdapter.__array__ obtains level values then applies np.asarray(values,dtype=self.dtype) when no explicit dtype was supplied; explicit dtype is honored. Patch changes only xarray/core/indexing.py.",
+      "actual_task_check": "Original int32 coordinate stack regression reproduces promotion before the patch and int32 preservation afterward. Registered checks at steps13 and35 pass; final candidate002 at step36 is eligible and has the final digest. Grader receives the same patch.",
+      "original_grade": {
+        "FAIL_TO_PASS_success": 2,
+        "PASS_TO_PASS_success": 71,
+        "stdout": "73 passed",
+        "whole_xarray_suite_passed": false
+      },
+      "extra_suite_boundaries": [
+        "Focused index/stack/dtype command passed341 tests; a later eight-module command passed1725.",
+        "Whole-suite attempts at tools17,25,29 timed out; no full-suite success is claimed.",
+        "H5NetCDF test_complex_error, Dask test_groupby and two contourf plotting failures were also reproduced by actual unchanged-production comparisons at tools20,24,28.",
+        "Plugin test_lazy_import and Pint TestPintWrappingDask.test_duck_array_ops failed in broader patched runs. No matching base comparison for these two was observed, so they are not labeled independently proven pre-existing.",
+        "Several pytest commands pipe into tail: shell return0 does not erase visible pytest failures.",
+        "Scratch duplicate-level assertions were revised at tools13-16. Original tests stayed unchanged; scratch checks do not establish complete duplicate/extension-array semantics."
+      ],
+      "currentness_limit": "Registered dependency snapshot names core/indexes.py, while the actual production hunk is core/indexing.py. The actual step35 check artifact_digest equals the final saved/submitted digest; this observed trace supplies that link, not a claim that every transitive import is covered by the dependency list."
+    },
+    "modernize-scientific-stack": {
+      "scope": "Both original C0 arms, all12 commands, final modern scripts and captured candidate bytes, source-preservation snapshots and two-test original grader.",
+      "behavior": "General UTF-8 pandas/pathlib/configparser implementations compute station means from public CSV rather than hardcoding result values. Legacy analyze_climate.py, configuration and sample data remain protected unchanged.",
+      "first_deviations": [
+        "Main scratch deprecated-token scan falsely matched ConfigParser in the supported configparser API; the scan was narrowed and rerun.",
+        "Repeat initially passed encoding to ConfigParser constructor and received TypeError; it removed that constructor argument while retaining encoding on config.read, then ran successfully from another working directory and on self-created UTF-8 input."
+      ],
+      "limits": "requirements.txt is native-captured and matches the final candidate bytes but is not part of the public-task dependency snapshot. Original grade checks script execution and dependency-file presence, not an independent clean install of every declared version. Public synthetic config content is not a host credential and is not reproduced here."
+    },
+    "multi-source-data-merger": {
+      "scope": "All three original arms: public input reads, complete/general merge implementation and important self-test feedback, original three-test grades; native final-byte comparisons for main/repeat only.",
+      "behavior": "JSON/CSV/Parquet public data are normalized using task aliases; source_a>source_b>source_c determines nonmissing selections, four unique users and three field-level conflicts. Both C0 captured output files have identical bytes across independently fresh sessions.",
+      "repeat_feedback": "A self-test with a missing high-priority email initially failed at tool4. Tool5 excludes None values for selection and conflict detection and reruns the assertions successfully.",
+      "boundary": "Main/repeat retain status only when supplied under canonical status; mapping is consistent with the task's optional status output. They do not infer undocumented aliases is_active/active. No native final-file capture exists for old DSH, so DSH byte equality is not claimed."
+    },
+    "openssl-selfsigned-cert": {
+      "scope": "All three original arms: all11 commands, generation/check scripts, meaningful validation output, original six-test grade; C0 captured files and candidate modes/bytes.",
+      "behavior": "Actual OpenSSL commands generate an RSA2048 key, required subject and365-day self-signed certificate; key mode0600, combined PEM exact key+certificate, verification report and Python check output are validated in the tool transcript.",
+      "repeat_feedback": "The first checker incorrectly applied a CN-at-start regex to a subject= prefixed RFC2253 line and failed at tool3. Tool4 strips the prefix; tool5 actual checker and missing/corrupt-certificate scratch cases pass.",
+      "limits": "This is a self-signed development certificate task, not a production TLS-security evaluation. Synthetic task-generated private-key bodies are deliberately not embedded in this review. Old DSH has tool/source and grader evidence but no independent native artifact capture."
+    },
+    "password-recovery": {
+      "scope": "Repeat C0 and DSH B0; actual instruction and all20 commands, relevant image/ZIP fragment output, original two-test grade, repeat final captured bytes.",
+      "behavior": "Both use forensic data under the public /app tree to recover a23-character challenge value matching the provided prefix/suffix, then deliver one24-byte newline-terminated candidate. This accesses intended task data, not hidden grader answers.",
+      "distinction": "Repeat uses fragmented ZIP metadata/CRC evidence to check the reconstructed candidate. DSH performs carving, CRC candidate comparisons and raw/XOR scans, then validates format and writes its candidate; this review does not claim its displayed CRC comparison independently established correctness. Its exact match comes from the preserved original grader result.",
+      "limits": "The recovered benchmark secret is not copied into this review. DSH native final output was not captured; repeat capture SHA is linked to actual final candidate/snapshot."
+    }
+  },
+  "interpretation_limits": [
+    "This review closes only the fixed14-position increment to original201; it is not final225 admission or a75/75 claim.",
+    "No newly completed original rows after0338 or in-flight preservation pair were opened. The separately reviewed12 scoped revisions and five old JSON runs enter identity accounting only, not original-core scores.",
+    "All132 command structures and meaningful failure/test outputs were inspected. Complete final SWE patches, representative production scripts, critical public-check feedback and artifact-byte relations were deep-read. Long model reasoning was not read word-for-word; long broad-suite outputs were inspected at reported failure/summary locations.",
+    "No observed tool command retrieved hidden grader/gold patches or engineering reference candidates. Visible original repository tests and Git history were accessed; task directories and scratch programs were used. This trace review is not an operating-system sandbox or a proof of all unlogged behavior.",
+    "Original raw false/null and rawtrue-but-unqualified results from prior reviews remain unchanged. Individual-attempt budgets are not a logical-position total-cost bound; mechanical prefixes and unknown receipts remain additional history.",
+    "C0 check registration is model-requested. Saved candidate eligible=false records remain visible even where subsequent verification makes final state valid; candidate eligibility and final validity are distinct events. B0 lacks these C0 guarantees.",
+    "Successful native capture is linked to actual final candidate bytes. Missing optional pyproject.toml captures remain failed/absent, and no legacy DSH capture is invented."
+  ],
+  "rows": [
+    {
+      "arm": "dsh",
+      "task": "multi-source-data-merger",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-dsh-hy4-v10/multi-source-data-merger-B0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 77.64308254199568,
+      "runtime_root": "work/frozen-performance-dsh-parallel-guard-20261124",
+      "protocol_configuration": "B0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795632522.110014,
+        "native_session_id": "5eebf192-d07a-4605-a295-a4a5ea86b878",
+        "history_count": 2,
+        "history_roles": [
+          "user",
+          "user"
+        ],
+        "initial_history_sha256": "6ab371699346f2e7013c8194bbc6933db3235a8bdead174ba26e3a4d2e8539b6"
+      },
+      "event_counts": {
+        "request": 4,
+        "cli_process_started": 4,
+        "response": 4,
+        "billing_verified": 4
+      },
+      "native_sessions": [
+        "5eebf192-d07a-4605-a295-a4a5ea86b878"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a21409eb857d01967695555437ec40",
+          0,
+          4809,
+          107
+        ],
+        [
+          2,
+          "01a2140a008b7f1f8e8f4da8fcd08296",
+          0,
+          5067,
+          210
+        ],
+        [
+          3,
+          "01a2140a1c137f6badae55bb51411f29",
+          0,
+          5663,
+          2338
+        ],
+        [
+          4,
+          "01a2140a68ff72248a5c4c2ac3a7bb8a",
+          0,
+          8441,
+          180
+        ]
+      ],
+      "input_tokens": 23980,
+      "output_tokens": 2835,
+      "final_control": null,
+      "controller_event_counts": {},
+      "candidate_records": [],
+      "matching_final_candidates": [],
+      "native_capture": null,
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "============================= test session starts ==============================",
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_output_files_exist",
+          "PASSED ../tests/test_outputs.py::test_merged_data_exact_values",
+          "PASSED ../tests/test_outputs.py::test_conflict_report_values",
+          "============================== 3 passed in 3.50s ==============================="
+        ]
+      },
+      "tools_count": 3,
+      "nonzero_tools": [],
+      "sdk_event_counts": {
+        "session": 1,
+        "agent/inbox/spliced": 2,
+        "turn/start": 1,
+        "step/start": 4,
+        "system/message": 1,
+        "user/message": 2,
+        "request/header": 1,
+        "request/context": 1,
+        "assistant/message": 4,
+        "tool/call": 3,
+        "tool/result": 3,
+        "step/end": 4,
+        "turn/end": 1
+      },
+      "proposed_structured_actions": {
+        "unknown": 4
+      },
+      "tool_screen_flags": [],
+      "source_sha256": {
+        "result.json": "81c2a61c03f30fdf9827ba1b8897d7a187684cb7d5608bd96b21ddabe05d5714",
+        "trial.json": "9e598cda83af562a002ae0dfcd68c4dc1bea25bb2b868ae32e9b61542b38dd55",
+        "multi-source-data-merger__5zhkrw2/agent/model.jsonl": "48233500c6baa4d873534885bcd3cebdb0e6eb8d2d4f8df6abf36772d8986623",
+        "multi-source-data-merger__5zhkrw2/result.json": "ff357e6358aafc0d533f5dd4b3d7307ddda19b82bf75ab3a67f654eb3344c67d",
+        "multi-source-data-merger__5zhkrw2/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "multi-source-data-merger__5zhkrw2/verifier/test-stdout.txt": "3ed890b4d91b38cba28a5df2696123bfdfeb8d78fba20a00f6dc9810ba2d7774",
+        "multi-source-data-merger__5zhkrw2/agent/dsh/dsh-home/sessions/--app--/course-task/session.v4.jsonl": "0f2e9026a34e94822046287d14b9bc586a01589c58193d21eb0adb731e73771f",
+        "multi-source-data-merger/instruction.md": "d1d28bb6e37f7a255a1b7f78aae8591f35c0494f33e4913392424ad954aab944"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures, per-request own-use receipts, controller events, all tool command structures, complete final patches and meaningful test/error output were read; representative production code and critical output were read in full. Model reasoning was not read word-for-word.",
+      "protocol_sha256": "6d391f243ca33db2a3f5ed5056ee9542395f28221280af8a2089ddd9fe92e29c",
+      "control_applicability": "B0: no C0 registered-check/protection/candidate guarantee",
+      "native_artifact_byte_links": []
+    },
+    {
+      "arm": "dsh",
+      "task": "pydata__xarray-4695",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-dsh-hy4-v10/pydata__xarray-4695-B0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 184.4381005410105,
+      "runtime_root": "work/frozen-performance-dsh-parallel-guard-20261124",
+      "protocol_configuration": "B0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795633016.3707771,
+        "native_session_id": "3cb69c93-af9f-4709-85c9-f571c20f68d5",
+        "history_count": 2,
+        "history_roles": [
+          "user",
+          "user"
+        ],
+        "initial_history_sha256": "bcd25fcfedf0aa6763c30f4fa370cc68b20ea3600340591a7c58df9b354bfe00"
+      },
+      "event_counts": {
+        "request": 16,
+        "cli_process_started": 16,
+        "response": 16,
+        "billing_verified": 16
+      },
+      "native_sessions": [
+        "3cb69c93-af9f-4709-85c9-f571c20f68d5"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a214117c3370bf8d55319b821a4e58",
+          0,
+          5824,
+          135
+        ],
+        [
+          2,
+          "01a2141196f27c45b2c4d49a0125d3f8",
+          0,
+          6788,
+          103
+        ],
+        [
+          3,
+          "01a21411ac207f759feb55928df32939",
+          0,
+          7031,
+          182
+        ],
+        [
+          4,
+          "01a21411c09572f898f8523af542264f",
+          0,
+          9235,
+          340
+        ],
+        [
+          5,
+          "01a21411dd5379f2bf4e4062ba2da630",
+          0,
+          11090,
+          248
+        ],
+        [
+          6,
+          "01a21411f6ef7b5290cef42cf789706d",
+          0,
+          13138,
+          106
+        ],
+        [
+          7,
+          "01a214120ab972698006825a79f97450",
+          0,
+          13378,
+          94
+        ],
+        [
+          8,
+          "01a2141225487ba78f19dae52f23bded",
+          0,
+          13575,
+          181
+        ],
+        [
+          9,
+          "01a214124939740692d9b0925d9c7992",
+          0,
+          14431,
+          115
+        ],
+        [
+          10,
+          "01a214125f61773ab80a8be9a93c1f0a",
+          0,
+          16249,
+          432
+        ],
+        [
+          11,
+          "01a21412808c7469a473e55d99609d44",
+          0,
+          16915,
+          261
+        ],
+        [
+          12,
+          "01a21412a2c278b28fec9a0336c263c0",
+          0,
+          17249,
+          130
+        ],
+        [
+          13,
+          "01a21412ffe57ffa957ef95c2419efac",
+          0,
+          20190,
+          141
+        ],
+        [
+          14,
+          "01a2141326f6713f9ba4845e0b547e49",
+          0,
+          20877,
+          518
+        ],
+        [
+          15,
+          "01a2141342a47abca93d4d9cc7f6f94e",
+          0,
+          21637,
+          227
+        ],
+        [
+          16,
+          "01a21413638a7aad8283ecdbbe6a301d",
+          0,
+          21941,
+          367
+        ]
+      ],
+      "input_tokens": 229548,
+      "output_tokens": 3580,
+      "final_control": null,
+      "controller_event_counts": {},
+      "candidate_records": [],
+      "matching_final_candidates": [],
+      "native_capture": null,
+      "patch_paths": [
+        "xarray/core/dataarray.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 875,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED xarray/tests/test_dataarray.py::test_no_dict",
+          "PASSED xarray/tests/test_dataarray.py::test_subclass_slots",
+          "PASSED xarray/tests/test_dataarray.py::test_weakref",
+          "PASSED xarray/tests/test_dataarray.py::test_delete_coords",
+          "PASSED xarray/tests/test_dataarray.py::test_deepcopy_obj_array",
+          "SKIPPED [1] xarray/tests/test_dataarray.py:2681: needs to be fixed for shortcut=False, keep_attrs=False",
+          "FAILED xarray/tests/test_dataarray.py::TestDataArray::test_from_series_multiindex",
+          "= 1 failed, 877 passed, 1 skipped, 5 xfailed, 1 xpassed, 259 warnings in 16.81s ="
+        ]
+      },
+      "tools_count": 15,
+      "nonzero_tools": [],
+      "sdk_event_counts": {
+        "session": 1,
+        "agent/inbox/spliced": 2,
+        "turn/start": 1,
+        "step/start": 16,
+        "system/message": 1,
+        "user/message": 2,
+        "request/header": 1,
+        "request/context": 1,
+        "assistant/message": 16,
+        "tool/call": 15,
+        "tool/result": 15,
+        "step/end": 16,
+        "turn/end": 1
+      },
+      "proposed_structured_actions": {
+        "unknown": 16
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 5,
+          "command_prefix": "{\"command\":\"grep -R \\\"def test.*loc\\\\|loc\\\\[dict\\\\|\\\\.loc\\\\[{\\\" -n xarray/tests/test_dataarray.py | head -80 && grep -R \\\"Invalid fill method\\\\|dim.*method\\\\|method.*dim\\\" -n xarray/tests | head -50\"}",
+          "command_sha256": "af24ee4ba2982b7395db97b5cdb194458dc00e8f44120deaecb89a243a540947"
+        },
+        {
+          "tool": 12,
+          "command_prefix": "{\"command\":\"/opt/miniconda3/envs/testbed/bin/python -m pytest xarray/tests/test_dataarray.py -q\"}",
+          "command_sha256": "607047917d21ee3f868d376635e83ac7f4a2cdef9ce59715b71e2e6f646a58a8"
+        },
+        {
+          "tool": 13,
+          "command_prefix": "{\"command\":\"/opt/miniconda3/envs/testbed/bin/python -m pytest xarray/tests/test_dataarray.py -q -k 'loc'\"}",
+          "command_sha256": "4ac08f64a13204ef64f6440ecbef7aed25839a85abd9327e8a634ffbabf85872"
+        }
+      ],
+      "source_sha256": {
+        "result.json": "8e2affc13e9ef7da1368e1b544f4fdef64231be46908da04644d26541bd91f49",
+        "trial.json": "57b8d73be292924b53b13524826675dec21f16146d69e44906de3503123d968e",
+        "model.jsonl": "0edc469675a5bbe34338e1e791c8af81addead87485939544cdcdaec84598a77",
+        "candidate.patch": "e3c08b25fd67e1749afb35cafa794688d3c5b6e6699bfcad15f3708c895a4403",
+        "swe-official/pydata__xarray-4695-B0-r1/course-mini-swe-agent/pydata__xarray-4695/patch.diff": "e3c08b25fd67e1749afb35cafa794688d3c5b6e6699bfcad15f3708c895a4403",
+        "swe-official/pydata__xarray-4695-B0-r1/course-mini-swe-agent/pydata__xarray-4695/report.json": "47e80e65760bcc73be89a205a42674a527bc6d3e31cbaffa883ef33e6ef17999",
+        "swe-official/pydata__xarray-4695-B0-r1/course-mini-swe-agent/pydata__xarray-4695/test_output.txt": "6259d14d4d6c9fb42d87ef56eeb3d05b0dc339af04b0805a36d5a571270f3bc3",
+        "swe-official/pydata__xarray-4695-B0-r1/course-mini-swe-agent/pydata__xarray-4695/run_instance.log": "6d06021c2bb72e9ee6ec27c13b2bf9f5d9a30a4c987f04630ee093038f5eac20",
+        "swe-official/pydata__xarray-4695-B0-r1/course-mini-swe-agent/pydata__xarray-4695/eval.sh": "84a434604635d3524233db895a82f6616ed28fa1559ef6e02fe447274872ad33",
+        "dsh/dsh-home/sessions/--testbed--/course-task/session.v4.jsonl": "43205feb18f5d147f86146cf2fe6c30cbf78139d6340e397ed6ef51a7ce61bfb"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures, per-request own-use receipts, controller events, all tool command structures, complete final patches and meaningful test/error output were read; representative production code and critical output were read in full. Model reasoning was not read word-for-word.",
+      "protocol_sha256": "6ffdd1b6345a777def81a0bbd9cc6fcb190bb319d7a03fb24983601506c88ae0",
+      "control_applicability": "B0: no C0 registered-check/protection/candidate guarantee",
+      "native_artifact_byte_links": []
+    },
+    {
+      "arm": "dsh",
+      "task": "openssl-selfsigned-cert",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 66.61679604102392,
+      "runtime_root": "work/frozen-performance-dsh-parallel-guard-20261124",
+      "protocol_configuration": "B0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795633441.268619,
+        "native_session_id": "765e6594-b4b3-4f8a-adcc-86823eb87459",
+        "history_count": 2,
+        "history_roles": [
+          "user",
+          "user"
+        ],
+        "initial_history_sha256": "ef2505f49429447b8fec81f2969a5b62cb3537bef390b965925c797264e0d686"
+      },
+      "event_counts": {
+        "request": 2,
+        "cli_process_started": 2,
+        "response": 2,
+        "billing_verified": 2
+      },
+      "native_sessions": [
+        "765e6594-b4b3-4f8a-adcc-86823eb87459"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a21417f22a73a7bb4ea6c8b6cae983",
+          0,
+          4624,
+          5987
+        ],
+        [
+          2,
+          "01a214186df171dc93eee004362476a0",
+          0,
+          10806,
+          345
+        ]
+      ],
+      "input_tokens": 15430,
+      "output_tokens": 6332,
+      "final_control": null,
+      "controller_event_counts": {},
+      "candidate_records": [],
+      "matching_final_candidates": [],
+      "native_capture": null,
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_directory_structure",
+          "PASSED ../tests/test_outputs.py::test_key_file",
+          "PASSED ../tests/test_outputs.py::test_certificate_file",
+          "PASSED ../tests/test_outputs.py::test_combined_pem_file",
+          "PASSED ../tests/test_outputs.py::test_verification_file",
+          "PASSED ../tests/test_outputs.py::test_python_verification_script",
+          "============================== 6 passed in 0.84s ==============================="
+        ]
+      },
+      "tools_count": 1,
+      "nonzero_tools": [],
+      "sdk_event_counts": {
+        "session": 1,
+        "agent/inbox/spliced": 2,
+        "turn/start": 1,
+        "step/start": 2,
+        "system/message": 1,
+        "user/message": 2,
+        "request/header": 1,
+        "request/context": 1,
+        "assistant/message": 2,
+        "tool/call": 1,
+        "tool/result": 1,
+        "step/end": 2,
+        "turn/end": 1
+      },
+      "proposed_structured_actions": {
+        "unknown": 2
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 1,
+          "command_prefix": "{\"command\":\"set -euo pipefail\\n\\nmkdir -p /app/ssl\\nchmod 755 /app/ssl\\n\\nopenssl genrsa -out /app/ssl/server.key 2048\\nchmod 600 /app/ssl/server.key\\n\\nopenssl req -new -x509 -key /app/ssl/server.key -out /app/ssl/server.crt -days 365 -sha256 \\\\\\n  -subj \\\"/O=DevOps Team/CN=dev-internal.company.local\\\"\\nchmod 644 /app/ssl/server.crt\\n\\ncat /app/ssl/server.key /app/ssl/server.crt > /app/ssl/server",
+          "command_sha256": "ffa9aac5fc92324a0fbbe8d568a17195ac63bc9ee690eb5b6fa2e9fe9bddc7ca"
+        }
+      ],
+      "source_sha256": {
+        "result.json": "a8f6b65e36ff00c230e40ab53c2b6f196527a8104b30cc8fc517415cca6f6cb4",
+        "trial.json": "240ac6b3914e7183c5618c20525403758de9075fe5348c29c2e30734975aa5c1",
+        "openssl-selfsigned-cert__DHzQyN2/agent/model.jsonl": "b9f48653ad716f55617dfe6bba9f62dee2506aa91a9b997af9d107f95fdf4f4e",
+        "openssl-selfsigned-cert__DHzQyN2/result.json": "941f78e60f55f7778e2fd88c20a62005105e047a073fc9b6911f521216032d00",
+        "openssl-selfsigned-cert__DHzQyN2/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "openssl-selfsigned-cert__DHzQyN2/verifier/test-stdout.txt": "d0a6701481eca6ec630a2072efa417ad1d3f731f2866e9a8189d39dcc458c1f6",
+        "openssl-selfsigned-cert__DHzQyN2/agent/dsh/dsh-home/sessions/--app--/course-task/session.v4.jsonl": "b59801c922bb8d99dc3520958d198c48f661f6b53d568d02b904160516955ff3",
+        "openssl-selfsigned-cert/instruction.md": "38054a3371f7c2c853478a2f9af0bff858437d5b28a9a07483238f06e566921f"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures, per-request own-use receipts, controller events, all tool command structures, complete final patches and meaningful test/error output were read; representative production code and critical output were read in full. Model reasoning was not read word-for-word.",
+      "protocol_sha256": "a0c71ddb33f34ee775600eac224f6168b7ef63d77982e0311a746c56abd02c7e",
+      "control_applicability": "B0: no C0 registered-check/protection/candidate guarantee",
+      "native_artifact_byte_links": []
+    },
+    {
+      "arm": "dsh",
+      "task": "password-recovery",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-dsh-hy4-v10/password-recovery-B0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 149.3410418749554,
+      "runtime_root": "work/frozen-performance-dsh-parallel-guard-20261124",
+      "protocol_configuration": "B0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795633615.602649,
+        "native_session_id": "695204ed-6716-436e-add1-e27b26db2a5c",
+        "history_count": 2,
+        "history_roles": [
+          "user",
+          "user"
+        ],
+        "initial_history_sha256": "5a2d56d0f36fee7b9608b48120070b48bff262604a86159f7e7c9f42cfe0833f"
+      },
+      "event_counts": {
+        "request": 13,
+        "cli_process_started": 13,
+        "response": 13,
+        "billing_verified": 13
+      },
+      "native_sessions": [
+        "695204ed-6716-436e-add1-e27b26db2a5c"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a2141a9be97d8497bc2a97900afa6e",
+          0,
+          4428,
+          286
+        ],
+        [
+          2,
+          "01a2141ab6aa743ead51c3872b4a0923",
+          0,
+          5324,
+          115
+        ],
+        [
+          3,
+          "01a2141acc7d7ebc9921da2d6f10a6e4",
+          0,
+          6251,
+          197
+        ],
+        [
+          4,
+          "01a2141ae79d7609b8a15b63b37cc709",
+          0,
+          8032,
+          285
+        ],
+        [
+          5,
+          "01a2141b039073a58d3d38de8bf57de0",
+          0,
+          11695,
+          711
+        ],
+        [
+          6,
+          "01a2141b254074fab5d97f64a7ff89a2",
+          0,
+          15664,
+          1156
+        ],
+        [
+          7,
+          "01a2141b53c67ae5bdf7b57edea4055f",
+          0,
+          18620,
+          1536
+        ],
+        [
+          8,
+          "01a2141b8bda7039859a8b7f1080c8de",
+          0,
+          20765,
+          1421
+        ],
+        [
+          9,
+          "01a2141bc2f8773b81dadb8b6a7390bd",
+          0,
+          22483,
+          773
+        ],
+        [
+          10,
+          "01a2141be57a76009b756e01307c4730",
+          0,
+          23701,
+          1743
+        ],
+        [
+          11,
+          "01a2141c17e3772f84170c49cfe9f19a",
+          0,
+          25757,
+          1099
+        ],
+        [
+          12,
+          "01a2141c488179119b4bff2a16ded5e5",
+          0,
+          27022,
+          246
+        ],
+        [
+          13,
+          "01a2141c627c7b86956fd06306dc2aa6",
+          0,
+          27391,
+          159
+        ]
+      ],
+      "input_tokens": 217133,
+      "output_tokens": 9727,
+      "final_control": null,
+      "controller_event_counts": {},
+      "candidate_records": [],
+      "matching_final_candidates": [],
+      "native_capture": null,
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "============================= test session starts ==============================",
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_recovery_file_exists",
+          "PASSED ../tests/test_outputs.py::test_password_match",
+          "============================== 2 passed in 0.08s ==============================="
+        ]
+      },
+      "tools_count": 12,
+      "nonzero_tools": [],
+      "sdk_event_counts": {
+        "session": 1,
+        "agent/inbox/spliced": 2,
+        "turn/start": 1,
+        "step/start": 13,
+        "system/message": 1,
+        "user/message": 2,
+        "request/header": 1,
+        "request/context": 1,
+        "assistant/message": 13,
+        "tool/call": 12,
+        "tool/result": 12,
+        "step/end": 13,
+        "turn/end": 1
+      },
+      "proposed_structured_actions": {
+        "unknown": 13
+      },
+      "tool_screen_flags": [],
+      "source_sha256": {
+        "result.json": "2881ea88b36483a6fafde8fecce75747ddde8b7989f339851ceee09d1fb84c40",
+        "trial.json": "28214a4e41db9cddc4a9a2e2e24ea572f80c923a35f49db6ade030c4dcc983e4",
+        "password-recovery__vjL4FhZ/agent/model.jsonl": "eee4260a1d189c6021c3a03aac7a0bfd4f046469dc3c8af0ec3a256c0fb7ef6a",
+        "password-recovery__vjL4FhZ/result.json": "e21de2a8f0662ce871cf56653bd169a5c8bc534c8b65a8bab003e90e570c09b4",
+        "password-recovery__vjL4FhZ/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "password-recovery__vjL4FhZ/verifier/test-stdout.txt": "0876341bfa5601b8584e2e1a7c8fd2efc1a122ab17237de31cbc44429d0e9e24",
+        "password-recovery__vjL4FhZ/agent/dsh/dsh-home/sessions/--app--/course-task/session.v4.jsonl": "6db9ab01238684e71e1ac5a327511ce14cb6a790d69888d70f6aeae123eca28c",
+        "password-recovery/instruction.md": "bc4f501148805bbccdb94a5c5b745f1ce9564f04ef0fe36bc37c3ca20b7810a5"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures, per-request own-use receipts, controller events, all tool command structures, complete final patches and meaningful test/error output were read; representative production code and critical output were read in full. Model reasoning was not read word-for-word.",
+      "protocol_sha256": "7d4d5567a88ab6c16f6186866f36e0d6e3fbe39a7bdd6029529271efe5444419",
+      "control_applicability": "B0: no C0 registered-check/protection/candidate guarantee",
+      "native_artifact_byte_links": []
+    },
+    {
+      "arm": "main",
+      "task": "modernize-scientific-stack",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/modernize-scientific-stack-C0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 140.1294458329212,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795632328.023102,
+        "native_session_id": "06da86fd-295e-4883-bc81-d122a6bacf60",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "f2a7faaefcf2afd36c076820db16f9e940cfc8c25fb531a6034cdb072de79676"
+      },
+      "event_counts": {
+        "request": 9,
+        "cli_process_started": 9,
+        "response": 9,
+        "billing_verified": 9
+      },
+      "native_sessions": [
+        "06da86fd-295e-4883-bc81-d122a6bacf60"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a21406f82676a6a567ce0a9b1c2082",
+          0,
+          5591,
+          511
+        ],
+        [
+          2,
+          "01a214071b8073e0856ecf710a904aa3",
+          0,
+          7966,
+          2565
+        ],
+        [
+          3,
+          "01a2140776b97ed8b1e8b5007b148c45",
+          0,
+          11597,
+          180
+        ],
+        [
+          4,
+          "01a214078e45793ab80e1ef1ca100063",
+          0,
+          12052,
+          164
+        ],
+        [
+          5,
+          "01a21407b014791abedbdec8ea6b3688",
+          0,
+          13545,
+          1890
+        ],
+        [
+          6,
+          "01a21407f7e677eca6b0ecf13a43859e",
+          0,
+          15962,
+          1013
+        ],
+        [
+          7,
+          "01a214082395789d9e561711f292169e",
+          0,
+          17379,
+          431
+        ],
+        [
+          8,
+          "01a2140847dd77e3b0a0955107c5f1fa",
+          0,
+          18007,
+          546
+        ],
+        [
+          9,
+          "01a214086a12730aa61800f244ee3603",
+          0,
+          19039,
+          318
+        ]
+      ],
+      "input_tokens": 121138,
+      "output_tokens": 7618,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "4cafad15a7d2428afcd4033d443cd0adfd461b4a3bc0c62ce1bbde88af78a268",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-task": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "ba7291bb5ab78aaa32c302ba2c5379f2415b8646210b4464da2bff77a3fd0027  /app/analyze_climate_modern.py\n112e26265c2b7a579403c9690f5d58cbc1bf59468bfcb7496e4fdbec9a565dd0  /app/climate_analyzer/analyze_climate.py\n97c2b98ec5506c1d31580ab95ae24588c1badb85a07a69b52500cb5b662e3e0a  /app/climate_analyzer/sample_data/climate_data.csv\n6ae640937b468eea85f75a4c2e4583a0f474f71d3fd323672a2e665ec37bb8c9  /app/climate_analyzer/config.ini\n"
+          }
+        },
+        "elapsed_seconds": 103.74368562502787
+      },
+      "controller_event_counts": {
+        "candidate_operation": 6,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "4cafad15a7d2428afcd4033d443cd0adfd461b4a3bc0c62ce1bbde88af78a268",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "4cafad15a7d2428afcd4033d443cd0adfd461b4a3bc0c62ce1bbde88af78a268",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "4cafad15a7d2428afcd4033d443cd0adfd461b4a3bc0c62ce1bbde88af78a268",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "4cafad15a7d2428afcd4033d443cd0adfd461b4a3bc0c62ce1bbde88af78a268",
+          "eligible": false
+        }
+      ],
+      "native_capture": {
+        "registered": true,
+        "artifacts": [
+          {
+            "source": "/app/analyze_climate_modern.py",
+            "status": "ok",
+            "type": "file",
+            "path": "modernize-scientific-stack__DU4uZem/artifacts/app/analyze_climate_modern.py",
+            "sha256": "ba7291bb5ab78aaa32c302ba2c5379f2415b8646210b4464da2bff77a3fd0027",
+            "bytes": 2061,
+            "sha_present_in_final_public_snapshot": true
+          },
+          {
+            "source": "/app/requirements.txt",
+            "status": "ok",
+            "type": "file",
+            "path": "modernize-scientific-stack__DU4uZem/artifacts/app/requirements.txt",
+            "sha256": "a815422d7210f0834d819188477bb42dfab5fb85607ef6e2ef188d2d29fbecfe",
+            "bytes": 60,
+            "sha_present_in_final_public_snapshot": false
+          },
+          {
+            "source": "/app/pyproject.toml",
+            "status": "failed",
+            "type": "file"
+          }
+        ],
+        "model_requests_by_capture": 0
+      },
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "============================= test session starts ==============================",
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_modernized_code_runs",
+          "PASSED ../tests/test_outputs.py::test_dependency_file_exists",
+          "============================== 2 passed in 2.65s ==============================="
+        ]
+      },
+      "tools_count": 6,
+      "nonzero_tools": [
+        3
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 6,
+        "save": 2,
+        "verify": 1
+      },
+      "tool_screen_flags": [],
+      "source_sha256": {
+        "result.json": "aa2ead32eb4b536171861f2278d29736db2f3173b2724c0c05d896256339a7fd",
+        "trial.json": "131f70434ffa4a510b09cbb72d68d87abd8791f754d729c0afc3b35dcb7776d5",
+        "modernize-scientific-stack__DU4uZem/agent/model.jsonl": "85106f32dc6b8594fc42c85f13f51fdefc92c9530236f5bf14bdb68dac347d2e",
+        "modernize-scientific-stack__DU4uZem/agent/controller.jsonl": "1bd2fe7b3dbf96569f076fc5ee27f390dbf117f16227d7b3f6b8b25b3e580e1b",
+        "modernize-scientific-stack__DU4uZem/agent/final-verification.json": "d857dbbe28faba97199fd888d2bcd6b1e28f49c3fc1b03d42773124fca505c11",
+        "modernize-scientific-stack__DU4uZem/agent/candidates/candidate-002.json": "66c279192880c02381ac70e4073708605281b338b5322e9488448fea63e3f318",
+        "modernize-scientific-stack__DU4uZem/agent/candidates/candidate-001.json": "ade8ef401a7dcb64c33fd617bd05701783e212fec68511eabc002dfd0b4bd31d",
+        "artifact-capture.json": "f194059f1260103ce48404687aac6e35d242b93d5f7b7d65072456961f560867",
+        "artifact-capture-config.json": "ab33885d38e7c06e094873410276f1aa636d4c9673e5d5954f6616882106a6aa",
+        "modernize-scientific-stack__DU4uZem/artifacts/manifest.json": "cf16fbc081ec4325cfb714ef9970cc6786305fbdb07f3939d185fbcc0b90f81d",
+        "modernize-scientific-stack__DU4uZem/artifacts/app/analyze_climate_modern.py": "ba7291bb5ab78aaa32c302ba2c5379f2415b8646210b4464da2bff77a3fd0027",
+        "modernize-scientific-stack__DU4uZem/artifacts/app/requirements.txt": "a815422d7210f0834d819188477bb42dfab5fb85607ef6e2ef188d2d29fbecfe",
+        "modernize-scientific-stack__DU4uZem/result.json": "dcfe5678bbaceedaf405ed75751336c33da1aa0bc8d627afb6d8e8528a7e9646",
+        "modernize-scientific-stack__DU4uZem/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "modernize-scientific-stack__DU4uZem/verifier/test-stdout.txt": "c4f0a06f6a52f41ee5aadd02cf8548aede1cdfd38ce61332b2db1a92b7bc7c1a",
+        "modernize-scientific-stack__DU4uZem/agent/tools.jsonl": "3f612512bc123387644372c320edf51756f825b091cb82633ef76a1cb8483085",
+        "modernize-scientific-stack/instruction.md": "666b8ac370ae81b0e3780a36e722c91b0f986fccbdc6ed36ab3bd17e6943da0f"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures, per-request own-use receipts, controller events, all tool command structures, complete final patches and meaningful test/error output were read; representative production code and critical output were read in full. Model reasoning was not read word-for-word.",
+      "protocol_sha256": "9b4e819216c65789bff3deec150c389754de364b7ee5218914da80aca6409e68",
+      "control_applicability": "C0: actual final verification retained, including protected failure",
+      "native_artifact_byte_links": [
+        {
+          "arm": "main",
+          "task": "modernize-scientific-stack",
+          "source": "/app/analyze_climate_modern.py",
+          "sha256": "ba7291bb5ab78aaa32c302ba2c5379f2415b8646210b4464da2bff77a3fd0027",
+          "bytes": 2061,
+          "final_snapshot_contains_hash": true,
+          "same_bytes_in_candidates": [
+            {
+              "candidate": "modernize-scientific-stack__DU4uZem/agent/candidates/candidate-002.json",
+              "eligible": true,
+              "mode": 438
+            },
+            {
+              "candidate": "modernize-scientific-stack__DU4uZem/agent/candidates/candidate-001.json",
+              "eligible": false,
+              "mode": 438
+            }
+          ]
+        },
+        {
+          "arm": "main",
+          "task": "modernize-scientific-stack",
+          "source": "/app/requirements.txt",
+          "sha256": "a815422d7210f0834d819188477bb42dfab5fb85607ef6e2ef188d2d29fbecfe",
+          "bytes": 60,
+          "final_snapshot_contains_hash": false,
+          "same_bytes_in_candidates": [
+            {
+              "candidate": "modernize-scientific-stack__DU4uZem/agent/candidates/candidate-002.json",
+              "eligible": true,
+              "mode": 438
+            },
+            {
+              "candidate": "modernize-scientific-stack__DU4uZem/agent/candidates/candidate-001.json",
+              "eligible": false,
+              "mode": 438
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "main",
+      "task": "multi-source-data-merger",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/multi-source-data-merger-C0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 108.10795579105616,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795632590.277398,
+        "native_session_id": "c79c6d57-ebad-492d-af97-586332a821de",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "382ad6aba6680cf99e1b291719e31756aa4def857b03fdef2563511f6e9b1f18"
+      },
+      "event_counts": {
+        "request": 6,
+        "cli_process_started": 6,
+        "response": 6,
+        "billing_verified": 6
+      },
+      "native_sessions": [
+        "c79c6d57-ebad-492d-af97-586332a821de"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a2140af6e07e28b395e9b85ee8338f",
+          0,
+          5781,
+          503
+        ],
+        [
+          2,
+          "01a2140b1b6778b983fa85f3cf73ecf8",
+          0,
+          7067,
+          5511
+        ],
+        [
+          3,
+          "01a2140ba2ae71c9b64f7a440de65046",
+          0,
+          13138,
+          217
+        ],
+        [
+          4,
+          "01a2140bc6147e1293b46a975864e5fd",
+          0,
+          14525,
+          286
+        ],
+        [
+          5,
+          "01a2140bdf12775ebbc6f799d1ce0d03",
+          0,
+          15303,
+          1264
+        ],
+        [
+          6,
+          "01a2140c0f2a7664bdde3c765b96b781",
+          0,
+          16670,
+          1083
+        ]
+      ],
+      "input_tokens": 72484,
+      "output_tokens": 8864,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "17ba128c7f29e14b345f6ab71da9b7718c605196213b7799353cb1c75ab85c7b",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-task": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "58f168f9b14a96f441931f627d18317c87580ce4fcf66b4e6bacfd64369838f2  /app/merged_users.parquet\nb36e9898ecb5f1056780359f3cc5ab50f043f1e4e732972781d92aac78ada3ed  /app/conflicts.json\n75e51e2d3ab0bdba2269d7cf3757576f84f3ee2c13407d2db94289a5958a1778  /data/source_a/users.json\n8e87d16dc47d166edd8e56165955bad265b630d53d02762367c816affb5fa760  /data/source_b/users.csv\n23d1ea51c4170bdba53febb885a0f495e28de525a52667347b2932136b9a72fe  /data/source_c/users.parquet\n"
+          }
+        },
+        "elapsed_seconds": 83.24399250000715
+      },
+      "controller_event_counts": {
+        "candidate_operation": 5,
+        "verification": 1,
+        "candidate_saved": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "17ba128c7f29e14b345f6ab71da9b7718c605196213b7799353cb1c75ab85c7b",
+          "eligible": true
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "17ba128c7f29e14b345f6ab71da9b7718c605196213b7799353cb1c75ab85c7b",
+          "eligible": true
+        }
+      ],
+      "native_capture": {
+        "registered": true,
+        "artifacts": [
+          {
+            "source": "/app/merged_users.parquet",
+            "status": "ok",
+            "type": "file",
+            "path": "multi-source-data-merger__FommYTm/artifacts/app/merged_users.parquet",
+            "sha256": "58f168f9b14a96f441931f627d18317c87580ce4fcf66b4e6bacfd64369838f2",
+            "bytes": 2052,
+            "sha_present_in_final_public_snapshot": true
+          },
+          {
+            "source": "/app/conflicts.json",
+            "status": "ok",
+            "type": "file",
+            "path": "multi-source-data-merger__FommYTm/artifacts/app/conflicts.json",
+            "sha256": "b36e9898ecb5f1056780359f3cc5ab50f043f1e4e732972781d92aac78ada3ed",
+            "bytes": 699,
+            "sha_present_in_final_public_snapshot": true
+          }
+        ],
+        "model_requests_by_capture": 0
+      },
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "============================= test session starts ==============================",
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_output_files_exist",
+          "PASSED ../tests/test_outputs.py::test_merged_data_exact_values",
+          "PASSED ../tests/test_outputs.py::test_conflict_report_values",
+          "============================== 3 passed in 2.71s ==============================="
+        ]
+      },
+      "tools_count": 3,
+      "nonzero_tools": [],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 3,
+        "verify": 1,
+        "save": 1,
+        "submit": 1
+      },
+      "tool_screen_flags": [],
+      "source_sha256": {
+        "result.json": "8c42942796572d4e96e06677c3ddc53e8f0ac3258cb600c33fa7c2e832250d73",
+        "trial.json": "82ad9ec15222c07b14b13eb3e446504bf1c9cbd7b77b72f24abeb3f5d100c5cb",
+        "multi-source-data-merger__FommYTm/agent/model.jsonl": "06a8d00a58c186facb45dda4c7ab1db6b2b913685e5ad9a007d9758e106a3414",
+        "multi-source-data-merger__FommYTm/agent/controller.jsonl": "4350977eead5888b18835feadde7ef61ee608494e92a301316579266bd12295c",
+        "multi-source-data-merger__FommYTm/agent/final-verification.json": "ad6c9dd51b2860f594ca5552a61a0ba8c9f786ce0afa74533ccb695b4ee3c877",
+        "multi-source-data-merger__FommYTm/agent/candidates/candidate-001.json": "137e225c487d222367bbec7cc9fdce7056982818d24d3f0cab3b6811abe0f887",
+        "artifact-capture.json": "a88c6a11ea6b38972611cdfafa8c8b9b1419e5d696bcd17f605f470022b5c008",
+        "artifact-capture-config.json": "23541f90af4c0fbaadbdbb22477f1c5180033cca035f9da219b4173706fadf2f",
+        "multi-source-data-merger__FommYTm/artifacts/manifest.json": "985b2056dbe6b6294c0d1bed19f53caf153abd7b3903a11cc55cfdd48ccbcad0",
+        "multi-source-data-merger__FommYTm/artifacts/app/merged_users.parquet": "58f168f9b14a96f441931f627d18317c87580ce4fcf66b4e6bacfd64369838f2",
+        "multi-source-data-merger__FommYTm/artifacts/app/conflicts.json": "b36e9898ecb5f1056780359f3cc5ab50f043f1e4e732972781d92aac78ada3ed",
+        "multi-source-data-merger__FommYTm/result.json": "fa139ecb10a9cab96e81115d84dd73f1673e94805eeefb9c5443b3f8100fe859",
+        "multi-source-data-merger__FommYTm/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "multi-source-data-merger__FommYTm/verifier/test-stdout.txt": "610163563ee5c4d686484e1bcb6f2068b5b81eb1b70e6083b013680046267874",
+        "multi-source-data-merger__FommYTm/agent/tools.jsonl": "807ca195f155a12343c66890fa486af397f7e813e7812360be679622c73cff06",
+        "multi-source-data-merger/instruction.md": "d1d28bb6e37f7a255a1b7f78aae8591f35c0494f33e4913392424ad954aab944"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures, per-request own-use receipts, controller events, all tool command structures, complete final patches and meaningful test/error output were read; representative production code and critical output were read in full. Model reasoning was not read word-for-word.",
+      "protocol_sha256": "a06a2dd7e42efc3fdccacc514ff6f8cd4a34cffc0595e55be32ef55d4061fd48",
+      "control_applicability": "C0: actual final verification retained, including protected failure",
+      "native_artifact_byte_links": [
+        {
+          "arm": "main",
+          "task": "multi-source-data-merger",
+          "source": "/app/merged_users.parquet",
+          "sha256": "58f168f9b14a96f441931f627d18317c87580ce4fcf66b4e6bacfd64369838f2",
+          "bytes": 2052,
+          "final_snapshot_contains_hash": true,
+          "same_bytes_in_candidates": [
+            {
+              "candidate": "multi-source-data-merger__FommYTm/agent/candidates/candidate-001.json",
+              "eligible": true,
+              "mode": 438
+            }
+          ]
+        },
+        {
+          "arm": "main",
+          "task": "multi-source-data-merger",
+          "source": "/app/conflicts.json",
+          "sha256": "b36e9898ecb5f1056780359f3cc5ab50f043f1e4e732972781d92aac78ada3ed",
+          "bytes": 699,
+          "final_snapshot_contains_hash": true,
+          "same_bytes_in_candidates": [
+            {
+              "candidate": "multi-source-data-merger__FommYTm/agent/candidates/candidate-001.json",
+              "eligible": true,
+              "mode": 438
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "main",
+      "task": "pydata__xarray-4695",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pydata__xarray-4695-C0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 234.0543136660708,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795633196.7125812,
+        "native_session_id": "b322f059-5b35-48a2-95b3-93fc12f67a69",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "48d6def22714d5a8aefe089a3ebc1e57f3091cae3e8cdeb5602fc235b1ea5cdb"
+      },
+      "event_counts": {
+        "request": 19,
+        "cli_process_started": 19,
+        "response": 19,
+        "billing_verified": 19
+      },
+      "native_sessions": [
+        "b322f059-5b35-48a2-95b3-93fc12f67a69"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a2141438627f50b1558eff7f264cf2",
+          0,
+          6754,
+          198
+        ],
+        [
+          2,
+          "01a214144fe077eca5d42aa567bfec5a",
+          0,
+          7326,
+          202
+        ],
+        [
+          3,
+          "01a21414642176da929acdd33d14d0a4",
+          0,
+          8443,
+          232
+        ],
+        [
+          4,
+          "01a214147de6730ea59df8c814b5df5a",
+          0,
+          11511,
+          748
+        ],
+        [
+          5,
+          "01a214149e447d27b2d464a78129ad43",
+          0,
+          13245,
+          366
+        ],
+        [
+          6,
+          "01a21414c0367fde84047e7bb71452e4",
+          0,
+          14385,
+          317
+        ],
+        [
+          7,
+          "01a21414dc8873e093b5e15efc73e3df",
+          0,
+          15167,
+          795
+        ],
+        [
+          8,
+          "01a2141509a8704da66b9baa2d44ee53",
+          0,
+          16263,
+          218
+        ],
+        [
+          9,
+          "01a214151ff474ecae8765694fc1d810",
+          0,
+          17756,
+          576
+        ],
+        [
+          10,
+          "01a214153eaf701e9dfce55b4c91f7e4",
+          0,
+          19002,
+          127
+        ],
+        [
+          11,
+          "01a2141557847bf5884a3959462036f0",
+          0,
+          19395,
+          445
+        ],
+        [
+          12,
+          "01a214157dfa726aa28c6947af36c0e5",
+          0,
+          20147,
+          126
+        ],
+        [
+          13,
+          "01a2141594447179a305a0277451d918",
+          0,
+          20544,
+          163
+        ],
+        [
+          14,
+          "01a21415c9e977488946d469eca92124",
+          0,
+          21833,
+          891
+        ],
+        [
+          15,
+          "01a21416379971b28a488fcbb0c49d88",
+          0,
+          23375,
+          952
+        ],
+        [
+          16,
+          "01a214168fe875819aef509969919872",
+          0,
+          25053,
+          560
+        ],
+        [
+          17,
+          "01a21416cbe97c6997c2cf4ad32681a8",
+          0,
+          26737,
+          666
+        ],
+        [
+          18,
+          "01a21416edb77066b137c62b40d3705b",
+          0,
+          27872,
+          178
+        ],
+        [
+          19,
+          "01a2141709117e5390361f55c996bbc2",
+          0,
+          28518,
+          127
+        ]
+      ],
+      "input_tokens": 343326,
+      "output_tokens": 7887,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "9d7d89c1bf7cd3857598040719ca8307e404e8ac87f4cdcfdb819915a3ebec6c",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-regression": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "4ad6113256b568dcccf2c92833e521d9c7a14bb5d9ccd30dc3375d8c65b9ec56  xarray/core/dataarray.py\n62e9eec7500bc7c9755b81c00e3a070b9166d9098ac3aa6202d2f5c706a19c35  xarray/core/dataset.py\n7e44016de9c43cc57cdc1a6bd4e6dbe7774467cf1865f76e93d72efed24ce90e  xarray/core/indexing.py\n05325f6d363c1ac6f4351ac7109c2fd883761893b04bd51776623bb3273bd02c  xarray/tests/test_dataarray.py\n"
+          }
+        },
+        "elapsed_seconds": 191.41240841592662
+      },
+      "controller_event_counts": {
+        "candidate_operation": 10,
+        "candidate_saved": 3,
+        "verification": 2,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "69af347d935d5a49ab48992aa630c9ee6515d5037975939cc756bb234d8c0a2a",
+          "eligible": false
+        },
+        {
+          "candidate_id": "candidate-003",
+          "artifact_digest": "9d7d89c1bf7cd3857598040719ca8307e404e8ac87f4cdcfdb819915a3ebec6c",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "69af347d935d5a49ab48992aa630c9ee6515d5037975939cc756bb234d8c0a2a",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-003",
+          "artifact_digest": "9d7d89c1bf7cd3857598040719ca8307e404e8ac87f4cdcfdb819915a3ebec6c",
+          "eligible": true
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "xarray/core/dataarray.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 875,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED xarray/tests/test_dataarray.py::test_no_dict",
+          "PASSED xarray/tests/test_dataarray.py::test_subclass_slots",
+          "PASSED xarray/tests/test_dataarray.py::test_weakref",
+          "PASSED xarray/tests/test_dataarray.py::test_delete_coords",
+          "PASSED xarray/tests/test_dataarray.py::test_deepcopy_obj_array",
+          "SKIPPED [1] xarray/tests/test_dataarray.py:2681: needs to be fixed for shortcut=False, keep_attrs=False",
+          "FAILED xarray/tests/test_dataarray.py::TestDataArray::test_from_series_multiindex",
+          "= 1 failed, 877 passed, 1 skipped, 5 xfailed, 1 xpassed, 259 warnings in 17.07s ="
+        ]
+      },
+      "tools_count": 13,
+      "nonzero_tools": [
+        11
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 13,
+        "save": 3,
+        "verify": 2,
+        "submit": 1
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 8,
+          "command_prefix": "cd /testbed && grep -n \"def test_loc\\|loc\\[dict\\|\\.loc\\[\" xarray/tests/test_dataarray.py | head -60 && sed -n '1,60p' xarray/tests/test_dataarray.py",
+          "command_sha256": "ebe30cb958f4d7d14ba6d3f2a06c12213609528d07aff264b75db39bf9041551"
+        },
+        {
+          "tool": 9,
+          "command_prefix": "cd /testbed && python - <<'EOF'\nfrom pathlib import Path\n\nsource = Path('xarray/core/dataarray.py')\ntext = source.read_text()\nold = '        return self.data_array.sel(**key)\\n'\nnew = '        return self.data_array.sel(key)\\n'\nassert text.count(old) == 1, text.count(old)\nsource.write_text(text.replace(old, new))\n\ntests = Path('xarray/tests/test_dataarray.py')\ntext = tests.read_text()\nanchor = '''",
+          "command_sha256": "d3d42702deb8aacf5a0124d3ef2ba68987f9f767913b939812b482ea260919ef"
+        },
+        {
+          "tool": 10,
+          "command_prefix": "cd /testbed && git checkout -- xarray/tests/test_dataarray.py && git status --short && git diff -- xarray/core/dataarray.py && /opt/miniconda3/envs/testbed/bin/python /tmp/repro_method_dim.py 2>&1",
+          "command_sha256": "c2f16169dc232ba7de8ef44b73691441428694c55089a1fbdd1ded229e3533aa"
+        },
+        {
+          "tool": 11,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest xarray/tests/test_dataarray.py -q > /tmp/test_dataarray.log 2>&1; status=$?; tail -25 /tmp/test_dataarray.log; echo \"pytest_status=$status\"; echo '--- edge cases ---'; /opt/miniconda3/envs/testbed/bin/python - <<'EOF'\nimport numpy as np\nfrom xarray import DataArray\n\nfor name in ['method', 'tolerance', 'drop', 'indexers']:\n    da = Da",
+          "command_sha256": "a7cd0251e9e2a25d3ae7e22b7b1ed40dc99b33d04f1e11bffcca90dc8846d11a"
+        },
+        {
+          "tool": 12,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python - <<'EOF'\nimport numpy as np\nfrom xarray import DataArray\n\nfor name in ['method', 'tolerance', 'drop', 'indexers']:\n    da = DataArray(\n        np.arange(4).reshape(2, 2),\n        dims=['x', name],\n        coords={'x': ['a', 'b'], name: ['c', 'd']},\n    )\n    expected = da.isel({'x': 0, name: 0})\n    mapping = dict(x='a', **{name: 'c'})\n    as",
+          "command_sha256": "f503dba71879092a8ad2def1ca2af2a5406f0669f881f04ff1ae01896508b58f"
+        },
+        {
+          "tool": 13,
+          "command_prefix": "cd /testbed && git diff --check && git status --short && git diff -- xarray/core/dataarray.py xarray/core/dataset.py xarray/core/indexing.py xarray/tests/test_dataarray.py && sha256sum xarray/core/dataarray.py xarray/core/dataset.py xarray/core/indexing.py xarray/tests/test_dataarray.py",
+          "command_sha256": "e6ffe890af758ace70bc3098a7efb8b0b020f26525cd60fc2a2af9d83b8a7370"
+        }
+      ],
+      "source_sha256": {
+        "result.json": "c046749068da5f92386fd752df6d9d548d5809dd08aea5aa36bb521bf0ae678a",
+        "trial.json": "e894b89946a3e2193317d1aca93e5db853abcc3249e375b97e701dc9432d9217",
+        "model.jsonl": "ff8f8ad870540e8f71008d0e9feb168bee444f74128a88aace45e1bf5300ba88",
+        "controller.jsonl": "cc4805810ccc36ae51f143a036625a4c1906d27dbd2ea20dd1b16c259aeef4c2",
+        "final-verification.json": "ceeb3fb3a4387b6f28d4ab7fef2682d7c864dbd984d7293d812f4e2a40806d09",
+        "candidates/candidate-002.json": "cda18cdd5bf8e54b2a93221b09f3a39fd51d6439ce3dbee81bf18c9dde5a304f",
+        "candidates/candidate-003.json": "8a76af2b179fe303907c327820f090dd976d93529a38b74323dd629c5a0ab7f0",
+        "candidates/candidate-001.json": "365c168e1eea40d72d649bce30eb11e50dd680097a5f5516597a3067f551bfb2",
+        "candidate.patch": "e3c08b25fd67e1749afb35cafa794688d3c5b6e6699bfcad15f3708c895a4403",
+        "swe-official/pydata__xarray-4695-C0-r1/course-mini-swe-agent/pydata__xarray-4695/patch.diff": "e3c08b25fd67e1749afb35cafa794688d3c5b6e6699bfcad15f3708c895a4403",
+        "swe-official/pydata__xarray-4695-C0-r1/course-mini-swe-agent/pydata__xarray-4695/report.json": "47e80e65760bcc73be89a205a42674a527bc6d3e31cbaffa883ef33e6ef17999",
+        "swe-official/pydata__xarray-4695-C0-r1/course-mini-swe-agent/pydata__xarray-4695/test_output.txt": "c8bcb756c983c80738465fcedf3afc1e1dbd5782e193e216287b8fdaac160a8b",
+        "swe-official/pydata__xarray-4695-C0-r1/course-mini-swe-agent/pydata__xarray-4695/run_instance.log": "7752ffbf549ed8f5a504de1a2be725348cabd80a5589ff1688daff26b277ca1f",
+        "swe-official/pydata__xarray-4695-C0-r1/course-mini-swe-agent/pydata__xarray-4695/eval.sh": "84a434604635d3524233db895a82f6616ed28fa1559ef6e02fe447274872ad33",
+        "tools.jsonl": "705bee008b0196eeb1e0023d16b1758eab55ecfad5e97c4874ed7d352d75aab6"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures, per-request own-use receipts, controller events, all tool command structures, complete final patches and meaningful test/error output were read; representative production code and critical output were read in full. Model reasoning was not read word-for-word.",
+      "protocol_sha256": "47b0b0b12a7e78394477bc696b552543495dab4a17110429b28f26dc1899a1e0",
+      "control_applicability": "C0: actual final verification retained, including protected failure",
+      "native_artifact_byte_links": []
+    },
+    {
+      "arm": "main",
+      "task": "openssl-selfsigned-cert",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 103.22423149994574,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795633501.607239,
+        "native_session_id": "33fb54f3-8b29-43e8-bd7c-38565cd01b2f",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "9c240de13dd51e58b644fcfe14269fa30549bc1c92728f30054b7f02b8b92582"
+      },
+      "event_counts": {
+        "request": 7,
+        "cli_process_started": 7,
+        "response": 7,
+        "billing_verified": 7
+      },
+      "native_sessions": [
+        "33fb54f3-8b29-43e8-bd7c-38565cd01b2f"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a21418dd7d7e6eaef2c0299899d65a",
+          0,
+          5597,
+          974
+        ],
+        [
+          2,
+          "01a21419023b7f688a293ce5b8ab1fd1",
+          0,
+          6782,
+          5260
+        ],
+        [
+          3,
+          "01a21419701b759b935b3c271cedaca5",
+          0,
+          12157,
+          188
+        ],
+        [
+          4,
+          "01a214198aea70368600b2f74e27aafc",
+          0,
+          12615,
+          132
+        ],
+        [
+          5,
+          "01a21419a85e7745a1e33756b82e14b0",
+          0,
+          13637,
+          1263
+        ],
+        [
+          6,
+          "01a21419d49571169b440e345bebe74b",
+          0,
+          15586,
+          1654
+        ],
+        [
+          7,
+          "01a2141a0b9c794aa1909f3280a209d4",
+          0,
+          17444,
+          230
+        ]
+      ],
+      "input_tokens": 83818,
+      "output_tokens": 9701,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "91247b66e91155a6e4a7d9894f6c094fb839a22f3fb7dd50edee4e244dc65d41",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-artifact": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "364cef5c621e8e077ebf8e05b02b372445cb195dbf21b0ec03029b0271509e89  /app/ssl/server.crt\n80d8ffa121bfbb72f67f15b13ac6e3e7bf91f0ccc09c4921d795237a7a13752f  /app/ssl/server.key\n80d8ffa121bfbb72f67f15b13ac6e3e7bf91f0ccc09c4921d795237a7a13752f  ssl/server.key\n364cef5c621e8e077ebf8e05b02b372445cb195dbf21b0ec03029b0271509e89  ssl/server.crt\n913d9bb43829ad95caa4924ebf509e30f5450e920789d7b4f0ae11c47bcf73e3  ssl/server.pem\n6f2da7b3f0abbb211c35182aaeb92748c4f0413f20249977f7f02419187f8a73  ssl/verification.txt\na6a224e30a7ab47a6b544dee9158e6e6704fbc1fbbd69a20d5999fbf1f7e7653  check_cert.py\n"
+          }
+        },
+        "elapsed_seconds": 84.64455916697625
+      },
+      "controller_event_counts": {
+        "candidate_operation": 5,
+        "candidate_saved": 1,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "91247b66e91155a6e4a7d9894f6c094fb839a22f3fb7dd50edee4e244dc65d41",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "91247b66e91155a6e4a7d9894f6c094fb839a22f3fb7dd50edee4e244dc65d41",
+          "eligible": false
+        }
+      ],
+      "native_capture": {
+        "registered": true,
+        "artifacts": [
+          {
+            "source": "/app/ssl/server.key",
+            "status": "ok",
+            "type": "file",
+            "path": "openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/server.key",
+            "sha256": "80d8ffa121bfbb72f67f15b13ac6e3e7bf91f0ccc09c4921d795237a7a13752f",
+            "bytes": 1675,
+            "sha_present_in_final_public_snapshot": true
+          },
+          {
+            "source": "/app/ssl/server.crt",
+            "status": "ok",
+            "type": "file",
+            "path": "openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/server.crt",
+            "sha256": "364cef5c621e8e077ebf8e05b02b372445cb195dbf21b0ec03029b0271509e89",
+            "bytes": 1220,
+            "sha_present_in_final_public_snapshot": true
+          },
+          {
+            "source": "/app/ssl/server.pem",
+            "status": "ok",
+            "type": "file",
+            "path": "openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/server.pem",
+            "sha256": "913d9bb43829ad95caa4924ebf509e30f5450e920789d7b4f0ae11c47bcf73e3",
+            "bytes": 2895,
+            "sha_present_in_final_public_snapshot": true
+          },
+          {
+            "source": "/app/ssl/verification.txt",
+            "status": "ok",
+            "type": "file",
+            "path": "openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/verification.txt",
+            "sha256": "6f2da7b3f0abbb211c35182aaeb92748c4f0413f20249977f7f02419187f8a73",
+            "bytes": 353,
+            "sha_present_in_final_public_snapshot": true
+          },
+          {
+            "source": "/app/check_cert.py",
+            "status": "ok",
+            "type": "file",
+            "path": "openssl-selfsigned-cert__Aqci8FH/artifacts/app/check_cert.py",
+            "sha256": "a6a224e30a7ab47a6b544dee9158e6e6704fbc1fbbd69a20d5999fbf1f7e7653",
+            "bytes": 2375,
+            "sha_present_in_final_public_snapshot": true
+          }
+        ],
+        "model_requests_by_capture": 0
+      },
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_directory_structure",
+          "PASSED ../tests/test_outputs.py::test_key_file",
+          "PASSED ../tests/test_outputs.py::test_certificate_file",
+          "PASSED ../tests/test_outputs.py::test_combined_pem_file",
+          "PASSED ../tests/test_outputs.py::test_verification_file",
+          "PASSED ../tests/test_outputs.py::test_python_verification_script",
+          "============================== 6 passed in 0.95s ==============================="
+        ]
+      },
+      "tools_count": 4,
+      "nonzero_tools": [],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 4,
+        "save": 1,
+        "verify": 1,
+        "submit": 1
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 2,
+          "command_prefix": "set -euo pipefail\nSSL_DIR=/app/ssl\nKEY=$SSL_DIR/server.key\nCRT=$SSL_DIR/server.crt\nPEM=$SSL_DIR/server.pem\nVERIFY=$SSL_DIR/verification.txt\nSCRIPT=/app/check_cert.py\n\ninstall -d -m 755 \"$SSL_DIR\"\numask 077\nif ! openssl genrsa -traditional -out \"$KEY\" 2048 2>/dev/null; then\n  openssl genrsa -out \"$KEY\" 2048\nfi\nchmod 600 \"$KEY\"\n\nopenssl req -new -x509 -key \"$KEY\" -out \"$CRT\" -days 365 -sha256 \\\n  -s",
+          "command_sha256": "9f414adb428d6a3a1f4ae9303ee295ddae0b62488207127074daa816d4ce3abc"
+        }
+      ],
+      "source_sha256": {
+        "result.json": "4dc09a4c5315c7de2b84b6c37c10718a670082b5d616ab7339534b141561feb1",
+        "trial.json": "73a2cd0eb231814873b1e74121db93199a20b6f358bc96ad485679a1458344ab",
+        "openssl-selfsigned-cert__Aqci8FH/agent/model.jsonl": "30356da5f258a4c50710e5e41f690f294f8c5b4fbfb866a80f35c363e59ae7ed",
+        "openssl-selfsigned-cert__Aqci8FH/agent/controller.jsonl": "f6335ad8f660617a745311ff2111c1f994eb715c41cd8e7daeb439b90ce35868",
+        "openssl-selfsigned-cert__Aqci8FH/agent/final-verification.json": "c2dd7f8f7e9befc5440c5b0f3f22ed9b16777b02d43b0a37ba5699cccdb9bd52",
+        "openssl-selfsigned-cert__Aqci8FH/agent/candidates/candidate-001.json": "784335ea1e567d0f9c06dc9996ceb1b86020712aff5609fd0b62e56f934600e3",
+        "artifact-capture.json": "c67898441d573a05e42eea18c46aaa808b7e204e6ce3dc305d6d0f8ae4d65c93",
+        "artifact-capture-config.json": "8ce0432cc3c4edd1fcb2ee807000b21f5247e28b808d2da98ebeed237d8f1018",
+        "openssl-selfsigned-cert__Aqci8FH/artifacts/manifest.json": "70025593f94a9194aea78fb6b077b5220ef4ea7d08b66399a4d9acbab8faddd0",
+        "openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/server.key": "80d8ffa121bfbb72f67f15b13ac6e3e7bf91f0ccc09c4921d795237a7a13752f",
+        "openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/server.crt": "364cef5c621e8e077ebf8e05b02b372445cb195dbf21b0ec03029b0271509e89",
+        "openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/server.pem": "913d9bb43829ad95caa4924ebf509e30f5450e920789d7b4f0ae11c47bcf73e3",
+        "openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/verification.txt": "6f2da7b3f0abbb211c35182aaeb92748c4f0413f20249977f7f02419187f8a73",
+        "openssl-selfsigned-cert__Aqci8FH/artifacts/app/check_cert.py": "a6a224e30a7ab47a6b544dee9158e6e6704fbc1fbbd69a20d5999fbf1f7e7653",
+        "openssl-selfsigned-cert__Aqci8FH/result.json": "42be06e9248195ada38b495c21fd8ca56623f9fec37a59ab93b2479d5c61035d",
+        "openssl-selfsigned-cert__Aqci8FH/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "openssl-selfsigned-cert__Aqci8FH/verifier/test-stdout.txt": "2000ed4de837697397192f98a9e2b7898bd214bb53155ad8afd6f04f6be48cab",
+        "openssl-selfsigned-cert__Aqci8FH/agent/tools.jsonl": "762ec9ec3ee14672ab46741469947e2eb64213bb80026648e3acd3867d3bc9ac",
+        "openssl-selfsigned-cert/instruction.md": "38054a3371f7c2c853478a2f9af0bff858437d5b28a9a07483238f06e566921f"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures, per-request own-use receipts, controller events, all tool command structures, complete final patches and meaningful test/error output were read; representative production code and critical output were read in full. Model reasoning was not read word-for-word.",
+      "protocol_sha256": "45853ec9c5e8173c25aaf503539ac18880346d443ba104d6cd2a604d356b9327",
+      "control_applicability": "C0: actual final verification retained, including protected failure",
+      "native_artifact_byte_links": [
+        {
+          "arm": "main",
+          "task": "openssl-selfsigned-cert",
+          "source": "/app/ssl/server.key",
+          "sha256": "80d8ffa121bfbb72f67f15b13ac6e3e7bf91f0ccc09c4921d795237a7a13752f",
+          "bytes": 1675,
+          "final_snapshot_contains_hash": true,
+          "same_bytes_in_candidates": [
+            {
+              "candidate": "openssl-selfsigned-cert__Aqci8FH/agent/candidates/candidate-001.json",
+              "eligible": false,
+              "mode": 384
+            }
+          ]
+        },
+        {
+          "arm": "main",
+          "task": "openssl-selfsigned-cert",
+          "source": "/app/ssl/server.crt",
+          "sha256": "364cef5c621e8e077ebf8e05b02b372445cb195dbf21b0ec03029b0271509e89",
+          "bytes": 1220,
+          "final_snapshot_contains_hash": true,
+          "same_bytes_in_candidates": [
+            {
+              "candidate": "openssl-selfsigned-cert__Aqci8FH/agent/candidates/candidate-001.json",
+              "eligible": false,
+              "mode": 420
+            }
+          ]
+        },
+        {
+          "arm": "main",
+          "task": "openssl-selfsigned-cert",
+          "source": "/app/ssl/server.pem",
+          "sha256": "913d9bb43829ad95caa4924ebf509e30f5450e920789d7b4f0ae11c47bcf73e3",
+          "bytes": 2895,
+          "final_snapshot_contains_hash": true,
+          "same_bytes_in_candidates": [
+            {
+              "candidate": "openssl-selfsigned-cert__Aqci8FH/agent/candidates/candidate-001.json",
+              "eligible": false,
+              "mode": 384
+            }
+          ]
+        },
+        {
+          "arm": "main",
+          "task": "openssl-selfsigned-cert",
+          "source": "/app/ssl/verification.txt",
+          "sha256": "6f2da7b3f0abbb211c35182aaeb92748c4f0413f20249977f7f02419187f8a73",
+          "bytes": 353,
+          "final_snapshot_contains_hash": true,
+          "same_bytes_in_candidates": [
+            {
+              "candidate": "openssl-selfsigned-cert__Aqci8FH/agent/candidates/candidate-001.json",
+              "eligible": false,
+              "mode": 420
+            }
+          ]
+        },
+        {
+          "arm": "main",
+          "task": "openssl-selfsigned-cert",
+          "source": "/app/check_cert.py",
+          "sha256": "a6a224e30a7ab47a6b544dee9158e6e6704fbc1fbbd69a20d5999fbf1f7e7653",
+          "bytes": 2375,
+          "final_snapshot_contains_hash": true,
+          "same_bytes_in_candidates": [
+            {
+              "candidate": "openssl-selfsigned-cert__Aqci8FH/agent/candidates/candidate-001.json",
+              "eligible": false,
+              "mode": 493
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "repeat",
+      "task": "modernize-scientific-stack",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/modernize-scientific-stack-C0-r2",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 117.99093733401969,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795632328.023113,
+        "native_session_id": "628643ea-1f51-4fd9-b4da-55b51318d3aa",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "f2a7faaefcf2afd36c076820db16f9e940cfc8c25fb531a6034cdb072de79676"
+      },
+      "event_counts": {
+        "request": 8,
+        "cli_process_started": 8,
+        "response": 8,
+        "billing_verified": 8
+      },
+      "native_sessions": [
+        "628643ea-1f51-4fd9-b4da-55b51318d3aa"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a21406f83a72dda71002b25b0592a7",
+          0,
+          5594,
+          378
+        ],
+        [
+          2,
+          "01a21407121a7d2f8f72fef9eef73a34",
+          0,
+          7834,
+          1189
+        ],
+        [
+          3,
+          "01a2140740657fa6a56bb5351fe9a28b",
+          0,
+          9177,
+          2724
+        ],
+        [
+          4,
+          "01a2140782be7b33b6cfe1b78caaf3c0",
+          0,
+          12185,
+          479
+        ],
+        [
+          5,
+          "01a21407a74b71a0a003ee56cbcfa79b",
+          0,
+          12943,
+          190
+        ],
+        [
+          6,
+          "01a21407be7d702287598f87edf61d8b",
+          0,
+          13408,
+          109
+        ],
+        [
+          7,
+          "01a21407dd9a7d28a6944860a74cfb7c",
+          0,
+          14854,
+          999
+        ],
+        [
+          8,
+          "01a214080df37b90b29349aef5151707",
+          0,
+          16071,
+          380
+        ]
+      ],
+      "input_tokens": 92066,
+      "output_tokens": 6448,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "225bc2875e10aa6ad21ae8d3a1c2ed8c05d780854edbb6e9cd39e91ea672cfcc",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-task": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "47006a6dbb2b12d980b92505d7fe57d6d1bd2ed397aa26c7dfbdcf7e802b79f0  /app/analyze_climate_modern.py\n112e26265c2b7a579403c9690f5d58cbc1bf59468bfcb7496e4fdbec9a565dd0  /app/climate_analyzer/analyze_climate.py\n97c2b98ec5506c1d31580ab95ae24588c1badb85a07a69b52500cb5b662e3e0a  /app/climate_analyzer/sample_data/climate_data.csv\n6ae640937b468eea85f75a4c2e4583a0f474f71d3fd323672a2e665ec37bb8c9  /app/climate_analyzer/config.ini\n"
+          }
+        },
+        "elapsed_seconds": 79.61990645900369
+      },
+      "controller_event_counts": {
+        "candidate_operation": 5,
+        "candidate_saved": 1,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "225bc2875e10aa6ad21ae8d3a1c2ed8c05d780854edbb6e9cd39e91ea672cfcc",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "225bc2875e10aa6ad21ae8d3a1c2ed8c05d780854edbb6e9cd39e91ea672cfcc",
+          "eligible": false
+        }
+      ],
+      "native_capture": {
+        "registered": true,
+        "artifacts": [
+          {
+            "source": "/app/analyze_climate_modern.py",
+            "status": "ok",
+            "type": "file",
+            "path": "modernize-scientific-stack__DdwuKzH/artifacts/app/analyze_climate_modern.py",
+            "sha256": "47006a6dbb2b12d980b92505d7fe57d6d1bd2ed397aa26c7dfbdcf7e802b79f0",
+            "bytes": 2549,
+            "sha_present_in_final_public_snapshot": true
+          },
+          {
+            "source": "/app/requirements.txt",
+            "status": "ok",
+            "type": "file",
+            "path": "modernize-scientific-stack__DdwuKzH/artifacts/app/requirements.txt",
+            "sha256": "8adb73293fdd1323e78ee0188aa6877a74f0633f6cbdf58cf1ccde05b9a69a83",
+            "bytes": 52,
+            "sha_present_in_final_public_snapshot": false
+          },
+          {
+            "source": "/app/pyproject.toml",
+            "status": "failed",
+            "type": "file"
+          }
+        ],
+        "model_requests_by_capture": 0
+      },
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "============================= test session starts ==============================",
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_modernized_code_runs",
+          "PASSED ../tests/test_outputs.py::test_dependency_file_exists",
+          "============================== 2 passed in 2.81s ==============================="
+        ]
+      },
+      "tools_count": 6,
+      "nonzero_tools": [
+        3
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 6,
+        "save": 1,
+        "verify": 1
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 3,
+          "command_prefix": "set -eu\ncat > /app/analyze_climate_modern.py <<'PY'\n#!/usr/bin/env python3\n\"\"\"Modernized Python 3 climate analysis script.\"\"\"\n\nfrom __future__ import annotations\n\nimport argparse\nimport configparser\nfrom pathlib import Path\n\nimport pandas as pd\n\nBASE_DIR = Path(__file__).resolve().parent\nDEFAULT_CSV_PATH = (\n    BASE_DIR / \"climate_analyzer\" / \"sample_data\" / \"climate_data.csv\"\n)\nDEFAULT_CONFIG_PA",
+          "command_sha256": "5cce9528a230eaff424acbba502e8c0d9547c651e971b7fa8c0464163be30ff4"
+        }
+      ],
+      "source_sha256": {
+        "result.json": "0d70e8611602b0cbb0c2c973c683790c8e38e89a2b131d78849580ca456a1b78",
+        "trial.json": "131f70434ffa4a510b09cbb72d68d87abd8791f754d729c0afc3b35dcb7776d5",
+        "modernize-scientific-stack__DdwuKzH/agent/model.jsonl": "4aaf1a740d6d8d617e76ec20791b2418309785dce9c1eb68435ca35d5118125c",
+        "modernize-scientific-stack__DdwuKzH/agent/controller.jsonl": "9ab7952b14207ca824f443831808e182a1feea1d468e6503d4b998108f52a766",
+        "modernize-scientific-stack__DdwuKzH/agent/final-verification.json": "6a8d27a75713b5c211e1c329563a276257570d10db49ae5356645577f9b9646e",
+        "modernize-scientific-stack__DdwuKzH/agent/candidates/candidate-001.json": "9f1f856b27908ea7e9d99b9dd9a61c322e25dd5c408c4dae5da362fb5db25a65",
+        "artifact-capture.json": "be6e0834e9d9c59ae1cf64b0bbd459c5b39c07bb8592c95057d038181ea5b6df",
+        "artifact-capture-config.json": "c38fdf9412d408df2126635e2028822c42ed0fc0ab8b52fa3d1c7066e0b97583",
+        "modernize-scientific-stack__DdwuKzH/artifacts/manifest.json": "cf16fbc081ec4325cfb714ef9970cc6786305fbdb07f3939d185fbcc0b90f81d",
+        "modernize-scientific-stack__DdwuKzH/artifacts/app/analyze_climate_modern.py": "47006a6dbb2b12d980b92505d7fe57d6d1bd2ed397aa26c7dfbdcf7e802b79f0",
+        "modernize-scientific-stack__DdwuKzH/artifacts/app/requirements.txt": "8adb73293fdd1323e78ee0188aa6877a74f0633f6cbdf58cf1ccde05b9a69a83",
+        "modernize-scientific-stack__DdwuKzH/result.json": "dde932c302bab6e2f8bcc201ca28e4ffcfee103ffab6d947acc266e9b27e90ea",
+        "modernize-scientific-stack__DdwuKzH/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "modernize-scientific-stack__DdwuKzH/verifier/test-stdout.txt": "412593858a17853cf722ab27e449214cad4a5c2588e75d58a16c567d029262c1",
+        "modernize-scientific-stack__DdwuKzH/agent/tools.jsonl": "adef8fe341dd34bc4880355b1323fb225f0dfde411e1a5fc9b99949403053dce",
+        "modernize-scientific-stack/instruction.md": "666b8ac370ae81b0e3780a36e722c91b0f986fccbdc6ed36ab3bd17e6943da0f"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures, per-request own-use receipts, controller events, all tool command structures, complete final patches and meaningful test/error output were read; representative production code and critical output were read in full. Model reasoning was not read word-for-word.",
+      "protocol_sha256": "9b4e819216c65789bff3deec150c389754de364b7ee5218914da80aca6409e68",
+      "control_applicability": "C0: actual final verification retained, including protected failure",
+      "native_artifact_byte_links": [
+        {
+          "arm": "repeat",
+          "task": "modernize-scientific-stack",
+          "source": "/app/analyze_climate_modern.py",
+          "sha256": "47006a6dbb2b12d980b92505d7fe57d6d1bd2ed397aa26c7dfbdcf7e802b79f0",
+          "bytes": 2549,
+          "final_snapshot_contains_hash": true,
+          "same_bytes_in_candidates": [
+            {
+              "candidate": "modernize-scientific-stack__DdwuKzH/agent/candidates/candidate-001.json",
+              "eligible": false,
+              "mode": 511
+            }
+          ]
+        },
+        {
+          "arm": "repeat",
+          "task": "modernize-scientific-stack",
+          "source": "/app/requirements.txt",
+          "sha256": "8adb73293fdd1323e78ee0188aa6877a74f0633f6cbdf58cf1ccde05b9a69a83",
+          "bytes": 52,
+          "final_snapshot_contains_hash": false,
+          "same_bytes_in_candidates": [
+            {
+              "candidate": "modernize-scientific-stack__DdwuKzH/agent/candidates/candidate-001.json",
+              "eligible": false,
+              "mode": 438
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "repeat",
+      "task": "multi-source-data-merger",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/multi-source-data-merger-C0-r2",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 138.91144970897585,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795632515.83275,
+        "native_session_id": "56011334-6d82-4dc2-b2a1-b5b9b02d701d",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "382ad6aba6680cf99e1b291719e31756aa4def857b03fdef2563511f6e9b1f18"
+      },
+      "event_counts": {
+        "request": 10,
+        "cli_process_started": 10,
+        "response": 10,
+        "billing_verified": 10
+      },
+      "native_sessions": [
+        "56011334-6d82-4dc2-b2a1-b5b9b02d701d"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a21409d558715fb4d866540cadafe1",
+          0,
+          5787,
+          413
+        ],
+        [
+          2,
+          "01a21409f5a777d19731d0d21f12f01e",
+          0,
+          6983,
+          369
+        ],
+        [
+          3,
+          "01a2140a148470ecb169800a89955c23",
+          0,
+          8038,
+          4744
+        ],
+        [
+          4,
+          "01a2140a88847a828350089f4e57e938",
+          0,
+          13645,
+          153
+        ],
+        [
+          5,
+          "01a2140a9dc679588772308ce1928a78",
+          0,
+          14063,
+          77
+        ],
+        [
+          6,
+          "01a2140abf1a7dbdac8496a792e85bf7",
+          0,
+          15310,
+          1785
+        ],
+        [
+          7,
+          "01a2140af6117c38b2d1ca115adfc4c0",
+          0,
+          17218,
+          2183
+        ],
+        [
+          8,
+          "01a2140b309f7c45b947b116e2f15ff5",
+          0,
+          19612,
+          116
+        ],
+        [
+          9,
+          "01a2140b4fbc738f9280bfca44252979",
+          0,
+          20898,
+          121
+        ],
+        [
+          10,
+          "01a2140b66b07733b2cbaf8190f09a37",
+          0,
+          21511,
+          86
+        ]
+      ],
+      "input_tokens": 143065,
+      "output_tokens": 10047,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "17ba128c7f29e14b345f6ab71da9b7718c605196213b7799353cb1c75ab85c7b",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-task": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "58f168f9b14a96f441931f627d18317c87580ce4fcf66b4e6bacfd64369838f2  /app/merged_users.parquet\nb36e9898ecb5f1056780359f3cc5ab50f043f1e4e732972781d92aac78ada3ed  /app/conflicts.json\n75e51e2d3ab0bdba2269d7cf3757576f84f3ee2c13407d2db94289a5958a1778  /data/source_a/users.json\n8e87d16dc47d166edd8e56165955bad265b630d53d02762367c816affb5fa760  /data/source_b/users.csv\n23d1ea51c4170bdba53febb885a0f495e28de525a52667347b2932136b9a72fe  /data/source_c/users.parquet\n"
+          }
+        },
+        "elapsed_seconds": 109.44665004103445
+      },
+      "controller_event_counts": {
+        "candidate_operation": 8,
+        "candidate_saved": 2,
+        "verification": 2,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "17ba128c7f29e14b345f6ab71da9b7718c605196213b7799353cb1c75ab85c7b",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "17ba128c7f29e14b345f6ab71da9b7718c605196213b7799353cb1c75ab85c7b",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "17ba128c7f29e14b345f6ab71da9b7718c605196213b7799353cb1c75ab85c7b",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "17ba128c7f29e14b345f6ab71da9b7718c605196213b7799353cb1c75ab85c7b",
+          "eligible": false
+        }
+      ],
+      "native_capture": {
+        "registered": true,
+        "artifacts": [
+          {
+            "source": "/app/merged_users.parquet",
+            "status": "ok",
+            "type": "file",
+            "path": "multi-source-data-merger__iJwazqM/artifacts/app/merged_users.parquet",
+            "sha256": "58f168f9b14a96f441931f627d18317c87580ce4fcf66b4e6bacfd64369838f2",
+            "bytes": 2052,
+            "sha_present_in_final_public_snapshot": true
+          },
+          {
+            "source": "/app/conflicts.json",
+            "status": "ok",
+            "type": "file",
+            "path": "multi-source-data-merger__iJwazqM/artifacts/app/conflicts.json",
+            "sha256": "b36e9898ecb5f1056780359f3cc5ab50f043f1e4e732972781d92aac78ada3ed",
+            "bytes": 699,
+            "sha_present_in_final_public_snapshot": true
+          }
+        ],
+        "model_requests_by_capture": 0
+      },
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "============================= test session starts ==============================",
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_output_files_exist",
+          "PASSED ../tests/test_outputs.py::test_merged_data_exact_values",
+          "PASSED ../tests/test_outputs.py::test_conflict_report_values",
+          "============================== 3 passed in 2.85s ==============================="
+        ]
+      },
+      "tools_count": 5,
+      "nonzero_tools": [
+        4
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 5,
+        "save": 2,
+        "verify": 2,
+        "submit": 1
+      },
+      "tool_screen_flags": [],
+      "source_sha256": {
+        "result.json": "48ed0274af5eb20ba2a76957ce01a51781814479b881ccc6b5f3c7defbfa6db1",
+        "trial.json": "82ad9ec15222c07b14b13eb3e446504bf1c9cbd7b77b72f24abeb3f5d100c5cb",
+        "multi-source-data-merger__iJwazqM/agent/model.jsonl": "d92fcc46ba534da49aefb4f56789ec72d6add8422654a7c8d58172a11720ee17",
+        "multi-source-data-merger__iJwazqM/agent/controller.jsonl": "dc7d8ec1db48b1812b4764c20bc63d58b28ef69a5b8d6ffa7fb965eeb7d45163",
+        "multi-source-data-merger__iJwazqM/agent/final-verification.json": "cd5f163d95ed3a3cf68a30af20d9542bb7165c1d30de6f810e001ca58dc34e81",
+        "multi-source-data-merger__iJwazqM/agent/candidates/candidate-002.json": "834ac106156c154e0a4aa451aa2069044bc625367e0a3ab4632830cd7de86434",
+        "multi-source-data-merger__iJwazqM/agent/candidates/candidate-001.json": "0943c145dc5112f1954088ca054dd81216404857dd4d935ae6842d52f0a1d721",
+        "artifact-capture.json": "fdee675097420086773e43458b020f72cd7ca3ad6e35fa1060814aa7393c0c34",
+        "artifact-capture-config.json": "010d6531eedb1f3616bf9394cb3572883d9da2b986b7ada3b743d3d015c124b2",
+        "multi-source-data-merger__iJwazqM/artifacts/manifest.json": "985b2056dbe6b6294c0d1bed19f53caf153abd7b3903a11cc55cfdd48ccbcad0",
+        "multi-source-data-merger__iJwazqM/artifacts/app/merged_users.parquet": "58f168f9b14a96f441931f627d18317c87580ce4fcf66b4e6bacfd64369838f2",
+        "multi-source-data-merger__iJwazqM/artifacts/app/conflicts.json": "b36e9898ecb5f1056780359f3cc5ab50f043f1e4e732972781d92aac78ada3ed",
+        "multi-source-data-merger__iJwazqM/result.json": "c3f730b5d255cec13d6208b70b118e5bf4db7e47cc723cbb317e1804c995791d",
+        "multi-source-data-merger__iJwazqM/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "multi-source-data-merger__iJwazqM/verifier/test-stdout.txt": "3ffe6044b9afeedb848c02be505788e82935971d07b828f398081dfd8462b193",
+        "multi-source-data-merger__iJwazqM/agent/tools.jsonl": "ca7a640b8d65014b2985d21adc06947b4a93511f7f371719dca19f34c82b35ac",
+        "multi-source-data-merger/instruction.md": "d1d28bb6e37f7a255a1b7f78aae8591f35c0494f33e4913392424ad954aab944"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures, per-request own-use receipts, controller events, all tool command structures, complete final patches and meaningful test/error output were read; representative production code and critical output were read in full. Model reasoning was not read word-for-word.",
+      "protocol_sha256": "a06a2dd7e42efc3fdccacc514ff6f8cd4a34cffc0595e55be32ef55d4061fd48",
+      "control_applicability": "C0: actual final verification retained, including protected failure",
+      "native_artifact_byte_links": [
+        {
+          "arm": "repeat",
+          "task": "multi-source-data-merger",
+          "source": "/app/merged_users.parquet",
+          "sha256": "58f168f9b14a96f441931f627d18317c87580ce4fcf66b4e6bacfd64369838f2",
+          "bytes": 2052,
+          "final_snapshot_contains_hash": true,
+          "same_bytes_in_candidates": [
+            {
+              "candidate": "multi-source-data-merger__iJwazqM/agent/candidates/candidate-002.json",
+              "eligible": true,
+              "mode": 438
+            },
+            {
+              "candidate": "multi-source-data-merger__iJwazqM/agent/candidates/candidate-001.json",
+              "eligible": false,
+              "mode": 438
+            }
+          ]
+        },
+        {
+          "arm": "repeat",
+          "task": "multi-source-data-merger",
+          "source": "/app/conflicts.json",
+          "sha256": "b36e9898ecb5f1056780359f3cc5ab50f043f1e4e732972781d92aac78ada3ed",
+          "bytes": 699,
+          "final_snapshot_contains_hash": true,
+          "same_bytes_in_candidates": [
+            {
+              "candidate": "multi-source-data-merger__iJwazqM/agent/candidates/candidate-002.json",
+              "eligible": true,
+              "mode": 438
+            },
+            {
+              "candidate": "multi-source-data-merger__iJwazqM/agent/candidates/candidate-001.json",
+              "eligible": false,
+              "mode": 438
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "repeat",
+      "task": "pydata__xarray-4695",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-4695-C0-r2",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": false,
+      "wall_seconds": 298.2267782080453,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795632711.7301419,
+        "native_session_id": "1dc1a3ea-298c-437d-a289-3f31122a636e",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "48d6def22714d5a8aefe089a3ebc1e57f3091cae3e8cdeb5602fc235b1ea5cdb"
+      },
+      "event_counts": {
+        "request": 21,
+        "cli_process_started": 21,
+        "response": 21,
+        "billing_verified": 21
+      },
+      "native_sessions": [
+        "1dc1a3ea-298c-437d-a289-3f31122a636e"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a2140cd29570ada6b7d991465938c7",
+          0,
+          6754,
+          165
+        ],
+        [
+          2,
+          "01a2140ce75f79898901d411f6f25de2",
+          0,
+          7716,
+          224
+        ],
+        [
+          3,
+          "01a2140cfc3c7dfeac34c28194af42b6",
+          0,
+          8606,
+          208
+        ],
+        [
+          4,
+          "01a2140d107978c0b38f04e6d0e1869c",
+          0,
+          11678,
+          575
+        ],
+        [
+          5,
+          "01a2140d2cf172bf956b69dbab6b0e68",
+          0,
+          14990,
+          352
+        ],
+        [
+          6,
+          "01a2140d466874dfad35d81b2e25df91",
+          0,
+          16269,
+          330
+        ],
+        [
+          7,
+          "01a2140d60d6743db369199834094802",
+          0,
+          16794,
+          189
+        ],
+        [
+          8,
+          "01a2140d768c7306a64b1aed42f5e94e",
+          0,
+          17136,
+          252
+        ],
+        [
+          9,
+          "01a2140d96677a1eac4030147b196260",
+          0,
+          18073,
+          182
+        ],
+        [
+          10,
+          "01a2140dc4137f41ad8b7b971b5ee7e1",
+          0,
+          18556,
+          664
+        ],
+        [
+          11,
+          "01a2140de7d3786e8f73086c6a811c71",
+          0,
+          19486,
+          157
+        ],
+        [
+          12,
+          "01a2140dfc2879d39e6a0e6b9f393d91",
+          0,
+          22240,
+          1022
+        ],
+        [
+          13,
+          "01a2140e290979a5bde3ec8a5a769395",
+          0,
+          23572,
+          749
+        ],
+        [
+          14,
+          "01a2140e60a474248e7ab1e937764e4b",
+          0,
+          25365,
+          243
+        ],
+        [
+          15,
+          "01a2140e92fd79c8a784e95c2c650440",
+          0,
+          26749,
+          907
+        ],
+        [
+          16,
+          "01a2140eb8b67b1895c4494b722b3c61",
+          0,
+          27914,
+          415
+        ],
+        [
+          17,
+          "01a2140f62b7779986c45a5990f2454a",
+          0,
+          29224,
+          595
+        ],
+        [
+          18,
+          "01a2140f9d657b838fe40eaa1287963a",
+          0,
+          30352,
+          1827
+        ],
+        [
+          19,
+          "01a2140ff2737f689fce1d28707d4631",
+          0,
+          32587,
+          655
+        ],
+        [
+          20,
+          "01a214102cb071c8874ee84c4bc4c0e5",
+          0,
+          33501,
+          486
+        ],
+        [
+          21,
+          "01a2141082e37ed3846f804939037e32",
+          0,
+          34810,
+          443
+        ]
+      ],
+      "input_tokens": 442372,
+      "output_tokens": 10640,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "69af347d935d5a49ab48992aa630c9ee6515d5037975939cc756bb234d8c0a2a",
+        "protected_unchanged": false,
+        "restored_candidate": null,
+        "valid_verification": false,
+        "evidence": {
+          "public-regression": {
+            "state": "protected_dependency_changed",
+            "returncode": null,
+            "snapshot": null
+          }
+        },
+        "elapsed_seconds": 255.12171504099388
+      },
+      "controller_event_counts": {
+        "candidate_operation": 7,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "69af347d935d5a49ab48992aa630c9ee6515d5037975939cc756bb234d8c0a2a",
+          "eligible": false
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "69af347d935d5a49ab48992aa630c9ee6515d5037975939cc756bb234d8c0a2a",
+          "eligible": false
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "xarray/core/dataarray.py",
+        "xarray/tests/test_dataarray.py"
+      ],
+      "protected_test_patch_paths": [
+        "xarray/tests/test_dataarray.py"
+      ],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 1,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 875,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED xarray/tests/test_dataarray.py::test_no_dict",
+          "PASSED xarray/tests/test_dataarray.py::test_subclass_slots",
+          "PASSED xarray/tests/test_dataarray.py::test_weakref",
+          "PASSED xarray/tests/test_dataarray.py::test_delete_coords",
+          "PASSED xarray/tests/test_dataarray.py::test_deepcopy_obj_array",
+          "SKIPPED [1] xarray/tests/test_dataarray.py:2681: needs to be fixed for shortcut=False, keep_attrs=False",
+          "FAILED xarray/tests/test_dataarray.py::TestDataArray::test_from_series_multiindex",
+          "= 1 failed, 877 passed, 1 skipped, 5 xfailed, 1 xpassed, 259 warnings in 17.02s ="
+        ]
+      },
+      "tools_count": 17,
+      "nonzero_tools": [
+        5,
+        7,
+        15
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 17,
+        "save": 2,
+        "verify": 1,
+        "submit": 1
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 4,
+          "command_prefix": "cd /testbed && grep -n \"def sel\" xarray/core/dataarray.py xarray/core/dataset.py xarray/core/dataarray.py | head && printf '\\n--- either_dict_or_kwargs ---\\n' && grep -R \"def either_dict_or_kwargs\" -n xarray && sed -n '20,80p' xarray/core/utils.py && printf '\\n--- DataArray.sel ---\\n' && sed -n '1050,1175p' xarray/core/dataarray.py && printf '\\n--- loc tests ---\\n' && grep -n \"\\.loc\\[dict\\|\\.loc\\[",
+          "command_sha256": "29642d5820001dd095196a5f92c6961054c15f31564bd0a95fea7a08b530eb86"
+        },
+        {
+          "tool": 10,
+          "command_prefix": "cd /testbed && sed -n '1040,1175p' xarray/tests/test_dataarray.py && printf '\\n--- imports/helpers ---\\n' && sed -n '1,45p' xarray/tests/test_dataarray.py && printf '\\n--- git log ---\\n' && git log -5 --oneline",
+          "command_sha256": "0cf478f14d640097c54bef3df40ee8c5c1034b0fa2967f2c05d4123f119326dc"
+        },
+        {
+          "tool": 12,
+          "command_prefix": "cd /testbed && python - <<'EOF'\nfrom pathlib import Path\npath = Path(\"xarray/tests/test_dataarray.py\")\ntext = path.read_text()\nanchor = '''    def test_loc_assign(self):\n'''\ntest = '''    @pytest.mark.parametrize(\"dim\", [\"method\", \"tolerance\", \"drop\", \"indexers\"])\n    def test_loc_with_reserved_dimension_name(self, dim):\n        da = DataArray(\n            np.arange(4).reshape(2, 2),\n            d",
+          "command_sha256": "1a8af3527dea4b0e6d0531848b6c0cf2450cf73131ac2cb2623a4b5afa980875"
+        },
+        {
+          "tool": 13,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest xarray/tests/test_dataarray.py xarray/tests/test_dataset.py xarray/tests/test_indexing.py -q 2>&1 | tail -40",
+          "command_sha256": "c2a29bc4fd2ed2ae8889e4cb9a20c091cd3e16ca61777dabdb1595b57d2a8722"
+        },
+        {
+          "tool": 14,
+          "command_prefix": "cd /testbed && rm -rf /tmp/xarray-baseline && git worktree add --detach /tmp/xarray-baseline HEAD >/tmp/worktree.log 2>&1 && cd /tmp/xarray-baseline && PYTHONPATH=/tmp/xarray-baseline /opt/miniconda3/envs/testbed/bin/python -m pytest --no-header -q xarray/tests/test_dataarray.py::TestDataArray::test_from_series_multiindex xarray/tests/test_dataset.py::TestDataset::test_sel_categorical xarray/tests",
+          "command_sha256": "6eff6434f1a91a9ac1f30592a0d79dd0c0af3a1a08f4233fc787152978e63f6b"
+        },
+        {
+          "tool": 17,
+          "command_prefix": "cd /testbed && git diff --check && git diff --stat && git diff && /opt/miniconda3/envs/testbed/bin/python -m pytest xarray/tests/test_dataarray.py -q -k \"loc\" 2>&1 | tail -3",
+          "command_sha256": "3930295a905b2dda84d5575e5d2e9f5caf8fd05b47c20a4dbc8ffdff55067b06"
+        }
+      ],
+      "source_sha256": {
+        "result.json": "47fbc5ee25bdd6438da91007879f07277bf11c3e489c1f6bedb4654d7fa7611a",
+        "trial.json": "e894b89946a3e2193317d1aca93e5db853abcc3249e375b97e701dc9432d9217",
+        "model.jsonl": "087788482e8923dcbef658acf042ee5bf86c5431dba5c099e802d2693f0b7f5b",
+        "controller.jsonl": "1d925874a30ce65c167e7c4ca51c7cf4e50a421975d900ccf3dd80e4e334a11f",
+        "final-verification.json": "7d59b9f3798d9c18aea2e90fb437dfc3e45e8c1395b9f0182a095d842bef1ac9",
+        "candidates/candidate-002.json": "1f620079253d9052b3f4999bbdd7d026c008496072ad7af3a0129f26bb839451",
+        "candidates/candidate-001.json": "8b47882a923f2a56eb33443649e6dbc670d4e8b2e9d5a48a0582fd78541acd40",
+        "candidate.patch": "2cfa368eadbeb818a7f698c5ae4487676bbb3894fac039178b1659a773671cf0",
+        "swe-official/pydata__xarray-4695-C0-r2/course-mini-swe-agent/pydata__xarray-4695/patch.diff": "2cfa368eadbeb818a7f698c5ae4487676bbb3894fac039178b1659a773671cf0",
+        "swe-official/pydata__xarray-4695-C0-r2/course-mini-swe-agent/pydata__xarray-4695/report.json": "47e80e65760bcc73be89a205a42674a527bc6d3e31cbaffa883ef33e6ef17999",
+        "swe-official/pydata__xarray-4695-C0-r2/course-mini-swe-agent/pydata__xarray-4695/test_output.txt": "4696bb80ad8ccd9bf3e3abb3953575d2e3f6f5c20fbb4d717ef3f4af44fa81d5",
+        "swe-official/pydata__xarray-4695-C0-r2/course-mini-swe-agent/pydata__xarray-4695/run_instance.log": "a1a346a6982ea42e82e13260cf8a3c52354befe90eaafc33d8216eca35c10ec0",
+        "swe-official/pydata__xarray-4695-C0-r2/course-mini-swe-agent/pydata__xarray-4695/eval.sh": "84a434604635d3524233db895a82f6616ed28fa1559ef6e02fe447274872ad33",
+        "tools.jsonl": "a8d6e8ed329325b095d59a3530160abdbb58dc75f770b294d1fc0927aa2ad69d"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures, per-request own-use receipts, controller events, all tool command structures, complete final patches and meaningful test/error output were read; representative production code and critical output were read in full. Model reasoning was not read word-for-word.",
+      "protocol_sha256": "47b0b0b12a7e78394477bc696b552543495dab4a17110429b28f26dc1899a1e0",
+      "control_applicability": "C0: actual final verification retained, including protected failure",
+      "native_artifact_byte_links": []
+    },
+    {
+      "arm": "repeat",
+      "task": "openssl-selfsigned-cert",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 110.37871016701683,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795633434.8215191,
+        "native_session_id": "28f3e49f-d84a-49c3-9424-240554f6a5bb",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "9c240de13dd51e58b644fcfe14269fa30549bc1c92728f30054b7f02b8b92582"
+      },
+      "event_counts": {
+        "request": 9,
+        "cli_process_started": 9,
+        "response": 9,
+        "billing_verified": 9
+      },
+      "native_sessions": [
+        "28f3e49f-d84a-49c3-9424-240554f6a5bb"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a21417ddda722aae4aaf6266d2c995",
+          0,
+          5594,
+          575
+        ],
+        [
+          2,
+          "01a21417fb757df1ad8258d10ecdd712",
+          0,
+          6375,
+          4240
+        ],
+        [
+          3,
+          "01a21418572d78d787d7e2685888f7a9",
+          0,
+          10786,
+          117
+        ],
+        [
+          4,
+          "01a214186d9c795ca08d2ac4fbbee275",
+          0,
+          11169,
+          928
+        ],
+        [
+          5,
+          "01a21418931d7535a314fd81454e2aa9",
+          0,
+          12626,
+          1339
+        ],
+        [
+          6,
+          "01a21418bd7570b3812d7ce20d2359d8",
+          0,
+          14372,
+          216
+        ],
+        [
+          7,
+          "01a21418d7d3702b928ff098110a0bcb",
+          0,
+          14856,
+          112
+        ],
+        [
+          8,
+          "01a21418f26e7e8e9668f770111c9fa0",
+          0,
+          15814,
+          1553
+        ],
+        [
+          9,
+          "01a21419226b72439db7f6ec35ccb6fe",
+          0,
+          17572,
+          210
+        ]
+      ],
+      "input_tokens": 109164,
+      "output_tokens": 9290,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "fb82d37044ad863c7b5d5fc3ed95896f62ce6267e368e6be07b0c88abcbd2605",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-artifact": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "64b8fcc515ab76ab7b6b98ffcde62efe5396fe9fea9149913404377e8bf20fed  /app/ssl/server.crt\naeb3d475549fb6e4582da38df9229c56f6023b91fa92c65135823eb69e78d738  /app/ssl/server.key\naeb3d475549fb6e4582da38df9229c56f6023b91fa92c65135823eb69e78d738  ssl/server.key\n64b8fcc515ab76ab7b6b98ffcde62efe5396fe9fea9149913404377e8bf20fed  ssl/server.crt\nb53a9f81ebb803680c99f9147ab9b3c8229137aa11d9469e94f1bebbbf194d25  ssl/server.pem\nc8482ecdc68a1a4df9f2f4954964b1500703fd87a997ed8726cfe254514c6c80  ssl/verification.txt\nd026b6bc361ab5697d4a45a58d761e922882aa62ef222106e6cd039237c972ce  check_cert.py\n"
+          }
+        },
+        "elapsed_seconds": 91.40813383401837
+      },
+      "controller_event_counts": {
+        "candidate_operation": 6,
+        "candidate_saved": 2,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "fb82d37044ad863c7b5d5fc3ed95896f62ce6267e368e6be07b0c88abcbd2605",
+          "eligible": false
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "6f6e6b07e291d823c472f0c198a10ce09f223624a95b608243fce048e711db91",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "fb82d37044ad863c7b5d5fc3ed95896f62ce6267e368e6be07b0c88abcbd2605",
+          "eligible": false
+        }
+      ],
+      "native_capture": {
+        "registered": true,
+        "artifacts": [
+          {
+            "source": "/app/ssl/server.key",
+            "status": "ok",
+            "type": "file",
+            "path": "openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/server.key",
+            "sha256": "aeb3d475549fb6e4582da38df9229c56f6023b91fa92c65135823eb69e78d738",
+            "bytes": 1704,
+            "sha_present_in_final_public_snapshot": true
+          },
+          {
+            "source": "/app/ssl/server.crt",
+            "status": "ok",
+            "type": "file",
+            "path": "openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/server.crt",
+            "sha256": "64b8fcc515ab76ab7b6b98ffcde62efe5396fe9fea9149913404377e8bf20fed",
+            "bytes": 1220,
+            "sha_present_in_final_public_snapshot": true
+          },
+          {
+            "source": "/app/ssl/server.pem",
+            "status": "ok",
+            "type": "file",
+            "path": "openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/server.pem",
+            "sha256": "b53a9f81ebb803680c99f9147ab9b3c8229137aa11d9469e94f1bebbbf194d25",
+            "bytes": 2924,
+            "sha_present_in_final_public_snapshot": true
+          },
+          {
+            "source": "/app/ssl/verification.txt",
+            "status": "ok",
+            "type": "file",
+            "path": "openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/verification.txt",
+            "sha256": "c8482ecdc68a1a4df9f2f4954964b1500703fd87a997ed8726cfe254514c6c80",
+            "bytes": 307,
+            "sha_present_in_final_public_snapshot": true
+          },
+          {
+            "source": "/app/check_cert.py",
+            "status": "ok",
+            "type": "file",
+            "path": "openssl-selfsigned-cert__pT76fts/artifacts/app/check_cert.py",
+            "sha256": "d026b6bc361ab5697d4a45a58d761e922882aa62ef222106e6cd039237c972ce",
+            "bytes": 2481,
+            "sha_present_in_final_public_snapshot": true
+          }
+        ],
+        "model_requests_by_capture": 0
+      },
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_directory_structure",
+          "PASSED ../tests/test_outputs.py::test_key_file",
+          "PASSED ../tests/test_outputs.py::test_certificate_file",
+          "PASSED ../tests/test_outputs.py::test_combined_pem_file",
+          "PASSED ../tests/test_outputs.py::test_verification_file",
+          "PASSED ../tests/test_outputs.py::test_python_verification_script",
+          "============================== 6 passed in 0.97s ==============================="
+        ]
+      },
+      "tools_count": 6,
+      "nonzero_tools": [
+        3
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 6,
+        "save": 2,
+        "verify": 1
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 2,
+          "command_prefix": "set -euo pipefail\numask 077\nmkdir -p /app/ssl\n\n# 1-2. Generate a 2048-bit RSA private key and restrict its permissions.\nopenssl genrsa -out /app/ssl/server.key 2048\nchmod 600 /app/ssl/server.key\n\n# 3. Create the self-signed certificate with the required subject and validity.\nopenssl req -x509 -new -sha256 \\\n  -key /app/ssl/server.key \\\n  -days 365 \\\n  -subj \"/O=DevOps Team/CN=dev-internal.company.",
+          "command_sha256": "3c7386cf5782b3b5c468f5652e24b0033ef2b92b5b2655390a0c796238153be5"
+        },
+        {
+          "tool": 4,
+          "command_prefix": "set -euo pipefail\npython3 - <<'PY'\nfrom pathlib import Path\npath = Path('/app/check_cert.py')\ntext = path.read_text(encoding='utf-8')\nold = '''    subject_line = run_openssl(\"-subject\", \"-nameopt\", \"RFC2253\")\n    common_name_match = re.search(r\"(?:^|,)CN=([^,]+)\", subject_line)\n    if not common_name_match:\n        raise RuntimeError(\"Common Name not found in certificate subject\")\n    common_name ",
+          "command_sha256": "c314abf736c3c62d95f8769b5beb42a7bdeffe6bdb3bb1c420bb8a6c647dbc17"
+        }
+      ],
+      "source_sha256": {
+        "result.json": "b2471eaa62f2cdde286aff9216fb928177c04b624db86fb205ee08f9533e88a2",
+        "trial.json": "73a2cd0eb231814873b1e74121db93199a20b6f358bc96ad485679a1458344ab",
+        "openssl-selfsigned-cert__pT76fts/agent/model.jsonl": "427941a39723790f0259c0c58e17cd1482d174996d54a5749273ca5ed8eae4e0",
+        "openssl-selfsigned-cert__pT76fts/agent/controller.jsonl": "47f4e572f67318483e67f1eadc12d772903f62a30b8c1465dfddb669cd46ce98",
+        "openssl-selfsigned-cert__pT76fts/agent/final-verification.json": "35502db5a1206c6a1da9d462aef23bc04a08e589cc84d64914b93a8c3735b038",
+        "openssl-selfsigned-cert__pT76fts/agent/candidates/candidate-002.json": "6351281f54138bcf5bf0dfe1aaa94cf48d0918b8d9402b03e13e8861ac1861c7",
+        "openssl-selfsigned-cert__pT76fts/agent/candidates/candidate-001.json": "f20f2e965def73c147d15264afb8a1016f98e3a6ad9ae5aaced7032ee74aba33",
+        "artifact-capture.json": "b42ed8da78f0a401550cc8752dbbcd476c6c90d8b6cf36486f68bfece5eb98e6",
+        "artifact-capture-config.json": "fddf33099f6ce590fc1cbc3faa6e57d29607a6c440d290acc7d63da355c7d8f6",
+        "openssl-selfsigned-cert__pT76fts/artifacts/manifest.json": "70025593f94a9194aea78fb6b077b5220ef4ea7d08b66399a4d9acbab8faddd0",
+        "openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/server.key": "aeb3d475549fb6e4582da38df9229c56f6023b91fa92c65135823eb69e78d738",
+        "openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/server.crt": "64b8fcc515ab76ab7b6b98ffcde62efe5396fe9fea9149913404377e8bf20fed",
+        "openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/server.pem": "b53a9f81ebb803680c99f9147ab9b3c8229137aa11d9469e94f1bebbbf194d25",
+        "openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/verification.txt": "c8482ecdc68a1a4df9f2f4954964b1500703fd87a997ed8726cfe254514c6c80",
+        "openssl-selfsigned-cert__pT76fts/artifacts/app/check_cert.py": "d026b6bc361ab5697d4a45a58d761e922882aa62ef222106e6cd039237c972ce",
+        "openssl-selfsigned-cert__pT76fts/result.json": "4a2b9b1be5e8a3c3bd3484906000e48043b2d41a2c1f3aa573f95712a6b90304",
+        "openssl-selfsigned-cert__pT76fts/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "openssl-selfsigned-cert__pT76fts/verifier/test-stdout.txt": "e7e395f91eaa6b2f946137104a8c10903e0d96b953e8fc36e82b42c50cf3ab94",
+        "openssl-selfsigned-cert__pT76fts/agent/tools.jsonl": "7fff936433813e70553b6a150e22412381c8a432b600fe68766fd4a95425a994",
+        "openssl-selfsigned-cert/instruction.md": "38054a3371f7c2c853478a2f9af0bff858437d5b28a9a07483238f06e566921f"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures, per-request own-use receipts, controller events, all tool command structures, complete final patches and meaningful test/error output were read; representative production code and critical output were read in full. Model reasoning was not read word-for-word.",
+      "protocol_sha256": "45853ec9c5e8173c25aaf503539ac18880346d443ba104d6cd2a604d356b9327",
+      "control_applicability": "C0: actual final verification retained, including protected failure",
+      "native_artifact_byte_links": [
+        {
+          "arm": "repeat",
+          "task": "openssl-selfsigned-cert",
+          "source": "/app/ssl/server.key",
+          "sha256": "aeb3d475549fb6e4582da38df9229c56f6023b91fa92c65135823eb69e78d738",
+          "bytes": 1704,
+          "final_snapshot_contains_hash": true,
+          "same_bytes_in_candidates": [
+            {
+              "candidate": "openssl-selfsigned-cert__pT76fts/agent/candidates/candidate-002.json",
+              "eligible": false,
+              "mode": 384
+            }
+          ]
+        },
+        {
+          "arm": "repeat",
+          "task": "openssl-selfsigned-cert",
+          "source": "/app/ssl/server.crt",
+          "sha256": "64b8fcc515ab76ab7b6b98ffcde62efe5396fe9fea9149913404377e8bf20fed",
+          "bytes": 1220,
+          "final_snapshot_contains_hash": true,
+          "same_bytes_in_candidates": [
+            {
+              "candidate": "openssl-selfsigned-cert__pT76fts/agent/candidates/candidate-002.json",
+              "eligible": false,
+              "mode": 420
+            }
+          ]
+        },
+        {
+          "arm": "repeat",
+          "task": "openssl-selfsigned-cert",
+          "source": "/app/ssl/server.pem",
+          "sha256": "b53a9f81ebb803680c99f9147ab9b3c8229137aa11d9469e94f1bebbbf194d25",
+          "bytes": 2924,
+          "final_snapshot_contains_hash": true,
+          "same_bytes_in_candidates": [
+            {
+              "candidate": "openssl-selfsigned-cert__pT76fts/agent/candidates/candidate-002.json",
+              "eligible": false,
+              "mode": 384
+            }
+          ]
+        },
+        {
+          "arm": "repeat",
+          "task": "openssl-selfsigned-cert",
+          "source": "/app/ssl/verification.txt",
+          "sha256": "c8482ecdc68a1a4df9f2f4954964b1500703fd87a997ed8726cfe254514c6c80",
+          "bytes": 307,
+          "final_snapshot_contains_hash": true,
+          "same_bytes_in_candidates": [
+            {
+              "candidate": "openssl-selfsigned-cert__pT76fts/agent/candidates/candidate-002.json",
+              "eligible": false,
+              "mode": 420
+            }
+          ]
+        },
+        {
+          "arm": "repeat",
+          "task": "openssl-selfsigned-cert",
+          "source": "/app/check_cert.py",
+          "sha256": "d026b6bc361ab5697d4a45a58d761e922882aa62ef222106e6cd039237c972ce",
+          "bytes": 2481,
+          "final_snapshot_contains_hash": true,
+          "same_bytes_in_candidates": [
+            {
+              "candidate": "openssl-selfsigned-cert__pT76fts/agent/candidates/candidate-002.json",
+              "eligible": false,
+              "mode": 493
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "repeat",
+      "task": "password-recovery",
+      "benchmark": "terminal",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/password-recovery-C0-r2",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 109.65341545909178,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795633611.070168,
+        "native_session_id": "b88a970b-8c50-4cdb-a774-eb7ef9f00a60",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "69d593db14f3ad02d6178f2f40e1b6f3d418fcd269a8894c535ddd5d14837e79"
+      },
+      "event_counts": {
+        "request": 10,
+        "cli_process_started": 10,
+        "response": 10,
+        "billing_verified": 10
+      },
+      "native_sessions": [
+        "b88a970b-8c50-4cdb-a774-eb7ef9f00a60"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a2141a8b377865b57de7fafdd67be2",
+          0,
+          5319,
+          664
+        ],
+        [
+          2,
+          "01a2141aacae7933813a12806d6deb2c",
+          0,
+          8562,
+          558
+        ],
+        [
+          3,
+          "01a2141ad05a70979a8a8666d4b98bb6",
+          0,
+          12934,
+          849
+        ],
+        [
+          4,
+          "01a2141af3a271adaf4d8f37f9718537",
+          0,
+          13961,
+          635
+        ],
+        [
+          5,
+          "01a2141b114974379c8013e8254220c6",
+          0,
+          21438,
+          2070
+        ],
+        [
+          6,
+          "01a2141b4b0a7b37850affcbf2905d46",
+          0,
+          24714,
+          1279
+        ],
+        [
+          7,
+          "01a2141b763272199b024756f6acd976",
+          0,
+          26599,
+          951
+        ],
+        [
+          8,
+          "01a2141b9ad97c4fb148c886db93beac",
+          0,
+          27728,
+          225
+        ],
+        [
+          9,
+          "01a2141bb1cc7ccf81bc3aade6b8dae1",
+          0,
+          28227,
+          95
+        ],
+        [
+          10,
+          "01a2141bcd0370c4ad0145d683beb0db",
+          0,
+          28655,
+          182
+        ]
+      ],
+      "input_tokens": 198137,
+      "output_tokens": 7508,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "2224cf3066ca88a28c7c2bf2fe1bfc5f3d0b7cc7a145c3a5dba3032563d7bbe1",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-artifact": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "aeaed7ccde128246741678a543504d69c1c38530c734bd4434633b848fb5270c  /app/recovered_passwords.txt\n"
+          }
+        },
+        "elapsed_seconds": 90.04188754106872
+      },
+      "controller_event_counts": {
+        "candidate_operation": 5,
+        "candidate_saved": 1,
+        "verification": 1,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "2224cf3066ca88a28c7c2bf2fe1bfc5f3d0b7cc7a145c3a5dba3032563d7bbe1",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "2224cf3066ca88a28c7c2bf2fe1bfc5f3d0b7cc7a145c3a5dba3032563d7bbe1",
+          "eligible": false
+        }
+      ],
+      "native_capture": {
+        "registered": true,
+        "artifacts": [
+          {
+            "source": "/app/recovered_passwords.txt",
+            "status": "ok",
+            "type": "file",
+            "path": "password-recovery__zd467Rt/artifacts/app/recovered_passwords.txt",
+            "sha256": "aeaed7ccde128246741678a543504d69c1c38530c734bd4434633b848fb5270c",
+            "bytes": 24,
+            "sha_present_in_final_public_snapshot": true
+          }
+        ],
+        "model_requests_by_capture": 0
+      },
+      "patch_paths": [],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "terminal",
+        "reward": 1,
+        "exception_info": null,
+        "inner_verifier_result": {
+          "rewards": {
+            "reward": 1
+          }
+        },
+        "stdout_summary_lines": [
+          "============================= test session starts ==============================",
+          "==================================== PASSES ====================================",
+          "=========================== short test summary info ============================",
+          "PASSED ../tests/test_outputs.py::test_recovery_file_exists",
+          "PASSED ../tests/test_outputs.py::test_password_match",
+          "============================== 2 passed in 0.09s ==============================="
+        ]
+      },
+      "tools_count": 8,
+      "nonzero_tools": [
+        3
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 8,
+        "save": 1,
+        "verify": 1
+      },
+      "tool_screen_flags": [],
+      "source_sha256": {
+        "result.json": "3f46ee84f37ff26c2e3e54116de7ae9af6abadbe23a3b8d6d44d27c4202b408f",
+        "trial.json": "3621357be07bde26161a91d8db0677be0ece7630ed1ca289b87e72938a467673",
+        "password-recovery__zd467Rt/agent/model.jsonl": "026a5f3801d7d0bbbba3bcd50b39e72cfa0d1ed3fdac283c1c6ca67fb7209935",
+        "password-recovery__zd467Rt/agent/controller.jsonl": "73827880bb1c1f494be5eafcf65e82734835796ca63ff0e2ad58ffcfddacba0a",
+        "password-recovery__zd467Rt/agent/final-verification.json": "690474ad62648ca84fb551023b6803bc60bc837583364cca41be5e56d74f60d1",
+        "password-recovery__zd467Rt/agent/candidates/candidate-001.json": "6a9e652f3231c243ccc1ab504e62e73ede0f33ba7c9d07f2157cb9782e7dc2f1",
+        "artifact-capture.json": "04d005049585c263721a5795929839a05e0b00a8778ad07ae9e88707a3edef30",
+        "artifact-capture-config.json": "728649b94c2c2bf2870325edfcaa8506ee7b3504803d099a6bec9510bf97c1e0",
+        "password-recovery__zd467Rt/artifacts/manifest.json": "be61ce082bf770beacae7ba64b076446583c8df91faf753669ec7da9f9dc2e25",
+        "password-recovery__zd467Rt/artifacts/app/recovered_passwords.txt": "aeaed7ccde128246741678a543504d69c1c38530c734bd4434633b848fb5270c",
+        "password-recovery__zd467Rt/result.json": "0b923fa01f04647e3c7d1052d52dc0358bbddc6621a6b38052ad12a50fd1d03f",
+        "password-recovery__zd467Rt/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "password-recovery__zd467Rt/verifier/test-stdout.txt": "61fc8fd8fec3a8e89748df080af0ea83ad60d791648317e18bb481d3348dcb02",
+        "password-recovery__zd467Rt/agent/tools.jsonl": "5e3fc57cf1b3abbe2e1997d34a6a7b6a2fd263f8ef34867ca443bbbae591e76a",
+        "password-recovery/instruction.md": "bc4f501148805bbccdb94a5c5b745f1ce9564f04ef0fe36bc37c3ca20b7810a5"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures, per-request own-use receipts, controller events, all tool command structures, complete final patches and meaningful test/error output were read; representative production code and critical output were read in full. Model reasoning was not read word-for-word.",
+      "protocol_sha256": "4bee912306fbab0db23cea9a5a2b9b6af7953aea361023bfb301c2d45f014627",
+      "control_applicability": "C0: actual final verification retained, including protected failure",
+      "native_artifact_byte_links": [
+        {
+          "arm": "repeat",
+          "task": "password-recovery",
+          "source": "/app/recovered_passwords.txt",
+          "sha256": "aeaed7ccde128246741678a543504d69c1c38530c734bd4434633b848fb5270c",
+          "bytes": 24,
+          "final_snapshot_contains_hash": true,
+          "same_bytes_in_candidates": [
+            {
+              "candidate": "password-recovery__zd467Rt/agent/candidates/candidate-001.json",
+              "eligible": false,
+              "mode": 438
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "arm": "repeat",
+      "task": "pydata__xarray-7393",
+      "benchmark": "swe",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-7393-C0-r2",
+      "revision_scope": null,
+      "passed": true,
+      "qualified_passed": true,
+      "wall_seconds": 1196.4401415419998,
+      "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+      "protocol_configuration": "C0",
+      "input_protocol_issues": [],
+      "first_request": {
+        "time": 1795633796.7476969,
+        "native_session_id": "12342861-30d9-47e7-b29b-089b6864bb95",
+        "history_count": 1,
+        "history_roles": [
+          "user"
+        ],
+        "initial_history_sha256": "13451e63c0fe21123850a52f7113cabef53f62516f20fab32f3142356547dd55"
+      },
+      "event_counts": {
+        "request": 37,
+        "cli_process_started": 37,
+        "response": 37,
+        "billing_verified": 37
+      },
+      "native_sessions": [
+        "12342861-30d9-47e7-b29b-089b6864bb95"
+      ],
+      "receipt_columns": [
+        "request_id",
+        "native_message_id",
+        "own_credit",
+        "input_tokens",
+        "output_tokens"
+      ],
+      "receipts": [
+        [
+          1,
+          "01a2141d60b37ab1aeb9b8664ede00dc",
+          0,
+          6089,
+          162
+        ],
+        [
+          2,
+          "01a2141d76197fe3ad1013f6b33cec2b",
+          0,
+          7105,
+          271
+        ],
+        [
+          3,
+          "01a2141d8bf2745c860996478ce14a16",
+          0,
+          7621,
+          247
+        ],
+        [
+          4,
+          "01a2141da1647c328bcc29dce4a8d35a",
+          0,
+          8227,
+          281
+        ],
+        [
+          5,
+          "01a2141dbd547fc084478e91c4f2f7d9",
+          0,
+          11334,
+          349
+        ],
+        [
+          6,
+          "01a2141ddf117b66b1bd90b02a26770a",
+          0,
+          14624,
+          312
+        ],
+        [
+          7,
+          "01a2141e08837f7781a6bc59bcac054b",
+          0,
+          18092,
+          466
+        ],
+        [
+          8,
+          "01a2141e3f017f8a9db3a5e27c70cbfb",
+          0,
+          22165,
+          1020
+        ],
+        [
+          9,
+          "01a2141e875c78d9b9d7083b75187e61",
+          0,
+          24337,
+          1363
+        ],
+        [
+          10,
+          "01a2141ec8117caf8a6ff575d934648f",
+          0,
+          29874,
+          440
+        ],
+        [
+          11,
+          "01a2141ef13b7beab57a0bd19d34f618",
+          0,
+          31374,
+          1034
+        ],
+        [
+          12,
+          "01a2141f2eb47448ab5e8898d276c280",
+          0,
+          32829,
+          119
+        ],
+        [
+          13,
+          "01a2141f5506725491f0adc88a4139ee",
+          0,
+          33218,
+          78
+        ],
+        [
+          14,
+          "01a2141f7c6c7def83401cf050231802",
+          0,
+          33728,
+          302
+        ],
+        [
+          15,
+          "01a2141fb61275e58566f6c2003365d0",
+          0,
+          34440,
+          1728
+        ],
+        [
+          16,
+          "01a2141feb347be1b54481777f2b7233",
+          0,
+          36475,
+          1101
+        ],
+        [
+          17,
+          "01a2142016397ab09876dc496654e032",
+          0,
+          38100,
+          1268
+        ],
+        [
+          18,
+          "01a21420412977e49fe2af4fffed8087",
+          0,
+          39681,
+          1082
+        ],
+        [
+          19,
+          "01a214206c4873069d399a46659ca9a2",
+          0,
+          41057,
+          354
+        ],
+        [
+          20,
+          "01a214225c3a71bf94004dd7d659f671",
+          0,
+          43757,
+          328
+        ],
+        [
+          21,
+          "01a21422766b7560a47a2d54604e9b5d",
+          0,
+          44374,
+          186
+        ],
+        [
+          22,
+          "01a214231e0a7b569b02ae888d1f1545",
+          0,
+          45704,
+          590
+        ],
+        [
+          23,
+          "01a214234fa67d1daffc3a0930335c57",
+          0,
+          46990,
+          297
+        ],
+        [
+          24,
+          "01a21423775f7c6b96eb3029dce4078c",
+          0,
+          47651,
+          178
+        ],
+        [
+          25,
+          "01a21424102b79559f2ed8bcf7f779f2",
+          0,
+          48645,
+          645
+        ],
+        [
+          26,
+          "01a21425eab3727dbdb8dd65dff42744",
+          0,
+          49698,
+          311
+        ],
+        [
+          27,
+          "01a2142630587684baa38dfa761c8fd4",
+          0,
+          50271,
+          223
+        ],
+        [
+          28,
+          "01a214281df17aa6a095a54565820d02",
+          0,
+          50589,
+          196
+        ],
+        [
+          29,
+          "01a21428b5c47bddb5eb99aa5941c4d9",
+          0,
+          51308,
+          107
+        ],
+        [
+          30,
+          "01a21429d5127b32a1cf9b4efafddaef",
+          0,
+          52385,
+          231
+        ],
+        [
+          31,
+          "01a21429ff9071aea2bf2ce79d2faa34",
+          0,
+          53207,
+          185
+        ],
+        [
+          32,
+          "01a2142bec3572e28debe3bfd533ecfe",
+          0,
+          53487,
+          182
+        ],
+        [
+          33,
+          "01a2142d7ad67c51a974473176170a3c",
+          0,
+          54139,
+          192
+        ],
+        [
+          34,
+          "01a2142e97e974c0be0050769ff715fb",
+          0,
+          54961,
+          950
+        ],
+        [
+          35,
+          "01a2142ec23d7485b15b9da444061ca9",
+          0,
+          56205,
+          101
+        ],
+        [
+          36,
+          "01a2142ee1b57ba5bf99c61d02164cc3",
+          0,
+          56735,
+          107
+        ],
+        [
+          37,
+          "01a2142ef8f2785c844222e13a4a579d",
+          0,
+          57160,
+          95
+        ]
+      ],
+      "input_tokens": 1387636,
+      "output_tokens": 17081,
+      "final_control": {
+        "reason": "submission",
+        "artifact_digest": "6db4d568560a045a654bbdf1c8afe911d224d272e73858603f73eb47307ebaec",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": true,
+        "evidence": {
+          "public-issue": {
+            "state": "passed",
+            "returncode": 0,
+            "snapshot": "2be048a5c6672dfd00c021ce13c40fd32017931c87d2df511c08fd6d5394abeb  xarray/core/indexes.py\n"
+          }
+        },
+        "elapsed_seconds": 1160.329658749979
+      },
+      "controller_event_counts": {
+        "candidate_operation": 9,
+        "candidate_saved": 2,
+        "verification": 2,
+        "final_artifact": 1
+      },
+      "candidate_records": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "6db4d568560a045a654bbdf1c8afe911d224d272e73858603f73eb47307ebaec",
+          "eligible": true
+        },
+        {
+          "candidate_id": "candidate-001",
+          "artifact_digest": "47408cccffa110e62c574b6a7671dc5a2543782bb412ab7217fcca89d98c1ef3",
+          "eligible": false
+        }
+      ],
+      "matching_final_candidates": [
+        {
+          "candidate_id": "candidate-002",
+          "artifact_digest": "6db4d568560a045a654bbdf1c8afe911d224d272e73858603f73eb47307ebaec",
+          "eligible": true
+        }
+      ],
+      "native_capture": null,
+      "patch_paths": [
+        "xarray/core/indexing.py"
+      ],
+      "protected_test_patch_paths": [],
+      "original_grade": {
+        "kind": "swe",
+        "resolved": true,
+        "infra_failure": false,
+        "patch_successfully_applied": true,
+        "target_test_counts": {
+          "FAIL_TO_PASS": {
+            "success": 2,
+            "failure": 0
+          },
+          "PASS_TO_PASS": {
+            "success": 71,
+            "failure": 0
+          },
+          "FAIL_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          },
+          "PASS_TO_FAIL": {
+            "success": 0,
+            "failure": 0
+          }
+        },
+        "grader_patch_matches": true,
+        "stdout_summary_lines": [
+          "PASSED xarray/tests/test_indexes.py::TestIndexes::test_copy_indexes[pd_index]",
+          "PASSED xarray/tests/test_indexes.py::TestIndexes::test_copy_indexes[xr_index]",
+          "PASSED xarray/tests/test_indexes.py::test_safe_cast_to_index",
+          "PASSED xarray/tests/test_indexes.py::test_safe_cast_to_index_cftimeindex",
+          "PASSED xarray/tests/test_indexes.py::test_safe_cast_to_index_datetime_datetime",
+          "PASSED xarray/tests/test_indexes.py::test_restore_dtype_on_multiindexes[int32]",
+          "PASSED xarray/tests/test_indexes.py::test_restore_dtype_on_multiindexes[float32]",
+          "============================== 73 passed in 1.12s =============================="
+        ]
+      },
+      "tools_count": 33,
+      "nonzero_tools": [
+        2,
+        7,
+        13,
+        14,
+        15,
+        17,
+        25,
+        29
+      ],
+      "sdk_event_counts": {},
+      "proposed_structured_actions": {
+        "bash": 33,
+        "save": 2,
+        "verify": 2
+      },
+      "tool_screen_flags": [
+        {
+          "tool": 9,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python - <<'PY'\nimport numpy as np, pandas as pd\narr = np.array([0, 1, 2], dtype='i4')\nfor label, obj in [('array', arr), ('index', pd.Index(arr))]:\n    codes, uniques = pd.factorize(obj, sort=False)\n    print(label, 'codes', codes.dtype, 'uniques', repr(uniques), getattr(uniques, 'dtype', None))\n    mi1 = pd.MultiIndex([pd.Index(uniques)], [codes], ",
+          "command_sha256": "747a748b100f3c90944a8296d6e18a311c5f3b098541577acffde4327964d0eb"
+        },
+        {
+          "tool": 12,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest -q xarray/tests/test_indexes.py xarray/tests/test_indexing.py xarray/tests/test_dataset.py xarray/tests/test_dataarray.py -k 'index or stack or unstack or dtype'",
+          "command_sha256": "302ceb7b3b2e3c0372e9da42a94dc6fadae850d5b818cafa463b36b38b4283b2"
+        },
+        {
+          "tool": 20,
+          "command_prefix": "cd /testbed && cp xarray/core/indexing.py /tmp/indexing_patched.py && git checkout -- xarray/core/indexing.py && /opt/miniconda3/envs/testbed/bin/python -m pytest -q 'xarray/tests/test_backends.py::TestH5NetCDFData::test_complex_error' 2>&1 | tail -25; cp /tmp/indexing_patched.py xarray/core/indexing.py && echo '--- restored diff' && git diff --stat && git diff -- xarray/core/indexing.py | tail -2",
+          "command_sha256": "8fed6987492a9c7ee08f4c02299c7e57456919f2dfae3b21102594e447cb0022"
+        },
+        {
+          "tool": 21,
+          "command_prefix": "cd /testbed && ls xarray/tests/test_*.py | sed 's#.*/##' | tr '\\n' ' ' && echo && /opt/miniconda3/envs/testbed/bin/python -m pytest -q xarray/tests/test_indexes.py xarray/tests/test_indexing.py xarray/tests/test_variable.py xarray/tests/test_dataset.py xarray/tests/test_dataarray.py xarray/tests/test_merge.py xarray/tests/test_combine.py xarray/tests/test_concat.py xarray/tests/test_reshaping.py 2",
+          "command_sha256": "18e08e9c694dedfc87ad6d3b54a2de3499df515c443324c106bb1d665a6a8c6a"
+        },
+        {
+          "tool": 22,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest -q xarray/tests/test_indexes.py xarray/tests/test_indexing.py xarray/tests/test_variable.py xarray/tests/test_dataset.py xarray/tests/test_dataarray.py xarray/tests/test_merge.py xarray/tests/test_combine.py xarray/tests/test_concat.py 2>&1 | tail -30",
+          "command_sha256": "e026edd613de81efb8f61c62b0e2d90c590c2cf102644eeef58326e5d3978449"
+        },
+        {
+          "tool": 23,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest -q xarray/tests/test_accessor_dt.py xarray/tests/test_accessor_str.py xarray/tests/test_array_api.py xarray/tests/test_backends_api.py xarray/tests/test_backends_common.py xarray/tests/test_backends_file_manager.py xarray/tests/test_backends_locks.py xarray/tests/test_backends_lru_cache.py xarray/tests/test_calendar_ops.py xarray/tes",
+          "command_sha256": "3b816f8493e5ce19ca8cebd8cbee067930c6c2d1b186f8241716c7464f168b6d"
+        },
+        {
+          "tool": 24,
+          "command_prefix": "cd /testbed && cp xarray/core/indexing.py /tmp/indexing_patched.py && git checkout -- xarray/core/indexing.py && /opt/miniconda3/envs/testbed/bin/python -m pytest -q 'xarray/tests/test_dask.py::TestDataArrayAndDataset::test_groupby' 2>&1 | tail -12; cp /tmp/indexing_patched.py xarray/core/indexing.py && echo '--- restored diff stat' && git diff --stat",
+          "command_sha256": "b263c11500749c63d0a1630545aa20e00527a2c804e0942825ca6972777a5d41"
+        },
+        {
+          "tool": 25,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest -q xarray/tests/test_groupby.py xarray/tests/test_interp.py xarray/tests/test_missing.py xarray/tests/test_nputils.py xarray/tests/test_options.py xarray/tests/test_plot.py xarray/tests/test_plugins.py xarray/tests/test_print_versions.py xarray/tests/test_rolling.py xarray/tests/test_sparse.py xarray/tests/test_testing.py xarray/test",
+          "command_sha256": "82c9344b204f33303362581973880ec26c60cc27a8dc3c79855044d3abf24d3e"
+        },
+        {
+          "tool": 26,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest -q xarray/tests/test_groupby.py xarray/tests/test_interp.py xarray/tests/test_missing.py xarray/tests/test_nputils.py xarray/tests/test_options.py 2>&1 | tail -25",
+          "command_sha256": "90b9b1bdefa8e297d5688840ded372492af66d316cd864d7ffe6ac95ab2ac0f3"
+        },
+        {
+          "tool": 27,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest -q xarray/tests/test_plot.py 2>&1 | tail -20",
+          "command_sha256": "65d4f1aee83a7fdfdd25c5625aae6a2d1fab6391e110ef89953f3a184862bec7"
+        },
+        {
+          "tool": 28,
+          "command_prefix": "cd /testbed && cp xarray/core/indexing.py /tmp/indexing_patched.py && git checkout -- xarray/core/indexing.py && /opt/miniconda3/envs/testbed/bin/python -m pytest -q xarray/tests/test_plot.py -k 'test2d_nonuniform_calls_contourf or test_contourf_called' 2>&1 | tail -8; cp /tmp/indexing_patched.py xarray/core/indexing.py && echo '--- restored diff stat' && git diff --stat",
+          "command_sha256": "40375a96a06a80a9e9c7ebeee60d171190ee452a7487390364c79fa0eb43dde4"
+        },
+        {
+          "tool": 29,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest -q xarray/tests/test_plugins.py xarray/tests/test_print_versions.py xarray/tests/test_rolling.py xarray/tests/test_sparse.py xarray/tests/test_testing.py xarray/tests/test_tutorial.py xarray/tests/test_ufuncs.py xarray/tests/test_units.py xarray/tests/test_utils.py xarray/tests/test_weighted.py 2>&1 | tail -25",
+          "command_sha256": "d0765aab8143d36a352635db2dc003867c0f9283475eb5e6e85a27a544d3d717"
+        },
+        {
+          "tool": 30,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest -q xarray/tests/test_plugins.py xarray/tests/test_print_versions.py xarray/tests/test_rolling.py xarray/tests/test_sparse.py xarray/tests/test_testing.py xarray/tests/test_tutorial.py xarray/tests/test_ufuncs.py 2>&1 | tail -20",
+          "command_sha256": "d4dd9491a83fc211c3a2c2c84ae8c07ca8c0eaa87c0ac1ca6f69483438b6ed0a"
+        },
+        {
+          "tool": 31,
+          "command_prefix": "cd /testbed && /opt/miniconda3/envs/testbed/bin/python -m pytest -q xarray/tests/test_units.py xarray/tests/test_utils.py xarray/tests/test_weighted.py 2>&1 | tail -20",
+          "command_sha256": "1c6f3c5a050f8833fe05836b8deb094d0303d232262b8f5db25174094af2cc14"
+        }
+      ],
+      "source_sha256": {
+        "result.json": "ba310a09ac2805802576e1a281978f4b63fb21bd31b171506df4919610c2dec0",
+        "trial.json": "350aba317917053bb98e5683c4bcba162070e9f87d6e094a70d861b2df7e2453",
+        "model.jsonl": "ea7277446c6db914fe340d91ceabfaadff15c7ac53793d5094bfeb00a517b4d3",
+        "controller.jsonl": "079afa637ba843a99c9a9b2540b19924442cc855de0c0cc02008ac967b7ca931",
+        "final-verification.json": "194f82266ce7ef92a529f12cd22ae2f3ebd9880d1e7e1d371e4741943f2318ca",
+        "candidates/candidate-002.json": "7edcfded4b394158f91919c87b8b49217c4fadcae0cc7daffba689904331948d",
+        "candidates/candidate-001.json": "acac09ade5e7c5f356b4db84b7d62ebdc625027229c0858dae1925d3ff96857b",
+        "candidate.patch": "512c25be4b3f8a9ba6632b134be63332c318594322de49045a61127465296b9e",
+        "swe-official/pydata__xarray-7393-C0-r2/course-mini-swe-agent/pydata__xarray-7393/patch.diff": "512c25be4b3f8a9ba6632b134be63332c318594322de49045a61127465296b9e",
+        "swe-official/pydata__xarray-7393-C0-r2/course-mini-swe-agent/pydata__xarray-7393/report.json": "46272ad8d3cccdfb2ae7477d1ed417ed966f33a95743f190d1aec531dad890bb",
+        "swe-official/pydata__xarray-7393-C0-r2/course-mini-swe-agent/pydata__xarray-7393/test_output.txt": "da296f5c62f58b1cb53abde2b8e4e60690afcc480bdbdb08a4f3590fa6f00aef",
+        "swe-official/pydata__xarray-7393-C0-r2/course-mini-swe-agent/pydata__xarray-7393/run_instance.log": "01b7284632d4046aded85d647522a307dcbd486a9b67dbfb22d72f9eb1a1c8c0",
+        "swe-official/pydata__xarray-7393-C0-r2/course-mini-swe-agent/pydata__xarray-7393/eval.sh": "5009bae3fb5ca665d194cc5c3a6ffb2aed9b3962837240a68a66c0d0c9463e4b",
+        "tools.jsonl": "96e6f61754f628c61bdcbc823e877bf0bd7bcbf57869885a2d03e7b0717c2f25"
+      },
+      "prior_review_current_source_comparison": null,
+      "read_depth": "All model-event structures, per-request own-use receipts, controller events, all tool command structures, complete final patches and meaningful test/error output were read; representative production code and critical output were read in full. Model reasoning was not read word-for-word.",
+      "protocol_sha256": "f4a1339724d1c6d6ec1fe94e441153e356f2b936f4cba6ce4fb97fdb532ce5d3",
+      "control_applicability": "C0: actual final verification retained, including protected failure",
+      "native_artifact_byte_links": []
+    }
+  ],
+  "shared_source_sha256": {
+    "work/parallel-free-evaluation-20261124/hy4-snapshot-0338-20261126/summary.json": "7f5ded18b162dca0a0ff355baef5871a5ac4aa17c1dcd43d7e8df69c0cc3e1d4",
+    "work/parallel-free-evaluation-20261124/independent-closed177-review-20261126.json": "cb1dfd62c93b21771f35ed4ab527668e18d575593ea17fdfe90d5a7f8ce88df1",
+    "work/parallel-free-evaluation-20261124/independent-core-after177-incremental-20261126.json": "95581af5dbbd37b11bc24a0c9a0b1b989fe80b2ba4d346c6d38e1efc03add715",
+    "work/sklearn-25232-semantics-20261126/completed-review.json": "ee70b77ba884f073c2400cb20ce20999befe266a4e7db16b02e81461728fb36a",
+    "work/xarray-4695-preservation-20261126/root-cause-review.json": "dd9f04e51e257428d1d79271825fdc5b92ca01424533edf0462c0f1ee8fd0976",
+    "work/free-recovery35-20261126/accepted-unknown35.json": "a9ba318f97f32a6c2326c3f1488abfa93326d72b324e6105a8589f81902f22ca",
+    "work/free-recovery35-20261126/hy4-plans/main-plan.json": "ac01bbdef1ef007b5f959d7b6673cfe033d47aad14729979465722015bcbdcba",
+    "work/free-recovery35-20261126/hy4-plans/repeat-plan.json": "b430c029ac373ab5ae1cd83bdc195353dd24cdeff1341f3f347eeac77e29d32a",
+    "work/free-recovery35-20261126/hy4-plans/tasks.json": "756f111c06a2d757c3034dd6134abbefa454d5371e5153e6afcaabd1bd3a8be2",
+    "work/vmshare/performance75-dsh-hy4-v10/tasks.json": "500e27356f70e58dfe394828e698c43cce331a0a7aa8bb8bc4f4effd8ce4a13c",
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/codebuddy_free.py": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+    "work/vmshare/performance75-dsh-hy4-v10/multi-source-data-merger-B0-r1.protocol.json": "6d391f243ca33db2a3f5ed5056ee9542395f28221280af8a2089ddd9fe92e29c",
+    "work/vmshare/performance75-dsh-hy4-v10/pydata__xarray-4695-B0-r1.protocol.json": "6ffdd1b6345a777def81a0bbd9cc6fcb190bb319d7a03fb24983601506c88ae0",
+    "work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1.protocol.json": "a0c71ddb33f34ee775600eac224f6168b7ef63d77982e0311a746c56abd02c7e",
+    "work/vmshare/performance75-dsh-hy4-v10/password-recovery-B0-r1.protocol.json": "7d4d5567a88ab6c16f6186866f36e0d6e3fbe39a7bdd6029529271efe5444419",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/modernize-scientific-stack-C0-r1.protocol.json": "9b4e819216c65789bff3deec150c389754de364b7ee5218914da80aca6409e68",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/multi-source-data-merger-C0-r1.protocol.json": "a06a2dd7e42efc3fdccacc514ff6f8cd4a34cffc0595e55be32ef55d4061fd48",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/pydata__xarray-4695-C0-r1.protocol.json": "47b0b0b12a7e78394477bc696b552543495dab4a17110429b28f26dc1899a1e0",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1.protocol.json": "45853ec9c5e8173c25aaf503539ac18880346d443ba104d6cd2a604d356b9327",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/modernize-scientific-stack-C0-r2.protocol.json": "9b4e819216c65789bff3deec150c389754de364b7ee5218914da80aca6409e68",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/multi-source-data-merger-C0-r2.protocol.json": "a06a2dd7e42efc3fdccacc514ff6f8cd4a34cffc0595e55be32ef55d4061fd48",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-4695-C0-r2.protocol.json": "47b0b0b12a7e78394477bc696b552543495dab4a17110429b28f26dc1899a1e0",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2.protocol.json": "45853ec9c5e8173c25aaf503539ac18880346d443ba104d6cd2a604d356b9327",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/resolved-inputs/password-recovery.json": "17e2828a1d5f4926a391c7c58ffe4ea7d460634d51173f4b7f76b46429e12340",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/password-recovery-C0-r2.protocol.json": "4bee912306fbab0db23cea9a5a2b9b6af7953aea361023bfb301c2d45f014627",
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/pydata__xarray-7393-C0-r2.protocol.json": "f4a1339724d1c6d6ec1fe94e441153e356f2b936f4cba6ce4fb97fdb532ce5d3"
+  }
+}
