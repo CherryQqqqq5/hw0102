@@ -1,0 +1,29 @@
+{
+  "source_sha256": {
+    "work/render_hy4_final_reports.py": "264fba250190867a999c6a7f36c3bac3fba9e9a76fc0aa829f9b038721bf603b",
+    "work/parallel-free-evaluation-20261124/prepare_report_data.py": "2aee4a2ab4381a0abbaf9c0a115ee7755d007befab451839cce8cc468c070ca2",
+    "work/mujoco-performance-case-20261126/renderer-before-cumulative-cost.py.txt": "359a7d2363a31c62fd62ab40e529b324763998bd014b9d3a93e7c4a7be92e79d",
+    "work/mujoco-performance-case-20261126/cost-display-data.json": "bdf27ffcf2071fccde897458000f292a03bdad9ac3956cf01a00cf10f11cee6e",
+    "work/mujoco-performance-case-20261126/preview-cost-and-physics.pdf": "88d2a0469ea25f8aa8158630ec4155bed91b02270072f1b870bd85cccc514894",
+    "work/mujoco-performance-case-20261126/preview-cost-and-physics-page-1.png": "5981d040a9e7ec96b549fbdd8eab87a04acee84bd7e7696084f14f8aa353003b",
+    "work/mujoco-performance-case-20261126/preview-cost-and-physics-page-2.png": "e21df2e173072ffa0c4f2976d23724372247109b871c766e3ad51952029773ec"
+  },
+  "scope": "Existing summed_wall_seconds displayed with matched-group and repeat denominators; cumulative scored-attempt time is distinct from parallel job elapsed time and simulated-program timing.",
+  "source_summary": "work/parallel-free-evaluation-20261124/joint-through219-20261126/summary.json",
+  "source_summary_sha256": "268f4fc20fafa08d6a26d2eac4dd8fde82ab64025bbb6eaf0d710d705d96105f",
+  "matched_denominator": 72,
+  "actual_totals_seconds": {
+    "matched_main": 17303.348880542326,
+    "matched_dsh": 18086.58228441642,
+    "repeat_all_scored": 16007.306269754074
+  },
+  "actual_preview_pages": 2,
+  "all_pages_visually_inspected": true,
+  "visual_result": "Both pages readable; tables and paragraphs not clipped or overlapping",
+  "actual_values_text_checked": true,
+  "formal_style_lint_passed": true,
+  "consumer_unchanged": true,
+  "billing_or_completion_gate_changed": false,
+  "new_model_calls": 0,
+  "formal_PDFs_generated": false
+}

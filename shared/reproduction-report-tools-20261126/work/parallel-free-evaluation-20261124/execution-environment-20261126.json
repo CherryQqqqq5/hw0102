@@ -1,0 +1,45 @@
+{
+  "format": "readonly_local_execution_environment_v1",
+  "observed_utc": "2026-11-25T21:27:20.314759+00:00",
+  "host": {
+    "memory_bytes": 17179869184,
+    "logical_processors": 10,
+    "arm64_supported": true
+  },
+  "linux_vm": {
+    "architecture": "aarch64",
+    "logical_processors": 4,
+    "memory_bytes": 5134319616
+  },
+  "checked_original_task_image": {
+    "task": "tune-mjcf",
+    "architecture": "amd64",
+    "os": "linux",
+    "actual_image_id": "sha256:56c197739db2db79562384581fcc9d3d71e6c171bf052104b1a7ee0282e7c3cf"
+  },
+  "readonly_commands": [
+    {
+      "tool": "docker info",
+      "format": "{{.Architecture}} {{.NCPU}} {{.MemTotal}}",
+      "stdout": "aarch64 4 5134319616"
+    },
+    {
+      "tool": "docker image inspect",
+      "image_id": "sha256:56c197739db2db79562384581fcc9d3d71e6c171bf052104b1a7ee0282e7c3cf",
+      "format": "{{.Architecture}} {{.Os}} {{.Id}}",
+      "stdout": "amd64 linux sha256:56c197739db2db79562384581fcc9d3d71e6c171bf052104b1a7ee0282e7c3cf"
+    },
+    {
+      "tool": "sysctl",
+      "keys": [
+        "hw.memsize",
+        "hw.ncpu",
+        "hw.optional.arm64"
+      ],
+      "stdout": "17179869184\n10\n1"
+    }
+  ],
+  "new_model_calls": 0,
+  "new_grader_calls": 0,
+  "scope": "Actual local hardware/daemon and one task-image observation. Architecture differs; its independent causal effect on speed was not measured. No claim about the architecture of every other image or an external native platform."
+}

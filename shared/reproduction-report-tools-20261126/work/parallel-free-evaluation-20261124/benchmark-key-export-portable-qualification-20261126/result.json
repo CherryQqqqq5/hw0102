@@ -1,0 +1,396 @@
+{
+  "format": "real_openssl_filtered_export_qualification_v1",
+  "new_model_calls": 0,
+  "actual_original_runs": [
+    {
+      "arm": "dsh",
+      "original_and_export_passed": true,
+      "metrics_and_control_identical": true,
+      "source_unchanged": true,
+      "candidate_snapshots_redacted": 0,
+      "redacted_candidate_artifacts": 0,
+      "actual_requests": 2,
+      "redactions": [],
+      "native_capture": {
+        "native_capture_registered": false,
+        "outputs": []
+      }
+    },
+    {
+      "arm": "main",
+      "original_and_export_passed": true,
+      "metrics_and_control_identical": true,
+      "source_unchanged": true,
+      "candidate_snapshots_redacted": 1,
+      "redacted_candidate_artifacts": 2,
+      "actual_requests": 7,
+      "redactions": [
+        {
+          "path": "openssl-selfsigned-cert__Aqci8FH/agent/candidates/candidate-001.json",
+          "format": "benchmark_private_pem_redaction_v1",
+          "original_snapshot_sha256": "784335ea1e567d0f9c06dc9996ceb1b86020712aff5609fd0b62e56f934600e3",
+          "original_snapshot_replayable_from_export": false,
+          "original_artifact_digest": "91247b66e91155a6e4a7d9894f6c094fb839a22f3fb7dd50edee4e244dc65d41",
+          "retained_artifact_digest_describes": "unfiltered_source_only",
+          "files": [
+            {
+              "artifact": "/app/ssl/server.key",
+              "source_sha256": "80d8ffa121bfbb72f67f15b13ac6e3e7bf91f0ccc09c4921d795237a7a13752f",
+              "source_bytes": 1675,
+              "export_sha256": "bf1cf73eee00f819afbb94e1e5e4c5f3281f7676fc74d158dd672d4152bbe3d4",
+              "export_bytes": 33,
+              "byte_identical": false,
+              "replayable": false,
+              "removed_private_pem_blocks": 1
+            },
+            {
+              "artifact": "/app/ssl/server.pem",
+              "source_sha256": "913d9bb43829ad95caa4924ebf509e30f5450e920789d7b4f0ae11c47bcf73e3",
+              "source_bytes": 2895,
+              "export_sha256": "e41f6afcc05501cb52d42d82241c396c7d33ba172cbd8e9d13b5312d568f2bff",
+              "export_bytes": 1253,
+              "byte_identical": false,
+              "replayable": false,
+              "removed_private_pem_blocks": 1
+            }
+          ],
+          "scope": "Original scores, digests, modes, eligibility and verification claims are retained. Only the generated private PEM is omitted; this filtered snapshot cannot restore the original key bytes."
+        }
+      ],
+      "native_capture": {
+        "native_capture_registered": true,
+        "outputs": [
+          {
+            "source": "/app/ssl/server.key",
+            "status": "ok",
+            "path": "openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/server.key",
+            "source_sha256": "80d8ffa121bfbb72f67f15b13ac6e3e7bf91f0ccc09c4921d795237a7a13752f",
+            "export_sha256": "bf1cf73eee00f819afbb94e1e5e4c5f3281f7676fc74d158dd672d4152bbe3d4",
+            "byte_identical": false,
+            "bytes": 1675
+          },
+          {
+            "source": "/app/ssl/server.crt",
+            "status": "ok",
+            "path": "openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/server.crt",
+            "source_sha256": "364cef5c621e8e077ebf8e05b02b372445cb195dbf21b0ec03029b0271509e89",
+            "export_sha256": "364cef5c621e8e077ebf8e05b02b372445cb195dbf21b0ec03029b0271509e89",
+            "byte_identical": true,
+            "bytes": 1220
+          },
+          {
+            "source": "/app/ssl/server.pem",
+            "status": "ok",
+            "path": "openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/server.pem",
+            "source_sha256": "913d9bb43829ad95caa4924ebf509e30f5450e920789d7b4f0ae11c47bcf73e3",
+            "export_sha256": "e41f6afcc05501cb52d42d82241c396c7d33ba172cbd8e9d13b5312d568f2bff",
+            "byte_identical": false,
+            "bytes": 2895
+          },
+          {
+            "source": "/app/ssl/verification.txt",
+            "status": "ok",
+            "path": "openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/verification.txt",
+            "source_sha256": "6f2da7b3f0abbb211c35182aaeb92748c4f0413f20249977f7f02419187f8a73",
+            "export_sha256": "6f2da7b3f0abbb211c35182aaeb92748c4f0413f20249977f7f02419187f8a73",
+            "byte_identical": true,
+            "bytes": 353
+          },
+          {
+            "source": "/app/check_cert.py",
+            "status": "ok",
+            "path": "openssl-selfsigned-cert__Aqci8FH/artifacts/app/check_cert.py",
+            "source_sha256": "a6a224e30a7ab47a6b544dee9158e6e6704fbc1fbbd69a20d5999fbf1f7e7653",
+            "export_sha256": "a6a224e30a7ab47a6b544dee9158e6e6704fbc1fbbd69a20d5999fbf1f7e7653",
+            "byte_identical": true,
+            "bytes": 2375
+          }
+        ]
+      }
+    },
+    {
+      "arm": "repeat",
+      "original_and_export_passed": true,
+      "metrics_and_control_identical": true,
+      "source_unchanged": true,
+      "candidate_snapshots_redacted": 2,
+      "redacted_candidate_artifacts": 4,
+      "actual_requests": 9,
+      "redactions": [
+        {
+          "path": "openssl-selfsigned-cert__pT76fts/agent/candidates/candidate-001.json",
+          "format": "benchmark_private_pem_redaction_v1",
+          "original_snapshot_sha256": "f20f2e965def73c147d15264afb8a1016f98e3a6ad9ae5aaced7032ee74aba33",
+          "original_snapshot_replayable_from_export": false,
+          "original_artifact_digest": "6f6e6b07e291d823c472f0c198a10ce09f223624a95b608243fce048e711db91",
+          "retained_artifact_digest_describes": "unfiltered_source_only",
+          "files": [
+            {
+              "artifact": "/app/ssl/server.key",
+              "source_sha256": "aeb3d475549fb6e4582da38df9229c56f6023b91fa92c65135823eb69e78d738",
+              "source_bytes": 1704,
+              "export_sha256": "bf1cf73eee00f819afbb94e1e5e4c5f3281f7676fc74d158dd672d4152bbe3d4",
+              "export_bytes": 33,
+              "byte_identical": false,
+              "replayable": false,
+              "removed_private_pem_blocks": 1
+            },
+            {
+              "artifact": "/app/ssl/server.pem",
+              "source_sha256": "b53a9f81ebb803680c99f9147ab9b3c8229137aa11d9469e94f1bebbbf194d25",
+              "source_bytes": 2924,
+              "export_sha256": "8390d7129112df0d6041d59eb90cf97275b8b1fada9018db0a09828c3215116b",
+              "export_bytes": 1253,
+              "byte_identical": false,
+              "replayable": false,
+              "removed_private_pem_blocks": 1
+            }
+          ],
+          "scope": "Original scores, digests, modes, eligibility and verification claims are retained. Only the generated private PEM is omitted; this filtered snapshot cannot restore the original key bytes."
+        },
+        {
+          "path": "openssl-selfsigned-cert__pT76fts/agent/candidates/candidate-002.json",
+          "format": "benchmark_private_pem_redaction_v1",
+          "original_snapshot_sha256": "6351281f54138bcf5bf0dfe1aaa94cf48d0918b8d9402b03e13e8861ac1861c7",
+          "original_snapshot_replayable_from_export": false,
+          "original_artifact_digest": "fb82d37044ad863c7b5d5fc3ed95896f62ce6267e368e6be07b0c88abcbd2605",
+          "retained_artifact_digest_describes": "unfiltered_source_only",
+          "files": [
+            {
+              "artifact": "/app/ssl/server.key",
+              "source_sha256": "aeb3d475549fb6e4582da38df9229c56f6023b91fa92c65135823eb69e78d738",
+              "source_bytes": 1704,
+              "export_sha256": "bf1cf73eee00f819afbb94e1e5e4c5f3281f7676fc74d158dd672d4152bbe3d4",
+              "export_bytes": 33,
+              "byte_identical": false,
+              "replayable": false,
+              "removed_private_pem_blocks": 1
+            },
+            {
+              "artifact": "/app/ssl/server.pem",
+              "source_sha256": "b53a9f81ebb803680c99f9147ab9b3c8229137aa11d9469e94f1bebbbf194d25",
+              "source_bytes": 2924,
+              "export_sha256": "8390d7129112df0d6041d59eb90cf97275b8b1fada9018db0a09828c3215116b",
+              "export_bytes": 1253,
+              "byte_identical": false,
+              "replayable": false,
+              "removed_private_pem_blocks": 1
+            }
+          ],
+          "scope": "Original scores, digests, modes, eligibility and verification claims are retained. Only the generated private PEM is omitted; this filtered snapshot cannot restore the original key bytes."
+        }
+      ],
+      "native_capture": {
+        "native_capture_registered": true,
+        "outputs": [
+          {
+            "source": "/app/ssl/server.key",
+            "status": "ok",
+            "path": "openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/server.key",
+            "source_sha256": "aeb3d475549fb6e4582da38df9229c56f6023b91fa92c65135823eb69e78d738",
+            "export_sha256": "bf1cf73eee00f819afbb94e1e5e4c5f3281f7676fc74d158dd672d4152bbe3d4",
+            "byte_identical": false,
+            "bytes": 1704
+          },
+          {
+            "source": "/app/ssl/server.crt",
+            "status": "ok",
+            "path": "openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/server.crt",
+            "source_sha256": "64b8fcc515ab76ab7b6b98ffcde62efe5396fe9fea9149913404377e8bf20fed",
+            "export_sha256": "64b8fcc515ab76ab7b6b98ffcde62efe5396fe9fea9149913404377e8bf20fed",
+            "byte_identical": true,
+            "bytes": 1220
+          },
+          {
+            "source": "/app/ssl/server.pem",
+            "status": "ok",
+            "path": "openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/server.pem",
+            "source_sha256": "b53a9f81ebb803680c99f9147ab9b3c8229137aa11d9469e94f1bebbbf194d25",
+            "export_sha256": "8390d7129112df0d6041d59eb90cf97275b8b1fada9018db0a09828c3215116b",
+            "byte_identical": false,
+            "bytes": 2924
+          },
+          {
+            "source": "/app/ssl/verification.txt",
+            "status": "ok",
+            "path": "openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/verification.txt",
+            "source_sha256": "c8482ecdc68a1a4df9f2f4954964b1500703fd87a997ed8726cfe254514c6c80",
+            "export_sha256": "c8482ecdc68a1a4df9f2f4954964b1500703fd87a997ed8726cfe254514c6c80",
+            "byte_identical": true,
+            "bytes": 307
+          },
+          {
+            "source": "/app/check_cert.py",
+            "status": "ok",
+            "path": "openssl-selfsigned-cert__pT76fts/artifacts/app/check_cert.py",
+            "source_sha256": "d026b6bc361ab5697d4a45a58d761e922882aa62ef222106e6cd039237c972ce",
+            "export_sha256": "d026b6bc361ab5697d4a45a58d761e922882aa62ef222106e6cd039237c972ce",
+            "byte_identical": true,
+            "bytes": 2481
+          }
+        ]
+      }
+    }
+  ],
+  "negative_controls": [
+    {
+      "name": "export_byte_tamper_dsh",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "export_byte_tamper_main",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "export_byte_tamper_repeat",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "wrong_internal_path",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "invalid_base64",
+      "rejected": true,
+      "error_type": "Error"
+    },
+    {
+      "name": "incomplete_private_pem",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "unrelated_secret_after_pem",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "unrelated_home_after_pem",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "unreviewed_run",
+      "rejected": true,
+      "error_type": "ValueError"
+    }
+  ],
+  "original_sources_sha256": {
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/result.json": "a8f6b65e36ff00c230e40ab53c2b6f196527a8104b30cc8fc517415cca6f6cb4",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/harbor.stdout": "5910c21147750ac5ca97d9ef014b469d71b6fd2535cf4663c846bd649ab77949",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/harbor.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/trial.json": "240ac6b3914e7183c5618c20525403758de9075fe5348c29c2e30734975aa5c1",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/dsh-runtime-compose.json": "d050f99b9d30151981c225c6450c52f64b8beda5e8edaad6b4bc4ddde5a12764",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert/instruction.md": "38054a3371f7c2c853478a2f9af0bff858437d5b28a9a07483238f06e566921f",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert/README.md": "5dfa88651890cda06fa2a25babd3b813818767635e88bbabecc8305d5bb3942f",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert/.gitignore": "9a8dd8d9b6c3adb8e9e56328df27deef859a3e98fffc9b8133c8b22207c25953",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert/task.toml": "75c8913f0fa15890786c11999cde920b8bfc10d4ce8a14edf1e76985a2ac5800",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__DHzQyN2/lock.json": "926720cb9c01f1c5cd4b6655b696cd4e36d2bf2437cc07d7446aab0f52184318",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__DHzQyN2/result.json": "941f78e60f55f7778e2fd88c20a62005105e047a073fc9b6911f521216032d00",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__DHzQyN2/config.json": "aa655bb783d1565da8e276fe4a0b8a213cdbb1f155a7d2eb33aed05ea1277c72",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__DHzQyN2/trial.log": "5868e519b78e4f2f267470e411fb5e62ab85729eb3642ffbddd64e569930f993",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__DHzQyN2/artifacts/manifest.json": "a2d6f66d545a09b9110b4ed84222030b77da51bde34a61ce9b0ca18e4d51586f",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__DHzQyN2/agent/dsh-responses.jsonl": "cb3e4c74e374622ca6edb99855febdf6bf8876656b5b7c3e1648539f268e9715",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__DHzQyN2/agent/model.jsonl": "b9f48653ad716f55617dfe6bba9f62dee2506aa91a9b997af9d107f95fdf4f4e",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__DHzQyN2/agent/instruction.txt": "38054a3371f7c2c853478a2f9af0bff858437d5b28a9a07483238f06e566921f",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__DHzQyN2/agent/execution-budget.json": "ed5dde24c7b85ae9c0586e139a034ab7e3c7c57410cd5c1b31d1dba5f8b52e7b",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__DHzQyN2/verifier/test-stdout.txt": "d0a6701481eca6ec630a2072efa417ad1d3f731f2866e9a8189d39dcc458c1f6",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__DHzQyN2/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__DHzQyN2/verifier/ctrf.json": "79cf9d4d5c35ed08bbff81117df1cc40591cc91cd2cc89646b4806acff99f0c1",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__DHzQyN2/agent/dsh/dsh-stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__DHzQyN2/agent/dsh/dsh-input.json": "337a7d2ee88b10ab879b03304f83b23f62a4affc0f9b0c12389d6dc8a014ba42",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__DHzQyN2/agent/dsh/dsh-transport.jsonl": "e77699574731638ad1649bd01fee447406f47550cbe38f77e9c00a168c851e06",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__DHzQyN2/agent/dsh/dsh-home/free-provider.patch.json": "be505d58a94db9a50e83399377cda26380f43ab50efdfb4e600f1065186badff",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__DHzQyN2/agent/dsh/dsh-home/sessions/--app--/course-task/session.v4.jsonl": "b59801c922bb8d99dc3520958d198c48f661f6b53d568d02b904160516955ff3",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__DHzQyN2/agent/dsh/dsh-home/sessions/--app--/course-task/session.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert/tests/_deps.tar.gz": "935e01e202b721985701ed39352f5c239c13f886bd51ac22ad8a42636d990522",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert/tests/test_outputs.py": "90970bb3c372e8e7fb6bb9ac5f649ba73eb38e1a5ea2e922a9057a72b6b4192d",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert/tests/test.sh": "cf80cd0ff7873e16d4b133bc7977d90d0c61ab26730018eb6e112b1c3e68d152",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert/tests/_python.tar.gz": "ad178e36a84de3f845885d0ace5ca6f87fa9502d1f0cf53ba3dd42194277d42e",
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert/environment/Dockerfile": "f590b523038be43afcaf5291d7b9e8ed1333c48d9994e77b8dee2f2c352f0f40",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/result.json": "4dc09a4c5315c7de2b84b6c37c10718a670082b5d616ab7339534b141561feb1",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/artifact-capture.json": "c67898441d573a05e42eea18c46aaa808b7e204e6ce3dc305d6d0f8ae4d65c93",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/harbor.stdout": "316a03489186435eb6b89d1b026bac6d2c3edf42a13ff9fafc8f137f5572d781",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/harbor.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/trial.json": "73a2cd0eb231814873b1e74121db93199a20b6f358bc96ad485679a1458344ab",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/artifact-capture-config.json": "8ce0432cc3c4edd1fcb2ee807000b21f5247e28b808d2da98ebeed237d8f1018",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/lock.json": "94f0e16cfb127744c816da0cef9343365956e62c489c07af055df64e64e0aee6",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/result.json": "42be06e9248195ada38b495c21fd8ca56623f9fec37a59ab93b2479d5c61035d",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/config.json": "ddc230d883cfeb9f0912f4edb3dc75653fdec62a6299fdc8e2c9644f81634842",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/trial.log": "5868e519b78e4f2f267470e411fb5e62ab85729eb3642ffbddd64e569930f993",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert/instruction.md": "38054a3371f7c2c853478a2f9af0bff858437d5b28a9a07483238f06e566921f",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert/README.md": "5dfa88651890cda06fa2a25babd3b813818767635e88bbabecc8305d5bb3942f",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert/.gitignore": "9a8dd8d9b6c3adb8e9e56328df27deef859a3e98fffc9b8133c8b22207c25953",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert/task.toml": "75c8913f0fa15890786c11999cde920b8bfc10d4ce8a14edf1e76985a2ac5800",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert/tests/_deps.tar.gz": "935e01e202b721985701ed39352f5c239c13f886bd51ac22ad8a42636d990522",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert/tests/test_outputs.py": "90970bb3c372e8e7fb6bb9ac5f649ba73eb38e1a5ea2e922a9057a72b6b4192d",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert/tests/test.sh": "cf80cd0ff7873e16d4b133bc7977d90d0c61ab26730018eb6e112b1c3e68d152",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert/tests/_python.tar.gz": "ad178e36a84de3f845885d0ace5ca6f87fa9502d1f0cf53ba3dd42194277d42e",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert/environment/Dockerfile": "f590b523038be43afcaf5291d7b9e8ed1333c48d9994e77b8dee2f2c352f0f40",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/artifacts/manifest.json": "70025593f94a9194aea78fb6b077b5220ef4ea7d08b66399a4d9acbab8faddd0",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/agent/model.jsonl": "30356da5f258a4c50710e5e41f690f294f8c5b4fbfb866a80f35c363e59ae7ed",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/agent/.controller-input.json": "40b529bc496f1e138a02a79a8b97bde5a12c7e0481015ce4875723cdb6d3ddd3",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/agent/instruction.txt": "38054a3371f7c2c853478a2f9af0bff858437d5b28a9a07483238f06e566921f",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/agent/controller.jsonl": "f6335ad8f660617a745311ff2111c1f994eb715c41cd8e7daeb439b90ce35868",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/agent/agent.json": "16cd7e3d1ce4f95ff3760bdab5a00394a4eda3267ebb282e01fb86c0ce9999d5",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/agent/final-verification.json": "c2dd7f8f7e9befc5440c5b0f3f22ed9b16777b02d43b0a37ba5699cccdb9bd52",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/agent/execution-budget.json": "c090664d6ac22fd5f32bb69251f2e475c6dc1c2fc2235e9e0d4e9d736b18b9aa",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/agent/tools.jsonl": "762ec9ec3ee14672ab46741469947e2eb64213bb80026648e3acd3867d3bc9ac",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/verifier/test-stdout.txt": "2000ed4de837697397192f98a9e2b7898bd214bb53155ad8afd6f04f6be48cab",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/verifier/ctrf.json": "ff22c1c12f7c8fa90adecb542b22d5b08dc6c1c6e0680cb18d7d571dcb18552d",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/agent/candidates/candidate-001.json": "784335ea1e567d0f9c06dc9996ceb1b86020712aff5609fd0b62e56f934600e3",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/artifacts/app/check_cert.py": "a6a224e30a7ab47a6b544dee9158e6e6704fbc1fbbd69a20d5999fbf1f7e7653",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/server.key": "80d8ffa121bfbb72f67f15b13ac6e3e7bf91f0ccc09c4921d795237a7a13752f",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/server.pem": "913d9bb43829ad95caa4924ebf509e30f5450e920789d7b4f0ae11c47bcf73e3",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/verification.txt": "6f2da7b3f0abbb211c35182aaeb92748c4f0413f20249977f7f02419187f8a73",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1/openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/server.crt": "364cef5c621e8e077ebf8e05b02b372445cb195dbf21b0ec03029b0271509e89",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/result.json": "b2471eaa62f2cdde286aff9216fb928177c04b624db86fb205ee08f9533e88a2",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/artifact-capture.json": "b42ed8da78f0a401550cc8752dbbcd476c6c90d8b6cf36486f68bfece5eb98e6",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/harbor.stdout": "c3b7543f3d6831d637d2c59f29b018898d02e45996ed0e0733f5a272381b3145",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/harbor.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/trial.json": "73a2cd0eb231814873b1e74121db93199a20b6f358bc96ad485679a1458344ab",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/artifact-capture-config.json": "fddf33099f6ce590fc1cbc3faa6e57d29607a6c440d290acc7d63da355c7d8f6",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert/instruction.md": "38054a3371f7c2c853478a2f9af0bff858437d5b28a9a07483238f06e566921f",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert/README.md": "5dfa88651890cda06fa2a25babd3b813818767635e88bbabecc8305d5bb3942f",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert/.gitignore": "9a8dd8d9b6c3adb8e9e56328df27deef859a3e98fffc9b8133c8b22207c25953",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert/task.toml": "75c8913f0fa15890786c11999cde920b8bfc10d4ce8a14edf1e76985a2ac5800",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/lock.json": "82d6f60fc43557cfdc78ab88837ee7315b958dba98bf29976b7908b207b49de4",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/result.json": "4a2b9b1be5e8a3c3bd3484906000e48043b2d41a2c1f3aa573f95712a6b90304",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/config.json": "c0e564cd4bc34c21880853dc3265522cee09e3c0e7d9449bd57fa7c97d48d52f",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/trial.log": "5868e519b78e4f2f267470e411fb5e62ab85729eb3642ffbddd64e569930f993",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/artifacts/manifest.json": "70025593f94a9194aea78fb6b077b5220ef4ea7d08b66399a4d9acbab8faddd0",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/agent/model.jsonl": "427941a39723790f0259c0c58e17cd1482d174996d54a5749273ca5ed8eae4e0",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/agent/.controller-input.json": "40b529bc496f1e138a02a79a8b97bde5a12c7e0481015ce4875723cdb6d3ddd3",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/agent/instruction.txt": "38054a3371f7c2c853478a2f9af0bff858437d5b28a9a07483238f06e566921f",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/agent/controller.jsonl": "47f4e572f67318483e67f1eadc12d772903f62a30b8c1465dfddb669cd46ce98",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/agent/agent.json": "29f83cf080df928ec904c2fe47e7307d990e4bddc296e6243285e3687ff9f46b",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/agent/final-verification.json": "35502db5a1206c6a1da9d462aef23bc04a08e589cc84d64914b93a8c3735b038",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/agent/execution-budget.json": "f694d63346842032f2e2f8f7911906971062d9c6a91b4d84bda34d7fa0d001ab",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/agent/tools.jsonl": "7fff936433813e70553b6a150e22412381c8a432b600fe68766fd4a95425a994",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/verifier/test-stdout.txt": "e7e395f91eaa6b2f946137104a8c10903e0d96b953e8fc36e82b42c50cf3ab94",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/verifier/ctrf.json": "f23e6050a9d3f4717de14eb76330029175db2a3d21ff699ae24cef09667e91d9",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/agent/candidates/candidate-002.json": "6351281f54138bcf5bf0dfe1aaa94cf48d0918b8d9402b03e13e8861ac1861c7",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/agent/candidates/candidate-001.json": "f20f2e965def73c147d15264afb8a1016f98e3a6ad9ae5aaced7032ee74aba33",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/artifacts/app/check_cert.py": "d026b6bc361ab5697d4a45a58d761e922882aa62ef222106e6cd039237c972ce",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/server.key": "aeb3d475549fb6e4582da38df9229c56f6023b91fa92c65135823eb69e78d738",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/server.pem": "b53a9f81ebb803680c99f9147ab9b3c8229137aa11d9469e94f1bebbbf194d25",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/verification.txt": "c8482ecdc68a1a4df9f2f4954964b1500703fd87a997ed8726cfe254514c6c80",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/server.crt": "64b8fcc515ab76ab7b6b98ffcde62efe5396fe9fea9149913404377e8bf20fed",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert/tests/_deps.tar.gz": "935e01e202b721985701ed39352f5c239c13f886bd51ac22ad8a42636d990522",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert/tests/test_outputs.py": "90970bb3c372e8e7fb6bb9ac5f649ba73eb38e1a5ea2e922a9057a72b6b4192d",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert/tests/test.sh": "cf80cd0ff7873e16d4b133bc7977d90d0c61ab26730018eb6e112b1c3e68d152",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert/tests/_python.tar.gz": "ad178e36a84de3f845885d0ace5ca6f87fa9502d1f0cf53ba3dd42194277d42e",
+    "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2/openssl-selfsigned-cert/environment/Dockerfile": "f590b523038be43afcaf5291d7b9e8ed1333c48d9994e77b8dee2f2c352f0f40"
+  },
+  "exporter_sha256": "ab490db3f8366bdb6cbbb79ba33999c6689cd0dec3d425a1595edc4a06a0ba35",
+  "filter_sha256": "cf12b322a597877750787962f5dd547c7ddeda4f7324ea754cc07138998716bb",
+  "qualification_driver_sha256": "991d351cc7ac07b4fc897c2def791a1ba0ed4ff2e299ad47878ad2e68d66c3b9",
+  "frozen_sanitizer_sha256": "3d52d041d5dd3a644cd40ca395e248f0fb1e0eeb11c78d431c79d9d95fa5b75d",
+  "scope": "Real archived runs are exported and consumed without models or grading. Private candidate payloads cannot restore their original keys; original scores/digests/modes/eligibility are source records. Negative payloads are explicit local mutations, not experiment results."
+}

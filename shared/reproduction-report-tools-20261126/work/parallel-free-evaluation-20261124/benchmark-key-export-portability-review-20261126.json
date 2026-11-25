@@ -1,0 +1,137 @@
+{
+  "format": "benchmark_private_key_qualification_portability_review_v1",
+  "status": "APPROVE_WITH_STATED_LIMITS",
+  "blocking_findings": [],
+  "reviewed_delta": [
+    "Added argparse --out confined to the current project's work directory; existing output directories remain refused.",
+    "Only the qualification driver changes fixture construction and records its own SHA. The production filter cf12b322 and exporter ab490db3 remain unchanged.",
+    "The incomplete PEM header and detector-matched HOME negative are constructed at runtime; their resulting mutated input bytes are identical to the old driver."
+  ],
+  "actual_verification": {
+    "result_data_equal_except_new_driver_field": true,
+    "matching_exported_members": 59,
+    "matching_exported_member_bytes": 540219,
+    "each_member_byte_identical": true,
+    "canonical_member_inventory_sha256": "b1ed81551ae32dff99536ea169f38e7bf84315318ef0304352aff90b8195e291",
+    "inventory_algorithm": "SHA256 of UTF-8 json.dumps(sorted relative-path inventory of {path,bytes,sha256},ensure_ascii=False,sort_keys=True,separators=(',',':')). Inventory covers only runs/, including their protocol files.",
+    "negative_mutation_inputs_equal": [
+      "wrong_internal_path",
+      "invalid_base64",
+      "incomplete_private_pem",
+      "unrelated_secret_after_pem",
+      "unrelated_home_after_pem"
+    ],
+    "current_driver_no_literal_SECRET_PRIVATE_PEM_HOME_marker": true,
+    "actual_runs": [
+      {
+        "arm": "dsh",
+        "requests": 2,
+        "candidate_snapshots_redacted": 0,
+        "original_and_export_passed": true,
+        "metrics_and_control_identical": true
+      },
+      {
+        "arm": "main",
+        "requests": 7,
+        "candidate_snapshots_redacted": 1,
+        "original_and_export_passed": true,
+        "metrics_and_control_identical": true
+      },
+      {
+        "arm": "repeat",
+        "requests": 9,
+        "candidate_snapshots_redacted": 2,
+        "original_and_export_passed": true,
+        "metrics_and_control_identical": true
+      }
+    ],
+    "recorded_negative_controls": [
+      {
+        "name": "export_byte_tamper_dsh",
+        "rejected": true,
+        "error_type": "ValueError"
+      },
+      {
+        "name": "export_byte_tamper_main",
+        "rejected": true,
+        "error_type": "ValueError"
+      },
+      {
+        "name": "export_byte_tamper_repeat",
+        "rejected": true,
+        "error_type": "ValueError"
+      },
+      {
+        "name": "wrong_internal_path",
+        "rejected": true,
+        "error_type": "ValueError"
+      },
+      {
+        "name": "invalid_base64",
+        "rejected": true,
+        "error_type": "Error"
+      },
+      {
+        "name": "incomplete_private_pem",
+        "rejected": true,
+        "error_type": "ValueError"
+      },
+      {
+        "name": "unrelated_secret_after_pem",
+        "rejected": true,
+        "error_type": "ValueError"
+      },
+      {
+        "name": "unrelated_home_after_pem",
+        "rejected": true,
+        "error_type": "ValueError"
+      },
+      {
+        "name": "unreviewed_run",
+        "rejected": true,
+        "error_type": "ValueError"
+      }
+    ],
+    "review_depth": "Read the complete small diff and actual result records; compared all59 old/new run-member byte strings. Evaluated only the five reviewed in-memory mutation lambdas on a synthetic public fixture to verify byte-equivalent negatives;did not run the qualification/export main or create a new export."
+  },
+  "version_provenance": {
+    "old_driver_sha256": "98d6794040c3a60c23e3ad612fab3b4abe9eea8f8c5324c8f31ea22a827892f7",
+    "current_driver_sha256": "991d351cc7ac07b4fc897c2def791a1ba0ed4ff2e299ad47878ad2e68d66c3b9",
+    "old_result_sha256": "c2eecb1ff52d30cbe2aa066d24d59fe8b9084969c1e87a17d7ca79c6216c9e1c",
+    "current_result_sha256": "fc20598e4689f84770c33475e7c305174d9f22d4df8202b69b1582f08c524af9",
+    "original_review_sha256": "aa81ea15c1fc37fd0e1fd2f26cbcf6ddaf0a515df5027bf64e3b8339a586d3b1",
+    "old_artifacts_rewritten": false
+  },
+  "publication_boundary": {
+    "current_qualification_source": "work/parallel-free-evaluation-20261124/qualify_benchmark_key_export.py",
+    "current_qualification_result": "work/parallel-free-evaluation-20261124/benchmark-key-export-portable-qualification-20261126/result.json",
+    "old_98_driver_local_only": true,
+    "fixture_and_stage_directories_must_not_be_published": true,
+    "interpretation": "Qualification source portability here means the negative test vectors no longer appear as sensitive literal source text. It does not mean this archival qualification can run without its declared closed-run inputs and fixed summary. Publish explicit source/result members, never the private preparation folder recursively."
+  },
+  "limits": [
+    "Production sanitizer, score, cost, candidate-control checks and reviewed source whitelist are unchanged.",
+    "Original18 model requests/own-zero proofs and original score/control observations are reused from the unchanged59 exported members;no new calls or grades were produced.",
+    "Redacted candidates cannot restore the original private key;original digests still describe unfiltered source only.",
+    "The nine rejection records are the new actual qualification result. This review did not repeat its three export-tamper writes or start another export.",
+    "This is not full final package/PDF/225 approval."
+  ],
+  "source_sha256": {
+    "work/parallel-free-evaluation-20261124/qualify-benchmark-key-before-portable-fixtures-20261126.py.txt": "98d6794040c3a60c23e3ad612fab3b4abe9eea8f8c5324c8f31ea22a827892f7",
+    "work/parallel-free-evaluation-20261124/qualify_benchmark_key_export.py": "991d351cc7ac07b4fc897c2def791a1ba0ed4ff2e299ad47878ad2e68d66c3b9",
+    "work/parallel-free-evaluation-20261124/benchmark_key_export.py": "cf12b322a597877750787962f5dd547c7ddeda4f7324ea754cc07138998716bb",
+    "work/parallel-free-evaluation-20261124/export_joined_evidence.py": "ab490db3f8366bdb6cbbb79ba33999c6689cd0dec3d425a1595edc4a06a0ba35",
+    "work/parallel-free-evaluation-20261124/benchmark-key-export-qualification-20261126/result.json": "c2eecb1ff52d30cbe2aa066d24d59fe8b9084969c1e87a17d7ca79c6216c9e1c",
+    "work/parallel-free-evaluation-20261124/benchmark-key-export-portable-qualification-20261126/result.json": "fc20598e4689f84770c33475e7c305174d9f22d4df8202b69b1582f08c524af9",
+    "work/parallel-free-evaluation-20261124/benchmark-key-export-review-20261126.json": "aa81ea15c1fc37fd0e1fd2f26cbcf6ddaf0a515df5027bf64e3b8339a586d3b1",
+    "course_eval/export_revision.py": "3d52d041d5dd3a644cd40ca395e248f0fb1e0eeb11c78d431c79d9d95fa5b75d"
+  },
+  "reviewer_actions": {
+    "new_model_calls": 0,
+    "new_original_grader_calls": 0,
+    "new_VM_operations": 0,
+    "new_export_runs": 0,
+    "source_edits": 0,
+    "only_file_written": "work/parallel-free-evaluation-20261124/benchmark-key-export-portability-review-20261126.json"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "kind": "post_snapshot_report_and_export_sources",
+  "base": "shared/reproduction-20261126",
+  "expected_renderer_sha256": "264fba250190867a999c6a7f36c3bac3fba9e9a76fc0aa829f9b038721bf603b",
+  "expected_consumer_sha256": "2aee4a2ab4381a0abbaf9c0a115ee7755d007befab451839cce8cc468c070ca2",
+  "code": [
+    "work/render_hy4_final_reports.py",
+    "work/parallel-free-evaluation-20261124/prepare_report_data.py",
+    "work/parallel-free-evaluation-20261124/export_joined_evidence.py",
+    "work/parallel-free-evaluation-20261124/benchmark_key_export.py",
+    "work/parallel-free-evaluation-20261124/qualify_benchmark_key_export.py",
+    "work/parallel-free-evaluation-20261124/export_hy4_interruptions.py",
+    "work/parallel-free-evaluation-20261124/export-hy4-interruptions-before-identity-binding-20261126.py.txt",
+    "work/parallel-free-evaluation-20261124/export-joined-before-benchmark-key-redaction-20261126.py.txt",
+    "work/parallel-free-evaluation-20261124/qualify_hy4_interruption_identity.py",
+    "work/execution-environment-20261126/prepare-report-before-environment.py.txt",
+    "work/execution-environment-20261126/renderer-before-environment.py.txt",
+    "work/mujoco-performance-case-20261126/qualify_case.py",
+    "work/mujoco-performance-case-20261126/consumer-before-physics-case.py.txt",
+    "work/mujoco-performance-case-20261126/renderer-before-physics-case.py.txt",
+    "work/mujoco-performance-case-20261126/renderer-before-link-fix.py.txt",
+    "work/mujoco-performance-case-20261126/renderer-before-cumulative-cost.py.txt"
+  ],
+  "records": [
+    "work/parallel-free-evaluation-20261124/execution-environment-20261126.json",
+    "work/parallel-free-evaluation-20261124/benchmark-key-export-review-20261126.json",
+    "work/parallel-free-evaluation-20261124/benchmark-key-export-portability-review-20261126.json",
+    "work/parallel-free-evaluation-20261124/benchmark-key-export-portable-qualification-20261126/result.json",
+    "work/parallel-free-evaluation-20261124/hy4-interruption-export-completed-review-20261126.json",
+    "work/parallel-free-evaluation-20261124/hy4-interruption-identity-qualification-20261126/result.json",
+    "work/execution-environment-20261126/qualification.json",
+    "work/execution-environment-20261126/independent-review.json",
+    "work/mujoco-performance-case-20261126/facts.json",
+    "work/mujoco-performance-case-20261126/qualification.json",
+    "work/mujoco-performance-case-20261126/rendering-qualification.json",
+    "work/mujoco-performance-case-20261126/independent-review.json",
+    "work/mujoco-performance-case-20261126/cost-display-data.json",
+    "work/mujoco-performance-case-20261126/cost-display-qualification.json"
+  ],
+  "excluded": [
+    "original model and tool traces",
+    "private and mutated negative-control fixture directories",
+    "software installations, containers and caches",
+    "the old nonportable benchmark-key qualification driver"
+  ],
+  "new_model_calls": 0
+}

@@ -1,0 +1,113 @@
+{
+  "new_model_calls": 0,
+  "original_export_index_sha256": "259770a6ebe89f135c73b403a66501e4d098390df50427c57f9f9bfb5844414e",
+  "strict_reader_sha256": "5f69fa4f62e4671b35db46f4dd0fa67f9a6284c90939dc746d0634b9c3708bbc",
+  "original_export_producer_sha256": "c55f92c77d79f843469a4ff9e4ebcdc07585e92ea4de79e36d15a13a85a869c8",
+  "actual_runs": [
+    {
+      "source": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/query-optimize-C0-r1",
+      "costs": {
+        "model_request_events": 0,
+        "own_verified_receipts": 0,
+        "unverified_request_ids": [],
+        "known_returned_input_tokens": 0,
+        "known_returned_output_tokens": 0
+      },
+      "unchanged_export_members": 1
+    },
+    {
+      "source": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1",
+      "costs": {
+        "model_request_events": 3,
+        "own_verified_receipts": 2,
+        "unverified_request_ids": [
+          3
+        ],
+        "known_returned_input_tokens": 14863,
+        "known_returned_output_tokens": 984
+      },
+      "unchanged_export_members": 12
+    },
+    {
+      "source": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1",
+      "costs": {
+        "model_request_events": 2,
+        "own_verified_receipts": 2,
+        "unverified_request_ids": [],
+        "known_returned_input_tokens": 17514,
+        "known_returned_output_tokens": 864
+      },
+      "unchanged_export_members": 12
+    },
+    {
+      "source": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-r2",
+      "costs": {
+        "model_request_events": 1,
+        "own_verified_receipts": 0,
+        "unverified_request_ids": [
+          1
+        ],
+        "known_returned_input_tokens": 0,
+        "known_returned_output_tokens": 0
+      },
+      "unchanged_export_members": 8
+    },
+    {
+      "source": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2",
+      "costs": {
+        "model_request_events": 8,
+        "own_verified_receipts": 7,
+        "unverified_request_ids": [
+          8
+        ],
+        "known_returned_input_tokens": 79728,
+        "known_returned_output_tokens": 3655
+      },
+      "unchanged_export_members": 12
+    }
+  ],
+  "negative_controls": [
+    {
+      "name": "wrong_receipt_identity",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "nonzero_reported_credit",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "receipt_before_response",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "missing_individual_proof",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "duplicate_proof",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "no_native_usage",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "backdated_proof",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "advance_after_unknown",
+      "rejected": true,
+      "error_type": "ValueError"
+    }
+  ],
+  "old_wrong_identity_acceptance_reproduced": true,
+  "scope": "Reconsumes the unchanged five real exports and original traces. Eight explicitly mutated local traces are validation fixtures, not model calls, scores or provider receipts. Three historical missing receipts stay unknown."
+}

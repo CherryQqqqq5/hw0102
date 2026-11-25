@@ -1,0 +1,468 @@
+{
+  "format": "completed_readonly_hy4_interruption_export_review_v1",
+  "status": "APPROVE_WITH_STATED_LIMITS",
+  "blocking_findings": [],
+  "scope": "Five exact ended mechanical attempts and their existing sanitized exports. This is retrospective cost evidence review, not a scored cohort, financial acceptance, or final225 approval.",
+  "version_provenance": {
+    "original_export_index": "work/parallel-free-evaluation-20261124/hy4-unscored-interruption-evidence-20261126/index.json",
+    "original_export_index_sha256": "259770a6ebe89f135c73b403a66501e4d098390df50427c57f9f9bfb5844414e",
+    "original_export_producer_sha256": "c55f92c77d79f843469a4ff9e4ebcdc07585e92ea4de79e36d15a13a85a869c8",
+    "preserved_original_producer": "work/parallel-free-evaluation-20261124/export-hy4-interruptions-before-identity-binding-20261126.py.txt",
+    "strict_reader_sha256": "5f69fa4f62e4671b35db46f4dd0fa67f9a6284c90939dc746d0634b9c3708bbc",
+    "qualification_result": "work/parallel-free-evaluation-20261124/hy4-interruption-identity-qualification-20261126/result.json",
+    "qualification_result_sha256": "ea79d743f990d3614f776b8fc2a5cc7a77397ec51ee811f4401276b6ad2e2d7a",
+    "original_index_and_45_member_bytes_unchanged": true,
+    "new_export_performed_by_reviewer": false,
+    "interpretation": "The existing index truthfully names the old c55 producer. The new strict reader reconsumes those unchanged bytes; it is not retroactively substituted as their producer."
+  },
+  "actual_verification": {
+    "complete_current_reader_and_diff_read": true,
+    "complete_qualification_driver_read": true,
+    "only_costs_function_AST_changed": true,
+    "fixed_identity_boundary": "Reader binds pending request and native session, recomputes exactly one newly seen messageId/rawUsage in each real response, rejects changed cumulative usage, and requires billing_verified to match that fresh-ID set and event time order.",
+    "trailing_unknown_boundary": "A terminal request without a complete response/receipt may remain unverified. A complete response without its proof, or a further request while the earlier one remains pending, is rejected.",
+    "actual_source_and_export_reconsumption": "Invoked current costs on each of5 actual sources and5 existing export directories; rechecked all45 original/export member SHA pairs and exact physical inventory.",
+    "old_wrong_identity_acceptance_reproduced": true,
+    "negative_controls_reexecuted_readonly": [
+      {
+        "name": "wrong_receipt_identity",
+        "rejected": true,
+        "actual_error_type": "ValueError"
+      },
+      {
+        "name": "nonzero_reported_credit",
+        "rejected": true,
+        "actual_error_type": "ValueError"
+      },
+      {
+        "name": "receipt_before_response",
+        "rejected": true,
+        "actual_error_type": "ValueError"
+      },
+      {
+        "name": "missing_individual_proof",
+        "rejected": true,
+        "actual_error_type": "ValueError"
+      },
+      {
+        "name": "duplicate_proof",
+        "rejected": true,
+        "actual_error_type": "ValueError"
+      },
+      {
+        "name": "no_native_usage",
+        "rejected": true,
+        "actual_error_type": "ValueError"
+      },
+      {
+        "name": "backdated_proof",
+        "rejected": true,
+        "actual_error_type": "ValueError"
+      },
+      {
+        "name": "advance_after_unknown",
+        "rejected": true,
+        "actual_error_type": "ValueError"
+      }
+    ],
+    "reviewer_original_source_or_export_writes": 0,
+    "reviewer_new_model_calls": 0,
+    "reviewer_new_original_grader_calls": 0,
+    "reviewer_VM_operations": 0,
+    "reviewer_financial_or_Git_operations": 0
+  },
+  "totals": {
+    "physical_unscored_runs": 5,
+    "request_events": 14,
+    "own_zero_receipts": 11,
+    "missing_receipts": 3,
+    "known_returned_input_tokens": 112105,
+    "known_returned_output_tokens": 5503,
+    "members": 45,
+    "member_bytes": 345466
+  },
+  "rows": [
+    {
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/query-optimize-C0-r1",
+      "scoreable": false,
+      "passed": null,
+      "costs": {
+        "model_request_events": 0,
+        "own_verified_receipts": 0,
+        "unverified_request_ids": [],
+        "known_returned_input_tokens": 0,
+        "known_returned_output_tokens": 0
+      },
+      "unknown_actual_amount": null,
+      "unknown_actual_usage": null,
+      "members": 1
+    },
+    {
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1",
+      "scoreable": false,
+      "passed": null,
+      "costs": {
+        "model_request_events": 3,
+        "own_verified_receipts": 2,
+        "unverified_request_ids": [
+          3
+        ],
+        "known_returned_input_tokens": 14863,
+        "known_returned_output_tokens": 984
+      },
+      "unknown_actual_amount": null,
+      "unknown_actual_usage": null,
+      "members": 12
+    },
+    {
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1",
+      "scoreable": false,
+      "passed": null,
+      "costs": {
+        "model_request_events": 2,
+        "own_verified_receipts": 2,
+        "unverified_request_ids": [],
+        "known_returned_input_tokens": 17514,
+        "known_returned_output_tokens": 864
+      },
+      "unknown_actual_amount": null,
+      "unknown_actual_usage": null,
+      "members": 12
+    },
+    {
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-r2",
+      "scoreable": false,
+      "passed": null,
+      "costs": {
+        "model_request_events": 1,
+        "own_verified_receipts": 0,
+        "unverified_request_ids": [
+          1
+        ],
+        "known_returned_input_tokens": 0,
+        "known_returned_output_tokens": 0
+      },
+      "unknown_actual_amount": null,
+      "unknown_actual_usage": null,
+      "members": 8
+    },
+    {
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2",
+      "scoreable": false,
+      "passed": null,
+      "costs": {
+        "model_request_events": 8,
+        "own_verified_receipts": 7,
+        "unverified_request_ids": [
+          8
+        ],
+        "known_returned_input_tokens": 79728,
+        "known_returned_output_tokens": 3655
+      },
+      "unknown_actual_amount": null,
+      "unknown_actual_usage": null,
+      "members": 12
+    }
+  ],
+  "evidence_members": [
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/query-optimize-C0-r1/result.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/query-optimize-C0-r1/result.json",
+      "source_sha256": "e988fced44a6aa0c0f9d63eda131e715fb173972a4d6e52028ba8269b88512a5",
+      "export_sha256": "e988fced44a6aa0c0f9d63eda131e715fb173972a4d6e52028ba8269b88512a5"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/model.jsonl",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/model.jsonl",
+      "source_sha256": "b2e23febdaf7669001079c90ef4960241fee18f885c7176c7eae6148fea92b85",
+      "export_sha256": "90e40de15f8870d6063b7f62b01f563794085a65993a311c0ec1850394273d5e"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/result.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/result.json",
+      "source_sha256": "51ccfe9ac17f3a8dc446b0df7efabd2c23e5981fc2e2ab48d30aeb1b65af8a96",
+      "export_sha256": "51ccfe9ac17f3a8dc446b0df7efabd2c23e5981fc2e2ab48d30aeb1b65af8a96"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/instruction.txt",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/instruction.txt",
+      "source_sha256": "1bf85d931671de4a9fe8f2fc954d9db3ec437d9d52c83fe2444c1f6f58507d4e",
+      "export_sha256": "1bf85d931671de4a9fe8f2fc954d9db3ec437d9d52c83fe2444c1f6f58507d4e"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/controller.jsonl",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/controller.jsonl",
+      "source_sha256": "62008caa66e7efe37d1ce470f23133cb68b654c4f36e38835639405d64410673",
+      "export_sha256": "62008caa66e7efe37d1ce470f23133cb68b654c4f36e38835639405d64410673"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/agent.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/agent.json",
+      "source_sha256": "5745a06acf1a2c9045309b3ffc8d69679db56354b0e09a8dae5d7b63f12a31c3",
+      "export_sha256": "cfe6d112e195f99ab8ab9f639913b3455acfeec2b084704ef59cfcae6fede4c4"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/final-verification.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/final-verification.json",
+      "source_sha256": "afb81436645f20288371a65b6eb82ad5e86722188c661571a6c312593b5ce674",
+      "export_sha256": "afb81436645f20288371a65b6eb82ad5e86722188c661571a6c312593b5ce674"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/execution-budget.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/execution-budget.json",
+      "source_sha256": "5f7e76cc4ec2e01a056c6c85a017e32979b10a3a0d4a32e55e64d09979a96f6c",
+      "export_sha256": "5f7e76cc4ec2e01a056c6c85a017e32979b10a3a0d4a32e55e64d09979a96f6c"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/tools.jsonl",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/tools.jsonl",
+      "source_sha256": "0924b2dd2d1d23dc0b68a41cef55c10d12bee3ee984fc5c47017b157e31af180",
+      "export_sha256": "0924b2dd2d1d23dc0b68a41cef55c10d12bee3ee984fc5c47017b157e31af180"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/trial.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/trial.json",
+      "source_sha256": "fd850c74e174a105599fb10d0aa8fc83b451adbdab0af69ee049e88470acd1dc",
+      "export_sha256": "fd850c74e174a105599fb10d0aa8fc83b451adbdab0af69ee049e88470acd1dc"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/artifact.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/artifact.json",
+      "source_sha256": "a0e18880bdc6477a8313634f86f6cfd2cc40034f52e6aca88acbfad78dc1d0b1",
+      "export_sha256": "a0e18880bdc6477a8313634f86f6cfd2cc40034f52e6aca88acbfad78dc1d0b1"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/candidate/grep.py",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1/candidate/grep.py",
+      "source_sha256": "00350df01f0993f6268ba128c4d05a693a7188573fb9fca5275be53738fe829a",
+      "export_sha256": "00350df01f0993f6268ba128c4d05a693a7188573fb9fca5275be53738fe829a"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1.protocol.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1.protocol.json",
+      "source_sha256": "a13cedfc443e9bec48abaac71868cae3e2eb64975432bf5d2012aa98ace7fee7",
+      "export_sha256": "a13cedfc443e9bec48abaac71868cae3e2eb64975432bf5d2012aa98ace7fee7"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/result.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/result.json",
+      "source_sha256": "bdd685980de48c221a25c1f1e422f4805dca4ccb0f10eac45b0f360682fce33a",
+      "export_sha256": "bdd685980de48c221a25c1f1e422f4805dca4ccb0f10eac45b0f360682fce33a"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/trial.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/trial.json",
+      "source_sha256": "76fb300d419abf1f2ac4906c0c04a261318bac3052614110085fc00b95121cef",
+      "export_sha256": "76fb300d419abf1f2ac4906c0c04a261318bac3052614110085fc00b95121cef"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/result.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/result.json",
+      "source_sha256": "3c71609456f1e1f4d83f8cb652b9470762d49dc85572acea5152f988359ab4e8",
+      "export_sha256": "90c5f20e55b6cc0938472baf3f1a52fb3b5a983708cee362cb785188f4bdaf38"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/trial.log",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/trial.log",
+      "source_sha256": "9979f7610c74a7b64615e3811959d33c80b6daef0e3f99a283c2d89672fa8a36",
+      "export_sha256": "a601edb957a3c4cc62ad2beabf74876dbf727015b2a4a2d84e2e720195449722"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/agent/model.jsonl",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/agent/model.jsonl",
+      "source_sha256": "8f1706828ad2a489234d5553c3952e42a2a3737d8daab637493dbb5d08abd5bf",
+      "export_sha256": "05ecf7b81e1400c95002ec9d6838fd804717da647fca45f269a9c740875f707f"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/agent/instruction.txt",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/agent/instruction.txt",
+      "source_sha256": "0817374767533fbf51bb93345ee1bba266263c216c6cc55c096e71b4a1d37dfc",
+      "export_sha256": "0817374767533fbf51bb93345ee1bba266263c216c6cc55c096e71b4a1d37dfc"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/agent/controller.jsonl",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/agent/controller.jsonl",
+      "source_sha256": "7e946934a76bc802666166d211384e800fc2678647f09dcffc1d2484b5adaa3e",
+      "export_sha256": "7e946934a76bc802666166d211384e800fc2678647f09dcffc1d2484b5adaa3e"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/agent/agent.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/agent/agent.json",
+      "source_sha256": "310e0b20a3156d84bcb2c1741966c5945babf2943468931f78c3d3f9a86b745e",
+      "export_sha256": "cfe6d112e195f99ab8ab9f639913b3455acfeec2b084704ef59cfcae6fede4c4"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/agent/final-verification.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/agent/final-verification.json",
+      "source_sha256": "47565759588e41e5d3626a4e7538a0f5c29a7c9df48fb19ba24148d76b3821c8",
+      "export_sha256": "47565759588e41e5d3626a4e7538a0f5c29a7c9df48fb19ba24148d76b3821c8"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/agent/execution-budget.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/agent/execution-budget.json",
+      "source_sha256": "cae7e8c5686ce7dd9bfc000a322edee32a44cb282841134c4695affac3d9363b",
+      "export_sha256": "cae7e8c5686ce7dd9bfc000a322edee32a44cb282841134c4695affac3d9363b"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/agent/tools.jsonl",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/agent/tools.jsonl",
+      "source_sha256": "c2013aa806feeb9ff03a843ff35734f970d2dc3a3d27d6c2c39887934e11b8d8",
+      "export_sha256": "c2013aa806feeb9ff03a843ff35734f970d2dc3a3d27d6c2c39887934e11b8d8"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1.protocol.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1.protocol.json",
+      "source_sha256": "52e248d363a2fce2bf27e10010600ef858b3ed40bdf3ca25fdad8abd6fa0f927",
+      "export_sha256": "52e248d363a2fce2bf27e10010600ef858b3ed40bdf3ca25fdad8abd6fa0f927"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-r2/result.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-r2/result.json",
+      "source_sha256": "72c109fc35075a038195583cb8b240419fc7e1e565cf70266bdb6bea225c7bc8",
+      "export_sha256": "72c109fc35075a038195583cb8b240419fc7e1e565cf70266bdb6bea225c7bc8"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-r2/trial.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-r2/trial.json",
+      "source_sha256": "ca682b89bb79051537b01f4fc53b1c9c6f288d067e6fb6ad735ffb6e98dc64ea",
+      "export_sha256": "ca682b89bb79051537b01f4fc53b1c9c6f288d067e6fb6ad735ffb6e98dc64ea"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-r2/query-optimize__Zi2naWu/trial.log",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-r2/query-optimize__Zi2naWu/trial.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "export_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-r2/query-optimize__Zi2naWu/agent/model.jsonl",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-r2/query-optimize__Zi2naWu/agent/model.jsonl",
+      "source_sha256": "6098efe97a9416b638215d9824ccb9fa78d4b9a436b0dc2af20faefd2dd35233",
+      "export_sha256": "6098efe97a9416b638215d9824ccb9fa78d4b9a436b0dc2af20faefd2dd35233"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-r2/query-optimize__Zi2naWu/agent/public-runtime.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-r2/query-optimize__Zi2naWu/agent/public-runtime.json",
+      "source_sha256": "cb48d9818e6f5cdf576bcaa12219c3c0b10c7d70cc5c428c1704503a99031590",
+      "export_sha256": "cb48d9818e6f5cdf576bcaa12219c3c0b10c7d70cc5c428c1704503a99031590"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-r2/query-optimize__Zi2naWu/agent/instruction.txt",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-r2/query-optimize__Zi2naWu/agent/instruction.txt",
+      "source_sha256": "d594c3e9617dd32e2909612bd29fdd66cf39a189a09e5bf3a24f1cc43664358a",
+      "export_sha256": "d594c3e9617dd32e2909612bd29fdd66cf39a189a09e5bf3a24f1cc43664358a"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-r2/query-optimize__Zi2naWu/agent/controller.jsonl",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-r2/query-optimize__Zi2naWu/agent/controller.jsonl",
+      "source_sha256": "26c580631cc99f0c1cd2705430b92ea01905c6386d90914b73c0c355792a520c",
+      "export_sha256": "26c580631cc99f0c1cd2705430b92ea01905c6386d90914b73c0c355792a520c"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-r2.protocol.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-r2.protocol.json",
+      "source_sha256": "9f3616199c8a85c5f9a792d497f3770d830f2d23f707ecc8f04c5d7dcd6baf6b",
+      "export_sha256": "9f3616199c8a85c5f9a792d497f3770d830f2d23f707ecc8f04c5d7dcd6baf6b"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/model.jsonl",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/model.jsonl",
+      "source_sha256": "069d2f368f8f0a1a47cf989c420d8687e3a5d09e657bdd86fc2b6e0b03a0c0c3",
+      "export_sha256": "b154b59a163f9d554ef089f18e9eeebfaff961ab4fe4db73f3e27be8d08cd69e"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/result.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/result.json",
+      "source_sha256": "0129f410e9c0df80618b9ee7ef227828fc86d215067218c17c2c24e0024d4780",
+      "export_sha256": "0129f410e9c0df80618b9ee7ef227828fc86d215067218c17c2c24e0024d4780"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/candidate.patch",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/candidate.patch",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "export_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/instruction.txt",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/instruction.txt",
+      "source_sha256": "13be080a1994751bc9f0c5d1b043a1fbd745f6c049501a5e65a2ca0eef5a4f8f",
+      "export_sha256": "13be080a1994751bc9f0c5d1b043a1fbd745f6c049501a5e65a2ca0eef5a4f8f"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/checkout.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/checkout.json",
+      "source_sha256": "8435881fe60f03b1cefff8fe0cf9451426588592dcf7dce12dc52ec8a358171c",
+      "export_sha256": "8435881fe60f03b1cefff8fe0cf9451426588592dcf7dce12dc52ec8a358171c"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/controller.jsonl",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/controller.jsonl",
+      "source_sha256": "96bf96d20171144801fa9ad3dbdb8968157cd4cac156a2b29e47ddbccbed7fec",
+      "export_sha256": "96bf96d20171144801fa9ad3dbdb8968157cd4cac156a2b29e47ddbccbed7fec"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/agent.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/agent.json",
+      "source_sha256": "d944ec945f88037d510d023f0f5adebce0df9f720169c25ee83233938ddc6c58",
+      "export_sha256": "d50238ecde2914bcb84b6cfbe91ffb982fbaeb6d977c790a92196babd2e0ea22"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/final-verification.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/final-verification.json",
+      "source_sha256": "0c2cfd8591c11f0875d1bb7b9f0ffa1a95f2913386821891b34ac7317372cb21",
+      "export_sha256": "0c2cfd8591c11f0875d1bb7b9f0ffa1a95f2913386821891b34ac7317372cb21"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/execution-budget.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/execution-budget.json",
+      "source_sha256": "df069e03ddc2b68df1b82e9d59eb69797298617f57ec4dabfbcdf87e28506861",
+      "export_sha256": "df069e03ddc2b68df1b82e9d59eb69797298617f57ec4dabfbcdf87e28506861"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/tools.jsonl",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/tools.jsonl",
+      "source_sha256": "bb9d8a7f5637a90c8e0423f5b39c0df079b1b3b59cf6f0d395177cbf10907480",
+      "export_sha256": "bb9d8a7f5637a90c8e0423f5b39c0df079b1b3b59cf6f0d395177cbf10907480"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/trial.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2/trial.json",
+      "source_sha256": "730014c071c8ddc957edc0c0a2daa41cfaaeb37ccadc57dce273bbfef4230138",
+      "export_sha256": "730014c071c8ddc957edc0c0a2daa41cfaaeb37ccadc57dce273bbfef4230138"
+    },
+    {
+      "export_relative": "runs/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2.protocol.json",
+      "source_relative": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/django__django-11999-C0-r2.protocol.json",
+      "source_sha256": "a3dc50d41cd9c4b6fcdd05d098b3f697af3eb7c2f94849c5910564582970797b",
+      "export_sha256": "a3dc50d41cd9c4b6fcdd05d098b3f697af3eb7c2f94849c5910564582970797b"
+    }
+  ],
+  "source_sha256": {
+    "work/parallel-free-evaluation-20261124/export_hy4_interruptions.py": "5f69fa4f62e4671b35db46f4dd0fa67f9a6284c90939dc746d0634b9c3708bbc",
+    "work/parallel-free-evaluation-20261124/export-hy4-interruptions-before-identity-binding-20261126.py.txt": "c55f92c77d79f843469a4ff9e4ebcdc07585e92ea4de79e36d15a13a85a869c8",
+    "work/parallel-free-evaluation-20261124/qualify_hy4_interruption_identity.py": "d6854cf0e9e77de87d22d830090f42eb5331ebf3006277f3fd307f7d1ce747b4",
+    "work/parallel-free-evaluation-20261124/hy4-interruption-identity-qualification-20261126/result.json": "ea79d743f990d3614f776b8fc2a5cc7a77397ec51ee811f4401276b6ad2e2d7a",
+    "work/parallel-free-evaluation-20261124/hy4-unscored-interruption-evidence-20261126/index.json": "259770a6ebe89f135c73b403a66501e4d098390df50427c57f9f9bfb5844414e",
+    "work/parallel-free-evaluation-20261124/export-hy4-interruptions-20261126.log": "ce7689e29140e4621158a9b9e7e9e5fcf37b98ea51a24c58b8bd198d063f1db8",
+    "course_eval/export_revision.py": "3d52d041d5dd3a644cd40ca395e248f0fb1e0eeb11c78d431c79d9d95fa5b75d",
+    "scripts/export_performance_evidence.py": "5b9d3d297c9c738a4240277df6cc64ef9c52828d8601ccf1acdbf39d8a890c5e",
+    "work/parallel-free-evaluation-20261124/joint-through219-20261126/summary.json": "268f4fc20fafa08d6a26d2eac4dd8fde82ab64025bbb6eaf0d710d705d96105f"
+  },
+  "release_filter": {
+    "allowed_qualification_members": [
+      "export_hy4_interruptions.py",
+      "export-hy4-interruptions-before-identity-binding-20261126.py.txt",
+      "qualify_hy4_interruption_identity.py",
+      "hy4-interruption-identity-qualification-20261126/result.json"
+    ],
+    "forbidden_qualification_members": "The eight fixture directories contain deliberately mutated original model traces. Do not publish those directories or their model.jsonl files; do not include the entire qualification folder recursively.",
+    "no_negative_fixture_member_in_actual_export_inventory": true
+  },
+  "limits": [
+    "All five original/export outcomes remain scoreable=false and passed=null. The two operationally reconstructed SQL interruption records retain their declared origin; they are not original-grader results.",
+    "Fourteen physical request events comprise eleven complete individually verified own-zero prefixes and three missing receipts. Accepted historical unknowns are not independent zero receipts.",
+    "112105 input and5503 output tokens are only the known returned prefixes. The three missing actual amounts/usages remain null; known-prefix zero counts for a no-return attempt do not establish zero usage for its unknown request.",
+    "These eleven IDs were already present in the separately audited mechanical-cost history. Reconsumption creates no new model identity and must not add them a second time to aggregate costs or score denominators.",
+    "This check used both closed original sources and sanitized exports. It does not claim a new denied-original-source portable test or a fresh export.",
+    "No live tune/10908 records, credentials, model endpoint, original grader, VM or financial STOP were accessed or changed. Only this review JSON is written."
+  ]
+}

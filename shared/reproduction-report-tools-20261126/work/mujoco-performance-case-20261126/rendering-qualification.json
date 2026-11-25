@@ -1,0 +1,27 @@
+{
+  "source_sha256": {
+    "work/render_hy4_final_reports.py": "359a7d2363a31c62fd62ab40e529b324763998bd014b9d3a93e7c4a7be92e79d",
+    "work/parallel-free-evaluation-20261124/prepare_report_data.py": "2aee4a2ab4381a0abbaf9c0a115ee7755d007befab451839cce8cc468c070ca2",
+    "work/mujoco-performance-case-20261126/facts.json": "42e92571e7833481c7fd9a7e427bdc16de02abf9687804b5c7a5bb31c227daeb",
+    "work/mujoco-performance-case-20261126/qualification.json": "3aeed9763564471f5b4c96aecf82fde040e2f9b0b6602254751ece8af7191680",
+    "work/mujoco-performance-case-20261126/preview-physics-case.pdf": "c067c9ced0d3da71445728e483b71d6a85a0348b80d008e71e00ede051e6d1a0",
+    "work/mujoco-performance-case-20261126/preview-physics-case-page-1.png": "923b9c2a6e7b6665dc5a610660eb0877cc244b029442dc7aa5b7914b7f89a196",
+    "work/mujoco-performance-case-20261126/renderer-before-link-fix.py.txt": "d8864755eac726d13b30b84be5653c6dd95b1ed971b87ed8d23741d9c49f52a1"
+  },
+  "actual_preview_pages": 1,
+  "all_pages_visually_inspected": true,
+  "visual_result": "Measured table and all paragraphs readable; no clipping or overlap",
+  "actual_values_text_checked": [
+    "0.9543",
+    "0.4276",
+    "2.23x",
+    "0.0000",
+    "50",
+    "前5"
+  ],
+  "official_versioned_link_present": true,
+  "missing_case_in_complete_report_rejected": true,
+  "inline_link_type_error_corrected_before_successful_preview": true,
+  "new_model_calls": 0,
+  "formal_PDFs_generated": false
+}

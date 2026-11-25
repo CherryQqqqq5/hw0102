@@ -1,0 +1,92 @@
+{
+  "format": "execution_environment_report_incremental_review_v1",
+  "status": "APPROVE_WITH_STATED_LIMITS",
+  "blocking_findings": [],
+  "scope": "Only the saved execution-environment receipt and the two report-source changes. No experiment outcome, billing policy, completion denominator or final-delivery gate is modified or approved.",
+  "actual_diff_validation": {
+    "consumer_only_additional_supplement": true,
+    "renderer_only_new_function_and_two_paragraphs": {
+      "function": 1,
+      "paragraph": 2
+    },
+    "all_existing_gates_functions_unchanged": true
+  },
+  "receipt_validation": {
+    "path": "work/parallel-free-evaluation-20261124/execution-environment-20261126.json",
+    "sha256": "1c65189eb91bc53c80c13ed1f09c77c08f07c9020b71896ea8ca262b8d18c488",
+    "observed_utc": "2026-11-25T21:27:20.314759+00:00",
+    "saved_command_stdout_matches_structured_fields": true,
+    "host": {
+      "memory_bytes": 17179869184,
+      "memory_GiB": 16,
+      "logical_processors": 10,
+      "arm64_supported": true
+    },
+    "linux_vm": {
+      "architecture": "aarch64",
+      "logical_processors": 4,
+      "reported_memory_bytes": 5134319616,
+      "displayed_reported_memory_GiB": "4.78"
+    },
+    "checked_image": {
+      "task": "tune-mjcf",
+      "architecture": "amd64",
+      "os": "linux",
+      "actual_image_id": "sha256:56c197739db2db79562384581fcc9d3d71e6c171bf052104b1a7ee0282e7c3cf"
+    },
+    "checked_image_ID_matches_original_task_pin": true,
+    "reported_date": "UTC2026-11-25T21:27:20.314759+00:00 is November26 in Asia/Shanghai;the rendered November26 date is consistent.",
+    "privacy_scope": "Receipt contains selected architecture/memory/processor/image fields and read-only command stdout. No hostname,address,credential,account/session or model trace is included.",
+    "new_local_or_remote_environment_probe_performed_by_reviewer": false
+  },
+  "actual_function_validation": {
+    "actual_environment_note_calls": 2,
+    "bad_receipt_SHA_rejected": true,
+    "formal_report_or_PDF_executed": false,
+    "note_without_image": "11月26日本地环境实测：主机内存16 GiB，Linux虚拟机为aarch64架构、4个逻辑处理器、约4.78 GiB内存。耗时及速度验收按实际本机运行记录报告，不作跨平台或公开原生环境性能的等价推断。",
+    "note_with_one_image": "11月26日本地环境实测：主机内存16 GiB，Linux虚拟机为aarch64架构、4个逻辑处理器、约4.78 GiB内存。单独核验的tune-mjcf原镜像为amd64架构，与虚拟机架构不同；该差异对速度的独立影响尚未测定。耗时及速度验收按实际本机运行记录报告，不作跨平台或公开原生环境性能的等价推断。"
+  },
+  "preview_validation": {
+    "previously_generated_preview_only": true,
+    "actual_existing_PNG_visually_read_by_reviewer": true,
+    "readable_environment_paragraphs": 2,
+    "visible_clipping_or_page_boundary_issue": false,
+    "content": "Single page explicitly marked internal layout check and not final report. Both environment paragraphs match the actual current function outputs.",
+    "fresh_PDF_render_performed_by_reviewer": false,
+    "formal_final_PDF_approval": false
+  },
+  "claim_boundaries": [
+    "The saved observation establishes one local host/VM snapshot and the architecture of the exact original tune-mjcf image ID.",
+    "The4.78 GiB number is the saved Docker-reported Linux memory total,not a claim that the VM was configured to exactly4.78 GiB or that every historical run had that available memory.",
+    "Architecture differs for this one checked task image. No claim is made that all75 images are amd64,that an architecture layer caused a bottleneck,or that a native external platform would have the same timings.",
+    "No architecture speed penalty was independently measured. Reported task wall time and original performance acceptance remain observations in the actual local execution environment.",
+    "AST comparison proves existing source/billing/completion/final gates unchanged after removing the one supplementary filename and the new function/two paragraph calls. This does not replace final full-report validation."
+  ],
+  "delivery_versioning": {
+    "current_consumer_sha256": "0cd8d423a875777ddcbdec5f47dc75cbe06a2018ecd5e0322d3dbb95e6d1997d",
+    "current_renderer_sha256": "afd139e5b839caa54d134c06b0145663716fa936d4ae4d4816314faf7d2ccaa6",
+    "preserved_before_consumer_sha256": "870dafac413d560df4d93d1cd226768eb6aad446e2819f9c0c300f3effe549fd",
+    "preserved_before_renderer_sha256": "c50254b1424344094c42443ff1e585664d9513f521bbfbec2c0ea41ca864e3f1",
+    "required_supplement": "The published942-source snapshot remains its recorded historical870daf/c502 version. Final delivery needs an explicit source-version supplement for these two current files, this receipt and the newly reviewed export tools;do not relabel old snapshot bytes as current.",
+    "actual_source_sync_commit_or_upload_performed_by_reviewer": false
+  },
+  "source_sha256": {
+    "work/parallel-free-evaluation-20261124/execution-environment-20261126.json": "1c65189eb91bc53c80c13ed1f09c77c08f07c9020b71896ea8ca262b8d18c488",
+    "work/parallel-free-evaluation-20261124/prepare_report_data.py": "0cd8d423a875777ddcbdec5f47dc75cbe06a2018ecd5e0322d3dbb95e6d1997d",
+    "work/render_hy4_final_reports.py": "afd139e5b839caa54d134c06b0145663716fa936d4ae4d4816314faf7d2ccaa6",
+    "work/execution-environment-20261126/prepare-report-before-environment.py.txt": "870dafac413d560df4d93d1cd226768eb6aad446e2819f9c0c300f3effe549fd",
+    "work/execution-environment-20261126/renderer-before-environment.py.txt": "c50254b1424344094c42443ff1e585664d9513f521bbfbec2c0ea41ca864e3f1",
+    "work/execution-environment-20261126/preview-environment.pdf": "a7b485fa44bca21a6ea5c7d4a5818a82143aa435c86cf7e9f49677d1cfd10f43",
+    "work/execution-environment-20261126/preview-environment-page.png": "acf77a9c85a4c721d1dc029b948c0e7a4e58a9aff8e298f32a67fc847af60d31",
+    "work/execution-environment-20261126/qualification.json": "41f3e378b598c2ce78a60f0878b964166c40773c9c9b1a80d2aea04e44253f43",
+    "work/vmshare/performance75-dsh-hy4-v10/environment-pins.json": "4cccb2ad44c00d4257ea8f9e89c2e2fcf19d21d1d1bec55a4e7661d9449c282e"
+  },
+  "reviewer_actions": {
+    "new_model_calls": 0,
+    "new_original_grader_calls": 0,
+    "new_Docker_or_VM_commands": 0,
+    "new_financial_or_Git_operations": 0,
+    "live_run_files_read": 0,
+    "only_file_written": "work/execution-environment-20261126/independent-review.json"
+  }
+}

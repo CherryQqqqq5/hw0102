@@ -1,0 +1,99 @@
+{
+  "actual_facts": {
+    "tuned_seconds": 0.4276,
+    "reference_seconds": 0.9543,
+    "printed_speedup": 2.23,
+    "printed_time_fraction": 0.45,
+    "printed_final_difference": "0.0000",
+    "original_tests_passed": [
+      "test_correctness",
+      "test_model_ref_unchanged",
+      "test_model_speed",
+      "test_tuned_model_exists"
+    ],
+    "original_physical_tree_unchanged": true,
+    "configuration": {
+      "options": {
+        "timestep": "0.002",
+        "jacobian": "dense",
+        "solver": "PGS",
+        "iterations": "100"
+      },
+      "flags": {
+        "warmstart": "disable"
+      }
+    },
+    "native_xml_sha256": "44509bf47800cef09883c03481d7ea8c4f1331287ee86040dc653a22835af8d2",
+    "native_xml_bytes": 1373,
+    "self_check": {
+      "samples": 50,
+      "reported_maximum_error": 1.3428822210823088e-06,
+      "reported_median_error": 3.16940711321545e-07,
+      "reported_above_threshold": 0,
+      "explicit_finite_rechecks": 5
+    },
+    "scope": "One actual original-cohort repeat. Printed rounded difference is not bitwise identity. The self-check aggregate does not establish explicit per-sample finiteness for all50. No parameter ablation or controller causal benefit is claimed."
+  },
+  "actual_case_sources": {
+    "files_sha256": {
+      "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/tune-mjcf-C0-r2/result.json": "9b11bc107665d6f45a2fa8c3e5d647c7d6e18f52b2bd6d6f94cb4c5a248347e3",
+      "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/tune-mjcf-C0-r2/tune-mjcf__RyFeksv/verifier/test-stdout.txt": "69c93ab8446d3d5578f5d291ddf09467a72727b77a3e74b032f946562f01d532",
+      "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/tune-mjcf-C0-r2/tune-mjcf__RyFeksv/artifacts/app/model.xml": "44509bf47800cef09883c03481d7ea8c4f1331287ee86040dc653a22835af8d2",
+      "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/tune-mjcf-C0-r2/tune-mjcf__RyFeksv/agent/tools.jsonl": "572370e99306aed48c088c5386657f2ac885eb522b3c923833f182a6e93f923f",
+      "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/tune-mjcf-C0-r2/tune-mjcf__RyFeksv/artifacts/manifest.json": "c995a93e5b8302da1a6c6fe1c692f386e9d5022a7ccaca4da2d6634428008a6a",
+      "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/tune-mjcf-C0-r2/tune-mjcf__RyFeksv/agent/final-verification.json": "555bc50f009a82b4d3b3bacf7780850e2a42b86184bbda04d6687f1c4134c198",
+      "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/tune-mjcf-C0-r2/tune-mjcf__RyFeksv/agent/controller.jsonl": "73e8c3dcac098eda7d5cf4bd2e05555a4a1bf65193ae2efac363198bdd67cd02",
+      "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/tune-mjcf-C0-r2/artifact-capture.json": "b7c76e70bb7acf003415e54304d81f1f47428d49560c52a2545b10c999820dd1",
+      "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/tune-mjcf-C0-r2/artifact-capture-config.json": "4109d0c973790993c7aeb584da941d800ed57b2b742a36e046ae3e0ffe1bcf85"
+    }
+  },
+  "original_sources_unchanged": true,
+  "negative_controls": [
+    {
+      "name": "wrong_arm",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "false_original_score",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "wrong_original_result_sha",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "changed_original_grade",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "zero_observed_time",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "changed_captured_xml",
+      "rejected": true,
+      "error_type": "ValueError"
+    },
+    {
+      "name": "changed_reference_tree",
+      "rejected": true,
+      "error_type": "ValueError"
+    }
+  ],
+  "consumer_previous_functions_changed": [
+    "case_observations"
+  ],
+  "renderer_load_only_added_exact_case_whitelist": true,
+  "source_sha256": {
+    "work/parallel-free-evaluation-20261124/prepare_report_data.py": "2aee4a2ab4381a0abbaf9c0a115ee7755d007befab451839cce8cc468c070ca2",
+    "work/render_hy4_final_reports.py": "d8864755eac726d13b30b84be5653c6dd95b1ed971b87ed8d23741d9c49f52a1"
+  },
+  "scope": "One actual archived repeat and seven explicit local mutated-copy/data negatives. No model, grader or VM. Private fixture copies are not new experimental outcomes and must not enter delivered run inventories.",
+  "new_model_calls": 0,
+  "formal_PDFs_generated": false
+}

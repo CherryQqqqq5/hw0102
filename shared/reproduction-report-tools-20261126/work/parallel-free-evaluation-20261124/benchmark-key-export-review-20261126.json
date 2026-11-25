@@ -1,0 +1,764 @@
+{
+  "format": "source_bound_benchmark_private_key_export_review_v1",
+  "status": "APPROVE_WITH_STATED_LIMITS",
+  "blocking_findings": [],
+  "scope": {
+    "task": "openssl-selfsigned-cert",
+    "closed_original_runs": 3,
+    "c0_filtered_runs": 2,
+    "ordinary_dsh_runs": 1,
+    "candidate_snapshots": 3,
+    "actual_requests": 18,
+    "verified_own_zero_receipts": 18,
+    "new_model_calls": 0,
+    "new_original_grader_calls": 0,
+    "new_vm_operations": 0,
+    "approval": "Only the exact reviewed C0 run/trial/protocol/candidate hashes may use this private-PEM projection; the reviewed DSH run retains the unchanged ordinary sanitizer path."
+  },
+  "fixed_finding_closed": {
+    "issue": "The initial exporter sent B0/DSH through a helper requiring absent candidate_scope.",
+    "repair": "Current exporter selects this stage only for the exact certificate task with framework mini-swe. Actual B0 has no candidate snapshots and no native final artifact capture."
+  },
+  "source_evidence": {
+    "prior_independent_review": {
+      "path": "work/parallel-free-evaluation-20261124/independent-core-after187-incremental-20261126.json",
+      "sha256": "b9a91501391ad5a0bd20a042ddea7162696fcf0d593a2f4db378b8268326c2ff"
+    },
+    "qualification": {
+      "path": "work/parallel-free-evaluation-20261124/benchmark-key-export-qualification-20261126/result.json",
+      "sha256": "c2eecb1ff52d30cbe2aa066d24d59fe8b9084969c1e87a17d7ca79c6216c9e1c",
+      "driver_sha256": "98d6794040c3a60c23e3ad612fab3b4abe9eea8f8c5324c8f31ea22a827892f7"
+    },
+    "shared_source_sha256": {
+      "work/parallel-free-evaluation-20261124/benchmark_key_export.py": "cf12b322a597877750787962f5dd547c7ddeda4f7324ea754cc07138998716bb",
+      "work/parallel-free-evaluation-20261124/export_joined_evidence.py": "ab490db3f8366bdb6cbbb79ba33999c6689cd0dec3d425a1595edc4a06a0ba35",
+      "work/parallel-free-evaluation-20261124/export-joined-before-benchmark-key-redaction-20261126.py.txt": "c22d49db8d9c27c32fdb5034128c95cfb907779eca0a69ffd645d1b01c1fcba7",
+      "course_eval/export_revision.py": "3d52d041d5dd3a644cd40ca395e248f0fb1e0eeb11c78d431c79d9d95fa5b75d",
+      "scripts/export_performance_evidence.py": "5b9d3d297c9c738a4240277df6cc64ef9c52828d8601ccf1acdbf39d8a890c5e",
+      "scripts/summarize_performance_comparison.py": "e21af1ae9e27f3865a3d71510f8bec8276557d74b984095ed9be51ccbe158472"
+    }
+  },
+  "implementation_review": {
+    "exact_candidate_shape": "Strict base64 and UTF-8; at most one complete private PEM block per selected artifact; .key contains no remaining content; .pem remainder is one public certificate. Other SECRET/PRIVATE/HOME_PATH matches reject.",
+    "provenance": "Original candidate digests, file modes, eligibility and evidence remain unmodified source claims. Added metadata explicitly marks changed payload bytes, original/export hashes and sizes, unfiltered-source-only artifact_digest and non-replayable private keys.",
+    "unchanged_checks": "No source change in course_eval/export_revision.py, scripts/export_performance_evidence.py or control_artifact_metrics. Exported metrics, per-call receipts and final controller states are still compared against originals.",
+    "actual_projected_bytes": "Independently executed candidate_projection on each actual candidate in memory; all nonpayload fields and the three non-key artifacts are byte-identical, all six key/pem payloads have no remaining sensitive marker.",
+    "qualification_reconsumed": "Directly called current verify_run and verify_source on all three actual exported run directories; did not rerun models, grading or the export qualification driver.",
+    "recorded_negative_controls": [
+      {
+        "name": "export_byte_tamper_dsh",
+        "rejected": true,
+        "error_type": "ValueError"
+      },
+      {
+        "name": "export_byte_tamper_main",
+        "rejected": true,
+        "error_type": "ValueError"
+      },
+      {
+        "name": "export_byte_tamper_repeat",
+        "rejected": true,
+        "error_type": "ValueError"
+      },
+      {
+        "name": "wrong_internal_path",
+        "rejected": true,
+        "error_type": "ValueError"
+      },
+      {
+        "name": "invalid_base64",
+        "rejected": true,
+        "error_type": "Error"
+      },
+      {
+        "name": "incomplete_private_pem",
+        "rejected": true,
+        "error_type": "ValueError"
+      },
+      {
+        "name": "unrelated_secret_after_pem",
+        "rejected": true,
+        "error_type": "ValueError"
+      },
+      {
+        "name": "unrelated_home_after_pem",
+        "rejected": true,
+        "error_type": "ValueError"
+      },
+      {
+        "name": "unreviewed_run",
+        "rejected": true,
+        "error_type": "ValueError"
+      }
+    ],
+    "negative_depth": "Read all qualification driver branches and the nine actual rejection records. Independent reconsumption reran the three successful run/source checks; it did not repeat the driver's mutations."
+  },
+  "candidate_sha_allowlist": {
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1": {
+      "trial_sha256": "73a2cd0eb231814873b1e74121db93199a20b6f358bc96ad485679a1458344ab",
+      "protocol_sha256": "45853ec9c5e8173c25aaf503539ac18880346d443ba104d6cd2a604d356b9327",
+      "candidates": {
+        "openssl-selfsigned-cert__Aqci8FH/agent/candidates/candidate-001.json": "784335ea1e567d0f9c06dc9996ceb1b86020712aff5609fd0b62e56f934600e3"
+      }
+    },
+    "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2": {
+      "trial_sha256": "73a2cd0eb231814873b1e74121db93199a20b6f358bc96ad485679a1458344ab",
+      "protocol_sha256": "45853ec9c5e8173c25aaf503539ac18880346d443ba104d6cd2a604d356b9327",
+      "candidates": {
+        "openssl-selfsigned-cert__pT76fts/agent/candidates/candidate-001.json": "f20f2e965def73c147d15264afb8a1016f98e3a6ad9ae5aaced7032ee74aba33",
+        "openssl-selfsigned-cert__pT76fts/agent/candidates/candidate-002.json": "6351281f54138bcf5bf0dfe1aaa94cf48d0918b8d9402b03e13e8861ac1861c7"
+      }
+    }
+  },
+  "rows": [
+    {
+      "arm": "dsh",
+      "run_dir": "work/vmshare/performance75-dsh-hy4-v10/openssl-selfsigned-cert-B0-r1",
+      "framework": "dsh",
+      "configuration": "B0",
+      "trial_sha256": "240ac6b3914e7183c5618c20525403758de9075fe5348c29c2e30734975aa5c1",
+      "protocol_sha256": "a0c71ddb33f34ee775600eac224f6168b7ef63d77982e0311a746c56abd02c7e",
+      "task_id": "openssl-selfsigned-cert",
+      "image": "alexgshaw/openssl-selfsigned-cert:20251031",
+      "candidate_scope": null,
+      "route": "unchanged_original_sanitizer_no_candidate_projection",
+      "metrics": {
+        "task": "openssl-selfsigned-cert",
+        "passed": true,
+        "wall_seconds": 66.61679604102392,
+        "actual_requests": 2,
+        "verified_zero_credit_requests": 2,
+        "fresh_native_usage_records": 2,
+        "native_session_count": 1,
+        "model_calls": 2,
+        "model_responses": 2,
+        "model_request_retries": 0,
+        "model_request_timeouts": 0,
+        "provider_turns": 2,
+        "tool_calls": 1,
+        "input_tokens": 15430,
+        "output_tokens": 6332,
+        "cached_input_tokens": 4608,
+        "submission_check_opportunities": 0,
+        "stale_at_submission": 0,
+        "deliverable_checkpoints": 0,
+        "deliverable_reminders": 0,
+        "usage_unreturned_requests": 0,
+        "usage_missing_input_responses": 0,
+        "usage_missing_output_responses": 0,
+        "usage_missing_cache_responses": 0,
+        "provider_reported_cost_usd": 0,
+        "sdk_tool_results": 1,
+        "sdk_tool_errors": 0,
+        "sdk_tool_unreturned": 0
+      },
+      "control": {
+        "final_control_applicable": false,
+        "final_control_state": "not_applicable",
+        "final_protected_unchanged": null,
+        "final_valid_verification": null,
+        "final_verification_sha256": null
+      },
+      "actual_generation_commands": [
+        {
+          "source": "openssl-selfsigned-cert__DHzQyN2/agent/dsh/dsh-home/sessions/--app--/course-task/session.v4.jsonl",
+          "line": 12,
+          "command_sha256": "0fed8973746d3fc6f9bb958562f7cfd7c822a87855dfb7f71e5a6ecf49f1fd59",
+          "command_bytes": 2766,
+          "returncode": null,
+          "generation_lines": [
+            "openssl genrsa -out /app/ssl/server.key 2048",
+            "chmod 600 /app/ssl/server.key",
+            "openssl req -new -x509 -key /app/ssl/server.key -out /app/ssl/server.crt -days 365 -sha256 \\",
+            "cat /app/ssl/server.key /app/ssl/server.crt > /app/ssl/server.pem",
+            "chmod 600 /app/ssl/server.pem"
+          ]
+        }
+      ],
+      "candidates": [],
+      "native_captures": [],
+      "source_sha256": {
+        "result.json": "a8f6b65e36ff00c230e40ab53c2b6f196527a8104b30cc8fc517415cca6f6cb4",
+        "trial.json": "240ac6b3914e7183c5618c20525403758de9075fe5348c29c2e30734975aa5c1",
+        "openssl-selfsigned-cert__DHzQyN2/agent/model.jsonl": "b9f48653ad716f55617dfe6bba9f62dee2506aa91a9b997af9d107f95fdf4f4e",
+        "openssl-selfsigned-cert__DHzQyN2/result.json": "941f78e60f55f7778e2fd88c20a62005105e047a073fc9b6911f521216032d00",
+        "openssl-selfsigned-cert__DHzQyN2/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "openssl-selfsigned-cert__DHzQyN2/verifier/test-stdout.txt": "d0a6701481eca6ec630a2072efa417ad1d3f731f2866e9a8189d39dcc458c1f6",
+        "openssl-selfsigned-cert__DHzQyN2/agent/dsh/dsh-home/sessions/--app--/course-task/session.v4.jsonl": "b59801c922bb8d99dc3520958d198c48f661f6b53d568d02b904160516955ff3",
+        "openssl-selfsigned-cert/instruction.md": "38054a3371f7c2c853478a2f9af0bff858437d5b28a9a07483238f06e566921f"
+      },
+      "qualification_recheck": {
+        "arm": "dsh",
+        "verify_run_passed": true,
+        "verify_source_passed": true,
+        "members_rechecked": 12,
+        "source_metric_request_count": 2,
+        "reward_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "original_grade_summary": [
+          "============================== 6 passed in 0.84s ==============================="
+        ],
+        "export_private_pem_absent": true,
+        "candidate_nonpayload_unchanged": true
+      }
+    },
+    {
+      "arm": "main",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/openssl-selfsigned-cert-C0-r1",
+      "framework": "mini-swe",
+      "configuration": "C0",
+      "trial_sha256": "73a2cd0eb231814873b1e74121db93199a20b6f358bc96ad485679a1458344ab",
+      "protocol_sha256": "45853ec9c5e8173c25aaf503539ac18880346d443ba104d6cd2a604d356b9327",
+      "task_id": "openssl-selfsigned-cert",
+      "image": "alexgshaw/openssl-selfsigned-cert:20251031",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/ssl/server.key",
+          "/app/ssl/server.crt",
+          "/app/ssl/server.pem",
+          "/app/ssl/verification.txt",
+          "/app/check_cert.py"
+        ],
+        "protected": [],
+        "python": "python3"
+      },
+      "route": "reviewed_candidate_private_pem_projection_then_original_sanitizer",
+      "metrics": {
+        "task": "openssl-selfsigned-cert",
+        "passed": true,
+        "wall_seconds": 103.22423149994574,
+        "actual_requests": 7,
+        "verified_zero_credit_requests": 7,
+        "fresh_native_usage_records": 7,
+        "native_session_count": 1,
+        "model_calls": 7,
+        "model_responses": 7,
+        "model_request_retries": 0,
+        "model_request_timeouts": 0,
+        "provider_turns": 7,
+        "tool_calls": 4,
+        "input_tokens": 83818,
+        "output_tokens": 9701,
+        "cached_input_tokens": 65536,
+        "submission_check_opportunities": 0,
+        "stale_at_submission": 0,
+        "deliverable_checkpoints": 0,
+        "deliverable_reminders": 0,
+        "usage_unreturned_requests": 0,
+        "usage_missing_input_responses": 0,
+        "usage_missing_output_responses": 0,
+        "usage_missing_cache_responses": 0,
+        "provider_reported_cost_usd": 0
+      },
+      "control": {
+        "final_control_applicable": true,
+        "final_control_state": "valid",
+        "final_protected_unchanged": true,
+        "final_valid_verification": true,
+        "final_verification_sha256": "c2dd7f8f7e9befc5440c5b0f3f22ed9b16777b02d43b0a37ba5699cccdb9bd52"
+      },
+      "actual_generation_commands": [
+        {
+          "source": "openssl-selfsigned-cert__Aqci8FH/agent/tools.jsonl",
+          "line": 1,
+          "command_sha256": "5a81c8d330cc4e6bf01f382ecd2383ac92159b5edbbc667cc2baf5842068f3e0",
+          "command_bytes": 216,
+          "returncode": 0,
+          "generation_lines": []
+        },
+        {
+          "source": "openssl-selfsigned-cert__Aqci8FH/agent/tools.jsonl",
+          "line": 2,
+          "command_sha256": "9f414adb428d6a3a1f4ae9303ee295ddae0b62488207127074daa816d4ce3abc",
+          "command_bytes": 4085,
+          "returncode": 0,
+          "generation_lines": [
+            "if ! openssl genrsa -traditional -out \"$KEY\" 2048 2>/dev/null; then",
+            "  openssl genrsa -out \"$KEY\" 2048",
+            "chmod 600 \"$KEY\"",
+            "openssl req -new -x509 -key \"$KEY\" -out \"$CRT\" -days 365 -sha256 \\",
+            "cat \"$KEY\" \"$CRT\" > \"$PEM\"",
+            "chmod 600 \"$PEM\""
+          ]
+        },
+        {
+          "source": "openssl-selfsigned-cert__Aqci8FH/agent/tools.jsonl",
+          "line": 3,
+          "command_sha256": "96a38237161b63c6ae45aa7d714041ba0a3fb24cfb8fc434412ac63f933221ac",
+          "command_bytes": 1454,
+          "returncode": 0,
+          "generation_lines": []
+        },
+        {
+          "source": "openssl-selfsigned-cert__Aqci8FH/agent/tools.jsonl",
+          "line": 4,
+          "command_sha256": "2465e58f9e20144f53e9dbe9f93704ec2f68a3ede94790dae9cf36af90488692",
+          "command_bytes": 240,
+          "returncode": 0,
+          "generation_lines": []
+        }
+      ],
+      "candidates": [
+        {
+          "path": "openssl-selfsigned-cert__Aqci8FH/agent/candidates/candidate-001.json",
+          "source_sha256": "784335ea1e567d0f9c06dc9996ceb1b86020712aff5609fd0b62e56f934600e3",
+          "candidate_id": "candidate-001",
+          "artifact_digest": "91247b66e91155a6e4a7d9894f6c094fb839a22f3fb7dd50edee4e244dc65d41",
+          "eligible": false,
+          "files": [
+            {
+              "artifact": "/app/ssl/server.key",
+              "source_sha256": "80d8ffa121bfbb72f67f15b13ac6e3e7bf91f0ccc09c4921d795237a7a13752f",
+              "source_bytes": 1675,
+              "mode": 384,
+              "export_sha256": "bf1cf73eee00f819afbb94e1e5e4c5f3281f7676fc74d158dd672d4152bbe3d4",
+              "export_bytes": 33,
+              "byte_identical": false,
+              "private_pem_blocks": 1,
+              "export_has_sensitive_marker": false
+            },
+            {
+              "artifact": "/app/ssl/server.crt",
+              "source_sha256": "364cef5c621e8e077ebf8e05b02b372445cb195dbf21b0ec03029b0271509e89",
+              "source_bytes": 1220,
+              "mode": 420,
+              "export_sha256": "364cef5c621e8e077ebf8e05b02b372445cb195dbf21b0ec03029b0271509e89",
+              "export_bytes": 1220,
+              "byte_identical": true,
+              "private_pem_blocks": 0,
+              "export_has_sensitive_marker": false
+            },
+            {
+              "artifact": "/app/ssl/server.pem",
+              "source_sha256": "913d9bb43829ad95caa4924ebf509e30f5450e920789d7b4f0ae11c47bcf73e3",
+              "source_bytes": 2895,
+              "mode": 384,
+              "export_sha256": "e41f6afcc05501cb52d42d82241c396c7d33ba172cbd8e9d13b5312d568f2bff",
+              "export_bytes": 1253,
+              "byte_identical": false,
+              "private_pem_blocks": 1,
+              "export_has_sensitive_marker": false
+            },
+            {
+              "artifact": "/app/ssl/verification.txt",
+              "source_sha256": "6f2da7b3f0abbb211c35182aaeb92748c4f0413f20249977f7f02419187f8a73",
+              "source_bytes": 353,
+              "mode": 420,
+              "export_sha256": "6f2da7b3f0abbb211c35182aaeb92748c4f0413f20249977f7f02419187f8a73",
+              "export_bytes": 353,
+              "byte_identical": true,
+              "private_pem_blocks": 0,
+              "export_has_sensitive_marker": false
+            },
+            {
+              "artifact": "/app/check_cert.py",
+              "source_sha256": "a6a224e30a7ab47a6b544dee9158e6e6704fbc1fbbd69a20d5999fbf1f7e7653",
+              "source_bytes": 2375,
+              "mode": 493,
+              "export_sha256": "a6a224e30a7ab47a6b544dee9158e6e6704fbc1fbbd69a20d5999fbf1f7e7653",
+              "export_bytes": 2375,
+              "byte_identical": true,
+              "private_pem_blocks": 0,
+              "export_has_sensitive_marker": false
+            }
+          ],
+          "combined_exact_key_plus_certificate": true,
+          "nonpayload_fields_unchanged": true,
+          "filtered_candidate_sha256": "0ff5475f8158c2c059b085c61fc5b197e83b765c452060cb45b4ffaf8dafed0f",
+          "original_snapshot_replayable_from_export": false,
+          "retained_artifact_digest_describes": "unfiltered_source_only"
+        }
+      ],
+      "native_captures": [
+        {
+          "artifact": "/app/ssl/server.key",
+          "sha256": "80d8ffa121bfbb72f67f15b13ac6e3e7bf91f0ccc09c4921d795237a7a13752f",
+          "bytes": 1675
+        },
+        {
+          "artifact": "/app/ssl/server.crt",
+          "sha256": "364cef5c621e8e077ebf8e05b02b372445cb195dbf21b0ec03029b0271509e89",
+          "bytes": 1220
+        },
+        {
+          "artifact": "/app/ssl/server.pem",
+          "sha256": "913d9bb43829ad95caa4924ebf509e30f5450e920789d7b4f0ae11c47bcf73e3",
+          "bytes": 2895
+        },
+        {
+          "artifact": "/app/ssl/verification.txt",
+          "sha256": "6f2da7b3f0abbb211c35182aaeb92748c4f0413f20249977f7f02419187f8a73",
+          "bytes": 353
+        },
+        {
+          "artifact": "/app/check_cert.py",
+          "sha256": "a6a224e30a7ab47a6b544dee9158e6e6704fbc1fbbd69a20d5999fbf1f7e7653",
+          "bytes": 2375
+        }
+      ],
+      "source_sha256": {
+        "result.json": "4dc09a4c5315c7de2b84b6c37c10718a670082b5d616ab7339534b141561feb1",
+        "trial.json": "73a2cd0eb231814873b1e74121db93199a20b6f358bc96ad485679a1458344ab",
+        "openssl-selfsigned-cert__Aqci8FH/agent/model.jsonl": "30356da5f258a4c50710e5e41f690f294f8c5b4fbfb866a80f35c363e59ae7ed",
+        "openssl-selfsigned-cert__Aqci8FH/agent/controller.jsonl": "f6335ad8f660617a745311ff2111c1f994eb715c41cd8e7daeb439b90ce35868",
+        "openssl-selfsigned-cert__Aqci8FH/agent/final-verification.json": "c2dd7f8f7e9befc5440c5b0f3f22ed9b16777b02d43b0a37ba5699cccdb9bd52",
+        "openssl-selfsigned-cert__Aqci8FH/agent/candidates/candidate-001.json": "784335ea1e567d0f9c06dc9996ceb1b86020712aff5609fd0b62e56f934600e3",
+        "artifact-capture.json": "c67898441d573a05e42eea18c46aaa808b7e204e6ce3dc305d6d0f8ae4d65c93",
+        "artifact-capture-config.json": "8ce0432cc3c4edd1fcb2ee807000b21f5247e28b808d2da98ebeed237d8f1018",
+        "openssl-selfsigned-cert__Aqci8FH/artifacts/manifest.json": "70025593f94a9194aea78fb6b077b5220ef4ea7d08b66399a4d9acbab8faddd0",
+        "openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/server.key": "80d8ffa121bfbb72f67f15b13ac6e3e7bf91f0ccc09c4921d795237a7a13752f",
+        "openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/server.crt": "364cef5c621e8e077ebf8e05b02b372445cb195dbf21b0ec03029b0271509e89",
+        "openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/server.pem": "913d9bb43829ad95caa4924ebf509e30f5450e920789d7b4f0ae11c47bcf73e3",
+        "openssl-selfsigned-cert__Aqci8FH/artifacts/app/ssl/verification.txt": "6f2da7b3f0abbb211c35182aaeb92748c4f0413f20249977f7f02419187f8a73",
+        "openssl-selfsigned-cert__Aqci8FH/artifacts/app/check_cert.py": "a6a224e30a7ab47a6b544dee9158e6e6704fbc1fbbd69a20d5999fbf1f7e7653",
+        "openssl-selfsigned-cert__Aqci8FH/result.json": "42be06e9248195ada38b495c21fd8ca56623f9fec37a59ab93b2479d5c61035d",
+        "openssl-selfsigned-cert__Aqci8FH/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "openssl-selfsigned-cert__Aqci8FH/verifier/test-stdout.txt": "2000ed4de837697397192f98a9e2b7898bd214bb53155ad8afd6f04f6be48cab",
+        "openssl-selfsigned-cert__Aqci8FH/agent/tools.jsonl": "762ec9ec3ee14672ab46741469947e2eb64213bb80026648e3acd3867d3bc9ac",
+        "openssl-selfsigned-cert/instruction.md": "38054a3371f7c2c853478a2f9af0bff858437d5b28a9a07483238f06e566921f"
+      },
+      "qualification_recheck": {
+        "arm": "main",
+        "verify_run_passed": true,
+        "verify_source_passed": true,
+        "members_rechecked": 23,
+        "source_metric_request_count": 7,
+        "reward_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "original_grade_summary": [
+          "============================== 6 passed in 0.95s ==============================="
+        ],
+        "export_private_pem_absent": true,
+        "candidate_nonpayload_unchanged": true
+      }
+    },
+    {
+      "arm": "repeat",
+      "run_dir": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/openssl-selfsigned-cert-C0-r2",
+      "framework": "mini-swe",
+      "configuration": "C0",
+      "trial_sha256": "73a2cd0eb231814873b1e74121db93199a20b6f358bc96ad485679a1458344ab",
+      "protocol_sha256": "45853ec9c5e8173c25aaf503539ac18880346d443ba104d6cd2a604d356b9327",
+      "task_id": "openssl-selfsigned-cert",
+      "image": "alexgshaw/openssl-selfsigned-cert:20251031",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/ssl/server.key",
+          "/app/ssl/server.crt",
+          "/app/ssl/server.pem",
+          "/app/ssl/verification.txt",
+          "/app/check_cert.py"
+        ],
+        "protected": [],
+        "python": "python3"
+      },
+      "route": "reviewed_candidate_private_pem_projection_then_original_sanitizer",
+      "metrics": {
+        "task": "openssl-selfsigned-cert",
+        "passed": true,
+        "wall_seconds": 110.37871016701683,
+        "actual_requests": 9,
+        "verified_zero_credit_requests": 9,
+        "fresh_native_usage_records": 9,
+        "native_session_count": 1,
+        "model_calls": 9,
+        "model_responses": 9,
+        "model_request_retries": 0,
+        "model_request_timeouts": 0,
+        "provider_turns": 9,
+        "tool_calls": 6,
+        "input_tokens": 109164,
+        "output_tokens": 9290,
+        "cached_input_tokens": 90880,
+        "submission_check_opportunities": 0,
+        "stale_at_submission": 0,
+        "deliverable_checkpoints": 0,
+        "deliverable_reminders": 0,
+        "usage_unreturned_requests": 0,
+        "usage_missing_input_responses": 0,
+        "usage_missing_output_responses": 0,
+        "usage_missing_cache_responses": 0,
+        "provider_reported_cost_usd": 0
+      },
+      "control": {
+        "final_control_applicable": true,
+        "final_control_state": "valid",
+        "final_protected_unchanged": true,
+        "final_valid_verification": true,
+        "final_verification_sha256": "35502db5a1206c6a1da9d462aef23bc04a08e589cc84d64914b93a8c3735b038"
+      },
+      "actual_generation_commands": [
+        {
+          "source": "openssl-selfsigned-cert__pT76fts/agent/tools.jsonl",
+          "line": 1,
+          "command_sha256": "3e535909fd78b70bdfe2afc6fe3005a37f1509311a2874f1d351480cfe275ffe",
+          "command_bytes": 324,
+          "returncode": 0,
+          "generation_lines": []
+        },
+        {
+          "source": "openssl-selfsigned-cert__pT76fts/agent/tools.jsonl",
+          "line": 2,
+          "command_sha256": "3c7386cf5782b3b5c468f5652e24b0033ef2b92b5b2655390a0c796238153be5",
+          "command_bytes": 4718,
+          "returncode": 0,
+          "generation_lines": [
+            "openssl genrsa -out /app/ssl/server.key 2048",
+            "chmod 600 /app/ssl/server.key",
+            "openssl req -x509 -new -sha256 \\",
+            "cat /app/ssl/server.key /app/ssl/server.crt > /app/ssl/server.pem",
+            "chmod 600 /app/ssl/server.pem"
+          ]
+        },
+        {
+          "source": "openssl-selfsigned-cert__pT76fts/agent/tools.jsonl",
+          "line": 3,
+          "command_sha256": "8f53e515cc151a472f2a8776651a306e127bbbc50341b1bb71301534258f846d",
+          "command_bytes": 1309,
+          "returncode": 1,
+          "generation_lines": [
+            "cmp -s <(cat /app/ssl/server.key /app/ssl/server.crt) /app/ssl/server.pem && echo 'server.pem exact match: OK'"
+          ]
+        },
+        {
+          "source": "openssl-selfsigned-cert__pT76fts/agent/tools.jsonl",
+          "line": 4,
+          "command_sha256": "c314abf736c3c62d95f8769b5beb42a7bdeffe6bdb3bb1c420bb8a6c647dbc17",
+          "command_bytes": 1170,
+          "returncode": 0,
+          "generation_lines": []
+        },
+        {
+          "source": "openssl-selfsigned-cert__pT76fts/agent/tools.jsonl",
+          "line": 5,
+          "command_sha256": "ddb61b88b0c515633547cc3e93a6ca777865f5de40cce1064a4781a6bb5c84ee",
+          "command_bytes": 2929,
+          "returncode": 0,
+          "generation_lines": [
+            "cmp -s <(cat /app/ssl/server.key /app/ssl/server.crt) /app/ssl/server.pem"
+          ]
+        },
+        {
+          "source": "openssl-selfsigned-cert__pT76fts/agent/tools.jsonl",
+          "line": 6,
+          "command_sha256": "2e2577cea459e468a3c7237d52cfd7c074569f65082e4f900514a7f20923eecd",
+          "command_bytes": 42,
+          "returncode": 0,
+          "generation_lines": []
+        }
+      ],
+      "candidates": [
+        {
+          "path": "openssl-selfsigned-cert__pT76fts/agent/candidates/candidate-001.json",
+          "source_sha256": "f20f2e965def73c147d15264afb8a1016f98e3a6ad9ae5aaced7032ee74aba33",
+          "candidate_id": "candidate-001",
+          "artifact_digest": "6f6e6b07e291d823c472f0c198a10ce09f223624a95b608243fce048e711db91",
+          "eligible": false,
+          "files": [
+            {
+              "artifact": "/app/ssl/server.key",
+              "source_sha256": "aeb3d475549fb6e4582da38df9229c56f6023b91fa92c65135823eb69e78d738",
+              "source_bytes": 1704,
+              "mode": 384,
+              "export_sha256": "bf1cf73eee00f819afbb94e1e5e4c5f3281f7676fc74d158dd672d4152bbe3d4",
+              "export_bytes": 33,
+              "byte_identical": false,
+              "private_pem_blocks": 1,
+              "export_has_sensitive_marker": false
+            },
+            {
+              "artifact": "/app/ssl/server.crt",
+              "source_sha256": "64b8fcc515ab76ab7b6b98ffcde62efe5396fe9fea9149913404377e8bf20fed",
+              "source_bytes": 1220,
+              "mode": 420,
+              "export_sha256": "64b8fcc515ab76ab7b6b98ffcde62efe5396fe9fea9149913404377e8bf20fed",
+              "export_bytes": 1220,
+              "byte_identical": true,
+              "private_pem_blocks": 0,
+              "export_has_sensitive_marker": false
+            },
+            {
+              "artifact": "/app/ssl/server.pem",
+              "source_sha256": "b53a9f81ebb803680c99f9147ab9b3c8229137aa11d9469e94f1bebbbf194d25",
+              "source_bytes": 2924,
+              "mode": 384,
+              "export_sha256": "8390d7129112df0d6041d59eb90cf97275b8b1fada9018db0a09828c3215116b",
+              "export_bytes": 1253,
+              "byte_identical": false,
+              "private_pem_blocks": 1,
+              "export_has_sensitive_marker": false
+            },
+            {
+              "artifact": "/app/ssl/verification.txt",
+              "source_sha256": "c8482ecdc68a1a4df9f2f4954964b1500703fd87a997ed8726cfe254514c6c80",
+              "source_bytes": 307,
+              "mode": 420,
+              "export_sha256": "c8482ecdc68a1a4df9f2f4954964b1500703fd87a997ed8726cfe254514c6c80",
+              "export_bytes": 307,
+              "byte_identical": true,
+              "private_pem_blocks": 0,
+              "export_has_sensitive_marker": false
+            },
+            {
+              "artifact": "/app/check_cert.py",
+              "source_sha256": "6ddd7869434b43d7a63223706a28843d334a1d8d56a1afcca4baccda3fb935c8",
+              "source_bytes": 2385,
+              "mode": 493,
+              "export_sha256": "6ddd7869434b43d7a63223706a28843d334a1d8d56a1afcca4baccda3fb935c8",
+              "export_bytes": 2385,
+              "byte_identical": true,
+              "private_pem_blocks": 0,
+              "export_has_sensitive_marker": false
+            }
+          ],
+          "combined_exact_key_plus_certificate": true,
+          "nonpayload_fields_unchanged": true,
+          "filtered_candidate_sha256": "634be82a1400e612f5b37a78adcdf7f92e375ea7e88a657bccad1ce05ac6b33a",
+          "original_snapshot_replayable_from_export": false,
+          "retained_artifact_digest_describes": "unfiltered_source_only"
+        },
+        {
+          "path": "openssl-selfsigned-cert__pT76fts/agent/candidates/candidate-002.json",
+          "source_sha256": "6351281f54138bcf5bf0dfe1aaa94cf48d0918b8d9402b03e13e8861ac1861c7",
+          "candidate_id": "candidate-002",
+          "artifact_digest": "fb82d37044ad863c7b5d5fc3ed95896f62ce6267e368e6be07b0c88abcbd2605",
+          "eligible": false,
+          "files": [
+            {
+              "artifact": "/app/ssl/server.key",
+              "source_sha256": "aeb3d475549fb6e4582da38df9229c56f6023b91fa92c65135823eb69e78d738",
+              "source_bytes": 1704,
+              "mode": 384,
+              "export_sha256": "bf1cf73eee00f819afbb94e1e5e4c5f3281f7676fc74d158dd672d4152bbe3d4",
+              "export_bytes": 33,
+              "byte_identical": false,
+              "private_pem_blocks": 1,
+              "export_has_sensitive_marker": false
+            },
+            {
+              "artifact": "/app/ssl/server.crt",
+              "source_sha256": "64b8fcc515ab76ab7b6b98ffcde62efe5396fe9fea9149913404377e8bf20fed",
+              "source_bytes": 1220,
+              "mode": 420,
+              "export_sha256": "64b8fcc515ab76ab7b6b98ffcde62efe5396fe9fea9149913404377e8bf20fed",
+              "export_bytes": 1220,
+              "byte_identical": true,
+              "private_pem_blocks": 0,
+              "export_has_sensitive_marker": false
+            },
+            {
+              "artifact": "/app/ssl/server.pem",
+              "source_sha256": "b53a9f81ebb803680c99f9147ab9b3c8229137aa11d9469e94f1bebbbf194d25",
+              "source_bytes": 2924,
+              "mode": 384,
+              "export_sha256": "8390d7129112df0d6041d59eb90cf97275b8b1fada9018db0a09828c3215116b",
+              "export_bytes": 1253,
+              "byte_identical": false,
+              "private_pem_blocks": 1,
+              "export_has_sensitive_marker": false
+            },
+            {
+              "artifact": "/app/ssl/verification.txt",
+              "source_sha256": "c8482ecdc68a1a4df9f2f4954964b1500703fd87a997ed8726cfe254514c6c80",
+              "source_bytes": 307,
+              "mode": 420,
+              "export_sha256": "c8482ecdc68a1a4df9f2f4954964b1500703fd87a997ed8726cfe254514c6c80",
+              "export_bytes": 307,
+              "byte_identical": true,
+              "private_pem_blocks": 0,
+              "export_has_sensitive_marker": false
+            },
+            {
+              "artifact": "/app/check_cert.py",
+              "source_sha256": "d026b6bc361ab5697d4a45a58d761e922882aa62ef222106e6cd039237c972ce",
+              "source_bytes": 2481,
+              "mode": 493,
+              "export_sha256": "d026b6bc361ab5697d4a45a58d761e922882aa62ef222106e6cd039237c972ce",
+              "export_bytes": 2481,
+              "byte_identical": true,
+              "private_pem_blocks": 0,
+              "export_has_sensitive_marker": false
+            }
+          ],
+          "combined_exact_key_plus_certificate": true,
+          "nonpayload_fields_unchanged": true,
+          "filtered_candidate_sha256": "ab5ea80e4832f0a62ebe88dcfc13305f8f0f04a37527a4a1c9f5ed46acad1c4e",
+          "original_snapshot_replayable_from_export": false,
+          "retained_artifact_digest_describes": "unfiltered_source_only"
+        }
+      ],
+      "native_captures": [
+        {
+          "artifact": "/app/ssl/server.key",
+          "sha256": "aeb3d475549fb6e4582da38df9229c56f6023b91fa92c65135823eb69e78d738",
+          "bytes": 1704
+        },
+        {
+          "artifact": "/app/ssl/server.crt",
+          "sha256": "64b8fcc515ab76ab7b6b98ffcde62efe5396fe9fea9149913404377e8bf20fed",
+          "bytes": 1220
+        },
+        {
+          "artifact": "/app/ssl/server.pem",
+          "sha256": "b53a9f81ebb803680c99f9147ab9b3c8229137aa11d9469e94f1bebbbf194d25",
+          "bytes": 2924
+        },
+        {
+          "artifact": "/app/ssl/verification.txt",
+          "sha256": "c8482ecdc68a1a4df9f2f4954964b1500703fd87a997ed8726cfe254514c6c80",
+          "bytes": 307
+        },
+        {
+          "artifact": "/app/check_cert.py",
+          "sha256": "d026b6bc361ab5697d4a45a58d761e922882aa62ef222106e6cd039237c972ce",
+          "bytes": 2481
+        }
+      ],
+      "source_sha256": {
+        "result.json": "b2471eaa62f2cdde286aff9216fb928177c04b624db86fb205ee08f9533e88a2",
+        "trial.json": "73a2cd0eb231814873b1e74121db93199a20b6f358bc96ad485679a1458344ab",
+        "openssl-selfsigned-cert__pT76fts/agent/model.jsonl": "427941a39723790f0259c0c58e17cd1482d174996d54a5749273ca5ed8eae4e0",
+        "openssl-selfsigned-cert__pT76fts/agent/controller.jsonl": "47f4e572f67318483e67f1eadc12d772903f62a30b8c1465dfddb669cd46ce98",
+        "openssl-selfsigned-cert__pT76fts/agent/final-verification.json": "35502db5a1206c6a1da9d462aef23bc04a08e589cc84d64914b93a8c3735b038",
+        "openssl-selfsigned-cert__pT76fts/agent/candidates/candidate-002.json": "6351281f54138bcf5bf0dfe1aaa94cf48d0918b8d9402b03e13e8861ac1861c7",
+        "openssl-selfsigned-cert__pT76fts/agent/candidates/candidate-001.json": "f20f2e965def73c147d15264afb8a1016f98e3a6ad9ae5aaced7032ee74aba33",
+        "artifact-capture.json": "b42ed8da78f0a401550cc8752dbbcd476c6c90d8b6cf36486f68bfece5eb98e6",
+        "artifact-capture-config.json": "fddf33099f6ce590fc1cbc3faa6e57d29607a6c440d290acc7d63da355c7d8f6",
+        "openssl-selfsigned-cert__pT76fts/artifacts/manifest.json": "70025593f94a9194aea78fb6b077b5220ef4ea7d08b66399a4d9acbab8faddd0",
+        "openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/server.key": "aeb3d475549fb6e4582da38df9229c56f6023b91fa92c65135823eb69e78d738",
+        "openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/server.crt": "64b8fcc515ab76ab7b6b98ffcde62efe5396fe9fea9149913404377e8bf20fed",
+        "openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/server.pem": "b53a9f81ebb803680c99f9147ab9b3c8229137aa11d9469e94f1bebbbf194d25",
+        "openssl-selfsigned-cert__pT76fts/artifacts/app/ssl/verification.txt": "c8482ecdc68a1a4df9f2f4954964b1500703fd87a997ed8726cfe254514c6c80",
+        "openssl-selfsigned-cert__pT76fts/artifacts/app/check_cert.py": "d026b6bc361ab5697d4a45a58d761e922882aa62ef222106e6cd039237c972ce",
+        "openssl-selfsigned-cert__pT76fts/result.json": "4a2b9b1be5e8a3c3bd3484906000e48043b2d41a2c1f3aa573f95712a6b90304",
+        "openssl-selfsigned-cert__pT76fts/verifier/reward.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "openssl-selfsigned-cert__pT76fts/verifier/test-stdout.txt": "e7e395f91eaa6b2f946137104a8c10903e0d96b953e8fc36e82b42c50cf3ab94",
+        "openssl-selfsigned-cert__pT76fts/agent/tools.jsonl": "7fff936433813e70553b6a150e22412381c8a432b600fe68766fd4a95425a994",
+        "openssl-selfsigned-cert/instruction.md": "38054a3371f7c2c853478a2f9af0bff858437d5b28a9a07483238f06e566921f"
+      },
+      "qualification_recheck": {
+        "arm": "repeat",
+        "verify_run_passed": true,
+        "verify_source_passed": true,
+        "members_rechecked": 24,
+        "source_metric_request_count": 9,
+        "reward_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "original_grade_summary": [
+          "============================== 6 passed in 0.97s ==============================="
+        ],
+        "export_private_pem_absent": true,
+        "candidate_nonpayload_unchanged": true
+      }
+    }
+  ],
+  "limits": [
+    "This review is for the exact three closed certificate runs, not final225 completion or arbitrary private-key material.",
+    "No private key body or encoded key payload is stored in this review; only source/export digests, byte counts, modes and public generation command evidence.",
+    "C0 candidates retain their original eligible=false states. Later final public/protected pass does not retroactively change saved-candidate eligibility.",
+    "The DSH original six-test grade and two own-zero receipts are retained, but it has neither C0 protection nor native final-file capture.",
+    "Raw stage directories and qualification/stages are preparation work, not sanitized evidence inventory; publish only the explicitly exported run members and records.",
+    "Sanitized candidates cannot restore their original key bytes. Original digest equality proves source provenance, not replayability of redacted payloads.",
+    "The current helper/exporter source hashes are bound here; a later source snapshot must include these exact versions rather than treating the old frozen sanitizer as the only export implementation.",
+    "No claim of reading all model reasoning word-for-word; inspected all11 actual tool commands and meaningful generation/validation output, original task instructions, source/candidate/capture metadata and original grade summaries."
+  ]
+}

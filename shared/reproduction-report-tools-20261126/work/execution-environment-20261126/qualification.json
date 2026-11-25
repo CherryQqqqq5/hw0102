@@ -1,0 +1,20 @@
+{
+  "current_source_sha256": {
+    "work/parallel-free-evaluation-20261124/execution-environment-20261126.json": "1c65189eb91bc53c80c13ed1f09c77c08f07c9020b71896ea8ca262b8d18c488",
+    "work/parallel-free-evaluation-20261124/prepare_report_data.py": "0cd8d423a875777ddcbdec5f47dc75cbe06a2018ecd5e0322d3dbb95e6d1997d",
+    "work/render_hy4_final_reports.py": "afd139e5b839caa54d134c06b0145663716fa936d4ae4d4816314faf7d2ccaa6",
+    "work/execution-environment-20261126/prepare-report-before-environment.py.txt": "870dafac413d560df4d93d1cd226768eb6aad446e2819f9c0c300f3effe549fd",
+    "work/execution-environment-20261126/renderer-before-environment.py.txt": "c50254b1424344094c42443ff1e585664d9513f521bbfbec2c0ea41ca864e3f1",
+    "work/execution-environment-20261126/preview-environment.pdf": "a7b485fa44bca21a6ea5c7d4a5818a82143aa435c86cf7e9f49677d1cfd10f43",
+    "work/execution-environment-20261126/preview-environment-page.png": "acf77a9c85a4c721d1dc029b948c0e7a4e58a9aff8e298f32a67fc847af60d31"
+  },
+  "consumer_AST_only_one_additional_supplementary_filename": true,
+  "renderer_AST_only_environment_function_and_two_paragraphs": true,
+  "existing_source_qualification_and_final_gates_unchanged": true,
+  "changed_receipt_hash_rejected": true,
+  "actual_environment_paragraphs_rendered": 2,
+  "preview_pages_visually_inspected": 1,
+  "visual_result": "Both measured paragraphs readable, no clipping or page boundary issue",
+  "formal_PDFs_generated": false,
+  "new_model_calls": 0
+}
