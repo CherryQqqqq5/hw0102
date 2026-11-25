@@ -1,0 +1,9 @@
+{
+  "task": "django__django-14855",
+  "wall_seconds": 294.77608191699255,
+  "exit_status": "Submitted",
+  "submission": "Submitted candidate-001: single-line semantic fix in django/contrib/admin/helpers.py — AdminReadonlyField.get_admin_url now calls reverse(url_name, args=[quote(remote_obj.pk)], current_app=self.model_admin.admin_site.name), so readonly foreign-key links resolve within the enclosing custom AdminSite's URL namespace instead of falling back to the default /admin/ prefix. Only production code changed; the temporary reproducer was deleted and no existing tests or test configuration were modified. Evidence: public-issue check passed (link rendered as /custom-admin/course/author/1/change/); custom reproducer passed for both a custom-named site and a default-named site; admin_views + admin_inlines suites ran 501 tests OK (34 skipped).",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 64.76915916602593
+}

@@ -1,0 +1,41 @@
+{
+  "task": {
+    "benchmark": "terminal",
+    "id": "distribution-search",
+    "stratum": "machine-learning",
+    "group": "distribution-search",
+    "difficulty": "medium",
+    "image": "alexgshaw/distribution-search:20251031",
+    "cpus": 1,
+    "memory_mb": 2048,
+    "agent_timeout_seconds": 3600.0,
+    "exclude": null,
+    "split": "C",
+    "candidate_scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/dist.npy"
+      ],
+      "protected": [],
+      "python": "/usr/local/bin/python3"
+    },
+    "image_id": "sha256:1448f7aa1c6080488251d00350e8e90477858989b1bec0accc866d7b3220738a",
+    "image_digests": [
+      "alexgshaw/distribution-search@sha256:1448f7aa1c6080488251d00350e8e90477858989b1bec0accc866d7b3220738a"
+    ]
+  },
+  "phase": "formal",
+  "configuration": "B0",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "protocol_commit": "d3e51828421535d077365177395d8a3c84b3684a",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 2,
+    "strict_wall": true
+  }
+}

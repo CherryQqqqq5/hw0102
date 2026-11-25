@@ -1,0 +1,31 @@
+{
+  "task": {
+    "benchmark": "swe",
+    "id": "scikit-learn__scikit-learn-13124",
+    "stratum": "scikit-learn/scikit-learn",
+    "group": "scikit-learn__scikit-learn-13124",
+    "difficulty": "15 min - 1 hour",
+    "image": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13124:latest",
+    "base_commit": "9f0b959a8c9195d1b6e203f08b698e052b426ca9",
+    "exclude": null,
+    "split": "C",
+    "image_id": "sha256:36b429f4c7fa428226090d04d4a019cd3401381637554d162e5f929f3a80f77c",
+    "image_digests": [
+      "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13124@sha256:36b429f4c7fa428226090d04d4a019cd3401381637554d162e5f929f3a80f77c"
+    ]
+  },
+  "phase": "formal",
+  "configuration": "B0",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "protocol_commit": "369ac50c062bb9c6cd9519954b00c8cde785939e",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 2,
+    "strict_wall": true
+  }
+}

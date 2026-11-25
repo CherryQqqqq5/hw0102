@@ -1,0 +1,9 @@
+{
+  "task": "scikit-learn__scikit-learn-13124",
+  "wall_seconds": 366.88171783299185,
+  "exit_status": "ControllerFinalized",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 25.550055125029758
+}

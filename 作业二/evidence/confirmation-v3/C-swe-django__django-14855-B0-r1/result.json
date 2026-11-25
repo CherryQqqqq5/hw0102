@@ -1,0 +1,9 @@
+{
+  "task": "django__django-14855",
+  "wall_seconds": 361.21761733293533,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 67.34488987491932
+}

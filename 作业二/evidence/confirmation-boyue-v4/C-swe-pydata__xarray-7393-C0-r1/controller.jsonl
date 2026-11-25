@@ -1,0 +1,4 @@
+{"event": "candidate_operation", "time": 1793977140.8668768, "protocol_commit": "a59144b", "operation": "initial", "seconds": 0.8011993749532849, "returncode": 0}
+{"event": "candidate_operation", "time": 1793977440.2304242, "protocol_commit": "a59144b", "operation": "capture", "seconds": 0.8608278329484165, "returncode": 0}
+{"event": "candidate_operation", "time": 1793977440.8896902, "protocol_commit": "a59144b", "operation": "original", "seconds": 0.6578701250255108, "returncode": 0}
+{"event": "final_artifact", "time": 1793977440.890548, "protocol_commit": "a59144b", "step": 23, "remaining_seconds": 299.1697068340145, "reason": "agent_exit", "artifact_digest": "31f627b81a3dbc62ec4ed5d939660fe4e1ee5c28f17566e246a3c043ea61fd3e", "protected_unchanged": true, "restored_candidate": null, "valid_verification": false, "evidence": {"public-issue": {"state": "pending", "returncode": null, "snapshot": null}}, "elapsed_seconds": 300.8302651249105}

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Implementation of ChangeCalculator using bottom-up dynamic programming: validates negative totals (\"Negative totals are not allowed.\"), returns empty list for 0, deduplicates/sorts coins, and throws \"The total N cannot be represented in the given currency.\" when unreachable. Passed public-suite plus a standalone harness replicating all 13 original tests (including the @Disabled ones the grader enables) and extra edge cases (empty coin list, unordered coins, total 10000). Saved as candidate-001.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 9
+    }
+  }
+}

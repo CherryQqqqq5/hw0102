@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting saved candidate-001: plus_comm.v with completed induction proof (base case via plus_n_O, inductive step via IHn' and plus_n_Sm) and compiled plus_comm.vo. Public check public-task passed all conditions (compiled proof present, source compiles, theorem closed under global context in both source and delivered object).",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 8
+    }
+  }
+}

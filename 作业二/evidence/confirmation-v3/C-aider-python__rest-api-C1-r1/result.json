@@ -1,0 +1,10 @@
+{
+  "task": "python/rest-api",
+  "wall_seconds": 156.08905516704544,
+  "exit_status": "Submitted",
+  "submission": "Submitting saved candidate-002 (rest_api.py). Public suite passes 9/9 and was verified twice; edge/invariant checks confirm pairwise netting, owes/owed_by symmetry, balance consistency, zero pruning, full repayment, user filtering/sorting, and float balance serialization. No changes since the saved digest.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 0.8159013750264421
+}

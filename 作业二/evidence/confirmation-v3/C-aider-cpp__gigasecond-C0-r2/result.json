@@ -1,0 +1,10 @@
+{
+  "task": "cpp/gigasecond",
+  "wall_seconds": 151.81053320807405,
+  "exit_status": "Submitted",
+  "submission": "Submitting saved candidate-001. Implementation: gigasecond::advance(const boost::posix_time::ptime&) returns start + boost::posix_time::seconds(1000000000). Public-suite check passed (5/5 assertions), plus 12 independently Python-verified edge cases (leap day 2000-02-29, non-leap century 2100, leap century 2400, epoch, 1999/2038 rollovers) all match proleptic Gregorian results with an exact 1e9-second delta and the input ptime left unmutated. Only gigasecond.cpp and gigasecond.h modified; test/build files untouched.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 11.538046916015446
+}

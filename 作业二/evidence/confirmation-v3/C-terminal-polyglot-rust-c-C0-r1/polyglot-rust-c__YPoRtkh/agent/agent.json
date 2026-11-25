@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submit the verified polyglot /app/polyglot/main.rs (saved as candidate-001, digest d5fbff9f...). It compiles cleanly with both rustc 1.75.0 and g++ 13.3.0 from the same source, and both binaries print the correct Fibonacci value (f(0)=f(1)=1) for n=0..10,20,30,40 as required, plus spot-checked 50,100,500,1000,2000 and leading-zero input; no-arg defaults to f(0)=1. Non-numeric/negative input diverges between the two (Rust parse error vs C++ atol→0) but that is outside the stated contract.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 7
+    }
+  }
+}

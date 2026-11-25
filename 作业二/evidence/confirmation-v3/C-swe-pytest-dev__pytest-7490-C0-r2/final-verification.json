@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "92ad22165cbf94e2d7f255aa5cf1f433db2e03897833244823b889d4d4e07fba",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-issue": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "473e9ce4424b24d2e2997490da19dd609944c35050ade09bbd6cec028f8495ef  src/_pytest/skipping.py\n"
+    }
+  },
+  "elapsed_seconds": 241.05654670798685
+}

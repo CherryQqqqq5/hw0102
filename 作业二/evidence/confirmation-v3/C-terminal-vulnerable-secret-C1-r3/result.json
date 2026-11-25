@@ -1,0 +1,8 @@
+{
+  "task": "vulnerable-secret",
+  "wall_seconds": 139.80985004198737,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "vulnerable-secret__9u2NyJN/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

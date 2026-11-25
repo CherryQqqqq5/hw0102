@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting saved candidate-001: /app/summary.csv with required header and all 15 period/severity counts, verified by public-task check (passed) and cross-checked line coverage (14,160 ERROR + 18,772 WARNING + 56,621 INFO + 4,994 DEBUG = 94,547 total lines).",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 9
+    }
+  }
+}

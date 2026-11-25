@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "63745c7deda18e6d0652358c3e2595077a87bf65855f62e6206d3607d77edb98",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-task": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "ccb19fc1168cde45c83f7b5ec5408444f29cd7a8c6791cf2ed3c8ca9894d75cf  /app/analyze_climate_modern.py\n112e26265c2b7a579403c9690f5d58cbc1bf59468bfcb7496e4fdbec9a565dd0  /app/climate_analyzer/analyze_climate.py\n97c2b98ec5506c1d31580ab95ae24588c1badb85a07a69b52500cb5b662e3e0a  /app/climate_analyzer/sample_data/climate_data.csv\n6ae640937b468eea85f75a4c2e4583a0f474f71d3fd323672a2e665ec37bb8c9  /app/climate_analyzer/config.ini\n"
+    }
+  },
+  "elapsed_seconds": 224.9045406250516
+}

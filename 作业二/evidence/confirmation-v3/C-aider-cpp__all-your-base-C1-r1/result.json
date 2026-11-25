@@ -1,0 +1,10 @@
+{
+  "task": "cpp/all-your-base",
+  "wall_seconds": 63.23180816695094,
+  "exit_status": "Submitted",
+  "submission": "Solution verified and saved as candidate-001. convert() rejects input/output bases < 2 and any digit >= input_base with std::invalid_argument, accumulates digits positionally into unsigned long long, then emits output-base digits by repeated division; empty/zero input returns an empty vector. Public suite passed 17/17 assertions, exit code 0.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 9.32335904194042
+}

@@ -1,0 +1,20 @@
+{
+  "candidate_id": "candidate-001",
+  "artifact_digest": "9d9bfe140e25c7a7436c2c1492eb189723a0ed02f5faf09c13516683b112aa4f",
+  "protected_digest": "aa2f26933ec011534fe2d2c472a6eb916ee14ac115388a7393a9ea007a9bfeac",
+  "eligible": true,
+  "evidence": {
+    "public-suite": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "b4a6286a67d40488b8ef52e0123616860a33aa4f800cceeab09461beba6e09b8  src/lib.rs\n8b8ff91f987ef8a31d10338467d653c08b9db6ddadf0c5c52f82c2516950f48c  tests/accumulate.rs\n"
+    }
+  },
+  "saved_elapsed": 52.51883054198697,
+  "files": {
+    "src/lib.rs": {
+      "data": "Ly8vIEFwcGx5IGBmdW5jdGlvbmAgdG8gZXZlcnkgZWxlbWVudCBvZiBgaW5wdXRgIGFuZCByZXR1cm4gdGhlIHJlc3VsdHMuCi8vLwovLy8gVGhpcyBpcyBpbXBsZW1lbnRlZCBtYW51YWxseSAod2l0aG91dCBgSXRlcmF0b3I6Om1hcGAvYGNvbGxlY3RgKSBhcwovLy8gcmVxdWlyZWQgYnkgdGhlIGV4ZXJjaXNlLgpwdWIgZm4gbWFwPFQsIFUsIEY+KGlucHV0OiBWZWM8VD4sIG11dCBmdW5jdGlvbjogRikgLT4gVmVjPFU+CndoZXJlCiAgICBGOiBGbk11dChUKSAtPiBVLAp7CiAgICBsZXQgbXV0IG91dHB1dCA9IFZlYzo6d2l0aF9jYXBhY2l0eShpbnB1dC5sZW4oKSk7CiAgICBmb3IgdmFsdWUgaW4gaW5wdXQgewogICAgICAgIG91dHB1dC5wdXNoKGZ1bmN0aW9uKHZhbHVlKSk7CiAgICB9CiAgICBvdXRwdXQKfQo=",
+      "mode": 420
+    }
+  }
+}

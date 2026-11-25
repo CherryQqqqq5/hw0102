@@ -1,0 +1,10 @@
+{
+  "task": "cpp/all-your-base",
+  "wall_seconds": 174.5313817919232,
+  "exit_status": "Submitted",
+  "submission": "Submit candidate-002 (artifact digest a0fc63ff...): all_your_base::convert validates both bases (>=2, throwing std::invalid_argument) and every input digit (< input base) up front; then accumulates the value in the target base little-endian using exact multiply-and-add, so arbitrarily long digit sequences cannot overflow; strips leading zeros, reverses to big-endian, and returns an empty vector for a zero value. Public test suite passes 17/17 assertions, standalone edge-case reproducer passes, and a 4000-case randomized differential test against a boost::multiprecision bignum reference (including bases up to 200000 and 300-digit inputs) reported no mismatches. Only all_your_base.cpp and all_your_base.h were modified.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 9.725640958058648
+}

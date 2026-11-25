@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Implemented rest_api.py RestAPI class (get/post for /users, /add, /iou) with debt netting, sorted output, payload filtering, and -0.0 avoidance. public-suite passed 9/9 (artifact_digest a25c1478...), saved as candidate-001, and the working tree was re-confirmed passing before submit.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 11
+    }
+  }
+}

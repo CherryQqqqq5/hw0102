@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submission: /app/analyze_climate_modern.py (Python 3, pathlib.Path, configparser UTF-8, pandas read_csv encoding=\"utf-8\", correct station means for 101/102) plus /app/requirements.txt (numpy>=1.24, pandas>=2.0, matplotlib>=3.7). Public check passed on all five conditions; verified saved candidate-001; legacy files untouched.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 6
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting candidate-002: re-evaluate xfail marks in the finally block of pytest_runtest_call so xfail markers added dynamically during the test body are honored. Only src/_pytest/skipping.py modified; testing/test_skipping.py left untouched. public-issue passed; 222 tests pass across skipping/unittest/mark; issue reproducer reports 1 xfailed.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 24
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitted candidate-001: /app/merge_users.py merges JSON/CSV/Parquet sources with field aliasing, user_id-keyed union with A>B>C priority, emitting /app/merged_users.parquet (int64 user_id, string name/email/created_date/status, YYYY-MM-DD dates, 4 users: 101-104) and /app/conflicts.json (total_conflicts=3 matching list, full per-source values plus selected values for user 101 name/email/created_date). Public check public-task passed all conditions; rerun was byte-identical (idempotent) and independent assertions on schema, dates, uniqueness, fallback for B-only/C-only users all passed.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 9
+    }
+  }
+}

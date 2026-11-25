@@ -1,0 +1,10 @@
+{
+  "task": "python/rest-api",
+  "wall_seconds": 98.0144588330295,
+  "exit_status": "Submitted",
+  "submission": "Submit candidate-002: rest_api.py implementing RestAPI with owes/owed_by storage, balance = round(total owed_by - total owes, 2), netting of opposite-direction debt with direction flip, zero-amount key cleanup, sorted name ordering, GET /users with optional sorted+filtered subset, POST /add, POST /iou returning sorted lender/borrower. Public-suite verification PASSED (9/9) with unchanged artifact and protected digests; edge cases (repeat accumulation, partial netting, exact cancellation key removal, third-party isolation, 0.1+0.2=0.3 rounding) also verified.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 0.629560999921523
+}

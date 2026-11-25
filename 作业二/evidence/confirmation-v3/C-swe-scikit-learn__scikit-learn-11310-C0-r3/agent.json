@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Implemented refit_time_ in BaseSearchCV (sklearn/model_selection/_search.py): added `import time`, wrapped the best_estimator_ refit in `_fit_and_score`/`fit` with start/end timestamps, and stored the elapsed duration as `refit_time_`. Documented the new attribute for both GridSearchCV and RandomizedSearchCV. Reproducer confirms refit_time_ is a nonnegative float for GridSearchCV, RandomizedSearchCV, multimetric (refit='acc'), repeated fit, and n_jobs=2; the attribute is absent when refit=False. The registered public-issue check passed, and the candidate was saved as candidate-001. Pre-existing pytest.raises(message=...) failure in test_search.py is a pytest-version incompatibility unrelated to this change.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 14
+    }
+  }
+}

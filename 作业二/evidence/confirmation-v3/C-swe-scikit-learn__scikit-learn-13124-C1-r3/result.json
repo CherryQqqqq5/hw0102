@@ -1,0 +1,9 @@
+{
+  "task": "scikit-learn__scikit-learn-13124",
+  "wall_seconds": 479.1407577500213,
+  "exit_status": "Submitted",
+  "submission": "Submit the verified fix in sklearn/model_selection/_split.py: (1) `rng = check_random_state(self.random_state)` in StratifiedKFold._make_test_folds so all per-class KFold splitters share one RandomState and draw independent permutations (previously an int random_state was reused verbatim per class, producing identical permutations and seed-insensitive fold membership); (2) corrected the misleading `shuffle` docstring. Evidence: public check public-issue passed; reproducer confirms seeds 1 vs 2 give different stratified partitions, differing from shuffle=False, deterministic per seed with stratification preserved; edge cases OK (no dropped/duplicated samples, per-class balance, fold sizes, RandomState instance, RepeatedStratifiedKFold repeats differ); sklearn/model_selection/tests/test_split.py 61 passed; full sklearn/model_selection/tests 172 passed, identical to pristine baseline. Existing tests and configuration untouched.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 25.78066095802933
+}

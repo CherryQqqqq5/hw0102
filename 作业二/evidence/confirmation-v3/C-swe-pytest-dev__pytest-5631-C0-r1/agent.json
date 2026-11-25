@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Fix for ValueError when collecting tests that patch an array (pytest issue #5631).\n\nRoot cause: in src/_pytest/compat.py, num_mock_patch_args() tested `p.new in sentinels`, which invokes numpy array __eq__ and produces an array of booleans; bool coercion then raises \"ValueError: The truth value of an array with more than one element is ambiguous\".\n\nFix: use identity comparison instead — `any(p.new is sentinel for sentinel in sentinels)` — so arbitrary patch values (numpy arrays, pandas frames, etc.) never trigger elementwise equality. Only unittest.mock.DEFAULT identity matches count as mock-argument placeholders.\n\nEvidence:\n- public check 'public-issue': state passed, returncode 0, pytest exit 0, reproducer report outcome \"passed\".\n- Reproducer /tmp/repro5631/test_array_patch.py with @patch(target='os.sep', new=np.array([-5.5, 3.0])) collects and runs.\n- testing/test_compat.py + testing/python/integration.py: 25 passed, 4 skipped (skips are pre-existing, due to 'mock' module not installed).\n- git diff --stat: only src/_pytest/compat.py changed (6 insertions, 1 deletion); no tests or configuration modified.\n- Candidate saved: candidate-001, eligible true.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 14
+    }
+  }
+}

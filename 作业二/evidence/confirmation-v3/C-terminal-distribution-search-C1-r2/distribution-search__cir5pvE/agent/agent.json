@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Deliverable /app/dist.npy is complete and verified. 3-level piecewise-constant distribution (2 heads p1=0.3620381925978064, 20 mids p2=0.01379391703894052, 149978 tail p3=3.018711116090057e-10) solved with a nested brentq root-solve so that H(P)=log N - 10 and sum(log p) = -N(log N + 10), giving forward KL(P||U)=10 and backward KL(U||P)=10 for N=150000. Final check: shape (150000,) float64, all finite and >0, sum=1.0, forward KL=9.999999999999996, backward KL=9.999999999999993 (both well inside the 0.001 tolerance). Saved candidate-001 with public-task evidence state=passed and unchanged artifact digest 2417c36429a04ce661d48e9db4c43107ed935b1eb0da9a45115a3b22569024ad; the generating script /app/solve_dist.py is retained as provenance.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 8
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting verified candidate-001: sum-of-multiples.js implements sum(factors, level) using a Set to deduplicate multiples, skipping zero/non-finite/non-positive factors to avoid infinite loops. Public suite passed 16/16 tests.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 7
+    }
+  }
+}

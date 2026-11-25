@@ -1,0 +1,8 @@
+{
+  "task": "multi-source-data-merger",
+  "wall_seconds": 106.59719987493008,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "multi-source-data-merger__cFcM8CG/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

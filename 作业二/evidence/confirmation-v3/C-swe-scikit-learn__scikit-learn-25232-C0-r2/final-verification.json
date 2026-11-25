@@ -1,0 +1,15 @@
+{
+  "reason": "agent_exit",
+  "artifact_digest": "512455b798a326c1f4550c0b2ec684020cdac2cd13a237cf755b5e3cc441a2fe",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-issue": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "7e867b15b3bcc75b732e0c5ff745c0f9afd2d65884a2984c2a900bae007dd310  sklearn/impute/_iterative.py\n"
+    }
+  },
+  "elapsed_seconds": 492.6922354999697
+}

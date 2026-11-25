@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitted candidate-001 (/app/dist.npy). 3-group analytic construction over n=150000: r-units of 27371.48661 (3 entries), 16969.68421 (4 entries), 4.535769267e-05 (149993 entries), normalized so sum=1.0 (err 2.2e-16). All values strictly positive and finite. Public check passed: shape [150000], normalization 0.9999999999999993, forward KL 10.000000000000004, backward KL 10.000000000000005 — both far inside the 0.001 tolerance. Independent reload-from-disk recomputation with literal KL formulas matched to 1e-15. Expected PASS.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 5
+    }
+  }
+}

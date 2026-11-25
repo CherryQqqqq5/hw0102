@@ -1,0 +1,44 @@
+2026-11-06 13:27:06,133 - INFO - Creating container for django__django-12193...
+2026-11-06 13:27:06,190 - INFO - Container for django__django-12193 created: 423b969496739220b76aae5b6c73be3887607772a919eca8c94f3347c1a3bfe2
+2026-11-06 13:27:06,308 - INFO - Container for django__django-12193 started: 423b969496739220b76aae5b6c73be3887607772a919eca8c94f3347c1a3bfe2
+2026-11-06 13:27:06,308 - INFO - Intermediate patch for django__django-12193 written to [本机路径] now applying to container...
+2026-11-06 13:27:06,462 - INFO - >>>>> Applied Patch:
+Checking patch django/contrib/postgres/forms/array.py...
+Applied patch django/contrib/postgres/forms/array.py cleanly.
+
+2026-11-06 13:27:07,420 - INFO - Git diff before:
+diff --git a/django/contrib/postgres/forms/array.py b/django/contrib/postgres/forms/array.py
+index 2e19cd574a..f1c609d5be 100644
+--- a/django/contrib/postgres/forms/array.py
++++ b/django/contrib/postgres/forms/array.py
+@@ -147,7 +147,7 @@ class SplitArrayWidget(forms.Widget):
+             if id_:
+                 final_attrs = {**final_attrs, 'id': '%s_%s' % (id_, i)}
+             context['widget']['subwidgets'].append(
+-                self.widget.get_context(name + '_%s' % i, widget_value, final_attrs)['widget']
++                self.widget.get_context(name + '_%s' % i, widget_value, {**final_attrs})['widget']
+             )
+         return context
+2026-11-06 13:27:07,420 - INFO - Eval script for django__django-12193 written to [本机路径] copying to container...
+2026-11-06 13:27:28,213 - INFO - Test runtime: 20.73 seconds
+2026-11-06 13:27:28,214 - INFO - Test output for django__django-12193 written to [本机路径]
+2026-11-06 13:27:28,384 - INFO - Git diff after:
+diff --git a/django/contrib/postgres/forms/array.py b/django/contrib/postgres/forms/array.py
+index 2e19cd574a..f1c609d5be 100644
+--- a/django/contrib/postgres/forms/array.py
++++ b/django/contrib/postgres/forms/array.py
+@@ -147,7 +147,7 @@ class SplitArrayWidget(forms.Widget):
+             if id_:
+                 final_attrs = {**final_attrs, 'id': '%s_%s' % (id_, i)}
+             context['widget']['subwidgets'].append(
+-                self.widget.get_context(name + '_%s' % i, widget_value, final_attrs)['widget']
++                self.widget.get_context(name + '_%s' % i, widget_value, {**final_attrs})['widget']
+             )
+         return context
+2026-11-06 13:27:28,384 - INFO - Grading answer for django__django-12193...
+2026-11-06 13:27:28,389 - INFO - report: {'django__django-12193': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': [], 'failure': ['test_get_context_does_not_mutate_attrs (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)']}, 'PASS_TO_PASS': {'success': ['test_render_check_exception (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_check_test (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_empty (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_false (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_int (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_none (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_true (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_value (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_value_from_datadict (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_value_from_datadict_string_int (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_value_omitted_from_data (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-12193: resolved: False
+2026-11-06 13:27:28,389 - INFO - Attempting to stop container sweb.eval.django__django-12193.C-swe-django__django-12193-C0-r2...
+2026-11-06 13:27:43,880 - INFO - Container sweb.eval.django__django-12193.C-swe-django__django-12193-C0-r2 stopped successfully.
+2026-11-06 13:27:43,880 - INFO - Attempting to remove container sweb.eval.django__django-12193.C-swe-django__django-12193-C0-r2...
+2026-11-06 13:27:43,994 - INFO - Container sweb.eval.django__django-12193.C-swe-django__django-12193-C0-r2 removed successfully.

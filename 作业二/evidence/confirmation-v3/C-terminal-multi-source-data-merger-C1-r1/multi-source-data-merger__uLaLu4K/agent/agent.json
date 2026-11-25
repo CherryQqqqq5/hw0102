@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Merge complete and submitted. /app/merged_users.parquet contains 4 unique users (101-104) with int64 user_id, string name/email/created_date/status, and YYYY-MM-DD dates; field mappings applied (id/user_id/userId -> user_id, full_name/name/userName -> name, email/email_address -> email, registration_date/created_at/joined -> created_date) and is_active/active normalized into status. /app/conflicts.json reports total_conflicts=3 (user 101 name/email/created_date) with per-source values and A>B>C selected values. Public check public-task passed and candidate-001 was saved.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 8
+    }
+  }
+}

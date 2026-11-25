@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "bb530c1c12c6bdade68541c720c692031d26ed0a2453a0c2d67ac22b5995adb8",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-suite": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "a0eee0194908c79c5aa0a2984bc8936c4cdd5e99b9c2817818f3b25e74d82987  beer_song.go\nd852bcc652e4c89f34361593f2c560cd210c03c2276dc337d85b144fed58dcb8  beer_song_test.go\n09139f8862b8da14cc3774b1798ab841194bbe244ad89c591ec043feec62471a  go.mod\n"
+    }
+  },
+  "elapsed_seconds": 115.33308995806146
+}

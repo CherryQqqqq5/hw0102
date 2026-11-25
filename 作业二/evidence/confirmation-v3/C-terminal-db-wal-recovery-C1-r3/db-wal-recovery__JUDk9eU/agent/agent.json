@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Recovered all 11 records by XOR 0x42-decrypting the WAL header/payload, checkpointed into main.db, and wrote /app/recovered.json. Public check passed: 11 ordered typed records matching SQLite on a scratch copy; original encrypted WAL preserved at /app/main.db-wal.encrypted.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 7
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submit candidate-001: src/lib.rs implements generic map<T, U, F: FnMut(T) -> U> using an explicit loop (no iterator map/collect), avoiding std map functionality. Public-suite passed with all 12 tests, including ignored ones.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 8
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "task": "prove-plus-comm",
+  "wall_seconds": 84.02132129191887,
+  "scoreable": true,
+  "passed": true,
+  "harbor_result": "prove-plus-comm__7oDEJeN/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

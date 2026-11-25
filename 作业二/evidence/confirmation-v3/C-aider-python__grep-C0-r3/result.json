@@ -1,0 +1,10 @@
+{
+  "task": "python/grep",
+  "wall_seconds": 72.55505662492942,
+  "exit_status": "Submitted",
+  "submission": "grep implemented with -n, -l, -i, -v, -x flags, multi-file filename prefixes, and literal (non-regex) matching. Saved candidate-001 passed the public suite (25/25) and edge cases all behave correctly.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 0.7371062919264659
+}

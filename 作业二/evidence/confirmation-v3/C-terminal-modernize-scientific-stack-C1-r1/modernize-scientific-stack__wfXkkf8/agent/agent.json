@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Final submission: analyze_climate_modern.py (Python 3, pathlib, pandas UTF-8 read, exact station 101/102 means) plus requirements.txt with constrained numpy/pandas/scipy/matplotlib. public-task passed all conditions; candidate-001 saved with matching digests; edge cases verified and legacy files untouched.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 13
+    }
+  }
+}

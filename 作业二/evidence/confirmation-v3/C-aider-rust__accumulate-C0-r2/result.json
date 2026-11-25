@@ -1,0 +1,10 @@
+{
+  "task": "rust/accumulate",
+  "wall_seconds": 61.15713670803234,
+  "exit_status": "Submitted",
+  "submission": "Submit candidate-001: src/lib.rs implements generic map<T, U, F: FnMut(T) -> U> using an explicit loop (no iterator map/collect), avoiding std map functionality. Public-suite passed with all 12 tests, including ignored ones.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 1.6532504999777302
+}

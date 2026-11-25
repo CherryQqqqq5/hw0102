@@ -1,0 +1,20 @@
+{
+  "candidate_id": "candidate-001",
+  "artifact_digest": "ff0b0516f0ba282f6f106a46cac4a6ca932c2ee17c59d5245818f9301f2c1d72",
+  "protected_digest": "aa2f26933ec011534fe2d2c472a6eb916ee14ac115388a7393a9ea007a9bfeac",
+  "eligible": false,
+  "evidence": {
+    "public-suite": {
+      "state": "pending",
+      "returncode": null,
+      "snapshot": null
+    }
+  },
+  "saved_elapsed": 28.61587491701357,
+  "files": {
+    "src/lib.rs": {
+      "data": "Ly8vIEFwcGxpZXMgYGZ1bmN0aW9uYCB0byBlYWNoIGVsZW1lbnQgb2YgYGlucHV0YCwgcmV0dXJuaW5nIGEgbmV3IGNvbGxlY3Rpb24uCnB1YiBmbiBtYXA8VCwgVSwgRj4oaW5wdXQ6IFZlYzxUPiwgbXV0IGZ1bmN0aW9uOiBGKSAtPiBWZWM8VT4Kd2hlcmUKICAgIEY6IEZuTXV0KFQpIC0+IFUsCnsKICAgIGxldCBtdXQgb3V0cHV0ID0gVmVjOjp3aXRoX2NhcGFjaXR5KGlucHV0LmxlbigpKTsKICAgIGZvciBpdGVtIGluIGlucHV0IHsKICAgICAgICBvdXRwdXQucHVzaChmdW5jdGlvbihpdGVtKSk7CiAgICB9CiAgICBvdXRwdXQKfQo=",
+      "mode": 420
+    }
+  }
+}

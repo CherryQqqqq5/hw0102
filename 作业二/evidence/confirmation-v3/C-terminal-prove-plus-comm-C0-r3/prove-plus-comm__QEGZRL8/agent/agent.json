@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "plus_comm.v completed via induction on n: base case closes with rewrite <- plus_n_O; inductive case closes with rewrite IHn' then rewrite plus_n_Sm. coqc compiled plus_comm.vo successfully, Print Assumptions reports \"Closed under the global context\", and the public-task check passed all conditions (compiled_proof_present, source_compiles, source_theorem_closed, compiled_theorem_closed).",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 6
+    }
+  }
+}

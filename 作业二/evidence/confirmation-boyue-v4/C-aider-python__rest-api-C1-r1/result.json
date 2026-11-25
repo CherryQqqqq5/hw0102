@@ -1,0 +1,10 @@
+{
+  "task": "python/rest-api",
+  "wall_seconds": 303.77899545803666,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 0.5887297090375796
+}

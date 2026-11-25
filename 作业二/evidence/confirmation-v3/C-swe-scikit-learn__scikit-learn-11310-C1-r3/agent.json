@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting saved candidate-004 (artifact digest 1e194cd43ad1b5306244dd18c0d9b1a532dec3c1138ad01a2e90ec590d043ab1), verified by public-issue. Change: sklearn/model_selection/_search.py imports `time` and measures the best_estimator_ refit inside BaseSearchCV.fit, setting `refit_time_` only when `refit` is truthy; GridSearchCV/RandomizedSearchCV docstrings document the attribute; doc/whats_new/v0.20.rst has the changelog entry. Edge cases validated: refit=False (attribute absent), multi-metric refit='accuracy', RandomizedSearchCV, n_jobs=2, and y=None. Existing tests preserved — test_search.py failure set is identical to the unmodified baseline (3 pre-existing pytest.raises(message=...) incompatibilities).",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 20
+    }
+  }
+}

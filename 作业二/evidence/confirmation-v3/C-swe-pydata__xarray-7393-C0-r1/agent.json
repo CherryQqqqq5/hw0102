@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submit saved candidate-001: fix in xarray/core/indexing.py PandasMultiIndexingAdapter.__array__ — when level is set, default dtype to self.dtype and cast level values with astype(dtype, copy=False) instead of returning raw pandas level values. This prevents int32 (and float32) level coordinates from being upcast by pandas when stacking, so ds['a'].values.dtype == ds.stack(b=('a',))['a'].values.dtype is True. Public check public-issue passed (actual int32, artifact_digest ac2bb62cbc19f53746f235d405173c7f3d911e1364be093abae8c4553833ce8f). Regressions checked: test_indexes.py + test_indexing.py 190 passed; stack/multiindex/level/dtype selection in dataset/dataarray/variable 102 passed; full test_dataset.py + test_dataarray.py 839 passed, 2 skipped. Edge cases confirmed: mixed int32/float32 stack, unstack roundtrip, string/bool/datetime64/float64 levels, large-index repr, default int64 unchanged. Existing tests and test configuration untouched; only xarray/core/indexing.py modified.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 22
+    }
+  }
+}

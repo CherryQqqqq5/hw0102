@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting candidate-001: generic `map<T, U, F: FnMut(T) -> U>` implemented with a manual for-loop and Vec::push (no stdlib map/collect), passing all 12 tests including ignored ones and the public-suite check. Working tree confirmed to match the verified candidate.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 8
+    }
+  }
+}

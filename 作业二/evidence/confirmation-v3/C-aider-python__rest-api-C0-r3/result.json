@@ -1,0 +1,10 @@
+{
+  "task": "python/rest-api",
+  "wall_seconds": 108.09529387496877,
+  "exit_status": "Submitted",
+  "submission": "Implemented rest_api.py RestAPI class (get/post for /users, /add, /iou) with debt netting, sorted output, payload filtering, and -0.0 avoidance. public-suite passed 9/9 (artifact_digest a25c1478...), saved as candidate-001, and the working tree was re-confirmed passing before submit.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 0.5972452498972416
+}

@@ -1,0 +1,9 @@
+{
+  "task": "scikit-learn__scikit-learn-13124",
+  "wall_seconds": 215.48683750000782,
+  "exit_status": "Submitted",
+  "submission": "Submitting saved candidate-001 without candidate_id (submit rejects candidate_id). Fix: sklearn/model_selection/_split.py, StratifiedKFold._make_test_folds now uses `rng = check_random_state(self.random_state)` instead of `rng = self.random_state`. Previously every per-class KFold got the same int seed and produced identical permutations, so fold membership never changed with the seed (only fold order). Now all per-class KFold instances share a single RandomState, so different seeds give different stratified partitions. Evidence: public-issue check passed (different stratified partitions across seeds 1 and 2); full sklearn/model_selection/tests/test_split.py passes 61/61; edge cases verified — stratification proportions and full coverage preserved with unbalanced classes, RandomState instance reproducibility, random_state=None varies across calls, shuffle=False still deterministic and seed-independent, seeds 1-4 give 4 distinct partitions. Diff is 1 insertion / 1 deletion; no tests or config modified.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 25.39642287499737
+}

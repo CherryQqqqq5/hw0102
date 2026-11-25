@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting verified candidate-001: column-wise carry-propagation backtracking solver in alphametics.go. Public suite passed (artifact_digest 168baf11...), gofmt/go vet clean, semantic edge cases (no-solution, leading zero, >10 letters, whitespace, single-letter puzzles) cross-checked against a brute-force reference, temp test file removed, protected files untouched.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 7
+    }
+  }
+}

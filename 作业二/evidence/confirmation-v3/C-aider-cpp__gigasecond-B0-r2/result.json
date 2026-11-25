@@ -1,0 +1,10 @@
+{
+  "task": "cpp/gigasecond",
+  "wall_seconds": 56.15445825003553,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 11.479391457978636
+}

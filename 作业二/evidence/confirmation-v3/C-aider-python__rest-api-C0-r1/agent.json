@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "rest_api.py implements GET /users (all users, or sorted subset), POST /add (new user object, balance 0.0), and POST /iou (netting existing and cross-direction debts, returning both users sorted by name). Public suite passed 9/9; extra checks for owes/owed_by symmetry, balance consistency, sorting, subset queries, repeated bidirectional IOUs, and cent-level rounding all passed. Candidate candidate-001 saved.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 8
+    }
+  }
+}

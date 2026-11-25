@@ -1,0 +1,10 @@
+{
+  "task": "go/beer-song",
+  "wall_seconds": 132.11894941702485,
+  "exit_status": "Submitted",
+  "submission": "Submitting saved candidate-001: beer_song.go implements Verse, Verses, and Song with correct handling of the 0, 1, and 2 bottle special cases, blank-line separated verses with trailing newline, and range validation. gofmt clean; `GOPROXY=off go test ./...` passes; public-suite verification passed; independent edge-case checks pass. Only beer_song.go was modified.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 21.6418155831052
+}

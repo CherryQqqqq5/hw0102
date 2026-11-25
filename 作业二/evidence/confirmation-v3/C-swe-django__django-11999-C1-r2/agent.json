@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Fix in django/db/models/fields/__init__.py: only auto-install get_FIELD_display() when it isn't explicitly defined on the class (`'get_%s_display' % self.name not in cls.__dict__`), matching Django's upstream approach. This preserves user overrides while still letting subclasses that redefine a field/choices get a fresh display method from the parent's inherited one. Verified: public-issue check passed (twice), reproducer prints overridden -> something / default -> foo, edge-case script passes (abstract inheritance, subclass field redefinition, unbound access), and model_fields/model_options/custom_methods suites pass (323 tests, OK). Only the intended file is modified; existing tests and test config untouched.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 13
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submit the verified candidate-001: DP-based minimum-coin implementation in src/main/java/ChangeCalculator.java. Public-suite check passed; original test file and build.gradle unchanged; temp edge-case test removed; handles negative totals, unrepresentable totals, zero change, non-unit/duplicate/unsorted coins, and greedy-counterexample cases.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 10
+    }
+  }
+}

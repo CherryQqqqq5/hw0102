@@ -1,0 +1,5 @@
+{
+  "stdout": "-- The CXX compiler identification is GNU 12.2.0\n-- Detecting CXX compiler ABI info\n-- Detecting CXX compiler ABI info - done\n-- Check for working CXX compiler: /usr/bin/c++ - skipped\n-- Detecting CXX compile features\n-- Detecting CXX compile features - done\n-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found suitable version \"1.74.0\", minimum required is \"1.58\") found components: date_time \n-- Configuring done\n-- Generating done\n-- Build files have been written to: /exercise/gigasecond/build\n[ 25%] Building CXX object CMakeFiles/gigasecond.dir/gigasecond_test.cpp.o\n[ 50%] Building CXX object CMakeFiles/gigasecond.dir/gigasecond.cpp.o\n[ 75%] Building CXX object CMakeFiles/gigasecond.dir/test/tests-main.cpp.o\n[100%] Linking CXX executable gigasecond\n[100%] Built target gigasecond\n===============================================================================\nAll tests passed (5 assertions in 5 test cases)\n\n[100%] Built target test_gigasecond\n",
+  "stderr": "",
+  "returncode": 0
+}

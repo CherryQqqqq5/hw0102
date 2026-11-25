@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitted saved candidate-001: all_your_base::convert validates input/output bases (>=2, else std::invalid_argument), rejects digits >= input base, and converts using schoolbook carry propagation in the output base instead of a fixed-width accumulator, so arbitrarily long inputs cannot overflow/truncate; leading zeros are stripped so any zero value maps to an empty vector. Public suite passes (17 assertions / 17 test cases) with verification evidence recorded, and an independent edge-case harness (round trips over bases 2..256, 4000-digit binary input, 2^64 round trip, zero/leading-zero handling, invalid base and digit boundaries) passed. Test and build files left untouched.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 9
+    }
+  }
+}

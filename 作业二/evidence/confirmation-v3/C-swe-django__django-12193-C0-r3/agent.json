@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitted candidate-001. Root cause fixed in django/forms/widgets.py: CheckboxInput.get_context copies attrs (`attrs = {**(attrs or {}), 'checked': True}`) instead of mutating the caller's dict. Defensive fix in django/contrib/postgres/forms/array.py: SplitArrayWidget.get_context passes a fresh `widget_attrs = final_attrs.copy()` per subwidget, so ids and checked state don't leak between subwidgets. Reproducer confirms [True, False, False] renders exactly one checked box, [False, True, False, True] renders exactly two, all-False renders none, and caller attrs stay unmutated. forms_tests.widget_tests: 171 tests OK; forms_tests has one pre-existing unrelated unicode-filename error; postgres_tests.test_array skipped (no PostgreSQL server). Public check public-issue passed.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 23
+    }
+  }
+}

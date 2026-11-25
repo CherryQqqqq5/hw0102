@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Implementation of sum(factors, level) in sum-of-multiples.js: iterates multiples of each factor into a Set (dedupe), skips factor <= 0, sums unique multiples below level. public-suite passed 16/16 and candidate-001 saved with passing evidence; extra semantic edge cases (level 0/negative, factor >= level, duplicate factors, empty factors, zero factor, non-coprime factors) all pass. Submitting.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 8
+    }
+  }
+}

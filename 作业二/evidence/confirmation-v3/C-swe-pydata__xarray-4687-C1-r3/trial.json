@@ -1,0 +1,31 @@
+{
+  "task": {
+    "benchmark": "swe",
+    "id": "pydata__xarray-4687",
+    "stratum": "pydata/xarray",
+    "group": "pydata__xarray-4687",
+    "difficulty": "15 min - 1 hour",
+    "image": "swebench/sweb.eval.x86_64.pydata_1776_xarray-4687:latest",
+    "base_commit": "d3b6aa6d8b997df115a53c001d00222a0f92f63a",
+    "exclude": null,
+    "split": "C",
+    "image_id": "sha256:2fef5e69c8c0210e5240618a354722aafaddc4137e92b6768d61967bd7f36fd3",
+    "image_digests": [
+      "swebench/sweb.eval.x86_64.pydata_1776_xarray-4687@sha256:2fef5e69c8c0210e5240618a354722aafaddc4137e92b6768d61967bd7f36fd3"
+    ]
+  },
+  "phase": "formal",
+  "configuration": "C1",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "protocol_commit": "369ac50c062bb9c6cd9519954b00c8cde785939e",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 2,
+    "strict_wall": true
+  }
+}

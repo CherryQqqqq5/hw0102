@@ -1,0 +1,15 @@
+{
+  "reason": "deadline_or_decision_limit",
+  "artifact_digest": "261d9b2559643864fa6dddf48617abb27c74e1e67629263ee230211735a5802c",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-issue": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "0404dd4f57604616cda7c55e4b7acd38531c96a2427e31418a72285d003d8f59  xarray/core/computation.py\n"
+    }
+  },
+  "elapsed_seconds": 547.6111564170569
+}

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitted candidate-001: django/db/models/fields/__init__.py now sets get_%s_display only when the name is absent from cls.__dict__, so a user-defined get_FIELD_display() is retained while non-overriding choice fields still get the generated partialmethod. Public check public-issue passed (display: [\"something\",\"something\"]); reproducer covers override, non-override (valid/nested/invalid/blank/None), subclass override, lambda attribute, abstract-inheritance, and generation cases; tests/model_fields, model_meta, model_inheritance: 381 tests OK, skipped=2, using /opt/miniconda3/envs/testbed/bin/python. Existing tests and test configuration untouched.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 19
+    }
+  }
+}

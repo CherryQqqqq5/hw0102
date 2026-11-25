@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submit saved candidate-001: grep.py implements fixed-string grep with -n, -l, -i, -v, -x flags, correct filename/line-number prefix ordering, -l taking precedence over -n, input file ordering, and lines lacking trailing newlines. Public-suite check passed (25 passed in 0.04s), artifact digest 986985b36ddac0e24d2f50257245e5fddc12f05280162ed27aa60e0031e0528d, grep_test.py unmodified (30721903...). Edge-case probes (-v -l, -x on empty line, -i -l, -n with multiple files, missing final newline) behaved correctly.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 11
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Deliverables verified: /app/merged_users.parquet (user_id int64, name, email, created_date YYYY-MM-DD, status) and /app/conflicts.json (total_conflicts=3 matching list, complete per-source values with A>B>C selected). Public check passed and candidate-001 saved with digest 6ef8a552; independent sanity validation also passed. Submitting.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 9
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Final candidate-002: xr.where(cond, x, y, keep_attrs=None) added in xarray/core/computation.py; defaults to the global keep_attrs option (False), forwarded to apply_ufunc (bool or 'drop'/'override' strategies). When the combined attrs would be empty (cond is usually an attribute-free boolean expression), attributes fall back to x/y so the reported pre-existing attrs are preserved, while cond's attrs still win under 'override' when present. Verified: public-issue check passed (attrs {'foo': 'bar'} preserved); xarray/tests/test_computation.py 247 passed, 1 skipped; reproducer and boundary cases (DataArray, Dataset, Variable, ndarray, method .where, set_options) behave correctly. test_dataarray.py/test_dataset.py collection failures are pre-existing pandas import incompatibilities unrelated to this change.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 23
+    }
+  }
+}

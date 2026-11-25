@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Fix in django/forms/widgets.py: CheckboxInput.get_context() builds a new dict (attrs = {**(attrs or {}), 'checked': True}) instead of mutating the caller's attrs, so SplitArrayWidget's reused attrs no longer leak 'checked' into later subwidgets. Verified: public-issue passes with checked [True, False, True, False]; widget-level checks for leading-False arrays, per-index ids, caller attrs untouched, and non-checkbox subwidgets pass; forms_tests.widget_tests 171 tests OK; the only forms_tests error (test_unicode_filename) reproduces on the stashed baseline and is unrelated/environmental.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 22
+    }
+  }
+}

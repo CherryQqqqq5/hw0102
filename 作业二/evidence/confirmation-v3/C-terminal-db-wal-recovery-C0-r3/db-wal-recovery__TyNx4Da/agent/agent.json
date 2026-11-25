@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "WAL repaired in place (XOR key 0x42 restored valid SQLite WAL magic 377f0682), byte-identical encrypted original preserved at /app/main.db-wal.enc.bak for independent grading. Scratch-copy read of /app/main.db + WAL gives integrity_check=ok and 11 rows (apple..mango, 150..1100). /app/recovered.json holds 11 id-sorted records with int id/value and str name, exactly matching the repaired DB. Candidate candidate-001 saved and public-task passed all conditions.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 11
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "750390cf173f000b6b0635247f5506ccb7ff662470e0c3f22419cdbb61de8742",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-task": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "b5bb0ac33d9ef77bd3cd8405612a8c503cb0450b5497f92e9e1c3e4ff97016d1  /app/plaintexts.txt\nbbd38d19f976b27e5a5aff23e21ba5f0164335397928ca05220379552dea08da  /app/feal.c\n4c6864e0d3a76626f1a7af1383e6826a85bdd1e7e373215741ece4f50a94ebd2  /app/decrypt.c\n3539f574ecac7b880c0b8c315a7a54cb62dd1720b633ac51de59df2c2e165e33  /app/pairs.txt\na403217d0d4807eea3de5c1b549b9e5ee6d54ed561db40b73362868fc791d513  /app/ciphertexts.txt\n"
+    }
+  },
+  "elapsed_seconds": 558.4805499579525
+}

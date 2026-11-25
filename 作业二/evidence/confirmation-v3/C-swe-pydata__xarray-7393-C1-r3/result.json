@@ -1,0 +1,9 @@
+{
+  "task": "pydata__xarray-7393",
+  "wall_seconds": 532.9119270830415,
+  "exit_status": "Submitted",
+  "submission": "Fix: PandasMultiIndexingAdapter.__array__ in xarray/core/indexing.py now honors the adapter dtype (defaulting to self.dtype, the level dtype tracked via level_coords_dtype), so stacking a MultiIndex no longer upcasts int32 level coordinates to int64. Verified: public-issue check passed (stacked coord dtype int32); regression suites green — test_indexes.py (71 passed), test_indexing.py (119 passed), test_dataset.py + test_dataarray.py (839 passed, 2 skipped, 7 xfailed, 2 xpassed), test_concat/test_merge/test_variable (594 passed), multiindex/stack/set_index selections (46 passed). Edge cases checked: int16/uint8, float32, string, datetime64, bool levels keep dtypes; stack/unstack roundtrip and isel retain dtypes. No test files or configuration modified.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 35.086642874986865
+}

@@ -1,0 +1,10 @@
+{
+  "task": "go/beer-song",
+  "wall_seconds": 134.49715158401523,
+  "exit_status": "Submitted",
+  "submission": "Submit candidate-001. beer_song.go implements Verse (0, 1, and 2..99 cases with 0-99 range validation), Verses (validates both bounds and requires start >= stop, joins verses with a blank line plus a trailing newline), and Song (delegates to Verses(99,0)). Public-suite check passed twice with artifact digest bb530c1c12c6bdade68541c720c692031d26ed0a2453a0c2d67ac22b5995adb8, on-disk hashes match that snapshot (beer_song.go a0eee019..., beer_song_test.go and go.mod unchanged), and local edge-case probes (out-of-range verses/indices, single-verse ranges, Song == Verses(99,0), trailing newlines) all passed.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 18.583847041940317
+}

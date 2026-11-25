@@ -1,0 +1,10 @@
+{
+  "task": "javascript/sum-of-multiples",
+  "wall_seconds": 79.90607462497428,
+  "exit_status": "Submitted",
+  "submission": "Submit verified candidate-001: sum-of-multiples.js uses a Set to collect unique multiples below the level, skipping non-positive factors; all 16 public tests pass (artifact_digest 7a552f25...).",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 1.7933758340077475
+}

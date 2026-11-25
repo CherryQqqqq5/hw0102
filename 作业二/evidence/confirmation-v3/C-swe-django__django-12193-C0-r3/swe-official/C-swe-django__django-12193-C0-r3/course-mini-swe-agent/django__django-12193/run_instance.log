@@ -1,0 +1,88 @@
+2026-11-06 19:16:50,791 - INFO - Creating container for django__django-12193...
+2026-11-06 19:16:50,848 - INFO - Container for django__django-12193 created: 5ffa498aa38c7092fff914bf6bdc3d3ccb2683cdf0f451e127a5737dc866b019
+2026-11-06 19:16:50,950 - INFO - Container for django__django-12193 started: 5ffa498aa38c7092fff914bf6bdc3d3ccb2683cdf0f451e127a5737dc866b019
+2026-11-06 19:16:50,951 - INFO - Intermediate patch for django__django-12193 written to [本机路径] now applying to container...
+2026-11-06 19:16:51,108 - INFO - >>>>> Applied Patch:
+Checking patch django/contrib/postgres/forms/array.py...
+Checking patch django/forms/widgets.py...
+Applied patch django/contrib/postgres/forms/array.py cleanly.
+Applied patch django/forms/widgets.py cleanly.
+
+2026-11-06 19:16:52,087 - INFO - Git diff before:
+diff --git a/django/contrib/postgres/forms/array.py b/django/contrib/postgres/forms/array.py
+index 2e19cd574a..fb1a836896 100644
+--- a/django/contrib/postgres/forms/array.py
++++ b/django/contrib/postgres/forms/array.py
+@@ -144,10 +144,11 @@ class SplitArrayWidget(forms.Widget):
+                 widget_value = value[i]
+             except IndexError:
+                 widget_value = None
++            widget_attrs = final_attrs.copy()
+             if id_:
+-                final_attrs = {**final_attrs, 'id': '%s_%s' % (id_, i)}
++                widget_attrs['id'] = '%s_%s' % (id_, i)
+             context['widget']['subwidgets'].append(
+-                self.widget.get_context(name + '_%s' % i, widget_value, final_attrs)['widget']
++                self.widget.get_context(name + '_%s' % i, widget_value, widget_attrs)['widget']
+             )
+         return context
+ 
+diff --git a/django/forms/widgets.py b/django/forms/widgets.py
+index 6fe220bea7..d83d63c169 100644
+--- a/django/forms/widgets.py
++++ b/django/forms/widgets.py
+@@ -522,9 +522,7 @@ class CheckboxInput(Input):
+ 
+     def get_context(self, name, value, attrs):
+         if self.check_test(value):
+-            if attrs is None:
+-                attrs = {}
+-            attrs['checked'] = True
++            attrs = {**(attrs or {}), 'checked': True}
+         return super().get_context(name, value, attrs)
+ 
+     def value_from_datadict(self, data, files, name):
+2026-11-06 19:16:52,087 - INFO - Eval script for django__django-12193 written to [本机路径] copying to container...
+2026-11-06 19:17:13,175 - INFO - Test runtime: 21.02 seconds
+2026-11-06 19:17:13,177 - INFO - Test output for django__django-12193 written to [本机路径]
+2026-11-06 19:17:13,347 - INFO - Git diff after:
+diff --git a/django/contrib/postgres/forms/array.py b/django/contrib/postgres/forms/array.py
+index 2e19cd574a..fb1a836896 100644
+--- a/django/contrib/postgres/forms/array.py
++++ b/django/contrib/postgres/forms/array.py
+@@ -144,10 +144,11 @@ class SplitArrayWidget(forms.Widget):
+                 widget_value = value[i]
+             except IndexError:
+                 widget_value = None
++            widget_attrs = final_attrs.copy()
+             if id_:
+-                final_attrs = {**final_attrs, 'id': '%s_%s' % (id_, i)}
++                widget_attrs['id'] = '%s_%s' % (id_, i)
+             context['widget']['subwidgets'].append(
+-                self.widget.get_context(name + '_%s' % i, widget_value, final_attrs)['widget']
++                self.widget.get_context(name + '_%s' % i, widget_value, widget_attrs)['widget']
+             )
+         return context
+ 
+diff --git a/django/forms/widgets.py b/django/forms/widgets.py
+index 6fe220bea7..d83d63c169 100644
+--- a/django/forms/widgets.py
++++ b/django/forms/widgets.py
+@@ -522,9 +522,7 @@ class CheckboxInput(Input):
+ 
+     def get_context(self, name, value, attrs):
+         if self.check_test(value):
+-            if attrs is None:
+-                attrs = {}
+-            attrs['checked'] = True
++            attrs = {**(attrs or {}), 'checked': True}
+         return super().get_context(name, value, attrs)
+ 
+     def value_from_datadict(self, data, files, name):
+2026-11-06 19:17:13,347 - INFO - Grading answer for django__django-12193...
+2026-11-06 19:17:13,350 - INFO - report: {'django__django-12193': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['test_get_context_does_not_mutate_attrs (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)'], 'failure': []}, 'PASS_TO_PASS': {'success': ['test_render_check_exception (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_check_test (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_empty (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_false (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_int (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_none (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_true (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_render_value (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_value_from_datadict (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_value_from_datadict_string_int (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)', 'test_value_omitted_from_data (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-12193: resolved: True
+2026-11-06 19:17:13,350 - INFO - Attempting to stop container sweb.eval.django__django-12193.C-swe-django__django-12193-C0-r3...
+2026-11-06 19:17:28,752 - INFO - Container sweb.eval.django__django-12193.C-swe-django__django-12193-C0-r3 stopped successfully.
+2026-11-06 19:17:28,752 - INFO - Attempting to remove container sweb.eval.django__django-12193.C-swe-django__django-12193-C0-r3...
+2026-11-06 19:17:28,824 - INFO - Container sweb.eval.django__django-12193.C-swe-django__django-12193-C0-r3 removed successfully.

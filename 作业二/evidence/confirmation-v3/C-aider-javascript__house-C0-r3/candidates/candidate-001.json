@@ -1,0 +1,20 @@
+{
+  "candidate_id": "candidate-001",
+  "artifact_digest": "3e85cd84ac48b697452a59cce37541334478f5fa0ce0f90b93bc273b9a105f0b",
+  "protected_digest": "c084f9c3da8a3306c9f342736d352601a7ad7ac0db66b369539b8067c52d26c4",
+  "eligible": true,
+  "evidence": {
+    "public-suite": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "b50e9aea3ce67a7b84b33e6f6565abed8c4f6c1202ff78e45061bb0ece450700  house.js\n5809d02a3b2377aa2e8de7002fac9a3191c6002fa580e831fe7b542964ddc3d7  house.spec.js\n"
+    }
+  },
+  "saved_elapsed": 53.4627809158992,
+  "files": {
+    "house.js": {
+      "data": "Y29uc3QgU1VCSkVDVFMgPSBbCiAgJ2hvdXNlIHRoYXQgSmFjayBidWlsdC4nLAogICdtYWx0JywKICAncmF0JywKICAnY2F0JywKICAnZG9nJywKICAnY293IHdpdGggdGhlIGNydW1wbGVkIGhvcm4nLAogICdtYWlkZW4gYWxsIGZvcmxvcm4nLAogICdtYW4gYWxsIHRhdHRlcmVkIGFuZCB0b3JuJywKICAncHJpZXN0IGFsbCBzaGF2ZW4gYW5kIHNob3JuJywKICAncm9vc3RlciB0aGF0IGNyb3dlZCBpbiB0aGUgbW9ybicsCiAgJ2Zhcm1lciBzb3dpbmcgaGlzIGNvcm4nLAogICdob3JzZSBhbmQgdGhlIGhvdW5kIGFuZCB0aGUgaG9ybicsCl07Cgpjb25zdCBBQ1RJT05TID0gWwogIG51bGwsCiAgJ3RoYXQgbGF5IGluJywKICAndGhhdCBhdGUnLAogICd0aGF0IGtpbGxlZCcsCiAgJ3RoYXQgd29ycmllZCcsCiAgJ3RoYXQgdG9zc2VkJywKICAndGhhdCBtaWxrZWQnLAogICd0aGF0IGtpc3NlZCcsCiAgJ3RoYXQgbWFycmllZCcsCiAgJ3RoYXQgd29rZScsCiAgJ3RoYXQga2VwdCcsCiAgJ3RoYXQgYmVsb25nZWQgdG8nLApdOwoKZXhwb3J0IGNsYXNzIEhvdXNlIHsKICBzdGF0aWMgdmVyc2UobikgewogICAgaWYgKG4gPT09IDEpIHsKICAgICAgcmV0dXJuIFsnVGhpcyBpcyB0aGUgaG91c2UgdGhhdCBKYWNrIGJ1aWx0LiddOwogICAgfQogICAgY29uc3QgbGluZXMgPSBbYFRoaXMgaXMgdGhlICR7U1VCSkVDVFNbbiAtIDFdfWBdOwogICAgZm9yIChsZXQgaSA9IG4gLSAxOyBpID49IDE7IGkgLT0gMSkgewogICAgICBsaW5lcy5wdXNoKGAke0FDVElPTlNbaV19IHRoZSAke1NVQkpFQ1RTW2kgLSAxXX1gKTsKICAgIH0KICAgIHJldHVybiBsaW5lczsKICB9CgogIHN0YXRpYyB2ZXJzZXMoc3RhcnQsIGVuZCkgewogICAgY29uc3QgcmVzdWx0ID0gW107CiAgICBmb3IgKGxldCBuID0gc3RhcnQ7IG4gPD0gZW5kOyBuICs9IDEpIHsKICAgICAgaWYgKG4gPiBzdGFydCkgewogICAgICAgIHJlc3VsdC5wdXNoKCcnKTsKICAgICAgfQogICAgICByZXN1bHQucHVzaCguLi5Ib3VzZS52ZXJzZShuKSk7CiAgICB9CiAgICByZXR1cm4gcmVzdWx0OwogIH0KfQo=",
+      "mode": 420
+    }
+  }
+}

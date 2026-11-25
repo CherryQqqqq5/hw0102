@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Implemented House.verse(n) and House.verses(start, end) in house.js using noun/verb tables; all 14 original tests pass, public-suite check passed (digest 16ec5782...), verified candidate-001 saved.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 8
+    }
+  }
+}

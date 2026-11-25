@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting saved candidate-001: DP ChangeCalculator passes public-suite (returncode 0, artifact digest 8db28830...) with only src/main/java/ChangeCalculator.java modified and test/build files unchanged. Edge cases confirmed: unsorted input, duplicates, zero total, exact single coin, greedy trap (20 with [1,10,11] -> [10,10]), no-unit-coin cases, large total 999, and unrepresentable totals returning the exact expected IllegalArgumentException messages.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 13
+    }
+  }
+}

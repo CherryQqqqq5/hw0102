@@ -1,0 +1,46 @@
+{
+  "task": {
+    "benchmark": "terminal",
+    "id": "multi-source-data-merger",
+    "stratum": "data-processing",
+    "group": "multi-source-data-merger",
+    "difficulty": "medium",
+    "image": "alexgshaw/multi-source-data-merger:20251031",
+    "cpus": 1,
+    "memory_mb": 2048,
+    "agent_timeout_seconds": 900.0,
+    "exclude": null,
+    "split": "C",
+    "candidate_scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/merged_users.parquet",
+        "/app/conflicts.json"
+      ],
+      "protected": [
+        "/data/source_a/users.json",
+        "/data/source_b/users.csv",
+        "/data/source_c/users.parquet"
+      ],
+      "python": "/usr/local/bin/python3"
+    },
+    "image_id": "sha256:8b32782078ff7383a1b4e5d3cecca8ce287e30f50bb4c0e5db009a18064e666e",
+    "image_digests": [
+      "alexgshaw/multi-source-data-merger@sha256:8b32782078ff7383a1b4e5d3cecca8ce287e30f50bb4c0e5db009a18064e666e"
+    ]
+  },
+  "phase": "formal",
+  "configuration": "C1",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "protocol_commit": "369ac50c062bb9c6cd9519954b00c8cde785939e",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 2,
+    "strict_wall": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Added `fill_value` parameter to IterativeImputer in sklearn/impute/_iterative.py: documented it after `initial_strategy`, added `\"fill_value\": \"no_validation\"` to _parameter_constraints, added `fill_value=None` to __init__ (keyword-only, after initial_strategy) with `self.fill_value = fill_value`, forwarded it to the internal SimpleImputer, and changed valid_mask so the \"constant\" strategy keeps all features (a NaN statistic from fill_value=np.nan is a legitimate explicit fill rather than an empty feature). Public check public-issue passed twice on candidate-001 (artifact d59b92a3...). Own reproducers confirmed: numeric fill controls initial imputation (max_iter=0 fills all missing with -1.5, observed values untouched), None falls back to SimpleImputer default 0, np.nan fill_value accepted and preserved (including with HistGradientBoostingRegressor, which handles NaN natively), non-constant strategies unaffected by fill_value, all-missing column filled with explicit constant, clone/get_params round-trip preserved. No test files or test configuration were modified (only _iterative.py changed).",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 23
+    }
+  }
+}

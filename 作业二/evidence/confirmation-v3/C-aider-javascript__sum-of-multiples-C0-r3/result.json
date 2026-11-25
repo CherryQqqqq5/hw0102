@@ -1,0 +1,10 @@
+{
+  "task": "javascript/sum-of-multiples",
+  "wall_seconds": 55.36486712505575,
+  "exit_status": "Submitted",
+  "submission": "Implementation of sum(factors, level) in sum-of-multiples.js is complete and verified: all 16 original tests pass via /aider/benchmark/npm-test.sh, and the registered public-suite check passed with matching before/after digests. Candidate-001 is saved as the final version.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 2.1288705409970134
+}

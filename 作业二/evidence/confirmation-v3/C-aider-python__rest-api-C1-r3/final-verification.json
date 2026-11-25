@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "7b154eaa31a03a62bc89a6ed4d0967ef8d48e366c5155117f704ff301a26466e",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-suite": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "c31fcebc5dd0db6208941f8e2b4298d7544e6a26bfa88525ec329801a4ad7332  rest_api.py\n3fae966db6e7935a9338a72f017f764d36c6cbff6c6f9c812d4fe6d9b49af47e  rest_api_test.py\n"
+    }
+  },
+  "elapsed_seconds": 94.92752070806455
+}

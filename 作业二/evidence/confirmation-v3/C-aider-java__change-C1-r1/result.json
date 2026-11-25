@@ -1,0 +1,10 @@
+{
+  "task": "java/change",
+  "wall_seconds": 140.2820308340015,
+  "exit_status": "Submitted",
+  "submission": "ChangeCalculator implemented with DP (min-coin) solution; public-suite check passed (candidate-001 eligible) and standalone harness covering all 13 disabled tests plus extra edge cases passed. Submitting.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 14.897191916010343
+}

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submit saved candidate-002 (eligible: true). Fix: in sklearn/model_selection/_split.py, StratifiedKFold._make_test_folds now uses `rng = check_random_state(self.random_state)` instead of `rng = self.random_state`, so all per-class KFold splitters draw from a single shared RandomState rather than each restarting from the same integer seed and producing identical permutations. This makes shuffle=True genuinely change sample-to-fold assignments across random_state seeds (no more fixed i / i+10 pairings) while preserving stratification ratios; integer seeds remain reproducible, RandomState instances keep stateful semantics, and shuffle=False output is unchanged. The `shuffle` docstring was clarified to \"each class's samples\". Only _split.py is modified — existing tests and test configuration are byte-preserved. Evidence: public-issue check state=passed (returncode 0), reproducer shows seed1 != seed2 partitions with same-seed reproducibility, edge cases (unshuffled parity, RandomState semantics, class imbalance ratios, RepeatedStratifiedKFold) pass, and 172 tests across test_split/test_search/test_validation pass.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 20
+    }
+  }
+}

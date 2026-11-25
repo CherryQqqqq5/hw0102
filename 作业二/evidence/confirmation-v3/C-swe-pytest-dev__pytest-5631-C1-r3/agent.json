@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Candidate candidate-003 saved with passing public-issue evidence. Production fix: src/_pytest/compat.py num_mock_patch_args uses identity comparison (`any(p.new is sentinel for sentinel in sentinels)`) instead of `p.new in sentinels`, preventing ValueError from non-boolean __eq__ results (e.g. numpy arrays) at collection. Existing tests untouched; changelog/5528.bugfix.rst added. Reproducer passes 4/4; compat/unittest/collection suites pass; the 5 fixtures.py failures are pre-existing baseline failures.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 22
+    }
+  }
+}

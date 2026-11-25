@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Attack implemented and verified. Meet-in-the-middle on the invariant L1 = R0 = loP^hiP recovered k0 and k3 by matching F(a0^k0)^F(a1^k0) against the k3-only expression hiP0^hiP1^Finv(a0^L3_0)^Finv(a1^L3_1); k1 and k2 followed directly. Single candidate found (seeds 68e63 62571 1f61c b74a5), re-encrypts all 32 known pairs correctly, and /app/plaintexts.txt (100 decimal uint64 lines) is byte-identical to the reference /app/decrypt output. Public check public-task passes; unmodified feal.c, decrypt.c, pairs.txt and ciphertexts.txt preserved.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 7
+    }
+  }
+}

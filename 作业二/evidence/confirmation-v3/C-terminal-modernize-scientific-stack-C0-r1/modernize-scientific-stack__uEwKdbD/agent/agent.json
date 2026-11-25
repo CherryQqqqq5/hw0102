@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitted verified candidate-001 (artifact_digest 63745c7d...). Deliverables: /app/analyze_climate_modern.py — Python 3.13 script using pathlib.Path, real pd.read_csv(..., encoding=\"utf-8\") on the original CSV, numpy float64 mean, printing exactly \"Station 101 mean temperature: -15.5°C\" and \"Station 102 mean temperature: 30.3°C\"; plus /app/requirements.txt with numpy>=1.24, pandas>=2.0, matplotlib>=3.7, scipy>=1.10. Public check public-task passed all 5 conditions; legacy analyze_climate.py, climate_data.csv and config.ini digests unchanged.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 15
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Final fix: SplitArrayWidget.get_context() in django/contrib/postgres/forms/array.py now passes a fresh copy of final_attrs ({**final_attrs}) to each subwidget, so CheckboxInput.get_context()'s mutation (attrs['checked'] = True) can no longer leak into subsequent widgets. Verified: public check public-issue passed (checked == [true, false, true, false]); reproducer covers single/middle/trailing True, all-True, all-False, short and longer initial values, per-subwidget id uniqueness, caller attrs left unpolluted, and rendered HTML with exactly one checked input. Only the production file was modified; existing tests and test configuration untouched. Saved as candidate-001.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 21
+    }
+  }
+}

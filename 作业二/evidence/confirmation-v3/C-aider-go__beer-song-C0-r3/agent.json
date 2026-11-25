@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting saved candidate-001: beer_song.go implements Verse, Verses, and Song with correct handling of the 0, 1, and 2 bottle special cases, blank-line separated verses with trailing newline, and range validation. gofmt clean; `GOPROXY=off go test ./...` passes; public-suite verification passed; independent edge-case checks pass. Only beer_song.go was modified.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 11
+    }
+  }
+}

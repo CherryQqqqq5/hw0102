@@ -1,0 +1,84 @@
+diff --git a/xarray/core/computation.py b/xarray/core/computation.py
+index 9fe93c88..75caa352 100644
+--- a/xarray/core/computation.py
++++ b/xarray/core/computation.py
+@@ -1727,7 +1727,7 @@ def dot(*arrays, dims=None, **kwargs):
+     return result.transpose(*all_dims, missing_dims="ignore")
+ 
+ 
+-def where(cond, x, y):
++def where(cond, x, y, keep_attrs=None):
+     """Return elements from `x` or `y` depending on `cond`.
+ 
+     Performs xarray-like broadcasting across input arguments.
+@@ -1743,6 +1743,10 @@ def where(cond, x, y):
+         values to choose from where `cond` is True
+     y : scalar, array, Variable, DataArray or Dataset
+         values to choose from where `cond` is False
++    keep_attrs : bool, optional
++        If True, the attributes (``attrs``) will be copied from the first input
++        to the new object. If False (default), the new object will be
++        returned without attributes.
+ 
+     Returns
+     -------
+@@ -1808,8 +1812,14 @@ def where(cond, x, y):
+     Dataset.where, DataArray.where :
+         equivalent methods
+     """
++    if keep_attrs is None:
++        keep_attrs = _get_keep_attrs(default=False)
++
++    if isinstance(keep_attrs, bool):
++        keep_attrs = "override" if keep_attrs else "drop"
++
+     # alignment for three arguments is complicated, so don't support it yet
+-    return apply_ufunc(
++    result = apply_ufunc(
+         duck_array_ops.where,
+         cond,
+         x,
+@@ -1817,8 +1827,43 @@ def where(cond, x, y):
+         join="exact",
+         dataset_join="exact",
+         dask="allowed",
++        keep_attrs=keep_attrs,
+     )
+ 
++    if keep_attrs == "drop":
++        return result
++
++    # ``apply_ufunc`` combines the attributes of the first object of each type,
++    # which is usually ``cond``: a boolean mask that rarely carries attributes.
++    # Prefer the attributes of the values instead (``x``, then ``y``, then
++    # ``cond``) so that ``keep_attrs=True`` actually preserves them.
++    if hasattr(result, "data_vars"):
++        targets = [(None, result)] + [(name, result[name]) for name in result.data_vars]
++    elif hasattr(result, "attrs"):
++        targets = [(None, result)]
++    else:
++        return result
++
++    for name, target in targets:
++        candidates = [
++            attrs
++            for attrs in (_get_where_attrs(obj, name) for obj in (x, y, cond))
++            if attrs
++        ]
++        if candidates:
++            target.attrs = merge_attrs(candidates, combine_attrs=keep_attrs) or {}
++
++    return result
++
++
++def _get_where_attrs(obj, name):
++    """Return attributes of ``obj``, optionally of one of its data variables."""
++    if name is not None:
++        data_vars = getattr(obj, "data_vars", None)
++        if data_vars is None or name not in data_vars:
++            return None
++        obj = data_vars[name]
++    return getattr(obj, "attrs", None)
+ 
+ def polyval(coord, coeffs, degree_dim="degree"):
+     """Evaluate a polynomial at specific values

@@ -1,0 +1,66 @@
+diff --git a/doc/whats_new/v0.20.rst b/doc/whats_new/v0.20.rst
+index 32b4ef309..9fe51dc1b 100644
+--- a/doc/whats_new/v0.20.rst
++++ b/doc/whats_new/v0.20.rst
+@@ -253,6 +253,11 @@ Model evaluation and meta-estimators
+   return estimators fitted on each split. :issue:`9686` by :user:`Aurélien Bellet
+   <bellet>`.
+ 
++- Add ``refit_time_`` attribute to :class:`model_selection.GridSearchCV` and
++  :class:`model_selection.RandomizedSearchCV`, giving the time in seconds spent
++  refitting the best model on the full dataset. :issue:`11310` by
++  :user:`Joris Van den Bossche <jorisvandenbossche>`.
++
+ Decomposition and manifold learning
+ 
+ - Speed improvements for both 'exact' and 'barnes_hut' methods in
+diff --git a/sklearn/model_selection/_search.py b/sklearn/model_selection/_search.py
+index 99d6096af..3b4319dbe 100644
+--- a/sklearn/model_selection/_search.py
++++ b/sklearn/model_selection/_search.py
+@@ -18,6 +18,7 @@ from functools import partial, reduce
+ from itertools import product
+ import operator
+ import warnings
++from time import time
+ 
+ import numpy as np
+ from scipy.stats import rankdata
+@@ -766,10 +767,13 @@ class BaseSearchCV(six.with_metaclass(ABCMeta, BaseEstimator,
+         if self.refit:
+             self.best_estimator_ = clone(base_estimator).set_params(
+                 **self.best_params_)
++            refit_start_time = time()
+             if y is not None:
+                 self.best_estimator_.fit(X, y, **fit_params)
+             else:
+                 self.best_estimator_.fit(X, **fit_params)
++            refit_end_time = time()
++            self.refit_time_ = refit_end_time - refit_start_time
+ 
+         # Store the only scorer not as a dict for single metric evaluation
+         self.scorer_ = scorers if self.multimetric_ else scorers['score']
+@@ -1066,6 +1070,11 @@ class GridSearchCV(BaseSearchCV):
+         For multi-metric evaluation, this is present only if ``refit`` is
+         specified.
+ 
++    refit_time_ : float
++        Seconds used for refitting the best model on the whole dataset.
++
++        This is present only if ``refit`` is not False.
++
+     scorer_ : function or a dict
+         Scorer function used on the held out data to choose the best
+         parameters for the model.
+@@ -1377,6 +1386,11 @@ class RandomizedSearchCV(BaseSearchCV):
+         For multi-metric evaluation, this is not available if ``refit`` is
+         ``False``. See ``refit`` parameter for more information.
+ 
++    refit_time_ : float
++        Seconds used for refitting the best model on the whole dataset.
++
++        This is present only if ``refit`` is not False.
++
+     scorer_ : function or a dict
+         Scorer function used on the held out data to choose the best
+         parameters for the model.

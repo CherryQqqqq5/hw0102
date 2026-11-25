@@ -1,0 +1,74 @@
+diff --git a/.course-public-check/test_public_issue.py b/.course-public-check/test_public_issue.py
+new file mode 100644
+index 000000000..55a04f479
+--- /dev/null
++++ b/.course-public-check/test_public_issue.py
+@@ -0,0 +1,4 @@
++import pytest
++def test_public_xfail(request):
++    request.node.add_marker(pytest.mark.xfail(reason='public issue'))
++    assert 0
+diff --git a/changelog/7490.bugfix.rst b/changelog/7490.bugfix.rst
+new file mode 100644
+index 000000000..0ad2011fe
+--- /dev/null
++++ b/changelog/7490.bugfix.rst
+@@ -0,0 +1,2 @@
++Fixed ``pytest.mark.xfail`` markers added dynamically during the test call phase
++(such as through ``request.node.add_marker``) not being taken into account.
+diff --git a/src/_pytest/skipping.py b/src/_pytest/skipping.py
+index 335e10996..50f803435 100755
+--- a/src/_pytest/skipping.py
++++ b/src/_pytest/skipping.py
+@@ -262,6 +262,12 @@ def pytest_runtest_makereport(item: Item, call: CallInfo[None]):
+     outcome = yield
+     rep = outcome.get_result()
+     xfailed = item._store.get(xfailed_key, None)
++    # Check if the xfail marker was added dynamically during the test:
++    # in that case it was not evaluated yet during setup/call setup, so
++    # re-evaluate it now (only during the call phase, to avoid re-raising
++    # errors from xfail conditions which already failed in an earlier phase).
++    if call.when == "call" and xfailed is None:
++        item._store[xfailed_key] = xfailed = evaluate_xfail_marks(item)
+     # unittest special case, see setting of unexpectedsuccess_key
+     if unexpectedsuccess_key in item._store and rep.when == "call":
+         reason = item._store[unexpectedsuccess_key]
+diff --git a/testing/test_skipping.py b/testing/test_skipping.py
+index 8fceb37aa..bbff6006b 100755
+--- a/testing/test_skipping.py
++++ b/testing/test_skipping.py
+@@ -425,6 +425,34 @@ class TestXFail:
+         result = testdir.runpytest(p)
+         result.stdout.fnmatch_lines(["*1 xfailed*"])
+ 
++    def test_dynamic_xfail_set_during_test(self, testdir):
++        p = testdir.makepyfile(
++            """
++            import pytest
++
++            def test_this(request):
++                request.node.add_marker(pytest.mark.xfail(reason="xfail"))
++                assert 0
++        """
++        )
++        result = testdir.runpytest(p, "-rxX")
++        result.stdout.fnmatch_lines(["*XFAIL*test_this*", "*xfail*"])
++
++    def test_dynamic_xfail_set_during_test_strict_xpass(self, testdir):
++        p = testdir.makepyfile(
++            """
++            import pytest
++
++            def test_this(request):
++                request.node.add_marker(
++                    pytest.mark.xfail(reason="xfail", strict=True)
++                )
++                assert 1
++        """
++        )
++        result = testdir.runpytest(p, "-rxX")
++        result.stdout.fnmatch_lines(["*XPASS(strict)*", "*1 failed*"])
++
+     @pytest.mark.parametrize(
+         "expected, actual, matchline",
+         [

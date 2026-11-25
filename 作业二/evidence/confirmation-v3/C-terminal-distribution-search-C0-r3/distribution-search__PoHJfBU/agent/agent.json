@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Final submission. /app/dist.npy (150000-element float64 probability vector) satisfies every stated condition: all values finite and strictly positive (min 3.02e-10), sum = 1.0 (error 2.2e-16, well inside 1e-12), forward KL(P||U) = 9.999999999999995 and backward KL(U||P) = 9.999999999999991 — both within 1e-3 of 10.0 by ~12 orders of magnitude. Cross-checked with the independent identities KL(P||U) = ln n - H(P) and KL(U||P) = -ln n - mean(log p) in a fresh process reloading the file from disk. The registered public check \"public-task\" passed (artifact_digest d61a55457ad2a7d00d223fae3718f90c900a282ba52398c85dd4e2d7ceaafede) and the candidate was saved as candidate-001 with eligible=true. Construction: a two-parameter family (six equal large values, one larger value, 149993 equal tiny values) solved by scipy.optimize.root against the entropy target ln(n)-10 and mean-log target -ln(n)-10, script at /app/solve.py.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 7
+    }
+  }
+}

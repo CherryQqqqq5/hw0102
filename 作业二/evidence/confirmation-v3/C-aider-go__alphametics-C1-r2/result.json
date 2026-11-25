@@ -1,0 +1,10 @@
+{
+  "task": "go/alphametics",
+  "wall_seconds": 263.420037459,
+  "exit_status": "Submitted",
+  "submission": "Implementation complete. alphametics.go (digest 45ff6250…) implements Solve with column-by-column backtracking and carry propagation; the fix adds contributions of already-assigned letters (baseSum) to each column sum. Verified: go vet clean, gofmt clean, and all 10 public subtests pass including the 199-addend case. candidate-001 saved with passing public-suite evidence (artifact_digest 2645693…). Only alphametics.go was edited; test/build files untouched.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 18.375209624995477
+}

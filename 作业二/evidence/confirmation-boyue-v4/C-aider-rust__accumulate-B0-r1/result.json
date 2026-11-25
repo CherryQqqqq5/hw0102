@@ -1,0 +1,10 @@
+{
+  "task": "rust/accumulate",
+  "wall_seconds": 44.77557641698513,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 1.308628167025745
+}

@@ -1,0 +1,10 @@
+{
+  "task": "java/change",
+  "wall_seconds": 102.18355991598219,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 15.873543667024933
+}

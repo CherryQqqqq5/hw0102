@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting saved, eligible candidate-001: /app/polyglot/main.rs polyglot verified with rustc 1.75.0 and g++ 13.x; public-task passed and outputs match reference for n=0..40, 50-500, 1000, no-arg, negative.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 11
+    }
+  }
+}

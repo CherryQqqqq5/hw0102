@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "4414d38357a16767126bb1ceae8adfcabb31f3970f8f4d2ff3934adc52f959bf",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-suite": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "6d0a88a9e18e0ee1419bd33b5ccd0e573c993f4a195e77da2006f80b90f71cb7  src/main/java/ChangeCalculator.java\n38d0a5c44b2b68c9551a7910d1f12a813bb2320a91ba033614bab1bb8171c7fb  src/test/java/ChangeCalculatorTest.java\na4c46817089967addcdafc9b979d4b4ef96a1c7f39b594fbeeb28efa7bc0c9c5  build.gradle\n"
+    }
+  },
+  "elapsed_seconds": 184.85620316595305
+}

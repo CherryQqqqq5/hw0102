@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Fix in src/_pytest/skipping.py: pytest_runtest_makereport re-evaluates xfail marks when rep.when == \"call\" and no xfail state was recorded, so markers added dynamically during the test body (request.node.add_marker(pytest.mark.xfail(...))) are honored. Verified: public-issue check passed (1 xfailed); testing/test_skipping.py 79 passed; skipping+runner+unittest suites 186 passed, 9 skipped, 1 xfailed; boundary cases correct (XPASS on passing test, strict -> failed, raises match/mismatch, fixture-added marker, static xfail/skip unchanged). Candidate candidate-001 saved and eligible.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 15
+    }
+  }
+}

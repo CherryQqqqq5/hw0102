@@ -1,0 +1,26 @@
+diff --git a/changelog/5631.bugfix b/changelog/5631.bugfix
+new file mode 100644
+index 000000000..5243e507b
+--- /dev/null
++++ b/changelog/5631.bugfix
+@@ -0,0 +1,2 @@
++Fix ``ValueError`` when collecting tests which use ``unittest.mock.patch`` with an ``new`` argument whose value does not support a truth value (such as a numpy array), by comparing
++the patching ``new`` value against the mock sentinels using identity instead of equality.
+diff --git a/src/_pytest/compat.py b/src/_pytest/compat.py
+index d238061b4..61c897f06 100644
+--- a/src/_pytest/compat.py
++++ b/src/_pytest/compat.py
+@@ -68,7 +68,12 @@ def num_mock_patch_args(function):
+     if any(mock_modules):
+         sentinels = [m.DEFAULT for m in mock_modules if m is not None]
+         return len(
+-            [p for p in patchings if not p.attribute_name and p.new in sentinels]
++            [
++                p
++                for p in patchings
++                if not p.attribute_name
++                and any(p.new is sentinel for sentinel in sentinels)
++            ]
+         )
+     return len(patchings)
+ 

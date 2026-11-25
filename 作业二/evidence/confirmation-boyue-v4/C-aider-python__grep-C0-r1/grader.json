@@ -1,0 +1,5 @@
+{
+  "stdout": "============================= test session starts ==============================\nplatform linux -- Python 3.11.13, pytest-8.4.1, pluggy-1.7.0\nrootdir: /exercise\ncollected 25 items\n\ngrep_test.py .........................                                   [100%]\n\n============================== 25 passed in 0.14s ==============================\n",
+  "stderr": "",
+  "returncode": 0
+}

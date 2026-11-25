@@ -1,0 +1,10 @@
+{
+  "task": "rust/accumulate",
+  "wall_seconds": 72.41067887493409,
+  "exit_status": "Submitted",
+  "submission": "Submitting candidate-001: generic `map<T, U, F: FnMut(T) -> U>` implemented with a manual for-loop and Vec::push (no stdlib map/collect), passing all 12 tests including ignored ones and the public-suite check. Working tree confirmed to match the verified candidate.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 2.405866291024722
+}

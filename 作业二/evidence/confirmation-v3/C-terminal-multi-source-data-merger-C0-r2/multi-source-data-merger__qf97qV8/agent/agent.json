@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Implemented /app/merge_users.py which reads all three sources (JSON, CSV, Parquet), applies field mappings (id/user_id/userId -> user_id; full_name/name/userName -> name; email/email_address -> email; registration_date/created_at/joined -> created_date), merges on user_id with A>B>C priority, normalizes dates to YYYY-MM-DD, converts boolean status flags (is_active/active) to active/inactive, writes /app/merged_users.parquet (int64 user_id, 4 unique users, correct columns) and /app/conflicts.json (total_conflicts=3 matching list; name/email/created_date conflicts for user 101 with all differing source values and priority-selected values). Registered check public-task passed all conditions; source inputs unchanged.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 9
+    }
+  }
+}

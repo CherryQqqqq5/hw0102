@@ -1,0 +1,78 @@
+diff --git a/doc/whats-new.rst b/doc/whats-new.rst
+index cb0e9b65..1571923e 100644
+--- a/doc/whats-new.rst
++++ b/doc/whats-new.rst
+@@ -46,6 +46,10 @@ Deprecations
+ 
+ Bug fixes
+ ~~~~~~~~~
++
++- :py:func:`where` now accepts a ``keep_attrs`` keyword argument, allowing
++  attributes to be preserved (:issue:`4678`, :pull:`4687`).
++  By `Deepak Cherian`_.
+ - Preserve chunks when creating a :py:class:`DataArray` from another :py:class:`DataArray`
+   (:pull:`5984`). By `Fabian Hofmann <https://github.com/FabianHofmann>`_.
+ - Properly support :py:meth:`DataArray.ffill`, :py:meth:`DataArray.bfill`, :py:meth:`Dataset.ffill` and :py:meth:`Dataset.bfill` along chunked dimensions (:issue:`6112`).
+diff --git a/xarray/core/computation.py b/xarray/core/computation.py
+index 9fe93c88..18411e95 100644
+--- a/xarray/core/computation.py
++++ b/xarray/core/computation.py
+@@ -1727,7 +1727,20 @@ def dot(*arrays, dims=None, **kwargs):
+     return result.transpose(*all_dims, missing_dims="ignore")
+ 
+ 
+-def where(cond, x, y):
++def _attrs_from_first_nonempty(attrs_list, context=None):
++    """Combine attributes by taking the first non-empty set of attributes.
++
++    This is used by :py:func:`where`, where the first argument (``cond``) is
++    often derived from one of the other arguments and may have empty
++    attributes, which should not discard the attributes of the values.
++    """
++    for attrs in attrs_list:
++        if attrs:
++            return dict(attrs)
++    return {}
++
++
++def where(cond, x, y, keep_attrs=None):
+     """Return elements from `x` or `y` depending on `cond`.
+ 
+     Performs xarray-like broadcasting across input arguments.
+@@ -1743,6 +1756,10 @@ def where(cond, x, y):
+         values to choose from where `cond` is True
+     y : scalar, array, Variable, DataArray or Dataset
+         values to choose from where `cond` is False
++    keep_attrs : bool, optional
++        If True, the attributes (`attrs`) will be copied from the original
++        object to the new one. If False, the new object will be returned
++        without attributes.
+ 
+     Returns
+     -------
+@@ -1808,6 +1825,17 @@ def where(cond, x, y):
+     Dataset.where, DataArray.where :
+         equivalent methods
+     """
++    if keep_attrs is None:
++        keep_attrs = _get_keep_attrs(default=False)
++
++    if keep_attrs is True or keep_attrs == "override":
++        # ``cond`` is usually computed from one of the values (e.g. ``da == 0``)
++        # and may have lost its attributes, so prefer the attributes of the
++        # first input that still carries some.
++        keep_attrs = _attrs_from_first_nonempty
++    elif keep_attrs is False:
++        keep_attrs = "drop"
++
+     # alignment for three arguments is complicated, so don't support it yet
+     return apply_ufunc(
+         duck_array_ops.where,
+@@ -1817,6 +1845,7 @@ def where(cond, x, y):
+         join="exact",
+         dataset_join="exact",
+         dask="allowed",
++        keep_attrs=keep_attrs,
+     )
+ 
+ 

@@ -1,0 +1,9 @@
+{
+  "task": "pytest-dev__pytest-7490",
+  "wall_seconds": 485.5762947079493,
+  "exit_status": "Submitted",
+  "submission": "Submitting candidate-002: re-evaluate xfail marks in the finally block of pytest_runtest_call so xfail markers added dynamically during the test body are honored. Only src/_pytest/skipping.py modified; testing/test_skipping.py left untouched. public-issue passed; 222 tests pass across skipping/unittest/mark; issue reproducer reports 1 xfailed.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 30.84521112497896
+}

@@ -1,0 +1,10 @@
+{
+  "task": "cpp/all-your-base",
+  "wall_seconds": 113.94709645805415,
+  "exit_status": "Submitted",
+  "submission": "Submitting final solution. all_your_base.h declares convert(); all_your_base.cpp implements it with validation of both bases (>=2), rejection of digits >= input base, leading-zero stripping, empty result for zero/empty input, and overflow-safe conversion via repeated long division of the digit vector (no unsigned long long accumulator), so arbitrary-length inputs are exact. Public check public-suite passed 17/17 (candidate-002 saved, candidate-001 as fallback).",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 9.767830417025834
+}

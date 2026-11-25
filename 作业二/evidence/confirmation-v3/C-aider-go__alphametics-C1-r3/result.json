@@ -1,0 +1,10 @@
+{
+  "task": "go/alphametics",
+  "wall_seconds": 177.0231697499985,
+  "exit_status": "Submitted",
+  "submission": "Implementation complete and verified: alphametics.go uses a column-wise carry DFS solver, passes the full original public test suite (including the 199-addend case), and was cross-checked against a brute-force reference on 300 random puzzles plus explicit edge cases. Graded directory contains no stray files; verified candidate-001 is saved with matching digest.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 20.66521324997302
+}

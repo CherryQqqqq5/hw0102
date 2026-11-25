@@ -1,0 +1,10 @@
+{
+  "task": "java/change",
+  "wall_seconds": 179.4061496249633,
+  "exit_status": "Submitted",
+  "submission": "Submitting candidate-001: DP-based minimal coin change in src/main/java/ChangeCalculator.java. Handles negative totals, zero change, unrepresentable amounts with exact messages, arbitrary coin sets, and returns coins sorted ascending. public-suite passed; original test file and build.gradle unchanged (12 @Disabled intact).",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 15.427206999971531
+}

@@ -1,0 +1,10 @@
+{
+  "task": "rust/accumulate",
+  "wall_seconds": 65.64448179199826,
+  "exit_status": "Submitted",
+  "submission": "Submitted candidate-001: generic `map<T, U, F: FnMut(T) -> U>` implemented in src/lib.rs without using std collect/map. Public check public-suite passed with all 12 tests (including ignored ones) green, artifact digest fa9383367f82a4c15cf49baf28d6dfcf700c4ea51ab64589fbd9df90fddd9d97.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 1.8844728750409558
+}

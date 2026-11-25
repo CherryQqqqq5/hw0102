@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting saved, verified candidate-001 (/app/polyglot/main.rs, sha256 7d7d4570...). The single polyglot source compiles and runs correctly under both required commands: `rustc /app/polyglot/main.rs && /app/polyglot/main N` (rustc 1.75.0) and `g++ -x c++ /app/polyglot/main.rs -o /app/polyglot/cmain && /app/polyglot/cmain N` (g++ 13.x). Design: `/* /* */` exploits Rust's nested block comments (Rust keeps the C++ body commented, nesting until `/* /* */` ... `// */` balance) while C++ closes at the first `*/` and sees real C++ code; the `#if 0` / `#endif` region hides the Rust implementation from C++ while Rust, whose code sits outside the comment region, sees it. Both paths use digit-vector big-integer addition and print f(n) with f(0)=f(1)=1. Evidence: public-task check state=passed (rust_compiles, rust_fibonacci, cpp_compiles, cpp_fibonacci all true); independent cross-check of both binaries for n=0..800 with 0 mismatches; no-arg defaults to f(0)=1; n=5000 completes in ~0.15s.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 10
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "grep.py implements fixed-string matching with -n/-l/-i/-v/-x (plus combined flags). Verified candidate digest 2a296fc0740b8a325053316735bc5c85665bca4fae92b3c16567ed370f6c9842 matches workspace grep.py; public suite 25 passed; 20 semantic boundary cases pass (multi-file prefixes, -l precedence over -n, no trailing newline, empty pattern/file, literal '.').",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 12
+    }
+  }
+}

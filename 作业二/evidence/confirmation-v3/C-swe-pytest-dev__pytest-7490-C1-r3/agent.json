@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Fix for #7490: in pytest_runtest_makereport re-evaluate xfail marks when none were cached, restricted to the call phase so setup-phase condition errors are not re-raised. Verified: public-issue passed, testing/test_skipping.py 79 passed, broader sweep 186 passed/9 skipped/1 xfailed, plus edge cases (raises mismatch, fixture-added marker, dynamic XPASS, static/conditional xfail unchanged). Best candidate (candidate-002) saved.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 16
+    }
+  }
+}

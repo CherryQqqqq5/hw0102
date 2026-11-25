@@ -1,0 +1,9 @@
+{
+  "task": "pydata__xarray-7393",
+  "wall_seconds": 372.5038267909549,
+  "exit_status": "Submitted",
+  "submission": "Fix root cause in xarray/core/indexing.py: PandasMultiIndexingAdapter.__array__ previously returned pandas' get_level_values(...).values verbatim, which upcasts int32 MultiIndex levels to int64 and discarded the dtype carried by the adapter (built from PandasMultiIndex.level_coords_dtype). It now defaults dtype to self.dtype and casts the level values, so stack preserves the original coordinate dtype (reproducer returns True: int32 == int32). Verified: multi-level stack keeps int32/float32, unstack round-trip, isel, sortby, str/datetime levels, and full test_indexes/test_indexing/test_dataset/test_dataarray/test_merge suites (1082 passed, 2 skipped, 7 xfailed). No tests or test configuration modified. The xr.concat upcast to int64 was confirmed identical under the old code, i.e. pre-existing and unrelated. Public check public-issue passed with actual dtype int32; candidate-001 saved and eligible.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 34.072084750048816
+}

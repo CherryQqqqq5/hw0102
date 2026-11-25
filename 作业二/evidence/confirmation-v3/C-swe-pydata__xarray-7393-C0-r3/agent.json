@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Fix verified and saved as candidate-001. Public check public-issue passed (stack keeps int32 coordinate dtype). Changes: xarray/core/indexes.py — PandasMultiIndex.stack casts factorize()-derived levels back to the original coordinate dtypes; xarray/core/indexing.py — PandasMultiIndexingAdapter.__array__ honors the declared level dtype when dtype is None. Regression suites green: test_indexes/test_indexing (190 passed), test_dataset (389 passed, 1 skipped, 1 xfailed, 1 xpassed), test_dataarray (450 passed, 1 skipped, 6 xfailed, 1 xpassed). Reproducer prints True with int32/int32.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 22
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task": "django__django-14855",
+  "wall_seconds": 263.20130287494976,
+  "exit_status": "Submitted",
+  "submission": "Fix complete: django/contrib/admin/helpers.py AdminReadonlyField.get_admin_url now calls reverse(url_name, args=[quote(remote_obj.pk)], current_app=self.model_admin.admin_site.name), so readonly ForeignKey links respect a custom AdminSite's URL namespace/prefix. Public check public-issue passes (readonly FK link rendered as /custom-admin/course/author/1/change/). No regressions: full admin_views suite (421 tests, 22 skipped) passes, including ReadonlyTest and custom AdminSite tests. Saved as candidate-001.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 64.1432115000207
+}

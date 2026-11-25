@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Completed plus_comm.v: base case closed with `apply plus_n_O`, inductive case with `rewrite <- plus_n_Sm` then `rewrite IHn'` and `reflexivity`. coqc produced plus_comm.vo. Public check public-task passed all conditions (compiled_proof_present, source_compiles, source_theorem_closed, compiled_theorem_closed); Print Assumptions reports \"Closed under the global context\", and no admit/Admitted/Axiom remains in the source. Verify digests before/after match the saved candidate, so the passing evidence applies to the delivered files.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 7
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting candidate-001: alphametics.go implements Solve using a column-by-column carry search from the rightmost column, enforcing distinct digits, no leading zeros, carry propagation, and rejection of puzzles with more than ten distinct letters. verify(public-suite) passed with returncode 0 over the original test suite, including the 199-addend stress case (~0.75s cold). No test or build files were modified.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 8
+    }
+  }
+}

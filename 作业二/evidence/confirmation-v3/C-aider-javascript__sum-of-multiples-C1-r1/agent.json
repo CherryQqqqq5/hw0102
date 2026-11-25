@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submit candidate-001: sum-of-multiples.js implements sum(factors, level) using a Set to collect all strictly-less-than-level multiples of each positive factor, then sums the unique values. Passes all 16 tests in the original public suite (public-suite recorded as passed).",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 8
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting candidate-002: production-only fix in django/contrib/admin/helpers.py making AdminReadonlyField.get_admin_url pass current_app=self.model_admin.admin_site.name to reverse(), so readonly ForeignKey links use the custom AdminSite prefix. Public check public-issue passed; admin_views (421 tests) and admin_utils passed; temporary reproducer removed so existing tests/config are unchanged.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 16
+    }
+  }
+}

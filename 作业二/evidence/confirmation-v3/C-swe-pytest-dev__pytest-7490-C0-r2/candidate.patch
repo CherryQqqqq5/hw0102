@@ -1,0 +1,26 @@
+diff --git a/.course-public-check/test_public_issue.py b/.course-public-check/test_public_issue.py
+new file mode 100644
+index 000000000..55a04f479
+--- /dev/null
++++ b/.course-public-check/test_public_issue.py
+@@ -0,0 +1,4 @@
++import pytest
++def test_public_xfail(request):
++    request.node.add_marker(pytest.mark.xfail(reason='public issue'))
++    assert 0
+diff --git a/src/_pytest/skipping.py b/src/_pytest/skipping.py
+index 335e10996..48e3af937 100755
+--- a/src/_pytest/skipping.py
++++ b/src/_pytest/skipping.py
+@@ -262,6 +262,11 @@ def pytest_runtest_makereport(item: Item, call: CallInfo[None]):
+     outcome = yield
+     rep = outcome.get_result()
+     xfailed = item._store.get(xfailed_key, None)
++    if rep.when == "call" and xfailed is None:
++        # The item might have added an xfail marker dynamically while the test
++        # was running (e.g. ``request.node.add_marker(pytest.mark.xfail(...))``),
++        # so re-evaluate the marks now that the test body has executed.
++        item._store[xfailed_key] = xfailed = evaluate_xfail_marks(item)
+     # unittest special case, see setting of unexpectedsuccess_key
+     if unexpectedsuccess_key in item._store and rep.when == "call":
+         reason = item._store[unexpectedsuccess_key]

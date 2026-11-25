@@ -1,0 +1,10 @@
+{
+  "task": "javascript/house",
+  "wall_seconds": 81.51644720893819,
+  "exit_status": "Submitted",
+  "submission": "Submitting saved candidate-001: house.js implements House.verse(n) (cumulative rhyme lines, verse 1 special-cased as the single house line) and House.verses(start, end) (verses joined by blank lines). Registered public-suite check passed 14/14 with artifact digest 3e85cd84ac48b697452a59cce37541334478f5fa0ce0f90b93bc273b9a105f0b; house.spec.js untouched.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 1.7674802080728114
+}

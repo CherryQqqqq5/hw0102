@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "house.js implements House.verse(n) and House.verses(start, end) using subject/action tables; public-suite check passed 14/14 including multiple verses and full rhyme, and the verified candidate (candidate-001) is saved. Submitting.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 9
+    }
+  }
+}

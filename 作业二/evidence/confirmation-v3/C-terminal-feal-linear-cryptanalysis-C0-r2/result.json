@@ -1,0 +1,8 @@
+{
+  "task": "feal-linear-cryptanalysis",
+  "wall_seconds": 576.5488914999878,
+  "scoreable": true,
+  "passed": false,
+  "harbor_result": "feal-linear-cryptanalysis__aL9jdnf/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

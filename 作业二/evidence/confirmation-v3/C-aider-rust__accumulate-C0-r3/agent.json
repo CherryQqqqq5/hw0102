@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitted candidate-001: generic `map<T, U, F: FnMut(T) -> U>` implemented in src/lib.rs without using std collect/map. Public check public-suite passed with all 12 tests (including ignored ones) green, artifact digest fa9383367f82a4c15cf49baf28d6dfcf700c4ea51ab64589fbd9df90fddd9d97.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 8
+    }
+  }
+}

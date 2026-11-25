@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "plus_comm.v proof completed: base case closed with plus_n_O, inductive step via IHn' followed by <- plus_n_Sm; coqc succeeds, plus_comm.vo generated, theorem closed under the global context (no admits/axioms). Public check passed and candidate-001 saved.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 10
+    }
+  }
+}

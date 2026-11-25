@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting candidate-001: column-wise carry-propagating backtracking solver in alphametics.go. Registered public-suite check passed (returncode 0) on a clean tree; protected files untouched; go vet clean; temp test files removed. Save recorded candidate-001 as eligible.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 10
+    }
+  }
+}

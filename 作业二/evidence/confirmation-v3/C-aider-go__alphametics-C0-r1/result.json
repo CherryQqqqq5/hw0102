@@ -1,0 +1,10 @@
+{
+  "task": "go/alphametics",
+  "wall_seconds": 143.47300612495746,
+  "exit_status": "Submitted",
+  "submission": "Submitting verified candidate-001: column-wise carry-propagation backtracking solver in alphametics.go. Public suite passed (artifact_digest 168baf11...), gofmt/go vet clean, semantic edge cases (no-solution, leading zero, >10 letters, whitespace, single-letter puzzles) cross-checked against a brute-force reference, temp test file removed, protected files untouched.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 21.069024792057462
+}

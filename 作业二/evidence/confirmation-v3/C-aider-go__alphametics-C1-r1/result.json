@@ -1,0 +1,10 @@
+{
+  "task": "go/alphametics",
+  "wall_seconds": 193.3006029999815,
+  "exit_status": "Submitted",
+  "submission": "Submitting saved candidate-001 (alphametics.go, digest 21a49083…): column-by-column carry backtracking Solve implementation. Public-suite check passed (returncode 0), original alphametics_test.go/cases_test.go/go.mod untouched, gofmt and go vet clean, uncached (-count=1) and repeated (-count=2) runs green, and semantic edge cases verified (leading-zero rejection, unique-digit constraint, unsolvable puzzles, repeated calls).",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 21.02742895798292
+}

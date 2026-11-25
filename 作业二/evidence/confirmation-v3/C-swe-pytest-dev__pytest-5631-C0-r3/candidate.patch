@@ -1,0 +1,28 @@
+diff --git a/.course-public-check/test_public_issue.py b/.course-public-check/test_public_issue.py
+new file mode 100644
+index 000000000..27463cbf0
+--- /dev/null
++++ b/.course-public-check/test_public_issue.py
+@@ -0,0 +1,5 @@
++import numpy as np
++from unittest.mock import patch
++@patch('os.getcwd', new=np.array([-5.5,3.0]))
++def test_public_patch():
++    assert True
+diff --git a/src/_pytest/compat.py b/src/_pytest/compat.py
+index d238061b4..a6027c482 100644
+--- a/src/_pytest/compat.py
++++ b/src/_pytest/compat.py
+@@ -68,7 +68,11 @@ def num_mock_patch_args(function):
+     if any(mock_modules):
+         sentinels = [m.DEFAULT for m in mock_modules if m is not None]
+         return len(
+-            [p for p in patchings if not p.attribute_name and p.new in sentinels]
++            [
++                p
++                for p in patchings
++                if not p.attribute_name and any(p.new is sentinel for sentinel in sentinels)
++            ]
+         )
+     return len(patchings)
+ 

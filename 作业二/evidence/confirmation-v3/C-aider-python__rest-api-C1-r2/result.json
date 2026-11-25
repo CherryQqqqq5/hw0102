@@ -1,0 +1,10 @@
+{
+  "task": "python/rest-api",
+  "wall_seconds": 187.4615713339299,
+  "exit_status": "Submitted",
+  "submission": "Submitting candidate-001: rest_api.py implements RestAPI with antisymmetric pairwise net balances (init dedupes reciprocal owes/owed_by, IOU updates net in both directions, float noise cleaned). Public suite passed 9/9 and extra edge-case reproducers passed (same-direction stacking, exact cancellation, net flip, three-way chains, sorted selection, idempotent GET, float noise). Only rest_api.py was modified; rest_api_test.py unchanged.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 0.6149100000038743
+}

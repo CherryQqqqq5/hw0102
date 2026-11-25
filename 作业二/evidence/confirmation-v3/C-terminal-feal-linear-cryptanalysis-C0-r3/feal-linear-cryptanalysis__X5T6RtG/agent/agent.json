@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "MITM attack recovered all four round keys (seeds 068E63/062571/01F61C/0B74A5). /app/plaintexts.txt holds 100 plaintexts matching the original decrypt binary; all 100 ciphertexts re-encrypt consistently. public-task check passed; candidate-001 saved.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 10
+    }
+  }
+}

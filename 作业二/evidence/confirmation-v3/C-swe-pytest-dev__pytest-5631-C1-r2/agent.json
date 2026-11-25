@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submit candidate-002: num_mock_patch_args now compares patch targets by identity against mock.DEFAULT / unittest.mock.DEFAULT instead of using `p.new in sentinels`, which invoked __eq__ on numpy arrays and raised ValueError at collection. Public check passes; reproducers covering array new=, patch.object with array, plain patch, explicit new=DEFAULT, mixed stacking, and a custom object with exploding __eq__ all pass; testing/test_compat.py and testing/python/integration.py pass (29 passed, 4 skipped). Only src/_pytest/compat.py is modified; existing tests and config preserved.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 17
+    }
+  }
+}

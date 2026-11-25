@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Fix: django/db/models/fields/__init__.py — Field.contribute_to_class now only generates get_FOO_display when 'get_<name>_display' is not already in cls.__dict__, so user-defined overrides are preserved while inherited/abstract choices still get a generated display method. Verified: public-issue check passed; reproducer returns \"something\"; 377 tests pass across model_fields, model_options, model_regress, admin_utils; inheritance edge cases OK.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 18
+    }
+  }
+}

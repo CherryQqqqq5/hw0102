@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Fix: PandasMultiIndexingAdapter.__array__ now honors the level dtype (falls back to self.dtype instead of ignoring it), so stack()/unstack() preserve int32 (and int16/float32/datetime64/bool/categorical) coordinate dtypes. Patch is in xarray/core/indexing.py only; public-issue check passes (int32) and saved candidate-001 is eligible. Verification: 190 tests in test_indexes/test_indexing pass, 58 stack/unstack/multiindex-related dataset+dataarray tests pass, full test_dataset/test_dataarray/test_indexes/test_indexing run: 1029 passed, 2 skipped, 7 xfailed, 2 xpassed. Edge cases verified: mixed-level stack (i2 + str), unstack roundtrip, scalar sel on level, datetime64/float32/bool/categorical levels, sel/isel on stacked dim. Working tree unchanged since save.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 21
+    }
+  }
+}

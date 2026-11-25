@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting verified candidate-002: beer_song.go implements Verse, Verses, and Song correctly (singular/plural, \"Take it down\" for verse 1, verse 0 special case, range validation, trailing blank line after each verse). Original suite passes with GOPROXY=off go test -count=1 ./..., gofmt clean, temp edge tests removed, only beer_song.go modified. Public-suite check passed on current digest 0e91312….",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 14
+    }
+  }
+}

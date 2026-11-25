@@ -1,0 +1,10 @@
+{
+  "task": "go/beer-song",
+  "wall_seconds": 120.53481474996079,
+  "exit_status": "Submitted",
+  "submission": "Submitting verified candidate-001. beer_song.go implements Verse (singular forms for 0/1/2, generic 3-99, errors outside 0-99), Verses (validates start<stop, start>99, stop<0; blank line after every verse including the last), and Song (= Verses(99,0)). GOPROXY=off go test ./... passes, go vet clean, public-suite check passed, and current file hashes match the saved candidate artifact digest. Omitted candidate_id since submit rejects it.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 24.358712707995437
+}

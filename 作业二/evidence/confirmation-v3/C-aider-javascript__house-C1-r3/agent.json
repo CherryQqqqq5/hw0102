@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting final implementation of house.js. House.verse(n) builds the stanza from a PIECES table: line 1 is \"This is the <subject[n-1]>\", then for i=n-1..1 \"that <verb[i]> the <subject[i-1]>\"; House.verses(start,end) concatenates stanzas with a blank separator line and yields [] when end < start. Original suite passes 14/14 (verified twice, digests c7db2e19.../5809d02a...), 56 boundary assertions pass, and candidate-001 is saved with passing evidence at the identical artifact digest bfb77e8d....",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 11
+    }
+  }
+}

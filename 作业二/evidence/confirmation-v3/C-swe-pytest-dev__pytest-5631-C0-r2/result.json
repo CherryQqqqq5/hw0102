@@ -1,0 +1,9 @@
+{
+  "task": "pytest-dev__pytest-5631",
+  "wall_seconds": 231.92005804204382,
+  "exit_status": "Submitted",
+  "submission": "Submitted candidate-001: fixed `num_mock_patch_args` in src/_pytest/compat.py to use identity comparison (`any(p.new is sentinel for sentinel in sentinels)`) instead of `p.new in sentinels`, which invoked numpy's array-valued `__eq__` and raised ValueError during collection. Public check public-issue passed; testing/python/integration.py 15 passed/4 skipped; acceptance mock test passed; edge cases (array new, DEFAULT sentinel, mixed array+DEFAULT, two array patches) all behave correctly.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 27.607601542025805
+}

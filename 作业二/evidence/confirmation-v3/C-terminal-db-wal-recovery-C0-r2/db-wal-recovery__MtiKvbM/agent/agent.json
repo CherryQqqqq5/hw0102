@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting final state: /app/main.db is self-contained with all 11 rows (apple..mango, values 100..1100), /app/main.db-wal is a genuine SQLite-generated WAL XOR-0x42 encrypted that replays from the pristine 5-row base DB to exactly those 11 rows, and /app/recovered.json holds the 11 typed records sorted by id. Registered public-task check passed on this exact state (artifact_digest 41f53f28ed3824c2f9003f94fbf58ab38d75ffb6fa2ceb767fcd0cad49a266b0), saved as candidate-002.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 24
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "stdout": "\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 12 tests\ntest accumulate_empty ... ok\ntest accumulate_recursively ... ok\ntest accumulate_reversed_strings ... ok\ntest accumulate_squares ... ok\ntest accumulate_upcases ... ok\ntest change_in_type ... ok\ntest closure ... ok\ntest closure_floats ... ok\ntest func_single ... ok\ntest minimal_bounds_on_input_and_output ... ok\ntest mutating_closure ... ok\ntest strings ... ok\n\ntest result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+  "stderr": "   Compiling accumulate v0.0.0 (/exercise)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.16s\n     Running unittests src/lib.rs (target/debug/deps/accumulate-766f80b5b2732e2c)\n     Running tests/accumulate.rs (target/debug/deps/accumulate-dac0fa7f5ae155b4)\n   Doc-tests accumulate\n",
+  "returncode": 0
+}

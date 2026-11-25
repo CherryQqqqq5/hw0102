@@ -1,0 +1,9 @@
+{
+  "task": "pytest-dev__pytest-7490",
+  "wall_seconds": 350.36482725001406,
+  "exit_status": "Submitted",
+  "submission": "Fix in src/_pytest/skipping.py: pytest_runtest_call now refreshes item._store[xfailed_key] = evaluate_xfail_marks(item) after the call phase yields (skipped under --runxfail), so xfail markers added dynamically during the test body/fixtures are honored at report time. Evidence: public-issue check passed (1 xfailed), testing/test_skipping.py 79 passed, skipping/runner/unittest/mark suites 277 passed, broader slice 423 passed with only 3 pre-existing test_terminal color/highlight failures (reproduced on unmodified source). Edge cases verified: dynamic xpass -> XPASS, strict -> XPASS(strict), raises mismatch -> failure, static run=False and imperative pytest.xfail() unchanged, --runxfail still reports the failure. Saved as candidate-001.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 31.401178917032667
+}

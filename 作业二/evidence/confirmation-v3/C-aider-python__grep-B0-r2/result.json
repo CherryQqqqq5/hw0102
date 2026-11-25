@@ -1,0 +1,10 @@
+{
+  "task": "python/grep",
+  "wall_seconds": 35.28545804100577,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 0.7498748749494553
+}

@@ -1,0 +1,75 @@
+diff --git a/xarray/core/computation.py b/xarray/core/computation.py
+index 9fe93c88..a4cd2bc5 100644
+--- a/xarray/core/computation.py
++++ b/xarray/core/computation.py
+@@ -1727,7 +1727,7 @@ def dot(*arrays, dims=None, **kwargs):
+     return result.transpose(*all_dims, missing_dims="ignore")
+ 
+ 
+-def where(cond, x, y):
++def where(cond, x, y, keep_attrs=None):
+     """Return elements from `x` or `y` depending on `cond`.
+ 
+     Performs xarray-like broadcasting across input arguments.
+@@ -1743,6 +1743,12 @@ def where(cond, x, y):
+         values to choose from where `cond` is True
+     y : scalar, array, Variable, DataArray or Dataset
+         values to choose from where `cond` is False
++    keep_attrs : bool or str, optional
++        If True, the attributes (``attrs``) of the input arguments are merged
++        and attached to the result (values from ``x`` take precedence over ``y``,
++        which take precedence over ``cond``). If False, the returned result will
++        have no attributes. If None (default), the global ``keep_attrs`` option is
++        used, defaulting to True.
+ 
+     Returns
+     -------
+@@ -1808,8 +1814,24 @@ def where(cond, x, y):
+     Dataset.where, DataArray.where :
+         equivalent methods
+     """
++    if keep_attrs is None:
++        keep_attrs = _get_keep_attrs(default=True)
++
++    if isinstance(keep_attrs, str):
++        # an explicit combine strategy was requested, defer to apply_ufunc
++        return apply_ufunc(
++            duck_array_ops.where,
++            cond,
++            x,
++            y,
++            join="exact",
++            dataset_join="exact",
++            dask="allowed",
++            keep_attrs=keep_attrs,
++        )
++
+     # alignment for three arguments is complicated, so don't support it yet
+-    return apply_ufunc(
++    result = apply_ufunc(
+         duck_array_ops.where,
+         cond,
+         x,
+@@ -1817,8 +1839,22 @@ def where(cond, x, y):
+         join="exact",
+         dataset_join="exact",
+         dask="allowed",
++        keep_attrs=keep_attrs,
+     )
+ 
++    if keep_attrs and hasattr(result, "attrs"):
++        # `cond` comes first in the arguments, but it is usually a boolean
++        # comparison result without attributes, so merge the attributes of
++        # `x`, `y` and `cond` (in that order) instead of simply taking the
++        # attributes of the first argument.
++        attrs = {}
++        for obj in (x, y, cond):
++            for key, value in (getattr(obj, "attrs", None) or {}).items():
++                attrs.setdefault(key, value)
++        result.attrs = attrs
++
++    return result
++
+ 
+ def polyval(coord, coeffs, degree_dim="degree"):
+     """Evaluate a polynomial at specific values

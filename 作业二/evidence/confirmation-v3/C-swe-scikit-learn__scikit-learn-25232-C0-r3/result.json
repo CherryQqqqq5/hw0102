@@ -1,0 +1,8 @@
+{
+  "task": "scikit-learn__scikit-learn-25232",
+  "wall_seconds": 7.806762250023894,
+  "scoreable": false,
+  "passed": null,
+  "error_type": "RuntimeError",
+  "error": "CodeBuddy returned a non-JSON response"
+}

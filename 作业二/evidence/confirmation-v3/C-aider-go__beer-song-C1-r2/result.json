@@ -1,0 +1,10 @@
+{
+  "task": "go/beer-song",
+  "wall_seconds": 166.91937308304477,
+  "exit_status": "Submitted",
+  "submission": "Submitting verified candidate-002: beer_song.go implements Verse, Verses, and Song correctly (singular/plural, \"Take it down\" for verse 1, verse 0 special case, range validation, trailing blank line after each verse). Original suite passes with GOPROXY=off go test -count=1 ./..., gofmt clean, temp edge tests removed, only beer_song.go modified. Public-suite check passed on current digest 0e91312….",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 21.057840458932333
+}

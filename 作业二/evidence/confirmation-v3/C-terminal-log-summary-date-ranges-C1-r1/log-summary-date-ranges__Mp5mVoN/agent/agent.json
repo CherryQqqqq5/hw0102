@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "/app/summary.csv is complete (header + 15 rows in the required order) and was verified by public-task with all conditions passing; candidate-001 saved with passing evidence. Counts use the bracketed severity field, and date attribution from filenames matches line timestamps exactly. Submitting.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 7
+    }
+  }
+}

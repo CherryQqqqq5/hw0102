@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "grep implemented with -n, -l, -i, -v, -x flags, multi-file filename prefixes, and literal (non-regex) matching. Saved candidate-001 passed the public suite (25/25) and edge cases all behave correctly.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 9
+    }
+  }
+}

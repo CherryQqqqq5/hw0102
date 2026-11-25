@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Task complete: WAL repaired (XOR 0x42 decode → valid SQLite WAL header 377f0682), main.db fully checkpointed so it reads all 11 rows alone, repaired WAL present at /app/main.db-wal, pristine encrypted WAL preserved at /app/main.db-wal.original.enc, and /app/recovered.json holds 11 id-sorted typed records (ids 1..11). Public check 'public-task' passed on this exact state (artifact_digest c3cd88f351ae36a77eb5961c67d0ca5ac77f7add844cf79f0fcc212fd70d5144, saved as candidate-002); final scratch-copy verification showed 11 rows with integrity ok.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 15
+    }
+  }
+}

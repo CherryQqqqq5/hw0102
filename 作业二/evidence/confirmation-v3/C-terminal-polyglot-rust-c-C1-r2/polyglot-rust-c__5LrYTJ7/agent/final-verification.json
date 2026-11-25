@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "768d47e51546f017cfd3c5103de4a94e9c3efe3fd83fe4bc40fa7632c453fded",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-task": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "084e1349f2ec38f423ff1f566e71f12ceff63fc506d7009469c56d70e76b8bc5  /app/polyglot/main.rs\n"
+    }
+  },
+  "elapsed_seconds": 257.10884783405345
+}

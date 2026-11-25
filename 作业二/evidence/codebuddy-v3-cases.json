@@ -1,0 +1,182 @@
+{
+  "batch": "confirmation-v3",
+  "status": "stopped_provider_quota_exhausted",
+  "cases": [
+    {
+      "title": "属性保留：反馈后改版与原题通过",
+      "observations": "xarray-4687第二轮的C1在第11、13步自动检查时得到attrs={}、要求{foo:bar}的失败反馈。第13步反馈进入第14次模型请求的末条用户消息，随后候选改变，第15步复测通过，第17、19步最终阶段检查也通过。程序在执行547.0秒时结束探索，最终版本具有有效公开验证，原题独立评分通过。最终补丁按x、y、cond的优先顺序合并属性，冲突值以x为先。同轮B0只将keep_attrs传给apply_ufunc，原题失败；C0显式处理x的属性并通过原题。",
+      "interpretation": "该轨迹提供了失败条件、模型收到反馈、候选修改、复测与原题通过的连续证据。C0在同轮也通过，且存在主动检查后的修复过程；这个案例支持验证入口确实可被使用，程序控制的额外效果须由完整C1/C0比较判断。原题通过所支持的是保存的验收范围，不能从该补丁推断全部属性合并语义均正确。",
+      "evidence": "confirmation-v3/C-swe-pydata__xarray-4687-C1-r2/中的controller.jsonl（step 11、13、15、17、19）、model.jsonl（request_id=14）、candidate.patch、final-verification.json和swe-official/原评分；同题B0-r2、C0-r2。",
+      "scores": [
+        {
+          "run_id": "C-swe-pydata__xarray-4687-C1-r2",
+          "passed": true
+        },
+        {
+          "run_id": "C-swe-pydata__xarray-4687-B0-r2",
+          "passed": false
+        },
+        {
+          "run_id": "C-swe-pydata__xarray-4687-C0-r2",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "title": "持续失败：公开示例通过后仍选错属性来源",
+      "observations": "xarray-4687第一轮的C1在第11步发现属性丢失，第13步候选改变后复测通过，第17步最终检查通过；执行499.5秒后正常提交。原题test_where_attrs仍失败：cond、x、y分别带有同名attr，候选按cond、x、y选择第一个非空属性，得到cond，原题要求x。同轮B0、C0也未通过。第三轮C1再次采用首个非空属性规则，20次请求均有响应、无超时或重试，执行547.6秒后由程序提交，最终公开验证有效，原题仍在同一来源优先级条件失败。",
+      "interpretation": "检查发现的属性丢失得到修复，但单一公开示例没有覆盖多个输入均带属性时的来源优先级。保存验证过的候选可维护版本与证据的对应，检查覆盖的语义不足仍会留下错误。原评分中的Pint旁支输出不能替代对目标test_where_attrs失败的定位。",
+      "evidence": "confirmation-v3/C-swe-pydata__xarray-4687-C1-r1/及C1-r3/中的controller.jsonl、candidate.patch、final-verification.json，以及swe-official/下test_output.txt的test_where_attrs和report.json；同题B0-r1、C0-r1。",
+      "scores": [
+        {
+          "run_id": "C-swe-pydata__xarray-4687-C1-r1",
+          "passed": false
+        },
+        {
+          "run_id": "C-swe-pydata__xarray-4687-B0-r1",
+          "passed": false
+        },
+        {
+          "run_id": "C-swe-pydata__xarray-4687-C0-r1",
+          "passed": false
+        },
+        {
+          "run_id": "C-swe-pydata__xarray-4687-C1-r3",
+          "passed": false
+        }
+      ]
+    },
+    {
+      "title": "数据库恢复：输出自洽仍未恢复日志更新",
+      "observations": "db-wal-recovery第二轮C1的第5步检查发现recovered.json缺失；第12步确认11条有序记录、数值类型及其与修复后SQLite数据库的一致性，保存candidate-001，最终验证有效。它使用20次请求与20次响应，无超时或重试，执行519.1秒后提交。原题七项验收中五项通过、两项失败：id=1的value应由日志更新为150，实际为100。C0同轮也形成有效公开验证，24次请求均有响应，仍发生同一数值错误；B0同轮通过。",
+      "interpretation": "公开检查的参照来自模型修复后的数据库，能够发现文件缺失和输出不一致，却无法独立确定加密日志中的更新真值。该失败有完整评分及正常执行记录，应计入方法比较，不能归因于请求超时。第一轮B0失败、C0/C1通过，第二轮方向反转，第三轮三个条件均通过；三轮整题B0、C0、C1均为2/3。",
+      "evidence": "confirmation-v3/C-terminal-db-wal-recovery-C1-r2/下agent/controller.jsonl、final-verification.json、execution-budget.json、model.jsonl及verifier/test-stdout.txt；C0-r2与B0-r2的对应评分。",
+      "scores": [
+        {
+          "run_id": "C-terminal-db-wal-recovery-C1-r2",
+          "passed": false
+        },
+        {
+          "run_id": "C-terminal-db-wal-recovery-C0-r2",
+          "passed": false
+        },
+        {
+          "run_id": "C-terminal-db-wal-recovery-B0-r2",
+          "passed": true
+        },
+        {
+          "run_id": "C-terminal-db-wal-recovery-B0-r1",
+          "passed": false
+        },
+        {
+          "run_id": "C-terminal-db-wal-recovery-C0-r1",
+          "passed": true
+        },
+        {
+          "run_id": "C-terminal-db-wal-recovery-C1-r1",
+          "passed": true
+        },
+        {
+          "run_id": "C-terminal-db-wal-recovery-B0-r3",
+          "passed": true
+        },
+        {
+          "run_id": "C-terminal-db-wal-recovery-C0-r3",
+          "passed": true
+        },
+        {
+          "run_id": "C-terminal-db-wal-recovery-C1-r3",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "title": "跨语言编译：请求等待后没有可恢复候选",
+      "observations": "polyglot-rust-c第一轮C1发出4次请求、得到2次响应，记录2次请求超时及1次额外重试。执行436.5秒后以TimeExceeded退出，随后reason=agent_exit的公开检查报告Rust缺少main入口；C++编译及所列数值用例通过。最终验证无效，也没有已验证候选可恢复，原题失败。同轮B0、C0均通过；第二、三轮三个条件均通过，完整三轮B0/C0/C1为3/3、3/3、2/3。",
+      "interpretation": "这条失败同时包含服务等待和未满足双编译器要求的候选。检查发生在智能体退出后，不能写成模型收到该编译错误后仍未修复。程序保留恢复时间会压缩可用探索窗口，但该单条轨迹不足以识别其独立因果作用；超时记录、实际检查和候选操作耗时均计入完整成本。",
+      "evidence": "confirmation-v3/C-terminal-polyglot-rust-c-C1-r1/下agent/model.jsonl、agent/controller.jsonl、agent/execution-budget.json、agent/final-verification.json及verifier/；同题B0-r1、C0-r1与三个条件r2的评分。",
+      "scores": [
+        {
+          "run_id": "C-terminal-polyglot-rust-c-C1-r1",
+          "passed": false
+        },
+        {
+          "run_id": "C-terminal-polyglot-rust-c-B0-r1",
+          "passed": true
+        },
+        {
+          "run_id": "C-terminal-polyglot-rust-c-C0-r1",
+          "passed": true
+        },
+        {
+          "run_id": "C-terminal-polyglot-rust-c-B0-r2",
+          "passed": true
+        },
+        {
+          "run_id": "C-terminal-polyglot-rust-c-C0-r2",
+          "passed": true
+        },
+        {
+          "run_id": "C-terminal-polyglot-rust-c-C1-r2",
+          "passed": true
+        },
+        {
+          "run_id": "C-terminal-polyglot-rust-c-B0-r3",
+          "passed": true
+        },
+        {
+          "run_id": "C-terminal-polyglot-rust-c-C0-r3",
+          "passed": true
+        },
+        {
+          "run_id": "C-terminal-polyglot-rust-c-C1-r3",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "title": "密码分析：三轮交付差异与服务等待",
+      "observations": "FEAL密码分析题三轮中B0、C0、C1分别通过0/3、2/3、3/3。C1第一轮第5步检查发现明文文件缺失，第7步候选改变后确认100个无符号64位整数载荷；原评分独立确认解密值正确。第二轮C1在执行415.0秒时由程序结束探索，最终文件通过原题；第三轮在420.8秒完成执行并通过。C0第二轮的文件格式与容量检查通过，原评分仍发现明文错误，其余两轮通过。B0三轮均缺少最终明文文件，分别记录2、3、3次请求超时；C1三轮的请求超时为0、1、1次。",
+      "interpretation": "该题的三轮结果支持完整系统在这次服务条件下更稳定地完成交付。第一轮存在检查发现缺失、随后保存文件并通过原题的过程；公开检查只验证载荷数量与类型，无法验证密码分析本身。三个条件请求等待不同，C0两轮也成功，因此这条局部优势不能全部归因于程序控制或解释为密码分析算法改善。",
+      "evidence": "confirmation-v3/C-terminal-feal-linear-cryptanalysis-{B0,C0,C1}-r{1,2,3}/中的model.jsonl、controller.jsonl、execution-budget.json、final-verification.json及verifier/test-stdout.txt。",
+      "scores": [
+        {
+          "run_id": "C-terminal-feal-linear-cryptanalysis-B0-r1",
+          "passed": false
+        },
+        {
+          "run_id": "C-terminal-feal-linear-cryptanalysis-B0-r2",
+          "passed": false
+        },
+        {
+          "run_id": "C-terminal-feal-linear-cryptanalysis-B0-r3",
+          "passed": false
+        },
+        {
+          "run_id": "C-terminal-feal-linear-cryptanalysis-C0-r1",
+          "passed": true
+        },
+        {
+          "run_id": "C-terminal-feal-linear-cryptanalysis-C0-r2",
+          "passed": false
+        },
+        {
+          "run_id": "C-terminal-feal-linear-cryptanalysis-C0-r3",
+          "passed": true
+        },
+        {
+          "run_id": "C-terminal-feal-linear-cryptanalysis-C1-r1",
+          "passed": true
+        },
+        {
+          "run_id": "C-terminal-feal-linear-cryptanalysis-C1-r2",
+          "passed": true
+        },
+        {
+          "run_id": "C-terminal-feal-linear-cryptanalysis-C1-r3",
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

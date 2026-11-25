@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitted candidate-002 (eligible, artifact digest ff0b0516f0ba282f6f106a46cac4a6ca932c2ee17c59d5245818f9301f2c1d72). src/lib.rs implements `pub fn map<T, U, F: FnMut(T) -> U>(input: Vec<T>, mut function: F) -> Vec<U>` using a manual `for` loop and `Vec::push` — no stdlib collect/map. Registered public-suite check passed with 12/12 tests (including --include-ignored), covering empty input, single element, squares, closures, floats, strings, upcasing, reversing, recursive map, type changes, mutating closures, and minimal bounds on input/output types.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 7
+    }
+  }
+}

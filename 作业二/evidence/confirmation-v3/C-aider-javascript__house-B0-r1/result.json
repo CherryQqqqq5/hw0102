@@ -1,0 +1,10 @@
+{
+  "task": "javascript/house",
+  "wall_seconds": 60.76298650004901,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 1.9166233339346945
+}

@@ -1,0 +1,15 @@
+{
+  "reason": "agent_exit",
+  "artifact_digest": "d7abd84f7cf6b3c8242af730db714c7a0aec3c6126f66c9fc7df527978a830f3",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-issue": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "65fad967191e764e7a3b901df6aed7596e9c689e69665f5119690b4c33f208a0  django/contrib/postgres/forms/array.py\n"
+    }
+  },
+  "elapsed_seconds": 337.9370961249806
+}

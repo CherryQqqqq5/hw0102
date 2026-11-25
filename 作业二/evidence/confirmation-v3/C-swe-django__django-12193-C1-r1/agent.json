@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting saved candidate-003. Fix in django/contrib/postgres/forms/array.py: SplitArrayWidget.get_context() now passes a per-subwidget copy of attrs ({**final_attrs}) to each subwidget's get_context(), so CheckboxInput's mutation of attrs['checked'] can no longer leak into subsequent subwidgets of SplitArrayField(BooleanField). Public check public-issue passes (actual checked == required [true, false, true, false]). Edge cases verified: mixed booleans, all-False, empty/None data, per-subwidget ids, and non-boolean (IntegerField) subwidgets. forms_tests.tests.test_widgets passes (skipped=1); the single forms_tests error (test_unicode_filename) and postgres array test error were confirmed pre-existing/environmental on the stashed baseline. Working tree contains only the one-line production change (scratch reproducer removed).",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 17
+    }
+  }
+}

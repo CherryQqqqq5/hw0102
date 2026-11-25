@@ -1,0 +1,10 @@
+{
+  "task": "javascript/house",
+  "wall_seconds": 118.20322662498802,
+  "exit_status": "Submitted",
+  "submission": "house.js implements House.verse(n) and House.verses(start, end) with data-driven noun/clause tables. All 14 original tests pass; public-suite check passed twice (before and after temp edge-spec cleanup); candidate-001 saved as eligible. Temp test file removed; house.spec.js untouched.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 1.837994790985249
+}

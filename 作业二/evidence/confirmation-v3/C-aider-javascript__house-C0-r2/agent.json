@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "house.js implements House.verse(n) and House.verses(start, end) with data-driven noun/clause tables. All 14 original tests pass; public-suite check passed twice (before and after temp edge-spec cleanup); candidate-001 saved as eligible. Temp test file removed; house.spec.js untouched.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 11
+    }
+  }
+}

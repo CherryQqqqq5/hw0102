@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting verified candidate-001: /app/summary.csv passes the public-task check (header period,severity,count; all 15 rows in required order; zero count differences), independently cross-checked against a grep-based recomputation (89,553 severity lines).",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 8
+    }
+  }
+}

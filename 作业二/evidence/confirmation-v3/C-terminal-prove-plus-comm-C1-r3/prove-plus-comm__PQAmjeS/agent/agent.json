@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submit candidate-002 (digest 60c8d69): plus_comm.v proof completed (base case `simpl. apply plus_n_O.`; inductive step `simpl. rewrite IHn'. rewrite plus_n_Sm. reflexivity.`), plus_comm.vo rebuilt cleanly with coqc. Public check public-task passed all conditions, and Print Assumptions reports \"Closed under the global context\".",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 9
+    }
+  }
+}

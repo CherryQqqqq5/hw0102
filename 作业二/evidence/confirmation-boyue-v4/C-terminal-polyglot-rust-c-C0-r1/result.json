@@ -1,0 +1,8 @@
+{
+  "task": "polyglot-rust-c",
+  "wall_seconds": 467.3800397500163,
+  "scoreable": true,
+  "passed": false,
+  "harbor_result": "polyglot-rust-c__b5sYLCh/result.json",
+  "command_supervisor": "descendant_tree_v2"
+}

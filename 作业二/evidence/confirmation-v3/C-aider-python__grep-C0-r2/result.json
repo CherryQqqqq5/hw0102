@@ -1,0 +1,10 @@
+{
+  "task": "python/grep",
+  "wall_seconds": 56.267958707991056,
+  "exit_status": "Submitted",
+  "submission": "Implementation of grep.py is complete: fixed-string matching with -n, -l, -i, -v, -x flags, filename prefixes only for multiple files, and -l taking precedence over -n. Public suite passed 25/25 (verify state: passed), semantic edge cases (no trailing newline, combined flag clusters, fixed-string not regex, empty pattern) behaved correctly, and candidate-001 was saved with its verification evidence.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 0.7080712500028312
+}

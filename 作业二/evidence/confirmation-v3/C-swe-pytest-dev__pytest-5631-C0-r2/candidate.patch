@@ -1,0 +1,34 @@
+diff --git a/.course-public-check/test_public_issue.py b/.course-public-check/test_public_issue.py
+new file mode 100644
+index 000000000..27463cbf0
+--- /dev/null
++++ b/.course-public-check/test_public_issue.py
+@@ -0,0 +1,5 @@
++import numpy as np
++from unittest.mock import patch
++@patch('os.getcwd', new=np.array([-5.5,3.0]))
++def test_public_patch():
++    assert True
+diff --git a/src/_pytest/compat.py b/src/_pytest/compat.py
+index d238061b4..19b35896d 100644
+--- a/src/_pytest/compat.py
++++ b/src/_pytest/compat.py
+@@ -66,9 +66,17 @@ def num_mock_patch_args(function):
+         return 0
+     mock_modules = [sys.modules.get("mock"), sys.modules.get("unittest.mock")]
+     if any(mock_modules):
++        # using identity check to avoid calling __eq__ on the patch "new" object,
++        # which may be an array or another object with a non-boolean __eq__
++        # (see #5631).
+         sentinels = [m.DEFAULT for m in mock_modules if m is not None]
+         return len(
+-            [p for p in patchings if not p.attribute_name and p.new in sentinels]
++            [
++                p
++                for p in patchings
++                if not p.attribute_name
++                and any(p.new is sentinel for sentinel in sentinels)
++            ]
+         )
+     return len(patchings)
+ 

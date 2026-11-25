@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submission of verified candidate-001: convert() throws std::invalid_argument for in/out base < 2 (checked before digit processing), throws for any digit >= in_base, converts via overflow-free multiply-accumulate directly in the output base (LSB-first), strips leading zeros, and returns an empty sequence for zero/empty input. Original public suite passes 17/17 assertions (artifact digest 47b92d1af408ed03e0ff33e2ad8a2631a46e3ca1432fd421ebbffff770b26409).",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 8
+    }
+  }
+}

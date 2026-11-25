@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting saved candidate-001: gigasecond::advance adds 1e9 seconds via boost::posix_time; public-suite passed with 5 assertions in 5 test cases, plus edge cases (leap day, epoch, post-2038, non-leap century) confirmed exact 1e9s delta.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 10
+    }
+  }
+}

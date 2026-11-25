@@ -1,0 +1,10 @@
+{
+  "task": "go/beer-song",
+  "wall_seconds": 102.71089187508915,
+  "exit_status": "Submitted",
+  "submission": "Implementation complete and verified. beer_song.go implements bottles()/Verse/Verses/Song with correct singular/plural handling, \"no more bottles\" boundary verse, \"Take it down\" for verse 1, invalid-input errors, and blank line after every verse. public-suite passed (artifact 9f133932...), edge cases (0/1/2/99, invalid ranges/ranges reversed, full song 301 lines ending correctly) verified, and candidate-001 saved.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 19.217965374933556
+}

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting verified candidate-001: /app/analyze_climate_modern.py (Python 3, pathlib.Path defaults, pandas read_csv with encoding=\"utf-8\", configparser config read, exact output \"Station 101 mean temperature: -15.5°C\" / \"Station 102 mean temperature: 30.3°C\", no Py2 syntax) plus /app/requirements.txt with constrained numpy>=1.26,<3.0, pandas>=2.0,<3.0, matplotlib>=3.8,<4.0, scipy>=1.11,<2.0. Public check passed all conditions; edge cases (alt cwd, missing config, custom CSV, extra args, warnings-as-errors) pass; protected legacy files unchanged.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 15
+    }
+  }
+}

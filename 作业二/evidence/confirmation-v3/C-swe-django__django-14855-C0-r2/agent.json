@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitted candidate-001. Fix in django/contrib/admin/helpers.py: AdminReadonlyField.get_admin_url now calls reverse(url_name, args=[quote(remote_obj.pk)], current_app=self.model_admin.admin_site.name), so readonly ForeignKey/OneToOne links in a custom AdminSite use that site's URL prefix (e.g. /custom-admin/course/author/1/change/) instead of /admin/. NoReverseMatch fallback to str(remote_obj) unchanged. Only helpers.py modified (5 insertions, 1 deletion); temp reproducer test removed, existing tests and test configuration untouched. Verification: public-issue passed; admin_views/admin_checks/admin_inlines suites ran 556 tests OK (34 skipped); confirmed AdminReadonlyField is always constructed with model_admin at helpers.py:119, so the dereference is safe.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 23
+    }
+  }
+}

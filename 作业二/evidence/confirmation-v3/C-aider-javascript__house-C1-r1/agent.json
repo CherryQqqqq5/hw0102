@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting candidate-001: house.js implements House.verse/House.verses from a PARTS table, passing all 14 original tests via public-suite verification (artifact_digest a0789795 match) plus edge-case checks (verses(5,5), consecutive verse separators, empty range, verse 12 line count/first/last line).",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 12
+    }
+  }
+}

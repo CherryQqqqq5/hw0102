@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "All work is verified: /app/summary.csv has the required header and all 15 period/severity counts, matching both the public-task check and an independent cross-check (filename-date vs timestamp-date agreement, no future-dated files, exactly 16 lines, LF endings). Candidate-001 is saved.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 12
+    }
+  }
+}

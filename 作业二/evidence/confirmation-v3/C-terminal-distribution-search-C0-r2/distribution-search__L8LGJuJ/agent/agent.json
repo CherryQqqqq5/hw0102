@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting saved candidate-001 (/app/dist.npy, artifact digest 5e63ea4b...). Evidence: registered check public-task passed all four conditions — distribution_shape_positive (shape [150000], all finite strictly positive, min 2.998e-10), normalization (sum 0.9999999999999994, within 1e-12), forward KL 9.999999999999998 (10 ± 0.001), backward KL 10.000000000000005 (10 ± 0.001). Independent reload-from-disk recomputation with numpy and scipy.stats.entropy agreed (fkl 9.999999999999986, bkl 10.000000000000016), including under scipy's implicit renormalization. Distribution constructed from three mass levels (n1=6 large, n2=100 medium, n3=149894 tiny) solved in log-space via scipy least_squares against the normalization, sum log q, and sum q log q constraints, which map exactly to the forward/backward KL equations. No existing tests or inputs were modified; only the required deliverable was created.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 8
+    }
+  }
+}

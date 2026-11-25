@@ -1,0 +1,9 @@
+{
+  "task": "scikit-learn__scikit-learn-11310",
+  "wall_seconds": 233.12094762502238,
+  "exit_status": "Submitted",
+  "submission": "Submitting verified candidate-001: `import time` added, refit path in BaseSearchCV now records `self.refit_time_ = time.time() - refit_start_time` around best_estimator_ fit, and `refit_time_` documented in GridSearchCV and RandomizedSearchCV docstrings. Public check public-issue passed (nonnegative measured duration, 0.00048s). Reproducer covered refit=True, refit=False (attribute absent), n_jobs=2, and RandomizedSearchCV; existing test_search.py results unchanged (3 pre-existing pytest `message=` compat failures present on pristine tree).",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 27.8024362080032
+}

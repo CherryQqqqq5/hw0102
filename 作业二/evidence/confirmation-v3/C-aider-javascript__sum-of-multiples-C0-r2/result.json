@@ -1,0 +1,10 @@
+{
+  "task": "javascript/sum-of-multiples",
+  "wall_seconds": 63.900822207913734,
+  "exit_status": "Submitted",
+  "submission": "Submitting verified candidate-001: sum-of-multiples.js implements sum(factors, level) using a Set to deduplicate multiples, skipping zero/non-finite/non-positive factors to avoid infinite loops. Public suite passed 16/16 tests.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 2.011236916994676
+}

@@ -1,0 +1,10 @@
+{
+  "task": "rust/accumulate",
+  "wall_seconds": 48.51890620903578,
+  "exit_status": "Submitted",
+  "submission": "Implemented generic map<T, U, F: FnMut(T) -> U> in src/lib.rs. public-suite passed (12/12 tests incl. ignored). Candidate candidate-001 saved and verified.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 2.1949622499523684
+}

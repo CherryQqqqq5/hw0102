@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "5e63ea4ba25cc917f0218de3d27af5b7d7df33fc92994fab9ab47526473b5df7",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-task": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "130f148ea33f5e7d65c762d91b5a9d7463aa97e846db44e3bf65cf66639bbdd1  /app/dist.npy\n"
+    }
+  },
+  "elapsed_seconds": 145.73671716591343
+}

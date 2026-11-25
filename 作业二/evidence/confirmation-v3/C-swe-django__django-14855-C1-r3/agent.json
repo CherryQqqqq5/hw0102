@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Fix complete and verified as candidate-001. In django/contrib/admin/helpers.py, AdminReadonlyField.get_admin_url() now passes current_app=self.model_admin.admin_site.name to reverse(), so readonly ForeignKey links resolve against the custom AdminSite prefix (/custom-admin/course/author/1/change/) instead of /admin/. Public check public-issue passed twice with the expected custom AdminSite URL; only helpers.py is modified, existing tests and test configuration untouched, and the file parses cleanly.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 13
+    }
+  }
+}

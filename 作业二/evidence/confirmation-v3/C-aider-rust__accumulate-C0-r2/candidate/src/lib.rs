@@ -1,0 +1,14 @@
+/// Applies `function` to every element of `input`, returning the results.
+///
+/// This is implemented with an explicit loop rather than iterator
+/// `map`/`collect`, per the exercise restrictions.
+pub fn map<T, U, F>(input: Vec<T>, mut function: F) -> Vec<U>
+where
+    F: FnMut(T) -> U,
+{
+    let mut output = Vec::with_capacity(input.len());
+    for item in input {
+        output.push(function(item));
+    }
+    output
+}

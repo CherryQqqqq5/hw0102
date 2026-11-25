@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting candidate-001: DP-based minimal coin change in src/main/java/ChangeCalculator.java. Handles negative totals, zero change, unrepresentable amounts with exact messages, arbitrary coin sets, and returns coins sorted ascending. public-suite passed; original test file and build.gradle unchanged (12 @Disabled intact).",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 11
+    }
+  }
+}

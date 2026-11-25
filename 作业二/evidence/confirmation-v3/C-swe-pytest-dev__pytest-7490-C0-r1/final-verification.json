@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "838a0f3c0daa7f74904fe606cf7072391ece2bbbfc2dc2cb1c16e996e3bb92ad",
+  "protected_unchanged": false,
+  "restored_candidate": null,
+  "valid_verification": false,
+  "evidence": {
+    "public-issue": {
+      "state": "protected_dependency_changed",
+      "returncode": null,
+      "snapshot": null
+    }
+  },
+  "elapsed_seconds": 464.3815522909863
+}

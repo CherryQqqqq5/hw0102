@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Implementation complete and saved as candidate-001. gigasecond::advance(ptime) returns start + boost::posix_time::seconds(1000000000). Public test suite verified passing: 5 assertions in 5 test cases, returncode 0. Edge cases covered: date-only inputs, full time, and day/month/year rollover (including leap years) are handled by boost::posix_time. Only gigasecond.cpp and gigasecond.h were modified; test and build files untouched.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 8
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Implementation complete and verified: alphametics.go uses a column-wise carry DFS solver, passes the full original public test suite (including the 199-addend case), and was cross-checked against a brute-force reference on 300 random puzzles plus explicit edge cases. Graded directory contains no stray files; verified candidate-001 is saved with matching digest.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 11
+    }
+  }
+}

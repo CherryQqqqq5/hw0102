@@ -1,0 +1,24 @@
+{
+  "candidate_id": "candidate-001",
+  "artifact_digest": "cd08ab0882eac76ae06336a1f934dfcdad8855c416590f91bcb1f38178a96f96",
+  "protected_digest": "55f2db822294084b41ca58168cec0eb10284166c33229030708643dfbca15622",
+  "eligible": true,
+  "evidence": {
+    "public-suite": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "9880367648bedc1475f9a31f7f8be9baedc68c784fd752bafb0926b6c0def0d7  all_your_base.cpp\ne3db92dbb31b9a824cc174c212facce22923da270fe6480e06bfe8edd180ab04  all_your_base.h\n58c7d05e6eaa314346388159cd980886f4b2108bb6f47523a9270bb4e86ce4a3  all_your_base_test.cpp\n"
+    }
+  },
+  "saved_elapsed": 69.34339041705243,
+  "files": {
+    "all_your_base.cpp": {
+      "data": "I2luY2x1ZGUgImFsbF95b3VyX2Jhc2UuaCIKCiNpbmNsdWRlIDxzdGRleGNlcHQ+CgpuYW1lc3BhY2UgYWxsX3lvdXJfYmFzZSB7CgpzdGQ6OnZlY3Rvcjx1bnNpZ25lZCBpbnQ+IGNvbnZlcnQodW5zaWduZWQgaW50IGJhc2UsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb25zdCBzdGQ6OnZlY3Rvcjx1bnNpZ25lZCBpbnQ+JiBkaWdpdHMsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB1bnNpZ25lZCBpbnQgbmV3X2Jhc2UpIHsKICAgIGlmIChiYXNlIDwgMikgewogICAgICAgIHRocm93IHN0ZDo6aW52YWxpZF9hcmd1bWVudCgiaW5wdXQgYmFzZSBtdXN0IGJlIGF0IGxlYXN0IDIiKTsKICAgIH0KICAgIGlmIChuZXdfYmFzZSA8IDIpIHsKICAgICAgICB0aHJvdyBzdGQ6OmludmFsaWRfYXJndW1lbnQoIm91dHB1dCBiYXNlIG11c3QgYmUgYXQgbGVhc3QgMiIpOwogICAgfQoKICAgIHVuc2lnbmVkIGxvbmcgbG9uZyB2YWx1ZSA9IDA7CiAgICBmb3IgKHVuc2lnbmVkIGludCBkaWdpdCA6IGRpZ2l0cykgewogICAgICAgIGlmIChkaWdpdCA+PSBiYXNlKSB7CiAgICAgICAgICAgIHRocm93IHN0ZDo6aW52YWxpZF9hcmd1bWVudCgiZGlnaXQgaXMgb3V0IG9mIHJhbmdlIGZvciBpbnB1dCBiYXNlIik7CiAgICAgICAgfQogICAgICAgIHZhbHVlID0gdmFsdWUgKiBiYXNlICsgZGlnaXQ7CiAgICB9CgogICAgaWYgKHZhbHVlID09IDApIHsKICAgICAgICByZXR1cm4ge307CiAgICB9CgogICAgc3RkOjp2ZWN0b3I8dW5zaWduZWQgaW50PiByZXN1bHQ7CiAgICB3aGlsZSAodmFsdWUgPiAwKSB7CiAgICAgICAgcmVzdWx0Lmluc2VydChyZXN1bHQuYmVnaW4oKSwgc3RhdGljX2Nhc3Q8dW5zaWduZWQgaW50Pih2YWx1ZSAlIG5ld19iYXNlKSk7CiAgICAgICAgdmFsdWUgLz0gbmV3X2Jhc2U7CiAgICB9CgogICAgcmV0dXJuIHJlc3VsdDsKfQoKfSAgLy8gbmFtZXNwYWNlIGFsbF95b3VyX2Jhc2UK",
+      "mode": 420
+    },
+    "all_your_base.h": {
+      "data": "I2lmICFkZWZpbmVkKEFMTF9ZT1VSX0JBU0VfSCkKI2RlZmluZSBBTExfWU9VUl9CQVNFX0gKCiNpbmNsdWRlIDx2ZWN0b3I+CgpuYW1lc3BhY2UgYWxsX3lvdXJfYmFzZSB7CgpzdGQ6OnZlY3Rvcjx1bnNpZ25lZCBpbnQ+IGNvbnZlcnQodW5zaWduZWQgaW50IGJhc2UsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb25zdCBzdGQ6OnZlY3Rvcjx1bnNpZ25lZCBpbnQ+JiBkaWdpdHMsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB1bnNpZ25lZCBpbnQgbmV3X2Jhc2UpOwoKfSAgLy8gbmFtZXNwYWNlIGFsbF95b3VyX2Jhc2UKCiNlbmRpZiAvLyBBTExfWU9VUl9CQVNFX0gK",
+      "mode": 420
+    }
+  }
+}

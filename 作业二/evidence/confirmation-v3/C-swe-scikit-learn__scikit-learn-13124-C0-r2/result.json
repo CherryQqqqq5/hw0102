@@ -1,0 +1,9 @@
+{
+  "task": "scikit-learn__scikit-learn-13124",
+  "wall_seconds": 289.3955235419562,
+  "exit_status": "Submitted",
+  "submission": "Fix complete: in sklearn/model_selection/_split.py StratifiedKFold._make_test_folds, replaced `rng = self.random_state` with `rng = check_random_state(self.random_state)` so the per-class KFold splitters share one RandomState and genuinely permute samples within each stratum. Verified: reproducer now yields different stratified partitions for random_state=0 vs 1 (previously identical partitions with only fold order differing); public-issue check passed; full sklearn/model_selection/tests/test_split.py 61 passed; test_validation.py + test_search.py 111 passed; edge cases (multiclass/unequal class counts, seed sensitivity, shuffle=False determinism, random_state=None variability, RandomState-instance advancement, RepeatedStratifiedKFold reproducibility, cross_val_score stability) all passed. Saved as candidate-001.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 25.572559208027087
+}

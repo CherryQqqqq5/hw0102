@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "/app/summary.csv is generated with LF endings, independently cross-checked via grep/awk recount, and the public-task check passed for all 15 rows and header. Submitting.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 7
+    }
+  }
+}

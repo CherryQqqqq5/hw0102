@@ -1,0 +1,31 @@
+{
+  "task": {
+    "benchmark": "swe",
+    "id": "pytest-dev__pytest-5631",
+    "stratum": "pytest-dev/pytest",
+    "group": "pytest-dev__pytest-5631",
+    "difficulty": "15 min - 1 hour",
+    "image": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-5631:latest",
+    "base_commit": "cb828ebe70b4fa35cd5f9a7ee024272237eab351",
+    "exclude": null,
+    "split": "C",
+    "image_id": "sha256:c76510e12a1765211e064f6e8de09e51ac0f7839f60d72305b374e004308b6a1",
+    "image_digests": [
+      "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-5631@sha256:c76510e12a1765211e064f6e8de09e51ac0f7839f60d72305b374e004308b6a1"
+    ]
+  },
+  "phase": "formal",
+  "configuration": "B0",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "protocol_commit": "d3e51828421535d077365177395d8a3c84b3684a",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 2,
+    "strict_wall": true
+  }
+}

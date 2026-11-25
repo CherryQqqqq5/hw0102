@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting saved candidate-002 (rest_api.py). Public suite passes 9/9 and was verified twice; edge/invariant checks confirm pairwise netting, owes/owed_by symmetry, balance consistency, zero pruning, full repayment, user filtering/sorting, and float balance serialization. No changes since the saved digest.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 14
+    }
+  }
+}

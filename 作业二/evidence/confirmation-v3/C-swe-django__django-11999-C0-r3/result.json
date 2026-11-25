@@ -1,0 +1,9 @@
+{
+  "task": "django__django-11999",
+  "wall_seconds": 317.52550191699993,
+  "exit_status": "Submitted",
+  "submission": "Fix committed to the working tree in django/db/models/fields/__init__.py: Field.contribute_to_class() now installs the generated get_%s_display partialmethod only when the accessor is not already defined in the class body ('get_%s_display' % self.name not in cls.__dict__), so user-defined overrides are preserved while auto-generated accessors still work for non-overridden fields with choices.\n\nEvidence: public check public-issue passed (display values ['something','something']); model_fields suite passed (310 tests, 2 skipped); model_forms/model_inheritance/defer/invalid_models_tests passed (746 tests, 6 skipped); standalone reproducers confirmed the override returns 'something', non-overridden fields still return choices labels, and fields without choices get no accessor. Saved as candidate-001 (eligible=true). Test files and test configuration were left untouched to avoid conflicts with upstream test patches.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 41.16275199991651
+}

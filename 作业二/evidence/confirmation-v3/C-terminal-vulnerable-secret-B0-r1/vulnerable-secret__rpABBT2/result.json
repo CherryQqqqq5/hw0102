@@ -1,0 +1,122 @@
+{
+    "id": "f6258e80-159b-44f6-987e-9a8706d793da",
+    "task_name": "terminal-bench/vulnerable-secret",
+    "trial_name": "vulnerable-secret__rpABBT2",
+    "trial_uri": "file://[本机路径]",
+    "task_id": {
+        "path": "[本机路径]"
+    },
+    "source": null,
+    "task_checksum": "0386b3cf059ee4e861b5097c5b682f9f5f070f60c8e4d48b518e4d14a7c90f02",
+    "config": {
+        "task": {
+            "path": "[本机路径]",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "vulnerable-secret__rpABBT2",
+        "trials_dir": "[本机路径]",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "course_eval.harbor_agent:CourseMiniSweAgent",
+            "import_path": null,
+            "model_name": null,
+            "base_url": null,
+            "model_api_key_name": null,
+            "model_api_format": null,
+            "skip_model_parsing": false,
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "stream": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [
+                "[本机路径]"
+            ],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": null,
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "course-mini-swe-agent",
+        "version": "2.4.6",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "model_usage": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "verifier_environment_mode": "shared",
+    "exception_info": null,
+    "started_at": "2026-11-05T14:44:21.461422Z",
+    "finished_at": "2026-11-05T14:46:00.049668Z",
+    "environment_setup": {
+        "started_at": "2026-11-05T14:44:21.523448Z",
+        "finished_at": "2026-11-05T14:44:22.754204Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-11-05T14:44:22.754330Z",
+        "finished_at": "2026-11-05T14:44:22.901431Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-11-05T14:44:22.901622Z",
+        "finished_at": "2026-11-05T14:45:45.044301Z"
+    },
+    "verifier": {
+        "started_at": "2026-11-05T14:45:45.400402Z",
+        "finished_at": "2026-11-05T14:45:49.296907Z"
+    },
+    "step_results": null
+}

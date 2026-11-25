@@ -1,0 +1,10 @@
+{
+  "task": "javascript/sum-of-multiples",
+  "wall_seconds": 139.34002116590273,
+  "exit_status": "Submitted",
+  "submission": "Implementation of sum(factors, level) in sum-of-multiples.js: iterates multiples of each factor into a Set (dedupe), skips factor <= 0, sums unique multiples below level. public-suite passed 16/16 and candidate-001 saved with passing evidence; extra semantic edge cases (level 0/negative, factor >= level, duplicate factors, empty factors, zero factor, non-coprime factors) all pass. Submitting.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 1.8334884169744328
+}

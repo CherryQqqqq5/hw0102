@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting saved verified candidate-001. all_your_base::convert implemented via digit long-division (no fixed-width overflow), rejects bases < 2 and out-of-range digits with std::invalid_argument, strips leading zeros, returns empty vector for zero/empty input. public-suite passed 17/17 assertions; independent edge cases passed (base 2^31-1, 1000-digit base2->base3->base2 round trip, 100-digit decimal->base97->decimal round trip, empty/zero/leading-zero inputs, all invalid-input exceptions). Only all_your_base.cpp and all_your_base.h were modified.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 13
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "status": "stopped_provider_quota_exhausted",
+  "provider": "CodeBuddy",
+  "model": "deepseek-v4.1-flash",
+  "protocol_commit": "369ac50c062bb9c6cd9519954b00c8cde785939e",
+  "planned_positions": 270,
+  "primary_attempts": 266,
+  "scored_positions": 265,
+  "passed": 248,
+  "unscored_positions": [
+    "C-swe-scikit-learn__scikit-learn-25232-C0-r3"
+  ],
+  "unstarted_positions": [
+    "C-swe-scikit-learn__scikit-learn-25232-C1-r3",
+    "C-terminal-multi-source-data-merger-B0-r3",
+    "C-terminal-multi-source-data-merger-C0-r3",
+    "C-terminal-multi-source-data-merger-C1-r3"
+  ],
+  "arm_scores": {
+    "B0": {
+      "passed": 82,
+      "scored": 89
+    },
+    "C0": {
+      "passed": 84,
+      "scored": 88
+    },
+    "C1": {
+      "passed": 82,
+      "scored": 88
+    }
+  },
+  "previous_attempts": 15,
+  "previous_scored": 14,
+  "all_attempts": 281,
+  "all_scored": 279,
+  "all_attempt_usage": {
+    "model_calls": 3299,
+    "model_responses": 3273,
+    "model_request_retries": 15,
+    "model_request_timeouts": 25,
+    "provider_turns": 16742,
+    "tool_calls": 2509,
+    "input_tokens": 48405495,
+    "output_tokens": 4591648,
+    "cached_input_tokens": 42215296,
+    "submission_check_opportunities": 0,
+    "stale_at_submission": 0,
+    "deliverable_checkpoints": 0,
+    "deliverable_reminders": 0,
+    "usage_unreturned_requests": 26,
+    "usage_missing_input_responses": 0,
+    "usage_missing_output_responses": 0,
+    "usage_missing_cache_responses": 0,
+    "provider_reported_cost_usd": 0
+  },
+  "usage_scope": "Returned counts only; counters identify missing responses or fields. No account bill is inferred.",
+  "source_partition_recalculation": "equal",
+  "complete_paired_conclusion": null,
+  "comparison_boundary": "Incomplete 270-position matrix; unequal denominators; not pooled with Boyue results."
+}

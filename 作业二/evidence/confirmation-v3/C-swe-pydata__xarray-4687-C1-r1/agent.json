@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Final state: xarray/core/computation.py only file modified. `xr.where(cond, x, y, keep_attrs=None)` now threads keep_attrs into apply_ufunc; when attributes are kept it uses a `_first_non_empty_attrs` combiner so attrs come from the first of (cond, x, y) that actually carries them (cond from a comparison is usually empty), preserving attrs for DataArray, Variable and Dataset variables, while keep_attrs=False and the default/global option still drop attrs. Verified: public-issue check passed (final phase, artifact d58fe82e...); full xarray/tests/test_computation.py = 247 passed, 1 skipped; reproducer shows keep_attrs=True -> {'attr_1','attr_2'}, keep_attrs=False -> {}, default -> {}, global option honored; plain ndarray/scalar inputs do not crash. test_dataarray.py/test_dataset.py collection errors are pre-existing pandas (`UndefinedVariableError`) import issues unrelated to this change; no tests or test config were modified. Candidate candidate-002 saved as the best feasible version.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 20
+    }
+  }
+}

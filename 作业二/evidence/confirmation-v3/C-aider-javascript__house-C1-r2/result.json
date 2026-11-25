@@ -1,0 +1,10 @@
+{
+  "task": "javascript/house",
+  "wall_seconds": 95.45402325002942,
+  "exit_status": "Submitted",
+  "submission": "Implemented House.verse(n) and House.verses(start, end) in house.js using noun/verb tables; all 14 original tests pass, public-suite check passed (digest 16ec5782...), verified candidate-001 saved.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 2.144513832987286
+}

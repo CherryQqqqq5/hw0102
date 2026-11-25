@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting final candidate-003: /app/polyglot/main.rs is a Rust/C++ polyglot. `rustc /app/polyglot/main.rs && /app/polyglot/main N` and `g++ -x c++ /app/polyglot/main.rs -o /app/polyglot/cmain && /app/polyglot/cmain N` both print the kth Fibonacci number with f(0)=1, f(1)=1, f(2)=2. Uses big-decimal string arithmetic in both languages (no 64-bit overflow). Verified: public-task check passed (artifact_digest 420901f7b75c2b01f6652d3e4bbef53ea431c1a6256db6d17a75a40d3b2d70af); values cross-checked against Python for n=0..10,20,30,40,46,47,92,100,200,500,1000,2000,5000,10000; exact task commands produce matching output; missing/negative/invalid/overflow args exit rc=1 with no output in both binaries.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 12
+    }
+  }
+}

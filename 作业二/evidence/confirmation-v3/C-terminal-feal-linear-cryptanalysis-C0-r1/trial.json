@@ -1,0 +1,48 @@
+{
+  "task": {
+    "benchmark": "terminal",
+    "id": "feal-linear-cryptanalysis",
+    "stratum": "mathematics",
+    "group": "feal-cryptanalysis",
+    "difficulty": "hard",
+    "image": "alexgshaw/feal-linear-cryptanalysis:20251031",
+    "cpus": 1,
+    "memory_mb": 2048,
+    "agent_timeout_seconds": 1800.0,
+    "exclude": null,
+    "split": "C",
+    "candidate_scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/plaintexts.txt"
+      ],
+      "protected": [
+        "/app/ciphertexts.txt",
+        "/app/decrypt",
+        "/app/decrypt.c",
+        "/app/feal",
+        "/app/feal.c",
+        "/app/pairs.txt"
+      ],
+      "python": "/usr/local/bin/python3"
+    },
+    "image_id": "sha256:ea78749a8422c6228d26c8753f45906a6a2df089906764b7e3c3e27e8f718ee7",
+    "image_digests": [
+      "alexgshaw/feal-linear-cryptanalysis@sha256:ea78749a8422c6228d26c8753f45906a6a2df089906764b7e3c3e27e8f718ee7"
+    ]
+  },
+  "phase": "formal",
+  "configuration": "C0",
+  "status": "started",
+  "model": "deepseek-v4.1-flash",
+  "backend": "codebuddy",
+  "protocol_commit": "d3e51828421535d077365177395d8a3c84b3684a",
+  "limits": {
+    "model_calls": 24,
+    "wall_seconds": 600,
+    "command_seconds": 60,
+    "max_output_tokens": 4096,
+    "timeout_retries": 2,
+    "strict_wall": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task": "python/rest-api",
+  "wall_seconds": 96.16197112505324,
+  "exit_status": "Submitted",
+  "submission": "RestAPI fully implemented in rest_api.py: GET /users (all users, or filtered subset sorted by name), POST /add (creates user, returns User object), POST /iou (bilateral netting of existing debt, clears reciprocal entries, returns both users sorted by name, balance = owed_by - owes). Public suite passed 9/9 (candidate-001, digest 7b154eaa...); custom edge-case reproducer also verified accumulation, both-direction netting, exact payoff, and sorted filtering.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 0.7840969590470195
+}

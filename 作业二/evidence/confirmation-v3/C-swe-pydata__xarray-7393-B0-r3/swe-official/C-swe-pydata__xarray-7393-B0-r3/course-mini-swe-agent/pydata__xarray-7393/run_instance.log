@@ -1,0 +1,90 @@
+2026-11-06 17:13:11,214 - INFO - Creating container for pydata__xarray-7393...
+2026-11-06 17:13:11,292 - INFO - Container for pydata__xarray-7393 created: 66d25a9faa63f08ae765222457c489d474602ab6f121ffbf87ad9ed98d9455b6
+2026-11-06 17:13:11,420 - INFO - Container for pydata__xarray-7393 started: 66d25a9faa63f08ae765222457c489d474602ab6f121ffbf87ad9ed98d9455b6
+2026-11-06 17:13:11,420 - INFO - Intermediate patch for pydata__xarray-7393 written to [本机路径] now applying to container...
+2026-11-06 17:13:11,603 - INFO - >>>>> Applied Patch:
+Checking patch xarray/core/indexing.py...
+Checking patch xarray/tests/test_dataset.py...
+Applied patch xarray/core/indexing.py cleanly.
+Applied patch xarray/tests/test_dataset.py cleanly.
+
+2026-11-06 17:13:11,852 - INFO - Git diff before:
+diff --git a/xarray/core/indexing.py b/xarray/core/indexing.py
+index ba937183..14f50aa6 100644
+--- a/xarray/core/indexing.py
++++ b/xarray/core/indexing.py
+@@ -1532,7 +1532,10 @@ class PandasMultiIndexingAdapter(PandasIndexingAdapter):
+ 
+     def __array__(self, dtype: DTypeLike = None) -> np.ndarray:
+         if self.level is not None:
+-            return self.array.get_level_values(self.level).values
++            array = self.array.get_level_values(self.level).values
++            if dtype is None:
++                dtype = self.dtype
++            return np.asarray(array, dtype=dtype)
+         else:
+             return super().__array__(dtype)
+ 
+diff --git a/xarray/tests/test_dataset.py b/xarray/tests/test_dataset.py
+index 6ab4c40c..6b6f8bd3 100644
+--- a/xarray/tests/test_dataset.py
++++ b/xarray/tests/test_dataset.py
+@@ -3487,6 +3487,13 @@ class TestDataset:
+         # TODO: benbovy (flexible indexes) - test error multiple indexes found
+         # along dimension + create_index=True
+ 
++    def test_stack_dtype(self) -> None:
++        # regression test for GH7393: stacking must not change level dtypes
++        ds = Dataset(coords={"a": np.array([0], dtype="i4")})
++        actual = ds.stack(b=("a",))
++        assert actual["a"].dtype == np.dtype("int32")
++        assert actual["a"].values.dtype == np.dtype("int32")
++
+     def test_stack_multi_index(self) -> None:
+         # multi-index on a dimension to stack is discarded too
+         midx = pd.MultiIndex.from_product([["a", "b"], [0, 1]], names=("lvl1", "lvl2"))
+2026-11-06 17:13:11,852 - INFO - Eval script for pydata__xarray-7393 written to [本机路径] copying to container...
+2026-11-06 17:13:29,647 - INFO - Test runtime: 17.73 seconds
+2026-11-06 17:13:29,649 - INFO - Test output for pydata__xarray-7393 written to [本机路径]
+2026-11-06 17:13:29,817 - INFO - Git diff after:
+diff --git a/xarray/core/indexing.py b/xarray/core/indexing.py
+index ba937183..14f50aa6 100644
+--- a/xarray/core/indexing.py
++++ b/xarray/core/indexing.py
+@@ -1532,7 +1532,10 @@ class PandasMultiIndexingAdapter(PandasIndexingAdapter):
+ 
+     def __array__(self, dtype: DTypeLike = None) -> np.ndarray:
+         if self.level is not None:
+-            return self.array.get_level_values(self.level).values
++            array = self.array.get_level_values(self.level).values
++            if dtype is None:
++                dtype = self.dtype
++            return np.asarray(array, dtype=dtype)
+         else:
+             return super().__array__(dtype)
+ 
+diff --git a/xarray/tests/test_dataset.py b/xarray/tests/test_dataset.py
+index 6ab4c40c..6b6f8bd3 100644
+--- a/xarray/tests/test_dataset.py
++++ b/xarray/tests/test_dataset.py
+@@ -3487,6 +3487,13 @@ class TestDataset:
+         # TODO: benbovy (flexible indexes) - test error multiple indexes found
+         # along dimension + create_index=True
+ 
++    def test_stack_dtype(self) -> None:
++        # regression test for GH7393: stacking must not change level dtypes
++        ds = Dataset(coords={"a": np.array([0], dtype="i4")})
++        actual = ds.stack(b=("a",))
++        assert actual["a"].dtype == np.dtype("int32")
++        assert actual["a"].values.dtype == np.dtype("int32")
++
+     def test_stack_multi_index(self) -> None:
+         # multi-index on a dimension to stack is discarded too
+         midx = pd.MultiIndex.from_product([["a", "b"], [0, 1]], names=("lvl1", "lvl2"))
+2026-11-06 17:13:29,818 - INFO - Grading answer for pydata__xarray-7393...
+2026-11-06 17:13:29,819 - INFO - report: {'pydata__xarray-7393': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['xarray/tests/test_indexes.py::test_restore_dtype_on_multiindexes[int32]', 'xarray/tests/test_indexes.py::test_restore_dtype_on_multiindexes[float32]'], 'failure': []}, 'PASS_TO_PASS': {'success': ['xarray/tests/test_indexes.py::test_asarray_tuplesafe', 'xarray/tests/test_indexes.py::TestIndex::test_from_variables', 'xarray/tests/test_indexes.py::TestIndex::test_concat', 'xarray/tests/test_indexes.py::TestIndex::test_stack', 'xarray/tests/test_indexes.py::TestIndex::test_unstack', 'xarray/tests/test_indexes.py::TestIndex::test_create_variables', 'xarray/tests/test_indexes.py::TestIndex::test_to_pandas_index', 'xarray/tests/test_indexes.py::TestIndex::test_isel', 'xarray/tests/test_indexes.py::TestIndex::test_sel', 'xarray/tests/test_indexes.py::TestIndex::test_join', 'xarray/tests/test_indexes.py::TestIndex::test_reindex_like', 'xarray/tests/test_indexes.py::TestIndex::test_equals', 'xarray/tests/test_indexes.py::TestIndex::test_roll', 'xarray/tests/test_indexes.py::TestIndex::test_rename', 'xarray/tests/test_indexes.py::TestIndex::test_copy[True]', 'xarray/tests/test_indexes.py::TestIndex::test_copy[False]', 'xarray/tests/test_indexes.py::TestIndex::test_getitem', 'xarray/tests/test_indexes.py::TestPandasIndex::test_constructor', 'xarray/tests/test_indexes.py::TestPandasIndex::test_from_variables', 'xarray/tests/test_indexes.py::TestPandasIndex::test_from_variables_index_adapter', 'xarray/tests/test_indexes.py::TestPandasIndex::test_concat_periods', 'xarray/tests/test_indexes.py::TestPandasIndex::test_concat_str_dtype[str]', 'xarray/tests/test_indexes.py::TestPandasIndex::test_concat_str_dtype[bytes]', 'xarray/tests/test_indexes.py::TestPandasIndex::test_concat_empty', 'xarray/tests/test_indexes.py::TestPandasIndex::test_concat_dim_error', 'xarray/tests/test_indexes.py::TestPandasIndex::test_create_variables', 'xarray/tests/test_indexes.py::TestPandasIndex::test_to_pandas_index', 'xarray/tests/test_indexes.py::TestPandasIndex::test_sel', 'xarray/tests/test_indexes.py::TestPandasIndex::test_sel_boolean', 'xarray/tests/test_indexes.py::TestPandasIndex::test_sel_datetime', 'xarray/tests/test_indexes.py::TestPandasIndex::test_sel_unsorted_datetime_index_raises', 'xarray/tests/test_indexes.py::TestPandasIndex::test_equals', 'xarray/tests/test_indexes.py::TestPandasIndex::test_join', 'xarray/tests/test_indexes.py::TestPandasIndex::test_reindex_like', 'xarray/tests/test_indexes.py::TestPandasIndex::test_rename', 'xarray/tests/test_indexes.py::TestPandasIndex::test_copy', 'xarray/tests/test_indexes.py::TestPandasIndex::test_getitem', 'xarray/tests/test_indexes.py::TestPandasMultiIndex::test_constructor', 'xarray/tests/test_indexes.py::TestPandasMultiIndex::test_from_variables', 'xarray/tests/test_indexes.py::TestPandasMultiIndex::test_concat', 'xarray/tests/test_indexes.py::TestPandasMultiIndex::test_stack', 'xarray/tests/test_indexes.py::TestPandasMultiIndex::test_stack_non_unique', 'xarray/tests/test_indexes.py::TestPandasMultiIndex::test_unstack', 'xarray/tests/test_indexes.py::TestPandasMultiIndex::test_create_variables', 'xarray/tests/test_indexes.py::TestPandasMultiIndex::test_sel', 'xarray/tests/test_indexes.py::TestPandasMultiIndex::test_join', 'xarray/tests/test_indexes.py::TestPandasMultiIndex::test_rename', 'xarray/tests/test_indexes.py::TestPandasMultiIndex::test_copy', 'xarray/tests/test_indexes.py::TestIndexes::test_interface[pd_index]', 'xarray/tests/test_indexes.py::TestIndexes::test_interface[xr_index]', 'xarray/tests/test_indexes.py::TestIndexes::test_variables[pd_index]', 'xarray/tests/test_indexes.py::TestIndexes::test_variables[xr_index]', 'xarray/tests/test_indexes.py::TestIndexes::test_dims[pd_index]', 'xarray/tests/test_indexes.py::TestIndexes::test_dims[xr_index]', 'xarray/tests/test_indexes.py::TestIndexes::test_get_unique[pd_index]', 'xarray/tests/test_indexes.py::TestIndexes::test_get_unique[xr_index]', 'xarray/tests/test_indexes.py::TestIndexes::test_is_multi[pd_index]', 'xarray/tests/test_indexes.py::TestIndexes::test_is_multi[xr_index]', 'xarray/tests/test_indexes.py::TestIndexes::test_get_all_coords[pd_index]', 'xarray/tests/test_indexes.py::TestIndexes::test_get_all_coords[xr_index]', 'xarray/tests/test_indexes.py::TestIndexes::test_get_all_dims[pd_index]', 'xarray/tests/test_indexes.py::TestIndexes::test_get_all_dims[xr_index]', 'xarray/tests/test_indexes.py::TestIndexes::test_group_by_index[pd_index]', 'xarray/tests/test_indexes.py::TestIndexes::test_group_by_index[xr_index]', 'xarray/tests/test_indexes.py::TestIndexes::test_to_pandas_indexes[pd_index]', 'xarray/tests/test_indexes.py::TestIndexes::test_to_pandas_indexes[xr_index]', 'xarray/tests/test_indexes.py::TestIndexes::test_copy_indexes[pd_index]', 'xarray/tests/test_indexes.py::TestIndexes::test_copy_indexes[xr_index]', 'xarray/tests/test_indexes.py::test_safe_cast_to_index', 'xarray/tests/test_indexes.py::test_safe_cast_to_index_cftimeindex', 'xarray/tests/test_indexes.py::test_safe_cast_to_index_datetime_datetime'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for pydata__xarray-7393: resolved: True
+2026-11-06 17:13:29,819 - INFO - Attempting to stop container sweb.eval.pydata__xarray-7393.C-swe-pydata__xarray-7393-B0-r3...
+2026-11-06 17:13:45,233 - INFO - Container sweb.eval.pydata__xarray-7393.C-swe-pydata__xarray-7393-B0-r3 stopped successfully.
+2026-11-06 17:13:45,234 - INFO - Attempting to remove container sweb.eval.pydata__xarray-7393.C-swe-pydata__xarray-7393-B0-r3...
+2026-11-06 17:13:45,312 - INFO - Container sweb.eval.pydata__xarray-7393.C-swe-pydata__xarray-7393-B0-r3 removed successfully.

@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submission: sum-of-multiples.js implements sum(factors, level) using a Set to collect unique multiples for positive factors only (0 and negatives skipped), then sums them. Verified: registered public-suite check passed (16/16 tests, returncode 0), plus ad hoc cases covering level<=1, empty factors, factor 0, non-coprime factors, and 5-factor cardinality. Saved as candidate-001 with digest aa47f412; spec file unchanged.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 8
+    }
+  }
+}
