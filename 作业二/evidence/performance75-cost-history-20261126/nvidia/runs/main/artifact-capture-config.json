@@ -1,0 +1,9 @@
+{
+  "task": {
+    "path": "[project]/work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler"
+  },
+  "artifacts": [
+    "/app/task_file/output_data/plan_b1.jsonl",
+    "/app/task_file/output_data/plan_b2.jsonl"
+  ]
+}

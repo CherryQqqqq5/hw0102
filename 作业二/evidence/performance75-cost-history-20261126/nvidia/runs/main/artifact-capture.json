@@ -1,0 +1,49 @@
+{
+  "kind": "native_harbor_post_agent_artifact_collection",
+  "original_argv": [
+    "[project]/work/.venv/bin/harbor",
+    "trials",
+    "start",
+    "--path",
+    "[project]/work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler",
+    "--agent",
+    "course_eval.harbor_agent:CourseMiniSweAgent",
+    "--env",
+    "docker",
+    "--trials-dir",
+    "[project]/work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1",
+    "--extra-docker-compose",
+    "[project]/work/frozen-performance-free-v31/course_eval/terminal-no-network.yaml",
+    "--agent-timeout",
+    "3630"
+  ],
+  "effective_argv": [
+    "[project]/work/.venv/bin/harbor",
+    "trials",
+    "start",
+    "--config",
+    "[project]/work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/artifact-capture-config.json",
+    "--path",
+    "[project]/work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler",
+    "--agent",
+    "course_eval.harbor_agent:CourseMiniSweAgent",
+    "--env",
+    "docker",
+    "--trials-dir",
+    "[project]/work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1",
+    "--extra-docker-compose",
+    "[project]/work/frozen-performance-free-v31/course_eval/terminal-no-network.yaml",
+    "--agent-timeout",
+    "3630"
+  ],
+  "policy_sha256": "84f3553f587d4f2f200ca9bfb43b61b85beec4dfd9c0645269ddd34a99e47635",
+  "capture_code_sha256": "9079d3fc34de13b4b760fb7647bbc7af154342c0cebf59e0e37faf36a63be60c",
+  "launcher_sha256": "0e7e208b89829623272a3d43eb3af64a4724dadc05eab9115298ec3dd2a167a4",
+  "config_sha256": "68ab41e321b04c6c688e250022a9e6a40f4ecb6b10e97564253f61ce59a00ef2",
+  "sources": [
+    "/app/task_file/output_data/plan_b1.jsonl",
+    "/app/task_file/output_data/plan_b2.jsonl"
+  ],
+  "framework": "mini-swe",
+  "model_requests_made_by_instrumentation": 0
+}

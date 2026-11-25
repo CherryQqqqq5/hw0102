@@ -1,0 +1,144 @@
+Trial llm-inference-batching-scheduler__7cyoVeT failed: No new actual model request: the shared financial stop is active
+Collecting main service artifacts
+compose cp failed; retrying download with engine cp: Docker compose command failed for environment llm-inference-batching-scheduler. Command: docker compose --project-name llm-inference-batching-scheduler__7cyovet__env --project-directory [本机路径] -f [本机路径] -f [本机路径] -f [本机路径] -f [本机路径] -f [本机路径] cp main:/app/task_file/output_data/plan_b1.jsonl [本机路径] Return code: 1. Stdout:  llm-inference-batching-scheduler__7cyovet__env-main-1 Copying llm-inference-batching-scheduler__7cyovet__env-main-1:/app/task_file/output_data/plan_b1.jsonl to [本机路径]
+Error response from daemon: Could not find the file /app/task_file/output_data/plan_b1.jsonl in container 3deaece3b73486111242e6cf42cbe74ae8ca058fa8578f2311244fb13dbb177e
+. Stderr: None. 
+Failed to download artifact '/app/task_file/output_data/plan_b1.jsonl' from service 'main' (best-effort)
+Traceback (most recent call last):
+  File "[本机路径]", line 609, in run
+    await self._run()
+  File "[本机路径]", line 40, in _run
+    await self._run_agent()
+  File "[本机路径]", line 76, in _run_agent
+    await self._run_agent_phase(
+    ...<5 lines>...
+    )
+  File "[本机路径]", line 769, in _run_agent_phase
+    await asyncio.wait_for(
+    ...<6 lines>...
+    )
+  File "[本机路径]", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "[本机路径]", line 106, in run
+    await asyncio.to_thread(run_baseline, instruction, target, self.logs_dir, limits,
+                            configuration=configuration, checks=checks,
+                            scope=scope)
+  File "[本机路径]", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[本机路径]", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "[本机路径]", line 622, in run_baseline
+    return run_controlled(task, target, directory, limits, configuration, checks, scope)
+  File "[本机路径]", line 414, in run_controlled
+    return _run_controlled(task, target, directory, limits, configuration, checks, scope, budget)
+  File "[本机路径]", line 469, in _run_controlled
+    result = agent.run(task)
+  File "[本机路径]", line 98, in run
+    self.step()
+    ~~~~~~~~~^^
+  File "[本机路径]", line 386, in step
+    return super().step()
+           ~~~~~~~~~~~~^^
+  File "[本机路径]", line 128, in step
+    return self.execute_actions(self.query())
+                                ~~~~~~~~~~^^
+  File "[本机路径]", line 149, in query
+    message = self.model.query(self.messages)
+  File "[本机路径]", line 62, in guarded
+    raise RuntimeError("No new actual model request: the shared financial stop is active")
+RuntimeError: No new actual model request: the shared financial stop is active
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "[本机路径]", line 351, in _download_artifact
+    await source_env.service_download_file(
+    ...<3 lines>...
+    )
+  File "[本机路径]", line 1319, in service_download_file
+    await self.download_file(source_path, target_path)
+  File "[本机路径]", line 1304, in download_file
+    await self._platform.download_file(source_path, target_path)
+  File "[本机路径]", line 278, in download_file
+    await self._download_via_engine_cp(source_path, target_path, service)
+  File "[本机路径]", line 253, in _download_via_engine_cp
+    await self._engine_cp(f"{container}:{container_path}", str(target_path))
+  File "[本机路径]", line 244, in _engine_cp
+    raise RuntimeError(
+        f"Engine cp failed ({source!r} -> {destination!r}): {output}"
+    )
+RuntimeError: Engine cp failed ('3deaece3b734:/app/task_file/output_data/plan_b1.jsonl' -> '[本机路径]'): Error response from daemon: Could not find the file /app/task_file/output_data/plan_b1.jsonl in container 3deaece3b734
+
+compose cp failed; retrying download with engine cp: Docker compose command failed for environment llm-inference-batching-scheduler. Command: docker compose --project-name llm-inference-batching-scheduler__7cyovet__env --project-directory [本机路径] -f [本机路径] -f [本机路径] -f [本机路径] -f [本机路径] -f [本机路径] cp main:/app/task_file/output_data/plan_b2.jsonl [本机路径] Return code: 1. Stdout:  llm-inference-batching-scheduler__7cyovet__env-main-1 Copying llm-inference-batching-scheduler__7cyovet__env-main-1:/app/task_file/output_data/plan_b2.jsonl to [本机路径]
+Error response from daemon: Could not find the file /app/task_file/output_data/plan_b2.jsonl in container 3deaece3b73486111242e6cf42cbe74ae8ca058fa8578f2311244fb13dbb177e
+. Stderr: None. 
+Failed to download artifact '/app/task_file/output_data/plan_b2.jsonl' from service 'main' (best-effort)
+Traceback (most recent call last):
+  File "[本机路径]", line 609, in run
+    await self._run()
+  File "[本机路径]", line 40, in _run
+    await self._run_agent()
+  File "[本机路径]", line 76, in _run_agent
+    await self._run_agent_phase(
+    ...<5 lines>...
+    )
+  File "[本机路径]", line 769, in _run_agent_phase
+    await asyncio.wait_for(
+    ...<6 lines>...
+    )
+  File "[本机路径]", line 507, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "[本机路径]", line 106, in run
+    await asyncio.to_thread(run_baseline, instruction, target, self.logs_dir, limits,
+                            configuration=configuration, checks=checks,
+                            scope=scope)
+  File "[本机路径]", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "[本机路径]", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "[本机路径]", line 622, in run_baseline
+    return run_controlled(task, target, directory, limits, configuration, checks, scope)
+  File "[本机路径]", line 414, in run_controlled
+    return _run_controlled(task, target, directory, limits, configuration, checks, scope, budget)
+  File "[本机路径]", line 469, in _run_controlled
+    result = agent.run(task)
+  File "[本机路径]", line 98, in run
+    self.step()
+    ~~~~~~~~~^^
+  File "[本机路径]", line 386, in step
+    return super().step()
+           ~~~~~~~~~~~~^^
+  File "[本机路径]", line 128, in step
+    return self.execute_actions(self.query())
+                                ~~~~~~~~~~^^
+  File "[本机路径]", line 149, in query
+    message = self.model.query(self.messages)
+  File "[本机路径]", line 62, in guarded
+    raise RuntimeError("No new actual model request: the shared financial stop is active")
+RuntimeError: No new actual model request: the shared financial stop is active
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "[本机路径]", line 351, in _download_artifact
+    await source_env.service_download_file(
+    ...<3 lines>...
+    )
+  File "[本机路径]", line 1319, in service_download_file
+    await self.download_file(source_path, target_path)
+  File "[本机路径]", line 1304, in download_file
+    await self._platform.download_file(source_path, target_path)
+  File "[本机路径]", line 278, in download_file
+    await self._download_via_engine_cp(source_path, target_path, service)
+  File "[本机路径]", line 253, in _download_via_engine_cp
+    await self._engine_cp(f"{container}:{container_path}", str(target_path))
+  File "[本机路径]", line 244, in _engine_cp
+    raise RuntimeError(
+        f"Engine cp failed ({source!r} -> {destination!r}): {output}"
+    )
+RuntimeError: Engine cp failed ('3deaece3b734:/app/task_file/output_data/plan_b2.jsonl' -> '[本机路径]'): Error response from daemon: Could not find the file /app/task_file/output_data/plan_b2.jsonl in container 3deaece3b734
+

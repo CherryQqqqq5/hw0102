@@ -1,0 +1,28 @@
+{
+  "mode": "One real vision request using a generated technical fixture, not a benchmark score",
+  "synthetic_history": "The inspect_image call is a local fixture; it is not a prior model generation",
+  "expected": "7429",
+  "image_sha256": "6b0908b026c09bb9bee8ac362e9ee31320617b0a27e0205ec9a3c087e8a74e77",
+  "runtime_sha256": "9752aabfbb5009238db516fbe29eb511e38ec4a5f60474d680df23ef1593b48b",
+  "verified": true,
+  "actual": "7429",
+  "generation_id": "chatcmpl-6a036e9b-43a8-4778-a07f-823228a020aa",
+  "usage": {
+    "completion_tokens": 7,
+    "prompt_tokens": 749,
+    "total_tokens": 756,
+    "prompt_tokens_details": {
+      "cached_tokens": 128
+    }
+  },
+  "billing": {
+    "actual_requests": 1,
+    "verified_nonbilled_service_calls": 1,
+    "actual_monetary_receipt_calls": 0,
+    "unverified_requests": [],
+    "reported_monetary_cost": null,
+    "verification_type": "official_non_billed_free_endpoint_with_per_request_identity_and_usage",
+    "contract_sha256": "ca389a47489491aaf56b7a090523380f0d382c647b3ff87c8920a6d0534a77b7"
+  },
+  "elapsed_seconds": 20.155695583089255
+}

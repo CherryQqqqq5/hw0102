@@ -1,0 +1,21 @@
+{
+  "task": "python/grep",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "configuration": "C0",
+  "framework": "mini-swe",
+  "readonly_swe_repository": false,
+  "persistent_native_session": true,
+  "limits": {
+    "model_calls": 500,
+    "wall_seconds": 3600,
+    "command_seconds": 120,
+    "max_output_tokens": 64000,
+    "timeout_retries": 0,
+    "strict_wall": true
+  },
+  "runtime_root": "work/frozen-performance-hy4-sql-layout-v18",
+  "billing": "Actual per-call model identity and zero-cost receipt; no request retry or paid fallback",
+  "historical_unknown_calls_preserved": 24,
+  "benchmark_grader": "unchanged original task scorer"
+}

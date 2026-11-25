@@ -1,0 +1,21 @@
+{
+  "task": "llm-inference-batching-scheduler",
+  "backend": "nvidia-free",
+  "model": "stepfun-ai/step-5-preview",
+  "configuration": "C0",
+  "framework": "mini-swe",
+  "runtime_root": "work/frozen-performance-free-v31",
+  "limits": {
+    "model_calls": 500,
+    "wall_seconds": 3600,
+    "command_seconds": 120,
+    "max_output_tokens": 64000,
+    "timeout_retries": 0,
+    "strict_wall": true
+  },
+  "plan_sha256": "18cef63f6033106e9f1ea8c019a0d9ad2ac178127cdbcc4c0cafa29419686d9e",
+  "historical_unknown_calls_preserved": 32,
+  "quota_only_hy4_pause_preserved": true,
+  "native_cli_persistence": false,
+  "billing": "Every actual response must independently pass its provider's existing approved zero-cost proof; no fallback or request retry"
+}

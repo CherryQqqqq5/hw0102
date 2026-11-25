@@ -1,0 +1,13 @@
+{
+  "task": "query-optimize",
+  "scoreable": false,
+  "passed": null,
+  "error_type": "SupervisorStartupInterruption",
+  "error": "Host supervisor read a not-yet-created queue state and exited; its exec process group ended before any original scoring",
+  "wall_seconds": null,
+  "record_origin": "Explicit post-interruption operational reconstruction, not a grader-produced result",
+  "actual_model_request_events": 0,
+  "original_grader_executions": 0,
+  "reconstructed_at_unix": 1795543245.030497,
+  "original_model_trace_unchanged": true
+}

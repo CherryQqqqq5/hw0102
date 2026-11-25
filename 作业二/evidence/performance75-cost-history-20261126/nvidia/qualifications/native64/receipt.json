@@ -1,0 +1,99 @@
+{
+  "verified": true,
+  "http_status": 200,
+  "contract_sha256": "093ba6a6239f189258bde0ec7de88de64877291d4a30e009fa2151fe34ba6022",
+  "free_policy_verified": true,
+  "response_identity_and_usage_verified": true,
+  "request": {
+    "model": "minimaxai/minimax-m3.1-flash",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Hosted tool-delivery guidance: this endpoint may buffer function arguments until the complete call is ready. Keep each bash command under 4096 characters. Write large files in several small append/edit steps instead of one large call. Reuse permitted installed libraries and provided helpers. Do not emit a complete helper implementation inside one tool argument. When self-contained delivery is required, copy allowed helper source with short commands or compose the file in small chunks. Save a minimal runnable artifact at the required path before expanding tests, then verify and submit it. Task-local access restrictions and delivery requirements take priority over generic advice. When a task grants only a callable oracle, do not inspect its implementation, globals or private weights, including for self-checking."
+      },
+      {
+        "role": "user",
+        "content": "Call the registered bash function exactly once with command printf MINIMAX_NATIVE_OK. Do not execute anything yourself or add explanation."
+      }
+    ],
+    "tools": [
+      {
+        "type": "function",
+        "function": {
+          "name": "bash",
+          "description": "Return one complete result using the registered schema.",
+          "parameters": {
+            "additionalProperties": false,
+            "properties": {
+              "command": {
+                "const": "printf MINIMAX_NATIVE_OK",
+                "title": "Command",
+                "type": "string"
+              }
+            },
+            "required": [
+              "command"
+            ],
+            "title": "NativeAnswer",
+            "type": "object"
+          }
+        }
+      }
+    ],
+    "tool_choice": {
+      "type": "function",
+      "function": {
+        "name": "bash"
+      }
+    },
+    "parallel_tool_calls": false,
+    "max_tokens": 64000,
+    "temperature": 1,
+    "top_p": 0.95,
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    }
+  },
+  "assembled_response": {
+    "id": "chatcmpl-b6662ee8-b28a-4248-8975-08da11a92c00",
+    "choices": [
+      {
+        "finish_reason": "tool_calls",
+        "index": 0,
+        "message": {
+          "content": "",
+          "role": "assistant",
+          "tool_calls": [
+            {
+              "id": "call-0e822fc0-a58a-47ac-b558-86b6c76d8251",
+              "function": {
+                "arguments": "{\"command\":\"printf MINIMAX_NATIVE_OK\"}",
+                "name": "bash"
+              },
+              "type": "function",
+              "index": 0
+            }
+          ]
+        }
+      }
+    ],
+    "created": 1795617070,
+    "model": "minimaxai/minimax-m3.1-flash",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 12,
+      "prompt_tokens": 602,
+      "total_tokens": 614,
+      "prompt_tokens_details": {
+        "cached_tokens": 128
+      }
+    }
+  },
+  "generation_id": "chatcmpl-b6662ee8-b28a-4248-8975-08da11a92c00",
+  "provider_model": "minimaxai/minimax-m3.1-flash",
+  "actual_reported_monetary_cost": null,
+  "monetary_receipt_available": false,
+  "native_function_schema_verified": true,
+  "actual_shell_execution": false
+}

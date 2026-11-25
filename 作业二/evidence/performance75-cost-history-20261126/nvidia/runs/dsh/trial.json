@@ -1,0 +1,44 @@
+{
+  "task": {
+    "benchmark": "terminal",
+    "id": "llm-inference-batching-scheduler",
+    "stratum": "machine-learning",
+    "group": "llm-inference-batching-scheduler",
+    "difficulty": "hard",
+    "image": "alexgshaw/llm-inference-batching-scheduler:20251031",
+    "cpus": 1,
+    "memory_mb": 2048,
+    "agent_timeout_seconds": 1800.0,
+    "exclude": null,
+    "split": "D",
+    "candidate_scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/task_file/output_data/plan_b1.jsonl",
+        "/app/task_file/output_data/plan_b2.jsonl"
+      ],
+      "protected": [
+        "/app/task_file/input_data/requests_bucket_1.jsonl",
+        "/app/task_file/input_data/requests_bucket_2.jsonl",
+        "/app/task_file/scripts/cost_model.py",
+        "/app/task_file/scripts/baseline_packer.py"
+      ],
+      "python": "python3"
+    }
+  },
+  "phase": "formal",
+  "configuration": "B0",
+  "status": "started",
+  "model": "stepfun-ai/step-5-preview",
+  "backend": "nvidia-free",
+  "framework": "dsh",
+  "protocol_commit": null,
+  "limits": {
+    "model_calls": 500,
+    "wall_seconds": 3600,
+    "command_seconds": 120,
+    "max_output_tokens": 64000,
+    "timeout_retries": 0,
+    "strict_wall": true
+  }
+}

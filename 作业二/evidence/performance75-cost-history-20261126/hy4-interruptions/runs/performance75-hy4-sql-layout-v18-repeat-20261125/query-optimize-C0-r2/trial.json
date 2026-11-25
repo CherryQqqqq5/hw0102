@@ -1,0 +1,42 @@
+{
+  "task": {
+    "benchmark": "terminal",
+    "id": "query-optimize",
+    "stratum": "data-science",
+    "group": "query-optimize",
+    "difficulty": "medium",
+    "image": "alexgshaw/query-optimize:20251031",
+    "cpus": 1,
+    "memory_mb": 2048,
+    "agent_timeout_seconds": 900.0,
+    "exclude": null,
+    "split": "D",
+    "candidate_scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/sol.sql"
+      ],
+      "protected": [
+        "/app/oewn.sqlite",
+        "/app/my-sql-query.sql"
+      ],
+      "python": "/opt/course-runtime/bin/python3",
+      "reusable_helper": "sql_layout"
+    }
+  },
+  "phase": "formal",
+  "configuration": "C0",
+  "status": "started",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "framework": "mini-swe",
+  "protocol_commit": null,
+  "limits": {
+    "model_calls": 500,
+    "wall_seconds": 3600,
+    "command_seconds": 120,
+    "max_output_tokens": 64000,
+    "timeout_retries": 0,
+    "strict_wall": true
+  }
+}

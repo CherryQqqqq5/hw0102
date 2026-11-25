@@ -1,0 +1,1591 @@
+{
+  "schema": "closed_free_channel_supplement_independent_review_v1",
+  "status": "REVIEWED_WITH_PRESERVED_EVIDENCE_GAPS",
+  "audit_checks_passed": true,
+  "review_scope": "仅已关闭的v33三scheduler、accepted33/34及其原始链、MiniMax三实际资格与一次Aider无分中断；不批准新模型调用，不是完整225验收。",
+  "reading_depth": {
+    "model_events": "逐行扫描全部4个新增任务attempt的model.jsonl结构，23次真实任务请求；逐笔使用实际frozen-performance-free-v31的audit_nvidia_events验证21个billing_verified对应的原生响应/模型/usage/contract/checksum。另核3次技术资格，其中vision/native64各1笔真实model.jsonl及billing，catalog为保存的独立原生资格receipt。",
+    "controls": "全文读取main/repeat/MiniMax短controller记录及现有final-verification；核DSH实际异常链和SDK记录存在性。缺失main final-control保留缺失。",
+    "grading": "直接核main/repeat outer+inner原结果、各reward.txt=0和原test-stdout失败/汇总，DSH与MiniMax无verifier结果/未原评分；两scheduler原生manifest均显示两个要求的计划文件捕获failed。",
+    "limits": "未逐字阅读全部推理正文；本轮不是完整隐藏输入/所有工具语义审计。旧311 Step5成本视图通过固定summary/trials元数据和不可变registry/seed复核去重，复用既有深审，不重读旧全部raw trace、不重hash1134树或SDK。"
+  },
+  "new_closed_records": [
+    {
+      "lane": "main",
+      "run_dir": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1",
+      "model": "stepfun-ai/step-5-preview",
+      "framework": "mini-swe",
+      "configuration": "C0",
+      "task": "llm-inference-batching-scheduler",
+      "source_plan_sha256": "18cef63f6033106e9f1ea8c019a0d9ad2ac178127cdbcc4c0cafa29419686d9e",
+      "protocol_path": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1.protocol.json",
+      "protocol_sha256": "904ca828f576aa6494ac88cd441264c16657dfbe5b1b532f45af45d254e1fef2",
+      "original_result": {
+        "task": "llm-inference-batching-scheduler",
+        "wall_seconds": 3620.389915333013,
+        "scoreable": true,
+        "passed": false,
+        "harbor_result": "llm-inference-batching-scheduler__rqiMRcg/result.json",
+        "command_supervisor": "descendant_tree_v2"
+      },
+      "inner_result": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/result.json",
+      "limits": {
+        "model_calls": 500,
+        "wall_seconds": 3600,
+        "command_seconds": 120,
+        "max_output_tokens": 64000,
+        "timeout_retries": 0,
+        "strict_wall": true
+      },
+      "trace": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/model.jsonl",
+      "trace_sha256": "e3062168cec36ce7bf4321d26d3627d24c2f6d392b521eb4ca87f9940ff7ccab",
+      "event_counts": {
+        "free_service_policy_verified": 1,
+        "request": 8,
+        "response_headers": 8,
+        "response": 7,
+        "billing_verified": 7,
+        "request_rate_wait": 1,
+        "request_error": 1
+      },
+      "physical_requests": [
+        {
+          "request_id": 1,
+          "time": 1795612554.234043,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        },
+        {
+          "request_id": 2,
+          "time": 1795612584.176608,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        },
+        {
+          "request_id": 3,
+          "time": 1795612599.1701891,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        },
+        {
+          "request_id": 4,
+          "time": 1795612681.699428,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        },
+        {
+          "request_id": 5,
+          "time": 1795612969.265342,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        },
+        {
+          "request_id": 6,
+          "time": 1795614131.09299,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        },
+        {
+          "request_id": 7,
+          "time": 1795614397.837697,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        },
+        {
+          "request_id": 8,
+          "time": 1795614868.9620218,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        }
+      ],
+      "response_headers": {
+        "1": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "f24ff094-53b8-469c-b345-31a747571a02",
+            "X-Request-Id": "fde4ec22-c16a-4418-a730-39a433fd60cd"
+          },
+          "time": 1795612554.8299022
+        },
+        "2": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "8f8902f5-8f9f-4ecb-8e53-0ccba1717d74",
+            "X-Request-Id": "93af3f46-b886-473e-b067-9eb42acc1d61"
+          },
+          "time": 1795612584.750924
+        },
+        "3": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "6259a471-b52d-4db9-b6f2-b681d1e3fd91",
+            "X-Request-Id": "5af8cc76-d5f2-4e89-acf2-e59373cba72b"
+          },
+          "time": 1795612599.846806
+        },
+        "4": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "2fa94604-9687-4f74-9e38-1793989a52ac",
+            "X-Request-Id": "61d8b112-2c0c-491a-bb07-c3dd5333af93"
+          },
+          "time": 1795612682.415617
+        },
+        "5": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "bbd3d286-dbdc-4ae0-8cab-e7749261694a",
+            "X-Request-Id": "34fe301c-024e-46a2-b9c2-2e79b174321f"
+          },
+          "time": 1795612970.368896
+        },
+        "6": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "d17777be-b9f9-47d5-a1c2-e6243d5964f5",
+            "X-Request-Id": "f8e7a7b4-2672-4b3d-a113-50a07dc85f94"
+          },
+          "time": 1795614132.486204
+        },
+        "7": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "0ff2db08-81cc-4b1e-858c-53e03d66d52a",
+            "X-Request-Id": "5b2004b0-8ace-43a0-adf3-1d4f07510adb"
+          },
+          "time": 1795614398.7756119
+        },
+        "8": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "2011f9c7-1fef-4533-bafd-c2a479cce417",
+            "X-Request-Id": "d2efd62a-f6ca-4538-b1d9-dca016036ee2"
+          },
+          "time": 1795614869.895403
+        }
+      },
+      "complete_policy_proofs": [
+        {
+          "generation_id": "chatcmpl-d817194a-13af-43bf-9293-6ac37246dfcf",
+          "request_id": 1,
+          "usage": {
+            "prompt_tokens": 2776,
+            "completion_tokens": 69,
+            "total_tokens": 2845,
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-cdc8ca2b-6126-4c91-89c5-85c94cf6dac4",
+          "request_id": 2,
+          "usage": {
+            "prompt_tokens": 3200,
+            "completion_tokens": 53,
+            "total_tokens": 3253,
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 2688
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-f71d6cdd-7d58-4434-ad2f-dbca47881d30",
+          "request_id": 3,
+          "usage": {
+            "prompt_tokens": 6931,
+            "completion_tokens": 60,
+            "total_tokens": 6991,
+            "completion_tokens_details": {
+              "reasoning_tokens": 21
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-5c0c0418-b9db-4eff-90dd-f7531a8db007",
+          "request_id": 4,
+          "usage": {
+            "prompt_tokens": 8249,
+            "completion_tokens": 1133,
+            "total_tokens": 9382,
+            "completion_tokens_details": {
+              "reasoning_tokens": 912
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 6848
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-ab8005e7-0aef-466e-9143-0f74116d05ba",
+          "request_id": 5,
+          "usage": {
+            "prompt_tokens": 10398,
+            "completion_tokens": 4202,
+            "total_tokens": 14600,
+            "completion_tokens_details": {
+              "reasoning_tokens": 3893
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-5d8f2df4-ffac-4956-b5d4-e879c38acbe0",
+          "request_id": 6,
+          "usage": {
+            "prompt_tokens": 15328,
+            "completion_tokens": 748,
+            "total_tokens": 16076,
+            "completion_tokens_details": {
+              "reasoning_tokens": 476
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-19c959a0-f1f0-4f41-871e-9c5213efd19c",
+          "request_id": 7,
+          "usage": {
+            "prompt_tokens": 16410,
+            "completion_tokens": 1838,
+            "total_tokens": 18248,
+            "completion_tokens_details": {
+              "reasoning_tokens": 1417
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "reported_monetary_cost": null
+        }
+      ],
+      "known_complete_usage": {
+        "input_tokens": 63292,
+        "output_tokens": 8103,
+        "total_tokens": 71395,
+        "cached_input_tokens": 9536
+      },
+      "reported_monetary_cost_usd": null,
+      "actual_monetary_receipt_calls": 0,
+      "unknown_events": [
+        {
+          "event": "request",
+          "request_id": 8
+        },
+        {
+          "event": "response_headers",
+          "request_id": 8
+        },
+        {
+          "event": "request_error",
+          "request_id": 8
+        }
+      ],
+      "actual_error_or_skipped": [
+        {
+          "event": "request_error",
+          "time": 1795616139.3956978,
+          "request_id": 8,
+          "error_type": "TimeoutExpired",
+          "detail": "Command '['[project]/work/.venv/bin/python', '[project]/work/frozen-performance-free-v31/course_eval/nvidia_free.py', '--http-worker']' timed out after 1271.2419851659797 seconds",
+          "billing_status": "official_non_billed_policy_verified_monetary_receipt_unavailable",
+          "response_identity_and_usage_verified": false
+        }
+      ],
+      "final_control": null,
+      "inner_exception": null,
+      "interpretation": "原评分false且reward0保持。请求8有HTTP200头及2907个partial stream_packet，但无finish/usage/stream_done；整题deadline前剩余1271.241985秒耗尽。原grader仍实际执行，缺plan_b1.jsonl等导致5failed/1passed。controller仅initial及finalization_deadline_exhausted；无final-verification，保护/登记状态未知，qualified=false。",
+      "qualified_passed": false,
+      "final_protected_unchanged": null,
+      "final_valid_verification": null,
+      "original_grader_executed": true,
+      "grader_summary": "5 failed, 1 passed in 0.18s",
+      "missing_final_control_cannot_be_reconstructed": true,
+      "unknown_ordinal": 33
+    },
+    {
+      "lane": "repeat",
+      "run_dir": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2",
+      "model": "stepfun-ai/step-5-preview",
+      "framework": "mini-swe",
+      "configuration": "C0",
+      "task": "llm-inference-batching-scheduler",
+      "source_plan_sha256": "18cef63f6033106e9f1ea8c019a0d9ad2ac178127cdbcc4c0cafa29419686d9e",
+      "protocol_path": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2.protocol.json",
+      "protocol_sha256": "904ca828f576aa6494ac88cd441264c16657dfbe5b1b532f45af45d254e1fef2",
+      "original_result": {
+        "task": "llm-inference-batching-scheduler",
+        "wall_seconds": 3140.373037624988,
+        "scoreable": true,
+        "passed": false,
+        "harbor_result": "llm-inference-batching-scheduler__LFEx8P7/result.json",
+        "command_supervisor": "descendant_tree_v2"
+      },
+      "inner_result": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/result.json",
+      "limits": {
+        "model_calls": 500,
+        "wall_seconds": 3600,
+        "command_seconds": 120,
+        "max_output_tokens": 64000,
+        "timeout_retries": 0,
+        "strict_wall": true
+      },
+      "trace": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/model.jsonl",
+      "trace_sha256": "23a6210d3fac10cf2ee1ba010f91192199179657a6bd4a8114679fee98028230",
+      "event_counts": {
+        "free_service_policy_verified": 1,
+        "request": 7,
+        "response_headers": 7,
+        "response": 7,
+        "billing_verified": 7,
+        "request_skipped_for_deadline": 1
+      },
+      "physical_requests": [
+        {
+          "request_id": 1,
+          "time": 1795611262.640948,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        },
+        {
+          "request_id": 2,
+          "time": 1795611289.638156,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        },
+        {
+          "request_id": 3,
+          "time": 1795611324.1665611,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        },
+        {
+          "request_id": 4,
+          "time": 1795611408.873462,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        },
+        {
+          "request_id": 5,
+          "time": 1795611660.2073128,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        },
+        {
+          "request_id": 6,
+          "time": 1795611753.433393,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        },
+        {
+          "request_id": 7,
+          "time": 1795612515.1615438,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        }
+      ],
+      "response_headers": {
+        "1": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "7be71759-e960-4d2a-8b86-20a16e81a47b",
+            "X-Request-Id": "869d1503-87ad-4044-bcdc-5e1707feb29d"
+          },
+          "time": 1795611263.511292
+        },
+        "2": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "a513a18f-6164-402f-9999-3f8d41731f1c",
+            "X-Request-Id": "23e3f301-9aa3-4d54-87ab-3092c8d2e04f"
+          },
+          "time": 1795611290.5717142
+        },
+        "3": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "74692ba8-e015-4c29-a16a-b7b04e4377f6",
+            "X-Request-Id": "6a0086cb-bdf1-437e-be82-32c4a575e1e9"
+          },
+          "time": 1795611324.894624
+        },
+        "4": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "8701ef4f-85ce-4a06-bfb2-c8a1d8d0cb56",
+            "X-Request-Id": "bc71c9a9-55e0-414b-8457-80eb7b752e6b"
+          },
+          "time": 1795611409.588514
+        },
+        "5": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "3d1615c1-4cc2-4af8-afe6-be7876213ae9",
+            "X-Request-Id": "2a7cb125-43a0-49c2-b3a1-1dab9a314887"
+          },
+          "time": 1795611661.3298838
+        },
+        "6": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "0cbb6071-58e2-44d4-9a5b-62b94c7fe025",
+            "X-Request-Id": "94de6e92-7d7f-4e3d-801f-2cc0b574ee2a"
+          },
+          "time": 1795611754.6308181
+        },
+        "7": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "6544c661-2394-419d-9368-16706ea367d2",
+            "X-Request-Id": "c5c4158d-1d03-4f1a-8c03-c8d3ea7fc45e"
+          },
+          "time": 1795612516.698936
+        }
+      },
+      "complete_policy_proofs": [
+        {
+          "generation_id": "chatcmpl-a77abcfe-c74c-49cb-bf0b-352840e4968f",
+          "request_id": 1,
+          "usage": {
+            "prompt_tokens": 2776,
+            "completion_tokens": 138,
+            "total_tokens": 2914,
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-9d99d6ab-8cd1-4b4f-aee2-d2752ea31f78",
+          "request_id": 2,
+          "usage": {
+            "prompt_tokens": 3208,
+            "completion_tokens": 82,
+            "total_tokens": 3290,
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 2688
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-abc15a1a-4785-4ae4-bbfe-0e228c4cbaf3",
+          "request_id": 3,
+          "usage": {
+            "prompt_tokens": 6158,
+            "completion_tokens": 784,
+            "total_tokens": 6942,
+            "completion_tokens_details": {
+              "reasoning_tokens": 542
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 3136
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-49849ef4-fba0-4440-934a-1b5f59613646",
+          "request_id": 4,
+          "usage": {
+            "prompt_tokens": 9041,
+            "completion_tokens": 3849,
+            "total_tokens": 12890,
+            "completion_tokens_details": {
+              "reasoning_tokens": 3445
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 6080
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-6b52d90a-f68f-4011-bed2-e07070cfd8c1",
+          "request_id": 5,
+          "usage": {
+            "prompt_tokens": 13099,
+            "completion_tokens": 1259,
+            "total_tokens": 14358,
+            "completion_tokens_details": {
+              "reasoning_tokens": 926
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-5ef9513f-edef-4357-8743-9bdc08cf9e76",
+          "request_id": 6,
+          "usage": {
+            "prompt_tokens": 14714,
+            "completion_tokens": 9959,
+            "total_tokens": 24673,
+            "completion_tokens_details": {
+              "reasoning_tokens": 9518
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 12992
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-ed1ee614-ad88-48be-be39-753ae2795a63",
+          "request_id": 7,
+          "usage": {
+            "prompt_tokens": 25125,
+            "completion_tokens": 13946,
+            "total_tokens": 39071,
+            "completion_tokens_details": {
+              "reasoning_tokens": 13484
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "reported_monetary_cost": null
+        }
+      ],
+      "known_complete_usage": {
+        "input_tokens": 74121,
+        "output_tokens": 30017,
+        "total_tokens": 104138,
+        "cached_input_tokens": 24896
+      },
+      "reported_monetary_cost_usd": null,
+      "actual_monetary_receipt_calls": 0,
+      "unknown_events": [],
+      "actual_error_or_skipped": [
+        {
+          "event": "request_skipped_for_deadline",
+          "time": 1795614364.796525,
+          "available_seconds": 481.7507022919599,
+          "minimum_request_seconds": 900,
+          "rate_wait_seconds": 0,
+          "required_seconds": 900
+        }
+      ],
+      "final_control": {
+        "reason": "agent_exit",
+        "artifact_digest": "90f3b2230193ed87c6e3f81033a4c70d4b430332f67cf46a53e18d5a549f268a",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": false,
+        "evidence": {
+          "public-artifact": {
+            "state": "pending",
+            "returncode": null,
+            "snapshot": null
+          }
+        },
+        "elapsed_seconds": 3118.851783458027
+      },
+      "inner_exception": null,
+      "interpretation": "原评分false且reward0保持。7笔完整证明；下一次请求因剩481.750702秒不足既有900秒minimum而未发，不增加物理请求或未知。最终protected=true，public-artifact=pending，valid=false；捕获两计划文件均failed，原grader5failed/1passed。",
+      "qualified_passed": false,
+      "final_protected_unchanged": true,
+      "final_valid_verification": false,
+      "original_grader_executed": true,
+      "grader_summary": "5 failed, 1 passed in 0.18s",
+      "unknown_ordinal": null
+    },
+    {
+      "lane": "dsh",
+      "run_dir": "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1",
+      "model": "stepfun-ai/step-5-preview",
+      "framework": "dsh",
+      "configuration": "B0",
+      "task": "llm-inference-batching-scheduler",
+      "source_plan_sha256": "18cef63f6033106e9f1ea8c019a0d9ad2ac178127cdbcc4c0cafa29419686d9e",
+      "protocol_path": "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1.protocol.json",
+      "protocol_sha256": "f47a82f09ee2831653b99df3e520ee6b0b6fd085b8d6ed306e41db86c7fcbfb1",
+      "original_result": {
+        "task": "llm-inference-batching-scheduler",
+        "wall_seconds": 1806.1739022079855,
+        "scoreable": false,
+        "passed": null,
+        "harbor_result": "llm-inference-batching-scheduler__h258yZU/result.json",
+        "command_supervisor": "descendant_tree_v2"
+      },
+      "inner_result": "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/result.json",
+      "limits": {
+        "model_calls": 500,
+        "wall_seconds": 3600,
+        "command_seconds": 120,
+        "max_output_tokens": 64000,
+        "timeout_retries": 0,
+        "strict_wall": true
+      },
+      "trace": "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/model.jsonl",
+      "trace_sha256": "580733cedaf945d294baca184f360007db0b18b36695a77630f6518f3137d21b",
+      "event_counts": {
+        "free_service_policy_verified": 1,
+        "request": 6,
+        "response_headers": 6,
+        "response": 6,
+        "billing_verified": 6,
+        "request_rate_wait": 3
+      },
+      "physical_requests": [
+        {
+          "request_id": 1,
+          "time": 1795614617.99398,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        },
+        {
+          "request_id": 2,
+          "time": 1795614649.634392,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        },
+        {
+          "request_id": 3,
+          "time": 1795614664.603123,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        },
+        {
+          "request_id": 4,
+          "time": 1795614679.6243489,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        },
+        {
+          "request_id": 5,
+          "time": 1795614694.811754,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        },
+        {
+          "request_id": 6,
+          "time": 1795614726.9046001,
+          "attempt": 1,
+          "model": "stepfun-ai/step-5-preview",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        }
+      ],
+      "response_headers": {
+        "1": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "ff2110fb-86fa-433f-9c8e-850a860f025d",
+            "X-Request-Id": "723c556c-b7a0-4761-ba11-4e926baea237"
+          },
+          "time": 1795614618.576386
+        },
+        "2": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "a71dc8fe-552b-4830-b4ff-ff78ac7518ce",
+            "X-Request-Id": "87a34b54-1025-462b-af27-37eca7275167"
+          },
+          "time": 1795614650.1980622
+        },
+        "3": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "a7406335-b645-44f6-afa9-5c94e2eeca4f",
+            "X-Request-Id": "40bdf3e9-5314-4316-9b58-e2e138a4ab24"
+          },
+          "time": 1795614665.582758
+        },
+        "4": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "4986b4ca-6099-4658-b505-03d1258d9bf8",
+            "X-Request-Id": "9fc0e7eb-2eb3-45a1-95a5-70642e531725"
+          },
+          "time": 1795614680.2761018
+        },
+        "5": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "bbb46b04-a59a-4086-a3d7-9128448305aa",
+            "X-Request-Id": "a0e27489-8a75-492e-8034-e7d04c65587c"
+          },
+          "time": 1795614695.452267
+        },
+        "6": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "11b45c00-e37c-4d3c-be15-6843165f2d05",
+            "X-Request-Id": "27d11768-1e51-487a-a88e-f85f37cc75a2"
+          },
+          "time": 1795614727.560413
+        }
+      },
+      "complete_policy_proofs": [
+        {
+          "generation_id": "chatcmpl-d0c20310-ef17-400e-8350-3b47d89302cf",
+          "request_id": 1,
+          "usage": {
+            "prompt_tokens": 1851,
+            "completion_tokens": 273,
+            "total_tokens": 2124,
+            "completion_tokens_details": {
+              "reasoning_tokens": 162
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-359c7ea5-39a6-4325-aaef-de4e4e62fe92",
+          "request_id": 2,
+          "usage": {
+            "prompt_tokens": 2522,
+            "completion_tokens": 60,
+            "total_tokens": 2582,
+            "completion_tokens_details": {
+              "reasoning_tokens": 12
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 1728
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-faab7d3a-fa28-47b2-9c24-85d098901782",
+          "request_id": 3,
+          "usage": {
+            "prompt_tokens": 2645,
+            "completion_tokens": 57,
+            "total_tokens": 2702,
+            "completion_tokens_details": {
+              "reasoning_tokens": 11
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 2432
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-4f6a4469-3567-4cf1-8905-82851052e517",
+          "request_id": 4,
+          "usage": {
+            "prompt_tokens": 5077,
+            "completion_tokens": 156,
+            "total_tokens": 5233,
+            "completion_tokens_details": {
+              "reasoning_tokens": 9
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 2560
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-209f112e-04fe-48fd-a811-814e86304f85",
+          "request_id": 5,
+          "usage": {
+            "prompt_tokens": 6774,
+            "completion_tokens": 364,
+            "total_tokens": 7138,
+            "completion_tokens_details": {
+              "reasoning_tokens": 40
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 4992
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-35aa1d50-92b8-49e7-baa9-54488ef1358d",
+          "request_id": 6,
+          "usage": {
+            "prompt_tokens": 7586,
+            "completion_tokens": 9179,
+            "total_tokens": 16765,
+            "completion_tokens_details": {
+              "reasoning_tokens": 8445
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 6656
+            }
+          },
+          "reported_monetary_cost": null
+        }
+      ],
+      "known_complete_usage": {
+        "input_tokens": 26455,
+        "output_tokens": 10089,
+        "total_tokens": 36544,
+        "cached_input_tokens": 18368
+      },
+      "reported_monetary_cost_usd": null,
+      "actual_monetary_receipt_calls": 0,
+      "unknown_events": [],
+      "actual_error_or_skipped": [],
+      "final_control": null,
+      "inner_exception": {
+        "exception_type": "RuntimeError",
+        "exception_message": "No new actual model request: the shared financial stop is active"
+      },
+      "interpretation": "6笔完整证明后下一SDK provider调用在真实financial_stop guard处被拒，未产生请求7；verifier_result=null、scoreable=false/passed=null保持。该位置是共享STOP无分中断，不是原grader语义false。B0不适用C0终局登记/保护判定。",
+      "qualified_passed": null,
+      "final_protected_unchanged": null,
+      "final_valid_verification": null,
+      "original_grader_executed": false,
+      "unknown_ordinal": null
+    },
+    {
+      "lane": "minimax_main",
+      "run_dir": "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1",
+      "model": "minimaxai/minimax-m3.1-flash",
+      "framework": "mini-swe",
+      "configuration": "C0",
+      "task": "cpp/all-your-base",
+      "source_plan_sha256": "73e84af77b298e0c2d336a2872ac27a74f01593e2a2cf9b708994f77f289710e",
+      "protocol_path": "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1.protocol.json",
+      "protocol_sha256": "25b7ce0a9ebe4122f9e1bf61bf13a2b0e04b14898b89fe03e325f254d9a45aba",
+      "original_result": {
+        "task": "cpp/all-your-base",
+        "wall_seconds": 33.84595345892012,
+        "scoreable": false,
+        "passed": null,
+        "error_type": "RuntimeError",
+        "error": "The NVIDIA response did not complete; preserve it and stop this trial"
+      },
+      "inner_result": null,
+      "limits": {
+        "model_calls": 500,
+        "wall_seconds": 3600,
+        "command_seconds": 120,
+        "max_output_tokens": 64000,
+        "timeout_retries": 0,
+        "strict_wall": true
+      },
+      "trace": "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/model.jsonl",
+      "trace_sha256": "71b4389a3b35e1c34f725eb1e4f2c2c9eabae844d8487d5e6f8f7eb98d4f019b",
+      "event_counts": {
+        "free_service_policy_verified": 1,
+        "request": 2,
+        "response_headers": 2,
+        "response": 1,
+        "billing_verified": 1,
+        "request_rate_wait": 1,
+        "http_error_body": 1,
+        "request_error": 1
+      },
+      "physical_requests": [
+        {
+          "request_id": 1,
+          "time": 1795617668.651171,
+          "attempt": 1,
+          "model": "minimaxai/minimax-m3.1-flash",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        },
+        {
+          "request_id": 2,
+          "time": 1795617684.821621,
+          "attempt": 1,
+          "model": "minimaxai/minimax-m3.1-flash",
+          "max_tokens": 64000,
+          "endpoint": "https://integrate.api.nvidia.com/v1/chat/completions"
+        }
+      ],
+      "response_headers": {
+        "1": {
+          "http_status": 200,
+          "response_ids": {
+            "Nvcf-Reqid": "da56ba29-ad95-45cc-8532-951e9c8cd1c2",
+            "X-Request-Id": "339ebcb7-7275-44fd-ad97-0e666b467d0d"
+          },
+          "time": 1795617669.474383
+        },
+        "2": {
+          "http_status": 503,
+          "response_ids": {
+            "Nvcf-Reqid": "3bb51585-1b35-4957-a86a-447d98e56334",
+            "X-Request-Id": "4afda4c8-90c9-4575-953c-0ffe4cd5d497"
+          },
+          "time": 1795617685.378486
+        }
+      },
+      "complete_policy_proofs": [
+        {
+          "generation_id": "chatcmpl-d8129968-cc82-4f6f-8fe7-0eb8a8f6c644",
+          "request_id": 1,
+          "usage": {
+            "prompt_tokens": 1928,
+            "completion_tokens": 111,
+            "total_tokens": 2039,
+            "prompt_tokens_details": {
+              "cached_tokens": 128
+            }
+          },
+          "reported_monetary_cost": null
+        }
+      ],
+      "known_complete_usage": {
+        "input_tokens": 1928,
+        "output_tokens": 111,
+        "total_tokens": 2039,
+        "cached_input_tokens": 128
+      },
+      "reported_monetary_cost_usd": null,
+      "actual_monetary_receipt_calls": 0,
+      "unknown_events": [
+        {
+          "event": "request",
+          "request_id": 2
+        },
+        {
+          "event": "response_headers",
+          "request_id": 2
+        },
+        {
+          "event": "request_error",
+          "request_id": 2
+        }
+      ],
+      "actual_error_or_skipped": [
+        {
+          "event": "request_error",
+          "time": 1795617685.66083,
+          "request_id": 2,
+          "error_type": "RuntimeError",
+          "detail": "NVIDIA request process failed: {\"ok\": false, \"error_type\": \"HTTPError\", \"detail\": \"503 Server Error: Service Unavailable for url: https://integrate.api.nvidia.com/v1/chat/completions\"}",
+          "billing_status": "official_non_billed_policy_verified_monetary_receipt_unavailable",
+          "response_identity_and_usage_verified": false
+        }
+      ],
+      "final_control": {
+        "reason": "agent_exit",
+        "artifact_digest": "7d7f9a68a0e43df5e53bd01b4590642c41038324049795ef031816c467219be0",
+        "protected_unchanged": true,
+        "restored_candidate": null,
+        "valid_verification": false,
+        "evidence": {
+          "public-suite": {
+            "state": "pending",
+            "returncode": null,
+            "snapshot": null
+          }
+        },
+        "elapsed_seconds": 32.8710584170185
+      },
+      "inner_exception": null,
+      "interpretation": "首请求200完整模型/usage/政策证明；第二请求503且无完整response/identity/usage，保留unknown34。outer scoreable=false/passed=null，未执行原grader；public-suite=pending/valid=false、protected=true保持，不变成新模型成绩。",
+      "qualified_passed": false,
+      "final_protected_unchanged": true,
+      "final_valid_verification": false,
+      "original_grader_executed": false,
+      "unknown_ordinal": 34
+    }
+  ],
+  "minimax_qualifications": [
+    {
+      "name": "catalog",
+      "source": "work/minimax-free-qualification-20261125/catalog-probe.json",
+      "source_sha256": "6c3ad49d58c5ba4467fc6a7a5fbbadfb6b70b542903287420747f8125ca5dece",
+      "contract": "work/minimax-free-qualification-20261125/free-contract.json",
+      "generation_id": "chatcmpl-93819b0c-b93e-4ddb-88d3-5836cd66ba1e",
+      "model": "minimaxai/minimax-m3.1-flash",
+      "usage": {
+        "completion_tokens": 3,
+        "prompt_tokens": 183,
+        "total_tokens": 186,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        }
+      },
+      "max_tokens": 2048,
+      "amount": null,
+      "monetary_receipt_available": false,
+      "registry_claim": null,
+      "is_original_task_score": false,
+      "original_grader_calls": 0,
+      "scope": "文本资格；独立native raw receipt，不伪造共享registry claim。其ID实际列入one-case plan.historical_generation_ids，复用防重放。"
+    },
+    {
+      "name": "vision",
+      "source": "work/vmshare/minimax-vision-function-qualification-20261125/channel-qualification.json",
+      "source_sha256": "d570c56d1041fec34af2a056e99ae4c391be3d9b6d39b45ff4e1dd3654ab8d9f",
+      "contract": "work/minimax-free-qualification-20261125/free-contract.json",
+      "generation_id": "chatcmpl-6a036e9b-43a8-4778-a07f-823228a020aa",
+      "model": "minimaxai/minimax-m3.1-flash",
+      "usage": {
+        "completion_tokens": 7,
+        "prompt_tokens": 749,
+        "total_tokens": 756,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        }
+      },
+      "max_tokens": 1024,
+      "amount": null,
+      "monetary_receipt_available": false,
+      "registry_claim": {
+        "model": "minimaxai/minimax-m3.1-flash",
+        "trace": "[project]/work/vmshare/minimax-vision-function-qualification-20261125/model.jsonl",
+        "request_id": 1
+      },
+      "is_original_task_score": false,
+      "original_grader_calls": 0,
+      "scope": "真实图像输入+native function结构资格；不是课程原题分数，也未证明公开checkpoint等价。"
+    },
+    {
+      "name": "native64",
+      "source": "work/vmshare/minimax-native-64k-qualification-20261125/channel-qualification.json",
+      "source_sha256": "c91183c51ac9f830068922d2f4e7a3b48e9c1204f1639247534bf2306e132f35",
+      "contract": "work/minimax-free-qualification-20261125/native64-bootstrap-contract.json",
+      "generation_id": "chatcmpl-b6662ee8-b28a-4248-8975-08da11a92c00",
+      "model": "minimaxai/minimax-m3.1-flash",
+      "usage": {
+        "completion_tokens": 12,
+        "prompt_tokens": 602,
+        "total_tokens": 614,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        }
+      },
+      "max_tokens": 64000,
+      "amount": null,
+      "monetary_receipt_available": false,
+      "registry_claim": {
+        "model": "minimaxai/minimax-m3.1-flash",
+        "trace": "[project]/work/vmshare/minimax-native-64k-qualification-20261125/model.jsonl",
+        "request_id": 1
+      },
+      "is_original_task_score": false,
+      "original_grader_calls": 0,
+      "scope": "请求cap64000已被实际接口接受；实际只生成12输出tokens，不声称生成64000。返回native函数参数，actual_shell_execution=false。"
+    }
+  ],
+  "accepted_unknowns": [
+    {
+      "ordinal": 33,
+      "path": "work/free-recovery33-20261125/accepted-unknown33.json",
+      "sha256": "0c26553e7ad2842512bf601aa02213a2ca9160b6ce7b20c02cce188452564319",
+      "source_count": 66,
+      "all_bound_sources_match": true,
+      "canonical_trace": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/model.jsonl",
+      "request_id": 8,
+      "unknown_actual_identity": null,
+      "unknown_generation_id": null,
+      "unknown_usage": null,
+      "unknown_amount": null,
+      "known_complete_generation_count": 115,
+      "current_registry_claims": 309,
+      "raw_stop_snapshot": "work/free-recovery33-20261125/stop-before-accepting-33.json",
+      "raw_stop_sha256": "bfa8754642743ed16d6ce3f70d61349cea0cf7be6dbb876605457a0101540617",
+      "retained_minimax_qualification_calls": 2,
+      "accepted_prefix_equals_actual": true,
+      "acceptance_is_not_an_own_zero_receipt": true
+    },
+    {
+      "ordinal": 34,
+      "path": "work/free-recovery34-20261125/accepted-unknown34.json",
+      "sha256": "581b9f2f187dc614cd42b76aabbd6cce502cff2311d2ab676440a7330ea00e69",
+      "source_count": 30,
+      "all_bound_sources_match": true,
+      "canonical_trace": "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/model.jsonl",
+      "request_id": 2,
+      "unknown_actual_identity": null,
+      "unknown_generation_id": null,
+      "unknown_usage": null,
+      "unknown_amount": null,
+      "known_complete_generation_count": 116,
+      "current_registry_claims": 311,
+      "raw_stop_snapshot": "work/free-recovery34-20261125/stop-before-accepting-34.json",
+      "raw_stop_sha256": "3d363fbb95c5691251df26aad727acb21e8e6d6f3863cb9479675482a2dffcc3",
+      "retained_minimax_qualification_calls": 3,
+      "accepted_prefix_equals_actual": true,
+      "acceptance_is_not_an_own_zero_receipt": true
+    }
+  ],
+  "accepted_chain": {
+    "hash_linked_34_to27": [
+      {
+        "ordinal": 34,
+        "path": "work/free-recovery34-20261125/accepted-unknown34.json",
+        "sha256": "581b9f2f187dc614cd42b76aabbd6cce502cff2311d2ab676440a7330ea00e69"
+      },
+      {
+        "ordinal": 33,
+        "path": "work/free-recovery33-20261125/accepted-unknown33.json",
+        "sha256": "0c26553e7ad2842512bf601aa02213a2ca9160b6ce7b20c02cce188452564319"
+      },
+      {
+        "ordinal": 32,
+        "path": "work/free-recovery32-20261125/accepted-unknown32.json",
+        "sha256": "a1342cc31916ce669af9284f4c1b9720406911368c97b35b81a53503e1d47f20"
+      },
+      {
+        "ordinal": 31,
+        "path": "work/free-recovery31-20261125/accepted-unknown31.json",
+        "sha256": "f3ddd8bee465e5d449f046ae07e787d827f017354d38cede74c61480eb45b1c4"
+      },
+      {
+        "ordinal": 30,
+        "path": "work/free-recovery30-20261125/accepted-unknown30.json",
+        "sha256": "41e3ea372c94664353cb2da32c62980526c33c5fd2ade795c2ee1a11af32b73f"
+      },
+      {
+        "ordinal": 29,
+        "path": "work/free-recovery29-20261125/accepted-unknown29.json",
+        "sha256": "2465f372f6b68859840381d9a52111c5b52fb8230b7ac7d219253cfa0907e966"
+      },
+      {
+        "ordinal": 28,
+        "path": "work/free-recovery28-20261125/accepted-unknown28.json",
+        "sha256": "5910b25f041a201572def743d2a0926271d7e3edc6eaf2ba846a25d8bc300301"
+      },
+      {
+        "ordinal": 27,
+        "path": "work/free-recovery27-20261125/accepted-unknown27.json",
+        "sha256": "6b405aed794d1f66a19d1bb53ec13977f1843a1df932b7503ff2d5d0efd140a8"
+      }
+    ],
+    "older26": {
+      "path": "work/free-parallel-v26-20261125/accepted-unknown26.json",
+      "sha256": "a255069f685c42af2c2fadd778da570e3ca152edf85681816e8a4c61e623dfa1",
+      "physical_unknown_requests": 1,
+      "duplicate_inner_outer_claims_are_same_request": true,
+      "previous_historical_unknown": 25
+    },
+    "older25": {
+      "path": "work/parallel-free-evaluation-20261124/quota-recovery-20261125/accepted-unknown25.json",
+      "sha256": "f6b75eaded21de206e44d3758315e8b4a98f30384b66ce9807bc362beafef2db",
+      "scope": "旧1—25原件链继续保留；本补充不按累计序号重建或追加25次物理调用。27原件没有previous_accepted_evidence字段，26与25通过实际保存原件/原STOP来源单独绑定，不伪造不存在的哈希链字段。"
+    },
+    "accepted33_selected_known_complete_ids": 115,
+    "accepted34_selected_known_complete_ids": 116,
+    "scope": "115/116是acceptance选定证明子集，非全局NVIDIA证明总数。未知33/34接受后金额、完整实际身份、generation ID、完整usage均继续null，不能加入billing_verified计数。",
+    "request8_followup": {
+      "purpose": "One read-only documented status GET; initial stream was200, not202, so retrievability is not assumed",
+      "method": "GET",
+      "url": "https://api.nvcf.nvidia.com/v2/nvcf/pexec/status/2011f9c7-1fef-4533-bafd-c2a479cce417",
+      "original_physical_request": 8,
+      "original_nvcf_reqid": "2011f9c7-1fef-4533-bafd-c2a479cce417",
+      "source": "https://docs.nvidia.com/nvcf/1.0.3/overview/api",
+      "model_generation_requests": 0,
+      "stop_modified": false,
+      "complete_response_recovered": false,
+      "http_status": 410,
+      "body": "",
+      "original_stop_sha256": "bfa8754642743ed16d6ce3f70d61349cea0cf7be6dbb876605457a0101540617"
+    }
+  },
+  "identity_audit": {
+    "step5_matrix_proofs": 155,
+    "step5_historical_proofs": 156,
+    "step5_unique_proofs": 311,
+    "immutable_registry_snapshot_count": 311,
+    "step5_exact_trace_registry_claims": 308,
+    "step5_seed_only_ids": [
+      "chatcmpl-e46350bc-933a-45b4-83e2-66ee0371e68c",
+      "chatcmpl-82282a4e-2826-4204-bd71-3c698eae6eb2",
+      "chatcmpl-933182f7-3765-4875-9c80-1f2ef79deb20"
+    ],
+    "new_scheduler20_ids": [
+      "chatcmpl-d817194a-13af-43bf-9293-6ac37246dfcf",
+      "chatcmpl-cdc8ca2b-6126-4c91-89c5-85c94cf6dac4",
+      "chatcmpl-f71d6cdd-7d58-4434-ad2f-dbca47881d30",
+      "chatcmpl-5c0c0418-b9db-4eff-90dd-f7531a8db007",
+      "chatcmpl-ab8005e7-0aef-466e-9143-0f74116d05ba",
+      "chatcmpl-5d8f2df4-ffac-4956-b5d4-e879c38acbe0",
+      "chatcmpl-19c959a0-f1f0-4f41-871e-9c5213efd19c",
+      "chatcmpl-d0c20310-ef17-400e-8350-3b47d89302cf",
+      "chatcmpl-359c7ea5-39a6-4325-aaef-de4e4e62fe92",
+      "chatcmpl-faab7d3a-fa28-47b2-9c24-85d098901782",
+      "chatcmpl-4f6a4469-3567-4cf1-8905-82851052e517",
+      "chatcmpl-209f112e-04fe-48fd-a811-814e86304f85",
+      "chatcmpl-35aa1d50-92b8-49e7-baa9-54488ef1358d",
+      "chatcmpl-a77abcfe-c74c-49cb-bf0b-352840e4968f",
+      "chatcmpl-9d99d6ab-8cd1-4b4f-aee2-d2752ea31f78",
+      "chatcmpl-abc15a1a-4785-4ae4-bbfe-0e228c4cbaf3",
+      "chatcmpl-49849ef4-fba0-4440-934a-1b5f59613646",
+      "chatcmpl-6b52d90a-f68f-4011-bed2-e07070cfd8c1",
+      "chatcmpl-5ef9513f-edef-4357-8743-9bdc08cf9e76",
+      "chatcmpl-ed1ee614-ad88-48be-be39-753ae2795a63"
+    ],
+    "prior_step5_291_count": 291,
+    "new_scheduler_vs_prior_intersection": [],
+    "minimax4_ids": [
+      "chatcmpl-93819b0c-b93e-4ddb-88d3-5836cd66ba1e",
+      "chatcmpl-6a036e9b-43a8-4778-a07f-823228a020aa",
+      "chatcmpl-b6662ee8-b28a-4248-8975-08da11a92c00",
+      "chatcmpl-d8129968-cc82-4f6f-8fe7-0eb8a8f6c644"
+    ],
+    "minimax_vs_step5_intersection": [],
+    "minimax_actual_registry_claims": 3,
+    "catalog_is_explicit_prior_id_not_registry_claim": true,
+    "all_step5_plus_minimax_unique": 315,
+    "distinct_step5_physical_run_paths_with_requests": 21,
+    "prior288_ids_covered": true
+  },
+  "counts": {
+    "new_supplement_only": {
+      "new_original_scored_positions": 2,
+      "raw_passed": 0,
+      "raw_failed": 2,
+      "new_unscored_task_attempts": 2,
+      "technical_qualifications": 3,
+      "closed_task_attempts": 4,
+      "physical_requests_including_qualifications": 26,
+      "complete_native_policy_proofs": 24,
+      "raw_billing_verified_events": 23,
+      "standalone_catalog_native_receipt": 1,
+      "unique_complete_generation_ids": 24,
+      "unverified_requests": 2,
+      "unknown_ordinals": [
+        33,
+        34
+      ],
+      "reported_monetary_cost_usd": null,
+      "complete_total_usage": null,
+      "known_complete_usage": {
+        "input_tokens": 167330,
+        "output_tokens": 48342,
+        "total_tokens": 215672,
+        "cached_input_tokens": 53312
+      }
+    },
+    "latest_step5_matrix": {
+      "planned_positions": 225,
+      "original_scored_positions": 9,
+      "raw_passed": 5,
+      "raw_failed": 4,
+      "strict_evidence_validated_original_scored": 8,
+      "qualified_passed": 5,
+      "unscored_scheduler_attempts": 1,
+      "not_started_positions": 215,
+      "physical_closed_requests": 156,
+      "complete_policy_proofs": 155,
+      "unverified_requests": 1,
+      "stage": "invalid_evidence",
+      "scope": "三scheduler已包含在最新156/155中，合并本supplement不得再次追加21/20。缺final-control和request8费用的main仍计原false，但不纳入严格合格/完整费用同协议配对。"
+    },
+    "full_explicit_retained_cost_view": {
+      "step5_physical_requests": 316,
+      "step5_complete_policy_proofs": 311,
+      "minimax_qualification_physical_requests": 3,
+      "minimax_qualification_complete_native_proofs": 3,
+      "minimax_aider_physical_requests": 2,
+      "minimax_aider_complete_policy_proofs": 1,
+      "nvidia_endpoint_physical_requests": 321,
+      "nvidia_endpoint_complete_native_proofs": 315,
+      "nvidia_endpoint_raw_billing_verified_events": 314,
+      "nvidia_catalog_standalone_native_receipts": 1,
+      "nvidia_endpoint_unknown_requests": 6,
+      "nvidia_endpoint_unknown_ordinals": [
+        27,
+        28,
+        29,
+        32,
+        33,
+        34
+      ],
+      "openrouter_physical_requests": 3,
+      "openrouter_complete_proofs": 0,
+      "openrouter_unknown_ordinals": [
+        26,
+        30,
+        31
+      ],
+      "cross_service_physical_requests": 324,
+      "explicit_unknown_requests": 9,
+      "unique_complete_native_generation_ids": 315,
+      "actual_monetary_receipt_calls": 0,
+      "reported_monetary_cost_usd": null,
+      "complete_total_usage": null,
+      "known_complete_response_usage": {
+        "input_tokens": 4315887,
+        "output_tokens": 349897,
+        "cached_input_tokens": 2903936,
+        "reported_total_tokens": 4665784
+      },
+      "scope": "费用来源账本，非混合模型成绩组。Step5原分provenance含矩阵9及旧pilot2=11(6true/5false)，MiniMax三资格和一次null不新增课程原评分。跨服务数字仅这些明确保留记录，不含旧未知1—25的未重建物理调用。Hy4的有效调用另走其账本，不能混入本NVIDIA/USD统计。"
+    }
+  },
+  "snapshot": {
+    "path": "work/parallel-free-evaluation-20261124/nvidia-closed-2321-20261125/summary.json",
+    "sha256": "8a3aa7ad8d56e3105577453a54a4fa9a9668bdf709b6687955062d682264823a",
+    "trials_path": "work/parallel-free-evaluation-20261124/nvidia-closed-2321-20261125/trials.jsonl",
+    "trials_sha256": "8c9dc31f91bdaa95fd539948626cc25ce0cf3823c026355ed1ee26383ccce76e",
+    "stage": "invalid_evidence",
+    "source_plan_sha256": "18cef63f6033106e9f1ea8c019a0d9ad2ac178127cdbcc4c0cafa29419686d9e",
+    "snapshot_errors": [
+      {
+        "run_dir": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1",
+        "validation_errors": [
+          "Closed physical requests lack their own verified proof; these are not automatically accepted historical unknowns",
+          "The scored controlled position lacks its actual final control record"
+        ]
+      }
+    ],
+    "identity_audit_errors": [],
+    "historical_ledger_errors": [],
+    "all_original225_validated": false
+  },
+  "integration_findings": [
+    {
+      "priority": 1,
+      "owner": "work/parallel-free-evaluation-20261124/analyze_nvidia_v28.py:741",
+      "finding": "最新snapshot正确地因scheduler-main缺单笔proof及final-control标invalid_evidence；不得将已过时7原分视图冒充最新，也不得用accepted33改为完整验费或current-pass。",
+      "minimal_change": "复用现有row/历史成本schema，为exact来源绑定的scored_failure_with_unverified_receipt保留原reward0/false、7known proof+request8unknown及missing control，另列严格validated子集。已原分false不重采。DSH6/6 null可标明确关闭中断而不增分。任何不在精确acceptance/原协议白名单的错误仍拒绝；新增typed provenance完整性与原严格成绩/费用完整性分别报告，225完整门槛不降低。"
+    },
+    {
+      "priority": 1,
+      "owner": "work/parallel-free-evaluation-20261124/export_nvidia_history.py:117",
+      "finding": "历史inspect的nvidia-free分支硬编码Step5；rows_from只允许unknown26—32且一般要求无分。不能将MiniMax或者已原评分false的unknown33塞进正常scored verifier。",
+      "minimal_change": "最小参数化现有inspect的固定expected model/contract；新增exact unknown33(原reward0/false、req8未知)与unknown34(MiniMax req2/503 null)类型，保留其完整前缀并验accepted来源。三MiniMax资格作为独立qualification成本记录，catalog原生receipt独立复核，不伪造billing事件或registry claim。物理run canonical去重，源/export SHA分列和原reward检查继续；USD及缺口usage仍null。"
+    },
+    {
+      "priority": 1,
+      "owner": "work/parallel-free-evaluation-20261124/prepare_report_data.py:143",
+      "finding": "nvidia_report_sources当前拒绝整个invalid_evidence最新snapshot，因此新两原false及MiniMax成本无法由现有正常入口完整交付；直接放宽stage会丢失严格证据边界。",
+      "minimal_change": "待前述typed closed provenance补充后，复用现有消费者逐exact row/acceptance/contract核查；展示raw9(5true4false)、strict8/q5和null位置及完整成本，不把接受未知计零，不将缺final-control补真。辅助NVIDIA partial及该补充不等于全225；Hy4核心完成门槛继续独立保持。"
+    },
+    {
+      "priority": 2,
+      "owner": "work/parallel-free-evaluation-20261124/export_nvidia_v28.py:130",
+      "finding": "正常scored export严格要求每次request均有唯一proof，当前main scheduler不满足；现状拒绝合理。",
+      "minimal_change": "严格正常出口保持；经类型化的费用/原分来源补充由现有history出口处理。不能假造第8proof、空final-control或仅改record_validated绕过。"
+    }
+  ],
+  "limits": [
+    "这是关闭来源/费用/原分补充审查，不是新模型准入，不是NVIDIA全225完成。",
+    "官方免费例外依照真实保存的no per-token billing政策与每笔模型身份/完整usage证明；缺独立金额字段始终null，完整政策证明不等于美元0回执。",
+    "接受未知33/34只保留费用未知事实；本审查未接受新事件、未读写当前STOP。",
+    "主scheduler真实失败与重复真实失败均原样保留，DSH与MiniMax原null原样保留；原来的其他main语义false也不重采。",
+    "完整任务tokens/费用总额因9个明确未核实请求继续未知；known_response_usage只统计315个完整原生响应。",
+    "本轮复用此前311 Step5历史视图的既有审查，仅针对新关闭记录重验完整模型事件/证明；没有重新全量原始轨迹审查或隐藏答案访问合规证明。",
+    "未修改任一运行/冻结源、计划、原分、旧snapshot、analyzer、exporter或report consumer；仅新增此证据JSON。"
+  ],
+  "source_sha256": {
+    "work/check_codebuddy_free_models.py": "255f2abbe107153fce2552dafb96d0584d5ad09b65b519b9527a24241652d422",
+    "work/free-parallel-v26-20261125/accepted-unknown26.json": "a255069f685c42af2c2fadd778da570e3ca152edf85681816e8a4c61e623dfa1",
+    "work/free-parallel-v26-20261125/generation-seed.json": "8153a444c5615c7c46cff425a14b9326f779dcfdd13fd61f918b10a4f75bea70",
+    "work/free-parallel-v26-20261125/stop-before-accepting-26.json": "61367eb33a9566c2b476f6c19818d6ce93dc2686e4a3a399683e5efdd23acdb8",
+    "work/free-recovery27-20261125/accepted-unknown27.json": "6b405aed794d1f66a19d1bb53ec13977f1843a1df932b7503ff2d5d0efd140a8",
+    "work/free-recovery28-20261125/accepted-unknown28.json": "5910b25f041a201572def743d2a0926271d7e3edc6eaf2ba846a25d8bc300301",
+    "work/free-recovery29-20261125/accepted-unknown29.json": "2465f372f6b68859840381d9a52111c5b52fb8230b7ac7d219253cfa0907e966",
+    "work/free-recovery30-20261125/accepted-unknown30.json": "41e3ea372c94664353cb2da32c62980526c33c5fd2ade795c2ee1a11af32b73f",
+    "work/free-recovery31-20261125/accepted-unknown31.json": "f3ddd8bee465e5d449f046ae07e787d827f017354d38cede74c61480eb45b1c4",
+    "work/free-recovery32-20261125/accepted-unknown32.json": "a1342cc31916ce669af9284f4c1b9720406911368c97b35b81a53503e1d47f20",
+    "work/free-recovery32-20261125/prepare.py": "40be1c849125ad929aa441a338a42d5d2a20a4b95468c91591c86e66212d8685",
+    "work/free-recovery33-20261125/accepted-unknown33.json": "0c26553e7ad2842512bf601aa02213a2ca9160b6ce7b20c02cce188452564319",
+    "work/free-recovery33-20261125/hy4-resume.json": "4987f23be788ec96414f3c9bba703fc7280084cc91ad2ef6024a42a6c71c3600",
+    "work/free-recovery33-20261125/official-nvidia-policy.json": "f313344796fe53f9fdd42547fe175cdab712f69446b1ba2932ca7d7c91ad3b5e",
+    "work/free-recovery33-20261125/policy-get.json": "4c880501986a5644bd89d8d276373f3979c95926e239f10012ec0cca1e25de2c",
+    "work/free-recovery33-20261125/prepare.py": "8d8371b5dab2b83ac71a7544d56ad0151466e5de00994d70d3ab00d534de98e6",
+    "work/free-recovery33-20261125/request8-status-followup.json": "d27118894897570e73b96e19014a513657de9d4b576f53b5735d9f5e086d68fc",
+    "work/free-recovery33-20261125/stop-before-accepting-33.json": "bfa8754642743ed16d6ce3f70d61349cea0cf7be6dbb876605457a0101540617",
+    "work/free-recovery34-20261125/accepted-unknown34.json": "581b9f2f187dc614cd42b76aabbd6cce502cff2311d2ab676440a7330ea00e69",
+    "work/free-recovery34-20261125/generation-registry-at-prepare34.json": "294188e433780ddb5c876f0ee90fba4c095fc23c53b43c936819e919c777eb0a",
+    "work/free-recovery34-20261125/official-nvidia-policy.json": "f313344796fe53f9fdd42547fe175cdab712f69446b1ba2932ca7d7c91ad3b5e",
+    "work/free-recovery34-20261125/policy-get.json": "e0b54754e91c116851a8f3d7f2cd4f9d14b04bb00f799031b374382ff47ba10f",
+    "work/free-recovery34-20261125/prepare.py": "bc94524f322258fcfe6dac02af8ae2e529e8bf44c9b8e398c7f336e48840396c",
+    "work/free-recovery34-20261125/root-cause-note.json": "da25e677a2bf045f98f898edd7d033dd8bd19315cb49fd71a9979dca337f63f1",
+    "work/free-recovery34-20261125/service-status.json": "86a049f56e07d865bd011e16deb0260dee91c5c70123c43d6e3269860afcda25",
+    "work/free-recovery34-20261125/stop-before-accepting-34.json": "3d363fbb95c5691251df26aad727acb21e8e6d6f3863cb9479675482a2dffcc3",
+    "work/frozen-performance-free-v31/course_eval/codebuddy_free.py": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+    "work/frozen-performance-free-v31/course_eval/dsh_runner.py": "5fc6e730e35152c3c3d8bbfa4dccba80527b91681a40036f89189ba32912cf42",
+    "work/frozen-performance-free-v31/course_eval/financial_stop.py": "c5417fdfea0b5b836b465d88a304eb660f7e3f1acc85e10ebee9612815f7fd4f",
+    "work/frozen-performance-free-v31/course_eval/generation_registry.py": "da4f4a829d86714b781da6eddd65468da897210fc205dc3e9f83c2c06fdd1707",
+    "work/frozen-performance-free-v31/course_eval/nvidia_free.py": "9752aabfbb5009238db516fbe29eb511e38ec4a5f60474d680df23ef1593b48b",
+    "work/frozen-performance-hy4-sql-layout-v18/course_eval/codebuddy_free.py": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+    "work/minimax-aider-onecase-20261125/admission.json": "91afdaff384a4673798d88d2651b2127646f9c88b859c5e730c77253e55bc0dd",
+    "work/minimax-aider-onecase-20261125/execution-review.json": "33c6ec8848bb1ebeb315c1d8fb8f883b8b92cc97afab089be633de539c99d86c",
+    "work/minimax-aider-onecase-20261125/plan.json": "73e84af77b298e0c2d336a2872ac27a74f01593e2a2cf9b708994f77f289710e",
+    "work/minimax-free-qualification-20261125/catalog-official-policy.json": "f313344796fe53f9fdd42547fe175cdab712f69446b1ba2932ca7d7c91ad3b5e",
+    "work/minimax-free-qualification-20261125/catalog-probe.json": "6c3ad49d58c5ba4467fc6a7a5fbbadfb6b70b542903287420747f8125ca5dece",
+    "work/minimax-free-qualification-20261125/evaluation-contract.json": "4c0076312ffd53c5d5c077f739e858b29960ea4cbd25e63f88eb18a73eb80f8b",
+    "work/minimax-free-qualification-20261125/free-contract.json": "ca389a47489491aaf56b7a090523380f0d382c647b3ff87c8920a6d0534a77b7",
+    "work/minimax-free-qualification-20261125/native64-bootstrap-contract.json": "093ba6a6239f189258bde0ec7de88de64877291d4a30e009fa2151fe34ba6022",
+    "work/minimax-free-qualification-20261125/qualify_native_64k.py": "a77bd8b9627f7a254a85cab80c116964e1131f440038c221ec9ee8d8daf949c3",
+    "work/nvidia75-light-first-v33-20261125/execution-review.json": "def39216a45b0885d4f0a5f2953609e7610abf38b66f77873c1f5692e71a10d3",
+    "work/nvidia75-light-first-v33-20261125/plan.json": "18cef63f6033106e9f1ea8c019a0d9ad2ac178127cdbcc4c0cafa29419686d9e",
+    "work/nvidia75-light-first-v33-20261125/prior-generation-registry-snapshot.json": "27defbea235fda42f1ad5bb0e1be49be42a5b15540834886f269e1ef210311f5",
+    "work/nvidia75-v27-20261125/analyze.py": "af0c09ed8056c86f120d3e05fd76caad957e7175f0652c8c15966a38f2188dba",
+    "work/parallel-free-evaluation-20261124/analyze_nvidia_v28.py": "2d57f7137af10c990c563d02f585f886df53516466d0857779f15b0b2b8e95e6",
+    "work/parallel-free-evaluation-20261124/continue_light_probe_hy4.py": "4ccb47eec7e9c5983be1ac0a3c8a5a706c59fea703f675e3d1769da24d9e49f9",
+    "work/parallel-free-evaluation-20261124/export_nvidia_history.py": "f30cfe9b1b04f58696fa329bd5c9508b86bd86d2f8d50cbada67ee95401d1493",
+    "work/parallel-free-evaluation-20261124/export_nvidia_v28.py": "8daee6f5940626e18e3973a22049f1583ca8983996468db9bf50e0355e68823e",
+    "work/parallel-free-evaluation-20261124/final-sql75-quota-recovered/main-plan.json": "54dbe186ad062f82722a568f1a69ae08a079a3f191cba173054f47e3ce270000",
+    "work/parallel-free-evaluation-20261124/final-sql75-quota-recovered/repeat-plan.json": "d38de52a87efb3f0026148464d282807d46c3493026445ccefa37676e8d777b4",
+    "work/parallel-free-evaluation-20261124/nvidia-closed-2321-20261125/summary.json": "8a3aa7ad8d56e3105577453a54a4fa9a9668bdf709b6687955062d682264823a",
+    "work/parallel-free-evaluation-20261124/nvidia-closed-2321-20261125/trials.jsonl": "8c9dc31f91bdaa95fd539948626cc25ce0cf3823c026355ed1ee26383ccce76e",
+    "work/parallel-free-evaluation-20261124/prepare_report_data.py": "1b1cc95b27471148ef5cdaae76c31b551bc4d7f891009bb6d4fd58f536302eb4",
+    "work/parallel-free-evaluation-20261124/prepare_reuse_ablation.py": "b35268b022f1194d5fa413b272af69baf00a91e8d45d34885ffedb849cc75e69",
+    "work/parallel-free-evaluation-20261124/quota-recovery-20261125/accepted-unknown25.json": "f6b75eaded21de206e44d3758315e8b4a98f30384b66ce9807bc362beafef2db",
+    "work/parallel-free-evaluation-20261124/quota-recovery-20261125/prepared.json": "6c86bd3638561da6188cc8f1f67843d1e80a4867ad8e072299fa61c56ae4909e",
+    "work/parallel-free-evaluation-20261124/ready_coordinator_light_probe.py": "d295aab74a0232dd93a252ade9776c5f48324dc8e422394a21ddc134f5e2f0ba",
+    "work/parallel-free-evaluation-20261124/recover_hy4_quota.py": "a3d92fa50f8c3a2259d0d430ebab07ffb1894b15ca38d6b023df699c40637ea3",
+    "work/parallel-free-evaluation-20261124/resume_verified_hy4.py": "7149ffe8bacd636a1de9faf84f7254be54da3bd9269deef6e2a2e564d74657bc",
+    "work/parallel-free-evaluation-20261124/run_fixed_free_trials.py": "00fc95a8d5a6c360f5ea2ee342d5b76d2056084ccf0699e1a794acbe8177fc2f",
+    "work/parallel-free-evaluation-20261124/run_ready_queues_light_probe.py": "2e457241f5d0388cc0105158b3de497e2359feacf47c4ce8099267d40357b4f8",
+    "work/parallel-free-evaluation-20261124/run_ready_queues.py": "18b86bfcc8b50178b77f47a0260fd5bc3d8020b96e9f5904fd3665c5da7f7c27",
+    "work/parallel-free-evaluation-20261124/run_reuse_ablation.py": "342a5e6d2caa24ed5a28389050f398eb19c9d804cd2147df5da8f3be15bbdcea",
+    "work/parallel-free-evaluation-20261124/terminal-light-probe-20261125/continuation-config.json": "a294971a4f343d81bbcc375c91eedd9c0aa1d0f2f6a8472ce70471f081f83315",
+    "work/parallel-free-evaluation-20261124/terminal-light-probe-20261125/continuation-review.json": "5c8d571f49bb14c7ca34fe0e5296fa3ebf8fb7183d37b2bc2941cec461d02d6c",
+    "work/parallel-free-evaluation-20261124/terminal-light-probe-20261125/current-free-metadata/cloud-model-metadata.json": "3f7d648fdb6b501371020fcb803c05b7b8751f4bb7b07bd9c2ac3d664ad8e18c",
+    "work/parallel-free-evaluation-20261124/terminal-light-probe-20261125/main-plan.json": "8a4c42b9466b6816ce36e64e7c70ffdcccfface55df003889ac8d5564f365dba",
+    "work/parallel-free-evaluation-20261124/terminal-light-probe-20261125/qualification.json": "1be09b73c4b4010608fb0426b2ac5303e5133e31d706ade44042bb188683fe39",
+    "work/parallel-free-evaluation-20261124/terminal-light-probe-20261125/repeat-plan.json": "22f82ff5c000d79c20b5de0154548f4c1d6caf5ca7c8d93755d3cb363b5866c5",
+    "work/pytest-5631-preservation-20261125/admission-review.json": "8aef4cb074ba45ccde444375bfb4cbc5831f0b7f09719c3f6212797048dc8475",
+    "work/pytest-5631-preservation-20261125/frozen/plan.json": "618aaebb91efb3cb760f79c4f1470705c51129e506331eb2e84e355e71ff3adf",
+    "work/step5-native-admission-20261124/free-contract.json": "9c1f00548724d005fb4cc23b055fc3a6c1a4667dfca89eb9b2bec387b205f1bc",
+    "work/vmshare/minimax-native-64k-qualification-20261125/channel-qualification.json": "c91183c51ac9f830068922d2f4e7a3b48e9c1204f1639247534bf2306e132f35",
+    "work/vmshare/minimax-native-64k-qualification-20261125/model.jsonl": "06d81fa61f57c9206ee7cbb138ea4463160cef44422a455fa70d559a6a4b5cd5",
+    "work/vmshare/minimax-native-64k-qualification-20261125/result.json": "2058fef8e5ff522e583ddb1cb9c1c38a25dae4564f40d4a2aa2860009ea7307e",
+    "work/vmshare/minimax-vision-function-qualification-20261125/channel-qualification.json": "d570c56d1041fec34af2a056e99ae4c391be3d9b6d39b45ff4e1dd3654ab8d9f",
+    "work/vmshare/minimax-vision-function-qualification-20261125/model-stream.jsonl": "ff85f886a95aad048057927aee774cb8029b83e149b5fed7bb671063862bc129",
+    "work/vmshare/minimax-vision-function-qualification-20261125/model.jsonl": "a3979b0e379797858e9cca7effd0a9e295bcd493aa66a70a96e52a7a29ed9d46",
+    "work/vmshare/minimax-vision-function-qualification-20261125/result.json": "f4ebf3083bbb476727558b589b45a7c52724b25db37cdd9fc4cca04ce0867c70",
+    "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1.protocol.json": "25b7ce0a9ebe4122f9e1bf61bf13a2b0e04b14898b89fe03e325f254d9a45aba",
+    "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/controller.jsonl": "c38d5e2de8d11d41305c646ee66807a5ebb28d4ae46c3cb950170c271d76dff3",
+    "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/execution-budget.json": "c87f18eb5541a033d012ca5d8efbd691feaec5a6376b539c841e01c513d5b6a4",
+    "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/final-verification.json": "13679d205757f005b1443d81fce543c3c2ddeb0d917d9e263ac582fbf843d4ff",
+    "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/instruction.txt": "9d0212ad80bc166cae3a833cb6678eaadefdafa585a3cf7a116bb38252556770",
+    "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/model-stream.jsonl": "3f66c4956e0889674c886b44d2fe2fc515e9436fd8750d00ec6c2bd113e93247",
+    "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/model.jsonl": "71b4389a3b35e1c34f725eb1e4f2c2c9eabae844d8487d5e6f8f7eb98d4f019b",
+    "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/result.json": "e7754c0d0138a1e46421aada875deaf28a6747b7c3dbe1892ce05aee7b34808d",
+    "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/tools.jsonl": "0fa2c83dd761a61b3aef672fea0b1916594d68aed601161fa866f9514634c658",
+    "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/trial.json": "2440d66a10be95e8b8b38f9e3359099aa8ff4ecae092f07e4ac25595a348e578",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1.protocol.json": "f47a82f09ee2831653b99df3e520ee6b0b6fd085b8d6ed306e41db86c7fcbfb1",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/artifact-capture-config.json": "2bdc5c3775f5f0c3bc8586ae24f0ad369dc84b571f12ed25f228d20dbc156d6b",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/artifact-capture.json": "518ac78714ea22a53a168a952a28369fc459e20f9d094ab6a49e8794a525d9d8",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/dsh/dsh-home/sessions/--app--/course-task/session.v4.jsonl": "9914511a7ee424b63270b7425b7af6c0f4278a275b24f779b2d7960ee9e83ec3",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/dsh/dsh-transport.jsonl": "d78e279a5aeb3413ead3c90455c8d9917d4f66b07f9af7bdbfd2ca22d12057fa",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/execution-budget.json": "2244f3350baa5f925e53fd72b66f4cc8d82872c3d87a3a8e9b04072e6d6e29ce",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/instruction.txt": "0817374767533fbf51bb93345ee1bba266263c216c6cc55c096e71b4a1d37dfc",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/model-stream.jsonl": "181da7b5ff5abe678bd3e6b1a3cac44cdd461b9cbdbc6cbdd49a6d1a31b67d8a",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/model.jsonl": "580733cedaf945d294baca184f360007db0b18b36695a77630f6518f3137d21b",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/artifacts/manifest.json": "a65489e94bf8ad0a52c3cc384672184bf17a04f907ef6da2084ca2a64b525c73",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/exception.txt": "89b66c669ef93bd1cb6654ff596ef5f864527baf9fbc03fa30782684a19a52fb",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/result.json": "84fedaa65ce9d134dbd4682dc55767c68259b806f25f82f4c39791bedf0afa44",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/result.json": "550f10512cc8a6174222bbce6365eb9810d993c95eb2fb9c6abc32a37123e638",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/trial.json": "97f9e61845f78c3c00b3e562fad5fce6a3543e81b4ea826534748caa26089b3d",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1.protocol.json": "904ca828f576aa6494ac88cd441264c16657dfbe5b1b532f45af45d254e1fef2",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/artifact-capture-config.json": "68ab41e321b04c6c688e250022a9e6a40f4ecb6b10e97564253f61ce59a00ef2",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/artifact-capture.json": "ac4f125d9d1eb202f9937ab8ffb96b1f7bbc73042d30b59017b39294965a49cd",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/controller.jsonl": "46d8e498e0269f4af6e3ba8ac5a32a61db31325bcf12978b57859b82a38ae859",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/execution-budget.json": "7bfc7357edae7c7cb90e5fcf5c77d17078a859f98ed70602c72a0572060fdd02",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/instruction.txt": "0817374767533fbf51bb93345ee1bba266263c216c6cc55c096e71b4a1d37dfc",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/model-stream.jsonl": "560a430c4d0f8a80ae4f4148a3b28610d5f17c88648a8b8298f671aaa3ddb8c5",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/model.jsonl": "e3062168cec36ce7bf4321d26d3627d24c2f6d392b521eb4ca87f9940ff7ccab",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/tools.jsonl": "b001ed85325e9f82f78cd36953fc1e476392d62a09a0a00b3464c735521fa82a",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/artifacts/manifest.json": "a65489e94bf8ad0a52c3cc384672184bf17a04f907ef6da2084ca2a64b525c73",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/result.json": "587cf8a7588b647fa434e14998f2f60288d5bed2901a6b0ab179be3b6d930d0c",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/verifier/reward.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/verifier/test-stdout.txt": "2eb8be2f0f1a0a699090c34ca5cc5f9c12951a3f238dd33746f607f7bd69bc5d",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/result.json": "e2de91dce80e30bbba692aa6d06066d64dfa8161d55c8fbfa3981c1d6cb67cf9",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/trial.json": "8a96c2adb07fd6eb1340d2cf12bcb59727587bea68d4f0f6e1f6f1f627ec21d1",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2.protocol.json": "904ca828f576aa6494ac88cd441264c16657dfbe5b1b532f45af45d254e1fef2",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/artifact-capture-config.json": "ca8cc986cff21615d03e6ed54558af97b063376cb74986ec506a9c34927dde39",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/artifact-capture.json": "188f125562e029ebe460a72119ee522f4c8010483bda2179bb22261e13789774",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/controller.jsonl": "90f814f709322f61b84c560d72a3a88dc65c1520b981dfb09a502d3757f82d62",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/execution-budget.json": "5a95f38430974170f975e60c73363c3f70e2c4d5b675fe0dd2ec88873c42a3ea",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/final-verification.json": "218cc1925b6be23c9cac6a019631b8c5d309a2a876c783614737e5ee8c87b153",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/instruction.txt": "0817374767533fbf51bb93345ee1bba266263c216c6cc55c096e71b4a1d37dfc",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/model-stream.jsonl": "67c6212e5c69e816306b22d54aa45c6dd8908d6680be2961295b0d96de14476b",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/model.jsonl": "23a6210d3fac10cf2ee1ba010f91192199179657a6bd4a8114679fee98028230",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/tools.jsonl": "bb175b8ef5ccd34063fa6f79f249932c858521cde96bc08cdc310865305b0a0e",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/artifacts/manifest.json": "a65489e94bf8ad0a52c3cc384672184bf17a04f907ef6da2084ca2a64b525c73",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/result.json": "e67d899fc02b32d795491b0a7c4c87472f535dc6148ef7a25f881d946d2c264d",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/verifier/reward.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/verifier/test-stdout.txt": "2eb8be2f0f1a0a699090c34ca5cc5f9c12951a3f238dd33746f607f7bd69bc5d",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/result.json": "f23aee7708b3bddd06ad739381136b166377e1723ede25d1f574d8485862e364",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/trial.json": "8a96c2adb07fd6eb1340d2cf12bcb59727587bea68d4f0f6e1f6f1f627ec21d1",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1.protocol.json": "52e248d363a2fce2bf27e10010600ef858b3ed40bdf3ca25fdad8abd6fa0f927",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/agent/model.jsonl": "8f1706828ad2a489234d5553c3952e42a2a3737d8daab637493dbb5d08abd5bf",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__7cyoVeT/result.json": "3c71609456f1e1f4d83f8cb652b9470762d49dc85572acea5152f988359ab4e8",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/result.json": "bdd685980de48c221a25c1f1e422f4805dca4ccb0f10eac45b0f360682fce33a",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/llm-inference-batching-scheduler-C0-r1/trial.json": "76fb300d419abf1f2ac4906c0c04a261318bac3052614110085fc00b95121cef"
+  },
+  "source_count": 140,
+  "operations": {
+    "new_model_calls": 0,
+    "new_original_grader_calls": 0,
+    "vm_commands": 0,
+    "installed_packages": 0,
+    "stop_modified": false,
+    "original_runs_modified": false,
+    "existing_sources_modified": false
+  }
+}

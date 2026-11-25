@@ -1,0 +1,1069 @@
+{
+  "format": "closed_free_cost_supplement_v1",
+  "stage": "partial_historical_cost_supplement",
+  "role": "cost_provenance_not_a_performance_cohort",
+  "review_source_sha256": "88b8da257972410d40c665a9f10fcd5d7f2688c6a5a8eb179554a6c9762b3ca6",
+  "exporter_sha256": "8145dbd53a00b47a369821899e88abbfea859b9a88ab5d6204b3c74ff61ca8d0",
+  "authoring_source_versions": {
+    "work/parallel-free-evaluation-20261124/export_nvidia_history.py": {
+      "archive_source": "work/parallel-free-evaluation-20261124/closed-cost-supplement-qualification-20261125/exporter-before-change.py.txt",
+      "sha256": "f30cfe9b1b04f58696fa329bd5c9508b86bd86d2f8d50cbada67ee95401d1493",
+      "export_member": "source-versions/exporter-before-change.py.txt"
+    },
+    "work/parallel-free-evaluation-20261124/prepare_report_data.py": {
+      "archive_source": "work/parallel-free-evaluation-20261124/closed-cost-supplement-qualification-20261125/report-consumer-before-trial-validation.py.txt",
+      "sha256": "1b1cc95b27471148ef5cdaae76c31b551bc4d7f891009bb6d4fd58f536302eb4",
+      "export_member": "source-versions/report-consumer-before-trial-validation.py.txt"
+    }
+  },
+  "files": [
+    {
+      "path": "closed-review.json",
+      "source_relative": "work/parallel-free-evaluation-20261124/closed-supplement-review-20261125.json",
+      "source_sha256": "88b8da257972410d40c665a9f10fcd5d7f2688c6a5a8eb179554a6c9762b3ca6",
+      "export_sha256": "8871bc9f94e0b43ac0179fd52e3c470ceef2b00b937d748cbb32045cb7666e38",
+      "source_bytes": 81878,
+      "export_bytes": 81630,
+      "byte_identical": false
+    },
+    {
+      "path": "accepted-unknown33.json",
+      "source_relative": "work/free-recovery33-20261125/accepted-unknown33.json",
+      "source_sha256": "0c26553e7ad2842512bf601aa02213a2ca9160b6ce7b20c02cce188452564319",
+      "export_sha256": "a2f48b79dc63271668b7ec530dc376f33f9323f1575ff71124a1f2ee56ea5b9e",
+      "source_bytes": 47754,
+      "export_bytes": 47630,
+      "byte_identical": false
+    },
+    {
+      "path": "accepted-unknown34.json",
+      "source_relative": "work/free-recovery34-20261125/accepted-unknown34.json",
+      "source_sha256": "581b9f2f187dc614cd42b76aabbd6cce502cff2311d2ab676440a7330ea00e69",
+      "export_sha256": "2b9e6c89e5a44481dce240672579f30122dcf3f712d0d67febdd5926edca8e9a",
+      "source_bytes": 21896,
+      "export_bytes": 20950,
+      "byte_identical": false
+    },
+    {
+      "path": "contracts/step5-contract.json",
+      "source_relative": "work/step5-native-admission-20261124/free-contract.json",
+      "source_sha256": "9c1f00548724d005fb4cc23b055fc3a6c1a4667dfca89eb9b2bec387b205f1bc",
+      "export_sha256": "9c1f00548724d005fb4cc23b055fc3a6c1a4667dfca89eb9b2bec387b205f1bc",
+      "source_bytes": 1696,
+      "export_bytes": 1696,
+      "byte_identical": true
+    },
+    {
+      "path": "contracts/free-contract.json",
+      "source_relative": "work/minimax-free-qualification-20261125/free-contract.json",
+      "source_sha256": "ca389a47489491aaf56b7a090523380f0d382c647b3ff87c8920a6d0534a77b7",
+      "export_sha256": "ca389a47489491aaf56b7a090523380f0d382c647b3ff87c8920a6d0534a77b7",
+      "source_bytes": 1506,
+      "export_bytes": 1506,
+      "byte_identical": true
+    },
+    {
+      "path": "contracts/native64-bootstrap-contract.json",
+      "source_relative": "work/minimax-free-qualification-20261125/native64-bootstrap-contract.json",
+      "source_sha256": "093ba6a6239f189258bde0ec7de88de64877291d4a30e009fa2151fe34ba6022",
+      "export_sha256": "093ba6a6239f189258bde0ec7de88de64877291d4a30e009fa2151fe34ba6022",
+      "source_bytes": 1648,
+      "export_bytes": 1648,
+      "byte_identical": true
+    },
+    {
+      "path": "contracts/evaluation-contract.json",
+      "source_relative": "work/minimax-free-qualification-20261125/evaluation-contract.json",
+      "source_sha256": "4c0076312ffd53c5d5c077f739e858b29960ea4cbd25e63f88eb18a73eb80f8b",
+      "export_sha256": "4c0076312ffd53c5d5c077f739e858b29960ea4cbd25e63f88eb18a73eb80f8b",
+      "source_bytes": 1652,
+      "export_bytes": 1652,
+      "byte_identical": true
+    },
+    {
+      "path": "contracts/catalog-official-policy.json",
+      "source_relative": "work/minimax-free-qualification-20261125/catalog-official-policy.json",
+      "source_sha256": "f313344796fe53f9fdd42547fe175cdab712f69446b1ba2932ca7d7c91ad3b5e",
+      "export_sha256": "f313344796fe53f9fdd42547fe175cdab712f69446b1ba2932ca7d7c91ad3b5e",
+      "source_bytes": 1348,
+      "export_bytes": 1348,
+      "byte_identical": true
+    },
+    {
+      "path": "source-versions/exporter-before-change.py.txt",
+      "source_relative": "work/parallel-free-evaluation-20261124/closed-cost-supplement-qualification-20261125/exporter-before-change.py.txt",
+      "source_sha256": "f30cfe9b1b04f58696fa329bd5c9508b86bd86d2f8d50cbada67ee95401d1493",
+      "export_sha256": "f30cfe9b1b04f58696fa329bd5c9508b86bd86d2f8d50cbada67ee95401d1493",
+      "source_bytes": 24490,
+      "export_bytes": 24490,
+      "byte_identical": true
+    },
+    {
+      "path": "source-versions/report-consumer-before-trial-validation.py.txt",
+      "source_relative": "work/parallel-free-evaluation-20261124/closed-cost-supplement-qualification-20261125/report-consumer-before-trial-validation.py.txt",
+      "source_sha256": "1b1cc95b27471148ef5cdaae76c31b551bc4d7f891009bb6d4fd58f536302eb4",
+      "export_sha256": "1b1cc95b27471148ef5cdaae76c31b551bc4d7f891009bb6d4fd58f536302eb4",
+      "source_bytes": 50374,
+      "export_bytes": 50374,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/main.protocol.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1.protocol.json",
+      "source_sha256": "904ca828f576aa6494ac88cd441264c16657dfbe5b1b532f45af45d254e1fef2",
+      "export_sha256": "904ca828f576aa6494ac88cd441264c16657dfbe5b1b532f45af45d254e1fef2",
+      "source_bytes": 749,
+      "export_bytes": 749,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/main/artifact-capture-config.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/artifact-capture-config.json",
+      "source_sha256": "68ab41e321b04c6c688e250022a9e6a40f4ecb6b10e97564253f61ce59a00ef2",
+      "export_sha256": "5c85306c2f37828600ee21efefb23c11b4e4263deee802dde51c67648fd8c6d3",
+      "source_bytes": 359,
+      "export_bytes": 297,
+      "byte_identical": false
+    },
+    {
+      "path": "runs/main/artifact-capture.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/artifact-capture.json",
+      "source_sha256": "ac4f125d9d1eb202f9937ab8ffb96b1f7bbc73042d30b59017b39294965a49cd",
+      "export_sha256": "9428a02d3a387f86090fd451b282d3f3969c3f593a2c4d581ecd705389a0de05",
+      "source_bytes": 2616,
+      "export_bytes": 2058,
+      "byte_identical": false
+    },
+    {
+      "path": "runs/main/llm-inference-batching-scheduler__rqiMRcg/agent/controller.jsonl",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/controller.jsonl",
+      "source_sha256": "46d8e498e0269f4af6e3ba8ac5a32a61db31325bcf12978b57859b82a38ae859",
+      "export_sha256": "46d8e498e0269f4af6e3ba8ac5a32a61db31325bcf12978b57859b82a38ae859",
+      "source_bytes": 242,
+      "export_bytes": 242,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/main/llm-inference-batching-scheduler__rqiMRcg/agent/execution-budget.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/execution-budget.json",
+      "source_sha256": "7bfc7357edae7c7cb90e5fcf5c77d17078a859f98ed70602c72a0572060fdd02",
+      "export_sha256": "7bfc7357edae7c7cb90e5fcf5c77d17078a859f98ed70602c72a0572060fdd02",
+      "source_bytes": 111,
+      "export_bytes": 111,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/main/llm-inference-batching-scheduler__rqiMRcg/agent/instruction.txt",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/instruction.txt",
+      "source_sha256": "0817374767533fbf51bb93345ee1bba266263c216c6cc55c096e71b4a1d37dfc",
+      "export_sha256": "0817374767533fbf51bb93345ee1bba266263c216c6cc55c096e71b4a1d37dfc",
+      "source_bytes": 4365,
+      "export_bytes": 4365,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/main/llm-inference-batching-scheduler__rqiMRcg/agent/model-stream.jsonl",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/model-stream.jsonl",
+      "source_sha256": "560a430c4d0f8a80ae4f4148a3b28610d5f17c88648a8b8298f671aaa3ddb8c5",
+      "export_sha256": "560a430c4d0f8a80ae4f4148a3b28610d5f17c88648a8b8298f671aaa3ddb8c5",
+      "source_bytes": 1853332,
+      "export_bytes": 1853332,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/main/llm-inference-batching-scheduler__rqiMRcg/agent/model.jsonl",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/model.jsonl",
+      "source_sha256": "e3062168cec36ce7bf4321d26d3627d24c2f6d392b521eb4ca87f9940ff7ccab",
+      "export_sha256": "d60e5e186fa09a93698a70d1cd24ff689736d5bb02ee17fea377dfa6f94a10be",
+      "source_bytes": 319126,
+      "export_bytes": 318778,
+      "byte_identical": false
+    },
+    {
+      "path": "runs/main/llm-inference-batching-scheduler__rqiMRcg/agent/tools.jsonl",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/tools.jsonl",
+      "source_sha256": "b001ed85325e9f82f78cd36953fc1e476392d62a09a0a00b3464c735521fa82a",
+      "export_sha256": "b001ed85325e9f82f78cd36953fc1e476392d62a09a0a00b3464c735521fa82a",
+      "source_bytes": 26253,
+      "export_bytes": 26253,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/main/llm-inference-batching-scheduler__rqiMRcg/artifacts/manifest.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/artifacts/manifest.json",
+      "source_sha256": "a65489e94bf8ad0a52c3cc384672184bf17a04f907ef6da2084ca2a64b525c73",
+      "export_sha256": "a65489e94bf8ad0a52c3cc384672184bf17a04f907ef6da2084ca2a64b525c73",
+      "source_bytes": 619,
+      "export_bytes": 619,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/main/llm-inference-batching-scheduler__rqiMRcg/result.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/result.json",
+      "source_sha256": "587cf8a7588b647fa434e14998f2f60288d5bed2901a6b0ab179be3b6d930d0c",
+      "export_sha256": "3c7ab65e4db4533bb0a5f34d5d2c742572d4a70f90302c2a59d81bdb33d3e6c0",
+      "source_bytes": 4915,
+      "export_bytes": 4605,
+      "byte_identical": false
+    },
+    {
+      "path": "runs/main/llm-inference-batching-scheduler__rqiMRcg/verifier/reward.txt",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/verifier/reward.txt",
+      "source_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "export_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "source_bytes": 2,
+      "export_bytes": 2,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/main/llm-inference-batching-scheduler__rqiMRcg/verifier/test-stdout.txt",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/verifier/test-stdout.txt",
+      "source_sha256": "2eb8be2f0f1a0a699090c34ca5cc5f9c12951a3f238dd33746f607f7bd69bc5d",
+      "export_sha256": "2eb8be2f0f1a0a699090c34ca5cc5f9c12951a3f238dd33746f607f7bd69bc5d",
+      "source_bytes": 14140,
+      "export_bytes": 14140,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/main/result.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/result.json",
+      "source_sha256": "e2de91dce80e30bbba692aa6d06066d64dfa8161d55c8fbfa3981c1d6cb67cf9",
+      "export_sha256": "e2de91dce80e30bbba692aa6d06066d64dfa8161d55c8fbfa3981c1d6cb67cf9",
+      "source_bytes": 248,
+      "export_bytes": 248,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/main/trial.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/trial.json",
+      "source_sha256": "8a96c2adb07fd6eb1340d2cf12bcb59727587bea68d4f0f6e1f6f1f627ec21d1",
+      "export_sha256": "8a96c2adb07fd6eb1340d2cf12bcb59727587bea68d4f0f6e1f6f1f627ec21d1",
+      "source_bytes": 1222,
+      "export_bytes": 1222,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/repeat.protocol.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2.protocol.json",
+      "source_sha256": "904ca828f576aa6494ac88cd441264c16657dfbe5b1b532f45af45d254e1fef2",
+      "export_sha256": "904ca828f576aa6494ac88cd441264c16657dfbe5b1b532f45af45d254e1fef2",
+      "source_bytes": 749,
+      "export_bytes": 749,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/repeat/artifact-capture-config.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/artifact-capture-config.json",
+      "source_sha256": "ca8cc986cff21615d03e6ed54558af97b063376cb74986ec506a9c34927dde39",
+      "export_sha256": "dc49315bfa26777940302f36865e9fd487de8faa8d34f9f0bd9c49911f6c1c73",
+      "source_bytes": 361,
+      "export_bytes": 299,
+      "byte_identical": false
+    },
+    {
+      "path": "runs/repeat/artifact-capture.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/artifact-capture.json",
+      "source_sha256": "188f125562e029ebe460a72119ee522f4c8010483bda2179bb22261e13789774",
+      "export_sha256": "225324f0143852c4e7547e5813417aade030c0097538109793a7da12f662b8e7",
+      "source_bytes": 2626,
+      "export_bytes": 2068,
+      "byte_identical": false
+    },
+    {
+      "path": "runs/repeat/llm-inference-batching-scheduler__LFEx8P7/agent/controller.jsonl",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/controller.jsonl",
+      "source_sha256": "90f814f709322f61b84c560d72a3a88dc65c1520b981dfb09a502d3757f82d62",
+      "export_sha256": "90f814f709322f61b84c560d72a3a88dc65c1520b981dfb09a502d3757f82d62",
+      "source_bytes": 700,
+      "export_bytes": 700,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/repeat/llm-inference-batching-scheduler__LFEx8P7/agent/execution-budget.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/execution-budget.json",
+      "source_sha256": "5a95f38430974170f975e60c73363c3f70e2c4d5b675fe0dd2ec88873c42a3ea",
+      "export_sha256": "5a95f38430974170f975e60c73363c3f70e2c4d5b675fe0dd2ec88873c42a3ea",
+      "source_bytes": 112,
+      "export_bytes": 112,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/repeat/llm-inference-batching-scheduler__LFEx8P7/agent/final-verification.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/final-verification.json",
+      "source_sha256": "218cc1925b6be23c9cac6a019631b8c5d309a2a876c783614737e5ee8c87b153",
+      "export_sha256": "218cc1925b6be23c9cac6a019631b8c5d309a2a876c783614737e5ee8c87b153",
+      "source_bytes": 377,
+      "export_bytes": 377,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/repeat/llm-inference-batching-scheduler__LFEx8P7/agent/instruction.txt",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/instruction.txt",
+      "source_sha256": "0817374767533fbf51bb93345ee1bba266263c216c6cc55c096e71b4a1d37dfc",
+      "export_sha256": "0817374767533fbf51bb93345ee1bba266263c216c6cc55c096e71b4a1d37dfc",
+      "source_bytes": 4365,
+      "export_bytes": 4365,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/repeat/llm-inference-batching-scheduler__LFEx8P7/agent/model-stream.jsonl",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/model-stream.jsonl",
+      "source_sha256": "67c6212e5c69e816306b22d54aa45c6dd8908d6680be2961295b0d96de14476b",
+      "export_sha256": "67c6212e5c69e816306b22d54aa45c6dd8908d6680be2961295b0d96de14476b",
+      "source_bytes": 3494596,
+      "export_bytes": 3494596,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/repeat/llm-inference-batching-scheduler__LFEx8P7/agent/model.jsonl",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/model.jsonl",
+      "source_sha256": "23a6210d3fac10cf2ee1ba010f91192199179657a6bd4a8114679fee98028230",
+      "export_sha256": "1a0c1e6e4ec9008a7edeeeb3192b9a3aee4e28bf03b23190a3cfb459c80127ae",
+      "source_bytes": 357435,
+      "export_bytes": 357239,
+      "byte_identical": false
+    },
+    {
+      "path": "runs/repeat/llm-inference-batching-scheduler__LFEx8P7/agent/tools.jsonl",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/tools.jsonl",
+      "source_sha256": "bb175b8ef5ccd34063fa6f79f249932c858521cde96bc08cdc310865305b0a0e",
+      "export_sha256": "bb175b8ef5ccd34063fa6f79f249932c858521cde96bc08cdc310865305b0a0e",
+      "source_bytes": 22732,
+      "export_bytes": 22732,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/repeat/llm-inference-batching-scheduler__LFEx8P7/artifacts/manifest.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/artifacts/manifest.json",
+      "source_sha256": "a65489e94bf8ad0a52c3cc384672184bf17a04f907ef6da2084ca2a64b525c73",
+      "export_sha256": "a65489e94bf8ad0a52c3cc384672184bf17a04f907ef6da2084ca2a64b525c73",
+      "source_bytes": 619,
+      "export_bytes": 619,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/repeat/llm-inference-batching-scheduler__LFEx8P7/result.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/result.json",
+      "source_sha256": "e67d899fc02b32d795491b0a7c4c87472f535dc6148ef7a25f881d946d2c264d",
+      "export_sha256": "ccb61688e399be60d33d49fc00e06e79decdcff414b351c8da3758c02fe7752a",
+      "source_bytes": 4923,
+      "export_bytes": 4613,
+      "byte_identical": false
+    },
+    {
+      "path": "runs/repeat/llm-inference-batching-scheduler__LFEx8P7/verifier/reward.txt",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/verifier/reward.txt",
+      "source_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "export_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "source_bytes": 2,
+      "export_bytes": 2,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/repeat/llm-inference-batching-scheduler__LFEx8P7/verifier/test-stdout.txt",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/verifier/test-stdout.txt",
+      "source_sha256": "2eb8be2f0f1a0a699090c34ca5cc5f9c12951a3f238dd33746f607f7bd69bc5d",
+      "export_sha256": "2eb8be2f0f1a0a699090c34ca5cc5f9c12951a3f238dd33746f607f7bd69bc5d",
+      "source_bytes": 14140,
+      "export_bytes": 14140,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/repeat/result.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/result.json",
+      "source_sha256": "f23aee7708b3bddd06ad739381136b166377e1723ede25d1f574d8485862e364",
+      "export_sha256": "f23aee7708b3bddd06ad739381136b166377e1723ede25d1f574d8485862e364",
+      "source_bytes": 248,
+      "export_bytes": 248,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/repeat/trial.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/trial.json",
+      "source_sha256": "8a96c2adb07fd6eb1340d2cf12bcb59727587bea68d4f0f6e1f6f1f627ec21d1",
+      "export_sha256": "8a96c2adb07fd6eb1340d2cf12bcb59727587bea68d4f0f6e1f6f1f627ec21d1",
+      "source_bytes": 1222,
+      "export_bytes": 1222,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/dsh.protocol.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1.protocol.json",
+      "source_sha256": "f47a82f09ee2831653b99df3e520ee6b0b6fd085b8d6ed306e41db86c7fcbfb1",
+      "export_sha256": "f47a82f09ee2831653b99df3e520ee6b0b6fd085b8d6ed306e41db86c7fcbfb1",
+      "source_bytes": 744,
+      "export_bytes": 744,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/dsh/artifact-capture-config.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/artifact-capture-config.json",
+      "source_sha256": "2bdc5c3775f5f0c3bc8586ae24f0ad369dc84b571f12ed25f228d20dbc156d6b",
+      "export_sha256": "cd501a74f7d6d22ce95e2c2ccb1373bb1b8c23a41fcab2a3abf0772d5df22319",
+      "source_bytes": 358,
+      "export_bytes": 296,
+      "byte_identical": false
+    },
+    {
+      "path": "runs/dsh/artifact-capture.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/artifact-capture.json",
+      "source_sha256": "518ac78714ea22a53a168a952a28369fc459e20f9d094ab6a49e8794a525d9d8",
+      "export_sha256": "061d90002b3d2298c32fe376eb7f31676fb57059435e0a3c7568f62dbb2d188f",
+      "source_bytes": 3078,
+      "export_bytes": 2396,
+      "byte_identical": false
+    },
+    {
+      "path": "runs/dsh/llm-inference-batching-scheduler__h258yZU/agent/dsh/dsh-home/sessions/--app--/course-task/session.v4.jsonl",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/dsh/dsh-home/sessions/--app--/course-task/session.v4.jsonl",
+      "source_sha256": "9914511a7ee424b63270b7425b7af6c0f4278a275b24f779b2d7960ee9e83ec3",
+      "export_sha256": "9914511a7ee424b63270b7425b7af6c0f4278a275b24f779b2d7960ee9e83ec3",
+      "source_bytes": 155548,
+      "export_bytes": 155548,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/dsh/llm-inference-batching-scheduler__h258yZU/agent/dsh/dsh-transport.jsonl",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/dsh/dsh-transport.jsonl",
+      "source_sha256": "d78e279a5aeb3413ead3c90455c8d9917d4f66b07f9af7bdbfd2ca22d12057fa",
+      "export_sha256": "d78e279a5aeb3413ead3c90455c8d9917d4f66b07f9af7bdbfd2ca22d12057fa",
+      "source_bytes": 151626,
+      "export_bytes": 151626,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/dsh/llm-inference-batching-scheduler__h258yZU/agent/execution-budget.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/execution-budget.json",
+      "source_sha256": "2244f3350baa5f925e53fd72b66f4cc8d82872c3d87a3a8e9b04072e6d6e29ce",
+      "export_sha256": "2244f3350baa5f925e53fd72b66f4cc8d82872c3d87a3a8e9b04072e6d6e29ce",
+      "source_bytes": 139,
+      "export_bytes": 139,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/dsh/llm-inference-batching-scheduler__h258yZU/agent/instruction.txt",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/instruction.txt",
+      "source_sha256": "0817374767533fbf51bb93345ee1bba266263c216c6cc55c096e71b4a1d37dfc",
+      "export_sha256": "0817374767533fbf51bb93345ee1bba266263c216c6cc55c096e71b4a1d37dfc",
+      "source_bytes": 4365,
+      "export_bytes": 4365,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/dsh/llm-inference-batching-scheduler__h258yZU/agent/model-stream.jsonl",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/model-stream.jsonl",
+      "source_sha256": "181da7b5ff5abe678bd3e6b1a3cac44cdd461b9cbdbc6cbdd49a6d1a31b67d8a",
+      "export_sha256": "181da7b5ff5abe678bd3e6b1a3cac44cdd461b9cbdbc6cbdd49a6d1a31b67d8a",
+      "source_bytes": 1046485,
+      "export_bytes": 1046485,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/dsh/llm-inference-batching-scheduler__h258yZU/agent/model.jsonl",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/model.jsonl",
+      "source_sha256": "580733cedaf945d294baca184f360007db0b18b36695a77630f6518f3137d21b",
+      "export_sha256": "c8dcd3f0873005447a1318dc5083260b099667240e8c896f0d75ab16c68af4d5",
+      "source_bytes": 144342,
+      "export_bytes": 144174,
+      "byte_identical": false
+    },
+    {
+      "path": "runs/dsh/llm-inference-batching-scheduler__h258yZU/artifacts/manifest.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/artifacts/manifest.json",
+      "source_sha256": "a65489e94bf8ad0a52c3cc384672184bf17a04f907ef6da2084ca2a64b525c73",
+      "export_sha256": "a65489e94bf8ad0a52c3cc384672184bf17a04f907ef6da2084ca2a64b525c73",
+      "source_bytes": 619,
+      "export_bytes": 619,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/dsh/llm-inference-batching-scheduler__h258yZU/result.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/result.json",
+      "source_sha256": "84fedaa65ce9d134dbd4682dc55767c68259b806f25f82f4c39791bedf0afa44",
+      "export_sha256": "b15b2abb6203afe920e17cd48046f4b716d06b761b0bcbaf6c8e3b0f44746642",
+      "source_bytes": 8116,
+      "export_bytes": 7046,
+      "byte_identical": false
+    },
+    {
+      "path": "runs/dsh/result.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/result.json",
+      "source_sha256": "550f10512cc8a6174222bbce6365eb9810d993c95eb2fb9c6abc32a37123e638",
+      "export_sha256": "550f10512cc8a6174222bbce6365eb9810d993c95eb2fb9c6abc32a37123e638",
+      "source_bytes": 249,
+      "export_bytes": 249,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/dsh/trial.json",
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/trial.json",
+      "source_sha256": "97f9e61845f78c3c00b3e562fad5fce6a3543e81b4ea826534748caa26089b3d",
+      "export_sha256": "97f9e61845f78c3c00b3e562fad5fce6a3543e81b4ea826534748caa26089b3d",
+      "source_bytes": 1217,
+      "export_bytes": 1217,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/minimax_main.protocol.json",
+      "source_relative": "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1.protocol.json",
+      "source_sha256": "25b7ce0a9ebe4122f9e1bf61bf13a2b0e04b14898b89fe03e325f254d9a45aba",
+      "export_sha256": "25b7ce0a9ebe4122f9e1bf61bf13a2b0e04b14898b89fe03e325f254d9a45aba",
+      "source_bytes": 738,
+      "export_bytes": 738,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/minimax_main/controller.jsonl",
+      "source_relative": "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/controller.jsonl",
+      "source_sha256": "c38d5e2de8d11d41305c646ee66807a5ebb28d4ae46c3cb950170c271d76dff3",
+      "export_sha256": "c38d5e2de8d11d41305c646ee66807a5ebb28d4ae46c3cb950170c271d76dff3",
+      "source_bytes": 696,
+      "export_bytes": 696,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/minimax_main/execution-budget.json",
+      "source_relative": "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/execution-budget.json",
+      "source_sha256": "c87f18eb5541a033d012ca5d8efbd691feaec5a6376b539c841e01c513d5b6a4",
+      "export_sha256": "c87f18eb5541a033d012ca5d8efbd691feaec5a6376b539c841e01c513d5b6a4",
+      "source_bytes": 111,
+      "export_bytes": 111,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/minimax_main/final-verification.json",
+      "source_relative": "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/final-verification.json",
+      "source_sha256": "13679d205757f005b1443d81fce543c3c2ddeb0d917d9e263ac582fbf843d4ff",
+      "export_sha256": "13679d205757f005b1443d81fce543c3c2ddeb0d917d9e263ac582fbf843d4ff",
+      "source_bytes": 373,
+      "export_bytes": 373,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/minimax_main/instruction.txt",
+      "source_relative": "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/instruction.txt",
+      "source_sha256": "9d0212ad80bc166cae3a833cb6678eaadefdafa585a3cf7a116bb38252556770",
+      "export_sha256": "9d0212ad80bc166cae3a833cb6678eaadefdafa585a3cf7a116bb38252556770",
+      "source_bytes": 1598,
+      "export_bytes": 1598,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/minimax_main/model-stream.jsonl",
+      "source_relative": "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/model-stream.jsonl",
+      "source_sha256": "3f66c4956e0889674c886b44d2fe2fc515e9436fd8750d00ec6c2bd113e93247",
+      "export_sha256": "3f66c4956e0889674c886b44d2fe2fc515e9436fd8750d00ec6c2bd113e93247",
+      "source_bytes": 9473,
+      "export_bytes": 9473,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/minimax_main/model.jsonl",
+      "source_relative": "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/model.jsonl",
+      "source_sha256": "71b4389a3b35e1c34f725eb1e4f2c2c9eabae844d8487d5e6f8f7eb98d4f019b",
+      "export_sha256": "6e7031fda0b781806f016eb6a712f90af8b5a4253d3ee466e1260ec92e7043cd",
+      "source_bytes": 20161,
+      "export_bytes": 20105,
+      "byte_identical": false
+    },
+    {
+      "path": "runs/minimax_main/result.json",
+      "source_relative": "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/result.json",
+      "source_sha256": "e7754c0d0138a1e46421aada875deaf28a6747b7c3dbe1892ce05aee7b34808d",
+      "export_sha256": "e7754c0d0138a1e46421aada875deaf28a6747b7c3dbe1892ce05aee7b34808d",
+      "source_bytes": 227,
+      "export_bytes": 227,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/minimax_main/tools.jsonl",
+      "source_relative": "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/tools.jsonl",
+      "source_sha256": "0fa2c83dd761a61b3aef672fea0b1916594d68aed601161fa866f9514634c658",
+      "export_sha256": "0fa2c83dd761a61b3aef672fea0b1916594d68aed601161fa866f9514634c658",
+      "source_bytes": 692,
+      "export_bytes": 692,
+      "byte_identical": true
+    },
+    {
+      "path": "runs/minimax_main/trial.json",
+      "source_relative": "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/trial.json",
+      "source_sha256": "2440d66a10be95e8b8b38f9e3359099aa8ff4ecae092f07e4ac25595a348e578",
+      "export_sha256": "2440d66a10be95e8b8b38f9e3359099aa8ff4ecae092f07e4ac25595a348e578",
+      "source_bytes": 898,
+      "export_bytes": 898,
+      "byte_identical": true
+    },
+    {
+      "path": "qualifications/catalog/receipt.json",
+      "source_relative": "work/minimax-free-qualification-20261125/catalog-probe.json",
+      "source_sha256": "6c3ad49d58c5ba4467fc6a7a5fbbadfb6b70b542903287420747f8125ca5dece",
+      "export_sha256": "6c3ad49d58c5ba4467fc6a7a5fbbadfb6b70b542903287420747f8125ca5dece",
+      "source_bytes": 3750,
+      "export_bytes": 3750,
+      "byte_identical": true
+    },
+    {
+      "path": "qualifications/vision/receipt.json",
+      "source_relative": "work/vmshare/minimax-vision-function-qualification-20261125/channel-qualification.json",
+      "source_sha256": "d570c56d1041fec34af2a056e99ae4c391be3d9b6d39b45ff4e1dd3654ab8d9f",
+      "export_sha256": "d570c56d1041fec34af2a056e99ae4c391be3d9b6d39b45ff4e1dd3654ab8d9f",
+      "source_bytes": 13019,
+      "export_bytes": 13019,
+      "byte_identical": true
+    },
+    {
+      "path": "qualifications/vision/model.jsonl",
+      "source_relative": "work/vmshare/minimax-vision-function-qualification-20261125/model.jsonl",
+      "source_sha256": "a3979b0e379797858e9cca7effd0a9e295bcd493aa66a70a96e52a7a29ed9d46",
+      "export_sha256": "be7ed5f7bd9106d6c3e4436a26ea64152b5c341510c8733cd4c241928065c1b4",
+      "source_bytes": 13100,
+      "export_bytes": 13015,
+      "byte_identical": false
+    },
+    {
+      "path": "qualifications/vision/result.json",
+      "source_relative": "work/vmshare/minimax-vision-function-qualification-20261125/result.json",
+      "source_sha256": "f4ebf3083bbb476727558b589b45a7c52724b25db37cdd9fc4cca04ce0867c70",
+      "export_sha256": "f4ebf3083bbb476727558b589b45a7c52724b25db37cdd9fc4cca04ce0867c70",
+      "source_bytes": 1093,
+      "export_bytes": 1093,
+      "byte_identical": true
+    },
+    {
+      "path": "qualifications/native64/receipt.json",
+      "source_relative": "work/vmshare/minimax-native-64k-qualification-20261125/channel-qualification.json",
+      "source_sha256": "c91183c51ac9f830068922d2f4e7a3b48e9c1204f1639247534bf2306e132f35",
+      "export_sha256": "c91183c51ac9f830068922d2f4e7a3b48e9c1204f1639247534bf2306e132f35",
+      "source_bytes": 3478,
+      "export_bytes": 3478,
+      "byte_identical": true
+    },
+    {
+      "path": "qualifications/native64/model.jsonl",
+      "source_relative": "work/vmshare/minimax-native-64k-qualification-20261125/model.jsonl",
+      "source_sha256": "06d81fa61f57c9206ee7cbb138ea4463160cef44422a455fa70d559a6a4b5cd5",
+      "export_sha256": "83d71cb93fa9b22af576226ce1dd1cd59764a0b5dbcaf1e7de77278f54f6f0df",
+      "source_bytes": 4067,
+      "export_bytes": 4039,
+      "byte_identical": false
+    },
+    {
+      "path": "qualifications/native64/result.json",
+      "source_relative": "work/vmshare/minimax-native-64k-qualification-20261125/result.json",
+      "source_sha256": "2058fef8e5ff522e583ddb1cb9c1c38a25dae4564f40d4a2aa2860009ea7307e",
+      "export_sha256": "2058fef8e5ff522e583ddb1cb9c1c38a25dae4564f40d4a2aa2860009ea7307e",
+      "source_bytes": 1552,
+      "export_bytes": 1552,
+      "byte_identical": true
+    }
+  ],
+  "runs": [
+    {
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1",
+      "path": "runs/main",
+      "kind": "closed_course_attempt",
+      "is_task_position": true,
+      "portable_evidence": {
+        "original_result": {
+          "task": "llm-inference-batching-scheduler",
+          "wall_seconds": 3620.389915333013,
+          "scoreable": true,
+          "passed": false,
+          "harbor_result": "llm-inference-batching-scheduler__rqiMRcg/result.json",
+          "command_supervisor": "descendant_tree_v2"
+        },
+        "grader_seconds": 3.942042,
+        "billing": {
+          "actual_requests": 8,
+          "verified_nonbilled_service_calls": 7,
+          "actual_monetary_receipt_calls": 0,
+          "unverified_requests": [
+            8
+          ],
+          "reported_monetary_cost": null,
+          "verification_type": "official_non_billed_free_endpoint_with_per_request_identity_and_usage",
+          "contract_sha256": "9c1f00548724d005fb4cc23b055fc3a6c1a4667dfca89eb9b2bec387b205f1bc"
+        },
+        "generation_ids": [
+          "chatcmpl-d817194a-13af-43bf-9293-6ac37246dfcf",
+          "chatcmpl-cdc8ca2b-6126-4c91-89c5-85c94cf6dac4",
+          "chatcmpl-f71d6cdd-7d58-4434-ad2f-dbca47881d30",
+          "chatcmpl-5c0c0418-b9db-4eff-90dd-f7531a8db007",
+          "chatcmpl-ab8005e7-0aef-466e-9143-0f74116d05ba",
+          "chatcmpl-5d8f2df4-ffac-4956-b5d4-e879c38acbe0",
+          "chatcmpl-19c959a0-f1f0-4f41-871e-9c5213efd19c"
+        ],
+        "incomplete_request_ids": [
+          8
+        ],
+        "known_response_usage": {
+          "model_calls": 8,
+          "model_responses": 7,
+          "input_tokens": 63292,
+          "output_tokens": 8103,
+          "cached_input_tokens": 9536,
+          "reported_total_tokens": 71395
+        },
+        "complete_total_usage": null,
+        "reported_monetary_cost_usd": null,
+        "final_control": null
+      },
+      "artifact_capture": {
+        "native_capture_registered": true,
+        "outputs": [
+          {
+            "source": "/app/task_file/output_data/plan_b1.jsonl",
+            "status": "failed"
+          },
+          {
+            "source": "/app/task_file/output_data/plan_b2.jsonl",
+            "status": "failed"
+          }
+        ]
+      },
+      "source_sha256": {
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1.protocol.json": "904ca828f576aa6494ac88cd441264c16657dfbe5b1b532f45af45d254e1fef2",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/artifact-capture-config.json": "68ab41e321b04c6c688e250022a9e6a40f4ecb6b10e97564253f61ce59a00ef2",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/artifact-capture.json": "ac4f125d9d1eb202f9937ab8ffb96b1f7bbc73042d30b59017b39294965a49cd",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/controller.jsonl": "46d8e498e0269f4af6e3ba8ac5a32a61db31325bcf12978b57859b82a38ae859",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/execution-budget.json": "7bfc7357edae7c7cb90e5fcf5c77d17078a859f98ed70602c72a0572060fdd02",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/instruction.txt": "0817374767533fbf51bb93345ee1bba266263c216c6cc55c096e71b4a1d37dfc",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/model-stream.jsonl": "560a430c4d0f8a80ae4f4148a3b28610d5f17c88648a8b8298f671aaa3ddb8c5",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/model.jsonl": "e3062168cec36ce7bf4321d26d3627d24c2f6d392b521eb4ca87f9940ff7ccab",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/tools.jsonl": "b001ed85325e9f82f78cd36953fc1e476392d62a09a0a00b3464c735521fa82a",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/artifacts/manifest.json": "a65489e94bf8ad0a52c3cc384672184bf17a04f907ef6da2084ca2a64b525c73",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/result.json": "587cf8a7588b647fa434e14998f2f60288d5bed2901a6b0ab179be3b6d930d0c",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/verifier/reward.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/verifier/test-stdout.txt": "2eb8be2f0f1a0a699090c34ca5cc5f9c12951a3f238dd33746f607f7bd69bc5d",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/result.json": "e2de91dce80e30bbba692aa6d06066d64dfa8161d55c8fbfa3981c1d6cb67cf9",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/trial.json": "8a96c2adb07fd6eb1340d2cf12bcb59727587bea68d4f0f6e1f6f1f627ec21d1"
+      }
+    },
+    {
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2",
+      "path": "runs/repeat",
+      "kind": "closed_course_attempt",
+      "is_task_position": true,
+      "portable_evidence": {
+        "original_result": {
+          "task": "llm-inference-batching-scheduler",
+          "wall_seconds": 3140.373037624988,
+          "scoreable": true,
+          "passed": false,
+          "harbor_result": "llm-inference-batching-scheduler__LFEx8P7/result.json",
+          "command_supervisor": "descendant_tree_v2"
+        },
+        "grader_seconds": 3.868965,
+        "billing": {
+          "actual_requests": 7,
+          "verified_nonbilled_service_calls": 7,
+          "actual_monetary_receipt_calls": 0,
+          "unverified_requests": [],
+          "reported_monetary_cost": null,
+          "verification_type": "official_non_billed_free_endpoint_with_per_request_identity_and_usage",
+          "contract_sha256": "9c1f00548724d005fb4cc23b055fc3a6c1a4667dfca89eb9b2bec387b205f1bc"
+        },
+        "generation_ids": [
+          "chatcmpl-a77abcfe-c74c-49cb-bf0b-352840e4968f",
+          "chatcmpl-9d99d6ab-8cd1-4b4f-aee2-d2752ea31f78",
+          "chatcmpl-abc15a1a-4785-4ae4-bbfe-0e228c4cbaf3",
+          "chatcmpl-49849ef4-fba0-4440-934a-1b5f59613646",
+          "chatcmpl-6b52d90a-f68f-4011-bed2-e07070cfd8c1",
+          "chatcmpl-5ef9513f-edef-4357-8743-9bdc08cf9e76",
+          "chatcmpl-ed1ee614-ad88-48be-be39-753ae2795a63"
+        ],
+        "incomplete_request_ids": [],
+        "known_response_usage": {
+          "model_calls": 7,
+          "model_responses": 7,
+          "input_tokens": 74121,
+          "output_tokens": 30017,
+          "cached_input_tokens": 24896,
+          "reported_total_tokens": 104138
+        },
+        "complete_total_usage": {
+          "input_tokens": 74121,
+          "output_tokens": 30017,
+          "reported_total_tokens": 104138
+        },
+        "reported_monetary_cost_usd": null,
+        "final_control": {
+          "reason": "agent_exit",
+          "artifact_digest": "90f3b2230193ed87c6e3f81033a4c70d4b430332f67cf46a53e18d5a549f268a",
+          "protected_unchanged": true,
+          "restored_candidate": null,
+          "valid_verification": false,
+          "evidence": {
+            "public-artifact": {
+              "state": "pending",
+              "returncode": null,
+              "snapshot": null
+            }
+          },
+          "elapsed_seconds": 3118.851783458027
+        }
+      },
+      "artifact_capture": {
+        "native_capture_registered": true,
+        "outputs": [
+          {
+            "source": "/app/task_file/output_data/plan_b1.jsonl",
+            "status": "failed"
+          },
+          {
+            "source": "/app/task_file/output_data/plan_b2.jsonl",
+            "status": "failed"
+          }
+        ]
+      },
+      "source_sha256": {
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2.protocol.json": "904ca828f576aa6494ac88cd441264c16657dfbe5b1b532f45af45d254e1fef2",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/artifact-capture-config.json": "ca8cc986cff21615d03e6ed54558af97b063376cb74986ec506a9c34927dde39",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/artifact-capture.json": "188f125562e029ebe460a72119ee522f4c8010483bda2179bb22261e13789774",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/controller.jsonl": "90f814f709322f61b84c560d72a3a88dc65c1520b981dfb09a502d3757f82d62",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/execution-budget.json": "5a95f38430974170f975e60c73363c3f70e2c4d5b675fe0dd2ec88873c42a3ea",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/final-verification.json": "218cc1925b6be23c9cac6a019631b8c5d309a2a876c783614737e5ee8c87b153",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/instruction.txt": "0817374767533fbf51bb93345ee1bba266263c216c6cc55c096e71b4a1d37dfc",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/model-stream.jsonl": "67c6212e5c69e816306b22d54aa45c6dd8908d6680be2961295b0d96de14476b",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/model.jsonl": "23a6210d3fac10cf2ee1ba010f91192199179657a6bd4a8114679fee98028230",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/tools.jsonl": "bb175b8ef5ccd34063fa6f79f249932c858521cde96bc08cdc310865305b0a0e",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/artifacts/manifest.json": "a65489e94bf8ad0a52c3cc384672184bf17a04f907ef6da2084ca2a64b525c73",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/result.json": "e67d899fc02b32d795491b0a7c4c87472f535dc6148ef7a25f881d946d2c264d",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/verifier/reward.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/verifier/test-stdout.txt": "2eb8be2f0f1a0a699090c34ca5cc5f9c12951a3f238dd33746f607f7bd69bc5d",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/result.json": "f23aee7708b3bddd06ad739381136b166377e1723ede25d1f574d8485862e364",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/trial.json": "8a96c2adb07fd6eb1340d2cf12bcb59727587bea68d4f0f6e1f6f1f627ec21d1"
+      }
+    },
+    {
+      "source_relative": "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1",
+      "path": "runs/dsh",
+      "kind": "closed_course_attempt",
+      "is_task_position": true,
+      "portable_evidence": {
+        "original_result": {
+          "task": "llm-inference-batching-scheduler",
+          "wall_seconds": 1806.1739022079855,
+          "scoreable": false,
+          "passed": null,
+          "harbor_result": "llm-inference-batching-scheduler__h258yZU/result.json",
+          "command_supervisor": "descendant_tree_v2"
+        },
+        "grader_seconds": null,
+        "billing": {
+          "actual_requests": 6,
+          "verified_nonbilled_service_calls": 6,
+          "actual_monetary_receipt_calls": 0,
+          "unverified_requests": [],
+          "reported_monetary_cost": null,
+          "verification_type": "official_non_billed_free_endpoint_with_per_request_identity_and_usage",
+          "contract_sha256": "9c1f00548724d005fb4cc23b055fc3a6c1a4667dfca89eb9b2bec387b205f1bc"
+        },
+        "generation_ids": [
+          "chatcmpl-d0c20310-ef17-400e-8350-3b47d89302cf",
+          "chatcmpl-359c7ea5-39a6-4325-aaef-de4e4e62fe92",
+          "chatcmpl-faab7d3a-fa28-47b2-9c24-85d098901782",
+          "chatcmpl-4f6a4469-3567-4cf1-8905-82851052e517",
+          "chatcmpl-209f112e-04fe-48fd-a811-814e86304f85",
+          "chatcmpl-35aa1d50-92b8-49e7-baa9-54488ef1358d"
+        ],
+        "incomplete_request_ids": [],
+        "known_response_usage": {
+          "model_calls": 6,
+          "model_responses": 6,
+          "input_tokens": 26455,
+          "output_tokens": 10089,
+          "cached_input_tokens": 18368,
+          "reported_total_tokens": 36544
+        },
+        "complete_total_usage": {
+          "input_tokens": 26455,
+          "output_tokens": 10089,
+          "reported_total_tokens": 36544
+        },
+        "reported_monetary_cost_usd": null,
+        "sdk_observation": {
+          "observed_tool_metrics": {
+            "tool_calls": 6,
+            "sdk_tool_results": 6,
+            "sdk_tool_errors": 1,
+            "sdk_tool_unreturned": 0
+          },
+          "final_sdk_summary_available": false
+        },
+        "final_control": null
+      },
+      "artifact_capture": {
+        "native_capture_registered": true,
+        "outputs": [
+          {
+            "source": "/app/task_file/output_data/plan_b1.jsonl",
+            "status": "failed"
+          },
+          {
+            "source": "/app/task_file/output_data/plan_b2.jsonl",
+            "status": "failed"
+          }
+        ]
+      },
+      "source_sha256": {
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1.protocol.json": "f47a82f09ee2831653b99df3e520ee6b0b6fd085b8d6ed306e41db86c7fcbfb1",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/artifact-capture-config.json": "2bdc5c3775f5f0c3bc8586ae24f0ad369dc84b571f12ed25f228d20dbc156d6b",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/artifact-capture.json": "518ac78714ea22a53a168a952a28369fc459e20f9d094ab6a49e8794a525d9d8",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/dsh/dsh-home/sessions/--app--/course-task/session.v4.jsonl": "9914511a7ee424b63270b7425b7af6c0f4278a275b24f779b2d7960ee9e83ec3",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/dsh/dsh-transport.jsonl": "d78e279a5aeb3413ead3c90455c8d9917d4f66b07f9af7bdbfd2ca22d12057fa",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/execution-budget.json": "2244f3350baa5f925e53fd72b66f4cc8d82872c3d87a3a8e9b04072e6d6e29ce",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/instruction.txt": "0817374767533fbf51bb93345ee1bba266263c216c6cc55c096e71b4a1d37dfc",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/model-stream.jsonl": "181da7b5ff5abe678bd3e6b1a3cac44cdd461b9cbdbc6cbdd49a6d1a31b67d8a",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/model.jsonl": "580733cedaf945d294baca184f360007db0b18b36695a77630f6518f3137d21b",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/artifacts/manifest.json": "a65489e94bf8ad0a52c3cc384672184bf17a04f907ef6da2084ca2a64b525c73",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/result.json": "84fedaa65ce9d134dbd4682dc55767c68259b806f25f82f4c39791bedf0afa44",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/result.json": "550f10512cc8a6174222bbce6365eb9810d993c95eb2fb9c6abc32a37123e638",
+        "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/trial.json": "97f9e61845f78c3c00b3e562fad5fce6a3543e81b4ea826534748caa26089b3d"
+      }
+    },
+    {
+      "source_relative": "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1",
+      "path": "runs/minimax_main",
+      "kind": "closed_course_attempt",
+      "is_task_position": true,
+      "portable_evidence": {
+        "original_result": {
+          "task": "cpp/all-your-base",
+          "wall_seconds": 33.84595345892012,
+          "scoreable": false,
+          "passed": null,
+          "error_type": "RuntimeError",
+          "error": "The NVIDIA response did not complete; preserve it and stop this trial"
+        },
+        "grader_seconds": null,
+        "billing": {
+          "actual_requests": 2,
+          "verified_nonbilled_service_calls": 1,
+          "actual_monetary_receipt_calls": 0,
+          "unverified_requests": [
+            2
+          ],
+          "reported_monetary_cost": null,
+          "verification_type": "official_non_billed_free_endpoint_with_per_request_identity_and_usage",
+          "contract_sha256": "4c0076312ffd53c5d5c077f739e858b29960ea4cbd25e63f88eb18a73eb80f8b"
+        },
+        "generation_ids": [
+          "chatcmpl-d8129968-cc82-4f6f-8fe7-0eb8a8f6c644"
+        ],
+        "incomplete_request_ids": [
+          2
+        ],
+        "known_response_usage": {
+          "model_calls": 2,
+          "model_responses": 1,
+          "input_tokens": 1928,
+          "output_tokens": 111,
+          "cached_input_tokens": 128,
+          "reported_total_tokens": 2039
+        },
+        "complete_total_usage": null,
+        "reported_monetary_cost_usd": null,
+        "final_control": {
+          "reason": "agent_exit",
+          "artifact_digest": "7d7f9a68a0e43df5e53bd01b4590642c41038324049795ef031816c467219be0",
+          "protected_unchanged": true,
+          "restored_candidate": null,
+          "valid_verification": false,
+          "evidence": {
+            "public-suite": {
+              "state": "pending",
+              "returncode": null,
+              "snapshot": null
+            }
+          },
+          "elapsed_seconds": 32.8710584170185
+        }
+      },
+      "artifact_capture": {
+        "native_capture_registered": false,
+        "outputs": []
+      },
+      "source_sha256": {
+        "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1.protocol.json": "25b7ce0a9ebe4122f9e1bf61bf13a2b0e04b14898b89fe03e325f254d9a45aba",
+        "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/controller.jsonl": "c38d5e2de8d11d41305c646ee66807a5ebb28d4ae46c3cb950170c271d76dff3",
+        "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/execution-budget.json": "c87f18eb5541a033d012ca5d8efbd691feaec5a6376b539c841e01c513d5b6a4",
+        "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/final-verification.json": "13679d205757f005b1443d81fce543c3c2ddeb0d917d9e263ac582fbf843d4ff",
+        "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/instruction.txt": "9d0212ad80bc166cae3a833cb6678eaadefdafa585a3cf7a116bb38252556770",
+        "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/model-stream.jsonl": "3f66c4956e0889674c886b44d2fe2fc515e9436fd8750d00ec6c2bd113e93247",
+        "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/model.jsonl": "71b4389a3b35e1c34f725eb1e4f2c2c9eabae844d8487d5e6f8f7eb98d4f019b",
+        "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/result.json": "e7754c0d0138a1e46421aada875deaf28a6747b7c3dbe1892ce05aee7b34808d",
+        "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/tools.jsonl": "0fa2c83dd761a61b3aef672fea0b1916594d68aed601161fa866f9514634c658",
+        "work/vmshare/performance-minimax-aider-onecase-20261125/main/cpp-all-your-base-C0-r1/trial.json": "2440d66a10be95e8b8b38f9e3359099aa8ff4ecae092f07e4ac25595a348e578"
+      }
+    }
+  ],
+  "qualifications": [
+    {
+      "kind": "technical_qualification",
+      "is_task_position": false,
+      "original_score": null,
+      "original_grader_calls": 0,
+      "generation_id": "chatcmpl-93819b0c-b93e-4ddb-88d3-5836cd66ba1e",
+      "model": "minimaxai/minimax-m3.1-flash",
+      "usage": {
+        "prompt_tokens": 183,
+        "completion_tokens": 3,
+        "total_tokens": 186,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        }
+      },
+      "physical_requests": 1,
+      "complete_native_policy_proofs": 1,
+      "billing_verified_events": 0,
+      "reported_monetary_cost_usd": null
+    },
+    {
+      "kind": "technical_qualification",
+      "is_task_position": false,
+      "original_score": null,
+      "original_grader_calls": 0,
+      "generation_id": "chatcmpl-6a036e9b-43a8-4778-a07f-823228a020aa",
+      "model": "minimaxai/minimax-m3.1-flash",
+      "usage": {
+        "prompt_tokens": 749,
+        "completion_tokens": 7,
+        "total_tokens": 756,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        }
+      },
+      "physical_requests": 1,
+      "complete_native_policy_proofs": 1,
+      "billing_verified_events": 1,
+      "reported_monetary_cost_usd": null
+    },
+    {
+      "kind": "technical_qualification",
+      "is_task_position": false,
+      "original_score": null,
+      "original_grader_calls": 0,
+      "generation_id": "chatcmpl-b6662ee8-b28a-4248-8975-08da11a92c00",
+      "model": "minimaxai/minimax-m3.1-flash",
+      "usage": {
+        "prompt_tokens": 602,
+        "completion_tokens": 12,
+        "total_tokens": 614,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        }
+      },
+      "physical_requests": 1,
+      "complete_native_policy_proofs": 1,
+      "billing_verified_events": 1,
+      "reported_monetary_cost_usd": null
+    }
+  ],
+  "omitted_sources": "Only the reviewed run-log/native-capture whitelist and named contracts/acceptances/qualifications are copied; no SDK,cache,starter,hidden tests or complete140-source tree.",
+  "new_model_calls": 0,
+  "new_original_grader_calls": 0
+}

@@ -1,0 +1,8 @@
+{
+  "task": "cpp/all-your-base",
+  "wall_seconds": 33.84595345892012,
+  "scoreable": false,
+  "passed": null,
+  "error_type": "RuntimeError",
+  "error": "The NVIDIA response did not complete; preserve it and stop this trial"
+}

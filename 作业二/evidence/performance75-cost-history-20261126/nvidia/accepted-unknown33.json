@@ -1,0 +1,1124 @@
+{
+  "historical_unknown_ordinal": 33,
+  "previous_historical_unknown": 32,
+  "physical_unknown_requests": 1,
+  "canonical_trace": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/model.jsonl",
+  "request_id": 8,
+  "configured_model": "stepfun-ai/step-5-preview",
+  "complete_actual_model_identity": null,
+  "actual_generation_id": null,
+  "actual_usage": null,
+  "actual_amount": null,
+  "observed_response_headers": {
+    "event": "response_headers",
+    "time": 1795614869.895403,
+    "request_id": 8,
+    "http_status": 200,
+    "response_ids": {
+      "Nvcf-Reqid": "2011f9c7-1fef-4533-bafd-c2a479cce417",
+      "X-Request-Id": "d2efd62a-f6ca-4538-b1d9-dca016036ee2"
+    },
+    "response_rate_limits": {}
+  },
+  "actual_error": {
+    "event": "request_error",
+    "time": 1795616139.3956978,
+    "request_id": 8,
+    "error_type": "TimeoutExpired",
+    "detail": "Command '['[project]/work/.venv/bin/python', '[project]/work/frozen-performance-free-v31/course_eval/nvidia_free.py', '--http-worker']' timed out after 1271.2419851659797 seconds",
+    "billing_status": "official_non_billed_policy_verified_monetary_receipt_unavailable",
+    "response_identity_and_usage_verified": false
+  },
+  "own_zero_receipt_available": false,
+  "official_status_followup": {
+    "path": "work/free-recovery33-20261125/request8-status-followup.json",
+    "sha256": "d27118894897570e73b96e19014a513657de9d4b576f53b5735d9f5e086d68fc"
+  },
+  "previous_accepted_evidence": "work/free-recovery32-20261125/accepted-unknown32.json",
+  "previous_accepted_evidence_sha256": "a1342cc31916ce669af9284f4c1b9720406911368c97b35b81a53503e1d47f20",
+  "previous_accepted_chain": [
+    {
+      "path": "work/free-recovery32-20261125/accepted-unknown32.json",
+      "sha256": "a1342cc31916ce669af9284f4c1b9720406911368c97b35b81a53503e1d47f20",
+      "ordinal": 32
+    },
+    {
+      "path": "work/free-recovery31-20261125/accepted-unknown31.json",
+      "sha256": "f3ddd8bee465e5d449f046ae07e787d827f017354d38cede74c61480eb45b1c4",
+      "ordinal": 31
+    },
+    {
+      "path": "work/free-recovery30-20261125/accepted-unknown30.json",
+      "sha256": "41e3ea372c94664353cb2da32c62980526c33c5fd2ade795c2ee1a11af32b73f",
+      "ordinal": 30
+    },
+    {
+      "path": "work/free-recovery29-20261125/accepted-unknown29.json",
+      "sha256": "2465f372f6b68859840381d9a52111c5b52fb8230b7ac7d219253cfa0907e966",
+      "ordinal": 29
+    },
+    {
+      "path": "work/free-recovery28-20261125/accepted-unknown28.json",
+      "sha256": "5910b25f041a201572def743d2a0926271d7e3edc6eaf2ba846a25d8bc300301",
+      "ordinal": 28
+    },
+    {
+      "path": "work/free-recovery27-20261125/accepted-unknown27.json",
+      "sha256": "6b405aed794d1f66a19d1bb53ec13977f1843a1df932b7503ff2d5d0efd140a8",
+      "ordinal": 27
+    }
+  ],
+  "source_sha256": {
+    "work/nvidia75-light-first-v33-20261125/plan.json": "18cef63f6033106e9f1ea8c019a0d9ad2ac178127cdbcc4c0cafa29419686d9e",
+    "work/nvidia75-light-first-v33-20261125/execution-review.json": "def39216a45b0885d4f0a5f2953609e7610abf38b66f77873c1f5692e71a10d3",
+    "work/free-recovery33-20261125/prepare.py": "8d8371b5dab2b83ac71a7544d56ad0151466e5de00994d70d3ab00d534de98e6",
+    "work/free-recovery32-20261125/prepare.py": "40be1c849125ad929aa441a338a42d5d2a20a4b95468c91591c86e66212d8685",
+    "work/parallel-free-evaluation-20261124/resume_verified_hy4.py": "7149ffe8bacd636a1de9faf84f7254be54da3bd9269deef6e2a2e564d74657bc",
+    "work/frozen-performance-free-v31/course_eval/nvidia_free.py": "9752aabfbb5009238db516fbe29eb511e38ec4a5f60474d680df23ef1593b48b",
+    "work/free-recovery33-20261125/request8-status-followup.json": "d27118894897570e73b96e19014a513657de9d4b576f53b5735d9f5e086d68fc",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/verifier/reward.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/result.json": "e2de91dce80e30bbba692aa6d06066d64dfa8161d55c8fbfa3981c1d6cb67cf9",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/trial.json": "8a96c2adb07fd6eb1340d2cf12bcb59727587bea68d4f0f6e1f6f1f627ec21d1",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1.protocol.json": "904ca828f576aa6494ac88cd441264c16657dfbe5b1b532f45af45d254e1fef2",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/result.json": "587cf8a7588b647fa434e14998f2f60288d5bed2901a6b0ab179be3b6d930d0c",
+    "work/step5-native-admission-20261124/free-contract.json": "9c1f00548724d005fb4cc23b055fc3a6c1a4667dfca89eb9b2bec387b205f1bc",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/model-stream.jsonl": "560a430c4d0f8a80ae4f4148a3b28610d5f17c88648a8b8298f671aaa3ddb8c5",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1/llm-inference-batching-scheduler__rqiMRcg/agent/model.jsonl": "e3062168cec36ce7bf4321d26d3627d24c2f6d392b521eb4ca87f9940ff7ccab",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/verifier/reward.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/result.json": "f23aee7708b3bddd06ad739381136b166377e1723ede25d1f574d8485862e364",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/trial.json": "8a96c2adb07fd6eb1340d2cf12bcb59727587bea68d4f0f6e1f6f1f627ec21d1",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2.protocol.json": "904ca828f576aa6494ac88cd441264c16657dfbe5b1b532f45af45d254e1fef2",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/result.json": "e67d899fc02b32d795491b0a7c4c87472f535dc6148ef7a25f881d946d2c264d",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/model-stream.jsonl": "67c6212e5c69e816306b22d54aa45c6dd8908d6680be2961295b0d96de14476b",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2/llm-inference-batching-scheduler__LFEx8P7/agent/model.jsonl": "23a6210d3fac10cf2ee1ba010f91192199179657a6bd4a8114679fee98028230",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/result.json": "550f10512cc8a6174222bbce6365eb9810d993c95eb2fb9c6abc32a37123e638",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/trial.json": "97f9e61845f78c3c00b3e562fad5fce6a3543e81b4ea826534748caa26089b3d",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1.protocol.json": "f47a82f09ee2831653b99df3e520ee6b0b6fd085b8d6ed306e41db86c7fcbfb1",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/result.json": "84fedaa65ce9d134dbd4682dc55767c68259b806f25f82f4c39791bedf0afa44",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/model-stream.jsonl": "181da7b5ff5abe678bd3e6b1a3cac44cdd461b9cbdbc6cbdd49a6d1a31b67d8a",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU/agent/model.jsonl": "580733cedaf945d294baca184f360007db0b18b36695a77630f6518f3137d21b",
+    "work/free-recovery32-20261125/accepted-unknown32.json": "a1342cc31916ce669af9284f4c1b9720406911368c97b35b81a53503e1d47f20",
+    "work/free-recovery31-20261125/accepted-unknown31.json": "f3ddd8bee465e5d449f046ae07e787d827f017354d38cede74c61480eb45b1c4",
+    "work/free-recovery30-20261125/accepted-unknown30.json": "41e3ea372c94664353cb2da32c62980526c33c5fd2ade795c2ee1a11af32b73f",
+    "work/free-recovery29-20261125/accepted-unknown29.json": "2465f372f6b68859840381d9a52111c5b52fb8230b7ac7d219253cfa0907e966",
+    "work/free-recovery28-20261125/accepted-unknown28.json": "5910b25f041a201572def743d2a0926271d7e3edc6eaf2ba846a25d8bc300301",
+    "work/free-recovery27-20261125/accepted-unknown27.json": "6b405aed794d1f66a19d1bb53ec13977f1843a1df932b7503ff2d5d0efd140a8",
+    "work/parallel-free-evaluation-20261124/recover_hy4_quota.py": "a3d92fa50f8c3a2259d0d430ebab07ffb1894b15ca38d6b023df699c40637ea3",
+    "work/parallel-free-evaluation-20261124/quota-recovery-20261125/prepared.json": "6c86bd3638561da6188cc8f1f67843d1e80a4867ad8e072299fa61c56ae4909e",
+    "work/parallel-free-evaluation-20261124/quota-recovery-20261125/accepted-unknown25.json": "f6b75eaded21de206e44d3758315e8b4a98f30384b66ce9807bc362beafef2db",
+    "work/parallel-free-evaluation-20261124/run_ready_queues.py": "18b86bfcc8b50178b77f47a0260fd5bc3d8020b96e9f5904fd3665c5da7f7c27",
+    "work/parallel-free-evaluation-20261124/prepare_reuse_ablation.py": "b35268b022f1194d5fa413b272af69baf00a91e8d45d34885ffedb849cc75e69",
+    "work/parallel-free-evaluation-20261124/run_reuse_ablation.py": "342a5e6d2caa24ed5a28389050f398eb19c9d804cd2147df5da8f3be15bbdcea",
+    "work/parallel-free-evaluation-20261124/run_fixed_free_trials.py": "00fc95a8d5a6c360f5ea2ee342d5b76d2056084ccf0699e1a794acbe8177fc2f",
+    "work/check_codebuddy_free_models.py": "255f2abbe107153fce2552dafb96d0584d5ad09b65b519b9527a24241652d422",
+    "work/pytest-5631-preservation-20261125/frozen/plan.json": "618aaebb91efb3cb760f79c4f1470705c51129e506331eb2e84e355e71ff3adf",
+    "work/pytest-5631-preservation-20261125/admission-review.json": "8aef4cb074ba45ccde444375bfb4cbc5831f0b7f09719c3f6212797048dc8475",
+    "work/parallel-free-evaluation-20261124/final-sql75-quota-recovered/main-plan.json": "54dbe186ad062f82722a568f1a69ae08a079a3f191cba173054f47e3ce270000",
+    "work/parallel-free-evaluation-20261124/final-sql75-quota-recovered/repeat-plan.json": "d38de52a87efb3f0026148464d282807d46c3493026445ccefa37676e8d777b4",
+    "work/parallel-free-evaluation-20261124/continue_light_probe_hy4.py": "4ccb47eec7e9c5983be1ac0a3c8a5a706c59fea703f675e3d1769da24d9e49f9",
+    "work/parallel-free-evaluation-20261124/ready_coordinator_light_probe.py": "d295aab74a0232dd93a252ade9776c5f48324dc8e422394a21ddc134f5e2f0ba",
+    "work/parallel-free-evaluation-20261124/run_ready_queues_light_probe.py": "2e457241f5d0388cc0105158b3de497e2359feacf47c4ce8099267d40357b4f8",
+    "work/parallel-free-evaluation-20261124/terminal-light-probe-20261125/main-plan.json": "8a4c42b9466b6816ce36e64e7c70ffdcccfface55df003889ac8d5564f365dba",
+    "work/parallel-free-evaluation-20261124/terminal-light-probe-20261125/repeat-plan.json": "22f82ff5c000d79c20b5de0154548f4c1d6caf5ca7c8d93755d3cb363b5866c5",
+    "work/parallel-free-evaluation-20261124/terminal-light-probe-20261125/qualification.json": "1be09b73c4b4010608fb0426b2ac5303e5133e31d706ade44042bb188683fe39",
+    "work/parallel-free-evaluation-20261124/terminal-light-probe-20261125/current-free-metadata/cloud-model-metadata.json": "3f7d648fdb6b501371020fcb803c05b7b8751f4bb7b07bd9c2ac3d664ad8e18c",
+    "work/parallel-free-evaluation-20261124/terminal-light-probe-20261125/continuation-config.json": "a294971a4f343d81bbcc375c91eedd9c0aa1d0f2f6a8472ce70471f081f83315",
+    "work/parallel-free-evaluation-20261124/terminal-light-probe-20261125/continuation-review.json": "5c8d571f49bb14c7ca34fe0e5296fa3ebf8fb7183d37b2bc2941cec461d02d6c",
+    "work/free-parallel-v26-20261125/generation-seed.json": "8153a444c5615c7c46cff425a14b9326f779dcfdd13fd61f918b10a4f75bea70",
+    "work/nvidia75-light-first-v33-20261125/prior-generation-registry-snapshot.json": "27defbea235fda42f1ad5bb0e1be49be42a5b15540834886f269e1ef210311f5",
+    "work/free-recovery33-20261125/official-nvidia-policy.json": "f313344796fe53f9fdd42547fe175cdab712f69446b1ba2932ca7d7c91ad3b5e",
+    "work/free-recovery33-20261125/policy-get.json": "4c880501986a5644bd89d8d276373f3979c95926e239f10012ec0cca1e25de2c",
+    "work/minimax-free-qualification-20261125/catalog-probe.json": "6c3ad49d58c5ba4467fc6a7a5fbbadfb6b70b542903287420747f8125ca5dece",
+    "work/vmshare/minimax-vision-function-qualification-20261125/channel-qualification.json": "d570c56d1041fec34af2a056e99ae4c391be3d9b6d39b45ff4e1dd3654ab8d9f",
+    "work/minimax-free-qualification-20261125/free-contract.json": "ca389a47489491aaf56b7a090523380f0d382c647b3ff87c8920a6d0534a77b7",
+    "work/minimax-free-qualification-20261125/catalog-official-policy.json": "f313344796fe53f9fdd42547fe175cdab712f69446b1ba2932ca7d7c91ad3b5e",
+    "work/vmshare/minimax-vision-function-qualification-20261125/result.json": "f4ebf3083bbb476727558b589b45a7c52724b25db37cdd9fc4cca04ce0867c70",
+    "work/vmshare/minimax-vision-function-qualification-20261125/model.jsonl": "a3979b0e379797858e9cca7effd0a9e295bcd493aa66a70a96e52a7a29ed9d46",
+    "work/vmshare/minimax-vision-function-qualification-20261125/model-stream.jsonl": "ff85f886a95aad048057927aee774cb8029b83e149b5fed7bb671063862bc129"
+  },
+  "raw_stop_sha256": "bfa8754642743ed16d6ce3f70d61349cea0cf7be6dbb876605457a0101540617",
+  "raw_stop_snapshot": "work/free-recovery33-20261125/stop-before-accepting-33.json",
+  "retained_original_nvidia_positions": [
+    {
+      "lane": "main",
+      "run_dir": "work/vmshare/performance-nvidia75-small-actions-v30-20261125/main/model-extraction-relu-logits-C0-r1",
+      "original_result": {
+        "task": "model-extraction-relu-logits",
+        "wall_seconds": 3189.9961603750708,
+        "scoreable": true,
+        "passed": false,
+        "harbor_result": "model-extraction-relu-logits__YcLtuHX/result.json",
+        "command_supervisor": "descendant_tree_v2"
+      },
+      "billing": {
+        "actual_requests": 14,
+        "verified_nonbilled_service_calls": 14,
+        "actual_monetary_receipt_calls": 0,
+        "unverified_requests": [],
+        "reported_monetary_cost": null,
+        "verification_type": "official_non_billed_free_endpoint_with_per_request_identity_and_usage",
+        "contract_sha256": "9c1f00548724d005fb4cc23b055fc3a6c1a4667dfca89eb9b2bec387b205f1bc"
+      },
+      "original_grader_calls": 1
+    },
+    {
+      "lane": "repeat",
+      "run_dir": "work/vmshare/performance-nvidia75-small-actions-v30-20261125/repeat/model-extraction-relu-logits-C0-r2",
+      "original_result": {
+        "task": "model-extraction-relu-logits",
+        "wall_seconds": 2492.5659958750475,
+        "scoreable": true,
+        "passed": true,
+        "harbor_result": "model-extraction-relu-logits__Q8Q3c8B/result.json",
+        "command_supervisor": "descendant_tree_v2"
+      },
+      "billing": {
+        "actual_requests": 32,
+        "verified_nonbilled_service_calls": 32,
+        "actual_monetary_receipt_calls": 0,
+        "unverified_requests": [],
+        "reported_monetary_cost": null,
+        "verification_type": "official_non_billed_free_endpoint_with_per_request_identity_and_usage",
+        "contract_sha256": "9c1f00548724d005fb4cc23b055fc3a6c1a4667dfca89eb9b2bec387b205f1bc"
+      },
+      "original_grader_calls": 1
+    },
+    {
+      "lane": "dsh",
+      "run_dir": "work/vmshare/performance-nvidia75-small-actions-v30-20261125/dsh/model-extraction-relu-logits-B0-r1",
+      "original_result": {
+        "task": "model-extraction-relu-logits",
+        "wall_seconds": 1453.4520067080157,
+        "scoreable": false,
+        "passed": null,
+        "harbor_result": "model-extraction-relu-logits__R9QtMfE/result.json",
+        "command_supervisor": "descendant_tree_v2"
+      },
+      "billing": {
+        "actual_requests": 7,
+        "verified_nonbilled_service_calls": 7,
+        "actual_monetary_receipt_calls": 0,
+        "unverified_requests": [],
+        "reported_monetary_cost": null,
+        "verification_type": "official_non_billed_free_endpoint_with_per_request_identity_and_usage",
+        "contract_sha256": "9c1f00548724d005fb4cc23b055fc3a6c1a4667dfca89eb9b2bec387b205f1bc"
+      },
+      "original_grader_calls": 0
+    }
+  ],
+  "additional_closed_v31_dsh_position": {
+    "run_dir": "work/vmshare/performance-nvidia75-idle-alignment-v31-20261125/dsh/model-extraction-relu-logits-B0-r1",
+    "original_result": {
+      "task": "model-extraction-relu-logits",
+      "wall_seconds": 2755.0792548339814,
+      "scoreable": true,
+      "passed": true,
+      "harbor_result": "model-extraction-relu-logits__S4EePCM/result.json",
+      "command_supervisor": "descendant_tree_v2"
+    },
+    "billing": {
+      "actual_requests": 16,
+      "verified_nonbilled_service_calls": 16,
+      "actual_monetary_receipt_calls": 0,
+      "unverified_requests": [],
+      "reported_monetary_cost": null,
+      "verification_type": "official_non_billed_free_endpoint_with_per_request_identity_and_usage",
+      "contract_sha256": "9c1f00548724d005fb4cc23b055fc3a6c1a4667dfca89eb9b2bec387b205f1bc"
+    },
+    "generation_ids": [
+      "chatcmpl-7b166158-9b80-4b86-bef3-1b7621b41498",
+      "chatcmpl-2108f971-080b-4fcd-902d-09f0d2432b15",
+      "chatcmpl-6dcb7aeb-f341-453a-a9c7-d691b63f1507",
+      "chatcmpl-442426de-5c51-4e56-a565-d687016c566a",
+      "chatcmpl-1379108b-cf07-434d-8744-fd031c94a0d3",
+      "chatcmpl-1c9ad35f-8375-4aca-911a-e03da1f735b8",
+      "chatcmpl-97c2f592-0ab5-47f6-af83-a77b1e51a6ed",
+      "chatcmpl-5af18b71-85b3-4222-84de-e117080a9adc",
+      "chatcmpl-4fac5a9e-e0f3-4764-95fb-d7838c1db7cf",
+      "chatcmpl-f89230ba-fd4b-41ae-9c40-a0508ad3b50a",
+      "chatcmpl-2d3eae1e-6e66-4ed2-8d19-913af788d9f8",
+      "chatcmpl-b7f58e02-3713-4b3a-b7e5-2bf5a2f756a1",
+      "chatcmpl-05ad7d75-f000-47a1-bd1b-90234763afd1",
+      "chatcmpl-37c24349-4663-4707-bfd8-f4b80311ac87",
+      "chatcmpl-c6465fcb-a580-4a18-9f50-af95d4558a16",
+      "chatcmpl-649048ca-3f9f-4491-894d-97f273fec850"
+    ],
+    "known_original_grader_calls": 1
+  },
+  "additional_closed_v33_positions": [
+    {
+      "lane": "main",
+      "run_dir": "work/vmshare/performance-nvidia75-light-first-v33-20261125/main/llm-inference-batching-scheduler-C0-r1",
+      "original_result": {
+        "task": "llm-inference-batching-scheduler",
+        "wall_seconds": 3620.389915333013,
+        "scoreable": true,
+        "passed": false,
+        "harbor_result": "llm-inference-batching-scheduler__rqiMRcg/result.json",
+        "command_supervisor": "descendant_tree_v2"
+      },
+      "actual_requests": 8,
+      "complete_policy_proofs": 7,
+      "generation_ids": [
+        "chatcmpl-d817194a-13af-43bf-9293-6ac37246dfcf",
+        "chatcmpl-cdc8ca2b-6126-4c91-89c5-85c94cf6dac4",
+        "chatcmpl-f71d6cdd-7d58-4434-ad2f-dbca47881d30",
+        "chatcmpl-5c0c0418-b9db-4eff-90dd-f7531a8db007",
+        "chatcmpl-ab8005e7-0aef-466e-9143-0f74116d05ba",
+        "chatcmpl-5d8f2df4-ffac-4956-b5d4-e879c38acbe0",
+        "chatcmpl-19c959a0-f1f0-4f41-871e-9c5213efd19c"
+      ],
+      "proofs": [
+        {
+          "generation_id": "chatcmpl-d817194a-13af-43bf-9293-6ac37246dfcf",
+          "request_id": 1,
+          "usage": {
+            "prompt_tokens": 2776,
+            "completion_tokens": 69,
+            "total_tokens": 2845,
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-cdc8ca2b-6126-4c91-89c5-85c94cf6dac4",
+          "request_id": 2,
+          "usage": {
+            "prompt_tokens": 3200,
+            "completion_tokens": 53,
+            "total_tokens": 3253,
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 2688
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-f71d6cdd-7d58-4434-ad2f-dbca47881d30",
+          "request_id": 3,
+          "usage": {
+            "prompt_tokens": 6931,
+            "completion_tokens": 60,
+            "total_tokens": 6991,
+            "completion_tokens_details": {
+              "reasoning_tokens": 21
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-5c0c0418-b9db-4eff-90dd-f7531a8db007",
+          "request_id": 4,
+          "usage": {
+            "prompt_tokens": 8249,
+            "completion_tokens": 1133,
+            "total_tokens": 9382,
+            "completion_tokens_details": {
+              "reasoning_tokens": 912
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 6848
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-ab8005e7-0aef-466e-9143-0f74116d05ba",
+          "request_id": 5,
+          "usage": {
+            "prompt_tokens": 10398,
+            "completion_tokens": 4202,
+            "total_tokens": 14600,
+            "completion_tokens_details": {
+              "reasoning_tokens": 3893
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-5d8f2df4-ffac-4956-b5d4-e879c38acbe0",
+          "request_id": 6,
+          "usage": {
+            "prompt_tokens": 15328,
+            "completion_tokens": 748,
+            "total_tokens": 16076,
+            "completion_tokens_details": {
+              "reasoning_tokens": 476
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-19c959a0-f1f0-4f41-871e-9c5213efd19c",
+          "request_id": 7,
+          "usage": {
+            "prompt_tokens": 16410,
+            "completion_tokens": 1838,
+            "total_tokens": 18248,
+            "completion_tokens_details": {
+              "reasoning_tokens": 1417
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "reported_monetary_cost": null
+        }
+      ]
+    },
+    {
+      "lane": "repeat",
+      "run_dir": "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat/llm-inference-batching-scheduler-C0-r2",
+      "original_result": {
+        "task": "llm-inference-batching-scheduler",
+        "wall_seconds": 3140.373037624988,
+        "scoreable": true,
+        "passed": false,
+        "harbor_result": "llm-inference-batching-scheduler__LFEx8P7/result.json",
+        "command_supervisor": "descendant_tree_v2"
+      },
+      "actual_requests": 7,
+      "complete_policy_proofs": 7,
+      "generation_ids": [
+        "chatcmpl-a77abcfe-c74c-49cb-bf0b-352840e4968f",
+        "chatcmpl-9d99d6ab-8cd1-4b4f-aee2-d2752ea31f78",
+        "chatcmpl-abc15a1a-4785-4ae4-bbfe-0e228c4cbaf3",
+        "chatcmpl-49849ef4-fba0-4440-934a-1b5f59613646",
+        "chatcmpl-6b52d90a-f68f-4011-bed2-e07070cfd8c1",
+        "chatcmpl-5ef9513f-edef-4357-8743-9bdc08cf9e76",
+        "chatcmpl-ed1ee614-ad88-48be-be39-753ae2795a63"
+      ],
+      "proofs": [
+        {
+          "generation_id": "chatcmpl-a77abcfe-c74c-49cb-bf0b-352840e4968f",
+          "request_id": 1,
+          "usage": {
+            "prompt_tokens": 2776,
+            "completion_tokens": 138,
+            "total_tokens": 2914,
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-9d99d6ab-8cd1-4b4f-aee2-d2752ea31f78",
+          "request_id": 2,
+          "usage": {
+            "prompt_tokens": 3208,
+            "completion_tokens": 82,
+            "total_tokens": 3290,
+            "completion_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 2688
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-abc15a1a-4785-4ae4-bbfe-0e228c4cbaf3",
+          "request_id": 3,
+          "usage": {
+            "prompt_tokens": 6158,
+            "completion_tokens": 784,
+            "total_tokens": 6942,
+            "completion_tokens_details": {
+              "reasoning_tokens": 542
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 3136
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-49849ef4-fba0-4440-934a-1b5f59613646",
+          "request_id": 4,
+          "usage": {
+            "prompt_tokens": 9041,
+            "completion_tokens": 3849,
+            "total_tokens": 12890,
+            "completion_tokens_details": {
+              "reasoning_tokens": 3445
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 6080
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-6b52d90a-f68f-4011-bed2-e07070cfd8c1",
+          "request_id": 5,
+          "usage": {
+            "prompt_tokens": 13099,
+            "completion_tokens": 1259,
+            "total_tokens": 14358,
+            "completion_tokens_details": {
+              "reasoning_tokens": 926
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-5ef9513f-edef-4357-8743-9bdc08cf9e76",
+          "request_id": 6,
+          "usage": {
+            "prompt_tokens": 14714,
+            "completion_tokens": 9959,
+            "total_tokens": 24673,
+            "completion_tokens_details": {
+              "reasoning_tokens": 9518
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 12992
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-ed1ee614-ad88-48be-be39-753ae2795a63",
+          "request_id": 7,
+          "usage": {
+            "prompt_tokens": 25125,
+            "completion_tokens": 13946,
+            "total_tokens": 39071,
+            "completion_tokens_details": {
+              "reasoning_tokens": 13484
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "reported_monetary_cost": null
+        }
+      ]
+    },
+    {
+      "lane": "dsh",
+      "run_dir": "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1",
+      "original_result": {
+        "task": "llm-inference-batching-scheduler",
+        "wall_seconds": 1806.1739022079855,
+        "scoreable": false,
+        "passed": null,
+        "harbor_result": "llm-inference-batching-scheduler__h258yZU/result.json",
+        "command_supervisor": "descendant_tree_v2"
+      },
+      "actual_requests": 6,
+      "complete_policy_proofs": 6,
+      "generation_ids": [
+        "chatcmpl-d0c20310-ef17-400e-8350-3b47d89302cf",
+        "chatcmpl-359c7ea5-39a6-4325-aaef-de4e4e62fe92",
+        "chatcmpl-faab7d3a-fa28-47b2-9c24-85d098901782",
+        "chatcmpl-4f6a4469-3567-4cf1-8905-82851052e517",
+        "chatcmpl-209f112e-04fe-48fd-a811-814e86304f85",
+        "chatcmpl-35aa1d50-92b8-49e7-baa9-54488ef1358d"
+      ],
+      "proofs": [
+        {
+          "generation_id": "chatcmpl-d0c20310-ef17-400e-8350-3b47d89302cf",
+          "request_id": 1,
+          "usage": {
+            "prompt_tokens": 1851,
+            "completion_tokens": 273,
+            "total_tokens": 2124,
+            "completion_tokens_details": {
+              "reasoning_tokens": 162
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-359c7ea5-39a6-4325-aaef-de4e4e62fe92",
+          "request_id": 2,
+          "usage": {
+            "prompt_tokens": 2522,
+            "completion_tokens": 60,
+            "total_tokens": 2582,
+            "completion_tokens_details": {
+              "reasoning_tokens": 12
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 1728
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-faab7d3a-fa28-47b2-9c24-85d098901782",
+          "request_id": 3,
+          "usage": {
+            "prompt_tokens": 2645,
+            "completion_tokens": 57,
+            "total_tokens": 2702,
+            "completion_tokens_details": {
+              "reasoning_tokens": 11
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 2432
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-4f6a4469-3567-4cf1-8905-82851052e517",
+          "request_id": 4,
+          "usage": {
+            "prompt_tokens": 5077,
+            "completion_tokens": 156,
+            "total_tokens": 5233,
+            "completion_tokens_details": {
+              "reasoning_tokens": 9
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 2560
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-209f112e-04fe-48fd-a811-814e86304f85",
+          "request_id": 5,
+          "usage": {
+            "prompt_tokens": 6774,
+            "completion_tokens": 364,
+            "total_tokens": 7138,
+            "completion_tokens_details": {
+              "reasoning_tokens": 40
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 4992
+            }
+          },
+          "reported_monetary_cost": null
+        },
+        {
+          "generation_id": "chatcmpl-35aa1d50-92b8-49e7-baa9-54488ef1358d",
+          "request_id": 6,
+          "usage": {
+            "prompt_tokens": 7586,
+            "completion_tokens": 9179,
+            "total_tokens": 16765,
+            "completion_tokens_details": {
+              "reasoning_tokens": 8445
+            },
+            "prompt_tokens_details": {
+              "cached_tokens": 6656
+            }
+          },
+          "reported_monetary_cost": null
+        }
+      ]
+    }
+  ],
+  "retained_minimax_qualification_calls": [
+    {
+      "source": "work/minimax-free-qualification-20261125/catalog-probe.json",
+      "generation_id": "chatcmpl-93819b0c-b93e-4ddb-88d3-5836cd66ba1e",
+      "model": "minimaxai/minimax-m3.1-flash",
+      "usage": {
+        "completion_tokens": 3,
+        "prompt_tokens": 183,
+        "total_tokens": 186,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        }
+      },
+      "actual_amount": null,
+      "benchmark_score": null
+    },
+    {
+      "source": "work/vmshare/minimax-vision-function-qualification-20261125/channel-qualification.json",
+      "generation_id": "chatcmpl-6a036e9b-43a8-4778-a07f-823228a020aa",
+      "model": "minimaxai/minimax-m3.1-flash",
+      "usage": {
+        "completion_tokens": 7,
+        "prompt_tokens": 749,
+        "total_tokens": 756,
+        "prompt_tokens_details": {
+          "cached_tokens": 128
+        }
+      },
+      "actual_amount": null,
+      "benchmark_score": null
+    }
+  ],
+  "known_complete_generation_ids": [
+    "chatcmpl-2bb16285-fa2a-4d0a-906b-869a213ffbdd",
+    "chatcmpl-2f4c941d-481d-41a2-8744-3dbf95d237c0",
+    "chatcmpl-6925575b-3dbf-48d3-bdde-8eb2b9319ab2",
+    "chatcmpl-d8cd3709-e0fe-4687-9414-117ac0bfb7d1",
+    "chatcmpl-3b4a7386-35b9-4da1-ba10-87822d4bac5d",
+    "chatcmpl-827fb5d0-5b0b-4216-836a-164974608d91",
+    "chatcmpl-8fc99c07-4de2-4878-bc79-ff60dc666a5b",
+    "chatcmpl-5d8f0d93-c2b7-40e8-8cbc-76361b43059a",
+    "chatcmpl-ef06b489-65d9-4bb2-9a31-fe1e16083085",
+    "chatcmpl-88eacf17-0537-4e2f-92f8-af5caec59728",
+    "chatcmpl-d11c6781-8fa1-4041-ba64-95a2a45a8ff1",
+    "chatcmpl-31d2691e-ab57-435d-a68a-7abd07019ec7",
+    "chatcmpl-ac95777a-e8c2-4031-be14-cf022d40d7e0",
+    "chatcmpl-31d75632-7dad-4b8c-ba65-7dda021548fd",
+    "chatcmpl-a85ee927-6ec6-44cc-9726-9e76ba430680",
+    "chatcmpl-dda4c4c0-2dcf-49c4-891a-949ce70758ae",
+    "chatcmpl-fd5c05ce-b336-4625-a944-7f651bc7eab9",
+    "chatcmpl-30f4feb9-c94c-4a71-842a-463c6a70e3f7",
+    "chatcmpl-3efd4381-9f05-46df-a3d8-0546f018bf18",
+    "chatcmpl-35227558-c7fb-42b5-aede-c5b9b9eca648",
+    "chatcmpl-c63a668d-de5a-40ea-8770-f541ef1ad47a",
+    "chatcmpl-2e9f2108-baab-47e8-830c-fc08071a4948",
+    "chatcmpl-468bbb4d-4bf1-4248-a627-a0d4a0ff02ec",
+    "chatcmpl-cb62dcab-f4bd-4d06-910e-e41af7d6ff29",
+    "chatcmpl-61e454cf-06f1-4b46-bb50-e346d5083663",
+    "chatcmpl-ce807de4-65c1-4031-96b2-29a8f530dbe8",
+    "chatcmpl-878f722f-5e4b-4d41-b66d-e44d6e4314c3",
+    "chatcmpl-1deb1339-c97c-48e1-ac72-2b4785b3404e",
+    "chatcmpl-81ebd884-c3d8-421e-836d-40f78bd1a0f9",
+    "chatcmpl-1a15c350-f13f-4f9a-be3e-b053770793e5",
+    "chatcmpl-b919923a-cb3d-4ec8-b51e-b77a191c7039",
+    "chatcmpl-84461757-2c3d-4fcb-bc66-d804b5230fa7",
+    "chatcmpl-34673286-253b-4836-8025-556a1b45270b",
+    "chatcmpl-5c4b1179-2763-46f0-a431-a9a1ea0ec7c7",
+    "chatcmpl-36d9605d-fe1a-4c9d-b828-8bbddf43b5e7",
+    "chatcmpl-3dcd03d0-d2f2-4cf4-8558-3795d98666d2",
+    "chatcmpl-90dc3b35-be7c-4313-93af-882049dcab05",
+    "chatcmpl-83d5d164-5921-482a-9321-640b691f3ca5",
+    "chatcmpl-6fbc6642-59c0-465e-b3fb-1a99717168f5",
+    "chatcmpl-41223082-37c0-448d-ab0b-269cab94153c",
+    "chatcmpl-1a4b214e-6222-4421-8f0f-cf6f7715ba15",
+    "chatcmpl-ae765c7b-b9d3-4212-98a0-2e7988e27c1f",
+    "chatcmpl-f6ff1d11-e42d-47ce-993e-b3865d8b7356",
+    "chatcmpl-4011b01a-51b3-4dd7-a74d-95ec684d424c",
+    "chatcmpl-4d3daaee-d010-4797-85a6-47ff17bad08f",
+    "chatcmpl-2636ab58-c061-4871-8946-56f2f2647c6f",
+    "chatcmpl-c5df93b8-e4a7-4ca7-9c88-efe4b5dda7fb",
+    "chatcmpl-c949e5f7-bfb1-4809-8429-ded08b91ea22",
+    "chatcmpl-38d69d19-72b3-4d76-b36d-36c1b2464d3c",
+    "chatcmpl-670a53cd-8750-4b36-9e6e-9bffa53dff53",
+    "chatcmpl-0caa9aa1-8141-4760-a14a-1a0da68be059",
+    "chatcmpl-8f607222-1284-4300-8916-bd2d43c4349e",
+    "chatcmpl-a7f00e3d-7839-4a0c-bb2b-08c92f3e9c41",
+    "chatcmpl-7b166158-9b80-4b86-bef3-1b7621b41498",
+    "chatcmpl-2108f971-080b-4fcd-902d-09f0d2432b15",
+    "chatcmpl-6dcb7aeb-f341-453a-a9c7-d691b63f1507",
+    "chatcmpl-442426de-5c51-4e56-a565-d687016c566a",
+    "chatcmpl-1379108b-cf07-434d-8744-fd031c94a0d3",
+    "chatcmpl-1c9ad35f-8375-4aca-911a-e03da1f735b8",
+    "chatcmpl-97c2f592-0ab5-47f6-af83-a77b1e51a6ed",
+    "chatcmpl-5af18b71-85b3-4222-84de-e117080a9adc",
+    "chatcmpl-4fac5a9e-e0f3-4764-95fb-d7838c1db7cf",
+    "chatcmpl-f89230ba-fd4b-41ae-9c40-a0508ad3b50a",
+    "chatcmpl-2d3eae1e-6e66-4ed2-8d19-913af788d9f8",
+    "chatcmpl-b7f58e02-3713-4b3a-b7e5-2bf5a2f756a1",
+    "chatcmpl-05ad7d75-f000-47a1-bd1b-90234763afd1",
+    "chatcmpl-37c24349-4663-4707-bfd8-f4b80311ac87",
+    "chatcmpl-c6465fcb-a580-4a18-9f50-af95d4558a16",
+    "chatcmpl-649048ca-3f9f-4491-894d-97f273fec850",
+    "chatcmpl-4a83dd90-1a01-4c1f-bf85-a9f70407658b",
+    "chatcmpl-6b85c9ac-faba-4add-bf9f-287be4ebc44b",
+    "chatcmpl-4b9add51-a69a-42e1-ab2f-f6655f629bbe",
+    "chatcmpl-c014cf74-1237-4c21-8d6b-58b43179c63c",
+    "chatcmpl-7f959e71-9063-48bc-a6f5-b4b9b25965b8",
+    "chatcmpl-3bb20e6f-ef4d-40a4-9951-4864363ad423",
+    "chatcmpl-27277fd5-6283-4a7d-9ad1-f220d125f062",
+    "chatcmpl-a574303f-5eac-4bf9-bfad-335ce93ac7d5",
+    "chatcmpl-613e1a08-7b1e-429e-ab61-d4a7a7c2d3b3",
+    "chatcmpl-5cabcbe8-e085-426d-89d8-877068b1d7e1",
+    "chatcmpl-70f71a2f-6d92-41f2-ae79-e0ab7adfc7a1",
+    "chatcmpl-f3273c45-8669-4cf0-8167-3d3b4e6c3f1f",
+    "chatcmpl-d77326c3-4684-4b33-8a8c-6951fa31bcb7",
+    "chatcmpl-bb12492b-9108-4048-b666-835787dca903",
+    "chatcmpl-e1e65b17-e08c-4f9c-87c9-939dfd63b5b2",
+    "chatcmpl-b18cf067-6950-45ec-94c3-586af68a8d6f",
+    "chatcmpl-fa216c20-4a94-4708-92c4-ff723c47c4d8",
+    "chatcmpl-aaa4cb70-89a4-444a-8382-743e7e734f8b",
+    "chatcmpl-9f6295c9-3a03-4d70-888f-2ee2af216e80",
+    "chatcmpl-f917b538-e65c-4550-8c3a-ffccd0ce4635",
+    "chatcmpl-b8031523-2643-45ad-bd97-81380b4ad0ae",
+    "chatcmpl-1c431d77-f493-4c3c-8f51-83d2a20e62ec",
+    "chatcmpl-2d1a577f-8aa4-40a2-9e4d-ae2c038ebd8d",
+    "chatcmpl-0a85364c-20c6-4109-8eaf-a2ed5fffadd6",
+    "chatcmpl-be628cf6-879c-45a0-b7b4-17d93d169a49",
+    "chatcmpl-29ef1d14-079e-473c-a38a-dd8b9b9f78e7",
+    "chatcmpl-d817194a-13af-43bf-9293-6ac37246dfcf",
+    "chatcmpl-cdc8ca2b-6126-4c91-89c5-85c94cf6dac4",
+    "chatcmpl-f71d6cdd-7d58-4434-ad2f-dbca47881d30",
+    "chatcmpl-5c0c0418-b9db-4eff-90dd-f7531a8db007",
+    "chatcmpl-ab8005e7-0aef-466e-9143-0f74116d05ba",
+    "chatcmpl-5d8f2df4-ffac-4956-b5d4-e879c38acbe0",
+    "chatcmpl-19c959a0-f1f0-4f41-871e-9c5213efd19c",
+    "chatcmpl-a77abcfe-c74c-49cb-bf0b-352840e4968f",
+    "chatcmpl-9d99d6ab-8cd1-4b4f-aee2-d2752ea31f78",
+    "chatcmpl-abc15a1a-4785-4ae4-bbfe-0e228c4cbaf3",
+    "chatcmpl-49849ef4-fba0-4440-934a-1b5f59613646",
+    "chatcmpl-6b52d90a-f68f-4011-bed2-e07070cfd8c1",
+    "chatcmpl-5ef9513f-edef-4357-8743-9bdc08cf9e76",
+    "chatcmpl-ed1ee614-ad88-48be-be39-753ae2795a63",
+    "chatcmpl-d0c20310-ef17-400e-8350-3b47d89302cf",
+    "chatcmpl-359c7ea5-39a6-4325-aaef-de4e4e62fe92",
+    "chatcmpl-faab7d3a-fa28-47b2-9c24-85d098901782",
+    "chatcmpl-4f6a4469-3567-4cf1-8905-82851052e517",
+    "chatcmpl-209f112e-04fe-48fd-a811-814e86304f85",
+    "chatcmpl-35aa1d50-92b8-49e7-baa9-54488ef1358d"
+  ],
+  "known_complete_generation_count": 115,
+  "new_closed_prefix_proofs": [
+    {
+      "generation_id": "chatcmpl-d817194a-13af-43bf-9293-6ac37246dfcf",
+      "request_id": 1,
+      "usage": {
+        "prompt_tokens": 2776,
+        "completion_tokens": 69,
+        "total_tokens": 2845,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "reported_monetary_cost": null
+    },
+    {
+      "generation_id": "chatcmpl-cdc8ca2b-6126-4c91-89c5-85c94cf6dac4",
+      "request_id": 2,
+      "usage": {
+        "prompt_tokens": 3200,
+        "completion_tokens": 53,
+        "total_tokens": 3253,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 2688
+        }
+      },
+      "reported_monetary_cost": null
+    },
+    {
+      "generation_id": "chatcmpl-f71d6cdd-7d58-4434-ad2f-dbca47881d30",
+      "request_id": 3,
+      "usage": {
+        "prompt_tokens": 6931,
+        "completion_tokens": 60,
+        "total_tokens": 6991,
+        "completion_tokens_details": {
+          "reasoning_tokens": 21
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "reported_monetary_cost": null
+    },
+    {
+      "generation_id": "chatcmpl-5c0c0418-b9db-4eff-90dd-f7531a8db007",
+      "request_id": 4,
+      "usage": {
+        "prompt_tokens": 8249,
+        "completion_tokens": 1133,
+        "total_tokens": 9382,
+        "completion_tokens_details": {
+          "reasoning_tokens": 912
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 6848
+        }
+      },
+      "reported_monetary_cost": null
+    },
+    {
+      "generation_id": "chatcmpl-ab8005e7-0aef-466e-9143-0f74116d05ba",
+      "request_id": 5,
+      "usage": {
+        "prompt_tokens": 10398,
+        "completion_tokens": 4202,
+        "total_tokens": 14600,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3893
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "reported_monetary_cost": null
+    },
+    {
+      "generation_id": "chatcmpl-5d8f2df4-ffac-4956-b5d4-e879c38acbe0",
+      "request_id": 6,
+      "usage": {
+        "prompt_tokens": 15328,
+        "completion_tokens": 748,
+        "total_tokens": 16076,
+        "completion_tokens_details": {
+          "reasoning_tokens": 476
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "reported_monetary_cost": null
+    },
+    {
+      "generation_id": "chatcmpl-19c959a0-f1f0-4f41-871e-9c5213efd19c",
+      "request_id": 7,
+      "usage": {
+        "prompt_tokens": 16410,
+        "completion_tokens": 1838,
+        "total_tokens": 18248,
+        "completion_tokens_details": {
+          "reasoning_tokens": 1417
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "reported_monetary_cost": null
+    },
+    {
+      "generation_id": "chatcmpl-a77abcfe-c74c-49cb-bf0b-352840e4968f",
+      "request_id": 1,
+      "usage": {
+        "prompt_tokens": 2776,
+        "completion_tokens": 138,
+        "total_tokens": 2914,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "reported_monetary_cost": null
+    },
+    {
+      "generation_id": "chatcmpl-9d99d6ab-8cd1-4b4f-aee2-d2752ea31f78",
+      "request_id": 2,
+      "usage": {
+        "prompt_tokens": 3208,
+        "completion_tokens": 82,
+        "total_tokens": 3290,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 2688
+        }
+      },
+      "reported_monetary_cost": null
+    },
+    {
+      "generation_id": "chatcmpl-abc15a1a-4785-4ae4-bbfe-0e228c4cbaf3",
+      "request_id": 3,
+      "usage": {
+        "prompt_tokens": 6158,
+        "completion_tokens": 784,
+        "total_tokens": 6942,
+        "completion_tokens_details": {
+          "reasoning_tokens": 542
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 3136
+        }
+      },
+      "reported_monetary_cost": null
+    },
+    {
+      "generation_id": "chatcmpl-49849ef4-fba0-4440-934a-1b5f59613646",
+      "request_id": 4,
+      "usage": {
+        "prompt_tokens": 9041,
+        "completion_tokens": 3849,
+        "total_tokens": 12890,
+        "completion_tokens_details": {
+          "reasoning_tokens": 3445
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 6080
+        }
+      },
+      "reported_monetary_cost": null
+    },
+    {
+      "generation_id": "chatcmpl-6b52d90a-f68f-4011-bed2-e07070cfd8c1",
+      "request_id": 5,
+      "usage": {
+        "prompt_tokens": 13099,
+        "completion_tokens": 1259,
+        "total_tokens": 14358,
+        "completion_tokens_details": {
+          "reasoning_tokens": 926
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "reported_monetary_cost": null
+    },
+    {
+      "generation_id": "chatcmpl-5ef9513f-edef-4357-8743-9bdc08cf9e76",
+      "request_id": 6,
+      "usage": {
+        "prompt_tokens": 14714,
+        "completion_tokens": 9959,
+        "total_tokens": 24673,
+        "completion_tokens_details": {
+          "reasoning_tokens": 9518
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 12992
+        }
+      },
+      "reported_monetary_cost": null
+    },
+    {
+      "generation_id": "chatcmpl-ed1ee614-ad88-48be-be39-753ae2795a63",
+      "request_id": 7,
+      "usage": {
+        "prompt_tokens": 25125,
+        "completion_tokens": 13946,
+        "total_tokens": 39071,
+        "completion_tokens_details": {
+          "reasoning_tokens": 13484
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "reported_monetary_cost": null
+    },
+    {
+      "generation_id": "chatcmpl-d0c20310-ef17-400e-8350-3b47d89302cf",
+      "request_id": 1,
+      "usage": {
+        "prompt_tokens": 1851,
+        "completion_tokens": 273,
+        "total_tokens": 2124,
+        "completion_tokens_details": {
+          "reasoning_tokens": 162
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "reported_monetary_cost": null
+    },
+    {
+      "generation_id": "chatcmpl-359c7ea5-39a6-4325-aaef-de4e4e62fe92",
+      "request_id": 2,
+      "usage": {
+        "prompt_tokens": 2522,
+        "completion_tokens": 60,
+        "total_tokens": 2582,
+        "completion_tokens_details": {
+          "reasoning_tokens": 12
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 1728
+        }
+      },
+      "reported_monetary_cost": null
+    },
+    {
+      "generation_id": "chatcmpl-faab7d3a-fa28-47b2-9c24-85d098901782",
+      "request_id": 3,
+      "usage": {
+        "prompt_tokens": 2645,
+        "completion_tokens": 57,
+        "total_tokens": 2702,
+        "completion_tokens_details": {
+          "reasoning_tokens": 11
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 2432
+        }
+      },
+      "reported_monetary_cost": null
+    },
+    {
+      "generation_id": "chatcmpl-4f6a4469-3567-4cf1-8905-82851052e517",
+      "request_id": 4,
+      "usage": {
+        "prompt_tokens": 5077,
+        "completion_tokens": 156,
+        "total_tokens": 5233,
+        "completion_tokens_details": {
+          "reasoning_tokens": 9
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 2560
+        }
+      },
+      "reported_monetary_cost": null
+    },
+    {
+      "generation_id": "chatcmpl-209f112e-04fe-48fd-a811-814e86304f85",
+      "request_id": 5,
+      "usage": {
+        "prompt_tokens": 6774,
+        "completion_tokens": 364,
+        "total_tokens": 7138,
+        "completion_tokens_details": {
+          "reasoning_tokens": 40
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 4992
+        }
+      },
+      "reported_monetary_cost": null
+    },
+    {
+      "generation_id": "chatcmpl-35aa1d50-92b8-49e7-baa9-54488ef1358d",
+      "request_id": 6,
+      "usage": {
+        "prompt_tokens": 7586,
+        "completion_tokens": 9179,
+        "total_tokens": 16765,
+        "completion_tokens_details": {
+          "reasoning_tokens": 8445
+        },
+        "prompt_tokens_details": {
+          "cached_tokens": 6656
+        }
+      },
+      "reported_monetary_cost": null
+    }
+  ],
+  "current_registry_claims": 309,
+  "known_complete_proof_scope": "Selected prior95 plus main7/repeat7/DSH6 Step5 complete proofs. Two actual MiniMax qualifications are separately retained,not benchmark scores or dollar-zero receipts.",
+  "new_model_calls_during_acceptance": 0,
+  "new_original_grader_calls": 0,
+  "scope": "Preparation only. Preserve main/repeat original false and DSH null; no future event accepted,no quota fabricated,no STOP released or model resampled."
+}

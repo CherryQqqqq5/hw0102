@@ -1,0 +1,3 @@
+{"event": "candidate_operation", "time": 1795617668.2928672, "operation": "initial", "seconds": 1.4429714999860153, "returncode": 0}
+{"event": "candidate_operation", "time": 1795617686.9706419, "operation": "capture", "seconds": 1.0994452920276672, "returncode": 0}
+{"event": "final_artifact", "time": 1795617686.971471, "step": 2, "remaining_seconds": 3579.8754288339987, "reason": "agent_exit", "artifact_digest": "90f3b2230193ed87c6e3f81033a4c70d4b430332f67cf46a53e18d5a549f268a", "protected_unchanged": true, "restored_candidate": null, "valid_verification": false, "evidence": {"public-artifact": {"state": "pending", "returncode": null, "snapshot": null}}, "elapsed_seconds": 20.124545832979493}

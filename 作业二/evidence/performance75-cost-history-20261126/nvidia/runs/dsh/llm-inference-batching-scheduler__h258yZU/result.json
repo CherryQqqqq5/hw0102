@@ -1,0 +1,124 @@
+{
+    "id": "d7901921-ead9-4904-92c1-63594b8d69d8",
+    "task_name": "terminal-bench/llm-inference-batching-scheduler",
+    "trial_name": "llm-inference-batching-scheduler__h258yZU",
+    "trial_uri": "file://[project]/work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__h258yZU",
+    "task_id": {
+        "path": "[project]/work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler"
+    },
+    "source": null,
+    "task_checksum": "40eccf0dca963fd6900ebf6a63be003bbf9db7d36abe68bd5b88f123f4fcf115",
+    "config": {
+        "task": {
+            "path": "[project]/work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler",
+            "git_url": null,
+            "git_commit_id": null,
+            "name": null,
+            "ref": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "llm-inference-batching-scheduler__h258yZU",
+        "trials_dir": "[project]/work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "course_eval.harbor_agent:CourseMiniSweAgent",
+            "import_path": null,
+            "model_name": null,
+            "base_url": null,
+            "model_api_key_name": null,
+            "model_api_format": null,
+            "skip_model_parsing": false,
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": 3630.0,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "stream": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [
+                "[project]/work/frozen-performance-free-v31/course_eval/terminal-no-network.yaml",
+                "[project]/work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh/llm-inference-batching-scheduler-B0-r1/dsh-runtime-compose.json"
+            ],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [
+            "/app/task_file/output_data/plan_b1.jsonl",
+            "/app/task_file/output_data/plan_b2.jsonl"
+        ],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": null,
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "course-mini-swe-agent",
+        "version": "dsh-sdk-0.2.2rc2",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "model_usage": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": null,
+    "verifier_environment_mode": "shared",
+    "exception_info": {
+        "exception_type": "RuntimeError",
+        "exception_message": "No new actual model request: the shared financial stop is active",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"[project]/work/.venv/lib/python3.13/site-packages/harbor/trial/trial.py\", line 609, in run\n    await self._run()\n  File \"[project]/work/.venv/lib/python3.13/site-packages/harbor/trial/single_step.py\", line 40, in _run\n    await self._run_agent()\n  File \"[project]/work/.venv/lib/python3.13/site-packages/harbor/trial/single_step.py\", line 76, in _run_agent\n    await self._run_agent_phase(\n    ...<5 lines>...\n    )\n  File \"[project]/work/.venv/lib/python3.13/site-packages/harbor/trial/trial.py\", line 769, in _run_agent_phase\n    await asyncio.wait_for(\n    ...<6 lines>...\n    )\n  File \"[本机路径]\", line 507, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"[project]/work/frozen-performance-free-v31/course_eval/harbor_agent.py\", line 106, in run\n    await asyncio.to_thread(run_baseline, instruction, target, self.logs_dir, limits,\n                            configuration=configuration, checks=checks,\n                            scope=scope)\n  File \"[本机路径]\", line 25, in to_thread\n    return await loop.run_in_executor(None, func_call)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"[本机路径]\", line 59, in run\n    result = self.fn(*self.args, **self.kwargs)\n  File \"[project]/work/frozen-performance-free-v31/course_eval/agent.py\", line 617, in run_baseline\n    return run_course_dsh(task + reusable_helper_instructions(scope), target, directory, limits)\n  File \"[project]/work/frozen-performance-free-v31/course_eval/dsh_runner.py\", line 36, in run_course_dsh\n    result = run_sandbox(target, directory / \"dsh\", task, provider,\n                         timeout=limits.wall_seconds, max_output_tokens=limits.max_output_tokens)\n  File \"[project]/work/frozen-performance-free-v31/course_eval/dsh_runner.py\", line 112, in run_sandbox\n    response = reply(event[\"payload\"], requests)\n  File \"[project]/work/frozen-performance-free-v31/course_eval/financial_stop.py\", line 97, in guarded\n    raise RuntimeError(\"No new actual model request: the shared financial stop is active\")\nRuntimeError: No new actual model request: the shared financial stop is active\n",
+        "occurred_at": "2026-11-25T14:19:42.978104Z"
+    },
+    "started_at": "2026-11-25T13:49:48.903683Z",
+    "finished_at": "2026-11-25T14:19:54.113038Z",
+    "environment_setup": {
+        "started_at": "2026-11-25T13:49:48.972566Z",
+        "finished_at": "2026-11-25T13:49:50.053874Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-11-25T13:49:50.053992Z",
+        "finished_at": "2026-11-25T13:49:50.201495Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-11-25T13:49:50.201659Z",
+        "finished_at": "2026-11-25T14:19:42.901697Z"
+    },
+    "verifier": null,
+    "step_results": null
+}

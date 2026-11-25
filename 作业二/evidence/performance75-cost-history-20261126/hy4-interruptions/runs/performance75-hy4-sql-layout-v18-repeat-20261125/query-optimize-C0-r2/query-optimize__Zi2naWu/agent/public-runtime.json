@@ -1,0 +1,20 @@
+{
+  "source": "python-3.13.12-linux-x86_64.tar.gz",
+  "python": "Python 3.13.12",
+  "seconds": 1.9856807090109214,
+  "all_configurations": true,
+  "reusable_helper": {
+    "name": "sql_layout",
+    "files": [
+      {
+        "path": "/opt/course-tools/sql_layout.py",
+        "sha256": "0cd2cb65379e7645ebb14f00b056c7d75b47dc500c4be38b62764f320c179dc8"
+      },
+      {
+        "path": "/opt/course-tools/sqlparse.whl",
+        "sha256": "3be5a72d04c873d690d7c6dedd33d6fae2ef82759881ceec02fc2efd0cba564f"
+      }
+    ],
+    "all_configurations": true
+  }
+}

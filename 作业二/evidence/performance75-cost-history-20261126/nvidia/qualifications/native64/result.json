@@ -1,0 +1,42 @@
+{
+  "verified": true,
+  "purpose": "One real native tool proposal with requested output cap64000; no shell execution or benchmark score",
+  "fixture": "The expected printf command is an explicit technical fixture, not a prior model answer",
+  "model": "minimaxai/minimax-m3.1-flash",
+  "limits": {
+    "model_calls": 1,
+    "wall_seconds": 1200,
+    "command_seconds": 30,
+    "max_output_tokens": 64000,
+    "timeout_retries": 0,
+    "strict_wall": true
+  },
+  "actual_request_limit": 1,
+  "new_original_grader_calls": 0,
+  "tool_executions": 0,
+  "runtime_sha256": "9752aabfbb5009238db516fbe29eb511e38ec4a5f60474d680df23ef1593b48b",
+  "actual": {
+    "command": "printf MINIMAX_NATIVE_OK"
+  },
+  "billing": {
+    "actual_requests": 1,
+    "verified_nonbilled_service_calls": 1,
+    "actual_monetary_receipt_calls": 0,
+    "unverified_requests": [],
+    "reported_monetary_cost": null,
+    "verification_type": "official_non_billed_free_endpoint_with_per_request_identity_and_usage",
+    "contract_sha256": "093ba6a6239f189258bde0ec7de88de64877291d4a30e009fa2151fe34ba6022"
+  },
+  "generation_id": "chatcmpl-b6662ee8-b28a-4248-8975-08da11a92c00",
+  "usage": {
+    "completion_tokens": 12,
+    "prompt_tokens": 602,
+    "total_tokens": 614,
+    "prompt_tokens_details": {
+      "cached_tokens": 128
+    }
+  },
+  "elapsed_seconds": 2.028807791066356,
+  "requested_64000_parameter_accepted": true,
+  "scope": "The service accepted the requested cap and returned one complete native action; this is not evidence that64000tokens were actually generated"
+}

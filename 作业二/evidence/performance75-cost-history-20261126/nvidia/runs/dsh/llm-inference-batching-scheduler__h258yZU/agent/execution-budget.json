@@ -1,0 +1,7 @@
+{
+  "limit_seconds": 3600,
+  "elapsed_seconds": 1792.403645665967,
+  "actual_cli_generations": 6,
+  "framework": "dsh",
+  "strict": true
+}

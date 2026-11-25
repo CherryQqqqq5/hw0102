@@ -1,0 +1,35 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "python/grep",
+    "stratum": "python",
+    "group": "grep",
+    "solution_files": [
+      "grep.py"
+    ],
+    "test_files": [
+      "grep_test.py"
+    ],
+    "exclude": null,
+    "split": "C",
+    "image_id": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+    "image_digests": [
+      "nju-course-aider@sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555"
+    ]
+  },
+  "phase": "formal",
+  "configuration": "C0",
+  "status": "started",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "framework": "mini-swe",
+  "protocol_commit": null,
+  "limits": {
+    "model_calls": 500,
+    "wall_seconds": 3600,
+    "command_seconds": 120,
+    "max_output_tokens": 64000,
+    "timeout_retries": 0,
+    "strict_wall": true
+  }
+}

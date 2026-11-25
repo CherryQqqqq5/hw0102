@@ -1,0 +1,8 @@
+{
+  "task": "python/grep",
+  "wall_seconds": 17.61319049994927,
+  "scoreable": false,
+  "passed": null,
+  "error_type": "RuntimeError",
+  "error": "CodeBuddy returned a non-JSON response"
+}
