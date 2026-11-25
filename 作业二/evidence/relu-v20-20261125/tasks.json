@@ -1,0 +1,37 @@
+{
+  "stage": "frozen",
+  "revisions": {
+    "swe": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+    "terminal": "7131e4375048a0e408a8fb404b5f499d726b695b",
+    "aider": "7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"
+  },
+  "selected": [
+    {
+      "benchmark": "terminal",
+      "id": "model-extraction-relu-logits",
+      "stratum": "mathematics",
+      "group": "model-extraction-relu-logits",
+      "difficulty": "hard",
+      "image": "alexgshaw/model-extraction-relu-logits:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 900.0,
+      "exclude": null,
+      "split": "H",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/steal.py",
+          "/app/stolen_A1.npy"
+        ],
+        "protected": [
+          "/app/forward.py",
+          "/opt/course-tools/relu_recovery.py",
+          "/opt/course-tools/relu_export.py"
+        ],
+        "python": "python3",
+        "reusable_helper": "relu_directions"
+      }
+    }
+  ]
+}

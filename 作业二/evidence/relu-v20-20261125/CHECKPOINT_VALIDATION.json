@@ -1,0 +1,34 @@
+{
+  "runtime_resources": 75,
+  "runtime_manifest_sha256": "7df2e0c86575a27758952ef4a67afb3544de51914be495c6575131cf78a2fa26",
+  "evidence_zip": null,
+  "zip_sha256": "3facbe0d100fbfbaecca9381cb1eca09f0f1b673e0d3b933ccb39bbcc69c2fc0",
+  "zip_bytes": 109623007,
+  "zip_members": 2723,
+  "all_member_bytes_equal": true,
+  "source_index_sha256": "e30a84ffcd378d3ed7167b5bed24211fd3fa2b1c60707388c528476dda76485b",
+  "scored_positions": 164,
+  "raw_passed": 152,
+  "own_zero_credit_requests": 2833,
+  "new_model_calls": 0,
+  "new_original_grader_calls": 0,
+  "final_submission": false,
+  "scope": "Exact checked partial source/evidence checkpoint;historical unscored/unknown ledger and finalPDF/package remain separate",
+  "evidence_archives": [
+    {
+      "file": "performance75-current-20261125-part1.zip",
+      "sha256": "73b79318c9fda37b0d394740a84f84345df07bc59a6f8c22f6af038afc13e43f",
+      "bytes": 72838561,
+      "members": 1
+    },
+    {
+      "file": "performance75-current-20261125-part2.zip",
+      "sha256": "0985fe71a17599a2039db0bb71de17e296889dca4c6f7e2ff4565947f492e424",
+      "bytes": 36784404,
+      "members": 2722
+    }
+  ],
+  "parts_extract_to_same_directory": true,
+  "all_part_member_bytes_equal_to_original_checked_export": true,
+  "oversized_rebuildable_intermediate_removed": true
+}

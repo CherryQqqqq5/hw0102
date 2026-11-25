@@ -1,0 +1,48 @@
+{
+  "files": {
+    "plan.json": {
+      "source": "work/hy4-submit-boundary-20261125/frozen-pair-r2/plan.json",
+      "source_sha256": "b7bdc4f787e4526fa19c68271f7e4bc80c15d706908e7d3d293bbb375fe8e703",
+      "export_sha256": "b7bdc4f787e4526fa19c68271f7e4bc80c15d706908e7d3d293bbb375fe8e703",
+      "transformation": "existing exporter.scrub"
+    },
+    "tasks.json": {
+      "source": "work/hy4-submit-boundary-20261125/frozen-pair-r2/tasks.json",
+      "source_sha256": "683597a03e04671b9c5ecc194be088f582df5ad603c0352cc5134b5166f8e238",
+      "export_sha256": "683597a03e04671b9c5ecc194be088f582df5ad603c0352cc5134b5166f8e238",
+      "transformation": "existing exporter.scrub"
+    },
+    "checks.json": {
+      "source": "work/hy4-submit-boundary-20261125/frozen-pair-r2/checks.json",
+      "source_sha256": "8f1b3a87b197a93c3f4441095495dc3a835bb8f29712336949767a92e308dff4",
+      "export_sha256": "8f1b3a87b197a93c3f4441095495dc3a835bb8f29712336949767a92e308dff4",
+      "transformation": "existing exporter.scrub"
+    },
+    "execution-review.json": {
+      "source": "work/hy4-submit-boundary-20261125/frozen-pair-r2/execution-review.json",
+      "source_sha256": "6e13978e78a1fd04aae5da6c1054be0ffaa0532015431148a5a03d8118694a33",
+      "export_sha256": "6e13978e78a1fd04aae5da6c1054be0ffaa0532015431148a5a03d8118694a33",
+      "transformation": "existing exporter.scrub"
+    },
+    "completed-review.json": {
+      "source": "work/hy4-submit-boundary-20261125/completed-review.json",
+      "source_sha256": "c6e2ae15e5d1c77bd3a80864f80f6792da6689c40a813662099f4f1fa886e5ac",
+      "export_sha256": "2d883c832291dec8950ff8f5002be03f1ce6aed874e4bc9cff04c1a8840b34a2",
+      "transformation": "existing exporter.scrub"
+    },
+    "linux-integration-r3.json": {
+      "source": "work/hy4-submit-boundary-20261125/linux-integration-r3/result.json",
+      "source_sha256": "ff05966c96a3f1edc481426c649f3685d6cadc4908253fa411dc1f091d320db0",
+      "export_sha256": "ff05966c96a3f1edc481426c649f3685d6cadc4908253fa411dc1f091d320db0",
+      "transformation": "existing exporter.scrub"
+    },
+    "qualification.json": {
+      "source": "work/hy4-submit-boundary-20261125/qualification.json",
+      "source_sha256": "923c407972cdf0299a72cdd1282d31bcf656c404bc66e4fbe753350e1ea5b019",
+      "export_sha256": "923c407972cdf0299a72cdd1282d31bcf656c404bc66e4fbe753350e1ea5b019",
+      "transformation": "existing exporter.scrub"
+    }
+  },
+  "new_model_calls": 0,
+  "scope": "Source and filtered evidence provenance only;not new financial acceptance or executable admission"
+}

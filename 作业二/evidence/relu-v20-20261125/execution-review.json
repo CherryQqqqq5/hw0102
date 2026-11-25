@@ -1,0 +1,114 @@
+{
+  "status": "APPROVE",
+  "blocking_findings": [],
+  "plan_sha256": "b7bdc4f787e4526fa19c68271f7e4bc80c15d706908e7d3d293bbb375fe8e703",
+  "scope": "Independent source/actual saved qualification admission for exactly the two prospective ReLU sessions. This reviewer authored the earlier isolated v20 implementation; parent independently reviewed that implementation and ran the original-pin qualification. The reviewed r2 freezer/capture integration is parent-authored. No actual new model result or end-to-end pipeline success is claimed.",
+  "prospective_trials": [
+    "query-boundary-main-r1",
+    "query-boundary-repeat-r2"
+  ],
+  "source_sha256": {
+    "work/hy4-submit-boundary-20261125/frozen-pair/plan.json": "78c388ad133ab209154a9758bb7c742a8651d3562f2b3f7d9c20a4e01618396c",
+    "work/hy4-submit-boundary-20261125/frozen-pair-r2/plan.json": "b7bdc4f787e4526fa19c68271f7e4bc80c15d706908e7d3d293bbb375fe8e703",
+    "work/hy4-submit-boundary-20261125/frozen-pair-r2/capture-admission-qualification.json": "182fefc7bbdb2ff4a6d92682b23dbb9fbdbaa1ddd285f2979af872f66f65e76e",
+    "work/hy4-submit-boundary-20261125/prepare_pair_r2.py": "14ad4f9c588dd3e1732b0af8fe042f5db3fa691e27bdd5edecb60c97621e12ce",
+    "work/hy4-submit-boundary-20261125/linux-integration-r3/result.json": "ff05966c96a3f1edc481426c649f3685d6cadc4908253fa411dc1f091d320db0",
+    "work/hy4-submit-boundary-20261125/linux-integration-r3/controller/controller.jsonl": "65657da8850449af70ab2177113c9549f4f61952fca2c44373cdca8f9ad88150",
+    "work/hy4-submit-boundary-20261125/linux-integration-r3/controller/final-verification.json": "5a472349d55a7e89a050743617abc2c6df06f83acfe8536b6108e471dc6a024e",
+    "work/hy4-submit-boundary-20261125/linux-integration-r3/controller/candidates/candidate-001.json": "d09e4b02dfe7fef5bdf674ac93ffd15566e3f068df54eaa83920b2fe669b6b48",
+    "work/hy4-submit-boundary-20261125/linux-integration-r3/steal.py": "793673c577b6859988eaf88d456b1f93922cc523568b2e0ba71fc7a226933e0e",
+    "work/hy4-submit-boundary-20261125/linux-integration-r3/stolen_A1.npy": "a024519f815ec21798993d743bd271616139aff2637bb5fe1b1ccb6346e30459",
+    "work/hy4-submit-boundary-20261125/qualification.json": "923c407972cdf0299a72cdd1282d31bcf656c404bc66e4fbe753350e1ea5b019",
+    "work/hy4-submit-boundary-20261125/runtime.patch": "ed2a564f4d1b2ab05ab85954c384dd0ff364398aaad69cfa11976887bcb5aa2e",
+    "work/hy4-submit-boundary-20261125/frozen-pair-r2/tasks.json": "683597a03e04671b9c5ecc194be088f582df5ad603c0352cc5134b5166f8e238",
+    "work/hy4-submit-boundary-20261125/frozen-pair-r2/checks.json": "8f1b3a87b197a93c3f4441095495dc3a835bb8f29712336949767a92e308dff4",
+    "work/hy4-submit-boundary-20261125/frozen-pair-r2/capture-policy.json": "06d3d154efd28077a3bb9d6f1a02436ce4297ee314ac20b1bc748c166fa7c706",
+    "work/frozen-performance-hy4-submit-boundary-v20/course_eval/controller.py": "4708caca205d61bcaeb41e390d9089288cb88c365a7be2541fb282909faf48c7",
+    "work/frozen-performance-hy4-submit-boundary-v20/course_eval/terminal_runtime.py": "4f57d7dabc961ebb85a45b429bbd808ae70796a3ac20af985194c11c76b2af5b",
+    "work/frozen-performance-hy4-submit-boundary-v20/course_eval/oracle_access.py": "e4e00460c8756c4a50b10caa033e219c07e4bd9501c1a24029eac6b3dcacc852",
+    "work/frozen-performance-hy4-submit-boundary-v20/course_eval/relu_export.py": "e0e6ab95240eb35bb3087ac27385995df86407cd7cb4f1417e1af0bf6fdd577a"
+  },
+  "binding_verification": {
+    "previous_plan_actual_files_stream_hashed": 125,
+    "previous_plan_mismatches": [],
+    "r2_source_count": 126,
+    "shared_immutable_expectations": 122,
+    "shared_expected_hashes_unchanged": true,
+    "r2_new_or_relocated_bindings_actual_hashed": 4,
+    "r2_task_and_checks_bytes_equal_previous_plan": true,
+    "qualification_source_files_all_bound": true,
+    "bulk_SDK_tree_read": false,
+    "declared_plan_model": "hy4flash-free",
+    "limits": {
+      "model_calls": 500,
+      "wall_seconds": 3600,
+      "command_seconds": 120,
+      "max_output_tokens": 64000,
+      "timeout_retries": 0,
+      "strict_wall": true
+    }
+  },
+  "actual_original_pin_qualification": {
+    "image": "sha256:52fe1f089f38650f0dc22d7531ee6e01ebd526de1b349aaa2ecb331dca9fabce",
+    "configuration": "C0",
+    "memory_mb": 2048,
+    "cpus": 1,
+    "offline_lo_only": true,
+    "archived_main_cat_rejected_before_exec": true,
+    "archived_main_pending_submit_rejected_with_check_id": "public-query-directions",
+    "self_contained_export_ran_with_course_tools_hidden": true,
+    "registered_check": {
+      "state": "passed",
+      "actual_shape": [
+        20,
+        10
+      ],
+      "query_inferred_shape": [
+        20,
+        10
+      ],
+      "fresh_oracle_queries": 137063,
+      "max_direction_error": 7.145830765720106e-14,
+      "completeness_certified": false
+    },
+    "saved_candidate_eligible": true,
+    "saved_candidate_bytes_match_both_downloaded_files": true,
+    "final_valid_verification": true,
+    "final_protected_unchanged": true,
+    "artifact_digest": "391ecb7396e9ec8b4ed9f2a3a4a968708a0a522fb120d2a0229aee5ad89a9db9",
+    "review_depth": "Read actual driver and r1-to-r3 diff, structured qualification, complete compact controller event chain/final report; decoded saved candidate files only for exact byte comparison. Did not re-run Docker, algorithm or original grader; did not print/read every base64 capture in the large target-command record."
+  },
+  "closed_finding": {
+    "id": "P1-new-queue-not-in-native-capture-policy",
+    "previous_plan_retained_sha256": "78c388ad133ab209154a9758bb7c742a8651d3562f2b3f7d9c20a4e01618396c",
+    "repair": "Separate r2 policy adds only the new ReLU queue. Existing active/backends/task_artifacts/manifest/collector/launcher expectations remain equal.",
+    "actual_prepare_args_zero_model_qualification": "work/hy4-submit-boundary-20261125/frozen-pair-r2/capture-admission-qualification.json",
+    "exact_registered_policy_used": true,
+    "root_relocation_only_private_fixture": true,
+    "generated_native_artifacts": [
+      "/app/steal.py",
+      "/app/stolen_A1.npy"
+    ],
+    "actual_argv_change_only_config": true,
+    "actual_prospective_queue_created_by_review": false
+  },
+  "scientific_and_execution_limits": [
+    "The r3 execution is engineering replay with archived actions and public helper; it is not new model behavior, original scoring, or a new fee receipt.",
+    "Numerical helper and registered public check remain unchanged; finite-query consistency does not certify every hidden unit.",
+    "The plaintext source/weight/inspect rejection is task-local and covers demonstrated patterns; it is not an OS sandbox or proof of complete query-only behavior. Review each actual new full trajectory and delivered script.",
+    "Original main raw true/qualified false and access violation, plus original repeat true, remain unchanged. Two fixed new sessions retain all outcomes with no score-selected resampling.",
+    "Only ReLU uses this prospective v20 runtime. The original225 and five existing scoped revisions remain unchanged; no unrun or pending/stale/protected-false record is upgraded or inherited by this admission.",
+    "Per-call original model identity/own-zero-credit guards and the shared resource pool remain bound. Any new actual unknown/nonzero fee must stop.",
+    "No execution-review file is treated as a model score or final75/225 acceptance. An explicit source-verified join is still required after actual two-session results."
+  ],
+  "observed_financial_state": {
+    "active": false,
+    "historical_unknown_calls": 33,
+    "pending_unverified_calls": 0
+  },
+  "new_model_calls": 0,
+  "new_original_grader_calls": 0,
+  "new_Docker_VM_calls": 0,
+  "process_signals": 0,
+  "stop_modified": false
+}
