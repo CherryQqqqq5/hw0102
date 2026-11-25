@@ -21,7 +21,9 @@ author = "邱昱宁  ·  231880296"
 footer = "智能推理与规划 · 邱昱宁"
 
 
-def baseline_report(confirmation_batch: str | None = None) -> None:
+def baseline_report(confirmation_batch: str | None = None, *, validation_items: list | None = None,
+                    output_filename: str | None = None, report_subtitle: str | None = None,
+                    report_footer: str | None = None, validation_first: bool = False) -> None:
     task_records = json.loads((work / "hw0102-publish/作业一/evidence/task-records.json").read_text())["records"]
     task_index = {record["task"]: record for record in task_records}
     coverage = {row["benchmark"]: row for row in summary["coverage"] if row["split"] == "D" and row["arm"] == "B0"}
@@ -68,7 +70,7 @@ def baseline_report(confirmation_batch: str | None = None) -> None:
                   "将草稿落盘和改进过程连接起来。提供方与容器故障单独记录。"),
         table([["互斥主机制", "实际失败题", "数量", "改进与验证边界"],
                ["产物交付", "query-optimize；批处理调度", "2/4", "先保存指定路径；保存后仍须检验等价性与性能"],
-               ["语义精度", "video-processing", "1/4", "增加独立精度验证；提前实现能否修复尚未验证"],
+               ["语义精度", "video-processing", "1/4", "增加独立精度验证；原诊断阶段未验证提前落盘的作用"],
                ["验证范围不足", "extract-elf", "1/4", "独立检验地址含义；避免实现与自查共用未经检验假设"]],
               [90, 135, 40, width - 265]),
         paragraph("以上为对4条真实失败进行的人工主机制编码，每题归入一类，分母为全部4条失败。"
@@ -176,7 +178,13 @@ def baseline_report(confirmation_batch: str | None = None) -> None:
                       "原题评分与实际费用由匹配的source-audit.json核验。"),
             link("免费模型冻结协议", "https://github.com/CherryQqqqq5/hw0102/commit/" + audit["protocol_commit"]),
         ])
-    build(f"{identifier}_作业一.pdf", "作业一 · 基线评测与错误分析", items, subtitle=author, footer=footer)
+    if validation_items:
+        if validation_first:
+            items = [*validation_items, PageBreak(), heading("原始诊断评测与错误分析"), *items]
+        else:
+            items.extend([PageBreak(), *validation_items])
+    build(output_filename or f"{identifier}_作业一.pdf", "作业一 · 基线评测与错误分析", items,
+          subtitle=report_subtitle or author, footer=report_footer or footer)
 
 
 def comparison_rates(comparison: dict) -> tuple[str, str, str, str]:
