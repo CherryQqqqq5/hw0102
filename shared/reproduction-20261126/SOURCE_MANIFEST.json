@@ -9425,8 +9425,10 @@
   },
   "generated_files": {
     "README.md": {
-      "sha256": "7573fb673709b285f3dc945c26591ad11e7cc821f25ae0fba18531a46c26c7a8",
-      "bytes": 4999
+      "sha256": "5ccee4d1f274e50622884d3efd852b9954b1382b768729cb934217a9c2d2690e",
+      "bytes": 4974,
+      "source_template_sha256": "7573fb673709b285f3dc945c26591ad11e7cc821f25ae0fba18531a46c26c7a8",
+      "transformation": "Publication usage guide replaces preparation-only narration;source and configuration file bytes are unchanged"
     },
     "sync_sources.py": {
       "sha256": "695329e2bb63e8de0004d7e5a84902d5b40a7769d048991ef7cca8b14c2a1141",

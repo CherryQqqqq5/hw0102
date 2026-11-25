@@ -1,6 +1,8 @@
 # 共用评测代码与复现
 
-截至2026年11月25日，新75题比较仍在执行。原批次代码见[Hy4 v18源码快照](runtime-snapshots/hy4-v18/README.md)与[NVIDIA v31源码快照](runtime-snapshots/nvidia-v31/README.md)，新增[ReLU专用v20源码与真实验证](runtime-snapshots/hy4-v20/README.md)。此前的[NVIDIA v30源码快照](runtime-snapshots/nvidia-v30/README.md)继续对应其实际记录；每份快照以逐文件摘要对应实际运行版本。[当前164份真实评分证据](../作业二/evidence/performance75-current-20261125.md)包含通过和未通过记录，属于部分完成快照。正式报告和完整证据包按完成后的原评分及独立审查更新，源码同步本身不表示75题已全部完成。
+本轮75题比较的完整实现见[2026年11月26日源码快照](reproduction-20261126/README.md)，包含942项来源文件、九个冻结运行版本、任务局部修订及统计、报告和提交包入口。[源码与入口执行记录](../作业二/evidence/reproduction-source-validation-20261126.json)分别核对来源摘要和实际命令加载。逐题成绩、原始证据与报告使用各自记录，源码同步不代表模型实验已经完成。
+
+历史单版本入口继续保留：[Hy4 v18](runtime-snapshots/hy4-v18/README.md)、[NVIDIA v31](runtime-snapshots/nvidia-v31/README.md)、[ReLU v20及真实验证](runtime-snapshots/hy4-v20/README.md)和[NVIDIA v30](runtime-snapshots/nvidia-v30/README.md)。[2026年11月25日的164份评分证据](../作业二/evidence/performance75-current-20261125.md)是当时的部分完成快照，包含其全部通过与未通过记录。
 
 本轮使用的[CodeBuddy 2.179.3实际客户端补丁](client-patches/codebuddy-2.179.3-free-safety-v8/README.md)提供原始文件、补丁后客户端及补丁本身的准确摘要，与评测计划的 `client_sha256` 对应。旧客户端补丁继续用于核查各自历史记录；复现本轮接入时应使用此处对应版本。同步这些依赖未新增模型请求。
 

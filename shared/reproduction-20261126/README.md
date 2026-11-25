@@ -1,49 +1,52 @@
-# 2026年11月26日八处修订源码快照准备
+# 评测实现与复现入口
 
-本目录保存当前八处任务局部修订对应的显式源码允许清单和同步入口。只准备来源摘要和字节预算，尚未复制完整源码树、修改发布克隆或生成正式提交包。它不表示原225、16个固定修订位置、三题消融、两份正式PDF或最终提交包已经完成。
+本目录保存2026年11月26日评测的完整源码快照：941项选定源码和配置，加1份可迁移的Harbor启动程序，共942项来源文件，涵盖九个冻结运行版本。代码、任务局部修订、模型接入、费用核验、统计、报告与提交包程序均保留对应版本。逐题评分、交互和工程执行记录见[作业二证据目录](../../作业二/evidence/)；本目录的源码验证结果与模型成绩分别记录。
 
-旧 `work/current-source-preparation-20261126/SYNC_PLAN.json` 的925来源草案及SHA `993cc78b1d5ba9a09c3c2452e24361b12f8bc179583bce604de08bc289a8e8fb` 原样保留。新计划独立新建，不把已变化的当前源码冒充旧审查版本。
+## 核对源码与版本
 
-## 准备、核验与实际同步
+`SOURCE_MANIFEST.json`列出原实验文件和交付文件各自的摘要、字节数与转换说明。代码保持其记录的原字节；配置记录按既有导出规则处理机器路径等字段。`byte_identical`、`source_sha256`与`export_sha256`用于区分这两类情况。`source_versions`另列24项历史版本及其准确位置，旧[601项源码快照](../reproduction-20261125/)继续保留。
 
-从原项目根使用已有Python环境：
-
-```sh
-work/.venv/bin/python -B work/current-source-preparation-eight-20261126/sync_sources.py plan
-work/.venv/bin/python -B work/current-source-preparation-eight-20261126/sync_sources.py verify-plan
-```
-
-`SELECTION.json`是明确允许的代码、公开配置、动态加载关系与历史版本清单；`SYNC_PLAN.json`记录各文件的原source SHA-256、脱敏export SHA-256和字节数。代码保持原字节，配置沿用已发布同步器的既有scrub。不会递归跟随任一实验plan的all_files_sha256，也不打开在途run、模型或原生会话。任何来源漂移均拒绝，应在新路径重新审查。
-
-父线程审核准确plan SHA后，才可执行一次实际同步：
+在已安装评测依赖的Python 3.13环境中，从本目录执行：
 
 ```sh
-work/.venv/bin/python -B work/current-source-preparation-eight-20261126/sync_sources.py sync \
-  --approved-plan-sha256 <已审核SYNC_PLAN.json完整SHA> \
-  --output work/hw0102-publish/shared/reproduction-20261126
+PYTHONPATH="$PWD" python -B sync_sources.py verify
 ```
 
-目标必须尚不存在；旧`shared/reproduction-20261125`及其601来源清单保留。单次代码快照连同清单、同步器、说明上限32MiB。当前尚未执行此同步。
+该命令核对本目录、历史源码、公共依赖与客户端补丁的摘要，不请求模型、不启动容器或原题评分器。运行产生的`__pycache__/*.pyc`按原有规则忽略，其他额外文件会被拒绝。
 
-## 代码与配置范围
+`SELECTION.json`和`SYNC_PLAN.json`保存本快照的允许清单及原始复制计划。复制计划的摘要为`c815cc1e2483601263e7c606b6af9c613321b69acf9ce922736a3681aa301859`。发布说明单独维护在本文件，当前摘要登记在清单的`generated_files`中；原准备模板和复制计划保持原版本。
 
-沿用旧601来源的明确代码/公开配置集合及前一925来源草案的当前入口，覆盖原R35续接、light版本探针、proxy-CDN镜像准备与预取、已有七处局部修订、typed NVIDIA关闭费用补充、报告与最终提交包说明。新增xarray4695的原pin保护资格、固定两会话冻结器、八scope消费者检查、报告局部版式与真实loader检查，以及实际plan、原命令不变的inputs/tasks/checks和capture policy。
+## 运行版本与适用任务
 
-八scope计划只允许67个未改变任务定义各两份原记录加16个固定新会话，真实未完成位置仍pending。ReLU与新增xarray4695两scope使用同一已审v20；NaN等原v18合同和其他实际运行时各保留来源，不把v20行为回填到67个历史继承任务。源码复制不改变模型、单次尝试预算、评分、派发、费用守卫或已有原分。工程资格与参考实现不算模型成绩。
+| 运行版本 | 对应范围 |
+|---|---|
+| `frozen-performance-dsh-parallel-guard-20261124` | 原生DeepSeek Harness（DSH，DeepSeek智能体执行框架）对照 |
+| Hy4 `sql-layout-v18`及其`guidance-off`版本 | 原固定75题批次和原指导消融 |
+| Hy4 `feal-linear-v19` | FEAL（Fast Data Encipherment Algorithm，快速数据加密算法）通用线性攻击支持的局部修订 |
+| Hy4 `submit-boundary-v20` | ReLU（Rectified Linear Unit，修正线性单元）与xarray4695的固定修订会话 |
+| NVIDIA `free-v27`、`v28`、`v30`、`v31` | 各自传输和提示版本的辅助记录 |
 
-九个冻结运行时仍各保留原相对路径；公开sqlparse wheel引用现有`shared/runtime-snapshots/hy4-v18/course_eval/sqlparse.whl`精确字节。新增小型v20 runtime-manifest是原资源摘要描述，不是新运行准入。
+八处任务局部修订对应67个未改变任务定义的两份原记录和16个固定新会话。运行来源逐位置登记，v20行为不回填到其他历史任务。工程参考和零模型资格检查有各自的记录，模型成绩以实际原题评分为准。
 
-## 历史版本与外部依赖
+## 分析、导出与报告
 
-`source_versions`保留旧601中不同版本的既有发布位置、原925草案选中的authoring前像，以及新增join/consumer/renderer七scope前像和loader P1修复前像。归档版本保持精确原字节；独立资格脚本可据此重现旧loader错误。原审查不回写为新SHA。
+依赖准备方法见[共用评测说明](../README.md#准备数据和依赖)。在同一环境中，可先检查三个入口：
 
-CodeBuddy 2.179.3安全补丁继续精确引用`shared/client-patches/codebuddy-2.179.3-free-safety-v8`，不复制5MB补丁、npm树、凭据或登录状态。DeepSeek Harness（DSH）0.2.2rc2/Python3.13.12使用现有小型9840文件/链接来源描述，不复制SDK大树。镜像只保留原pin与下载/导入代码，镜像和公开任务数据须在目标环境另行准备。准备阶段不安装或执行这些依赖。
+```sh
+PYTHONPATH="$PWD" python -B work/parallel-free-evaluation-20261124/prepare_report_data.py --help
+PYTHONPATH="$PWD" python -B work/parallel-free-evaluation-20261124/export_nvidia_history.py --help
+PYTHONPATH="$PWD" python -B launchers/harbor_entry.py --help
+```
 
-原模型请求/返回、工具、控制、候选、原评分、实际资格process、缺失费用和接受事件由既有`export_joined_evidence.py`、`export_nvidia_v28.py`、`export_nvidia_history.py`另行脱敏导出。本代码快照不包含这些实际执行数据；依赖它们的审查/资格checker需要相应真实便携证据，不能用缺失记录伪造通过。配置中旧的机器路径和费用状态只作为来源描述，不可直接重放成新准入。
+实际源码验证和上述三个入口均已在此目录执行通过，见[执行记录](../../作业二/evidence/reproduction-source-validation-20261126.json)。入口帮助验证其加载与参数解析；统计和报告生成还需传入对应的完整评分、轨迹和审查记录。
 
-## 最小验证与交付边界
+`analyze_hy4.py`复算原固定批次，`join_scoped_revisions.py`核对继承位置与固定修订位置，`prepare_report_data.py`生成报告数据。报告程序要求完整预定评分、指导消融和最终独立审查，并核对原题评分与适用的终局验证。`export_joined_evidence.py`按物理运行去重导出证据；`export_nvidia_history.py`单独保存其他模型的历史用量、真实结果及费用缺口。
 
-准备阶段只编译允许清单内代码、核来源/导出SHA和预算，并测试来源漂移、超32MiB、路径逃逸/链接和raw模型轨迹拒绝。不会复制完整树或访问任何模型服务。
+源码中固定的旧费用状态和本机日志路径用于核对历史记录。原生会话内容、账户数据和登录凭据不在本目录；两个当前项目日志位置的源码引用按精确文件摘要核验，见[发布前扫描记录](../../作业二/evidence/reproduction-source-sensitive-scan-20261126.json)。后续发布扫描器保存在[独立版本](../scripts/scan_staged_delivery_20261126.py)，快照内原扫描器保持其原摘要。
 
-实际同步经父审核后，再运行新目录的`python -B sync_sources.py verify`，以及现有report-data、typed关闭费用出口和portable Harbor launcher的三项`--help`。需要时核NVIDIA entry的`--import-proof`。可重建的`__pycache__/*.pyc`沿用旧同步器的精确忽略规则，其他额外文件继续拒绝。实际源码大小、便携入口、敏感扫描、完整原评分/费用/轨迹、两PDF字节与最终ZIP仍须分别验收；准备或loader资格均不替代最终交付。
+## 准备新的模型实验
+
+新运行需要另行准备固定版本的公开任务数据、镜像、外部依赖与模型登录，并重新核验本机执行条件和免费资格。历史配置描述曾经使用的条件，不能代替新环境的费用回执或准入检查。Hy4每笔请求须有自身新身份与实际零积分回执；新费用不明或非零时停止派发。
+
+[CodeBuddy 2.179.3补丁](../client-patches/codebuddy-2.179.3-free-safety-v8/)提供原始客户端、补丁和目标客户端的摘要。DSH 0.2.2rc2、Python 3.13.12及其9840项文件或链接的来源保存在`work/nvidia75-v27-20261125/dsh-runtime-files.json`。公共sqlparse wheel按清单引用相邻已发布副本。客户端安装树、完整软件环境、容器镜像和可重建缓存均由目标环境自行准备。
 
