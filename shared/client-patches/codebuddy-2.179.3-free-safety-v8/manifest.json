@@ -1,0 +1,23 @@
+{
+  "codebuddy_version": "2.179.3",
+  "upstream_sha256": "abe2d02f74f208b4ea7a0c8621fb7c7cf5822ef6d88af7cf413a6de820a987a4",
+  "patched_sha256": "bfc167075d229f101878a378e6c5f9a8c2b64463545dd5ffb3881d6417040915",
+  "billing_validator_sha256": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+  "patch_sha256": "90d71c55049e3a90e6bb8179ae0c054314c8409d340862b7fe6500b383834b7e",
+  "patch_bytes": 5006912,
+  "reconstructs_exact_live_client": true,
+  "node_syntax_check": "passed",
+  "apply_output": "patching file 'dist/codebuddy-headless.js'\n",
+  "formatter_required": false,
+  "opt_in_environment": {
+    "COURSE_CODEBUDDY_EXTERNAL_RECOVERY": "1"
+  },
+  "scope": [
+    "One physical generation dispatch before an independently verified fresh zero-credit receipt",
+    "External budgeted recovery and terminal serialization of precise local errors",
+    "The provider identity and fee validator remains unchanged"
+  ],
+  "real_validation": "work/dsh-flat-action-live-validation-v10-20261122.json",
+  "new_model_calls_by_packaging": 0,
+  "installation": "Verify the upstream SHA-256, apply with patch -p1 inside the CLI package, then verify the patched SHA-256."
+}

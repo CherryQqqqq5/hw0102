@@ -2,6 +2,8 @@
 
 截至2026年11月25日，新75题比较仍在执行。原批次代码见[Hy4 v18源码快照](runtime-snapshots/hy4-v18/README.md)与[NVIDIA v31源码快照](runtime-snapshots/nvidia-v31/README.md)，新增[ReLU专用v20源码与真实验证](runtime-snapshots/hy4-v20/README.md)。此前的[NVIDIA v30源码快照](runtime-snapshots/nvidia-v30/README.md)继续对应其实际记录；每份快照以逐文件摘要对应实际运行版本。[当前164份真实评分证据](../作业二/evidence/performance75-current-20261125.md)包含通过和未通过记录，属于部分完成快照。正式报告和完整证据包按完成后的原评分及独立审查更新，源码同步本身不表示75题已全部完成。
 
+本轮使用的[CodeBuddy 2.179.3实际客户端补丁](client-patches/codebuddy-2.179.3-free-safety-v8/README.md)提供原始文件、补丁后客户端及补丁本身的准确摘要，与评测计划的 `client_sha256` 对应。旧客户端补丁继续用于核查各自历史记录；复现本轮接入时应使用此处对应版本。同步这些依赖未新增模型请求。
+
 历史免费复测v16已完成270/270，207通过、63失败；B0/C0/C1为68/90、71/90、68/90，完整统计未支持程序控制稳定提升。新增109实际响应、119原生用量均零费用，旧13笔真实未知及1笔原生费用已知零的本地元数据拒绝分列保留。150秒请求准入修复经过真实任务验证，该批600秒执行预算与计费校验保持。[该批完整结果](../作业二/evidence/hy4flash-v16-results-20261118.md) · [原评分、费用与配对统计复算](CONFIRMATION.md)
 
 新增30道独立题目的B0/C0/C1确认实验使用单独的[冻结协议与复现入口](CONFIRMATION.md)。下文保留原45题实验的参数与复算方法。
