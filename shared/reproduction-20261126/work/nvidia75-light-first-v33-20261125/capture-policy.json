@@ -1,0 +1,103 @@
+{
+  "active": true,
+  "backends": [
+    "nvidia-free"
+  ],
+  "queues": [
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/main",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/dsh",
+    "work/vmshare/performance-nvidia75-light-first-v33-20261125/repeat"
+  ],
+  "task_artifacts": {
+    "model-extraction-relu-logits": [
+      "/app/steal.py",
+      "/app/stolen_A1.npy"
+    ],
+    "extract-elf": [
+      "/app/extract.js"
+    ],
+    "video-processing": [
+      "/app/jump_analyzer.py",
+      "/app/output.toml"
+    ],
+    "llm-inference-batching-scheduler": [
+      "/app/task_file/output_data/plan_b1.jsonl",
+      "/app/task_file/output_data/plan_b2.jsonl"
+    ],
+    "query-optimize": [
+      "/app/sol.sql"
+    ],
+    "constraints-scheduling": [
+      "/app/meeting_scheduled.ics"
+    ],
+    "custom-memory-heap-crash": [
+      "/app/user.cpp"
+    ],
+    "db-wal-recovery": [
+      "/app/recovered.json",
+      "/app/main.db",
+      "/app/main.db-wal",
+      "/app/main.db-shm"
+    ],
+    "distribution-search": [
+      "/app/dist.npy"
+    ],
+    "feal-linear-cryptanalysis": [
+      "/app/plaintexts.txt"
+    ],
+    "fix-code-vulnerability": [
+      "/app/bottle.py",
+      "/app/report.jsonl"
+    ],
+    "fix-git": [],
+    "log-summary-date-ranges": [
+      "/app/summary.csv"
+    ],
+    "mailman": [],
+    "modernize-scientific-stack": [
+      "/app/analyze_climate_modern.py",
+      "/app/requirements.txt",
+      "/app/pyproject.toml"
+    ],
+    "multi-source-data-merger": [
+      "/app/merged_users.parquet",
+      "/app/conflicts.json"
+    ],
+    "openssl-selfsigned-cert": [
+      "/app/ssl/server.key",
+      "/app/ssl/server.crt",
+      "/app/ssl/server.pem",
+      "/app/ssl/verification.txt",
+      "/app/check_cert.py"
+    ],
+    "password-recovery": [
+      "/app/recovered_passwords.txt"
+    ],
+    "polyglot-rust-c": [
+      "/app/polyglot/main.rs"
+    ],
+    "prove-plus-comm": [
+      "/workspace/plus_comm.v",
+      "/workspace/plus_comm.vo"
+    ],
+    "regex-log": [
+      "/app/regex.txt"
+    ],
+    "sparql-university": [
+      "/app/solution.sparql"
+    ],
+    "sqlite-db-truncate": [
+      "/app/recover.json"
+    ],
+    "tune-mjcf": [
+      "/app/model.xml"
+    ],
+    "vulnerable-secret": [
+      "/app/results.txt"
+    ]
+  },
+  "capture_code_sha256": "9079d3fc34de13b4b760fb7647bbc7af154342c0cebf59e0e37faf36a63be60c",
+  "launcher_sha256": "0e7e208b89829623272a3d43eb3af64a4724dadc05eab9115298ec3dd2a167a4",
+  "manifest_sha256": "0fa850da8ec3106bd5e71572480c0d749fb466e33db1283630fcfe14cb97e927",
+  "purpose": "Original output capture for three independent same-Step575-task cohorts; collector and original grader unchanged"
+}

@@ -1,0 +1,710 @@
+{
+  "stage": "frozen_after_observed_provider_quota_interruption",
+  "repeat": 1,
+  "policy_name": "hy4-sql-layout-v18-main",
+  "runtime_root": "[project]/work/frozen-performance-hy4-sql-layout-v18",
+  "runtime_sha256": {
+    "course_eval/check_codebuddy_free.py": "a7e488fdbea682a22313423db7ac105ea479602c418507c2b5e1fb62c959c3eb",
+    "course_eval/elf_memory_check.py": "e13f2d9ffabad9f538414e8299f5197b73e6db98ff2f4482b5e2a11f36db955e",
+    "course_eval/boyue_transport.py": "b0854599f7292c7569f78d128dc103f3076efa01b87593cec870ef4d0758dd7d",
+    "course_eval/matrix.py": "1b0bfb8cf389ac09078bc1d3973931b6c194b04cfecc9bf0115f2dcca1084c93",
+    "course_eval/dsh_runner.py": "633e1929c2d08f60f2bee2655598c1a42607eedf5d34cfeb3385df2834161d64",
+    "course_eval/check_aider_runtime.py": "df2688fbecb56adf1071457b9b1479c308a461e873b76a2d9aa528dabbb9d23f",
+    "course_eval/openrouter_free.py": "362ac463d6fc6abb48febb0e08eddba5e7d4a73ddaacf2b7b66dd4c03f8ce043",
+    "course_eval/terminal_setup.py": "482b08db8cf2fe66ea113820084bc16a6e89e4b8d9ac96f0415768c8cb76db4b",
+    "course_eval/check_boyue.py": "edbe2641e793e57ad8d1b556d90bd67aecd4f5130d5f8b8c1533213a7ddef24e",
+    "course_eval/confirmation_materials.py": "68786769728dd15c89a4fecef2be1d207281db106bbfafc2728c32c7f765e094",
+    "course_eval/check_control_feedback.py": "e24dc6703925ed0351c64f7d04c10e050a930ed8e23b8f757552091e61cac507",
+    "course_eval/sql_layout.py": "0cd2cb65379e7645ebb14f00b056c7d75b47dc500c4be38b62764f320c179dc8",
+    "course_eval/codebuddy_free.py": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+    "course_eval/confirmation_repair.py": "0b5e816e499985cf4236e69be422cb18074f6e0b836b222d260cc04116d182a3",
+    "course_eval/harbor_agent.py": "def732e78eecbea0a5d15506a1d55c850de0359349674af9c45334152ff67393",
+    "course_eval/image_input.py": "c3a9184aee35b454e2ef729112769cbdf09b404ca0ff156d7d25960308e7fa54",
+    "course_eval/verification.py": "5ae7a4eb9753740e0f5385b99655fe5d144bf49ec6ef8ca0784a930f5308c424",
+    "course_eval/revision_summary.py": "8f32b31265a72db640f50b905dfa88ae582a08c021398c28d4afb098716f2d6e",
+    "course_eval/check_public_semantics.py": "ee94138ddf05d8e898a8bccc15b5002332e932bd6bde242e5dac87e7a80cbbca",
+    "course_eval/resource_pool.py": "b20f4145dcc8dc14532d52db67cb893b3d512435ef3c483e3e77452ae35f6a95",
+    "course_eval/verify_scores.py": "5bf4b663ea0ff916785701a3792323861b763708670c2f4aa59d876b39b9e51b",
+    "course_eval/controller.py": "6c136191b64eca3ac069c1fd147eea60e200587f8a76657cfcf2b5f4e2174b62",
+    "course_eval/terminal-no-network.yaml": "17ceef0a82e7dfb63d9f5ce974350f392dd8a323eac174ec69d28a90c7de8388",
+    "course_eval/docker_target.py": "2ed262a331ad7b15b0b937e315fbc39b7c73ab6821e1e52c3d9b657cf792ae83",
+    "course_eval/sandbox_command.py": "688a32b71ec3a0f64797654b0283e59e727675ca4f68818a3a9a9251db07f16b",
+    "course_eval/check_terminal_tests.py": "ba39fc351c088ea8b0049d8d672ec32a8550a50ed93e4524daa1c7e1bcd887a6",
+    "course_eval/check_confirmation_public.py": "79ad6d3a7bfe4af64185b4b5e8ecbc0b6b6cbfcb23a176ff10ce7f64c977749a",
+    "course_eval/dsh_free.py": "6bdcd9b4060bb8177af9ac6181f8a7a1ba7d6b17bd3a440e557b9c7eff719ada",
+    "course_eval/check_revision.py": "797ce437fff9e3d8cb24cffbb1ed39d4b50a2b2c5e5296bb0fd1aea2f0dd6bf7",
+    "course_eval/candidate_io.py": "307457f8eeff702f1a8f7b9f43bb69138bec908a9f8783ae5795c45fe1c1802c",
+    "course_eval/boyue_rpc.py": "b95f8b7a8153f7b907e6edf13186e5d48196d1595695fb4d107f7e8208ca9684",
+    "course_eval/check_controller.py": "f4457cadd4ce7354fe0503cd198a525e1c7f2ae58b54ca4a884dae19256a5c81",
+    "course_eval/terminal_runtime.py": "3ba50400ac7b4d5d6e9a19382c91e728aeb5905141c5d167d2519fc796757f05",
+    "course_eval/confirmation_summary.py": "671f478501a10d98aa880c0acf367f5b793673d41fe5d6c648177f8eb0a832ad",
+    "course_eval/confirmation_terminal_checks.py": "a2e1e5af7b83e581f41d751c88e14c2bc93545451c7ad82c09f6c17805f36d82",
+    "course_eval/check_control_contracts.py": "769846622d5dfc469ea7103e83907c3e0fd3ed86fb94547a4d11e7ef6d6c586a",
+    "course_eval/financial_stop.py": "27b59ada2a897cfd10c5ebbaf65aa7e4e33157310ca56d6952cf1308559d0239",
+    "course_eval/confirmation_probe_repair.py": "6a09b8385e07f2e41041dff6db90b639d0b99be70408e2800630a64f35f36bd4",
+    "course_eval/aider_runtime.py": "da14339b906790802c4b869b9c3e93e23144b6d8435c95d4d40670966da42472",
+    "course_eval/summarize.py": "32af45b86b4a5277b871273f2325ce86f394d03a9471c2ae2e7b45ec11bf94de",
+    "course_eval/confirmation_swe_checks.py": "e80d02c0137b0d852384b93e3a0fc0c4de9c8429a8a3e8610ba383e3ae11aafb",
+    "course_eval/export_confirmation_preparation.py": "0f09e3d9817f458671fcc15345d0a133908172a6e3ebfed6d0d0be4338970145",
+    "course_eval/check_jsonlines.py": "af05b357a97d2435c85296076d02bf650b32a41a2f5cbff9e9978adc0871b5a1",
+    "course_eval/confirmation_selection.py": "7f5275ab2d96118e86a7ecd315fe4e5f922dfc408010829429340e973bb8799c",
+    "course_eval/check_openrouter_free.py": "8947d451b74971ff9aa6b70f410958093f1cb56d762046c2553465ab65f96c4a",
+    "course_eval/confirmation.py": "4fe07c4692e39148c8a94fefb7c8f00bca39f29a872a1cb1899d3473d72317d3",
+    "course_eval/public_semantics.py": "ae652562b602dbaf7a63c3f45a0296ed91718db693945514b276c77ad6fec02c",
+    "course_eval/check_boyue_timeout.py": "290d5dd76b86206ea02ccc000c6222911d6b95fc6d1dc00a2d2219a7a7d96b63",
+    "course_eval/replay_agent.py": "de6dfa635b02e49578d84e8a29b2449c5304a12c870f1bdd4db855b304e188c1",
+    "course_eval/agent.py": "22814d396ad3027d79ff44e916d365db014657ff644a7e8cf51db8c5f828b2c2",
+    "course_eval/relu_solver_agent.py": "6378c5f25b224cbd4eedab1485b118f1881c4b943b8fcb83ea92d0da84d99543",
+    "course_eval/revision.py": "19836763a1ea305d9f507f5a8e668f52b482738b93965efac2f612454f808e0f",
+    "course_eval/confirmation_preflight.py": "553618b3b0aa555f88412a16535b55513f5dd00c7a51bee03b278ac67b6d750e",
+    "course_eval/check_verification.py": "da620307f9510b33d4cd007aeb67d7c78af41e47f258818d2e8722c1dc410abe",
+    "course_eval/check_controller_history.py": "af093765b156a18339e14e9e13c20fa0cd92fa9bf5b3f092215a948482209771",
+    "course_eval/freeze.py": "323e0806e208dfe006b3a999eab2477f8667e4d6b4a56908dd52d796fa742e31",
+    "course_eval/check_repository_candidates.py": "a3da88be2126cc7eda17a5641b8722a8fd5897c7320178e1feb281354bc4183a",
+    "course_eval/dsh_sandbox.py": "d12129d0c6ab1fceac465c503eff524ab26cc5123e7df49fc0d347220dae61ad",
+    "course_eval/audit_repro.py": "7f893185b3d139fd2845effbc2bccca060c8b9dc097fb2bb067fd79007d7b74f",
+    "course_eval/export_revision.py": "48438872717de575616be682313c41066466e40d1b23b13055dfaa70bc110de5",
+    "course_eval/revision_usage.py": "5292ca3afc5345ca79aaf8f3144920dc03df6b9a88660e4465e2bba66e35bc03",
+    "course_eval/video_events.py": "cc1be22ff1e217e16fc5b1777677e20b518719ad3993edde9e884d2df5819d62",
+    "course_eval/confirmation_terminal_materials.py": "31fafd4aed6b5ed6b7081169e54aa76cc237cab3d59e2340143fe5a25079c8a2",
+    "course_eval/check_terminal_boundary.py": "c2b0dc40762221e20ebb37830e8035a07221d980d68fc8c6a4e99f1fdd5cdd49",
+    "course_eval/relu_recovery.py": "f3dd9a3efc6ef2bdb3a28708225162f99cd39a45323481b46023ac9d7e2cfae4",
+    "course_eval/benchmarks.py": "57d478adda9d4f1770eae34740b0a9c4c1d5c5da5b99fb541ffe859553cdb665",
+    "course_eval/check_confirmation_terminal.py": "97db454abddc863c77c85c46c36b9632360ae56fed72a64c0e9a1576ec9a916f",
+    "course_eval/preflight.py": "94af5813e40f782e603e0c24aa5c55c63a08ff0d6cabe2f384d713125be94e84",
+    "course_eval/swe_rows.mjs": "a2d1d5e9471198b2216108dd0c65c85859313329c964ecb71d6a7f002dee3a56",
+    "course_eval/inventory.py": "ea116625589a128bcb21d012659e4e71629ffed5952e1c3349d3bd884509cd83",
+    "course_eval/check_boyue_agent.py": "f4dbebe1fc9800555c1fd5147f160a3f63b074e0737e850eda9b6f022e389917",
+    "course_eval/fixtures/climate_cli.py": "db460d08a30969d9e3a8511064144ac1a36c6eb8836020c2bdc73d285486a5e4"
+  },
+  "runtime_resources_sha256": {
+    "course_eval/sqlparse.whl": "3be5a72d04c873d690d7c6dedd33d6fae2ef82759881ceec02fc2efd0cba564f"
+  },
+  "client_sha256": "bfc167075d229f101878a378e6c5f9a8c2b64463545dd5ffb3881d6417040915",
+  "billing_validator_sha256": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+  "driver_sha256": "5764368864a179569ffa7cf98779fcfbc3ec74fcea4de7fcb1970261732e9063",
+  "qualification_driver_sha256": "c2ba410f8b0c8eeceea2a011d43d36e3cc96baebadfa541b8e9f7dfa05da5a99",
+  "driver_binding": "Current orchestration driver is frozen separately; the qualified agent runtime, client and billing validator retain their original digests.",
+  "coordinator_sha256": "ceafe70db5b53b940116a724eac3c4748345e82429305efa407e94970dc1a331",
+  "shared_auditor_sha256": "3ef0d09de7459e310fdbea6e59768ea59c0ea946a9152bf1c0f8f24325b34e3c",
+  "image_metadata_sha256": "5d00f416953c6eaf4e8c867e675e693a3935cd997044a0c1284a929ed37c9102",
+  "elf_wheel_sha256": "f215ad5f47d3f1373a21496a6c9e0707c622840d0622f23ff7ce08678b020036",
+  "tasks_sha256": "756f111c06a2d757c3034dd6134abbefa454d5371e5153e6afcaabd1bd3a8be2",
+  "checks_sha256": "8f1b3a87b197a93c3f4441095495dc3a835bb8f29712336949767a92e308dff4",
+  "scopes_sha256": "89170e2e03ea32cd7f3cecc32b509f3f6a8238329a8598ffa6aa05f93c4db56b",
+  "baseline_queue": "[project]/work/vmshare/performance75-dsh-hy4-v10",
+  "baseline_protocol_sha256": "7c9d004a45b6ebbab8535be39f4ca63372dd00ccd0275534a10495d217a68f28",
+  "baseline_tasks_sha256": "500e27356f70e58dfe394828e698c43cce331a0a7aa8bb8bc4f4effd8ce4a13c",
+  "environment_pins_sha256": "4cccb2ad44c00d4257ea8f9e89c2e2fcf19d21d1d1bec55a4e7661d9449c282e",
+  "configuration_by_task": {
+    "model-extraction-relu-logits": "C0",
+    "pydata__xarray-4687": "C0",
+    "pydata__xarray-6599": "C0",
+    "extract-elf": "C0",
+    "video-processing": "C0",
+    "llm-inference-batching-scheduler": "C0",
+    "query-optimize": "C0",
+    "cpp/all-your-base": "C0",
+    "constraints-scheduling": "C0",
+    "django__django-11999": "C0",
+    "cpp/allergies": "C0",
+    "custom-memory-heap-crash": "C0",
+    "django__django-12050": "C0",
+    "cpp/gigasecond": "C0",
+    "db-wal-recovery": "C0",
+    "django__django-12193": "C0",
+    "cpp/linked-list": "C0",
+    "distribution-search": "C0",
+    "django__django-13346": "C0",
+    "cpp/parallel-letter-frequency": "C0",
+    "feal-linear-cryptanalysis": "C0",
+    "django__django-14855": "C0",
+    "go/alphametics": "C0",
+    "fix-code-vulnerability": "C0",
+    "django__django-15554": "C0",
+    "go/beer-song": "C0",
+    "fix-git": "B0",
+    "django__django-15987": "C0",
+    "go/connect": "C0",
+    "log-summary-date-ranges": "C0",
+    "django__django-16082": "C0",
+    "go/trinary": "C0",
+    "mailman": "B0",
+    "pydata__xarray-2905": "C0",
+    "go/variable-length-quantity": "C0",
+    "pydata__xarray-3305": "C0",
+    "java/change": "C0",
+    "modernize-scientific-stack": "C0",
+    "java/phone-number": "C0",
+    "multi-source-data-merger": "C0",
+    "pydata__xarray-4695": "C0",
+    "java/pig-latin": "C0",
+    "openssl-selfsigned-cert": "C0",
+    "javascript/book-store": "C0",
+    "password-recovery": "C0",
+    "pydata__xarray-7393": "C0",
+    "javascript/food-chain": "C0",
+    "polyglot-rust-c": "C0",
+    "pytest-dev__pytest-5631": "C0",
+    "javascript/house": "C0",
+    "prove-plus-comm": "C0",
+    "pytest-dev__pytest-7205": "C0",
+    "javascript/sum-of-multiples": "C0",
+    "regex-log": "C0",
+    "pytest-dev__pytest-7490": "C0",
+    "javascript/triangle": "C0",
+    "sparql-university": "C0",
+    "pytest-dev__pytest-7571": "C0",
+    "python/grep": "C0",
+    "sqlite-db-truncate": "C0",
+    "pytest-dev__pytest-8399": "C0",
+    "python/list-ops": "C0",
+    "tune-mjcf": "C0",
+    "scikit-learn__scikit-learn-10908": "C0",
+    "python/proverb": "C0",
+    "vulnerable-secret": "C0",
+    "scikit-learn__scikit-learn-11310": "C0",
+    "python/rest-api": "C0",
+    "scikit-learn__scikit-learn-13124": "C0",
+    "python/tree-building": "C0",
+    "scikit-learn__scikit-learn-13496": "C0",
+    "rust/accumulate": "C0",
+    "scikit-learn__scikit-learn-14496": "C0",
+    "rust/doubly-linked-list": "C0",
+    "scikit-learn__scikit-learn-25232": "C0"
+  },
+  "task_order": [
+    "model-extraction-relu-logits",
+    "pydata__xarray-4687",
+    "pydata__xarray-6599",
+    "extract-elf",
+    "video-processing",
+    "llm-inference-batching-scheduler",
+    "query-optimize",
+    "cpp/all-your-base",
+    "constraints-scheduling",
+    "django__django-11999",
+    "cpp/allergies",
+    "custom-memory-heap-crash",
+    "django__django-12050",
+    "cpp/gigasecond",
+    "db-wal-recovery",
+    "django__django-12193",
+    "cpp/linked-list",
+    "distribution-search",
+    "django__django-13346",
+    "cpp/parallel-letter-frequency",
+    "feal-linear-cryptanalysis",
+    "django__django-14855",
+    "go/alphametics",
+    "fix-code-vulnerability",
+    "django__django-15554",
+    "go/beer-song",
+    "fix-git",
+    "django__django-15987",
+    "go/connect",
+    "log-summary-date-ranges",
+    "django__django-16082",
+    "go/trinary",
+    "mailman",
+    "pydata__xarray-2905",
+    "go/variable-length-quantity",
+    "pydata__xarray-3305",
+    "java/change",
+    "modernize-scientific-stack",
+    "java/phone-number",
+    "multi-source-data-merger",
+    "pydata__xarray-4695",
+    "java/pig-latin",
+    "openssl-selfsigned-cert",
+    "javascript/book-store",
+    "password-recovery",
+    "pydata__xarray-7393",
+    "javascript/food-chain",
+    "polyglot-rust-c",
+    "pytest-dev__pytest-5631",
+    "javascript/house",
+    "prove-plus-comm",
+    "pytest-dev__pytest-7205",
+    "javascript/sum-of-multiples",
+    "regex-log",
+    "pytest-dev__pytest-7490",
+    "javascript/triangle",
+    "sparql-university",
+    "pytest-dev__pytest-7571",
+    "python/grep",
+    "sqlite-db-truncate",
+    "pytest-dev__pytest-8399",
+    "python/list-ops",
+    "tune-mjcf",
+    "scikit-learn__scikit-learn-10908",
+    "python/proverb",
+    "vulnerable-secret",
+    "scikit-learn__scikit-learn-11310",
+    "python/rest-api",
+    "scikit-learn__scikit-learn-13124",
+    "python/tree-building",
+    "scikit-learn__scikit-learn-13496",
+    "rust/accumulate",
+    "scikit-learn__scikit-learn-14496",
+    "rust/doubly-linked-list",
+    "scikit-learn__scikit-learn-25232"
+  ],
+  "order_reason": "Cached original images first, immutable logical order as tie break; never choose tasks by scores.",
+  "qualification_protocol_sha256": "9f3616199c8a85c5f9a792d497f3770d830f2d23f707ecc8f04c5d7dcd6baf6b",
+  "qualification_protocol": "[project]/work/vmshare/performance-hy4-sql-layout-v18-20261125/query-optimize-C0-sql-layout-v18-r3.protocol.json",
+  "routing": "C0 for bounded file/repository outputs; B0 for Git object/history and running mail services. No routing by scores.",
+  "candidate_python_rule": "Before a task's first model call, if native Python is absent, use the existing standalone public runtime only when /usr/local/bin/python3 is absent; save the resolved manifest. Never choose from scores.",
+  "limits": {
+    "model_calls": 500,
+    "wall_seconds": 3600,
+    "command_seconds": 120,
+    "max_output_tokens": 64000,
+    "timeout_retries": 0,
+    "strict_wall": true
+  },
+  "model": "hy4flash-free",
+  "images_enabled": true,
+  "historical_unknown_preserved": 25,
+  "initial_policy_scores_reused": false,
+  "image_cache_policy": "Below the original12GiB threshold, remove an unused original image only when final-v18 main, DSH and final-v18 repeat are all scored, independent of success.",
+  "image_preparation_sha256": {
+    "scripts/run_pinned_image_copy.py": "5a2bb7e3e0fa47d50bc2e1422cc265ab90e970a124be0b8d6d0966a3307b3487",
+    "scripts/import_pinned_image_copy.py": "255b22a259483b32337f687f1af34df259b049e4ab5cb5cae9a1444b70b4cfc1",
+    "scripts/prepare_registry_export_tool.py": "44ab57917ed68858d1f2d0061a3e7a4038454a753c765c069c583e2fbe4a0eb7",
+    "work/parallel-free-evaluation-20261124/image_copy_http1.py": "0c6cec923cb33021fc6f88c0c2fcbcfb7ca93643c6d2764a7b8bdb2efc29941f"
+  },
+  "image_preparation": "Pinned anonymous public registry copy and verified import, strictly between tasks, outside task deadlines and without any model call or daemon reconfiguration.",
+  "interpretation": "Uniform final revision on the fixed exposed75-task union, with a full fresh independent repeat. No unseen-task or public full-leaderboard claim.",
+  "next_phase": "Complete all required positions and prespecified guidance ablation; retain every actual failure.",
+  "source_plan": "work/parallel-free-evaluation-20261124/final-sql75-recovered/main-plan.json",
+  "source_plan_sha256": "90f912b7fa3653d96a47a4528409167ce60ed67eb2d3da47c636efb94665c291",
+  "driver_path": "work/parallel-free-evaluation-20261124/run_hy4_trial.py",
+  "guarded_cli_path": "work/hy4-free-readiness-20261124/codebuddy-guard.sh",
+  "request_guard_sha256": {
+    "work/hy4-free-readiness-20261124/request_guard.py": "af5c6d5f20afdaf36d26b61cc938d53f1e393cbc757b44d2377704ddd4e4e600",
+    "work/hy4-free-readiness-20261124/codebuddy-guard.sh": "4c218a4f159681a67003e99d2ddec6cceb80f28c66201c88e0f7ca396308c0cf",
+    "work/parallel-free-evaluation-20261124/run_hy4_trial.py": "5764368864a179569ffa7cf98779fcfbc3ec74fcea4de7fcb1970261732e9063",
+    "work/parallel-free-evaluation-20261124/resource_trial.py": "9852b4a45860e15e12ba8873979145d9140ce917728613edf7fe2ac1447c34b6",
+    "course_eval/financial_stop.py": "27b59ada2a897cfd10c5ebbaf65aa7e4e33157310ca56d6952cf1308559d0239",
+    "course_eval/resource_pool.py": "b20f4145dcc8dc14532d52db67cb893b3d512435ef3c483e3e77452ae35f6a95",
+    "work/parallel-free-evaluation-20261124/ready_coordinator.py": "ceafe70db5b53b940116a724eac3c4748345e82429305efa407e94970dc1a331",
+    "work/parallel-free-evaluation-20261124/resource_warm_trial.py": "17d871ae7feb15fe2e76cdc024de3e1d5c61b39c1b071321336cdfed825d4e10",
+    "work/parallel-free-evaluation-20261124/sql-reuse-plan.json": "84940d0af03045e8160cefb5aa0b2f71c6669a3d58c9b1bcac89f437ea2d0979",
+    "work/vmshare/performance-hy4-sql-layout-v18-20261125/state.json": "83d83140eaf84cb4166095eba0ce194c83aec9fc73f9e8af252b3ca622f14aa9",
+    "work/parallel-free-evaluation-20261124/prepare_final_sql75.py": "f00b711cd8800e7ddfe98e464b9bf4eb44680a61d6266bc47968e89b59397b85",
+    "work/harbor-artifact-capture/hy4-v18/policy.json": "3e213ae8067b8c9ce788eaa84ddf033a0b6fe1cd7ffad78c409fdd51e49e07c8",
+    "work/harbor-artifact-capture/hy4-v18/qualification.json": "2917120266867183f7c3567178c4a3c97bb729d77c85573a2e95803319a18152",
+    "scripts/harbor_artifact_capture.py": "9079d3fc34de13b4b760fb7647bbc7af154342c0cebf59e0e37faf36a63be60c",
+    "work/.venv/bin/harbor": "0e7e208b89829623272a3d43eb3af64a4724dadc05eab9115298ec3dd2a167a4",
+    "work/parallel-free-evaluation-20261124/run_ready_queues.py": "18b86bfcc8b50178b77f47a0260fd5bc3d8020b96e9f5904fd3665c5da7f7c27",
+    "work/parallel-free-evaluation-20261124/final-launch-recovery-20261125/startup-safety-qualification-r2.json": "a9252842cb3757dc24decec452781bb4bba9facda8c0ede2fa996b7c249d9a99",
+    "work/parallel-free-evaluation-20261124/quota-recovery-20261125/accepted-unknown25.json": "f6b75eaded21de206e44d3758315e8b4a98f30384b66ce9807bc362beafef2db",
+    "work/parallel-free-evaluation-20261124/recover_hy4_quota.py": "a3d92fa50f8c3a2259d0d430ebab07ffb1894b15ca38d6b023df699c40637ea3"
+  },
+  "mechanical_policy_recoveries": {
+    "query-optimize": {
+      "original_run": "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/query-optimize-C0-r1",
+      "original_result_sha256": "e988fced44a6aa0c0f9d63eda131e715fb173972a4d6e52028ba8269b88512a5",
+      "original_error": "Host supervisor read a not-yet-created queue state and exited; its exec process group ended before any original scoring",
+      "replacement_run": "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/query-optimize-C0-supervisor-readmission-r1",
+      "reason": "Repair the demonstrated host startup race; the interrupted unscored attempt and unknown fee remain separate",
+      "historical_unknown_retained": false
+    },
+    "python/grep": {
+      "original_run": "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1",
+      "original_result_sha256": "51ccfe9ac17f3a8dc446b0df7efabd2c23e5981fc2e2ab48d30aeb1b65af8a96",
+      "original_error": "CodeBuddy returned a non-JSON response",
+      "replacement_run": "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-quota-readmission-r1",
+      "reason": "One unscored provider-quota interruption; preserve two real zero receipts and unknown25; wait for official reset",
+      "historical_unknown_retained": true
+    }
+  },
+  "continuation_scope": "All75 final-policy positions and all75 independent repeats are new sessions. Reuse only unchanged original DSH scores, retaining failures; finish all75 DSH positions.",
+  "driver_revision_binding": "The current explicit framework argument is passed for both arms; only the admitted CodeBuddy executable is wrapped by a shared financial-stop preflight; underlying client and actual billing validator remain unchanged",
+  "baseline_runtime_root": "[project]/work/frozen-performance-dsh-parallel-guard-20261124",
+  "baseline_runtime_sha256": {
+    "course_eval/check_codebuddy_free.py": "a7e488fdbea682a22313423db7ac105ea479602c418507c2b5e1fb62c959c3eb",
+    "course_eval/boyue_transport.py": "b0854599f7292c7569f78d128dc103f3076efa01b87593cec870ef4d0758dd7d",
+    "course_eval/matrix.py": "1b0bfb8cf389ac09078bc1d3973931b6c194b04cfecc9bf0115f2dcca1084c93",
+    "course_eval/dsh_runner.py": "633e1929c2d08f60f2bee2655598c1a42607eedf5d34cfeb3385df2834161d64",
+    "course_eval/check_aider_runtime.py": "df2688fbecb56adf1071457b9b1479c308a461e873b76a2d9aa528dabbb9d23f",
+    "course_eval/openrouter_free.py": "362ac463d6fc6abb48febb0e08eddba5e7d4a73ddaacf2b7b66dd4c03f8ce043",
+    "course_eval/terminal_setup.py": "482b08db8cf2fe66ea113820084bc16a6e89e4b8d9ac96f0415768c8cb76db4b",
+    "course_eval/check_boyue.py": "edbe2641e793e57ad8d1b556d90bd67aecd4f5130d5f8b8c1533213a7ddef24e",
+    "course_eval/confirmation_materials.py": "5b96cc06ae9f30ea23df9958cba9db5cf91adf36ca4ea032dae4f33fd4b1c561",
+    "course_eval/check_control_feedback.py": "e24dc6703925ed0351c64f7d04c10e050a930ed8e23b8f757552091e61cac507",
+    "course_eval/codebuddy_free.py": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+    "course_eval/confirmation_repair.py": "0b5e816e499985cf4236e69be422cb18074f6e0b836b222d260cc04116d182a3",
+    "course_eval/harbor_agent.py": "def732e78eecbea0a5d15506a1d55c850de0359349674af9c45334152ff67393",
+    "course_eval/image_input.py": "c3a9184aee35b454e2ef729112769cbdf09b404ca0ff156d7d25960308e7fa54",
+    "course_eval/verification.py": "5ae7a4eb9753740e0f5385b99655fe5d144bf49ec6ef8ca0784a930f5308c424",
+    "course_eval/revision_summary.py": "8f32b31265a72db640f50b905dfa88ae582a08c021398c28d4afb098716f2d6e",
+    "course_eval/check_public_semantics.py": "ee94138ddf05d8e898a8bccc15b5002332e932bd6bde242e5dac87e7a80cbbca",
+    "course_eval/resource_pool.py": "b20f4145dcc8dc14532d52db67cb893b3d512435ef3c483e3e77452ae35f6a95",
+    "course_eval/verify_scores.py": "5bf4b663ea0ff916785701a3792323861b763708670c2f4aa59d876b39b9e51b",
+    "course_eval/controller.py": "6c136191b64eca3ac069c1fd147eea60e200587f8a76657cfcf2b5f4e2174b62",
+    "course_eval/terminal-no-network.yaml": "17ceef0a82e7dfb63d9f5ce974350f392dd8a323eac174ec69d28a90c7de8388",
+    "course_eval/docker_target.py": "2ed262a331ad7b15b0b937e315fbc39b7c73ab6821e1e52c3d9b657cf792ae83",
+    "course_eval/sandbox_command.py": "688a32b71ec3a0f64797654b0283e59e727675ca4f68818a3a9a9251db07f16b",
+    "course_eval/check_terminal_tests.py": "ba39fc351c088ea8b0049d8d672ec32a8550a50ed93e4524daa1c7e1bcd887a6",
+    "course_eval/check_confirmation_public.py": "79ad6d3a7bfe4af64185b4b5e8ecbc0b6b6cbfcb23a176ff10ce7f64c977749a",
+    "course_eval/dsh_free.py": "6bdcd9b4060bb8177af9ac6181f8a7a1ba7d6b17bd3a440e557b9c7eff719ada",
+    "course_eval/check_revision.py": "797ce437fff9e3d8cb24cffbb1ed39d4b50a2b2c5e5296bb0fd1aea2f0dd6bf7",
+    "course_eval/candidate_io.py": "307457f8eeff702f1a8f7b9f43bb69138bec908a9f8783ae5795c45fe1c1802c",
+    "course_eval/boyue_rpc.py": "b95f8b7a8153f7b907e6edf13186e5d48196d1595695fb4d107f7e8208ca9684",
+    "course_eval/check_controller.py": "f4457cadd4ce7354fe0503cd198a525e1c7f2ae58b54ca4a884dae19256a5c81",
+    "course_eval/terminal_runtime.py": "9083c55056a56f6818b9b3db372fee465f2dc24225f3cb72ad6f9342d384fec1",
+    "course_eval/confirmation_summary.py": "671f478501a10d98aa880c0acf367f5b793673d41fe5d6c648177f8eb0a832ad",
+    "course_eval/confirmation_terminal_checks.py": "a2e1e5af7b83e581f41d751c88e14c2bc93545451c7ad82c09f6c17805f36d82",
+    "course_eval/check_control_contracts.py": "769846622d5dfc469ea7103e83907c3e0fd3ed86fb94547a4d11e7ef6d6c586a",
+    "course_eval/financial_stop.py": "27b59ada2a897cfd10c5ebbaf65aa7e4e33157310ca56d6952cf1308559d0239",
+    "course_eval/confirmation_probe_repair.py": "6a09b8385e07f2e41041dff6db90b639d0b99be70408e2800630a64f35f36bd4",
+    "course_eval/aider_runtime.py": "da14339b906790802c4b869b9c3e93e23144b6d8435c95d4d40670966da42472",
+    "course_eval/summarize.py": "32af45b86b4a5277b871273f2325ce86f394d03a9471c2ae2e7b45ec11bf94de",
+    "course_eval/confirmation_swe_checks.py": "6dcf92ce90f2eeb27219162eda9d43d25366f3a74c5f4af8fdf81d868a7acea3",
+    "course_eval/export_confirmation_preparation.py": "0f09e3d9817f458671fcc15345d0a133908172a6e3ebfed6d0d0be4338970145",
+    "course_eval/check_jsonlines.py": "af05b357a97d2435c85296076d02bf650b32a41a2f5cbff9e9978adc0871b5a1",
+    "course_eval/confirmation_selection.py": "7f5275ab2d96118e86a7ecd315fe4e5f922dfc408010829429340e973bb8799c",
+    "course_eval/check_openrouter_free.py": "8947d451b74971ff9aa6b70f410958093f1cb56d762046c2553465ab65f96c4a",
+    "course_eval/confirmation.py": "4fe07c4692e39148c8a94fefb7c8f00bca39f29a872a1cb1899d3473d72317d3",
+    "course_eval/public_semantics.py": "ae652562b602dbaf7a63c3f45a0296ed91718db693945514b276c77ad6fec02c",
+    "course_eval/check_boyue_timeout.py": "290d5dd76b86206ea02ccc000c6222911d6b95fc6d1dc00a2d2219a7a7d96b63",
+    "course_eval/replay_agent.py": "de6dfa635b02e49578d84e8a29b2449c5304a12c870f1bdd4db855b304e188c1",
+    "course_eval/agent.py": "d020fd162267256bde434a05639dbdaf56d84ec874de46052b531dc498a445ab",
+    "course_eval/revision.py": "19836763a1ea305d9f507f5a8e668f52b482738b93965efac2f612454f808e0f",
+    "course_eval/confirmation_preflight.py": "553618b3b0aa555f88412a16535b55513f5dd00c7a51bee03b278ac67b6d750e",
+    "course_eval/check_verification.py": "da620307f9510b33d4cd007aeb67d7c78af41e47f258818d2e8722c1dc410abe",
+    "course_eval/check_controller_history.py": "af093765b156a18339e14e9e13c20fa0cd92fa9bf5b3f092215a948482209771",
+    "course_eval/freeze.py": "323e0806e208dfe006b3a999eab2477f8667e4d6b4a56908dd52d796fa742e31",
+    "course_eval/check_repository_candidates.py": "a3da88be2126cc7eda17a5641b8722a8fd5897c7320178e1feb281354bc4183a",
+    "course_eval/dsh_sandbox.py": "d12129d0c6ab1fceac465c503eff524ab26cc5123e7df49fc0d347220dae61ad",
+    "course_eval/audit_repro.py": "7f893185b3d139fd2845effbc2bccca060c8b9dc097fb2bb067fd79007d7b74f",
+    "course_eval/export_revision.py": "48438872717de575616be682313c41066466e40d1b23b13055dfaa70bc110de5",
+    "course_eval/revision_usage.py": "5292ca3afc5345ca79aaf8f3144920dc03df6b9a88660e4465e2bba66e35bc03",
+    "course_eval/confirmation_terminal_materials.py": "31fafd4aed6b5ed6b7081169e54aa76cc237cab3d59e2340143fe5a25079c8a2",
+    "course_eval/check_terminal_boundary.py": "c2b0dc40762221e20ebb37830e8035a07221d980d68fc8c6a4e99f1fdd5cdd49",
+    "course_eval/relu_recovery.py": "c5879a40fb67cc3ff9532978d2c8dc9fadfc726cc40235a2e1c04f584fe7ea76",
+    "course_eval/benchmarks.py": "57d478adda9d4f1770eae34740b0a9c4c1d5c5da5b99fb541ffe859553cdb665",
+    "course_eval/check_confirmation_terminal.py": "97db454abddc863c77c85c46c36b9632360ae56fed72a64c0e9a1576ec9a916f",
+    "course_eval/preflight.py": "94af5813e40f782e603e0c24aa5c55c63a08ff0d6cabe2f384d713125be94e84",
+    "course_eval/swe_rows.mjs": "a2d1d5e9471198b2216108dd0c65c85859313329c964ecb71d6a7f002dee3a56",
+    "course_eval/inventory.py": "ea116625589a128bcb21d012659e4e71629ffed5952e1c3349d3bd884509cd83",
+    "course_eval/check_boyue_agent.py": "f4dbebe1fc9800555c1fd5147f160a3f63b074e0737e850eda9b6f022e389917",
+    "course_eval/fixtures/climate_cli.py": "db460d08a30969d9e3a8511064144ac1a36c6eb8836020c2bdc73d285486a5e4"
+  },
+  "registered_existing_runs": {
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/extract-elf-B0-r1": {
+      "result_sha256": "4d6e4369678020ec57bf9c11b2c2b5571e5bd19d809812aa793620dc0490d0b7",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/video-processing-B0-r1": {
+      "result_sha256": "73b85e23ceef9a5fef8ff05cc731b9eb2fef93dc7ff69e00d7c5f1326edb1118",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/llm-inference-batching-scheduler-B0-r1": {
+      "result_sha256": "fa8894a7a274c3776ac2c15c1607c77ba54c9cdb2e2756391318e060897d5db8",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/query-optimize-B0-r1": {
+      "result_sha256": "0ab52fa0b0261f252eff4f751d232a6e9e6e1a3575d5f7ea7338bf4f48e6fed0",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/cpp-all-your-base-B0-r1": {
+      "result_sha256": "115f086718566ebf1f6d208b4b9befbbbbc459a2674f9d62a5979f27d8ab8340",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/constraints-scheduling-B0-r1": {
+      "result_sha256": "7f4da08c042a2e195ad004fcb381d1e39e3535a0acb076a0b583a033a6057b98",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/django__django-11999-B0-r1": {
+      "result_sha256": "1dec86905ef48f8bd401de1548f444bcfaaea6efed1092ac42bc7f5824465a95",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/cpp-allergies-B0-r1": {
+      "result_sha256": "45f25884d26d584824c61f98507975e00d5f6cdd77f5e04fb44bbb8605fcd2e0",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/custom-memory-heap-crash-B0-r1": {
+      "result_sha256": "9a641dc5be89050f3e41791a716333c95062b1bd545663b78b0362e3c597360d",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/django__django-12050-B0-r1": {
+      "result_sha256": "5b6974b47ebe2cec41b6222a5dfbe9ce886147c6bf57392f815ff43f3ab6d426",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/cpp-gigasecond-B0-r1": {
+      "result_sha256": "1bf440893ec8bd7aa07d7ee0c434122fc45588346179e67f8472ae70d7f34083",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/db-wal-recovery-B0-r1": {
+      "result_sha256": "980cbf54bf0ca5bca932df30e961887001b68a6925426db3401dc2eb709e4803",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/django__django-12193-B0-r1": {
+      "result_sha256": "21be0f700505094d979e37c99b72d09e93346d11eb6da894bbdf82abb06d906c",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/cpp-linked-list-B0-r1": {
+      "result_sha256": "d0be78981fe751d49e60618bfc6358e1930050979946b9a97a291509b478194e",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/distribution-search-B0-r1": {
+      "result_sha256": "cc961bef7bc5822e3f0043b2068a6c6799950f9c6421e041755044db7663ee46",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/django__django-13346-B0-r1": {
+      "result_sha256": "520c57d0a93dbabadc25d36d82cc3bc82e21789246ae39581a0c38005dc7d3d6",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/cpp-parallel-letter-frequency-B0-r1": {
+      "result_sha256": "b82854b9887135fb47293b744d5a3639b3ec4b14ed7dedd9c8011e45d9b6a6a7",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/feal-linear-cryptanalysis-B0-r1": {
+      "result_sha256": "4caebb13433e8b6785c1c902cd266d1afce1924ce388b626e8ce46a71003df1b",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/django__django-14855-B0-r1": {
+      "result_sha256": "e5bcab00a3df5c98cb51c844bb6802c2505cebcc5da235fc19eb86c91cbb96c7",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/go-alphametics-B0-r1": {
+      "result_sha256": "7e324e98893ffee0b1690aee7bc9dab3be266bd921334355d9949eb509e645bf",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/fix-code-vulnerability-B0-r1": {
+      "result_sha256": "ea2bbefa7ccfd7cc95b4070dedab8565ecf291f95885b2f009754ec433c7679f",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/django__django-15554-B0-r1": {
+      "result_sha256": "97547d8f848711fe2bd231c2943f25d2c130aa38fdaac9aa40415c9964f7125d",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/go-beer-song-B0-r1": {
+      "result_sha256": "0cd033bf6b3a215e3cc8217582fc2d75a196b9126a4282c56f06d965ba50b520",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/fix-git-B0-r1": {
+      "result_sha256": "1529e664fef2ac0474c8ced0116336bf447b48120c4586694ac69a28ea69ec21",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/django__django-15987-B0-r1": {
+      "result_sha256": "6f8113aad4bb670b385ac437d0c1c70be4fa8e21967d7196d4e172bd1578bb36",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/go-connect-B0-r1": {
+      "result_sha256": "5a59d7fac73753a7638948e7776515266c1298cb610845db559530db1505a015",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/log-summary-date-ranges-B0-r1": {
+      "result_sha256": "686797df840ededbdea32d4800457612c0cadd0da4929a36518b54e6e1334b9e",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/django__django-16082-B0-r1": {
+      "result_sha256": "a65565aa5df23e8334f95146d2499bb04a155fb7c94e5560a2f47e3357f097ea",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/go-trinary-B0-r1": {
+      "result_sha256": "2756f80ecea4ecc77f39a32aed51127448371b1fdae748337a946a987ce39566",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/mailman-B0-r1": {
+      "result_sha256": "c4ae3e602281ab88d92e8b12ce04532bdc78453bd2973e74383b8eaba42abc9a",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/pydata__xarray-2905-B0-r1": {
+      "result_sha256": "d9b38075fe6356de5e361ace9b19e5c1fd91154ff2dc3b71f1eb36dbe2a2b7d1",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/go-variable-length-quantity-B0-r1": {
+      "result_sha256": "0db8c5ddc66bbe551179b7ce75be09120ff835a5c6a5af87bf98a8983f29cc12",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/model-extraction-relu-logits-B0-r1": {
+      "result_sha256": "2520af2a240340adef475de4860a50c1db22a692aadeaf96d2b6d585b4f5a75d",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/pydata__xarray-3305-B0-r1": {
+      "result_sha256": "026cece9c08f56dad87e793601404187f1298179360e2e0a99d89c7a30e119ab",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/java-change-B0-r1": {
+      "result_sha256": "125bc773a975a9c3b2af910060f92c47cb1bbdf49a4e05619375e87984d3c1d6",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/modernize-scientific-stack-B0-r1": {
+      "result_sha256": "e6b52c0ee519f8f610ce2ff151b68b234e47cf61397ef06cbcebffa122d28d5d",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/pydata__xarray-4687-B0-r1": {
+      "result_sha256": "55d9b7fb1012aac8de6830476b34bdb6d86678c84a568b822ec17f42a00a1eec",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/java-phone-number-B0-r1": {
+      "result_sha256": "c756cabf82a36290152ad2290c7a08f87fdcb140b95380341f94d57524491a57",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/java-pig-latin-B0-r1": {
+      "result_sha256": "9ed3b2d27373527802222bda8412f8fec0312484175c8d675d42dc0e81a528ca",
+      "runtime_root": "[project]/work/frozen-performance-dsh-parallel-guard-20261124"
+    },
+    "[project]/work/vmshare/performance-dsh-hy4-v10/pydata__xarray-6599-B0-r1": {
+      "result_sha256": "4167928f4dec64ff84f53c64cefef7d175e5909ba6d2c5506981b147e7f5b607",
+      "runtime_root": "[project]/work/frozen-performance-dsh-v10"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/javascript-book-store-B0-r1": {
+      "result_sha256": "17727db40f5d877759fd6115d3851888e2d4bfb872c61f332b4e59ff54f0bae2",
+      "runtime_root": "[project]/work/frozen-performance-dsh-parallel-guard-20261124"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/javascript-food-chain-B0-r1": {
+      "result_sha256": "3a80314314b35280d7bdf0c03b71b501cbf199f3d9f007d1feabf96775dccdae",
+      "runtime_root": "[project]/work/frozen-performance-dsh-parallel-guard-20261124"
+    },
+    "[project]/work/vmshare/performance75-dsh-hy4-v10/polyglot-rust-c-B0-r1": {
+      "result_sha256": "9881e4a3b5d71afcb62ae9046ce0c65333737894f450d8dc961f178d53fbf6a8",
+      "runtime_root": "[project]/work/frozen-performance-dsh-parallel-guard-20261124"
+    }
+  },
+  "registered_inflight_runtime_roots": {},
+  "resource_pool": "work/parallel-free-evaluation-20261124/resources",
+  "resource_driver": "work/parallel-free-evaluation-20261124/resource_warm_trial.py",
+  "historical_runtime_bindings": [
+    {
+      "runtime_root": "[project]/work/frozen-performance-helper-v17",
+      "sha256": {
+        "course_eval/agent.py": "8469767a45a8848895c166b8bab73d08a3d13aa3bb738a4c6b7e4162c78cf4f2",
+        "course_eval/aider_runtime.py": "da14339b906790802c4b869b9c3e93e23144b6d8435c95d4d40670966da42472",
+        "course_eval/audit_repro.py": "7f893185b3d139fd2845effbc2bccca060c8b9dc097fb2bb067fd79007d7b74f",
+        "course_eval/benchmarks.py": "57d478adda9d4f1770eae34740b0a9c4c1d5c5da5b99fb541ffe859553cdb665",
+        "course_eval/boyue_rpc.py": "b95f8b7a8153f7b907e6edf13186e5d48196d1595695fb4d107f7e8208ca9684",
+        "course_eval/boyue_transport.py": "b0854599f7292c7569f78d128dc103f3076efa01b87593cec870ef4d0758dd7d",
+        "course_eval/candidate_io.py": "307457f8eeff702f1a8f7b9f43bb69138bec908a9f8783ae5795c45fe1c1802c",
+        "course_eval/check_aider_runtime.py": "df2688fbecb56adf1071457b9b1479c308a461e873b76a2d9aa528dabbb9d23f",
+        "course_eval/check_boyue.py": "edbe2641e793e57ad8d1b556d90bd67aecd4f5130d5f8b8c1533213a7ddef24e",
+        "course_eval/check_boyue_agent.py": "f4dbebe1fc9800555c1fd5147f160a3f63b074e0737e850eda9b6f022e389917",
+        "course_eval/check_boyue_timeout.py": "290d5dd76b86206ea02ccc000c6222911d6b95fc6d1dc00a2d2219a7a7d96b63",
+        "course_eval/check_codebuddy_free.py": "a7e488fdbea682a22313423db7ac105ea479602c418507c2b5e1fb62c959c3eb",
+        "course_eval/check_confirmation_public.py": "79ad6d3a7bfe4af64185b4b5e8ecbc0b6b6cbfcb23a176ff10ce7f64c977749a",
+        "course_eval/check_confirmation_terminal.py": "97db454abddc863c77c85c46c36b9632360ae56fed72a64c0e9a1576ec9a916f",
+        "course_eval/check_control_contracts.py": "769846622d5dfc469ea7103e83907c3e0fd3ed86fb94547a4d11e7ef6d6c586a",
+        "course_eval/check_control_feedback.py": "e24dc6703925ed0351c64f7d04c10e050a930ed8e23b8f757552091e61cac507",
+        "course_eval/check_controller.py": "f4457cadd4ce7354fe0503cd198a525e1c7f2ae58b54ca4a884dae19256a5c81",
+        "course_eval/check_controller_history.py": "af093765b156a18339e14e9e13c20fa0cd92fa9bf5b3f092215a948482209771",
+        "course_eval/check_jsonlines.py": "af05b357a97d2435c85296076d02bf650b32a41a2f5cbff9e9978adc0871b5a1",
+        "course_eval/check_openrouter_free.py": "8947d451b74971ff9aa6b70f410958093f1cb56d762046c2553465ab65f96c4a",
+        "course_eval/check_public_semantics.py": "ee94138ddf05d8e898a8bccc15b5002332e932bd6bde242e5dac87e7a80cbbca",
+        "course_eval/check_repository_candidates.py": "a3da88be2126cc7eda17a5641b8722a8fd5897c7320178e1feb281354bc4183a",
+        "course_eval/check_revision.py": "797ce437fff9e3d8cb24cffbb1ed39d4b50a2b2c5e5296bb0fd1aea2f0dd6bf7",
+        "course_eval/check_terminal_boundary.py": "c2b0dc40762221e20ebb37830e8035a07221d980d68fc8c6a4e99f1fdd5cdd49",
+        "course_eval/check_terminal_tests.py": "ba39fc351c088ea8b0049d8d672ec32a8550a50ed93e4524daa1c7e1bcd887a6",
+        "course_eval/check_verification.py": "da620307f9510b33d4cd007aeb67d7c78af41e47f258818d2e8722c1dc410abe",
+        "course_eval/codebuddy_free.py": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+        "course_eval/confirmation.py": "4fe07c4692e39148c8a94fefb7c8f00bca39f29a872a1cb1899d3473d72317d3",
+        "course_eval/confirmation_materials.py": "68786769728dd15c89a4fecef2be1d207281db106bbfafc2728c32c7f765e094",
+        "course_eval/confirmation_preflight.py": "553618b3b0aa555f88412a16535b55513f5dd00c7a51bee03b278ac67b6d750e",
+        "course_eval/confirmation_probe_repair.py": "6a09b8385e07f2e41041dff6db90b639d0b99be70408e2800630a64f35f36bd4",
+        "course_eval/confirmation_repair.py": "0b5e816e499985cf4236e69be422cb18074f6e0b836b222d260cc04116d182a3",
+        "course_eval/confirmation_selection.py": "7f5275ab2d96118e86a7ecd315fe4e5f922dfc408010829429340e973bb8799c",
+        "course_eval/confirmation_summary.py": "671f478501a10d98aa880c0acf367f5b793673d41fe5d6c648177f8eb0a832ad",
+        "course_eval/confirmation_swe_checks.py": "e80d02c0137b0d852384b93e3a0fc0c4de9c8429a8a3e8610ba383e3ae11aafb",
+        "course_eval/confirmation_terminal_checks.py": "a2e1e5af7b83e581f41d751c88e14c2bc93545451c7ad82c09f6c17805f36d82",
+        "course_eval/confirmation_terminal_materials.py": "31fafd4aed6b5ed6b7081169e54aa76cc237cab3d59e2340143fe5a25079c8a2",
+        "course_eval/controller.py": "6c136191b64eca3ac069c1fd147eea60e200587f8a76657cfcf2b5f4e2174b62",
+        "course_eval/docker_target.py": "2ed262a331ad7b15b0b937e315fbc39b7c73ab6821e1e52c3d9b657cf792ae83",
+        "course_eval/dsh_free.py": "b839848b2a5ab416bfabd472988a2d784491f389d878d53d20d82460b81a3e29",
+        "course_eval/dsh_runner.py": "633e1929c2d08f60f2bee2655598c1a42607eedf5d34cfeb3385df2834161d64",
+        "course_eval/dsh_sandbox.py": "d12129d0c6ab1fceac465c503eff524ab26cc5123e7df49fc0d347220dae61ad",
+        "course_eval/elf_memory_check.py": "e13f2d9ffabad9f538414e8299f5197b73e6db98ff2f4482b5e2a11f36db955e",
+        "course_eval/export_confirmation_preparation.py": "0f09e3d9817f458671fcc15345d0a133908172a6e3ebfed6d0d0be4338970145",
+        "course_eval/export_revision.py": "48438872717de575616be682313c41066466e40d1b23b13055dfaa70bc110de5",
+        "course_eval/fixtures/climate_cli.py": "db460d08a30969d9e3a8511064144ac1a36c6eb8836020c2bdc73d285486a5e4",
+        "course_eval/freeze.py": "323e0806e208dfe006b3a999eab2477f8667e4d6b4a56908dd52d796fa742e31",
+        "course_eval/harbor_agent.py": "def732e78eecbea0a5d15506a1d55c850de0359349674af9c45334152ff67393",
+        "course_eval/image_input.py": "c3a9184aee35b454e2ef729112769cbdf09b404ca0ff156d7d25960308e7fa54",
+        "course_eval/inventory.py": "ea116625589a128bcb21d012659e4e71629ffed5952e1c3349d3bd884509cd83",
+        "course_eval/matrix.py": "1b0bfb8cf389ac09078bc1d3973931b6c194b04cfecc9bf0115f2dcca1084c93",
+        "course_eval/openrouter_free.py": "362ac463d6fc6abb48febb0e08eddba5e7d4a73ddaacf2b7b66dd4c03f8ce043",
+        "course_eval/preflight.py": "94af5813e40f782e603e0c24aa5c55c63a08ff0d6cabe2f384d713125be94e84",
+        "course_eval/public_semantics.py": "ae652562b602dbaf7a63c3f45a0296ed91718db693945514b276c77ad6fec02c",
+        "course_eval/relu_recovery.py": "f3dd9a3efc6ef2bdb3a28708225162f99cd39a45323481b46023ac9d7e2cfae4",
+        "course_eval/relu_solver_agent.py": "6378c5f25b224cbd4eedab1485b118f1881c4b943b8fcb83ea92d0da84d99543",
+        "course_eval/replay_agent.py": "de6dfa635b02e49578d84e8a29b2449c5304a12c870f1bdd4db855b304e188c1",
+        "course_eval/revision.py": "19836763a1ea305d9f507f5a8e668f52b482738b93965efac2f612454f808e0f",
+        "course_eval/revision_summary.py": "8f32b31265a72db640f50b905dfa88ae582a08c021398c28d4afb098716f2d6e",
+        "course_eval/revision_usage.py": "5292ca3afc5345ca79aaf8f3144920dc03df6b9a88660e4465e2bba66e35bc03",
+        "course_eval/sandbox_command.py": "688a32b71ec3a0f64797654b0283e59e727675ca4f68818a3a9a9251db07f16b",
+        "course_eval/summarize.py": "32af45b86b4a5277b871273f2325ce86f394d03a9471c2ae2e7b45ec11bf94de",
+        "course_eval/terminal_runtime.py": "a63a8f024bff7453ddfd77cc1ea07f6d8d6b69e48d9434d3187c7bc24519c755",
+        "course_eval/terminal_setup.py": "482b08db8cf2fe66ea113820084bc16a6e89e4b8d9ac96f0415768c8cb76db4b",
+        "course_eval/verification.py": "5ae7a4eb9753740e0f5385b99655fe5d144bf49ec6ef8ca0784a930f5308c424",
+        "course_eval/verify_scores.py": "5bf4b663ea0ff916785701a3792323861b763708670c2f4aa59d876b39b9e51b",
+        "course_eval/video_events.py": "cc1be22ff1e217e16fc5b1777677e20b518719ad3993edde9e884d2df5819d62",
+        "course_eval/swe_rows.mjs": "a2d1d5e9471198b2216108dd0c65c85859313329c964ecb71d6a7f002dee3a56",
+        "course_eval/terminal-no-network.yaml": "17ceef0a82e7dfb63d9f5ce974350f392dd8a323eac174ec69d28a90c7de8388"
+      }
+    }
+  ],
+  "financial_guard_qualification": [
+    "work/parallel-free-evaluation-20261124/qualification-hy4/result.json",
+    "work/parallel-free-evaluation-20261124/qualification-nvidia/result.json"
+  ],
+  "runtime_revision_scope": "Only the public SQL formatter and its explicit use guidance change from v17; other74 helper prompts and non-SQL runtime AST remain unchanged.",
+  "coordinator_path": "work/parallel-free-evaluation-20261124/ready_coordinator.py",
+  "queue": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125",
+  "baseline_dispatch_disabled": false,
+  "cache_consumers": [
+    {
+      "queue": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125",
+      "repeat": 1,
+      "mechanical_policy_recoveries": {
+        "query-optimize": {
+          "original_run": "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/query-optimize-C0-r1",
+          "original_result_sha256": "e988fced44a6aa0c0f9d63eda131e715fb173972a4d6e52028ba8269b88512a5",
+          "original_error": "Host supervisor read a not-yet-created queue state and exited; its exec process group ended before any original scoring",
+          "replacement_run": "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/query-optimize-C0-supervisor-readmission-r1",
+          "reason": "Repair the demonstrated host startup race; the interrupted unscored attempt and unknown fee remain separate",
+          "historical_unknown_retained": false
+        },
+        "python/grep": {
+          "original_run": "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-r1",
+          "original_result_sha256": "51ccfe9ac17f3a8dc446b0df7efabd2c23e5981fc2e2ab48d30aeb1b65af8a96",
+          "original_error": "CodeBuddy returned a non-JSON response",
+          "replacement_run": "[project]/work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/python-grep-C0-quota-readmission-r1",
+          "reason": "One unscored provider-quota interruption; preserve two real zero receipts and unknown25; wait for official reset",
+          "historical_unknown_retained": true
+        }
+      }
+    },
+    {
+      "queue": "work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125",
+      "repeat": 2,
+      "mechanical_policy_recoveries": {
+        "query-optimize": {
+          "original_run": "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-r2",
+          "original_result_sha256": "72c109fc35075a038195583cb8b240419fc7e1e565cf70266bdb6bea225c7bc8",
+          "original_error": "Host supervisor read a not-yet-created queue state and exited; its exec process group ended before any original scoring",
+          "replacement_run": "[project]/work/vmshare/performance75-hy4-sql-layout-v18-repeat-20261125/query-optimize-C0-supervisor-readmission-r2",
+          "reason": "Repair the demonstrated host startup race; the interrupted unscored attempt and unknown fee remain separate",
+          "historical_unknown_retained": true
+        }
+      }
+    }
+  ],
+  "operation_revision_scope": "One unscored Python/grep fresh environment after the official reset; original runtime, tasks, public checks, graders, budgets, and all scored results unchanged",
+  "execution_order": "Among remaining positions prefer an already cached original image, then use the immutable logical task_order as tie-break; never select by score. Every original75 position remains required.",
+  "image_transport": "Anonymous pinned public copies run outside the VM execution lock, serialize by task, use Go HTTP1 client compatibility, and keep previous failures; imports stay exclusive and content verified.",
+  "new_model_calls_during_preparation": 0,
+  "image_copy_driver": "work/parallel-free-evaluation-20261124/image_copy_http1.py",
+  "required_startup_probe": {
+    "path": "work/parallel-free-evaluation-20261124/xarray3305-startup-probe-r2/result.json",
+    "sha256": "ce85fd21b8943f528dcb9f2854a49832978dfd30e948a5ed1218a8f52fc4cba2"
+  },
+  "readmission_scope": "No scored policy position is reused or replaced. The prior v17 cohorts and both SQL pilots remain separate development records.",
+  "image_readiness_qualification": {
+    "path": "work/parallel-free-evaluation-20261124/actual-image-warm-qualification.json",
+    "sha256": "106266fb60ea2e7e93ab29660d678d9ad260377df83011e80c59afbc87cd0984"
+  },
+  "artifact_capture_policy": "work/harbor-artifact-capture/hy4-v18/policy.json"
+}

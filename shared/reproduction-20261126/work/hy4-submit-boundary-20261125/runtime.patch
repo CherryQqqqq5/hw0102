@@ -1,0 +1,197 @@
+--- v18/course_eval/controller.py
++++ v20/course_eval/controller.py
+@@ -15,6 +15,7 @@
+ from minisweagent.exceptions import Submitted, TimeExceeded
+ 
+ from course_eval.agent import CodeBuddyModel, CourseModel, SUBMIT, TracedEnvironment, append_event
++from course_eval.oracle_access import rejection_reason
+ from course_eval.verification import Evidence, VerificationState
+ 
+ 
+@@ -315,12 +316,12 @@
+                     return "Public verification of the changed candidate: " + json.dumps(reports)
+         return ""
+ 
+-    def finish(self, reason):
++    def finish(self, reason, *, checked_status=None):
+         if self.final_report is not None:
+             return self.final_report
+         recovery_reserve = 30 if any(item["eligible"] for item in self.store.candidates) else 15
+         reports = self.verify_pending(reason, recovery_reserve) if self.enabled else []
+-        current, evidence = self.status()
++        current, evidence = self.status() if checked_status is None else checked_status
+         restored = None
+         if self.enabled and not all(item["state"] == "passed" for item in evidence.values()):
+             eligible = [item for item in self.store.candidates if item["eligible"]]
+@@ -341,6 +342,14 @@
+         self.steps += 1
+         self.decisions += 1
+         if action.operation == "bash":
++            if self.store.scope.get("reusable_helper") == "relu_directions":
++                reason = rejection_reason(action.command)
++                if reason:
++                    report = {"oracle_access_rejected": True, "reason": reason,
++                        "next_action": "Import only the public forward callable. Use the provided numerical helper or its self-contained export CLI;then register verify and save before submitting.",
++                        "scope": "Recognized source/weight/inspect patterns only;full trajectory access review is still required."}
++                    self.event("oracle_access_rejected", command=action.command, **report)
++                    return self.observation(json.dumps(report), 1)
+             output = self.target.exec(action.command, cwd=cwd,
+                                       timeout=min(self.limits.command_seconds, max(1, int(self.budget.remaining() - (
+                                           self.final_reserve() if self.enabled else 0)))))
+@@ -367,7 +376,17 @@
+                 result = {"restored": record["candidate_id"], "verification": self.status()[1]}
+                 self.event("candidate_restored", **result)
+         elif action.operation == "submit":
+-            self.finish("submission")
++            checked_status = None
++            if not self.enabled:
++                checked_status = self.status()
++                current, evidence = checked_status
++                if not self.store.trusted(current) or any(item["state"] != "passed" for item in evidence.values()):
++                    report = {"submission_rejected": True, "protected_unchanged": self.store.trusted(current),
++                        "checks": evidence, "required_check_ids": [key for key, item in evidence.items() if item["state"] != "passed"],
++                        "next_action": "Restore changed protected dependencies,run structured verify(check_id) for each required check,save,and submit again. Bash self-tests do not register verification."}
++                    self.event("submission_rejected", **report)
++                    return self.observation(json.dumps(report), 1)
++            self.finish("submission", checked_status=checked_status)
+             raise Submitted({"role": "exit", "content": action.note,
+                              "extra": {"exit_status": "Submitted", "submission": action.note}})
+         return self.observation(json.dumps(result, ensure_ascii=False))
+--- v18/course_eval/oracle_access.py
++++ v20/course_eval/oracle_access.py
+@@ -0,0 +1,21 @@
++import re
++import shlex
++
++
++def rejection_reason(command):
++    # 只覆盖已识别的明文shell/Python读法，不把此检查当作完整安全沙箱。
++    try:
++        normalized = " ".join(shlex.split(command))
++    except ValueError:
++        normalized = command
++    for text in (command, normalized):
++        if re.search(r"\b(?:cat|tac|nl|head|tail|less|more|bat|sed|awk|grep|egrep|fgrep|rg|strings|xxd|hexdump|base64|cp)\b[^\n;|]*(?:forward\.py|forward\*|\*\.py)", text):
++            return "Oracle implementation file reads/copies are not allowed;import only the public callable."
++        if ("forward.py" in text or ("forward" in text and "__file__" in text)) and re.search(
++                r"\bopen\s*\(|\.read_(?:text|bytes)\s*\(|\.readlines\s*\(|\blinecache\.", text):
++            return "Reading oracle source through Python file APIs is not allowed."
++        if re.search(r"\.\s*(?:A1|A2|b1|b2|__globals__|__dict__)\b|\bgetattr\s*\([^,]+,\s*['\"](?:A1|A2|b1|b2|__globals__|__dict__)['\"]", text):
++            return "Direct oracle weights or globals are not an allowed query API."
++        if re.search(r"\binspect\s*\.|\b(?:getsource|getsourcelines|getsourcefile|getfile|getmembers|vars|dir)\s*\(|\bdis\s*\.\s*dis\s*\(", text):
++            return "Oracle implementation/globals inspection is not allowed in this query-only task."
++    return None
+--- v18/course_eval/relu_export.py
++++ v20/course_eval/relu_export.py
+@@ -0,0 +1,65 @@
++import argparse
++import hashlib
++import json
++from pathlib import Path
++
++
++SOURCE_SHA256 = "f3dd9a3efc6ef2bdb3a28708225162f99cd39a45323481b46023ac9d7e2cfae4"
++
++
++def export_script(output, dimension, oracle_module, oracle_function, array_name="stolen_A1.npy"):
++    if type(dimension) is not int or dimension < 1:
++        raise ValueError("Use the positive input dimension from the public task")
++    if not all(part.isidentifier() and not part.startswith("_") for part in oracle_module.split(".")):
++        raise ValueError("The public oracle module must be a dotted public identifier")
++    if (not oracle_function.isidentifier() or oracle_function.startswith("_")
++            or oracle_function in {"A1", "A2", "b1", "b2"}):
++        raise ValueError("Select the public callable from the task,not private weights")
++    if Path(array_name).name != array_name or not array_name.endswith(".npy") or output.suffix != ".py":
++        raise ValueError("Use a Python output script and a local.npy artifact filename")
++    source = Path(__file__).with_name("relu_recovery.py").read_bytes()
++    if hashlib.sha256(source).hexdigest() != SOURCE_SHA256:
++        raise ValueError("The immutable public numerical helper changed")
++    entry = f'''
++
++import importlib
++from pathlib import Path
++import sys
++
++
++def main():
++    directory = Path(__file__).resolve().parent
++    sys.path.insert(0, str(directory))
++    oracle = getattr(importlib.import_module({oracle_module!r}), {oracle_function!r})
++    if not callable(oracle):
++        raise TypeError("The public query API is not callable")
++    rows, diagnostics = recover_relu_directions(oracle, {dimension!r})
++    rows = np.asarray(rows, dtype=np.float64)
++    if rows.ndim != 2 or rows.shape[1] != {dimension!r} or not np.isfinite(rows).all():
++        raise ValueError("Recovery did not produce a finite direction matrix")
++    np.save(directory / {array_name!r}, rows)
++    print({{"shape": list(rows.shape), "oracle_queries": diagnostics["oracle_queries"],
++           "completeness_certified": diagnostics["completeness_certified"]}})
++
++
++if __name__ == "__main__":
++    main()
++'''
++    program = source + entry.encode("utf-8")
++    compile(program, str(output), "exec")
++    with output.open("xb") as stream:
++        stream.write(program)
++    return {"source_sha256": SOURCE_SHA256, "script_sha256": hashlib.sha256(program).hexdigest(),
++        "script_bytes": len(program), "dimension": dimension, "oracle_module": oracle_module,
++        "oracle_function": oracle_function, "scope": "Copies only the frozen public helper;exports no weights and performs no oracle queries"}
++
++
++if __name__ == "__main__":
++    parser = argparse.ArgumentParser()
++    parser.add_argument("--dimension", type=int, required=True)
++    parser.add_argument("--oracle-module", required=True)
++    parser.add_argument("--oracle-function", required=True)
++    parser.add_argument("--output", type=Path, required=True)
++    parser.add_argument("--array-name", default="stolen_A1.npy")
++    args = parser.parse_args()
++    print(json.dumps(export_script(args.output, args.dimension, args.oracle_module, args.oracle_function, args.array_name)))
+--- v18/course_eval/terminal_runtime.py
++++ v20/course_eval/terminal_runtime.py
+@@ -6,6 +6,7 @@
+ 
+ 
+ RELU_HELPER_PATH = "/opt/course-tools/relu_recovery.py"
++RELU_EXPORT_PATH = "/opt/course-tools/relu_export.py"
+ VIDEO_HELPER_PATH = "/opt/course-tools/video_events.py"
+ 
+ 
+@@ -64,7 +65,15 @@
+             "up to permutation and scaling; it remains a finite-query consistency check. "
+             "Query only the public callable oracle; do not inspect its implementation, "
+             "globals or private weight artifacts. Infer unknown width from queries. "
+-            "Keep a delivered solution self-contained when it must run in a fresh environment.\n")
++            "Keep a delivered solution self-contained when it must run in a fresh environment. "
++            "Export an independent script directly from this frozen public helper,without opening the oracle source:\n"
++            "python3 /opt/course-tools/relu_export.py --dimension 10 --oracle-module forward "
++            "--oracle-function forward --output /app/steal.py\n"
++            "The dimension,module and callable come from the public task. Run the script to produce stolen_A1.npy. "
++            "Before submitting,use the structured verify action for public-query-directions,then save the candidate. "
++            "Bash self-tests do not register public verification. C0 rejects submission until registered checks "
++            "are current-passed and protected files are unchanged. Recognized oracle-source/weight/inspect "
++            "bash requests are rejected before execution;this is not a complete security sandbox.\n")
+ 
+ 
+ def relu_check_command():
+@@ -129,6 +138,18 @@
+             raise RuntimeError("Reusable helper transfer failed its source digest check")
+         helper = {"reusable_helper": {"name": name, "path": destination,
+                                       "sha256": checksum, "all_configurations": True}}
++        if name == "relu_directions":
++            exporter = Path(__file__).with_name("relu_export.py")
++            fresh = target.exec("test ! -e " + RELU_EXPORT_PATH, timeout=10)
++            if fresh["returncode"]:
++                raise RuntimeError("Public ReLU exporter destination is not fresh")
++            target.upload_file(exporter, RELU_EXPORT_PATH)
++            checksum = hashlib.sha256(exporter.read_bytes()).hexdigest()
++            verified = target.exec("chmod 444 " + RELU_EXPORT_PATH + " && sha256sum " + RELU_EXPORT_PATH, timeout=10)
++            if verified["returncode"] or verified["stdout"].split() != [checksum, RELU_EXPORT_PATH]:
++                raise RuntimeError("Public ReLU exporter transfer differs from its source")
++            helper["reusable_helper"]["exporter"] = {"path": RELU_EXPORT_PATH, "sha256": checksum}
++            scope["protected"] = list(dict.fromkeys([*scope.get("protected", []), RELU_EXPORT_PATH]))
+     if not scope or not scope.get("python", "").startswith("/opt/course-runtime/"):
+         return helper or None
+     started = time.monotonic()

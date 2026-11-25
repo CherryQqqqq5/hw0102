@@ -1,0 +1,45 @@
+{
+  "stage": "frozen",
+  "selected": [
+    {
+      "benchmark": "terminal",
+      "id": "feal-linear-cryptanalysis",
+      "stratum": "mathematics",
+      "group": "feal-cryptanalysis",
+      "difficulty": "hard",
+      "image": "alexgshaw/feal-linear-cryptanalysis:20251031",
+      "cpus": 1,
+      "memory_mb": 2048,
+      "agent_timeout_seconds": 1800.0,
+      "exclude": null,
+      "split": "C",
+      "candidate_scope": {
+        "kind": "files",
+        "artifacts": [
+          "/app/plaintexts.txt"
+        ],
+        "protected": [
+          "/app/ciphertexts.txt",
+          "/app/decrypt",
+          "/app/decrypt.c",
+          "/app/feal",
+          "/app/feal.c",
+          "/app/pairs.txt",
+          "/opt/course-tools/feal_known_pairs.c",
+          "/opt/course-tools/feal_public_check.py"
+        ],
+        "python": "/usr/local/bin/python3",
+        "reusable_helper": "feal_known_pairs"
+      },
+      "image_id": "sha256:ea78749a8422c6228d26c8753f45906a6a2df089906764b7e3c3e27e8f718ee7",
+      "image_digests": [
+        "alexgshaw/feal-linear-cryptanalysis@sha256:ea78749a8422c6228d26c8753f45906a6a2df089906764b7e3c3e27e8f718ee7"
+      ]
+    }
+  ],
+  "revisions": {
+    "swe": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+    "terminal": "7131e4375048a0e408a8fb404b5f499d726b695b",
+    "aider": "7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"
+  }
+}

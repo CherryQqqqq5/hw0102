@@ -1,0 +1,883 @@
+{
+  "pins": {
+    "extract-elf": "sha256:6932e4cb318464307eacd497ef8dc617eaf551b6a90231f815ec0b911895cfed",
+    "video-processing": "sha256:a2c0f39e3ab04e67ac6e49cad9167bb0d987babe32511768c01aa0c6905a875f",
+    "llm-inference-batching-scheduler": "sha256:19e79aa49be4e55dccca1dde966515ebe6852314b6010bcb9230afb48b996774",
+    "query-optimize": "sha256:28de7da87004eab5b29bd5eaf1823579bc5b73ccea4b80349a5623185770da14",
+    "cpp/all-your-base": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+    "constraints-scheduling": "sha256:567ce5a189f8d11ac461790876e934cc7af38391baf89a78f95f4dafc1fec3b0",
+    "django__django-11999": "sha256:3c7e7f035f611b17f2093ee6409364bc28cce8b9bac266b9590db762d197607e",
+    "cpp/allergies": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+    "custom-memory-heap-crash": "sha256:1895d7d6240d5fb2ec774d6bfdd1057d170f8d199c15c582e4585d3c63802557",
+    "django__django-12050": "sha256:34773901589784072af940b29697018dc17b32e37b4ff135a153c99ac2c38dec",
+    "cpp/gigasecond": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+    "db-wal-recovery": "sha256:0e33ea5ec823975d1bd6c3778395c9f94251dd88f571146057bff6adb7e4594e",
+    "django__django-12193": "sha256:f2f0882bb350e6c7b073569444629513f4c0bd6821f3610d243a26b2b4eae26e",
+    "cpp/linked-list": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+    "distribution-search": "sha256:1448f7aa1c6080488251d00350e8e90477858989b1bec0accc866d7b3220738a",
+    "django__django-13346": "sha256:a58c4f201531ac127ef08636fccc8c0849dc747e6874cf53a3c83da8d851bb3b",
+    "cpp/parallel-letter-frequency": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+    "feal-linear-cryptanalysis": "sha256:ea78749a8422c6228d26c8753f45906a6a2df089906764b7e3c3e27e8f718ee7",
+    "django__django-14855": "sha256:11c07ee9d97e0d9d7ed2766de8bd3f961825ffa9113bd154a7e8780b459d41cc",
+    "go/alphametics": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+    "fix-code-vulnerability": "sha256:cac325252991f823713b2d0441502972901dd782bd67f66c03d9b1e410dac5c0",
+    "django__django-15554": "sha256:9e1bc1db0e1ec55a32f346c36671df7384a51a9ed84eed9b7e839e1405f04292",
+    "go/beer-song": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+    "fix-git": "sha256:389b9c8247610c2c5be080b1ac00429007c2c69bf57f7f26c79f0f75ba2d5c74",
+    "django__django-15987": "sha256:fda248d0e8cc266b52a56094cec5e0d71083766805533deaf908bfe6b288c0d9",
+    "go/connect": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+    "log-summary-date-ranges": "sha256:cbeb6ba905c2fec294f16cd5e16e3ea7f2e04d38ac2484d51a11de262aa7dc51",
+    "django__django-16082": "sha256:a553a5c186a49df0a5c6b97499e2318e4db2d8f6992059fe144758e850670572",
+    "go/trinary": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+    "mailman": "sha256:04fac73db7e2b4f49d43f09fbc2266a94d70131f07efa1393d370abc059f4094",
+    "pydata__xarray-2905": "sha256:23c72d6ce177631efc8094bf28418e3a960d96ca23e8ad727a18c644de257e9f",
+    "go/variable-length-quantity": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+    "model-extraction-relu-logits": "sha256:52fe1f089f38650f0dc22d7531ee6e01ebd526de1b349aaa2ecb331dca9fabce",
+    "pydata__xarray-3305": "sha256:dac8706a05650ffb4ce61ad8de6a7338f1b8a144a8cb4567c674c97b9462949a",
+    "java/change": "sha256:a8b889d675595ed6b2a7fe925a4a046e47d9bcb34d34ccaf5bb2988a9b5b552d",
+    "modernize-scientific-stack": "sha256:64e69cee13bf6b0b9016e735b51891bce996a60f1e2d1a005bf12c949e221d71",
+    "pydata__xarray-4687": "sha256:2fef5e69c8c0210e5240618a354722aafaddc4137e92b6768d61967bd7f36fd3",
+    "java/phone-number": "sha256:a8b889d675595ed6b2a7fe925a4a046e47d9bcb34d34ccaf5bb2988a9b5b552d",
+    "multi-source-data-merger": "sha256:8b32782078ff7383a1b4e5d3cecca8ce287e30f50bb4c0e5db009a18064e666e",
+    "pydata__xarray-4695": "sha256:fe6074de116357f2b6f1b3b964726cd02b866f68509f3e74d3a58c48a778ac6d",
+    "java/pig-latin": "sha256:a8b889d675595ed6b2a7fe925a4a046e47d9bcb34d34ccaf5bb2988a9b5b552d",
+    "openssl-selfsigned-cert": "sha256:4c948a4e630af2435ae0a19108fc0814a946ac2fa29a512469e0fc77b38c8c12",
+    "pydata__xarray-6599": "sha256:32ffcec37de801f41349c399cbab1a64ade337fdc88249ae2fe8dcf94c6a17d1",
+    "javascript/book-store": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+    "password-recovery": "sha256:15fcd84bf3b06270ee148211cc6da6599b13ec2f41ac1d0894cf75c2225872ee",
+    "pydata__xarray-7393": "sha256:8d92f63564f3cfa7497bdc9fd4bacb5cfac11459f658621a00ebe3eb55832278",
+    "javascript/food-chain": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+    "polyglot-rust-c": "sha256:3ba84f0e138a4b65e58c53f920a0fc852571e6402901c3bdbb876e9dab6e6c5e",
+    "pytest-dev__pytest-5631": "sha256:c76510e12a1765211e064f6e8de09e51ac0f7839f60d72305b374e004308b6a1",
+    "javascript/house": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+    "prove-plus-comm": "sha256:e26741d01681a9da1beeff8b7b7b65fe2b921b8b122a306a3707a81ebd051f73",
+    "pytest-dev__pytest-7205": "sha256:1c6124cd5254db8831df455575eff2795b0cbeb849d10846388e30e00870e495",
+    "javascript/sum-of-multiples": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+    "regex-log": "sha256:90101b2e815323a8da20528a1439bebc407eb9761c9c68a3d557730856c878e9",
+    "pytest-dev__pytest-7490": "sha256:9e10d2e75d41e6f6325949d19d6a8a033d1f5d5fd6d4ce53ad483eb8951a417f",
+    "javascript/triangle": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+    "sparql-university": "sha256:92fa4304e51167f9fb4466144eba33ef9272a7df0ac1cab9fc3986bccd1ab708",
+    "pytest-dev__pytest-7571": "sha256:0a1f84cd32e2c8332f90bfad6f3fd16304f25c01384adb4ffd4f7250316bd60a",
+    "python/grep": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+    "sqlite-db-truncate": "sha256:aabac93c93bd1f310e6a6fb893911d7735026ed18491c72133c9196a09092ca4",
+    "pytest-dev__pytest-8399": "sha256:1403b263348f1da02330634d688ebf8dd61fa69f2c301203c89551889946cb0d",
+    "python/list-ops": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+    "tune-mjcf": "sha256:56c197739db2db79562384581fcc9d3d71e6c171bf052104b1a7ee0282e7c3cf",
+    "scikit-learn__scikit-learn-10908": "sha256:8727c0f7bfb76c294cfef16c9fe3d0dc9ddf313e7c0fb3e8e9cbc74c4955404c",
+    "python/proverb": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+    "vulnerable-secret": "sha256:61ebb40454dd103aa2f7e71ad6dafd91cf2b301e6bb07e69d5b472412d1ee15b",
+    "scikit-learn__scikit-learn-11310": "sha256:9868186e3d37062a178faa15e5860641521c0193d6897aa0053b2d338fd566dd",
+    "python/rest-api": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+    "scikit-learn__scikit-learn-13124": "sha256:36b429f4c7fa428226090d04d4a019cd3401381637554d162e5f929f3a80f77c",
+    "python/tree-building": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+    "scikit-learn__scikit-learn-13496": "sha256:adee9f4911a853e64f9ae4ebd7b1bf32615cbf52c3210873e9a752fb5fb975e6",
+    "rust/accumulate": "sha256:de357a92e50590e84cfb36bb68dbbd6ee739bdba6f3535a7a5b5890d9a07805e",
+    "scikit-learn__scikit-learn-14496": "sha256:9fb17db38a54b0ddc8663bea55f1dab894491ebc6d75e4899a1ba76662d0c51b",
+    "rust/doubly-linked-list": "sha256:de357a92e50590e84cfb36bb68dbbd6ee739bdba6f3535a7a5b5890d9a07805e",
+    "scikit-learn__scikit-learn-25232": "sha256:2b2069e2a3f12ddcf3fc1c811468da25f2b349a08ea0dd98a5dbe3eecb0c4ca1"
+  },
+  "provenance": {
+    "extract-elf": [
+      {
+        "image_id": "sha256:6932e4cb318464307eacd497ef8dc617eaf551b6a90231f815ec0b911895cfed",
+        "source": "retained_local_cache:alexgshaw/extract-elf:20251031"
+      }
+    ],
+    "video-processing": [
+      {
+        "image_id": "sha256:a2c0f39e3ab04e67ac6e49cad9167bb0d987babe32511768c01aa0c6905a875f",
+        "source": "retained_local_cache:alexgshaw/video-processing:20251031"
+      }
+    ],
+    "llm-inference-batching-scheduler": [
+      {
+        "image_id": "sha256:19e79aa49be4e55dccca1dde966515ebe6852314b6010bcb9230afb48b996774",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      },
+      {
+        "image_id": "sha256:19e79aa49be4e55dccca1dde966515ebe6852314b6010bcb9230afb48b996774",
+        "source": "retained_local_cache:alexgshaw/llm-inference-batching-scheduler:20251031"
+      }
+    ],
+    "query-optimize": [
+      {
+        "image_id": "sha256:28de7da87004eab5b29bd5eaf1823579bc5b73ccea4b80349a5623185770da14",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      },
+      {
+        "image_id": "sha256:28de7da87004eab5b29bd5eaf1823579bc5b73ccea4b80349a5623185770da14",
+        "source": "retained_local_cache:alexgshaw/query-optimize:20251031"
+      }
+    ],
+    "cpp/all-your-base": [
+      {
+        "image_id": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/cpp-all-your-base-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+        "source": "retained_local_cache:nju-course-aider:cpp"
+      }
+    ],
+    "constraints-scheduling": [
+      {
+        "image_id": "sha256:567ce5a189f8d11ac461790876e934cc7af38391baf89a78f95f4dafc1fec3b0",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      }
+    ],
+    "django__django-11999": [
+      {
+        "image_id": "sha256:3c7e7f035f611b17f2093ee6409364bc28cce8b9bac266b9590db762d197607e",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:3c7e7f035f611b17f2093ee6409364bc28cce8b9bac266b9590db762d197607e",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      },
+      {
+        "image_id": "sha256:3c7e7f035f611b17f2093ee6409364bc28cce8b9bac266b9590db762d197607e",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/django__django-11999-B0-r1/agent.json"
+      }
+    ],
+    "cpp/allergies": [
+      {
+        "image_id": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/cpp-allergies-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+        "source": "retained_local_cache:nju-course-aider:cpp"
+      }
+    ],
+    "custom-memory-heap-crash": [
+      {
+        "image_id": "sha256:1895d7d6240d5fb2ec774d6bfdd1057d170f8d199c15c582e4585d3c63802557",
+        "source": "retained_local_cache:alexgshaw/custom-memory-heap-crash:20251031"
+      }
+    ],
+    "django__django-12050": [
+      {
+        "image_id": "sha256:34773901589784072af940b29697018dc17b32e37b4ff135a153c99ac2c38dec",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/django__django-12050-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:34773901589784072af940b29697018dc17b32e37b4ff135a153c99ac2c38dec",
+        "source": "retained_local_cache:swebench/sweb.eval.x86_64.django_1776_django-12050:latest"
+      }
+    ],
+    "cpp/gigasecond": [
+      {
+        "image_id": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/cpp-gigasecond-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+        "source": "retained_local_cache:nju-course-aider:cpp"
+      }
+    ],
+    "db-wal-recovery": [
+      {
+        "image_id": "sha256:0e33ea5ec823975d1bd6c3778395c9f94251dd88f571146057bff6adb7e4594e",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:0e33ea5ec823975d1bd6c3778395c9f94251dd88f571146057bff6adb7e4594e",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      }
+    ],
+    "django__django-12193": [
+      {
+        "image_id": "sha256:f2f0882bb350e6c7b073569444629513f4c0bd6821f3610d243a26b2b4eae26e",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:f2f0882bb350e6c7b073569444629513f4c0bd6821f3610d243a26b2b4eae26e",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      },
+      {
+        "image_id": "sha256:f2f0882bb350e6c7b073569444629513f4c0bd6821f3610d243a26b2b4eae26e",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/django__django-12193-B0-r1/agent.json"
+      }
+    ],
+    "cpp/linked-list": [
+      {
+        "image_id": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/cpp-linked-list-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+        "source": "retained_local_cache:nju-course-aider:cpp"
+      }
+    ],
+    "distribution-search": [
+      {
+        "image_id": "sha256:1448f7aa1c6080488251d00350e8e90477858989b1bec0accc866d7b3220738a",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:1448f7aa1c6080488251d00350e8e90477858989b1bec0accc866d7b3220738a",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      }
+    ],
+    "django__django-13346": [
+      {
+        "image_id": "sha256:a58c4f201531ac127ef08636fccc8c0849dc747e6874cf53a3c83da8d851bb3b",
+        "source": "work/vmshare/performance75-hy4-session-v5/image-preparation.json"
+      },
+      {
+        "image_id": "sha256:a58c4f201531ac127ef08636fccc8c0849dc747e6874cf53a3c83da8d851bb3b",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/django__django-13346-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:a58c4f201531ac127ef08636fccc8c0849dc747e6874cf53a3c83da8d851bb3b",
+        "source": "retained_local_cache:swebench/sweb.eval.x86_64.django_1776_django-13346:latest"
+      }
+    ],
+    "cpp/parallel-letter-frequency": [
+      {
+        "image_id": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/cpp-parallel-letter-frequency-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:c3172f293318ec08e5e3a88997602ef9fa2eee99dc68e53e7f78fa1c643d3d14",
+        "source": "retained_local_cache:nju-course-aider:cpp"
+      }
+    ],
+    "feal-linear-cryptanalysis": [
+      {
+        "image_id": "sha256:ea78749a8422c6228d26c8753f45906a6a2df089906764b7e3c3e27e8f718ee7",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:ea78749a8422c6228d26c8753f45906a6a2df089906764b7e3c3e27e8f718ee7",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      }
+    ],
+    "django__django-14855": [
+      {
+        "image_id": "sha256:11c07ee9d97e0d9d7ed2766de8bd3f961825ffa9113bd154a7e8780b459d41cc",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:11c07ee9d97e0d9d7ed2766de8bd3f961825ffa9113bd154a7e8780b459d41cc",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      },
+      {
+        "image_id": "sha256:11c07ee9d97e0d9d7ed2766de8bd3f961825ffa9113bd154a7e8780b459d41cc",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/django__django-14855-B0-r1/agent.json"
+      }
+    ],
+    "go/alphametics": [
+      {
+        "image_id": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/go-alphametics-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+        "source": "retained_local_cache:nju-course-aider:go"
+      }
+    ],
+    "fix-code-vulnerability": [
+      {
+        "image_id": "sha256:cac325252991f823713b2d0441502972901dd782bd67f66c03d9b1e410dac5c0",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:cac325252991f823713b2d0441502972901dd782bd67f66c03d9b1e410dac5c0",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      }
+    ],
+    "django__django-15554": [
+      {
+        "image_id": "sha256:9e1bc1db0e1ec55a32f346c36671df7384a51a9ed84eed9b7e839e1405f04292",
+        "source": "work/vmshare/performance75-hy4-session-v5/image-preparation.json"
+      },
+      {
+        "image_id": "sha256:9e1bc1db0e1ec55a32f346c36671df7384a51a9ed84eed9b7e839e1405f04292",
+        "source": "[project]/work/vmshare/performance75-hy4-safe-v8/django__django-15554-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:9e1bc1db0e1ec55a32f346c36671df7384a51a9ed84eed9b7e839e1405f04292",
+        "source": "retained_local_cache:swebench/sweb.eval.x86_64.django_1776_django-15554:latest"
+      }
+    ],
+    "go/beer-song": [
+      {
+        "image_id": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/go-beer-song-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+        "source": "retained_local_cache:nju-course-aider:go"
+      }
+    ],
+    "fix-git": [
+      {
+        "image_id": "sha256:389b9c8247610c2c5be080b1ac00429007c2c69bf57f7f26c79f0f75ba2d5c74",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      }
+    ],
+    "django__django-15987": [
+      {
+        "image_id": "sha256:fda248d0e8cc266b52a56094cec5e0d71083766805533deaf908bfe6b288c0d9",
+        "source": "work/vmshare/performance75-hy4-session-v5/image-preparation.json"
+      },
+      {
+        "image_id": "sha256:fda248d0e8cc266b52a56094cec5e0d71083766805533deaf908bfe6b288c0d9",
+        "source": "[project]/work/vmshare/performance75-hy4-safe-v8/django__django-15987-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:fda248d0e8cc266b52a56094cec5e0d71083766805533deaf908bfe6b288c0d9",
+        "source": "retained_local_cache:swebench/sweb.eval.x86_64.django_1776_django-15987:latest"
+      }
+    ],
+    "go/connect": [
+      {
+        "image_id": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/go-connect-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+        "source": "retained_local_cache:nju-course-aider:go"
+      }
+    ],
+    "log-summary-date-ranges": [
+      {
+        "image_id": "sha256:cbeb6ba905c2fec294f16cd5e16e3ea7f2e04d38ac2484d51a11de262aa7dc51",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:cbeb6ba905c2fec294f16cd5e16e3ea7f2e04d38ac2484d51a11de262aa7dc51",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      }
+    ],
+    "django__django-16082": [
+      {
+        "image_id": "sha256:a553a5c186a49df0a5c6b97499e2318e4db2d8f6992059fe144758e850670572",
+        "source": "work/vmshare/performance75-hy4-session-v5/image-preparation.json"
+      },
+      {
+        "image_id": "sha256:a553a5c186a49df0a5c6b97499e2318e4db2d8f6992059fe144758e850670572",
+        "source": "[project]/work/vmshare/performance75-hy4-safe-v8/django__django-16082-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:a553a5c186a49df0a5c6b97499e2318e4db2d8f6992059fe144758e850670572",
+        "source": "retained_local_cache:swebench/sweb.eval.x86_64.django_1776_django-16082:latest"
+      }
+    ],
+    "go/trinary": [
+      {
+        "image_id": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/go-trinary-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+        "source": "retained_local_cache:nju-course-aider:go"
+      }
+    ],
+    "mailman": [
+      {
+        "image_id": "sha256:04fac73db7e2b4f49d43f09fbc2266a94d70131f07efa1393d370abc059f4094",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      }
+    ],
+    "pydata__xarray-2905": [
+      {
+        "image_id": "sha256:23c72d6ce177631efc8094bf28418e3a960d96ca23e8ad727a18c644de257e9f",
+        "source": "work/vmshare/performance75-hy4-session-v5/image-preparation.json"
+      },
+      {
+        "image_id": "sha256:23c72d6ce177631efc8094bf28418e3a960d96ca23e8ad727a18c644de257e9f",
+        "source": "[project]/work/vmshare/performance75-hy4-safe-v8/pydata__xarray-2905-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:23c72d6ce177631efc8094bf28418e3a960d96ca23e8ad727a18c644de257e9f",
+        "source": "retained_local_cache:swebench/sweb.eval.x86_64.pydata_1776_xarray-2905:latest"
+      }
+    ],
+    "go/variable-length-quantity": [
+      {
+        "image_id": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/go-variable-length-quantity-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:22eb88befe3bc7b7883ebaa8a43448183363d60f9a33e4e25450e1947ed4800c",
+        "source": "retained_local_cache:nju-course-aider:go"
+      }
+    ],
+    "model-extraction-relu-logits": [
+      {
+        "image_id": "sha256:52fe1f089f38650f0dc22d7531ee6e01ebd526de1b349aaa2ecb331dca9fabce",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      }
+    ],
+    "pydata__xarray-3305": [
+      {
+        "image_id": "sha256:dac8706a05650ffb4ce61ad8de6a7338f1b8a144a8cb4567c674c97b9462949a",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      },
+      {
+        "image_id": "sha256:dac8706a05650ffb4ce61ad8de6a7338f1b8a144a8cb4567c674c97b9462949a",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/pydata__xarray-3305-B0-r1/agent.json"
+      }
+    ],
+    "java/change": [
+      {
+        "image_id": "sha256:a8b889d675595ed6b2a7fe925a4a046e47d9bcb34d34ccaf5bb2988a9b5b552d",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:a8b889d675595ed6b2a7fe925a4a046e47d9bcb34d34ccaf5bb2988a9b5b552d",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/java-change-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:a8b889d675595ed6b2a7fe925a4a046e47d9bcb34d34ccaf5bb2988a9b5b552d",
+        "source": "retained_local_cache:nju-course-aider:java"
+      }
+    ],
+    "modernize-scientific-stack": [
+      {
+        "image_id": "sha256:64e69cee13bf6b0b9016e735b51891bce996a60f1e2d1a005bf12c949e221d71",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:64e69cee13bf6b0b9016e735b51891bce996a60f1e2d1a005bf12c949e221d71",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      }
+    ],
+    "pydata__xarray-4687": [
+      {
+        "image_id": "sha256:2fef5e69c8c0210e5240618a354722aafaddc4137e92b6768d61967bd7f36fd3",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:2fef5e69c8c0210e5240618a354722aafaddc4137e92b6768d61967bd7f36fd3",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      },
+      {
+        "image_id": "sha256:2fef5e69c8c0210e5240618a354722aafaddc4137e92b6768d61967bd7f36fd3",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/pydata__xarray-4687-B0-r1/agent.json"
+      }
+    ],
+    "java/phone-number": [
+      {
+        "image_id": "sha256:a8b889d675595ed6b2a7fe925a4a046e47d9bcb34d34ccaf5bb2988a9b5b552d",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/java-phone-number-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:a8b889d675595ed6b2a7fe925a4a046e47d9bcb34d34ccaf5bb2988a9b5b552d",
+        "source": "retained_local_cache:nju-course-aider:java"
+      }
+    ],
+    "multi-source-data-merger": [
+      {
+        "image_id": "sha256:8b32782078ff7383a1b4e5d3cecca8ce287e30f50bb4c0e5db009a18064e666e",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:8b32782078ff7383a1b4e5d3cecca8ce287e30f50bb4c0e5db009a18064e666e",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      }
+    ],
+    "pydata__xarray-4695": [
+      {
+        "image_id": "sha256:fe6074de116357f2b6f1b3b964726cd02b866f68509f3e74d3a58c48a778ac6d",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      },
+      {
+        "image_id": "sha256:fe6074de116357f2b6f1b3b964726cd02b866f68509f3e74d3a58c48a778ac6d",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/pydata__xarray-4695-B0-r1/agent.json"
+      }
+    ],
+    "java/pig-latin": [
+      {
+        "image_id": "sha256:a8b889d675595ed6b2a7fe925a4a046e47d9bcb34d34ccaf5bb2988a9b5b552d",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/java-pig-latin-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:a8b889d675595ed6b2a7fe925a4a046e47d9bcb34d34ccaf5bb2988a9b5b552d",
+        "source": "retained_local_cache:nju-course-aider:java"
+      }
+    ],
+    "openssl-selfsigned-cert": [
+      {
+        "image_id": "sha256:4c948a4e630af2435ae0a19108fc0814a946ac2fa29a512469e0fc77b38c8c12",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      }
+    ],
+    "pydata__xarray-6599": [
+      {
+        "image_id": "sha256:32ffcec37de801f41349c399cbab1a64ade337fdc88249ae2fe8dcf94c6a17d1",
+        "source": "work/vmshare/performance75-hy4-session-v5/image-preparation.json"
+      },
+      {
+        "image_id": "sha256:32ffcec37de801f41349c399cbab1a64ade337fdc88249ae2fe8dcf94c6a17d1",
+        "source": "retained_local_cache:swebench/sweb.eval.x86_64.pydata_1776_xarray-6599:latest"
+      }
+    ],
+    "javascript/book-store": [
+      {
+        "image_id": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/javascript-book-store-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+        "source": "retained_local_cache:nju-course-aider:javascript"
+      }
+    ],
+    "password-recovery": [
+      {
+        "image_id": "sha256:15fcd84bf3b06270ee148211cc6da6599b13ec2f41ac1d0894cf75c2225872ee",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      }
+    ],
+    "pydata__xarray-7393": [
+      {
+        "image_id": "sha256:8d92f63564f3cfa7497bdc9fd4bacb5cfac11459f658621a00ebe3eb55832278",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:8d92f63564f3cfa7497bdc9fd4bacb5cfac11459f658621a00ebe3eb55832278",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      },
+      {
+        "image_id": "sha256:8d92f63564f3cfa7497bdc9fd4bacb5cfac11459f658621a00ebe3eb55832278",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/pydata__xarray-7393-B0-r1/agent.json"
+      }
+    ],
+    "javascript/food-chain": [
+      {
+        "image_id": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/javascript-food-chain-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+        "source": "retained_local_cache:nju-course-aider:javascript"
+      }
+    ],
+    "polyglot-rust-c": [
+      {
+        "image_id": "sha256:3ba84f0e138a4b65e58c53f920a0fc852571e6402901c3bdbb876e9dab6e6c5e",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:3ba84f0e138a4b65e58c53f920a0fc852571e6402901c3bdbb876e9dab6e6c5e",
+        "source": "retained_local_cache:alexgshaw/polyglot-rust-c:20251031"
+      }
+    ],
+    "pytest-dev__pytest-5631": [
+      {
+        "image_id": "sha256:c76510e12a1765211e064f6e8de09e51ac0f7839f60d72305b374e004308b6a1",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:c76510e12a1765211e064f6e8de09e51ac0f7839f60d72305b374e004308b6a1",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/pytest-dev__pytest-5631-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:c76510e12a1765211e064f6e8de09e51ac0f7839f60d72305b374e004308b6a1",
+        "source": "retained_local_cache:swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-5631:latest"
+      }
+    ],
+    "javascript/house": [
+      {
+        "image_id": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/javascript-house-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+        "source": "retained_local_cache:nju-course-aider:javascript"
+      }
+    ],
+    "prove-plus-comm": [
+      {
+        "image_id": "sha256:e26741d01681a9da1beeff8b7b7b65fe2b921b8b122a306a3707a81ebd051f73",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:e26741d01681a9da1beeff8b7b7b65fe2b921b8b122a306a3707a81ebd051f73",
+        "source": "retained_local_cache:alexgshaw/prove-plus-comm:20251031"
+      }
+    ],
+    "pytest-dev__pytest-7205": [
+      {
+        "image_id": "sha256:1c6124cd5254db8831df455575eff2795b0cbeb849d10846388e30e00870e495",
+        "source": "work/vmshare/performance75-hy4-session-v5/image-preparation.json"
+      },
+      {
+        "image_id": "sha256:1c6124cd5254db8831df455575eff2795b0cbeb849d10846388e30e00870e495",
+        "source": "retained_local_cache:swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7205:latest"
+      }
+    ],
+    "javascript/sum-of-multiples": [
+      {
+        "image_id": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+        "source": "[project]/work/vmshare/performance-hy4-session-v5/javascript-sum-of-multiples-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+        "source": "retained_local_cache:nju-course-aider:javascript"
+      }
+    ],
+    "regex-log": [
+      {
+        "image_id": "sha256:90101b2e815323a8da20528a1439bebc407eb9761c9c68a3d557730856c878e9",
+        "source": "retained_local_cache:alexgshaw/regex-log:20251031"
+      }
+    ],
+    "pytest-dev__pytest-7490": [
+      {
+        "image_id": "sha256:9e10d2e75d41e6f6325949d19d6a8a033d1f5d5fd6d4ce53ad483eb8951a417f",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:9e10d2e75d41e6f6325949d19d6a8a033d1f5d5fd6d4ce53ad483eb8951a417f",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      },
+      {
+        "image_id": "sha256:9e10d2e75d41e6f6325949d19d6a8a033d1f5d5fd6d4ce53ad483eb8951a417f",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/pytest-dev__pytest-7490-B0-r1/agent.json"
+      }
+    ],
+    "javascript/triangle": [
+      {
+        "image_id": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/javascript-triangle-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:f5368d5a1a8f4a73f93a18891e8c3da24de89ea05ed8f5989b6402599d8905d7",
+        "source": "retained_local_cache:nju-course-aider:javascript"
+      }
+    ],
+    "sparql-university": [
+      {
+        "image_id": "sha256:92fa4304e51167f9fb4466144eba33ef9272a7df0ac1cab9fc3986bccd1ab708",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      }
+    ],
+    "pytest-dev__pytest-7571": [
+      {
+        "image_id": "sha256:0a1f84cd32e2c8332f90bfad6f3fd16304f25c01384adb4ffd4f7250316bd60a",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      },
+      {
+        "image_id": "sha256:0a1f84cd32e2c8332f90bfad6f3fd16304f25c01384adb4ffd4f7250316bd60a",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/pytest-dev__pytest-7571-B0-r1/agent.json"
+      }
+    ],
+    "python/grep": [
+      {
+        "image_id": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/python-grep-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+        "source": "retained_local_cache:nju-course-aider:python"
+      }
+    ],
+    "sqlite-db-truncate": [
+      {
+        "image_id": "sha256:aabac93c93bd1f310e6a6fb893911d7735026ed18491c72133c9196a09092ca4",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      }
+    ],
+    "pytest-dev__pytest-8399": [
+      {
+        "image_id": "sha256:1403b263348f1da02330634d688ebf8dd61fa69f2c301203c89551889946cb0d",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      },
+      {
+        "image_id": "sha256:1403b263348f1da02330634d688ebf8dd61fa69f2c301203c89551889946cb0d",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/pytest-dev__pytest-8399-B0-r1/agent.json"
+      }
+    ],
+    "python/list-ops": [
+      {
+        "image_id": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/python-list-ops-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+        "source": "retained_local_cache:nju-course-aider:python"
+      }
+    ],
+    "tune-mjcf": [
+      {
+        "image_id": "sha256:56c197739db2db79562384581fcc9d3d71e6c171bf052104b1a7ee0282e7c3cf",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      }
+    ],
+    "scikit-learn__scikit-learn-10908": [
+      {
+        "image_id": "sha256:8727c0f7bfb76c294cfef16c9fe3d0dc9ddf313e7c0fb3e8e9cbc74c4955404c",
+        "source": "work/performance-completed-image-cleanup-20261122.json"
+      },
+      {
+        "image_id": "sha256:8727c0f7bfb76c294cfef16c9fe3d0dc9ddf313e7c0fb3e8e9cbc74c4955404c",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/scikit-learn__scikit-learn-10908-B0-r1/agent.json"
+      }
+    ],
+    "python/proverb": [
+      {
+        "image_id": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/python-proverb-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+        "source": "retained_local_cache:nju-course-aider:python"
+      }
+    ],
+    "vulnerable-secret": [
+      {
+        "image_id": "sha256:61ebb40454dd103aa2f7e71ad6dafd91cf2b301e6bb07e69d5b472412d1ee15b",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:61ebb40454dd103aa2f7e71ad6dafd91cf2b301e6bb07e69d5b472412d1ee15b",
+        "source": "retained_local_cache:alexgshaw/vulnerable-secret:20251031"
+      }
+    ],
+    "scikit-learn__scikit-learn-11310": [
+      {
+        "image_id": "sha256:9868186e3d37062a178faa15e5860641521c0193d6897aa0053b2d338fd566dd",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:9868186e3d37062a178faa15e5860641521c0193d6897aa0053b2d338fd566dd",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/scikit-learn__scikit-learn-11310-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:9868186e3d37062a178faa15e5860641521c0193d6897aa0053b2d338fd566dd",
+        "source": "retained_local_cache:swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-11310:latest"
+      }
+    ],
+    "python/rest-api": [
+      {
+        "image_id": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/python-rest-api-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+        "source": "retained_local_cache:nju-course-aider:python"
+      }
+    ],
+    "scikit-learn__scikit-learn-13124": [
+      {
+        "image_id": "sha256:36b429f4c7fa428226090d04d4a019cd3401381637554d162e5f929f3a80f77c",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:36b429f4c7fa428226090d04d4a019cd3401381637554d162e5f929f3a80f77c",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/scikit-learn__scikit-learn-13124-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:36b429f4c7fa428226090d04d4a019cd3401381637554d162e5f929f3a80f77c",
+        "source": "retained_local_cache:swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13124:latest"
+      }
+    ],
+    "python/tree-building": [
+      {
+        "image_id": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/python-tree-building-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:2d2272a4e59f81980a9f3d95d734103160d133f51a26d7cc110a47a5f1add555",
+        "source": "retained_local_cache:nju-course-aider:python"
+      }
+    ],
+    "scikit-learn__scikit-learn-13496": [
+      {
+        "image_id": "sha256:adee9f4911a853e64f9ae4ebd7b1bf32615cbf52c3210873e9a752fb5fb975e6",
+        "source": "work/vmshare/performance75-hy4-session-v5/image-preparation.json"
+      },
+      {
+        "image_id": "sha256:adee9f4911a853e64f9ae4ebd7b1bf32615cbf52c3210873e9a752fb5fb975e6",
+        "source": "retained_local_cache:swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13496:latest"
+      }
+    ],
+    "rust/accumulate": [
+      {
+        "image_id": "sha256:de357a92e50590e84cfb36bb68dbbd6ee739bdba6f3535a7a5b5890d9a07805e",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:de357a92e50590e84cfb36bb68dbbd6ee739bdba6f3535a7a5b5890d9a07805e",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/rust-accumulate-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:de357a92e50590e84cfb36bb68dbbd6ee739bdba6f3535a7a5b5890d9a07805e",
+        "source": "retained_local_cache:nju-course-aider:rust"
+      }
+    ],
+    "scikit-learn__scikit-learn-14496": [
+      {
+        "image_id": "sha256:9fb17db38a54b0ddc8663bea55f1dab894491ebc6d75e4899a1ba76662d0c51b",
+        "source": "work/vmshare/performance75-hy4-session-v5/image-preparation.json"
+      },
+      {
+        "image_id": "sha256:9fb17db38a54b0ddc8663bea55f1dab894491ebc6d75e4899a1ba76662d0c51b",
+        "source": "retained_local_cache:swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-14496:latest"
+      }
+    ],
+    "rust/doubly-linked-list": [
+      {
+        "image_id": "sha256:de357a92e50590e84cfb36bb68dbbd6ee739bdba6f3535a7a5b5890d9a07805e",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/rust-doubly-linked-list-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:de357a92e50590e84cfb36bb68dbbd6ee739bdba6f3535a7a5b5890d9a07805e",
+        "source": "retained_local_cache:nju-course-aider:rust"
+      }
+    ],
+    "scikit-learn__scikit-learn-25232": [
+      {
+        "image_id": "sha256:2b2069e2a3f12ddcf3fc1c811468da25f2b349a08ea0dd98a5dbe3eecb0c4ca1",
+        "source": "work/vmshare/performance75-dsh-hy4-v10/tasks.json"
+      },
+      {
+        "image_id": "sha256:2b2069e2a3f12ddcf3fc1c811468da25f2b349a08ea0dd98a5dbe3eecb0c4ca1",
+        "source": "[project]/work/vmshare/performance75-hy4-session-v5/scikit-learn__scikit-learn-25232-B0-r1/agent.json"
+      },
+      {
+        "image_id": "sha256:2b2069e2a3f12ddcf3fc1c811468da25f2b349a08ea0dd98a5dbe3eecb0c4ca1",
+        "source": "retained_local_cache:swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-25232:latest"
+      }
+    ]
+  },
+  "task_count": 75,
+  "scope": "Saved native environment identities, cache-removal records, preparation records and retained caches",
+  "new_model_calls": 0,
+  "source_task_inputs_changed": false
+}

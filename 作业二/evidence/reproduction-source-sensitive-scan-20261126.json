@@ -1,0 +1,46 @@
+{
+  "status": "PASS_PRECISE_SOURCE_BOUND_LOG_REFERENCE_SCANNER",
+  "blocking_findings": [],
+  "scope": "Read-only review of the exact source-hash-bound two-line historical project-log reference exception; not a credential/data-release exception.",
+  "actual_source_sha256": "71b0c346c55518800a28a3d7472b588f4fb6c061c770c3464b63fbef19d51dc7",
+  "source_identical_after_private_fixtures": true,
+  "positive_exact_source_excluded_lines": 2,
+  "neighbor_clean_file_excluded_lines": 0,
+  "negative_cases": {
+    "source_byte_changed": "The reviewed current-project log-reference source changed",
+    "extra_HOME_PATH": "The reviewed current-project log-reference source changed",
+    "extra_SECRET": "The reviewed current-project log-reference source changed",
+    "SECRET_in_reference_definition": "The reviewed current-project log-reference source changed",
+    "neighbor_path_not_exempt": "Sensitive marker requires review"
+  },
+  "rest_of_scanner_AST_identical_after_removing_reviewed_branch_counter_import": true,
+  "real_Git_files_modified": false,
+  "new_model_calls": 0,
+  "VM_calls": 0,
+  "grader_calls": 0,
+  "scanner_sha256": "ce177fc399a52abb005aa360cc8237ee044c69c557498b394acd3e17b7f717fe",
+  "archived_snapshot_scanner_sha256": "2816e98870e9eb01e3c0abe623879a1e8d9f2831f278ecb99ada96af35e104a7",
+  "actual_full_staged_scan": {
+    "exit_code": 0,
+    "staged_files": 949,
+    "sensitive_artifact_hits": 0,
+    "pdf_files": 0,
+    "detector_definition_exceptions": 20,
+    "current_project_log_reference_exceptions": 2,
+    "largest_bytes": 1592220
+  },
+  "source_sha256": {
+    "work/scan_staged_delivery.py": "ce177fc399a52abb005aa360cc8237ee044c69c557498b394acd3e17b7f717fe",
+    "work/hw0102-publish/shared/scripts/scan_staged_delivery_20261126.py": "ce177fc399a52abb005aa360cc8237ee044c69c557498b394acd3e17b7f717fe",
+    "work/hw0102-publish/shared/reproduction-20261126/work/scan_staged_delivery.py": "2816e98870e9eb01e3c0abe623879a1e8d9f2831f278ecb99ada96af35e104a7",
+    "work/hw0102-publish/shared/reproduction-20261126/work/free-recovery35-20261126/prepare.py": "71b0c346c55518800a28a3d7472b588f4fb6c061c770c3464b63fbef19d51dc7",
+    "work/current-source-preparation-eight-20261126/SYNC_PLAN-with-delivery-scan.json": "c815cc1e2483601263e7c606b6af9c613321b69acf9ce922736a3681aa301859"
+  },
+  "limits": [
+    "The two exact NATIVE/LOG constants refer only to the same project's historical task session/log paths. Their actual log/session payloads are not part of this code snapshot.",
+    "The exception requires the exact published file path and entire19,443-byte source SHA before excluding exactly two definition lines. SECRET and PRIVATE must still be absent on both lines, and all remaining content is scanned normally.",
+    "All private-fixture mutations were rejected at the earlier whole-source SHA gate; these results do not pretend the later regex branch was reached. The unlisted neighboring path was rejected by ordinary sensitive scanning.",
+    "The copied reproduction snapshot retains its original2816 scanner and c815 plan hashes. The later active scanner is preserved separately under shared/scripts; no old manifest or plan is rehashed to conceal the source-version difference.",
+    "The actual full stage scan covered949 files at the observation time; later staging changes require a new actual scan. No Git mutation, model, container, grader, STOP change or in-flight run read was performed."
+  ]
+}

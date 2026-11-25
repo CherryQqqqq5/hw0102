@@ -1,0 +1,136 @@
+import argparse
+import fcntl
+import hashlib
+import json
+import os
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+from image_copy_http1 import actual_client_environment
+
+def read(path):
+    return json.loads(path.read_text())
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--task", required=True)
+    args = parser.parse_args()
+    root, folder = Path.cwd(), Path(__file__).parent.resolve()
+    pool, registry = folder / "resources", root / "work/registry-tools"
+    baseline = root / "work/vmshare/performance75-dsh-hy4-v10"
+    task, = [t for t in read(baseline / "tasks.json")["selected"] if t["id"] == args.task]
+    if task["benchmark"] == "aider":
+        raise ValueError("A shared built Aider image is outside public OCI prefetch")
+    base = "django11999" if args.task == "django__django-11999" else args.task.replace("/", "-")
+    with (pool / "host-prefetch.lock").open("a") as host, (pool / ("image-" + base + ".lock")).open("a") as image:
+        fcntl.flock(host, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        try:
+            fcntl.flock(image, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            print(json.dumps({"task": args.task, "stage": "existing_preparation_owns_original_image_lock", "new_model_calls": 0}))
+            return
+        pin = read(baseline / "environment-pins.json")["pins"][args.task]
+        environment = os.environ | {"DOCKER_HOST": "unix://" + str(root / "work/v/c/sock/docker.sock"),
+            "DOCKER_CONFIG": str(root / "work/docker-config")}
+        inspected = subprocess.run([str(root / "work/vendor/docker/docker"), "image", "inspect", "--format", "{{.Id}}", task["image"]],
+            capture_output=True, text=True, env=environment, timeout=30)
+        if inspected.returncode == 0:
+            if inspected.stdout.strip() != pin:
+                raise ValueError("The existing image differs from its original pin")
+            print(json.dumps({"task": args.task, "stage": "original_image_already_ready", "new_model_calls": 0}))
+            return
+        if "No such image" not in inspected.stderr:
+            inspected.check_returncode()
+        attempt = 0
+        while True:
+            stem = base + ("-preparation-r" + str(attempt) if attempt else "")
+            copy = registry / ("copy-" + stem + ".json")
+            imported = registry / ("import-" + stem + ".json")
+            if not copy.exists():
+                break
+            previous = read(copy)
+            if previous["expected_image_id"] != pin:
+                raise ValueError("An earlier public image copy used a different pin")
+            if not imported.exists() and previous["status"] in ("downloading", "ready_for_import"):
+                print(json.dumps({"task": args.task, "stage": "existing_original_copy_retained", "new_model_calls": 0}))
+                return
+            if imported.exists() and (read(imported)["status"] != "imported" or not read(imported)["pinned_identity_verified"]):
+                raise RuntimeError("Inspect the existing failed import before trying another preparation")
+            if not imported.exists() and previous["status"] != "failed":
+                raise RuntimeError("The previous public copy has an unknown state")
+            attempt += 1
+        binary = root / "work/vendor/bin/regctl"
+        if hashlib.sha256(binary.read_bytes()).hexdigest() != read(registry / "tool.json")["sha256"]:
+            raise ValueError("The verified public image client changed")
+        reference = "docker.io/" + task["image"].rsplit(":", 1)[0] + "@" + pin
+        body = subprocess.check_output([str(binary), "manifest", "get", reference, "--format", "raw-body"],
+            env=actual_client_environment(root), timeout=120)
+        if "sha256:" + hashlib.sha256(body).hexdigest() != pin:
+            raise ValueError("The original public manifest pin differs")
+        manifest = json.loads(body)
+        # 与既有copy驱动一致，索引按各child摘要取层，公共层仅预留一次。
+        blobs = {item["digest"]: item["size"] for item in manifest.get("layers", [])}
+        if manifest.get("config"):
+            blobs[manifest["config"]["digest"]] = manifest["config"]["size"]
+        for child in manifest.get("manifests", []):
+            child_body = subprocess.check_output([str(binary), "manifest", "get",
+                reference.rsplit("@", 1)[0] + "@" + child["digest"], "--format", "raw-body"],
+                env=actual_client_environment(root), timeout=120)
+            if "sha256:" + hashlib.sha256(child_body).hexdigest() != child["digest"]:
+                raise ValueError("A public prefetch child differs from its original content digest")
+            child_manifest = json.loads(child_body)
+            if child_manifest.get("manifests") or not child_manifest.get("layers") or not child_manifest.get("config"):
+                raise ValueError("Nested or incomplete indexes are outside this bounded prefetch")
+            for item in [*child_manifest["layers"], child_manifest["config"]]:
+                if item["digest"] in blobs and blobs[item["digest"]] != item["size"]:
+                    raise ValueError("The same original OCI blob has inconsistent declared sizes")
+                blobs[item["digest"]] = item["size"]
+        if not blobs:
+            raise ValueError("The original public image has no bounded layer inventory")
+        expected = sum(blobs.values())
+        cached = sum(p.stat().st_size for p in registry.glob("*/blobs/sha256/*") if p.is_file())
+        outstanding, reserved = [], cached
+        for previous_path in registry.glob("copy-*.json"):
+            previous = read(previous_path)
+            previous_stem = previous_path.stem.removeprefix("copy-")
+            if (registry / ("import-" + previous_stem + ".json")).exists():
+                continue
+            if previous["status"] not in ("downloading", "ready_for_import"):
+                continue
+            present = sum(p.stat().st_size for p in (registry / previous_stem / "blobs/sha256").glob("*") if p.is_file())
+            reserved += max(0, previous["expected_compressed_bytes"] + 1024**2 - present)
+            outstanding.append(previous)
+        if any(previous["status"] == "downloading" for previous in outstanding):
+            print(json.dumps({"task": args.task, "stage": "another_original_copy_is_downloading", "new_model_calls": 0}))
+            return
+        not_yet_present = reserved - cached
+        if reserved + expected > 3 * 1024**3 or shutil.disk_usage(root).free < expected + not_yet_present + 10 * 1024**3:
+            print(json.dumps({"task": args.task, "stage": "compressed_cache_or_host_space_limit", "cached_bytes": cached,
+                "reserved_bytes": reserved, "expected_bytes": expected, "new_model_calls": 0}))
+            return
+        output = folder / ("bounded-prefetch-" + stem + ".json")
+        if output.exists():
+            raise FileExistsError(output)
+        state = {"task": args.task, "original_pin": pin, "stage": "copying_original_public_image",
+            "expected_bytes": expected, "cached_bytes_before": cached, "reserved_bytes_before": reserved,
+            "prefetch_admission_target_bytes": 3 * 1024**3,
+            "scope": "Snapshot admission for one host prefetch; a later coordinator copy does not take the host lock, so this is not a shared hard runtime cap",
+            "new_model_calls": 0, "docker_imports": 0, "vm_execution_lock_held": False, "queue_signals_sent": 0}
+        output.write_text(json.dumps(state, indent=2) + "\n")
+        with (folder / ("bounded-prefetch-" + stem + ".log")).open("x") as log:
+            copied = subprocess.run([sys.executable, str(folder / "image_copy_http1.py"), "--task", args.task,
+                "--attempt", str(attempt)], env=os.environ | {"PYTHONPATH": str(root)}, stdout=log, stderr=subprocess.STDOUT)
+        state["returncode"] = copied.returncode
+        state["stage"] = "ready_for_original_exclusive_import" if copied.returncode == 0 else "public_copy_failed_preserved"
+        output.write_text(json.dumps(state, indent=2) + "\n")
+        copied.check_returncode()
+        if read(copy)["status"] != "ready_for_import":
+            raise RuntimeError("The public copy did not complete original digest verification")
+        print(json.dumps(state), flush=True)
+
+
+if __name__ == "__main__":
+    main()

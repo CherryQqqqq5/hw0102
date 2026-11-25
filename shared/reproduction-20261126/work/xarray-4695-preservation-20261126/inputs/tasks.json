@@ -1,0 +1,22 @@
+{
+  "stage": "frozen",
+  "revisions": {
+    "swe": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+    "terminal": "7131e4375048a0e408a8fb404b5f499d726b695b",
+    "aider": "7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"
+  },
+  "selected": [
+    {
+      "benchmark": "swe",
+      "id": "pydata__xarray-4695",
+      "stratum": "pydata/xarray",
+      "group": "pydata__xarray-4695",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.pydata_1776_xarray-4695:latest",
+      "base_commit": "51ef2a66c4e0896eab7d2b03e3dfb3963e338e3c",
+      "exclude": null,
+      "split": "H"
+    }
+  ],
+  "scope": "All 75 previously exposed original tasks; fixed public-structure policy, no best-of-run selection"
+}

@@ -1,0 +1,101 @@
+{
+  "active": true,
+  "backends": [
+    "codebuddy"
+  ],
+  "queues": [
+    "work/vmshare/performance-feal-linear-v19-20261125"
+  ],
+  "task_artifacts": {
+    "model-extraction-relu-logits": [
+      "/app/steal.py",
+      "/app/stolen_A1.npy"
+    ],
+    "extract-elf": [
+      "/app/extract.js"
+    ],
+    "video-processing": [
+      "/app/jump_analyzer.py",
+      "/app/output.toml"
+    ],
+    "llm-inference-batching-scheduler": [
+      "/app/task_file/output_data/plan_b1.jsonl",
+      "/app/task_file/output_data/plan_b2.jsonl"
+    ],
+    "query-optimize": [
+      "/app/sol.sql"
+    ],
+    "constraints-scheduling": [
+      "/app/meeting_scheduled.ics"
+    ],
+    "custom-memory-heap-crash": [
+      "/app/user.cpp"
+    ],
+    "db-wal-recovery": [
+      "/app/recovered.json",
+      "/app/main.db",
+      "/app/main.db-wal",
+      "/app/main.db-shm"
+    ],
+    "distribution-search": [
+      "/app/dist.npy"
+    ],
+    "feal-linear-cryptanalysis": [
+      "/app/plaintexts.txt"
+    ],
+    "fix-code-vulnerability": [
+      "/app/bottle.py",
+      "/app/report.jsonl"
+    ],
+    "fix-git": [],
+    "log-summary-date-ranges": [
+      "/app/summary.csv"
+    ],
+    "mailman": [],
+    "modernize-scientific-stack": [
+      "/app/analyze_climate_modern.py",
+      "/app/requirements.txt",
+      "/app/pyproject.toml"
+    ],
+    "multi-source-data-merger": [
+      "/app/merged_users.parquet",
+      "/app/conflicts.json"
+    ],
+    "openssl-selfsigned-cert": [
+      "/app/ssl/server.key",
+      "/app/ssl/server.crt",
+      "/app/ssl/server.pem",
+      "/app/ssl/verification.txt",
+      "/app/check_cert.py"
+    ],
+    "password-recovery": [
+      "/app/recovered_passwords.txt"
+    ],
+    "polyglot-rust-c": [
+      "/app/polyglot/main.rs"
+    ],
+    "prove-plus-comm": [
+      "/workspace/plus_comm.v",
+      "/workspace/plus_comm.vo"
+    ],
+    "regex-log": [
+      "/app/regex.txt"
+    ],
+    "sparql-university": [
+      "/app/solution.sparql"
+    ],
+    "sqlite-db-truncate": [
+      "/app/recover.json"
+    ],
+    "tune-mjcf": [
+      "/app/model.xml"
+    ],
+    "vulnerable-secret": [
+      "/app/results.txt"
+    ]
+  },
+  "capture_code_sha256": "9079d3fc34de13b4b760fb7647bbc7af154342c0cebf59e0e37faf36a63be60c",
+  "launcher_sha256": "0e7e208b89829623272a3d43eb3af64a4724dadc05eab9115298ec3dd2a167a4",
+  "manifest_sha256": "a72b4ee35496ab1f01c0d841d5f79451ef6fb03b2324e3e3f9fe28fc344b7fbc",
+  "purpose": "Save declared final-policy output bytes after the agent and before the original grader, without changing model inputs or original verification"
+}

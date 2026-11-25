@@ -1,0 +1,30 @@
+{
+  "status": "ACTUAL_SOURCE_SNAPSHOT_AND_PORTABLE_ENTRY_CHECKS_PASSED",
+  "date_bjt": "2026-11-26",
+  "snapshot": "shared/reproduction-20261126",
+  "approved_plan_sha256": "c815cc1e2483601263e7c606b6af9c613321b69acf9ce922736a3681aa301859",
+  "selection_sha256": "49797142c87058279e621deeaf68a798b76baabe4ec508a53a7e9999ef9f8d4e",
+  "actual_sync_exit_code": 0,
+  "actual_portable_verify_exit_code": 0,
+  "source_files_including_generated_portable_launcher": 942,
+  "source_bytes": 19507480,
+  "actual_entire_snapshot_bytes": 20547035,
+  "hard_snapshot_limit_bytes": 33554432,
+  "preparation_reservation_estimate_bytes": 20540812,
+  "reservation_limit": "The preparation estimate was6223 bytes below the actual generated directory. The actual post-copy32MiB hard check passed;the estimate is not reported as an exact upper bound.",
+  "frozen_runtime_versions": 9,
+  "historical_source_version_records": 24,
+  "exact_public_resources_referenced_without_duplicate_copy": 8,
+  "actual_entry_checks": {
+    "report_consumer_help_exit_code": 0,
+    "typed_closed_cost_export_help_exit_code": 0,
+    "portable_harbor_launcher_help_exit_code": 0
+  },
+  "scope": "All three help commands ran from the actual new source directory with the existing qualified Python environment;not from the author project entry paths. Actual source/export hashes,generated files and external resource references passed the new portable verifier. Staged sensitive scan and Git receipt are separate later checks.",
+  "operation_model_calls": 0,
+  "operation_original_grader_calls": 0,
+  "operation_container_calls": 0,
+  "final_experiment_results_complete": false,
+  "formal_PDFs_updated": false,
+  "final_submission_ZIP_created": false
+}

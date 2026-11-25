@@ -1,0 +1,11 @@
+# Xarray4695：保留原测试与当前检查后提交
+
+对象：ANALYZE 原main/repeat的真实保护状态；DEBUG 已有v20提交闸门的本题部署；RUN仅准备固定两次新独立会话，尚不发模型。
+
+权威旧快照为hy4-snapshot-0311-20261126，原200位置保持。两旧候选的生产改动相同，repeat另在受保护test_dataarray.py追加15行测试。旧repeat原分true而qualifiedfalse保留；main最后恢复测试后仅交付生产改动，原分/公开/保护通过。原评分报告的1目标＋875保留测试通过与stdout另1个MultiIndex失败分别记录。
+
+本修订只对pydata__xarray-4695新增三条公开coverage指导，并复用已冻结v20的通用C0提交闸门。公开命令、依赖、原scope、原题/镜像pin、hy4flash-free、500请求/3600秒/120秒命令/64000输出/0retry和原评分不变。C0不每步自动检查；ReLU源码访问过滤因本题没有relu_directions标记而不启用。v20不被推广到其他原任务或旧七scope。
+
+零模型资格在原pool独占租约内用原pin/3072MiB/2CPU：base、坏repeat完整patch、好main完整patch、坏repeat仅撤回测试hunk四个独立干净Controller。真实pending提交被拒；坏repeat即使公开命令returncode0仍因protected_dependency_changed拒交；好main与恢复原测试的repeat经原verify/save后准许提交。base公开测试可能通过；另执行原题method示例供诊断，不能伪称旧公开命令覆盖了该bug。无新原grader、无新费用回执。
+
+完成条件：真实资格最终phase、原保护与submit交互、源与原200记录不变；冻结两固定新session供父独立准入，不自行运行。未来第八scope只可67×2继承＋16固定新位置，原225、旧开发成绩/无分中断/未知35成本全保留，不在这里接纳join或宣称全75完成。

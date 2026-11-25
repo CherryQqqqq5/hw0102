@@ -1,0 +1,198 @@
+{
+  "extract-elf": {
+    "configuration": "C0",
+    "scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/extract.js"
+      ],
+      "protected": [
+        "/app/a.out",
+        "/app/hi.c",
+        "/opt/course-tools/elf_memory_check.py",
+        "/opt/course-tools/pyelftools.whl"
+      ],
+      "python": "python3",
+      "reusable_helper": "elf_memory_check"
+    }
+  },
+  "video-processing": {
+    "configuration": "C0",
+    "scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/jump_analyzer.py",
+        "/app/output.toml"
+      ],
+      "protected": [
+        "/app/example_video.mp4",
+        "/opt/course-tools/video_events.py"
+      ],
+      "python": "python3",
+      "reusable_helper": "video_events"
+    }
+  },
+  "llm-inference-batching-scheduler": {
+    "configuration": "C0",
+    "scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/task_file/output_data/plan_b1.jsonl",
+        "/app/task_file/output_data/plan_b2.jsonl"
+      ],
+      "protected": [
+        "/app/task_file/input_data/requests_bucket_1.jsonl",
+        "/app/task_file/input_data/requests_bucket_2.jsonl",
+        "/app/task_file/scripts/cost_model.py",
+        "/app/task_file/scripts/baseline_packer.py"
+      ],
+      "python": "python3"
+    }
+  },
+  "query-optimize": {
+    "configuration": "C0",
+    "scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/sol.sql"
+      ],
+      "protected": [
+        "/app/oewn.sqlite",
+        "/app/my-sql-query.sql"
+      ],
+      "python": "/opt/course-runtime/bin/python3",
+      "reusable_helper": "sql_layout"
+    }
+  },
+  "constraints-scheduling": {
+    "configuration": "C0",
+    "scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/meeting_scheduled.ics"
+      ],
+      "protected": [
+        "/app/alice_calendar.ics",
+        "/app/bob_calendar.ics",
+        "/app/carol_calendar.ics"
+      ],
+      "python": "python3"
+    }
+  },
+  "custom-memory-heap-crash": {
+    "configuration": "C0",
+    "scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/user.cpp"
+      ],
+      "protected": [
+        "/app/main.cpp",
+        "/app/user.h"
+      ],
+      "python": "python3"
+    }
+  },
+  "fix-git": {
+    "configuration": "B0",
+    "reason": "The required Git commit, object and reference history is outside the bounded regular-file candidate protocol."
+  },
+  "mailman": {
+    "configuration": "B0",
+    "reason": "The required Postfix/Mailman services, subscription, queue and delivery state is outside the regular-file candidate protocol."
+  },
+  "model-extraction-relu-logits": {
+    "configuration": "C0",
+    "scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/steal.py",
+        "/app/stolen_A1.npy"
+      ],
+      "protected": [
+        "/app/forward.py",
+        "/opt/course-tools/relu_recovery.py"
+      ],
+      "python": "python3",
+      "reusable_helper": "relu_directions"
+    }
+  },
+  "openssl-selfsigned-cert": {
+    "configuration": "C0",
+    "scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/ssl/server.key",
+        "/app/ssl/server.crt",
+        "/app/ssl/server.pem",
+        "/app/ssl/verification.txt",
+        "/app/check_cert.py"
+      ],
+      "protected": [],
+      "python": "python3"
+    }
+  },
+  "password-recovery": {
+    "configuration": "C0",
+    "scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/recovered_passwords.txt"
+      ],
+      "protected": [],
+      "python": "python3"
+    },
+    "protection_limit": "The permitted public materials do not identify the forensic carrier filename. No path is invented."
+  },
+  "regex-log": {
+    "configuration": "C0",
+    "scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/regex.txt"
+      ],
+      "protected": [],
+      "python": "/opt/course-runtime/bin/python3"
+    }
+  },
+  "sparql-university": {
+    "configuration": "C0",
+    "scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/solution.sparql"
+      ],
+      "protected": [
+        "/app/university_graph.ttl"
+      ],
+      "python": "python3"
+    }
+  },
+  "sqlite-db-truncate": {
+    "configuration": "C0",
+    "scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/recover.json"
+      ],
+      "protected": [
+        "/app/trunc.db"
+      ],
+      "python": "python3"
+    }
+  },
+  "tune-mjcf": {
+    "configuration": "C0",
+    "scope": {
+      "kind": "files",
+      "artifacts": [
+        "/app/model.xml"
+      ],
+      "protected": [
+        "/app/model_ref.xml",
+        "/app/eval.py"
+      ],
+      "python": "python3"
+    }
+  }
+}

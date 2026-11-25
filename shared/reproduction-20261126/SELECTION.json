@@ -1,0 +1,355 @@
+{
+  "schema": "course_source_selection_v2",
+  "legacy_manifest_sha256": "37afb309ec98d54a2f70950be1da2d2f59da9bfe6d6bf706278e6cbfbc02563a",
+  "legacy_sync_sha256": "f561c8aa4ced85a6ab0092a37c271dee886a49ed030c67571bb32c3200843b85",
+  "snapshot_limit_bytes": 33554432,
+  "code_additions": [
+    "work/current-source-preparation-eight-20261126/sync_sources.py",
+    "work/current-source-preparation-eight-20261126/qualify.py",
+    "work/parallel-free-evaluation-20261124/run_ready_queues_light_probe.py",
+    "work/parallel-free-evaluation-20261124/ready_coordinator_light_probe.py",
+    "work/parallel-free-evaluation-20261124/continue_light_probe_hy4.py",
+    "work/parallel-free-evaluation-20261124/prefetch_waiting_images.py",
+    "work/submission_readme.py",
+    "work/check_submission_readme.py",
+    "work/free-recovery35-20261126/prepare.py",
+    "work/free-recovery35-20261126/qualify.py",
+    "work/free-recovery35-20261126/prepare_hy4.py",
+    "work/free-recovery35-20261126/resume_hy4.py",
+    "work/free-recovery35-20261126/qualify_continuation.py",
+    "work/free-recovery34-20261125/prepare.py",
+    "work/free-recovery34-20261125/prepare_hy4.py",
+    "work/free-recovery34-20261125/resume_hy4.py",
+    "work/free-recovery34-20261125/ready_coordinator.py",
+    "work/free-recovery34-20261125/qualify.py",
+    "work/free-recovery34-20261125/accept_reviewed.py",
+    "work/free-recovery33-20261125/prepare.py",
+    "work/free-recovery33-20261125/resume_hy4.py",
+    "work/free-recovery33-20261125/qualify.py",
+    "work/free-recovery33-20261125/accept_reviewed.py",
+    "work/free-recovery32-20261125/prepare.py",
+    "work/free-recovery32-20261125/accept_reviewed.py",
+    "work/hy4-proxy-image-preparation-20261126/continuation.py",
+    "work/hy4-proxy-image-preparation-20261126/qualify_continuation.py",
+    "work/hy4-proxy-image-preparation-20261126/image_copy_driver.py",
+    "work/hy4-proxy-image-preparation-20261126/prepare_plans.py",
+    "work/nvidia75-light-first-v33-20261125/prepare.py",
+    "work/nvidia75-light-first-v33-20261125/run_lane.py",
+    "work/nvidia75-light-first-v33-20261125/benchmarks_entry.py",
+    "work/minimax-aider-onecase-20261125/prepare.py",
+    "work/minimax-aider-onecase-20261125/run_lane.py",
+    "work/minimax-aider-onecase-20261125/run_lane_owner.py",
+    "work/minimax-aider-onecase-20261125/benchmarks_entry.py",
+    "work/sklearn-25232-semantics-20261126/public_nan_probe.py",
+    "work/sklearn-25232-semantics-20261126/qualify_public_contract.py",
+    "work/sklearn-25232-semantics-20261126/prepare_repair.py",
+    "work/sklearn-25232-semantics-20261126/check_seven_scope_consumption.py",
+    "work/sklearn-25232-semantics-20261126/check_report_sections.py",
+    "work/sklearn-25232-semantics-20261126/check_feedback_report.py",
+    "work/sklearn-25232-semantics-20261126/reference-iterative.py",
+    "work/sklearn-25232-semantics-20261126/separate-public-reference.patch",
+    "work/sklearn-25232-semantics-20261126/PLAN.md",
+    "work/sklearn-25232-semantics-20261126/public-sources/base-iterative.py",
+    "work/sklearn-25232-semantics-20261126/public-sources/current-main-iterative.py",
+    "work/sklearn-25232-semantics-20261126/public-sources/sklearn-1.5.2-iterative.py",
+    "work/sklearn-25232-semantics-20261126/public-sources/base-public-test-impute.py",
+    "work/hy4-submit-boundary-20261125/qualify_local.py",
+    "work/hy4-submit-boundary-20261125/qualify_linux.py",
+    "work/hy4-submit-boundary-20261125/qualify_linux_r2.py",
+    "work/hy4-submit-boundary-20261125/qualify_linux_r3.py",
+    "work/hy4-submit-boundary-20261125/prepare_pair.py",
+    "work/hy4-submit-boundary-20261125/prepare_pair_r2.py",
+    "work/hy4-submit-boundary-20261125/runtime.patch",
+    "work/parallel-free-evaluation-20261124/check_closed_cost_export.py",
+    "work/parallel-free-evaluation-20261124/check_closed_cost_report.py",
+    "work/parallel-free-evaluation-20261124/check_nvidia_v33_consumption.py",
+    "work/parallel-free-evaluation-20261124/check_six_scope_membership.py",
+    "work/xarray-4695-preservation-20261126/qualify_preservation.py",
+    "work/xarray-4695-preservation-20261126/prepare_repair.py",
+    "work/xarray-4695-preservation-20261126/check_eight_scope_consumption.py",
+    "work/xarray-4695-preservation-20261126/check_report_sections.py",
+    "work/xarray-4695-preservation-20261126/check_renderer_load.py",
+    "work/xarray-4695-preservation-20261126/PLAN.md"
+  ],
+  "configuration_additions": [
+    "work/free-recovery35-20261126/hy4-plans/main-plan.json",
+    "work/free-recovery35-20261126/hy4-plans/repeat-plan.json",
+    "work/free-recovery35-20261126/hy4-plans/tasks.json",
+    "work/free-recovery35-20261126/hy4-plans/checks.json",
+    "work/free-recovery35-20261126/hy4-plans/scopes.json",
+    "work/nvidia75-light-first-v33-20261125/plan.json",
+    "work/nvidia75-v27-20261125/dsh-runtime-files.json",
+    "work/nvidia75-transport-v28-20261125/plan.json",
+    "work/nvidia75-resume-v29-20261125/plan.json",
+    "work/minimax-aider-onecase-20261125/plan.json",
+    "work/minimax-free-qualification-20261125/free-contract.json",
+    "work/minimax-free-qualification-20261125/native64-bootstrap-contract.json",
+    "work/minimax-free-qualification-20261125/evaluation-contract.json",
+    "work/sklearn-25232-semantics-20261126/frozen/plan.json",
+    "work/hy4-submit-boundary-20261125/frozen-pair-r2/plan.json",
+    "work/xarray-4695-preservation-20261126/frozen/plan.json",
+    "work/xarray-4695-preservation-20261126/inputs/checks.json",
+    "work/hy4-submit-boundary-20261125/runtime-manifest.json"
+  ],
+  "additional_runtimes": [
+    "frozen-performance-hy4-submit-boundary-v20",
+    "frozen-performance-free-v28",
+    "frozen-performance-free-v30"
+  ],
+  "source_versions": [
+    {
+      "logical_source": "work/parallel-free-evaluation-20261124/export_nvidia_history.py",
+      "archive": "work/parallel-free-evaluation-20261124/closed-cost-supplement-qualification-20261125/exporter-before-change.py.txt",
+      "scope": "closed-supplement-review140 authoring source"
+    },
+    {
+      "logical_source": "work/parallel-free-evaluation-20261124/prepare_report_data.py",
+      "archive": "work/parallel-free-evaluation-20261124/closed-cost-supplement-qualification-20261125/report-consumer-before-trial-validation.py.txt",
+      "scope": "closed-supplement-review140 authoring source; parent reconstructed preimage and verified exact prior SHA"
+    },
+    {
+      "logical_source": "work/parallel-free-evaluation-20261124/prepare_report_data.py",
+      "archive": "work/parallel-free-evaluation-20261124/closed-cost-supplement-qualification-20261125/report-consumer-before-closed-cost-integration.py.txt",
+      "scope": "before typed closed-cost integration"
+    },
+    {
+      "logical_source": "work/render_hy4_final_reports.py",
+      "archive": "work/parallel-free-evaluation-20261124/closed-cost-supplement-qualification-20261125/renderer-before-closed-cost-integration.py.txt",
+      "scope": "before typed closed-cost integration"
+    },
+    {
+      "logical_source": "work/render_hy4_final_reports.py",
+      "archive": "work/parallel-free-evaluation-20261124/closed-cost-supplement-qualification-20261125/renderer-before-attempt-budget-wording.py.txt",
+      "scope": "before per-attempt budget wording correction"
+    },
+    {
+      "logical_source": "work/parallel-free-evaluation-20261124/join_scoped_revisions.py",
+      "archive": "work/sklearn-25232-semantics-20261126/prior-six-scope-join.py.txt",
+      "scope": "before seventh scoped revision"
+    },
+    {
+      "logical_source": "work/parallel-free-evaluation-20261124/prepare_report_data.py",
+      "archive": "work/sklearn-25232-semantics-20261126/consumption-qualification/prepare_report_data.before-seven.py.txt",
+      "scope": "before seventh scoped revision"
+    },
+    {
+      "logical_source": "work/render_hy4_final_reports.py",
+      "archive": "work/sklearn-25232-semantics-20261126/renderer-before-seven-scope.py.txt",
+      "scope": "before seventh scoped revision"
+    },
+    {
+      "logical_source": "work/render_hy4_final_reports.py",
+      "archive": "work/sklearn-25232-semantics-20261126/renderer-before-nan-feedback.py.txt",
+      "scope": "before observed NaN feedback-adoption paragraph"
+    },
+    {
+      "logical_source": "work/package_final_submission.py",
+      "archive": "work/sklearn-25232-semantics-20261126/package-before-generated-readme.py.txt",
+      "scope": "before generated package note"
+    },
+    {
+      "logical_source": "work/parallel-free-evaluation-20261124/prefetch_waiting_images.py",
+      "archive": "work/hy4-proxy-image-preparation-20261126/prefetch-before-qualified-proxy.py.txt",
+      "scope": "before qualified proxy option"
+    },
+    {
+      "logical_source": "work/parallel-free-evaluation-20261124/join_scoped_revisions.py",
+      "archive": "work/xarray-4695-preservation-20261126/consumer-qualification/join-before-eight.py.txt",
+      "scope": "Exact seven-scope authoring source before the eighth task-local preservation revision"
+    },
+    {
+      "logical_source": "work/parallel-free-evaluation-20261124/prepare_report_data.py",
+      "archive": "work/xarray-4695-preservation-20261126/consumer-qualification/consumer-before-eight.py.txt",
+      "scope": "Exact seven-scope authoring source before the eighth task-local preservation revision"
+    },
+    {
+      "logical_source": "work/render_hy4_final_reports.py",
+      "archive": "work/xarray-4695-preservation-20261126/consumer-qualification/renderer-before-eight.py.txt",
+      "scope": "Exact seven-scope authoring source before the eighth task-local preservation revision"
+    },
+    {
+      "logical_source": "work/render_hy4_final_reports.py",
+      "archive": "work/xarray-4695-preservation-20261126/consumer-qualification/renderer-before-loc-load-fix.py.txt",
+      "scope": "Exact source before the independently found multi-source loc loader P1; required by the zero-model regression checker"
+    },
+    {
+      "logical_source": "work/scan_staged_delivery.py",
+      "archive": "work/current-source-preparation-eight-20261126/scanner-before-source940.py.txt",
+      "scope": "Exact12-path staged detector-source allowlist before adding only root and9 frozen export_revision.py paths for reproduction-20261126;other sensitive scanning unchanged"
+    }
+  ],
+  "dynamic_load_allowlist": [
+    {
+      "owner": "work/free-recovery35-20261126/resume_hy4.py",
+      "targets": [
+        "work/free-recovery35-20261126/prepare.py",
+        "work/free-recovery34-20261125/resume_hy4.py",
+        "work/hy4-proxy-image-preparation-20261126/continuation.py"
+      ],
+      "reason": "Actual local prepare import and explicit load() at module initialization"
+    },
+    {
+      "owner": "work/free-recovery35-20261126/prepare.py",
+      "targets": [
+        "work/free-recovery34-20261125/prepare.py",
+        "work/free-recovery34-20261125/resume_hy4.py"
+      ],
+      "reason": "Actual immutable R34 inspector/resume dependency"
+    },
+    {
+      "owner": "work/free-recovery34-20261125/prepare.py",
+      "targets": [
+        "work/free-recovery33-20261125/prepare.py"
+      ],
+      "reason": "Explicit importlib spec dependency"
+    },
+    {
+      "owner": "work/free-recovery33-20261125/prepare.py",
+      "targets": [
+        "work/free-recovery32-20261125/prepare.py"
+      ],
+      "reason": "Explicit importlib spec dependency"
+    },
+    {
+      "owner": "work/free-recovery32-20261125/prepare.py",
+      "targets": [
+        "work/parallel-free-evaluation-20261124/resume_verified_hy4.py"
+      ],
+      "reason": "Original generic helper, not an interchangeable fourteen-source validator for R34"
+    },
+    {
+      "owner": "work/hy4-proxy-image-preparation-20261126/continuation.py",
+      "targets": [
+        "work/parallel-free-evaluation-20261124/ready_coordinator_light_probe.py",
+        "work/parallel-free-evaluation-20261124/run_ready_queues_light_probe.py",
+        "work/parallel-free-evaluation-20261124/prepare_reuse_ablation.py",
+        "work/parallel-free-evaluation-20261124/run_reuse_ablation.py",
+        "work/parallel-free-evaluation-20261124/run_fixed_free_trials.py",
+        "work/free-recovery34-20261125/resume_hy4.py"
+      ],
+      "reason": "Exact core225 -> three guidance ablations -> two preservation trials, including qualified image prewarming"
+    },
+    {
+      "owner": "work/nvidia75-light-first-v33-20261125/run_lane.py",
+      "targets": [
+        "work/nvidia75-transport-v28-20261125/run_lane.py",
+        "work/nvidia75-transport-v28-20261125/external_runtimes.py"
+      ],
+      "reason": "Inherited actual lane owner and SDK verifier"
+    },
+    {
+      "owner": "work/parallel-free-evaluation-20261124/analyze_nvidia_v28.py",
+      "targets": [
+        "work/nvidia75-v27-20261125/analyze.py"
+      ],
+      "reason": "Exact-hash offline reader import"
+    },
+    {
+      "owner": "work/parallel-free-evaluation-20261124/export_nvidia_history.py",
+      "targets": [
+        "work/parallel-free-evaluation-20261124/export_nvidia_v28.py",
+        "work/parallel-free-evaluation-20261124/analyze_nvidia_v28.py",
+        "work/nvidia75-v27-20261125/export.py"
+      ],
+      "reason": "Existing strict and typed closed-cost helper chain"
+    },
+    {
+      "owner": "work/parallel-free-evaluation-20261124/prefetch_waiting_images.py",
+      "targets": [
+        "work/hy4-proxy-image-preparation-20261126/image_copy_driver.py",
+        "scripts/run_pinned_image_copy.py"
+      ],
+      "reason": "Only explicit --use-qualified-proxy path, unchanged original pins"
+    },
+    {
+      "owner": "work/package_final_submission.py",
+      "targets": [
+        "work/submission_readme.py",
+        "work/scan_staged_delivery.py"
+      ],
+      "reason": "Generated note and existing delivery checks"
+    },
+    {
+      "owner": "launchers/harbor_entry.py",
+      "targets": [
+        "scripts/harbor_artifact_capture.py"
+      ],
+      "reason": "Actual prepare_args -> Harbor CLI interception; the portable launcher remains a separately qualified future launcher"
+    },
+    {
+      "owner": "work/xarray-4695-preservation-20261126/qualify_preservation.py",
+      "targets": [
+        "work/frozen-performance-hy4-submit-boundary-v20/course_eval/agent.py",
+        "work/frozen-performance-hy4-submit-boundary-v20/course_eval/benchmarks.py",
+        "work/frozen-performance-hy4-submit-boundary-v20/course_eval/controller.py",
+        "work/frozen-performance-hy4-submit-boundary-v20/course_eval/docker_target.py",
+        "work/frozen-performance-hy4-submit-boundary-v20/course_eval/verification.py",
+        "work/frozen-performance-hy4-submit-boundary-v20/course_eval/resource_pool.py",
+        "work/parallel-free-evaluation-20261124/ready_coordinator_light_probe.py"
+      ],
+      "reason": "Actual explicit sys.path v20/root/BASE loading and original resource lease; this preparation never executes the qualifier or opens old candidates"
+    },
+    {
+      "owner": "work/xarray-4695-preservation-20261126/check_eight_scope_consumption.py",
+      "targets": [
+        "work/parallel-free-evaluation-20261124/join_scoped_revisions.py",
+        "work/parallel-free-evaluation-20261124/prepare_report_data.py",
+        "work/parallel-free-evaluation-20261124/check_six_scope_membership.py"
+      ],
+      "reason": "Actual importlib-loaded join/consumer and exact membership regression"
+    },
+    {
+      "owner": "work/xarray-4695-preservation-20261126/check_renderer_load.py",
+      "targets": [
+        "work/parallel-free-evaluation-20261124/prepare_report_data.py",
+        "work/render_hy4_final_reports.py",
+        "work/xarray-4695-preservation-20261126/consumer-qualification/renderer-before-loc-load-fix.py.txt"
+      ],
+      "reason": "Actual current and exact archived renderer loader qualification, using separately exported execution metadata"
+    },
+    {
+      "owner": "work/xarray-4695-preservation-20261126/check_report_sections.py",
+      "targets": [
+        "work/render_hy4_final_reports.py"
+      ],
+      "reason": "Existing work-root PYTHONPATH import of the actual report section renderer"
+    }
+  ],
+  "expected_current_renderer_sha256": "c50254b1424344094c42443ff1e585664d9513f521bbfbec2c0ea41ca864e3f1",
+  "excluded": [
+    "Model/request/response traces and native sessions",
+    "STOP/released-stop/account/cloud metadata",
+    "Containers,images,OCI blobs,SDK binary payloads,whole venvs,credentials",
+    "Hidden graders/gold/model-produced candidates and patches",
+    "Actual result/review/qualification payloads; their code may be included, execution evidence is exported separately"
+  ],
+  "external_codebuddy_patch": {
+    "relative_to_shared": "client-patches/codebuddy-2.179.3-free-safety-v8/codebuddy-free-safety.patch",
+    "sha256": "90d71c55049e3a90e6bb8179ae0c054314c8409d340862b7fe6500b383834b7e",
+    "bytes": 5006912,
+    "patched_client_sha256": "bfc167075d229f101878a378e6c5f9a8c2b64463545dd5ffb3881d6417040915",
+    "original_client_sha256": "abe2d02f74f208b4ea7a0c8621fb7c7cf5822ef6d88af7cf413a6de820a987a4"
+  },
+  "external_sdk": {
+    "source": "https://github.com/deepseek-ai/deepseek-harness/tree/dsh-v0.2.2-rc.2",
+    "version": "0.2.2rc2",
+    "python": "3.13.12",
+    "manifest": "work/nvidia75-v27-20261125/dsh-runtime-files.json",
+    "payload_copied": false
+  },
+  "preparation_revision": {
+    "scope": "eight prospective task-local revisions;67x2 inherited definitions plus16 fixed fresh slots",
+    "previous_separate_preparation": "work/current-source-preparation-20261126/SYNC_PLAN.json",
+    "previous_preparation_sha256": "993cc78b1d5ba9a09c3c2452e24361b12f8bc179583bce604de08bc289a8e8fb",
+    "previous_sources": 925,
+    "old_preparation_modified": false,
+    "delivery_scan_extension": {
+      "previous_eight_scope_selection_sha256": "6928e325e2775e421069f07ea207374fbfbb5e716ff5e70f5f31fd967eba52c0",
+      "previous_eight_scope_plan_sha256": "36f38d23492fc3374345edff109af102760c8f6aab52e8e69135d4e75c7010a1",
+      "scanner_sha256": "2816e98870e9eb01e3c0abe623879a1e8d9f2831f278ecb99ada96af35e104a7",
+      "scanner_preimage_sha256": "f3d377fd0645072f02324deb4f833f8f4dabe6e1bf90849add20ba7cf15b8c29",
+      "old_eight_scope_files_modified": false,
+      "scope": "Only explicit staged scanner source-path exemptions for two existing detector definitions;no raw execution evidence is copied."
+    }
+  }
+}

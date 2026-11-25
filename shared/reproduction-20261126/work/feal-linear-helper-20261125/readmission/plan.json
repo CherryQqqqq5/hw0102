@@ -1,0 +1,491 @@
+{
+  "stage": "frozen_after_actual_zero_model_controller_readmission_qualification",
+  "phase": "RUN",
+  "task": "feal-linear-cryptanalysis",
+  "model": "hy4flash-free",
+  "prospective_trials": [
+    "feal-linear-main-readmission-r1",
+    "feal-linear-repeat-r2"
+  ],
+  "runtime_root": "work/frozen-performance-hy4-feal-linear-v19",
+  "manifest": "work/feal-linear-helper-20261125/readmission-inputs/tasks.json",
+  "checks": "work/feal-linear-helper-20261125/readmission-inputs/checks.json",
+  "pin": "sha256:ea78749a8422c6228d26c8753f45906a6a2df089906764b7e3c3e27e8f718ee7",
+  "limits": {
+    "model_calls": 500,
+    "wall_seconds": 3600,
+    "command_seconds": 120,
+    "max_output_tokens": 64000,
+    "timeout_retries": 0,
+    "strict_wall": true
+  },
+  "expected_protocol": {
+    "task": "feal-linear-cryptanalysis",
+    "model": "hy4flash-free",
+    "backend": "codebuddy",
+    "configuration": "C0",
+    "framework": "mini-swe",
+    "readonly_swe_repository": false,
+    "persistent_native_session": true,
+    "limits": {
+      "model_calls": 500,
+      "wall_seconds": 3600,
+      "command_seconds": 120,
+      "max_output_tokens": 64000,
+      "timeout_retries": 0,
+      "strict_wall": true
+    },
+    "runtime_root": "work/frozen-performance-hy4-feal-linear-v19",
+    "billing": "Actual per-call model identity and zero-cost receipt; no request retry or paid fallback",
+    "benchmark_grader": "unchanged original task scorer"
+  },
+  "queue": "work/vmshare/performance-feal-linear-v19-20261125",
+  "driver": "work/parallel-free-evaluation-20261124/run_hy4_trial.py",
+  "resource_driver": "work/parallel-free-evaluation-20261124/resource_warm_trial.py",
+  "image_copy_driver": "work/parallel-free-evaluation-20261124/image_copy_http1.py",
+  "artifact_capture_policy": "work/feal-linear-helper-20261125/readmission-inputs/capture-policy.json",
+  "all_files_sha256": {
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/sql_layout.py": "0cd2cb65379e7645ebb14f00b056c7d75b47dc500c4be38b62764f320c179dc8",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/relu_solver_agent.py": "6378c5f25b224cbd4eedab1485b118f1881c4b943b8fcb83ea92d0da84d99543",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/confirmation_summary.py": "671f478501a10d98aa880c0acf367f5b793673d41fe5d6c648177f8eb0a832ad",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/codebuddy_free.py": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+    "scripts/import_pinned_image_copy.py": "255b22a259483b32337f687f1af34df259b049e4ab5cb5cae9a1444b70b4cfc1",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/matrix.py": "1b0bfb8cf389ac09078bc1d3973931b6c194b04cfecc9bf0115f2dcca1084c93",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/check_public_semantics.py": "ee94138ddf05d8e898a8bccc15b5002332e932bd6bde242e5dac87e7a80cbbca",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/verify_scores.py": "5bf4b663ea0ff916785701a3792323861b763708670c2f4aa59d876b39b9e51b",
+    "scripts/prepare_registry_export_tool.py": "44ab57917ed68858d1f2d0061a3e7a4038454a753c765c069c583e2fbe4a0eb7",
+    "work/vmshare/elf-public-check-deps/pyelftools-0.33-py3-none-any.whl": "f215ad5f47d3f1373a21496a6c9e0707c622840d0622f23ff7ce08678b020036",
+    "course_eval/resource_pool.py": "b20f4145dcc8dc14532d52db67cb893b3d512435ef3c483e3e77452ae35f6a95",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/video_events.py": "cc1be22ff1e217e16fc5b1777677e20b518719ad3993edde9e884d2df5819d62",
+    "work/free-channel-capabilities-20261122/cloud-model-metadata.json": "5d00f416953c6eaf4e8c867e675e693a3935cd997044a0c1284a929ed37c9102",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/sqlparse.whl": "3be5a72d04c873d690d7c6dedd33d6fae2ef82759881ceec02fc2efd0cba564f",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/check_terminal_boundary.py": "c2b0dc40762221e20ebb37830e8035a07221d980d68fc8c6a4e99f1fdd5cdd49",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/feal-linear-cryptanalysis-C0-r1.protocol.json": "9a5a51436efc13e39ea9b61474f5e78f8c29f658c6480a149853654ae7ee48c2",
+    "work/feal-linear-helper-20261125/frozen/checks.json": "b97b5ce630b9073bd08257a4040a93461c040131d38e895077a6d5f18476b0f9",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/summarize.py": "32af45b86b4a5277b871273f2325ce86f394d03a9471c2ae2e7b45ec11bf94de",
+    "work/parallel-free-evaluation-20261124/image_copy_http1.py": "0c6cec923cb33021fc6f88c0c2fcbcfb7ca93643c6d2764a7b8bdb2efc29941f",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/swe_rows.mjs": "a2d1d5e9471198b2216108dd0c65c85859313329c964ecb71d6a7f002dee3a56",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/check_confirmation_public.py": "79ad6d3a7bfe4af64185b4b5e8ecbc0b6b6cbfcb23a176ff10ce7f64c977749a",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/freeze.py": "323e0806e208dfe006b3a999eab2477f8667e4d6b4a56908dd52d796fa742e31",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/check_verification.py": "da620307f9510b33d4cd007aeb67d7c78af41e47f258818d2e8722c1dc410abe",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/confirmation_probe_repair.py": "6a09b8385e07f2e41041dff6db90b639d0b99be70408e2800630a64f35f36bd4",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/check_controller.py": "f4457cadd4ce7354fe0503cd198a525e1c7f2ae58b54ca4a884dae19256a5c81",
+    "work/parallel-free-evaluation-20261124/run_hy4_trial.py": "5764368864a179569ffa7cf98779fcfbc3ec74fcea4de7fcb1970261732e9063",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/confirmation_swe_checks.py": "e80d02c0137b0d852384b93e3a0fc0c4de9c8429a8a3e8610ba383e3ae11aafb",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/financial_stop.py": "27b59ada2a897cfd10c5ebbaf65aa7e4e33157310ca56d6952cf1308559d0239",
+    "work/parallel-free-evaluation-20261124/final-sql75-recovered/repeat-plan.json": "8d80069d6e5ab03c05c4531afbd496ba0ca181c9403d5d31ef4dfa386523da84",
+    "scripts/run_pinned_image_copy.py": "5a2bb7e3e0fa47d50bc2e1422cc265ab90e970a124be0b8d6d0966a3307b3487",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/verification.py": "5ae7a4eb9753740e0f5385b99655fe5d144bf49ec6ef8ca0784a930f5308c424",
+    "work/parallel-free-evaluation-20261124/resource_trial.py": "9852b4a45860e15e12ba8873979145d9140ce917728613edf7fe2ac1447c34b6",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/dsh_free.py": "6bdcd9b4060bb8177af9ac6181f8a7a1ba7d6b17bd3a440e557b9c7eff719ada",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/check_boyue_timeout.py": "290d5dd76b86206ea02ccc000c6222911d6b95fc6d1dc00a2d2219a7a7d96b63",
+    "work/feal-linear-helper-20261125/frozen/capture-policy.json": "44f563bcb91b9cf4d7f6cf0415b8379d96c09e2d1ef1e7409d2a0a09fbf58d47",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/candidate_io.py": "307457f8eeff702f1a8f7b9f43bb69138bec908a9f8783ae5795c45fe1c1802c",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/resource_pool.py": "b20f4145dcc8dc14532d52db67cb893b3d512435ef3c483e3e77452ae35f6a95",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/export_confirmation_preparation.py": "0f09e3d9817f458671fcc15345d0a133908172a6e3ebfed6d0d0be4338970145",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/check_control_feedback.py": "e24dc6703925ed0351c64f7d04c10e050a930ed8e23b8f757552091e61cac507",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/export_revision.py": "48438872717de575616be682313c41066466e40d1b23b13055dfaa70bc110de5",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/check_openrouter_free.py": "8947d451b74971ff9aa6b70f410958093f1cb56d762046c2553465ab65f96c4a",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/revision_usage.py": "5292ca3afc5345ca79aaf8f3144920dc03df6b9a88660e4465e2bba66e35bc03",
+    "scripts/summarize_performance_comparison.py": "e21af1ae9e27f3865a3d71510f8bec8276557d74b984095ed9be51ccbe158472",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/feal-linear-cryptanalysis-C0-r1/result.json": "529734497083979666f2233400bb4534c2f3d13ff2904ac366050494a91055e3",
+    "work/harbor-artifact-capture/hy4-v18/qualification.json": "2917120266867183f7c3567178c4a3c97bb729d77c85573a2e95803319a18152",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/aider_runtime.py": "da14339b906790802c4b869b9c3e93e23144b6d8435c95d4d40670966da42472",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/revision_summary.py": "8f32b31265a72db640f50b905dfa88ae582a08c021398c28d4afb098716f2d6e",
+    "scripts/export_performance_evidence.py": "5b9d3d297c9c738a4240277df6cc64ef9c52828d8601ccf1acdbf39d8a890c5e",
+    "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/feal-linear-cryptanalysis-C0-r1/feal-linear-cryptanalysis__Frqk2CS/artifacts/app/plaintexts.txt": "f9804ddfb40caaf10afa01edc5c68a0ec9f8ec2c0b1f016bc6542ee5a76bce1f",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/check_terminal_tests.py": "ba39fc351c088ea8b0049d8d672ec32a8550a50ed93e4524daa1c7e1bcd887a6",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/check_aider_runtime.py": "df2688fbecb56adf1071457b9b1479c308a461e873b76a2d9aa528dabbb9d23f",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/controller.py": "6c136191b64eca3ac069c1fd147eea60e200587f8a76657cfcf2b5f4e2174b62",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/docker_target.py": "2ed262a331ad7b15b0b937e315fbc39b7c73ab6821e1e52c3d9b657cf792ae83",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/check_revision.py": "797ce437fff9e3d8cb24cffbb1ed39d4b50a2b2c5e5296bb0fd1aea2f0dd6bf7",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/confirmation_selection.py": "7f5275ab2d96118e86a7ecd315fe4e5f922dfc408010829429340e973bb8799c",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/confirmation_terminal_checks.py": "a2e1e5af7b83e581f41d751c88e14c2bc93545451c7ad82c09f6c17805f36d82",
+    "work/hy4-free-readiness-20261124/codebuddy-guard.sh": "4c218a4f159681a67003e99d2ddec6cceb80f28c66201c88e0f7ca396308c0cf",
+    "work/feal-linear-helper-20261125/frozen/tasks.json": "75ce7c6bdb65135fa2d503cb69121b6e8d9d35beffbea15007feec006300c6cd",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/confirmation_terminal_materials.py": "31fafd4aed6b5ed6b7081169e54aa76cc237cab3d59e2340143fe5a25079c8a2",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/benchmarks.py": "57d478adda9d4f1770eae34740b0a9c4c1d5c5da5b99fb541ffe859553cdb665",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/revision.py": "19836763a1ea305d9f507f5a8e668f52b482738b93965efac2f612454f808e0f",
+    "work/parallel-free-evaluation-20261124/run_fixed_free_trials.py": "00fc95a8d5a6c360f5ea2ee342d5b76d2056084ccf0699e1a794acbe8177fc2f",
+    "work/parallel-free-evaluation-20261124/prepare_final_sql75.py": "f00b711cd8800e7ddfe98e464b9bf4eb44680a61d6266bc47968e89b59397b85",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/check_boyue.py": "edbe2641e793e57ad8d1b556d90bd67aecd4f5130d5f8b8c1533213a7ddef24e",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/boyue_transport.py": "b0854599f7292c7569f78d128dc103f3076efa01b87593cec870ef4d0758dd7d",
+    "work/feal-linear-helper-20261125/delivery-qualification/result.json": "3d73fa849fb60cf3e8dc138e20fb9cfb61a343f5f12291111dd441cd0566b73e",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/confirmation_preflight.py": "553618b3b0aa555f88412a16535b55513f5dd00c7a51bee03b278ac67b6d750e",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/check_controller_history.py": "af093765b156a18339e14e9e13c20fa0cd92fa9bf5b3f092215a948482209771",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/check_repository_candidates.py": "a3da88be2126cc7eda17a5641b8722a8fd5897c7320178e1feb281354bc4183a",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/check_jsonlines.py": "af05b357a97d2435c85296076d02bf650b32a41a2f5cbff9e9978adc0871b5a1",
+    "course_eval/financial_stop.py": "27b59ada2a897cfd10c5ebbaf65aa7e4e33157310ca56d6952cf1308559d0239",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/preflight.py": "94af5813e40f782e603e0c24aa5c55c63a08ff0d6cabe2f384d713125be94e84",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/relu_recovery.py": "f3dd9a3efc6ef2bdb3a28708225162f99cd39a45323481b46023ac9d7e2cfae4",
+    "work/feal-linear-helper-20261125/linux-qualification/result.json": "f1eec3152f6894b36a7e87ee6570266eb5cfb986a9c5f7c23197c371dcfe395f",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/dsh_sandbox.py": "d12129d0c6ab1fceac465c503eff524ab26cc5123e7df49fc0d347220dae61ad",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/terminal_setup.py": "482b08db8cf2fe66ea113820084bc16a6e89e4b8d9ac96f0415768c8cb76db4b",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/check_control_contracts.py": "769846622d5dfc469ea7103e83907c3e0fd3ed86fb94547a4d11e7ef6d6c586a",
+    "work/vmshare/performance75-dsh-hy4-v10/environment-pins.json": "4cccb2ad44c00d4257ea8f9e89c2e2fcf19d21d1d1bec55a4e7661d9449c282e",
+    "work/.venv/bin/harbor": "0e7e208b89829623272a3d43eb3af64a4724dadc05eab9115298ec3dd2a167a4",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/check_boyue_agent.py": "f4dbebe1fc9800555c1fd5147f160a3f63b074e0737e850eda9b6f022e389917",
+    "work/parallel-free-evaluation-20261124/run_ready_queues.py": "18b86bfcc8b50178b77f47a0260fd5bc3d8020b96e9f5904fd3665c5da7f7c27",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/image_input.py": "c3a9184aee35b454e2ef729112769cbdf09b404ca0ff156d7d25960308e7fa54",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/harbor_agent.py": "def732e78eecbea0a5d15506a1d55c850de0359349674af9c45334152ff67393",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/replay_agent.py": "de6dfa635b02e49578d84e8a29b2449c5304a12c870f1bdd4db855b304e188c1",
+    "work/parallel-free-evaluation-20261124/final-sql75-recovered/checks.json": "8f1b3a87b197a93c3f4441095495dc3a835bb8f29712336949767a92e308dff4",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/audit_repro.py": "7f893185b3d139fd2845effbc2bccca060c8b9dc097fb2bb067fd79007d7b74f",
+    "work/parallel-free-evaluation-20261124/final-sql75-recovered/tasks.json": "756f111c06a2d757c3034dd6134abbefa454d5371e5153e6afcaabd1bd3a8be2",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/sandbox_command.py": "688a32b71ec3a0f64797654b0283e59e727675ca4f68818a3a9a9251db07f16b",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/dsh_runner.py": "633e1929c2d08f60f2bee2655598c1a42607eedf5d34cfeb3385df2834161d64",
+    "work/feal-linear-helper-20261125/generated-qualification/result.json": "0041e24195022bd65aaf3b8036bcc8c58421dea746b34297ffc43543dfc5e5c0",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/check_codebuddy_free.py": "a7e488fdbea682a22313423db7ac105ea479602c418507c2b5e1fb62c959c3eb",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/openrouter_free.py": "362ac463d6fc6abb48febb0e08eddba5e7d4a73ddaacf2b7b66dd4c03f8ce043",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/terminal-no-network.yaml": "17ceef0a82e7dfb63d9f5ce974350f392dd8a323eac174ec69d28a90c7de8388",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/confirmation_materials.py": "68786769728dd15c89a4fecef2be1d207281db106bbfafc2728c32c7f765e094",
+    "work/parallel-free-evaluation-20261124/final-launch-recovery-20261125/startup-safety-qualification-r2.json": "a9252842cb3757dc24decec452781bb4bba9facda8c0ede2fa996b7c249d9a99",
+    "work/parallel-free-evaluation-20261124/resource_warm_trial.py": "17d871ae7feb15fe2e76cdc024de3e1d5c61b39c1b071321336cdfed825d4e10",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/feal_public_check.py": "f2fa4f4296f0a78c0d9aeea0699e6170c152c912b1d4b1178a3b1d62340b8ef7",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/inventory.py": "ea116625589a128bcb21d012659e4e71629ffed5952e1c3349d3bd884509cd83",
+    "work/parallel-free-evaluation-20261124/final-sql75-recovered/main-plan.json": "90f912b7fa3653d96a47a4528409167ce60ed67eb2d3da47c636efb94665c291",
+    "work/hy4-free-readiness-20261124/request_guard.py": "af5c6d5f20afdaf36d26b61cc938d53f1e393cbc757b44d2377704ddd4e4e600",
+    "work/codebuddy/node_modules/@tencent-ai/codebuddy-code/dist/codebuddy-headless.js": "bfc167075d229f101878a378e6c5f9a8c2b64463545dd5ffb3881d6417040915",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/check_confirmation_terminal.py": "97db454abddc863c77c85c46c36b9632360ae56fed72a64c0e9a1576ec9a916f",
+    "work/feal-linear-helper-20261125/prepare_repair.py": "2da1b3a12b6fa377db44d4c15c858f099b4eae4bce7ae6d3211a5a2db1be7010",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/boyue_rpc.py": "b95f8b7a8153f7b907e6edf13186e5d48196d1595695fb4d107f7e8208ca9684",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/elf_memory_check.py": "e13f2d9ffabad9f538414e8299f5197b73e6db98ff2f4482b5e2a11f36db955e",
+    "work/feal-linear-helper-20261125/qualify_linux.py": "e45db3fd654f0f15d6ccf77e1eb23578d4330abdbc2a084547e1b1354ea0a3a6",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/feal_known_pairs.c": "4bf0542d558684fbc6c432b5774d352081ae21106e663d528800efd9b059f94d",
+    "scripts/harbor_artifact_capture.py": "9079d3fc34de13b4b760fb7647bbc7af154342c0cebf59e0e37faf36a63be60c",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/confirmation.py": "4fe07c4692e39148c8a94fefb7c8f00bca39f29a872a1cb1899d3473d72317d3",
+    "work/parallel-free-evaluation-20261124/sql-reuse-plan.json": "84940d0af03045e8160cefb5aa0b2f71c6669a3d58c9b1bcac89f437ea2d0979",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/public_semantics.py": "ae652562b602dbaf7a63c3f45a0296ed91718db693945514b276c77ad6fec02c",
+    "work/vmshare/performance-hy4-sql-layout-v18-20261125/state.json": "83d83140eaf84cb4166095eba0ce194c83aec9fc73f9e8af252b3ca622f14aa9",
+    "work/harbor-artifact-capture/hy4-v18/policy.json": "3e213ae8067b8c9ce788eaa84ddf033a0b6fe1cd7ffad78c409fdd51e49e07c8",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/agent.py": "22814d396ad3027d79ff44e916d365db014657ff644a7e8cf51db8c5f828b2c2",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/fixtures/climate_cli.py": "db460d08a30969d9e3a8511064144ac1a36c6eb8836020c2bdc73d285486a5e4",
+    "work/parallel-free-evaluation-20261124/ready_coordinator.py": "ceafe70db5b53b940116a724eac3c4748345e82429305efa407e94970dc1a331",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/terminal_runtime.py": "f89d0b8b6ce60c0642251a1a200b9f03fb8aba7d28f1fecce0d402a3a3b27c15",
+    "work/feal-linear-helper-20261125/qualify_delivery.py": "49d72f30b310a5d27183546f4def8978e17d7ac0f50349c3e783f13e8ef5a95c",
+    "work/frozen-performance-hy4-feal-linear-v19/course_eval/confirmation_repair.py": "0b5e816e499985cf4236e69be422cb18074f6e0b836b222d260cc04116d182a3",
+    "work/feal-linear-helper-20261125/frozen/plan.json": "d92831edb5dae769b9a7997262ae574313701565ba96051b64552b0dd54fc8fe",
+    "work/feal-linear-helper-20261125/prepare_readmission.py": "a40bc0c4c5276b77bde7ad73e237873510f8e8c4d923e0f87916e403d1f372db",
+    "work/feal-linear-helper-20261125/prepare_readmission_inputs.py": "1e8eff75f2a3e7f4a0bd06267b767139e6627e81556b8ee458a07d778c68cf25",
+    "work/feal-linear-helper-20261125/qualify_controller.py": "342fd9cf4e6d628d2088102823baa2f679fac92c3626e089a1694d613d86aed8",
+    "work/feal-linear-helper-20261125/controller-qualification/result.json": "fcaa8479a65876dbd2df8986b079e0829530561a7dc59e4d7d53e9151b402d0d",
+    "work/feal-linear-helper-20261125/controller.resources.json": "b6d742e499ab3797acb1f857a5dbdf58630b116335f1047b3d86e8b79a613fb5",
+    "work/vmshare/performance-feal-linear-v19-20261125/feal-linear-cryptanalysis-C0-feal-linear-main-r1/result.json": "2621b10e3a68bdb02dea683bc357f2bfb829c05d325acb997e2d69c9ae4a2a65",
+    "work/feal-linear-helper-20261125/readmission-inputs/capture-policy.json": "44f563bcb91b9cf4d7f6cf0415b8379d96c09e2d1ef1e7409d2a0a09fbf58d47",
+    "work/feal-linear-helper-20261125/readmission-inputs/preparation.json": "ad1ad45aa698af04140c884d402b0abf1d288c1d8fa0d29597e4b51f17576e78",
+    "work/feal-linear-helper-20261125/readmission-inputs/checks.json": "4c1cf7c28f26aa57e3a69b935030a3c2ba6eb0881299916ce6294649496a3372",
+    "work/feal-linear-helper-20261125/readmission-inputs/tasks.json": "75ce7c6bdb65135fa2d503cb69121b6e8d9d35beffbea15007feec006300c6cd"
+  },
+  "main_variable": "FEAL-specific generic exact linear-attack tool plus public content verification; this is a joint whole-policy revision, not an isolated controller or underlying-model benefit",
+  "unchanged_task_inputs": {
+    "model-extraction-relu-logits": {
+      "task_sha256": "6ca04dfc3452e4e7643db8196bdc9c19b3f31bf702f29d319e202abfe919dd8d",
+      "selected_checks_sha256": "94094abe080c8c3893974898f53ce33b2aed91a9ffe044cf727fd26e13955964"
+    },
+    "pydata__xarray-4687": {
+      "task_sha256": "467ef2e984141ba0fd00c50b974c72ccf14c94c566b610838029e095cbd4c728",
+      "selected_checks_sha256": "75a27560363d860e53843ea2d56df95ea7b268be935cefb49b9ee55b6c07359e"
+    },
+    "pydata__xarray-6599": {
+      "task_sha256": "8974e18bd47e208fdb7af90d19c814161ff6a3f1cb5baa9541e4ef9b558b4f7e",
+      "selected_checks_sha256": "03a00514af89c882cae2468344a9c7fcc093b930f7b5a532c5ffa9f9acee2bb8"
+    },
+    "extract-elf": {
+      "task_sha256": "e846aa684ddc5cf7ba2ff0e85ec6e5415dc569d866bb5e53c56a0b014d6e6dc4",
+      "selected_checks_sha256": "be557243708d123d6567e82b8272152577ee2eca66b62818ce1a47ff5087fce3"
+    },
+    "video-processing": {
+      "task_sha256": "7ffd8e643b27f011bcead7aa2cf9d1539e44d53f4e53b338d9d3856a5580aeaf",
+      "selected_checks_sha256": "178ad9da68e9c2606c7fd7eddea8329e80253a8f0817c0e97d1a132c7728c12b"
+    },
+    "llm-inference-batching-scheduler": {
+      "task_sha256": "00427070808b3f1650cbb173b133b4721850088c7447eb797a8f0e256a27b954",
+      "selected_checks_sha256": "ab2ded793798feff7f9cb7eef6bed7c1f9c66dca5fddc8e0360b08df90b5521b"
+    },
+    "query-optimize": {
+      "task_sha256": "910166e704783a5c3b1b448118b932cb5f1fff99444c1aa7d8bfec0e264a9988",
+      "selected_checks_sha256": "79cce60524c3127148a6110a47b5e099a17e98dcef67aa6c0f35dbef2bc9efdf"
+    },
+    "cpp/all-your-base": {
+      "task_sha256": "dcfc7d32808249878619d670bb491b26b052dc37d4a144e2392a2ae44907434c",
+      "selected_checks_sha256": "f093a319dd1b9ae07b96bb44c01fcfe7992f08ff047f19baf9985f5b9ab3d1fe"
+    },
+    "constraints-scheduling": {
+      "task_sha256": "e721e52c24e8cf18833814eb9fc93570e89611c761ec7e3d5d82cd5a40517565",
+      "selected_checks_sha256": "e0af8820498924e672f84b192d79b6666bc8e38ebf4bd23ccb689019873f0868"
+    },
+    "django__django-11999": {
+      "task_sha256": "171913fe6d8c7f672e6817fdd3beeff93c4674eff17ce9991a7d5752d891334c",
+      "selected_checks_sha256": "15f8e0c85f83ca9edb031a16c6a8fbb9765e0f0cfb776ccf01e632b2d33e9f6e"
+    },
+    "cpp/allergies": {
+      "task_sha256": "a0d042006b5ef59204487f108a14f0a0a61c764f1725ec8ee5e385f5ddb1efac",
+      "selected_checks_sha256": "abf1810e4fc3eff97cfc458556e3cb29ab9b0a5b3183e551a5301658a6db0ceb"
+    },
+    "custom-memory-heap-crash": {
+      "task_sha256": "a4705c97944f4ffb5a46e858122d287377a2f8ece7e7be8e38528da0eac4c501",
+      "selected_checks_sha256": "96d4c9e192a9180edb41e0bfec9f2a99edf3fdcfbbf9f81a707b1f8feb58b1e1"
+    },
+    "django__django-12050": {
+      "task_sha256": "cecbb2212472243efba2e63bd06e14589931cde9ea7edc46efdb355631841e49",
+      "selected_checks_sha256": "9fb027df0eadfc11026aa9aad81d23860273f3b9b34678bb8c73ec738a19cfc8"
+    },
+    "cpp/gigasecond": {
+      "task_sha256": "ce823293aa50375930f20ec8b4430703d00e3e9dec70b9e4a763945bc54bae35",
+      "selected_checks_sha256": "58c0d8540be0d960efb95faf344f6d1d14a298f0627da0321b66ed5cf3613546"
+    },
+    "db-wal-recovery": {
+      "task_sha256": "c11fbed0c5c22d4e2bfd472300c0ac2890257b01ca3a53c32e8074ec8ca90f71",
+      "selected_checks_sha256": "57a689d77af143b40fb9f50974d23f8870d478b61edc163c94e6b886fc1715aa"
+    },
+    "django__django-12193": {
+      "task_sha256": "f275e03715d1ae03d196de8f3391dc953f9720eac6ff3a3bffb71ede4bb64ea8",
+      "selected_checks_sha256": "072ff6d16045ee4434f7da961b34a796f7144be2a3750d728583757a0ea8efc7"
+    },
+    "cpp/linked-list": {
+      "task_sha256": "3c290049690b7122b56b401fe4c5fa2e1eae37bae5ceaf6f96d66d981766849c",
+      "selected_checks_sha256": "deb9c596bbd81ab17b56fe1d84141f7d2eb220523d67ead312f75ebcebe6f729"
+    },
+    "distribution-search": {
+      "task_sha256": "3d604b24a9fdea621ff86961fefb17095b1cf14c114884097cf580ab52954b6b",
+      "selected_checks_sha256": "05e3681a70acca97a01ad65ccacbf1da93680e201b1c39779019cd561add1455"
+    },
+    "django__django-13346": {
+      "task_sha256": "af91f6e370e6849a3c84e5b06a95ca0b0365c3d5d8c3fcaeb08c4ae56748fe1e",
+      "selected_checks_sha256": "7c709e01040a4e74af560cf9501f1f5cecf26e58f2617376dae7ed30be06e690"
+    },
+    "cpp/parallel-letter-frequency": {
+      "task_sha256": "2591a61d4e7445ac918352e303fc030526b47727532a9229dd2d6220042ff3fa",
+      "selected_checks_sha256": "2990381693aa1f553129dd3c455d69f2d1130686994ca967a07d58a4518bf748"
+    },
+    "django__django-14855": {
+      "task_sha256": "bc17225322be0c4efc838d7acbef563071b76b32d586821e2c472cba461a3e6e",
+      "selected_checks_sha256": "0081930af808f43d2c2b9fb32cfaf70e2c440b9471488e776bf45ad132fd2b1d"
+    },
+    "go/alphametics": {
+      "task_sha256": "fd3b6a4249dd75aaa91999379a774a600fd71a66a28bbfcc0235756b7cd4fda5",
+      "selected_checks_sha256": "07a6f7843bba5234f604330e3d48468e6a0fcd2728849cdba194d36f9a54ef5f"
+    },
+    "fix-code-vulnerability": {
+      "task_sha256": "c0781b56c2245356968171dc0a3ebc93c3d43e326a11f798c0914f6601a354ec",
+      "selected_checks_sha256": "33ef20f9864d4136363135b629f848c24b44dac67b7826e3314ff8f3f86543db"
+    },
+    "django__django-15554": {
+      "task_sha256": "65f2325c107519246a773d1c4e6501bd7b13f4b07592302882554f48f6e1454b",
+      "selected_checks_sha256": "53ab3efaacdfdcb5a5545f3c03f781afad46d7dda52378efbd4ec7b5abbb752e"
+    },
+    "go/beer-song": {
+      "task_sha256": "8264738686c88932e9e59b76f18c5089605c5331792fc3a1586dc346aa23ee22",
+      "selected_checks_sha256": "a364319b84a2563a5d8d86c0cba6e655c02fb0c84ca16c5a92cc9450802fae2d"
+    },
+    "fix-git": {
+      "task_sha256": "7f8d2f62f3bdd3468c00ec2fecb4ee1df117c82ed1dd6cf5cbb67a961cbc7023",
+      "selected_checks_sha256": "0e700c8ba5af20c1d7d4032bd17192606bc39a03faa19f0a8e7d1f8bb00814fc"
+    },
+    "django__django-15987": {
+      "task_sha256": "12e87752dc8f722efbef3535e3c209ff03c33fd0fd3a5aa34ea88554ccf8d35f",
+      "selected_checks_sha256": "eb3a4e825b16ebf6f813237bf627be5e8ef65b3b01dbd7b79fa902af21e1d7f6"
+    },
+    "go/connect": {
+      "task_sha256": "9b077049f928576cb9b96274cb2ce50e0c0b10fdb9fdb9ded042dd3e342c657f",
+      "selected_checks_sha256": "45b4742a582c8da65caa34b5691ef8924644ee7b4ea6e577bf7315774966d845"
+    },
+    "log-summary-date-ranges": {
+      "task_sha256": "1ec5e0f333d12923cfa72851098266d48e36fb01b345d1695842ea5928ab86f1",
+      "selected_checks_sha256": "57a8051a2637300a830d1468eb7efe7548bda26ab58f246f30d47858ab12bc7e"
+    },
+    "django__django-16082": {
+      "task_sha256": "cc9d2413ef89ca35debcae225603574bfd80d4c2ca66759389338f813ffe3f63",
+      "selected_checks_sha256": "11378666295b3005a4b9f0adb1c28272bdb2c644c61c4f76e2060391eb35a289"
+    },
+    "go/trinary": {
+      "task_sha256": "b25acc925df610eae5f5eda11a7595943bc31892b962bb30c86252ed21007b94",
+      "selected_checks_sha256": "d70ee1fbf1425ad8ed4cbd528385bf212be70815784fd1b17871d6ede0807cb1"
+    },
+    "mailman": {
+      "task_sha256": "8060e76eb0b6a452230aa38dc350758b381eec5f5c2b37c4927084516b03b4fa",
+      "selected_checks_sha256": "a5c19a0559616479bb6152e4d448dd739fa29a6cdccfac4d570d3551a180c94c"
+    },
+    "pydata__xarray-2905": {
+      "task_sha256": "bae2f13cdd6bcd6cbcfaccf9abea7a80231f28f803c562dfcf645bd2f81dacf1",
+      "selected_checks_sha256": "ebbd9fab042955e58868d1b8728932dd079b286c8f2f6d2bc10e728f9a361c70"
+    },
+    "go/variable-length-quantity": {
+      "task_sha256": "c0b3ad709ae57f59c4f1e64629c7467d356f2f9dec25278acbe0ace50ab94ecb",
+      "selected_checks_sha256": "077253522570595b6eb9e69b603c578a980da934452bd2c5c1ce30cdf5b21cf2"
+    },
+    "pydata__xarray-3305": {
+      "task_sha256": "4a28a48096a922bfc6bb07e46355aaf1ca311003bceb4c47a203ac4448e7370d",
+      "selected_checks_sha256": "943e2ddea1e4ca5d133a4517dd845cf1bfa13cf06777246488d2afa82d34292c"
+    },
+    "java/change": {
+      "task_sha256": "864ee1f1c66fcff575e50d16cb8bb1956e053e2b73039d309106d2ae949c251f",
+      "selected_checks_sha256": "cc176ac64ef81c820363327d1618d3ea809e3c0af6f00067af8998cd8862fcdb"
+    },
+    "modernize-scientific-stack": {
+      "task_sha256": "14213c4d2d4904fa956b88fd160b053cc8d73422a1048f743d64a2b7b1892110",
+      "selected_checks_sha256": "b7c01d2b4f5852f769cd4b95150db4a27d6dd249aef60e24b48b2de359be240f"
+    },
+    "java/phone-number": {
+      "task_sha256": "610fdb2eebcfed1ca71c6067929ec92ced7cfcf0bd2f917a0c2e5a2bd50005ae",
+      "selected_checks_sha256": "5b02913d20d0128d7db7415bd20a6ed272040a145cc6dae83e48fa2dea01c608"
+    },
+    "multi-source-data-merger": {
+      "task_sha256": "5bb8dd4a9d14e251553987a5b044cdc3e2fbe0e96636f1aab98e9b931c4a3b1b",
+      "selected_checks_sha256": "bb6d57ea51e004d502498e054df9f351073aa53ee74f71f7bcc58bb5b3aca644"
+    },
+    "pydata__xarray-4695": {
+      "task_sha256": "171b2dcd5b0cf370083538f07b38f5b95e09ad1ef9475d3e30a90ec0d76357ac",
+      "selected_checks_sha256": "7e186b08708d14009e682a2c11ef2c8c82238c430e927181b324b5910ee2b822"
+    },
+    "java/pig-latin": {
+      "task_sha256": "a561bfbec9c4ad370d84213efa70450df47f0925ae16b8fedc61d30563748af0",
+      "selected_checks_sha256": "0d67c501b7684acabde5836bcb624f5a9f447b7cda4821b26bb2c4bf0ba5b093"
+    },
+    "openssl-selfsigned-cert": {
+      "task_sha256": "ed11cd9c60c1340e7139ae20e984a49ec948464b664e0deeec304cf82f0ce3ce",
+      "selected_checks_sha256": "0a578ad122271ecc163edf79498d0b1fd7b8b95491ca743a1ae4262806f2c4dc"
+    },
+    "javascript/book-store": {
+      "task_sha256": "ad9554472d5a972eab937dae3839341daf8d426ae2e29ed8f41dd885bd255caf",
+      "selected_checks_sha256": "fd64eb68f28b00c3da8f1453ba0ada8bb6d533cc3a85457be80a0fae0d7fd724"
+    },
+    "password-recovery": {
+      "task_sha256": "fba5c7d283c21bdb2919035c754602b23c7dfd15e34952210ac6c7f591bd5aec",
+      "selected_checks_sha256": "e1f29805b446b1734e3ee86913d4139ab4c935f47367543be9ccdd85d42013a1"
+    },
+    "pydata__xarray-7393": {
+      "task_sha256": "5af3f3cb56f4a94f3c67292730ed6798d2a65efab5b8ae4242f4d906c473637b",
+      "selected_checks_sha256": "17218b8bd32919636bb4a02fcddb5918f89904b142c6dc8288a07886212be960"
+    },
+    "javascript/food-chain": {
+      "task_sha256": "4f6e7a3830ad94a73de2d2cf876b4c1b3e7fe960a5927bc25133d0a7f8de3a96",
+      "selected_checks_sha256": "09d4342a205b4b8b8bbc3655d5a3e7bc125dc37548c322e9a7441d6e8ad247ce"
+    },
+    "polyglot-rust-c": {
+      "task_sha256": "a80ec8ea9205abecff37e72514f6b4f4a466fc9999bb78d38f323774d3f91eb5",
+      "selected_checks_sha256": "1228fbd2aac071c938347fd6e5bb350e3f4dec1631d37de0b12a910ae7dbdf3a"
+    },
+    "pytest-dev__pytest-5631": {
+      "task_sha256": "475cb549396b31645cc3e69380d315442de6671b35d3169847bae3ed6cd683e9",
+      "selected_checks_sha256": "1cbe6458c24c1dd61a5bcd12a3e6bad73ce2d3b2715637ea5ea56dfe58973223"
+    },
+    "javascript/house": {
+      "task_sha256": "a37757ee6fdffee89ad2f97d11332879a27103d435db3778b315994442e07dff",
+      "selected_checks_sha256": "152f25ea8ebfa23b6d14111bee6b46488bd52ea70e87c1c5be1976ce9e3924ee"
+    },
+    "prove-plus-comm": {
+      "task_sha256": "6c2f0ca8888f1a1b4c81a5838a1ab50ae9e0e976a02714c37bf67b090c0a40a8",
+      "selected_checks_sha256": "46477918cdaf53df61aa52e6cdf5fa87b7694e4496527e0491b33abd3827d775"
+    },
+    "pytest-dev__pytest-7205": {
+      "task_sha256": "7ac4bc579ef0a56c634d6c9cadcf88f65020db9f860db06e1ce60ea78ba488c8",
+      "selected_checks_sha256": "b53ecdb380effc2d58cd548c26ed20f7dd3b9f10fbc6d03b710187b98d445f8c"
+    },
+    "javascript/sum-of-multiples": {
+      "task_sha256": "40e6207197c7b1e1579dda5decfe96259e9456e6e18ac0be9911a0c776ecc446",
+      "selected_checks_sha256": "8c76f637f3e4d3076af40aa86811c0ae57ed7d31258e6f512a8703380166c8ef"
+    },
+    "regex-log": {
+      "task_sha256": "4224da16df7513e8a8ef9666bee19559f6968bdddd1c8cd08f1e864c13d11577",
+      "selected_checks_sha256": "bf8abf7dd6377f8993101af4e0eade099eb31cd04ec4c9a1d30feeca42646502"
+    },
+    "pytest-dev__pytest-7490": {
+      "task_sha256": "f26a5d4b8833e50ea5f5b88dfa67b6a52eb4055d8003b076f79970bd2afe4d32",
+      "selected_checks_sha256": "9ce6f0e88968fb466ab39c0c98913df4f1f22f68bf8911b71fa8a83c22899677"
+    },
+    "javascript/triangle": {
+      "task_sha256": "520ae331a5926213ef826a07a26f8073a9708da893d2e02b388fcbff7f3af417",
+      "selected_checks_sha256": "22016ad2edb281a9c23f379fc967f2c3dc84a67f948fafc3ba829f1c94bad07f"
+    },
+    "sparql-university": {
+      "task_sha256": "73a7383ddafeb0b3217099add77754856d821b42220e1ea40884eca01143a644",
+      "selected_checks_sha256": "446e7c472651d7f78d71df829a524f9803222f0e5cbb774e136ebb36fee80983"
+    },
+    "pytest-dev__pytest-7571": {
+      "task_sha256": "a5eb5648d90bf1cd0e1185a1446135d20ee43bc91dcfda8f2d4f46f806c5fdee",
+      "selected_checks_sha256": "337ba83c77d5c19e769753cc9db1498ea92b3895d176d3b45a4bd7abcc50cebc"
+    },
+    "python/grep": {
+      "task_sha256": "eda7add1b002504a112310c4042e1e7d8fce9c04611659c113d128391ff83592",
+      "selected_checks_sha256": "74b423958ab1af50009385250be88ec6808a9b59e9f224228d67d5821606388e"
+    },
+    "sqlite-db-truncate": {
+      "task_sha256": "5daad26e75a5c854305cc860e49c5bd1c6787af9cbc3f1860d48a5a834d57a6b",
+      "selected_checks_sha256": "520e65ad584c8c7cf8f9737cc07762e3d0e36e168a79468ea71e3ab11560a14f"
+    },
+    "pytest-dev__pytest-8399": {
+      "task_sha256": "d7c822f7c4f97182344d69a31af332ee769c9c7419b922168b30bafac1bdb3f6",
+      "selected_checks_sha256": "6bc104a0c25eeb0b70f8cd1ff823ded7420bfd25785984ba49c8d9e13bf7628c"
+    },
+    "python/list-ops": {
+      "task_sha256": "1878dfd371bc6aeac54df56fb74b0824692ceb8006e51ae1d03e4d5d3e462b37",
+      "selected_checks_sha256": "673361c52607876c6df1e049c918c3ec7598bcd8a4760550002424fd3b780367"
+    },
+    "tune-mjcf": {
+      "task_sha256": "4ee402ce3caec488564626b2de886a47aaeb3371907bfac95e605f3f7c8ade93",
+      "selected_checks_sha256": "dffb26ae3f10fbb2b878cb1ced9e14f56a9111c4cdff96659c39c37fe9e38410"
+    },
+    "scikit-learn__scikit-learn-10908": {
+      "task_sha256": "07d265b302f91c6fcd4e8cdf1187c1a34f3166988690c0ed55a6437b9ba90d4b",
+      "selected_checks_sha256": "7c028e4218bba4515f28031e72e41c5935cb0df35908928ffeea5be9ae26d3c7"
+    },
+    "python/proverb": {
+      "task_sha256": "f255454dcc1e856a51068c2f11223478b54cbff261d318623cab927fd07933c6",
+      "selected_checks_sha256": "102b390993e06947bec86d6335d80568c61e5a09680b89f8c85eccb57ec2c3c7"
+    },
+    "vulnerable-secret": {
+      "task_sha256": "d1ad48aaa5add45c9a96c258d248676f3382dac97e1865b20c2e479380e76639",
+      "selected_checks_sha256": "8f60c0479a6db03a5a33fa1f7311feb1a3469b8896a153153b9e6b83d9684347"
+    },
+    "scikit-learn__scikit-learn-11310": {
+      "task_sha256": "f8b762849494870fb9da7e9bd22ffb239221e0b52daf6825510f84c66910be83",
+      "selected_checks_sha256": "b8af1bc2638d74324840ea488103156d4a5654865249b4d059e065f8162f51b0"
+    },
+    "python/rest-api": {
+      "task_sha256": "b8a99b67d7edb7bbec8c56c552af5a6010c23f385ea6aee106cc3554dd2a2a95",
+      "selected_checks_sha256": "9988eba3299dcb6a80e89f2701cfa2ed84593206e2d85aa79d4253bede6017a3"
+    },
+    "scikit-learn__scikit-learn-13124": {
+      "task_sha256": "3cef2c4d846626e069c5b186201fb585a7368addc08362ae101e44e8e42e6fb0",
+      "selected_checks_sha256": "8777d97133f304f6027d8911a6811578204145a9075aacbcf924dd307395d38c"
+    },
+    "python/tree-building": {
+      "task_sha256": "7e1bf3117cc9f30a7e2a41f0545c05ca1a49c84501bc45223da2a43ac87c493e",
+      "selected_checks_sha256": "9fc94480d2cc03d0320eff9c4b0ca4442661e144a8922a61d67251e46b7e2a0b"
+    },
+    "scikit-learn__scikit-learn-13496": {
+      "task_sha256": "4e7bf7602f06275743808830cc23c746014b1839cffa34ccf9c183c921332393",
+      "selected_checks_sha256": "8234cba76738245abae82fc5452225e3780d3b8681eb7cdc8f8939ddbbd41d77"
+    },
+    "rust/accumulate": {
+      "task_sha256": "b0e3f4693cea47921f3b09c8c39045158cb133524e962ef3fd1dd90b32558c81",
+      "selected_checks_sha256": "23ebeca5c1ad707aa2cf4e3e7f07ffb8dbc11b944302bb5595a162a8fbe09097"
+    },
+    "scikit-learn__scikit-learn-14496": {
+      "task_sha256": "6a84303aa84c3a0deb71d5746a023fe03d868dae9f6c9bef926eb424d0c36bef",
+      "selected_checks_sha256": "6f5daeafca6aba41650a71d84d159a77c9ee08e83e8390ccd9c2e5b14a3bae20"
+    },
+    "rust/doubly-linked-list": {
+      "task_sha256": "f71c37d54519bed8136b794411e43680b0cff1ad3b51c77c040173a896fbfd16",
+      "selected_checks_sha256": "663fe05aa4704727fffc8e0bd42b3d4c3333361dcbf5e181fc44af662de90499"
+    },
+    "scikit-learn__scikit-learn-25232": {
+      "task_sha256": "ae7afb112811efde3806872d562831ea11408947a7bc3450b63f44681977675b",
+      "selected_checks_sha256": "a6860e926a8e7b90847192d0cb8be3526f152b7ab5c7208001d277d42d6098d8"
+    }
+  },
+  "other74_helper_instructions_identical": true,
+  "removing_feal_branches_restores_parent_ast": true,
+  "original_failed_score": "work/vmshare/performance75-hy4-sql-layout-v18-main-20261125/feal-linear-cryptanalysis-C0-r1/result.json",
+  "original_failed_score_sha256": "529734497083979666f2233400bb4534c2f3d13ff2904ac366050494a91055e3",
+  "capture_qualification": "Reuse unchanged qualified collector/launcher and identical artifact scope; only queue admission list changes. Actual trial argv and native final bytes remain auditable.",
+  "success": "Both prescribed fresh sessions pass actual original grading, final public/protected validation and every own zero-credit receipt",
+  "failure": "Keep every valid result, stop on incomplete original grading or unknown/nonzero fee; never resample a valid low score",
+  "reporting": "Preserve complete original225 plus all costs. Joint JSON+FEAL acceptance can inherit only unchanged73x2 sessions after completion and source revalidation, plus4 new fixed sessions. Never call this a newly rerun150 or official leaderboard performance.",
+  "new_model_calls_during_preparation": 0,
+  "source_stopped_plan": "work/feal-linear-helper-20261125/frozen/plan.json",
+  "source_unscored_zero_model_attempt": "work/vmshare/performance-feal-linear-v19-20261125/feal-linear-cryptanalysis-C0-feal-linear-main-r1",
+  "readmission_qualification": "work/feal-linear-helper-20261125/controller-qualification/result.json",
+  "readmission_change": "Remove the two helper paths from public check dependency metadata; both remain in CandidateStore protected scope. The original path validator is unchanged."
+}
