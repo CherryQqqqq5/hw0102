@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "status": "APPROVE_WITH_STATED_LIMITS",
+  "blocking_findings_remaining": 0,
+  "blocking_findings": [],
+  "reviewed_at_utc": "2026-11-26 05:06:15 UTC",
+  "scope": "教师3.4/4.3评分覆盖、现行两PDF、30条附件和仓库复算入口的有界独立复核；不重审225条原轨迹，不承诺教师分数。",
+  "conclusion": "当前3页作业一、4页作业二及附件覆盖教师明确要求，未发现阻止交付的缺项，无须为补足现有评分项新增模型实验。",
+  "pdfs": [
+    {
+      "path": "outputs/231880296_邱昱宁_作业一.pdf",
+      "sha256": "e0d06df2e14742ef9f6119a8fb4e733fa77be2173fd179ec42d3610b61235759",
+      "bytes": 234710,
+      "pages": 3,
+      "characters_nonempty": 2694,
+      "fontnames": [
+        "AAAAAA+STHeitiSC-Light-1",
+        "AAAAAA+STHeitiSC-Medium-1",
+        "AAAAAB+STHeitiSC-Light-1"
+      ],
+      "out_of_page_characters": 0,
+      "pdf_text_matches_QA": true,
+      "repository_link_only": [
+        "https://github.com/CherryQqqqq5/hw0102"
+      ],
+      "text_sha256": "fd87f81bbd8354bbb46a21c6191ac3039155429e381ddeda8f22f3164f795a51",
+      "visual_pages_checked": 3
+    },
+    {
+      "path": "outputs/231880296_邱昱宁_作业二.pdf",
+      "sha256": "8386376d3f4b73a6c1d660f5fdf59f6003c92e0a296297a914074c7021168c9a",
+      "bytes": 288855,
+      "pages": 4,
+      "characters_nonempty": 4107,
+      "fontnames": [
+        "AAAAAA+STHeitiSC-Light-1",
+        "AAAAAA+STHeitiSC-Medium-1",
+        "AAAAAB+STHeitiSC-Light-1",
+        "AAAAAC+STHeitiSC-Light-1"
+      ],
+      "out_of_page_characters": 0,
+      "pdf_text_matches_QA": true,
+      "repository_link_only": [
+        "https://github.com/CherryQqqqq5/hw0102"
+      ],
+      "text_sha256": "5a6550d289490e90a26e80c589e954471271efd165a2e96f2bcc827a8b6a2843",
+      "visual_pages_checked": 4
+    }
+  ],
+  "actual_checks": {
+    "full_pdf_text_and_7_page_images_read": true,
+    "ordered_sections": "目的→原理方法→环境设置→步骤→结果→讨论→结论；一级二级标题清楚",
+    "body_table_font_and_bold": "全部非空字为STHeitiSC，Light正文与Medium标题/强调均存在，逐页无可见重叠截断，页界越界字符0",
+    "presentation": "作业二无逐题附录；两PDF无参考整段和独立复现段，各仅保留一行代码仓库。详细来源和记录位于仓库附件，符合用户最新要求。",
+    "assignment1_rubric": "25分评测与记录、15分轨迹、30分错误分析、20分机制策略、10分验证均有具体材料；报告三类机制、四个真实失败案例，附件完整题面/预期/实际/评分可追溯。",
+    "assignment2_rubric": "15分动机承接作业一；25分实质改造列五动作/持续会话/依赖检查；25分公平对照含成本及独立重复；20分分析含查询/ELF/FEAL/NaN四例和真实指导消融；15分代码配置记录及局限有仓库入口。",
+    "records": {
+      "tasks": 30,
+      "passed": 26,
+      "failed": 4,
+      "JSON_CSV_formal_original_result_consistent": true,
+      "task_input_matches_original": true,
+      "observation_source_hashes_verified": 110,
+      "observation_inventory_sha256": "7cfe2c8dfe83538a435aeba053a485590a5deec753c95f7d98a1ceaaa2513984",
+      "inventory_encoding": "SHA256(UTF8 sorted JSON path-to-SHA mapping, comma/colon separators)",
+      "record_referenced_paths_existing": 220,
+      "expected_actual": "已逐题核题面、原评分摘要/断言及最终精简说明；不凭passed补造任意算法正确性或测试数量。"
+    },
+    "reproduction": {
+      "local_readme_links_existing": 40,
+      "builder_copies_byte_identical": true,
+      "builder_latest_actual_help": "仓库根python3 -B shared/scripts/build_course_task_records.py --help，exit0",
+      "other_actual_helps": "已从发布快照cwd实际加载prepare_report_data、Harbor launcher及后续export_joined_evidence的--help，均exit0；不是重新运行完整报告或全部归档。"
+    }
+  },
+  "independently_recomputed_values": {
+    "final_passed": {
+      "main": 75,
+      "dsh": 69,
+      "repeat": 75
+    },
+    "fixed_tasks_each": 75,
+    "composition": {
+      "inherited": 134,
+      "new_fixed_revision": 16,
+      "scored_physical_attempts": 246,
+      "own_zero_generations": 4348
+    },
+    "relative_pass_rate_increase_percent": 8.695652173913038,
+    "summed_wall_reduction_percent": 11.883358595146031,
+    "calls": {
+      "main": 1270,
+      "dsh": 1200,
+      "repeat": 1209
+    },
+    "summed_wall_seconds": {
+      "main": 18267.68379887531,
+      "dsh": 20731.2529252494,
+      "repeat": 18699.98927571217
+    },
+    "median_wall_seconds": {
+      "main": 148.52150649996474,
+      "dsh": 133.91654058301356,
+      "repeat": 147.1590207500849
+    },
+    "historical23": {
+      "passed": {
+        "B0": 18,
+        "C0": 19,
+        "C1": 17
+      },
+      "calls": {
+        "B0": 193,
+        "C0": 226,
+        "C1": 219
+      },
+      "median_seconds": {
+        "B0": 106.99096825002925,
+        "C0": 126.96162529097637,
+        "C1": 144.66344979201676
+      }
+    },
+    "guidance_ablation": "原v18有指导3/3与无指导3/3；ReLU参考rawtrue/qualifiedfalse保留，不换v20。",
+    "FEAL": "该任务旧两次1/2、99调用、3763.0秒；新两次2/2、15调用、182.1秒；只支持任务局部组合修订。",
+    "NaN": "旧原分已true，公开8/12及9/12；新两份均12/12，repeat反馈24→28→33，与实际review一致。",
+    "unscored_mechanical_attempts": {
+      "attempts": 5,
+      "requests": 14,
+      "own_receipts": 11,
+      "unknown_requests": 3,
+      "known_wall_seconds": 206.2355789160356,
+      "missing_wall_count": 2
+    },
+    "historical_unknown_preserved": 35
+  },
+  "documentary_repairs_verified": [
+    "30条expected/actual已补具体题意、真实计数与断言，原26/4和正式原件保持。",
+    "机制因果链、相对8.7%、累计时间11.9%及旧23题调用/时间已补齐并核数值。",
+    "旧README第8页/21页说明已移除，当前评分映射对应3/4页；方法来源留仓库。"
+  ],
+  "limits": [
+    "75题全属开发题集；134继承+16新不是最后冻结后完整重跑150次，也不是公开整榜或未知题结论。",
+    "方法为控制接口、公开检查和算法支持组合，不能分离纯框架因果；指导消融3/3对3/3未观察成功率增益；实际restore为0。",
+    "原分、公开检查和保护分开；旧ReLUv18不合格不升级为v20；FEAL与NaN分析均保留局部范围。",
+    "计分耗时不等于并行历时，单attempt预算不等于逻辑题累计恢复成本；35未知不填0。",
+    "旧225/修订/消融轨迹及4191 ZIP成员验证复用原科学review和打包附录，本轮不重新执行。",
+    "私有仓库的教师权限或完整ZIP交付由父线程处理，本轮未验证远端ACL/推送/提交上传。"
+  ],
+  "new_experiments_required_for_current_rubric": [],
+  "no_model_VM_grader_network_or_Git_operations": true,
+  "source_sha256": {
+    "work/render_hy4_final_reports.py": "3cd85c4c9ac1a334eae8f81301b325add5f927328f81b09fed8b636c23a66ff6",
+    "work/render_course_phase_reports.py": "120787f978cdbb3ff07b8855915fbc7ef0079351437509faed3fd8b138516b1e",
+    "work/hw0102-publish/shared/scripts/render_hw0102_final.py": "b8f729237797cd477f8b010754d083450e699c93c7562418f5c29c3c60d46b80",
+    "work/build_course_task_records.py": "2ea62ecb3b7eae2d1b88b3e17dabe27c86f7542b8e26319abde8f5788003e40a",
+    "work/hw0102-publish/shared/scripts/build_course_task_records.py": "2ea62ecb3b7eae2d1b88b3e17dabe27c86f7542b8e26319abde8f5788003e40a",
+    "work/hw0102-publish/作业一/evidence/task-records.json": "241416e1f4d9b656cbaad061fe28aa6cf3c2325eafdc2f4dbb8240501f1ff899",
+    "work/hw0102-publish/作业一/evidence/task-records.csv": "d66befcd9d1f27a9c639f45f050c6698d6e699a495f3fd176304216eeb09d51d",
+    "work/hw0102-publish/作业一/evidence/task-observations.json": "a6cc476adfa04c48e8d8d5494d7896572f98f00653dcef380f6818f7d23ad55c",
+    "work/hw0102-publish/作业一/evidence/formal-trials.csv": "8408bc90baae7a44443f76d279f41ed7352b7fd73c94f81fe3ab288940548c36",
+    "work/hw0102-publish/作业一/evidence/formal-coverage.json": "d28e22d173a615f3ea646551c2b612013acf3dc4fa2915cdc3998cf620eb98a0",
+    "work/hw0102-publish/作业一/evidence/diagnosis-notes.md": "526be9592703ff53c3d30659bf8ea4b8de722e107fafb1a25fe58ed8d91f2bd0",
+    "work/hw0102-publish/作业一/README.md": "404f664de72c48febd2832664b1f198d59d3d617ce4267b5c3fdb32244b47f2b",
+    "work/hw0102-publish/作业二/README.md": "86f0c07b29a4bf8889d7db7eb33499c80e93438ee2e68a92b5c20366ca4b282f",
+    "work/hw0102-publish/shared/README.md": "ccb680a12d1d2166b83e7a594410ccf69c7518edd00cf1aa0bfa0bfc1413ebb4",
+    "work/hw0102-publish/shared/REFERENCES.md": "0a47c824d8c292201244e25dbc3e45c27df107958b887ff76e4ed26b6415c988",
+    "work/hw0102-publish/shared/reproduction-20261126/README.md": "5ccee4d1f274e50622884d3efd852b9954b1382b768729cb934217a9c2d2690e",
+    "work/hw0102-publish/shared/reproduction-report-tools-20261126/README.md": "253e5085ab7d3df3f6f120be045153c4731c012c2ccdf4e62a0001237467deac",
+    "work/hw0102-publish/shared/reproduction-final-report-20261126/README.md": "64d938f2456396a37c49957fface48317cf0345c1b9d1cabd0eb2228bddb5111",
+    "work/hw0102-publish/作业二/evidence/course-grading-tables-20261118.md": "6e9b463dc63c96686f2c49710cc5af7a56903733dfdc2b349a99a84c00d52996",
+    "work/hw0102-publish/作业二/evidence/performance75-final-20261126/README.md": "4c414191f43b4fd08c32f956782528e41cb09c9ac15131bd914749923c48c48e",
+    "work/hw0102-publish/作业二/evidence/performance75-final-20261126/rubric-coverage-20261126.md": "2abe16300e9638d30d86cee854ffdecdb444c4db50849fe3919ab5072811d0ea",
+    "work/report-rubric-review-20261126/pdf-qa/structural-and-values-check.json": "8f71068ed95ea337ab96e9248dc4d9ea2b0a47cee3860587fae68726a2cdd073",
+    "work/report-rubric-review-20261126/task-records-proposed.json": "05a4428dcee76d970fa7d48c5cc04e09a5c929656560a60b428b95cb31fbbff3",
+    "work/parallel-free-evaluation-20261124/report-data-final75-20261126.json": "62c90ea21e23dc818ff23bad7641029d8ac17ab98c8d0bfff8953131f705fca4",
+    "work/parallel-free-evaluation-20261124/joint-final75-20261126/summary.json": "adff31af130194be2c54f8f1006e0c702451e4f5828edbdeb62d610da57a2057",
+    "work/parallel-free-evaluation-20261124/final-source-and-trace-review-20261126.json": "5d49487ebd98cb8f6b536aab40b1be6eeb90fdc149ee7d001178728975f551f2",
+    "work/parallel-free-evaluation-20261124/final-report-generation-addendum-20261126.json": "81a6a7ab0fec465067bde955da2b0f7ec15f13b01b404da1bddb98254a12506b"
+  }
+}

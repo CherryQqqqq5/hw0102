@@ -22,5 +22,8 @@
 - [原正式运行轨迹](evidence/formal/) · [原评分预检](evidence/preflights/)
 - [完整75题结果与独立重复](../作业二/evidence/performance75-final-20261126/)：D30、C30、H15的来源和逐题成绩分别列明
 - [源码快照](../shared/reproduction-20261126/) · [最终报告程序](../shared/reproduction-final-report-20261126/)
+- [方法与数据来源](../shared/REFERENCES.md)
 
 附件保留完整逐题输入、工具轨迹和原题评分。历史免费模型的[270条对照记录](../作业二/evidence/confirmation-hy4flash-free-v16-summary/)单独统计，源码与导出记录各有对应摘要。
+
+逐题表将题面要求与实际验收分开记录，包含测试数量、具体失败断言和原评分；`task-observations.json`登记这些摘要的来源。需要重建表格时，从仓库根目录运行 `python3 shared/scripts/build_course_task_records.py`，只读取保存的原件，不调用模型或原评分器。

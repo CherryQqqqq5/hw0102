@@ -84,9 +84,12 @@ def baseline_report(confirmation_batch: str | None = None, *, validation_items: 
                   "自查沿用实现中的固定0x400000基址与相同映射，未独立验证地址含义。"
                   "该例暴露了检查与实现共享关键假设的风险，改进应依据二进制实际装载段独立核对。"),
         subheading("6.2 错误机制与对应策略"),
-        paragraph("四题可归纳为三类直接问题：查询与调度的指定产物未交付，视频的定位精度不足，以及二进制提取的自查范围不足。"
-                  "对应策略是尽早保存产物、检验任务的功能与精度要求、为关键结果引入独立检查依据。"
-                  "调度性能超限和ELF错误自查均在终止前出现，延长时间本身不足以解决这些问题。")]
+        paragraph("交付没有落实到文件：查询已有临时结果，调度也执行过脚本，但这些局部进展没有形成评分器要求的产物。"
+                  "发生中断时，评分器只能读取已保存的文件。策略是先在指定路径交付可运行草稿，再逐步优化，并在结束前核对路径与内容。"),
+        paragraph("检查没有覆盖任务要求：视频的导入检查只能证明脚本可加载，无法检验起跳帧的定位精度；调度脚本正常退出也不代表性能达标。"
+                  "策略是从题面拆出功能、精度和性能条件，分别检查，防止用命令成功替代任务验收。"),
+        paragraph("实现与自查共享错误假设：二进制提取的实现和检查都使用固定基址，698次一致只证明两者相同。"
+                  "策略是改用实际装载段建立独立检查依据。调度性能不足和错误自查均在终止前出现，单纯延长时间无法补足这些检查缺口。")]
     if validation_items:
         items.extend(validation_items)
     items += [
@@ -95,12 +98,7 @@ def baseline_report(confirmation_batch: str | None = None, *, validation_items: 
                   "单纯可运行或自查通过不足以保证原题验收。对应改进在原诊断集首轮和独立重复均为30/30，四道原失败题两轮均通过4/4。"),
         paragraph("本实验样本偏向资源受限、可离线评分的任务，结论适用于该抽样与执行条件。"
                   "后续验证更换了模型和预算，其结果与原诊断分列；同模型方法效果由后续DSH对照判断。"),
-        heading("参考文献"),
-        link("[1] mini-SWE-agent作者代码", "https://github.com/SWE-agent/mini-swe-agent"),
-        link("[2] SWE-bench Verified数据与官方评分器", "https://www.swebench.com/SWE-bench/reference/harness/"),
-        link("[3] Terminal-Bench 2.1原始任务", "https://github.com/harbor-framework/terminal-bench-2-1/tree/7131e4375048a0e408a8fb404b5f499d726b695b"),
-        link("[4] Aider Polyglot原始任务", "https://github.com/Aider-AI/polyglot-benchmark/tree/7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"),
-        link("代码、逐题评分与完整运行记录（随提交包提供）", "https://github.com/CherryQqqqq5/hw0102/tree/main/%E4%BD%9C%E4%B8%9A%E4%B8%80")]
+        link("代码仓库：github.com/CherryQqqqq5/hw0102", "https://github.com/CherryQqqqq5/hw0102")]
     build(output_filename or f"{identifier}_作业一.pdf", "作业一：编程智能体评测实验报告", items,
           subtitle=report_subtitle or author, footer=report_footer or footer)
 

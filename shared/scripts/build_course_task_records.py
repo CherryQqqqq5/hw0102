@@ -1,10 +1,14 @@
+import argparse
 import csv
+import hashlib
 import json
 from collections import Counter
 from pathlib import Path
 
 
-ROOT = Path("work/hw0102-publish")
+parser = argparse.ArgumentParser()
+parser.add_argument("--repository", type=Path, default=Path.cwd())
+ROOT = parser.parse_args().repository
 EVIDENCE = ROOT / "作业一/evidence"
 TASK_GOALS = {
     "django__django-13346": "修复JSON字段键转换后的in查询",
@@ -47,6 +51,7 @@ FAILURES = {
 
 
 def build():
+    observations = {row["task"]: row for row in json.loads((EVIDENCE / "task-observations.json").read_text())["records"]}
     with (EVIDENCE / "formal-trials.csv").open() as stream:
         rows = [row for row in csv.DictReader(stream) if row["split"] == "D" and row["arm"] == "B0"]
     assert len(rows) == 30
@@ -66,9 +71,10 @@ def build():
         passed = result["passed"]
         category, analysis = FAILURES[row["task"]] if not passed else (
             "原题通过", "原题验收通过；成功仅覆盖其验收范围，终止状态与产物评分分别记录，不额外推断失败机制。")
-        expected = {"swe": "修复题面问题且官方resolved为true，保持既有测试与配置。",
-                    "terminal": "按题面交付产物或服务，原题奖励为1。",
-                    "aider": "完成题面实现并通过全部原题测试。"}[row["benchmark"]]
+        observed = observations[row["task"]]
+        assert observed["run_id"] == row["run_id"] and observed["passed"] is passed
+        for source in observed["sources"].values():
+            assert hashlib.sha256((EVIDENCE / source["path"]).read_bytes()).hexdigest() == source["sha256"]
         evidence_paths = [str(path.relative_to(EVIDENCE)) for path in (instructions[0], tools[0], models[0], directory / "result.json")]
         scoring = [str(path.relative_to(EVIDENCE)) for path in directory.rglob("*")
                    if path.is_file() and path.name in ("report.json", "test_output.txt", "test-stdout.txt", "reward.txt", "grader.json")]
@@ -76,7 +82,7 @@ def build():
             raise ValueError("Missing original scoring output: " + row["run_id"])
         records.append({"run_id": row["run_id"], "benchmark": row["benchmark"], "task": row["task"],
             "task_description": TASK_GOALS[row["task"]], "complete_task_input": instructions[0].read_text(),
-            "expected_result": expected, "actual_result": "原题通过" if passed else "原题未通过",
+            "expected_result": observed["expected_result"], "actual_result": observed["actual_result"],
             "passed": passed, "exit_status": row["exit_status"], "model_requests": int(row["model_calls"]),
             "tool_calls": int(row["tool_calls"]), "wall_seconds": float(row["wall_seconds"]),
             "preliminary_category": category, "preliminary_analysis": analysis,

@@ -1,0 +1,746 @@
+{
+  "scope": "Original D30 task requirements and observed original-grader results",
+  "new_model_or_grader_calls": 0,
+  "records": [
+    {
+      "run_id": "D-aider-cpp__linked-list-B0-r1",
+      "task": "cpp/linked-list",
+      "benchmark": "aider",
+      "passed": true,
+      "expected_result": "在linked_list.cpp/.h实现双向链表的push、pop、shift、unshift、count及erase；erase只删除首个匹配项并报告是否删除。",
+      "actual_result": "原C++评分编译成功并返回0；19个测试用例、42条断言全部通过。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-aider-cpp__linked-list-B0-r1/instruction.txt",
+          "sha256": "247c3782ff64f3241818d712b3594584459e65af2fa5051277e0fb5b806d2228"
+        },
+        "result": {
+          "path": "formal/D-aider-cpp__linked-list-B0-r1/result.json",
+          "sha256": "bb1171fe87e5b222700e63397411ac11d518d2e26afb9f11cac7e72f30ecdd19"
+        },
+        "original_grade_1": {
+          "path": "formal/D-aider-cpp__linked-list-B0-r1/grader.json",
+          "sha256": "bd4b4b9d3c2257f608e47627e6d31effe6059f1020dadf6f4d35377e7258a006"
+        }
+      }
+    },
+    {
+      "run_id": "D-aider-cpp__parallel-letter-frequency-B0-r1",
+      "task": "cpp/parallel-letter-frequency",
+      "benchmark": "aider",
+      "passed": true,
+      "expected_result": "在parallel_letter_frequency.cpp/.h统计多段文本中的字母总频次，并按题意采用并行计算；使用原题C++测试验收。",
+      "actual_result": "原C++评分编译成功并返回0；12个测试用例、64条断言全部通过。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-aider-cpp__parallel-letter-frequency-B0-r1/instruction.txt",
+          "sha256": "72ed99d9aca36b64de5c4debaeafe1daacacd94860afd7df981cd43ea489a83b"
+        },
+        "result": {
+          "path": "formal/D-aider-cpp__parallel-letter-frequency-B0-r1/result.json",
+          "sha256": "103985865645ffe7ef9472a18a24f8aa46c207af682970d79e6805875db29640"
+        },
+        "original_grade_1": {
+          "path": "formal/D-aider-cpp__parallel-letter-frequency-B0-r1/grader.json",
+          "sha256": "310844da9c1ebb18ffa6b1ee0923609e1446c29cfb77d19c3cbd198725344798"
+        }
+      }
+    },
+    {
+      "run_id": "D-aider-go__trinary-B0-r1",
+      "task": "go/trinary",
+      "benchmark": "aider",
+      "passed": true,
+      "expected_result": "以位权计算将只含0、1、2的三进制字符串转为十进制；非法输入返回0，例如102012应得到302。",
+      "actual_result": "原Go测试命令返回0，trinary包报告ok；原题评分通过。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-aider-go__trinary-B0-r1/instruction.txt",
+          "sha256": "724e2456fee14229ccff366ded5bf0c822411539ceb1b3295082a298e597b03a"
+        },
+        "result": {
+          "path": "formal/D-aider-go__trinary-B0-r1/result.json",
+          "sha256": "92876280c2278d1a11adfcb9e98e211248674972742abef9bf8706ec85be5ea1"
+        },
+        "original_grade_1": {
+          "path": "formal/D-aider-go__trinary-B0-r1/grader.json",
+          "sha256": "b103503a7e00162968a9c416e1599e9622d5651b1a6dc798c3b2893beab8e8de"
+        }
+      }
+    },
+    {
+      "run_id": "D-aider-go__variable-length-quantity-B0-r1",
+      "task": "go/variable-length-quantity",
+      "benchmark": "aider",
+      "passed": true,
+      "expected_result": "实现32位无符号整数的变长数量编码与解码：每字节承载7位数据，最高位表示后续字节，按原测试处理编码/解码边界。",
+      "actual_result": "原Go测试命令返回0，variablelengthquantity包报告ok；原题评分通过。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-aider-go__variable-length-quantity-B0-r1/instruction.txt",
+          "sha256": "66829e7418882e8a82c2aad47b76d8daabf663f77a41f94ad74b650c9dbf0409"
+        },
+        "result": {
+          "path": "formal/D-aider-go__variable-length-quantity-B0-r1/result.json",
+          "sha256": "3b334c428177c2f0beeb16bcb709c1037afec428be7f1fee37bc37ebde488d7e"
+        },
+        "original_grade_1": {
+          "path": "formal/D-aider-go__variable-length-quantity-B0-r1/grader.json",
+          "sha256": "91044309422fb877a6689d56412eaf2aa9e63199deb1005bdbbba47e49b258f1"
+        }
+      }
+    },
+    {
+      "run_id": "D-aider-java__phone-number-B0-r1",
+      "task": "java/phone-number",
+      "benchmark": "aider",
+      "passed": true,
+      "expected_result": "清洗电话号码的标点及可选国家码1，返回合规的10位北美号码，并拒绝长度、字母及区号/交换码首位不合法的输入。",
+      "actual_result": "Gradle原评分BUILD SUCCESSFUL；日志列出的18项PhoneNumberTest均为PASSED，测试命令返回0。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-aider-java__phone-number-B0-r1/instruction.txt",
+          "sha256": "dcb83d925cec7216fd5252c222c00ab1d4b3d70e65b1f36d66a4f1377481c84d"
+        },
+        "result": {
+          "path": "formal/D-aider-java__phone-number-B0-r1/result.json",
+          "sha256": "e2d3423319c1009dd058dfe5749e8853af75e171de13fb6a574931d7adc0cf19"
+        },
+        "original_grade_1": {
+          "path": "formal/D-aider-java__phone-number-B0-r1/grader.json",
+          "sha256": "5dc12abf35279287242fcec32d410cd531ac52bd6ee13050d116a33dbeb13679"
+        }
+      }
+    },
+    {
+      "run_id": "D-aider-javascript__food-chain-B0-r1",
+      "task": "javascript/food-chain",
+      "benchmark": "aider",
+      "passed": true,
+      "expected_result": "在food-chain.js按输入范围生成题面规定的累积式歌词，保持各节文本及结尾规则。",
+      "actual_result": "原Jest评分的1个测试套件、10个测试全部通过，命令返回0。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-aider-javascript__food-chain-B0-r1/instruction.txt",
+          "sha256": "e431b499a94ca05109b0e0dfc158e28e1387bee6c1a62407df1b43c81106dbdf"
+        },
+        "result": {
+          "path": "formal/D-aider-javascript__food-chain-B0-r1/result.json",
+          "sha256": "df5546414578921010b13c0f636b635acda082a3d0f9ea9c799929e5303d6114"
+        },
+        "original_grade_1": {
+          "path": "formal/D-aider-javascript__food-chain-B0-r1/grader.json",
+          "sha256": "4e8740fd6ab811da28bf13f1bf8b34babb829055cd4577e564a319e817e661c9"
+        }
+      }
+    },
+    {
+      "run_id": "D-aider-javascript__triangle-B0-r1",
+      "task": "javascript/triangle",
+      "benchmark": "aider",
+      "passed": true,
+      "expected_result": "在triangle.js按题意判断等边、等腰与不等边三角形，并处理非正边长及三角不等式边界。",
+      "actual_result": "原Jest评分的1个测试套件、19个测试全部通过，覆盖记录中列出的边长分类及非法边界，命令返回0。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-aider-javascript__triangle-B0-r1/instruction.txt",
+          "sha256": "6f5f68d8ce5f246316a8f12b618df34a82c4178ba9eca3900f6c1535d504ff0e"
+        },
+        "result": {
+          "path": "formal/D-aider-javascript__triangle-B0-r1/result.json",
+          "sha256": "b795adf2ca073a0bd9ef91d837e955c052d4209483c71fee6e0125b4eb893f51"
+        },
+        "original_grade_1": {
+          "path": "formal/D-aider-javascript__triangle-B0-r1/grader.json",
+          "sha256": "6b32cda57f6bd25bfad2d5cc29f257041761d23d85355381f73b33d7c4fd599f"
+        }
+      }
+    },
+    {
+      "run_id": "D-aider-python__proverb-B0-r1",
+      "task": "python/proverb",
+      "benchmark": "aider",
+      "passed": true,
+      "expected_result": "按任意输入词序列生成相邻项连接的谚语，并按Python题面qualifier参数调整末句；输出随输入变化。",
+      "actual_result": "原pytest评分收集8项proverb测试，8项全部通过，命令返回0。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-aider-python__proverb-B0-r1/instruction.txt",
+          "sha256": "4d63598aea8b150a4369caf9492690d95b206ee350707ff87cfefc06387b43e4"
+        },
+        "result": {
+          "path": "formal/D-aider-python__proverb-B0-r1/result.json",
+          "sha256": "7f4259084d75bcf079d583d73a0090c883af3be2cff08a0af62651b579c859bd"
+        },
+        "original_grade_1": {
+          "path": "formal/D-aider-python__proverb-B0-r1/grader.json",
+          "sha256": "234bf6425d084a900f0a4e9b8573d46255528c83a38c777b3ecd7d8b1e227e5d"
+        }
+      }
+    },
+    {
+      "run_id": "D-aider-python__tree-building-B0-r1",
+      "task": "python/tree-building",
+      "benchmark": "aider",
+      "passed": true,
+      "expected_result": "重构记录建树逻辑，按id/parent_id还原父子关系；对不合法根、编号或父关系按原测试抛出带含义信息的ValueError。",
+      "actual_result": "原pytest评分收集13项tree_building测试，13项全部通过，命令返回0。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-aider-python__tree-building-B0-r1/instruction.txt",
+          "sha256": "c2f182daa00c2f813ff6615d6451acfaea69818c50c1b14c344c20a12ca0882f"
+        },
+        "result": {
+          "path": "formal/D-aider-python__tree-building-B0-r1/result.json",
+          "sha256": "e6894e0d9ab29e1ec1a947e9763c916300273f8832a17ad9eaeca15e3901eff5"
+        },
+        "original_grade_1": {
+          "path": "formal/D-aider-python__tree-building-B0-r1/grader.json",
+          "sha256": "48afbe8f23bb8192df44f730a5c0bc2e038fccecda228f32758b42aff7232f98"
+        }
+      }
+    },
+    {
+      "run_id": "D-aider-rust__doubly-linked-list-B0-r1",
+      "task": "rust/doubly-linked-list",
+      "benchmark": "aider",
+      "passed": true,
+      "expected_result": "在src/lib.rs实现双向链表、首尾增删、迭代器、游标和资源释放；遵守题面安全接口及unsafe不变量要求。",
+      "actual_result": "原Cargo评分返回0；日志中的17项链表/游标测试和2项资源释放相关测试通过，失败数均为0。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-aider-rust__doubly-linked-list-B0-r1/instruction.txt",
+          "sha256": "1a88c55d03fa168522eed2dd13b50e122afb863b0186966f33d9954224c5fff2"
+        },
+        "result": {
+          "path": "formal/D-aider-rust__doubly-linked-list-B0-r1/result.json",
+          "sha256": "c694aadc1241a52223aa2f0972c47bbe2c36931f3bc5da563d39981bfd63b652"
+        },
+        "original_grade_1": {
+          "path": "formal/D-aider-rust__doubly-linked-list-B0-r1/grader.json",
+          "sha256": "37d5a185c3b77fca58d99e372deb731010077b9ad1c2438b0c16d45e7e3d2ee6"
+        }
+      }
+    },
+    {
+      "run_id": "D-swe-django__django-13346-B0-r1",
+      "task": "django__django-13346",
+      "benchmark": "swe",
+      "passed": true,
+      "expected_result": "修复JSONField键转换后的__in查询，使键值0的列表查询与直接等值查询具有一致的题意行为；保留既有测试与配置。",
+      "actual_result": "原SWE报告resolved=true；test_key_in和test_key_iregex两个修复目标及65个既有回归目标通过，跟踪失败为0。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-swe-django__django-13346-B0-r1/instruction.txt",
+          "sha256": "8d2d1cfc56aaa886ff4ab118a2a4c732d09d9cc559cc257cb713c865e1d7001a"
+        },
+        "result": {
+          "path": "formal/D-swe-django__django-13346-B0-r1/result.json",
+          "sha256": "42c43598652612b7c01544002b59e21c7a98ec85ecaa564255b132ade4344565"
+        },
+        "original_grade_1": {
+          "path": "formal/D-swe-django__django-13346-B0-r1/swe-official/D-swe-django__django-13346-B0-r1/course-mini-swe-agent/django__django-13346/report.json",
+          "sha256": "5d4433ce356d139292c981bfb30081f9633cfb920c8e5ffbf0c7129f90eb663c"
+        },
+        "original_grade_2": {
+          "path": "formal/D-swe-django__django-13346-B0-r1/swe-official/D-swe-django__django-13346-B0-r1/course-mini-swe-agent/django__django-13346/test_output.txt",
+          "sha256": "90b2a2eecb08b33e12791a2f4baa13c397d634625ce7e3ed7fe9187b06228460"
+        }
+      }
+    },
+    {
+      "run_id": "D-swe-django__django-15987-B0-r1",
+      "task": "django__django-15987",
+      "benchmark": "swe",
+      "passed": true,
+      "expected_result": "FIXTURE_DIRS使用Path对象时仍应识别重复目录，避免路径表示类型造成重复检查漏报；保留既有测试与配置。",
+      "actual_result": "原SWE报告resolved=true；fixture默认目录重复检查目标和52个既有回归目标通过，跟踪失败为0。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-swe-django__django-15987-B0-r1/instruction.txt",
+          "sha256": "6a07ad491e49e41e2da8c0db7a3ed63ca04319ce7ba43834ba822b7fd5f43b36"
+        },
+        "result": {
+          "path": "formal/D-swe-django__django-15987-B0-r1/result.json",
+          "sha256": "e31164787023a8f6c7540a2207482c27b7a8bc93c06b2d53e6b58b95ec170572"
+        },
+        "original_grade_1": {
+          "path": "formal/D-swe-django__django-15987-B0-r1/swe-official/D-swe-django__django-15987-B0-r1/course-mini-swe-agent/django__django-15987/report.json",
+          "sha256": "d84a92f6a86da8fc7de4be99155b38e40b52e0ae7e60877cf268b0f47fe1a165"
+        },
+        "original_grade_2": {
+          "path": "formal/D-swe-django__django-15987-B0-r1/swe-official/D-swe-django__django-15987-B0-r1/course-mini-swe-agent/django__django-15987/test_output.txt",
+          "sha256": "e0e8612d495ea718deecdce6f9c0511c062a8884c8bdfa8b73c28a0f209a297a"
+        }
+      }
+    },
+    {
+      "run_id": "D-swe-django__django-16082-B0-r1",
+      "task": "django__django-16082",
+      "benchmark": "swe",
+      "passed": true,
+      "expected_result": "组合数值表达式使用MOD时按操作数类型解析output_field，包括题面Decimal与Integer混合类型；保留既有测试与配置。",
+      "actual_result": "原SWE报告resolved=true；数字和NULL输出字段解析两个修复目标及170个既有回归目标通过，跟踪失败为0。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-swe-django__django-16082-B0-r1/instruction.txt",
+          "sha256": "61a1d5bbcd3ecfa94dc5f32817113d17ec75040ea1b3af2e343dbca6f920a1bb"
+        },
+        "result": {
+          "path": "formal/D-swe-django__django-16082-B0-r1/result.json",
+          "sha256": "78532203567c96bbed7f2d985ad5725dbc91482bfd68fe65bb11a08f41cb04da"
+        },
+        "original_grade_1": {
+          "path": "formal/D-swe-django__django-16082-B0-r1/swe-official/D-swe-django__django-16082-B0-r1/course-mini-swe-agent/django__django-16082/report.json",
+          "sha256": "27d2412ff91ca80fb8d594fa7a320bd13d66837b6b5022186a0592d22a84f667"
+        },
+        "original_grade_2": {
+          "path": "formal/D-swe-django__django-16082-B0-r1/swe-official/D-swe-django__django-16082-B0-r1/course-mini-swe-agent/django__django-16082/test_output.txt",
+          "sha256": "ed8161d97753cf8b836a101a6d4e0af80e001e66854c4546c30c14e545a112cf"
+        }
+      }
+    },
+    {
+      "run_id": "D-swe-pydata__xarray-2905-B0-r1",
+      "task": "pydata__xarray-2905",
+      "benchmark": "swe",
+      "passed": true,
+      "expected_result": "向object数组元素赋值具有values属性的普通对象时保留该对象，不把其values属性错误强制转换为数组；保留受支持容器行为及既有测试。",
+      "actual_result": "原SWE报告resolved=true；test_unsupported_type修复目标及364个既有回归目标通过，跟踪失败为0。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-swe-pydata__xarray-2905-B0-r1/instruction.txt",
+          "sha256": "435624152feff395e935ee0acebc249d8bc398fff222ae654a9666f57a8db6ee"
+        },
+        "result": {
+          "path": "formal/D-swe-pydata__xarray-2905-B0-r1/result.json",
+          "sha256": "f7898aff464ba139b393eb7cb7beba7b929bcc2f41212bdd359c8cc7535750c8"
+        },
+        "original_grade_1": {
+          "path": "formal/D-swe-pydata__xarray-2905-B0-r1/swe-official/D-swe-pydata__xarray-2905-B0-r1/course-mini-swe-agent/pydata__xarray-2905/report.json",
+          "sha256": "27b1d107a34b33256368dc7f8cf9daa6c4c36af249d527699ba174201b690850"
+        },
+        "original_grade_2": {
+          "path": "formal/D-swe-pydata__xarray-2905-B0-r1/swe-official/D-swe-pydata__xarray-2905-B0-r1/course-mini-swe-agent/pydata__xarray-2905/test_output.txt",
+          "sha256": "f3cd211e607b4a4aa64e0bb643e0aaedaba96d1d1c324f40ed621ba436ea1d17"
+        }
+      }
+    },
+    {
+      "run_id": "D-swe-pydata__xarray-3305-B0-r1",
+      "task": "pydata__xarray-3305",
+      "benchmark": "swe",
+      "passed": true,
+      "expected_result": "DataArray.quantile遵守keep_attrs参数；题面keep_attrs=True示例应保留units=K属性。",
+      "actual_result": "原SWE报告resolved=true；test_quantile修复目标及653个既有回归目标通过，跟踪失败为0。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-swe-pydata__xarray-3305-B0-r1/instruction.txt",
+          "sha256": "5814fb3180c57815c6b93bfed9b4ac8bb02dcdf619141cb7433cce84cd45cfe6"
+        },
+        "result": {
+          "path": "formal/D-swe-pydata__xarray-3305-B0-r1/result.json",
+          "sha256": "61391a3f7058efa512a2fa85fa050154eeb61edf541c6c7f5a3a730a21124c2c"
+        },
+        "original_grade_1": {
+          "path": "formal/D-swe-pydata__xarray-3305-B0-r1/swe-official/D-swe-pydata__xarray-3305-B0-r1/course-mini-swe-agent/pydata__xarray-3305/report.json",
+          "sha256": "702e279c6a5cac0224451ff2ef027253e9163fb524fedbf81bfa48a638a062b8"
+        },
+        "original_grade_2": {
+          "path": "formal/D-swe-pydata__xarray-3305-B0-r1/swe-official/D-swe-pydata__xarray-3305-B0-r1/course-mini-swe-agent/pydata__xarray-3305/test_output.txt",
+          "sha256": "825af95fa561bfb8927b5c7c252d13588f5d972a30d7bb69709de4df63ee747e"
+        }
+      }
+    },
+    {
+      "run_id": "D-swe-pydata__xarray-6599-B0-r1",
+      "task": "pydata__xarray-6599",
+      "benchmark": "swe",
+      "passed": true,
+      "expected_result": "修复polyval对显式timedelta64坐标的计算，保持既有测试与配置。",
+      "actual_result": "原SWE报告resolved=true；test_polyval[timedelta-False]修复目标及264个既有回归目标通过；智能体终止为TimeExceeded，原题评分仍通过。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-swe-pydata__xarray-6599-B0-r1/instruction.txt",
+          "sha256": "f6733bdb52fe10ff63c3357c3d22dcd9fcf21c60d7596a03ebb849cd8337602d"
+        },
+        "result": {
+          "path": "formal/D-swe-pydata__xarray-6599-B0-r1/result.json",
+          "sha256": "a2605e04e73370376f9e0cbe03e18aa5c882601f6f3d2e44fee557f5398c0eb9"
+        },
+        "original_grade_1": {
+          "path": "formal/D-swe-pydata__xarray-6599-B0-r1/swe-official/D-swe-pydata__xarray-6599-B0-r1/course-mini-swe-agent/pydata__xarray-6599/report.json",
+          "sha256": "c1ec04894a723f361ba6baf26087300088e51e7d299cbe0e1d46557e2cf0e726"
+        },
+        "original_grade_2": {
+          "path": "formal/D-swe-pydata__xarray-6599-B0-r1/swe-official/D-swe-pydata__xarray-6599-B0-r1/course-mini-swe-agent/pydata__xarray-6599/test_output.txt",
+          "sha256": "8333a8e96403ed291fa47a27b0f5f4200f1b2057d23d7bc74ac6caa896c656be"
+        }
+      }
+    },
+    {
+      "run_id": "D-swe-pytest-dev__pytest-7205-B0-r1",
+      "task": "pytest-dev__pytest-7205",
+      "benchmark": "swe",
+      "passed": true,
+      "expected_result": "在Python -bb下使用--setup-show等fixture展示模式时，bytes参数不应引发BytesWarning，并维持普通参数及显式/函数参数标识的显示行为。",
+      "actual_result": "原SWE报告resolved=true；10个参数显示/bytes相关修复目标及16个既有回归目标通过，跟踪失败为0。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-swe-pytest-dev__pytest-7205-B0-r1/instruction.txt",
+          "sha256": "bb8327f3b3acbba2bfb7ea59f5c3c63443d3d80ed9af605406781fd580fd4b65"
+        },
+        "result": {
+          "path": "formal/D-swe-pytest-dev__pytest-7205-B0-r1/result.json",
+          "sha256": "843095383daaea2b8b22091dc4e97e7349015780e5f3b1fb687e9ca679cc586a"
+        },
+        "original_grade_1": {
+          "path": "formal/D-swe-pytest-dev__pytest-7205-B0-r1/swe-official/D-swe-pytest-dev__pytest-7205-B0-r1/course-mini-swe-agent/pytest-dev__pytest-7205/report.json",
+          "sha256": "75f5f4a9b3f8a86f19774aea95ebc1c95272f41ac80a2c878afadcd02205a648"
+        },
+        "original_grade_2": {
+          "path": "formal/D-swe-pytest-dev__pytest-7205-B0-r1/swe-official/D-swe-pytest-dev__pytest-7205-B0-r1/course-mini-swe-agent/pytest-dev__pytest-7205/test_output.txt",
+          "sha256": "aa0b5870ff9e1c598b2d0b853514c580cd21ff1f3652d1806c0c443f319c4a31"
+        }
+      }
+    },
+    {
+      "run_id": "D-swe-pytest-dev__pytest-8399-B0-r1",
+      "task": "pytest-dev__pytest-8399",
+      "benchmark": "swe",
+      "passed": true,
+      "expected_result": "自动生成的unittest setUpClass fixture使用私有名称，普通--fixtures不显示，额外-v时可显示。",
+      "actual_result": "原SWE报告resolved=true；setUpClass私有fixture修复目标及59个既有回归目标通过，跟踪失败为0。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-swe-pytest-dev__pytest-8399-B0-r1/instruction.txt",
+          "sha256": "e8f2b786834698c809aeee5465eea7e729a816f5d6a00021be709379893c2f7d"
+        },
+        "result": {
+          "path": "formal/D-swe-pytest-dev__pytest-8399-B0-r1/result.json",
+          "sha256": "dab49577c956aac691c14dc64873e8828a792addde87e961bd82c09597c04e05"
+        },
+        "original_grade_1": {
+          "path": "formal/D-swe-pytest-dev__pytest-8399-B0-r1/swe-official/D-swe-pytest-dev__pytest-8399-B0-r1/course-mini-swe-agent/pytest-dev__pytest-8399/report.json",
+          "sha256": "3b7a34026831337f274388d6a84d2518b26618d11b0ee9267938f4abb3dfdc38"
+        },
+        "original_grade_2": {
+          "path": "formal/D-swe-pytest-dev__pytest-8399-B0-r1/swe-official/D-swe-pytest-dev__pytest-8399-B0-r1/course-mini-swe-agent/pytest-dev__pytest-8399/test_output.txt",
+          "sha256": "88007e72d42b0cd45694cbbc1cf4030a75f2ac6706d06fb07f07a706ce76fb1b"
+        }
+      }
+    },
+    {
+      "run_id": "D-swe-scikit-learn__scikit-learn-13496-B0-r1",
+      "task": "scikit-learn__scikit-learn-13496",
+      "benchmark": "swe",
+      "passed": true,
+      "expected_result": "在IsolationForest构造器暴露默认False的warm_start；启用后配合增加n_estimators复用已拟合树并追加估计器。",
+      "actual_result": "原SWE报告resolved=true；test_iforest_warm_start修复目标及19个既有回归目标通过，跟踪失败为0。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-swe-scikit-learn__scikit-learn-13496-B0-r1/instruction.txt",
+          "sha256": "47ec9dfc28c4282f18203cd29ce2056bc76835b7b15886f8124ac364663a48ec"
+        },
+        "result": {
+          "path": "formal/D-swe-scikit-learn__scikit-learn-13496-B0-r1/result.json",
+          "sha256": "ba134e126877b9b9264062dcd4cc6acfc86c684eaa3464c42002bb3530dce1c4"
+        },
+        "original_grade_1": {
+          "path": "formal/D-swe-scikit-learn__scikit-learn-13496-B0-r1/swe-official/D-swe-scikit-learn__scikit-learn-13496-B0-r1/course-mini-swe-agent/scikit-learn__scikit-learn-13496/report.json",
+          "sha256": "0d82862e2a88d6519734087338d47b274b814da64b2799eecee02b2cef568a69"
+        },
+        "original_grade_2": {
+          "path": "formal/D-swe-scikit-learn__scikit-learn-13496-B0-r1/swe-official/D-swe-scikit-learn__scikit-learn-13496-B0-r1/course-mini-swe-agent/scikit-learn__scikit-learn-13496/test_output.txt",
+          "sha256": "dce9245393947f6a6f713fb46808a8815e1e542de0f66c2ee55fff4f1d55fa7c"
+        }
+      }
+    },
+    {
+      "run_id": "D-swe-scikit-learn__scikit-learn-14496-B0-r1",
+      "task": "scikit-learn__scikit-learn-14496",
+      "benchmark": "swe",
+      "passed": true,
+      "expected_result": "OPTICS接受比例形式的浮点min_samples，按样本量得到有效整数后用于近邻计算，避免n_neighbors浮点类型错误。",
+      "actual_result": "原SWE报告resolved=true；test_extract_xi修复目标及39个既有回归目标通过，跟踪失败为0。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-swe-scikit-learn__scikit-learn-14496-B0-r1/instruction.txt",
+          "sha256": "e612fb32f56282521c6c095da7016b98ab7fc7a593d2c7c31a5a82fe54ddc2ef"
+        },
+        "result": {
+          "path": "formal/D-swe-scikit-learn__scikit-learn-14496-B0-r1/result.json",
+          "sha256": "30a9caea34a1822be40c022cfedcda20207d06a4906817f58f03b1b4ccddbf58"
+        },
+        "original_grade_1": {
+          "path": "formal/D-swe-scikit-learn__scikit-learn-14496-B0-r1/swe-official/D-swe-scikit-learn__scikit-learn-14496-B0-r1/course-mini-swe-agent/scikit-learn__scikit-learn-14496/report.json",
+          "sha256": "96be711cbccb1fe685d7148a5180d68c39f3d193ec9fcf97af464e0a36b11a58"
+        },
+        "original_grade_2": {
+          "path": "formal/D-swe-scikit-learn__scikit-learn-14496-B0-r1/swe-official/D-swe-scikit-learn__scikit-learn-14496-B0-r1/course-mini-swe-agent/scikit-learn__scikit-learn-14496/test_output.txt",
+          "sha256": "a312b1baf19c2a2434fd037b508a903f24a12931ec60b3a86257bfba4b98f70a"
+        }
+      }
+    },
+    {
+      "run_id": "D-terminal-extract-elf-B0-r1",
+      "task": "extract-elf",
+      "benchmark": "terminal",
+      "passed": false,
+      "expected_result": "交付extract.js，将/app/a.out的内存地址映射为整数值JSON；已报地址的值须正确，并覆盖至少75%的参考地址。",
+      "actual_result": "extract.js存在性测试通过；输出匹配测试记录参考地址覆盖率0.00%，未达到75%，原2项测试为1通过1失败，奖励0。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-terminal-extract-elf-B0-r1/extract-elf__aa73JRB/agent/instruction.txt",
+          "sha256": "f1dd8c8fd9f01101d2ecb65665bdedc33adc868abd853b3adf556f6aa4982073"
+        },
+        "result": {
+          "path": "formal/D-terminal-extract-elf-B0-r1/result.json",
+          "sha256": "542f29ee673fbd273611960f6d8b1b970994e89c61c006745391535c3f5d1a9f"
+        },
+        "original_grade_1": {
+          "path": "formal/D-terminal-extract-elf-B0-r1/extract-elf__aa73JRB/verifier/test-stdout.txt",
+          "sha256": "7d652b2a3578def8c397dcd505807f0edde7d0f16ad750c85ccd9c471e3fc855"
+        },
+        "original_grade_2": {
+          "path": "formal/D-terminal-extract-elf-B0-r1/extract-elf__aa73JRB/verifier/reward.txt",
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        }
+      }
+    },
+    {
+      "run_id": "D-terminal-fix-git-B0-r1",
+      "task": "fix-git",
+      "benchmark": "terminal",
+      "passed": true,
+      "expected_result": "找回切回master后遗失的网站修改，并将修改合入master，交由原题文件内容测试验收。",
+      "actual_result": "原题test_about_file、test_layout_file两项测试均通过，奖励1。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-terminal-fix-git-B0-r1/fix-git__vUQuTtS/agent/instruction.txt",
+          "sha256": "f98174e47ba5ce040f6fad22ef3cbca4dd27b3192868ea5d082077222c3ec4e8"
+        },
+        "result": {
+          "path": "formal/D-terminal-fix-git-B0-r1/result.json",
+          "sha256": "400fa5a1f195e038897ed4b6924d05fcb4ede78b9191d8566f2791cb42ddb43c"
+        },
+        "original_grade_1": {
+          "path": "formal/D-terminal-fix-git-B0-r1/fix-git__vUQuTtS/verifier/test-stdout.txt",
+          "sha256": "84bca4997f8d0a7d9611444b744bc67f5a0ec23d5f8ba7a716d2b2d5a8d6e0ce"
+        },
+        "original_grade_2": {
+          "path": "formal/D-terminal-fix-git-B0-r1/fix-git__vUQuTtS/verifier/reward.txt",
+          "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+        }
+      }
+    },
+    {
+      "run_id": "D-terminal-llm-inference-batching-scheduler-B0-r1",
+      "task": "llm-inference-batching-scheduler",
+      "benchmark": "terminal",
+      "passed": false,
+      "expected_result": "为两个输入桶交付plan_b1/plan_b2.jsonl，每请求恰好一次、批内形状一致、seq按64对齐、heads=32、hidden=4096、全局形状不超过8种，并满足题面各桶成本/填充/P95/时长阈值；输入不改动。",
+      "actual_result": "原验收发现plan_b1.jsonl缺失，输出存在性、格式/覆盖、形状一致性、去重和性能共5项失败；输入完整性1项通过，奖励0。失败时未形成可供原评分比较的完整计划。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-terminal-llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__smXBGeY/agent/instruction.txt",
+          "sha256": "0817374767533fbf51bb93345ee1bba266263c216c6cc55c096e71b4a1d37dfc"
+        },
+        "result": {
+          "path": "formal/D-terminal-llm-inference-batching-scheduler-B0-r1/result.json",
+          "sha256": "cb6fc35d30f3c35e097250fca3bfab46b0a8cffc2db305c6c4ebeed26dc6d3bc"
+        },
+        "original_grade_1": {
+          "path": "formal/D-terminal-llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__smXBGeY/verifier/test-stdout.txt",
+          "sha256": "b2ba7b6b01f51cd325bad1879d2388dd036f96ad9ff491c91b7f7bfd9374b79c"
+        },
+        "original_grade_2": {
+          "path": "formal/D-terminal-llm-inference-batching-scheduler-B0-r1/llm-inference-batching-scheduler__smXBGeY/verifier/reward.txt",
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        }
+      }
+    },
+    {
+      "run_id": "D-terminal-mailman-B0-r1",
+      "task": "mailman",
+      "benchmark": "terminal",
+      "passed": true,
+      "expected_result": "配置reading-group@local.edu邮件列表，保存mailman.cfg，支持确认入退组与向订阅者广播，并将本地邮件写入/var/mail/<user>；无需列表所有者逐次审批。",
+      "actual_result": "原题本地投递、列表存在性及join/announce/leave流程3项测试通过，奖励1。智能体虽以TimeExceeded结束，原评分通过。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-terminal-mailman-B0-r1/mailman__KJqz2tX/agent/instruction.txt",
+          "sha256": "240d03a73e38087d40c55460d48a098c70143e911a279cffe2468f642322cdee"
+        },
+        "result": {
+          "path": "formal/D-terminal-mailman-B0-r1/result.json",
+          "sha256": "787b47bbc391817bd647ed84bd2aa262d5b304c6c3e1d8b1c11716d3fcbdc211"
+        },
+        "original_grade_1": {
+          "path": "formal/D-terminal-mailman-B0-r1/mailman__KJqz2tX/verifier/test-stdout.txt",
+          "sha256": "09d9945d8f43772ce7b607582b4505fda63b2941e7c20a1678fd3591b6b6c5e2"
+        },
+        "original_grade_2": {
+          "path": "formal/D-terminal-mailman-B0-r1/mailman__KJqz2tX/verifier/reward.txt",
+          "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+        }
+      }
+    },
+    {
+      "run_id": "D-terminal-openssl-selfsigned-cert-B0-r1",
+      "task": "openssl-selfsigned-cert",
+      "benchmark": "terminal",
+      "passed": true,
+      "expected_result": "在/app/ssl生成2048位RSA密钥（权限600）、有效365天且题面组织/域名正确的自签名证书、合并PEM和验证信息，并提供可加载证书的check_cert.py。",
+      "actual_result": "原题目录结构、密钥、证书、合并PEM、验证文本及Python验证脚本6项测试全部通过，奖励1。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-terminal-openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__Ppk2bJs/agent/instruction.txt",
+          "sha256": "38054a3371f7c2c853478a2f9af0bff858437d5b28a9a07483238f06e566921f"
+        },
+        "result": {
+          "path": "formal/D-terminal-openssl-selfsigned-cert-B0-r1/result.json",
+          "sha256": "ef7a8b8d9959de9078b1b90f87623b489eb15f656762381a3523f0244d8efb83"
+        },
+        "original_grade_1": {
+          "path": "formal/D-terminal-openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__Ppk2bJs/verifier/test-stdout.txt",
+          "sha256": "4d4b549206d402c61176efd465324e4402285dbf8cf0f08addfe6ed7c5c5d1d7"
+        },
+        "original_grade_2": {
+          "path": "formal/D-terminal-openssl-selfsigned-cert-B0-r1/openssl-selfsigned-cert__Ppk2bJs/verifier/reward.txt",
+          "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+        }
+      }
+    },
+    {
+      "run_id": "D-terminal-query-optimize-B0-r1",
+      "task": "query-optimize",
+      "benchmark": "terminal",
+      "passed": false,
+      "expected_result": "保持/app/oewn.sqlite字节不变，在/app/sol.sql交付无注释、以分号结尾的单条SQLite查询，结果与原查询相同并提高执行效率。",
+      "actual_result": "/app/sol.sql最终不存在；运行时间、结果一致性、单语句及长度4项测试因此失败，原查询对照与数据库未改动2项通过，奖励0。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-terminal-query-optimize-B0-r1/query-optimize__HmteJbf/agent/instruction.txt",
+          "sha256": "d594c3e9617dd32e2909612bd29fdd66cf39a189a09e5bf3a24f1cc43664358a"
+        },
+        "result": {
+          "path": "formal/D-terminal-query-optimize-B0-r1/result.json",
+          "sha256": "1fc67d0d1a08a74da0ec426edb9d062599304d72bd97d4c496f853c84007f77f"
+        },
+        "original_grade_1": {
+          "path": "formal/D-terminal-query-optimize-B0-r1/query-optimize__HmteJbf/verifier/test-stdout.txt",
+          "sha256": "59eab5857544f1a39e6482323a05862ff1b09acbc57bcfb437fa63bb13853615"
+        },
+        "original_grade_2": {
+          "path": "formal/D-terminal-query-optimize-B0-r1/query-optimize__HmteJbf/verifier/reward.txt",
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        }
+      }
+    },
+    {
+      "run_id": "D-terminal-regex-log-B0-r1",
+      "task": "regex-log",
+      "benchmark": "terminal",
+      "passed": true,
+      "expected_result": "将正则保存至/app/regex.txt；匹配含合法无前导零IPv4地址的日志行中最后一个YYYY-MM-DD日期，并按题面日期和字母数字边界约束排除误匹配。",
+      "actual_result": "原题test_regex_matches_dates测试通过，奖励1。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-terminal-regex-log-B0-r1/regex-log__GjQKqDm/agent/instruction.txt",
+          "sha256": "4f7ac05e70cf9220ea0f1e5a052c5f908cd0fa884e847d80b0bd51bae2e96f9c"
+        },
+        "result": {
+          "path": "formal/D-terminal-regex-log-B0-r1/result.json",
+          "sha256": "8369cdfeb4b45eb2b01cfbf1ed4d28fde705039a1d834342b5a1a7c4b6ff503c"
+        },
+        "original_grade_1": {
+          "path": "formal/D-terminal-regex-log-B0-r1/regex-log__GjQKqDm/verifier/test-stdout.txt",
+          "sha256": "85d23f071fdb459f6352d125e69728729a8cda25b2f78b73c9bc2f097afe417a"
+        },
+        "original_grade_2": {
+          "path": "formal/D-terminal-regex-log-B0-r1/regex-log__GjQKqDm/verifier/reward.txt",
+          "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+        }
+      }
+    },
+    {
+      "run_id": "D-terminal-sparql-university-B0-r1",
+      "task": "sparql-university",
+      "benchmark": "terminal",
+      "passed": true,
+      "expected_result": "在solution.sparql查询满足题面欧盟任职及在读人数条件的正教授，按2025-08-16参考日期判断当前关系，并输出教授名及其当前任职国家的去重拼接值。",
+      "actual_result": "原题SPARQL文件存在、查询无错误运行、结果匹配3项测试均通过，奖励1。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-terminal-sparql-university-B0-r1/sparql-university__qVjSK3n/agent/instruction.txt",
+          "sha256": "22eeab47d3b27b06df2627b3c21cfbd579ed7dcc85ebcb7c4b3a241c3c35f449"
+        },
+        "result": {
+          "path": "formal/D-terminal-sparql-university-B0-r1/result.json",
+          "sha256": "3b728099e075e8aac173854e733adeac177f219c0edabfd753ec87386a92d080"
+        },
+        "original_grade_1": {
+          "path": "formal/D-terminal-sparql-university-B0-r1/sparql-university__qVjSK3n/verifier/test-stdout.txt",
+          "sha256": "dc7b71bececc2ec8a3eed56714482fc1f2e68f91b9f6e4be72b5d699c6d8363a"
+        },
+        "original_grade_2": {
+          "path": "formal/D-terminal-sparql-university-B0-r1/sparql-university__qVjSK3n/verifier/reward.txt",
+          "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+        }
+      }
+    },
+    {
+      "run_id": "D-terminal-sqlite-db-truncate-B0-r1",
+      "task": "sqlite-db-truncate",
+      "benchmark": "terminal",
+      "passed": true,
+      "expected_result": "从/app/trunc.db的截断数据尽量恢复记录，写出/app/recover.json，元素使用word和value字段。",
+      "actual_result": "原题test_json_data测试通过，奖励1。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-terminal-sqlite-db-truncate-B0-r1/sqlite-db-truncate__zsCkdrX/agent/instruction.txt",
+          "sha256": "465c135cd80be49023ea3ecf8f1d840c679b3a960efe425d510894e417b9d802"
+        },
+        "result": {
+          "path": "formal/D-terminal-sqlite-db-truncate-B0-r1/result.json",
+          "sha256": "95d6cc2415fef8aad41db45d7b660a3eed88d1fadcc7d53714d2c7b8eb344474"
+        },
+        "original_grade_1": {
+          "path": "formal/D-terminal-sqlite-db-truncate-B0-r1/sqlite-db-truncate__zsCkdrX/verifier/test-stdout.txt",
+          "sha256": "5fbb79f1d47e315096a59650e6818d835095e038b71084d947ea05e3d30c38a3"
+        },
+        "original_grade_2": {
+          "path": "formal/D-terminal-sqlite-db-truncate-B0-r1/sqlite-db-truncate__zsCkdrX/verifier/reward.txt",
+          "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+        }
+      }
+    },
+    {
+      "run_id": "D-terminal-video-processing-B0-r1",
+      "task": "video-processing",
+      "benchmark": "terminal",
+      "passed": false,
+      "expected_result": "交付jump_analyzer.py，按固定机位单次跳跃视频生成output.toml中的起跳与落地帧号，字段和库使用符合题面，并满足原题事件帧范围验收。",
+      "actual_result": "脚本导入及两段视频存在性3项测试通过；起跳输出66、322分别超出原验收范围50—54、219—223，两项视频精度测试失败，奖励0。",
+      "sources": {
+        "instruction": {
+          "path": "formal/D-terminal-video-processing-B0-r1/video-processing__c2CA5qy/agent/instruction.txt",
+          "sha256": "15936f5e61823ae4794994d6e1b7e4e776b40968ea382405b868c501dfe032db"
+        },
+        "result": {
+          "path": "formal/D-terminal-video-processing-B0-r1/result.json",
+          "sha256": "38159d9a666514dc90d6d6b67f45b08ab8f8d3bb90358c86aa3c3c9b01f45f1e"
+        },
+        "original_grade_1": {
+          "path": "formal/D-terminal-video-processing-B0-r1/video-processing__c2CA5qy/verifier/test-stdout.txt",
+          "sha256": "5331c0fe070672d4ed6a0a1ecb736380c155e6ac80e01b919fab6534483f54aa"
+        },
+        "original_grade_2": {
+          "path": "formal/D-terminal-video-processing-B0-r1/video-processing__c2CA5qy/verifier/reward.txt",
+          "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+        }
+      }
+    }
+  ]
+}

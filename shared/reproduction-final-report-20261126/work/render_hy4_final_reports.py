@@ -143,7 +143,7 @@ def work1_validation(data, indexed):
         records.append([task, *[outcome(indexed[arm], task) for arm in ARMS]])
     return [
         subheading("6.3 改进验证"),
-        paragraph("后续采用hy4flash-free及同模型原生DeepSeek Harness（DSH，DeepSeek智能体执行框架）对照，"
+        paragraph("后续使用hy4flash-free，以原生DeepSeek Harness（DSH，DeepSeek智能体执行框架）作同模型对照。"
                   "每题单次最多500次模型调用、3600秒交互、最大64000输出词元。"
                   f"原D30诊断集改进后为{rate(study['left'])}，同题DSH为{rate(study['right'])}；"
                   f"新容器、新会话的独立重复为{rate(repeat['right'])}。"),
@@ -224,11 +224,12 @@ def work2_items(data, tasks, indexed, preview):
     items += [
         table(scores, [155, 110, 110, width - 375]),
         paragraph(f"本方案和独立重复均为75/75，DSH为69/75。双方共同通过{comparison['both_pass']}题，"
-                  f"本方案额外通过{comparison['left_only_pass']}题，DSH单独通过0题，通过率提高8.0个百分点。"),
+                  f"本方案额外通过{comparison['left_only_pass']}题，DSH单独通过0题。"
+                  "通过率由92.0%升至100%，绝对提高8.0个百分点，相对DSH提高8.7%。独立重复的75题通过状态均与首轮一致。"),
         subheading("5.2 模型调用与耗时"),
         scored_cost_table(data),
-        paragraph("本方案比DSH多70次模型调用，增加5.8%；每题耗时中位数增加约14.6秒。"
-                  "因此，通过率改善伴随额外调用开销，各组累计用时见表。词元包含实际内部续接和缓存输入。"),
+        paragraph("本方案比DSH多70次模型调用，增加5.8%；每题耗时中位数增加约14.6秒，累计用时减少11.9%。"
+                  "通过率改善伴随额外调用，整组用时缩短也不代表每道题都更快。词元包含实际内部续接和缓存输入。"),
         paragraph(f"形成最终配置的开发记录包括三组原始运行225次、专项复测16次及早期开发5次，合计{sum(row['actual_requests'] for row in development)}次模型调用；"
                   "对应原题评分为213/225、16/16和5/5。最终比较取自这些记录，成本不能再次相加。"
                   f"无分中断有{known_seconds:.1f}秒已知耗时，另{missing_seconds}次耗时缺失，总恢复成本只知下界。"),
@@ -267,10 +268,15 @@ def work2_items(data, tasks, indexed, preview):
         subheading("6.5 机制使用与效果范围"),
         paragraph("两轮各73题使用C0。首轮实际请求101次公开检查、保存125个候选，其中53个合格；"
                   "重复为96次检查、128个候选、60个合格。两轮均未实际调用恢复，成功不能归因于恢复操作。"),
-        paragraph(f"历史记录中，事后按同协议匹配的{history['tasks']}题为"
+        paragraph("历史消融使用同一mini-SWE-agent：B0保留原生循环，C0增加模型主动调用的检查与保存，"
+                  "C1进一步由程序自动安排检查。事后按同协议匹配的"
+                  f"{history['tasks']}题为"
                   + "、".join(f"{arm} {history['arms'][arm]['passed']}/{history['tasks']}" for arm in ("B0", "C0", "C1"))
-                  + "。该观察与本次指导消融一起表明：自动检查和额外提示未显示稳定通过率收益，"
-                  "应优先提高检查内容的有效性，并让模型按实际反馈选择何时检查。"),
+                  + "；模型调用依次为"
+                  + "/".join(str(history['arms'][arm]['model_calls']) for arm in ("B0", "C0", "C1"))
+                  + "次，执行时间中位数为"
+                  + "/".join(f"{history['arms'][arm]['median_execution_seconds']:.1f}" for arm in ("B0", "C0", "C1"))
+                  + "秒。自动安排未带来更多通过，时间开销也更高。结合三题指导消融，当前方案采用主动检查，优先补足检查内容。"),
         paragraph("本次对照检验执行流程、任务检查和公开算法支持的整体效果，未分离每项改动的独立贡献。"
                   "75题均参与开发，结果支持这些任务上的比较与重复验证。"),
         heading("七、实验结论"),
@@ -278,13 +284,7 @@ def work2_items(data, tasks, indexed, preview):
                   "同模型同题DSH为69/75，通过率提高8.0个百分点；模型调用增加5.8%。"),
         paragraph("案例显示，指定路径交付、独立检查依据和成熟算法复用分别解决了产物缺失、共同错误假设及低效求解问题。"
                   "三题指导消融未提高通过率，后续改进应围绕检查覆盖与实际求解过程，而非叠加重复提示。"),
-        heading("参考文献"),
-        link("[1] mini-SWE-agent作者代码", "https://github.com/SWE-agent/mini-swe-agent"),
-        link("[2] DeepSeek DSH及公开实验设置", "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash"),
-        link("[3] pyelftools装载段解析说明", "https://github.com/eliben/pyelftools/blob/main/doc/user-guide.md"),
-        link("[4] Mark Stamp：FEAL线性攻击，第21—27页", "https://www.cs.sjsu.edu/~stamp/crypto/PowerPoint_PDF/13_FEAL.pdf"),
-        link("[5] scikit-learn：缺失值迭代的官方实现", "https://github.com/scikit-learn/scikit-learn/blob/main/sklearn/impute/_iterative.py"),
-        link("代码、逐题评分与复现命令（随提交包提供）", "https://github.com/CherryQqqqq5/hw0102")]
+        link("代码仓库：github.com/CherryQqqqq5/hw0102", "https://github.com/CherryQqqqq5/hw0102")]
     return items
 
 

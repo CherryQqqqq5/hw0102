@@ -25,6 +25,6 @@
 
 将三个分包解压到同一目录，得到 `core/` 与 `guidance/`。`ARCHIVE_MANIFEST.json`登记每个分包与全部4,191个成员的摘要；打包时已逐成员读出比较字节，并在读取时检查循环冗余校验（Cyclic Redundancy Check，CRC）。只读验证可复用后续源码补充中的 `export_joined_evidence.py --verify-only --out <core或guidance目录>`，它从交付的结构化轨迹核对实际用量、原分和适用的终局状态，无需模型调用。
 
-两份正式PDF共21页，完整数字、任务清单、链接与页界检查和全页视觉检查均通过，见 `pdf-structural-and-values-check.json`、`pdf-visual-inspection.json`。最终报告程序读取真实重复匹配组的修复及独立复核见 `final-report-generation-addendum.json`；原科学审查及其历史源码摘要保持不变，后续源码另按版本登记。
+两份正式PDF按实验报告章节组织，完整任务清单保留在附件。当前文字、数字、字体、页界与全页视觉检查见 `rubric-revision/`；旧报告的检查文件按原版本保留。最终报告程序读取真实重复匹配组的修复及独立复核见 `final-report-generation-addendum.json`；原科学审查及其历史源码摘要保持不变，后续源码另按版本登记。
 
 导出使用项目既有过滤器，推理自由文本与机器路径不按原字节发布。OpenSSL任务生成的私钥已在限定任务范围内移除，相应候选不能恢复原私钥字节；原分、资格和来源摘要保留。原件与导出件的摘要分别登记，逐成员一致性指ZIP成员与已过滤交付件一致。代码、冻结配置与运行版本见[942项来源快照](../../../shared/reproduction-20261126/)、[后续导出程序](../../../shared/reproduction-report-tools-20261126/)及[最终报告与校验程序](../../../shared/reproduction-final-report-20261126/)。

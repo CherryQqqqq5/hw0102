@@ -15,7 +15,7 @@
 
 方法以mini-SWE-agent为基础，以原生DSH为对照，接入CodeBuddy连续会话与结构化动作。接口支持检查、保存、恢复和交付；相关文件变化后要求重测，并核对测试文件保护。每轮73题采用C0主动接口，fix-git与mailman采用B0。C1自动控制按旧对照分析。
 
-公开方法支持包括ELF（Executable and Linkable Format，可执行与可链接格式）装载段检查、基于查询的ReLU（Rectified Linear Unit，修正线性单元）恢复、固定场景视频分析、FEAL（Fast Data Encipherment Algorithm，快速数据加密算法）线性攻击及SQL（Structured Query Language，结构化查询语言）交付规范化。报告列明论文、作者代码与官方接口来源、适配部分、实际采用轨迹和适用限制。
+公开方法支持包括ELF（Executable and Linkable Format，可执行与可链接格式）装载段检查、基于查询的ReLU（Rectified Linear Unit，修正线性单元）恢复、固定场景视频分析、FEAL（Fast Data Encipherment Algorithm，快速数据加密算法）线性攻击及SQL（Structured Query Language，结构化查询语言）交付规范化。[方法与数据来源](../shared/REFERENCES.md)列出公开依据，实际采用的文件、版本与运行轨迹随代码和记录提供。
 
 最终组合继承67个未改变任务定义的两份原记录，并采用八处局部修订的16份固定新会话。完整原225条成绩及原代码版本保留；该组合没有在最后冻结后重新运行全部150个方法位置。任务局部检查、算法支持和执行接口共同构成方法包，不能将整体成功率差单独解释为纯框架或自动控制的因果收益。
 
@@ -40,6 +40,5 @@
 - [真实课程评分表](evidence/course-grading-tables-20261118.md)：动机15、实现25、对照25、错误与消融20、复现与报告15
 - [源码与九个冻结运行版本](../shared/reproduction-20261126/) · [后续导出程序](../shared/reproduction-report-tools-20261126/) · [最终报告与校验程序](../shared/reproduction-final-report-20261126/) · [共用依赖与执行说明](../shared/)
 - [历史费用与辅助实验](evidence/performance75-cost-history-20261126/) · [旧270条原评分和用量](evidence/confirmation-hy4flash-free-v16-summary/)
-- [早期15题探索](evidence/revision-matched-R-v2/) · [原240条覆盖](evidence/formal-coverage.json) · [旧控制接口工程验证](evidence/control-interface-repair-20261118.md)
 
-逐题记录区分原题评分、公开检查与测试文件保护。导出过滤凭据和任务生成私钥，源摘要与导出摘要分列；过滤后的证书候选无法恢复原私钥字节。本75题结果与完整公开榜单的差别见报告第8页。
+逐题记录区分原题评分、公开检查与测试文件保护。导出过滤凭据和任务生成私钥，源摘要与导出摘要分列；过滤后的证书候选无法恢复原私钥字节。比较范围和贡献说明见报告第三、六节。
