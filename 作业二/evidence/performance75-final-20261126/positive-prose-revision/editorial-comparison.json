@@ -1,0 +1,21 @@
+{
+  "scope": "Prose-only revision; existing scientific and rubric review reused",
+  "checks": [
+    {
+      "path": "work/render_hy4_final_reports.py",
+      "before_sha256": "3cd85c4c9ac1a334eae8f81301b325add5f927328f81b09fed8b636c23a66ff6",
+      "after_sha256": "549ad4a6c626709dd1c6d4c9776845e0f92c4ddaa7beedfc3c69f22add68fe18",
+      "AST_identical_except_string_literals": true
+    },
+    {
+      "path": "work/hw0102-publish/shared/scripts/render_hw0102_final.py",
+      "before_sha256": "b8f729237797cd477f8b010754d083450e699c93c7562418f5c29c3c60d46b80",
+      "after_sha256": "f89efb2671c4ef767c8d676d2f3b43fec55eea7d6a1f3e0b5cd4497e8c4c6ecc",
+      "AST_identical_except_string_literals": true
+    }
+  ],
+  "reused_review": "work/report-rubric-review-20261126/independent-final-review.json",
+  "reused_review_sha256": "6a94e85538a9aa7903f4e61ab7914979b939f0743a64865c75141028f359765b",
+  "fresh_independent_review_performed": false,
+  "new_model_or_grader_calls": 0
+}

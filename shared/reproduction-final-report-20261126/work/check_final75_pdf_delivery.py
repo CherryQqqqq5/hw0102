@@ -14,7 +14,7 @@ if (not data["complete_required_experiments"] or not data["main_and_repeat_all75
         or review["source_summary_sha256"] != data["summary_sha256"] or review["blocking_findings_remaining"]):
     raise ValueError("Final PDF checks require the qualified actual final results")
 tasks = json.loads((root / data["tasks_path"]).read_bytes())["selected"]
-output = root / "work/report-rubric-review-20261126/pdf-qa"
+output = root / "work/report-positive-prose-20261126/pdf-qa"
 output.mkdir(parents=True, exist_ok=True)
 results = []
 for numeral in ("一", "二"):
