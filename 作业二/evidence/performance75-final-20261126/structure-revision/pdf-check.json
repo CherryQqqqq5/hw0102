@@ -1,0 +1,86 @@
+{
+  "report_data_sha256": "62c90ea21e23dc818ff23bad7641029d8ac17ab98c8d0bfff8953131f705fca4",
+  "source_summary_sha256": "adff31af130194be2c54f8f1006e0c702451e4f5828edbdeb62d610da57a2057",
+  "final_science_review_sha256": "5d49487ebd98cb8f6b536aab40b1be6eeb90fdc149ee7d001178728975f551f2",
+  "renderer_sha256": "89a81b9f4e23a5db621cb7418e6a46be503bfdd0b39b1cdf71e34189af64cae4",
+  "checker_sha256": "44dff1a60d47ef4a0f29b5ca636a475b83bd83d8a41b909b7f49f85984faa2a7",
+  "pdfs": [
+    {
+      "path": "$PROJECT_ROOT/outputs/231880296_邱昱宁_作业一.pdf",
+      "pages": 3,
+      "bytes": 234262,
+      "sha256": "8938d2ce3bce54970dd3cb3000099adc249aff885d4b465458f09f870ddad2ec",
+      "characters_per_page": [
+        1063,
+        1106,
+        586
+      ],
+      "links": [
+        "https://github.com/Aider-AI/polyglot-benchmark/tree/7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f",
+        "https://github.com/CherryQqqqq5/hw0102/tree/main/%E4%BD%9C%E4%B8%9A%E4%B8%80",
+        "https://github.com/SWE-agent/mini-swe-agent",
+        "https://github.com/harbor-framework/terminal-bench-2-1/tree/7131e4375048a0e408a8fb404b5f499d726b695b",
+        "https://www.swebench.com/SWE-bench/reference/harness/"
+      ],
+      "fonts": [
+        "AAAAAA+STHeitiSC-Light-1",
+        "AAAAAA+STHeitiSC-Medium-1",
+        "AAAAAB+STHeitiSC-Light-1"
+      ],
+      "chapter_order": [
+        "一、实验目的",
+        "二、实验原理与方法",
+        "三、实验环境与设置",
+        "四、实验步骤",
+        "五、实验结果",
+        "六、结果分析与改进验证",
+        "七、实验结论",
+        "参考文献"
+      ],
+      "all_characters_use_Heiti": true,
+      "all_characters_within_pages": true,
+      "all_required_actual_values_present": true
+    },
+    {
+      "path": "$PROJECT_ROOT/outputs/231880296_邱昱宁_作业二.pdf",
+      "pages": 4,
+      "bytes": 291544,
+      "sha256": "36ddd4615c37df61b321b2dcec9c95468f21bd1f4dc6a583d7c01b0687f63d44",
+      "characters_per_page": [
+        1009,
+        987,
+        1211,
+        1087
+      ],
+      "links": [
+        "https://github.com/CherryQqqqq5/hw0102",
+        "https://github.com/SWE-agent/mini-swe-agent",
+        "https://github.com/eliben/pyelftools/blob/main/doc/user-guide.md",
+        "https://github.com/scikit-learn/scikit-learn/blob/main/sklearn/impute/_iterative.py",
+        "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+        "https://www.cs.sjsu.edu/~stamp/crypto/PowerPoint_PDF/13_FEAL.pdf"
+      ],
+      "fonts": [
+        "AAAAAA+STHeitiSC-Light-1",
+        "AAAAAA+STHeitiSC-Medium-1",
+        "AAAAAB+STHeitiSC-Light-1",
+        "AAAAAC+STHeitiSC-Light-1"
+      ],
+      "chapter_order": [
+        "一、实验目的",
+        "二、实验原理与改进方法",
+        "三、实验环境与设置",
+        "四、实验步骤",
+        "五、实验结果",
+        "六、结果分析与讨论",
+        "七、实验结论",
+        "参考文献"
+      ],
+      "all_characters_use_Heiti": true,
+      "all_characters_within_pages": true,
+      "all_required_actual_values_present": true
+    }
+  ],
+  "visual_inspection_is_separate": true,
+  "new_model_calls": 0
+}

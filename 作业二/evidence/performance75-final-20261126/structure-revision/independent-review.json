@@ -1,0 +1,297 @@
+{
+  "schema_version": 1,
+  "record_kind": "independent_final_report_structure_font_and_scientific_wording_review",
+  "reviewer": "/root/parallel_capacity_review",
+  "status": "APPROVE_WITH_STATED_LIMITS",
+  "blocking_findings_remaining": 0,
+  "blocking_findings": [],
+  "remaining_specific_P1_or_P2": [],
+  "scope": {
+    "new_reports_pages": [
+      3,
+      4
+    ],
+    "full_text_of_both_actual_PDFs_read": true,
+    "all7_actual_page_PNGs_visually_inspected": true,
+    "actual_PDF_bytes_fonts_bounds_and_saved_text_independently_checked": true,
+    "only_this_review_file_written": true,
+    "old225_trajectory_reaudit": false,
+    "model_calls": 0,
+    "original_grader_calls": 0,
+    "VM_operations": 0,
+    "network_operations": 0,
+    "Git_operations": 0
+  },
+  "actual_PDFs": [
+    {
+      "path": "outputs/231880296_邱昱宁_作业一.pdf",
+      "sha256": "8938d2ce3bce54970dd3cb3000099adc249aff885d4b465458f09f870ddad2ec",
+      "bytes": 234262,
+      "pages": 3,
+      "text_path": "work/report-structure-review-20261126/pdf-qa/assignment-一-text.txt",
+      "text_sha256": "2e70ef1da08c757a9f5b6dac7a0f14fdf5cd26e325a33bcb0fc980db50ccee67",
+      "exact_actual_text_matches": true,
+      "nonempty_characters_by_embedded_font": {
+        "AAAAAA+STHeitiSC-Light-1": 1843,
+        "AAAAAA+STHeitiSC-Medium-1": 209,
+        "AAAAAB+STHeitiSC-Light-1": 553
+      },
+      "all_nonempty_chars_Heiti_and_black": true,
+      "all_chars_within_page_bounds": true,
+      "chapter_order": [
+        "一、实验目的",
+        "二、实验原理与方法",
+        "三、实验环境与设置",
+        "四、实验步骤",
+        "五、实验结果",
+        "六、结果分析与改进验证",
+        "七、实验结论",
+        "参考文献"
+      ],
+      "nonwhitespace_text_characters": 2605,
+      "previous_5_or11page_prose_version_text_characters": 5004,
+      "text_reduction_percent": 47.941646682653875
+    },
+    {
+      "path": "outputs/231880296_邱昱宁_作业二.pdf",
+      "sha256": "36ddd4615c37df61b321b2dcec9c95468f21bd1f4dc6a583d7c01b0687f63d44",
+      "bytes": 291544,
+      "pages": 4,
+      "text_path": "work/report-structure-review-20261126/pdf-qa/assignment-二-text.txt",
+      "text_sha256": "dd7a2dc891396b901548ceed54242f2a0d46632e09cffa4d0f3521e6f9757234",
+      "exact_actual_text_matches": true,
+      "nonempty_characters_by_embedded_font": {
+        "AAAAAA+STHeitiSC-Light-1": 2697,
+        "AAAAAA+STHeitiSC-Medium-1": 375,
+        "AAAAAB+STHeitiSC-Light-1": 903,
+        "AAAAAC+STHeitiSC-Light-1": 88
+      },
+      "all_nonempty_chars_Heiti_and_black": true,
+      "all_chars_within_page_bounds": true,
+      "chapter_order": [
+        "一、实验目的",
+        "二、实验原理与改进方法",
+        "三、实验环境与设置",
+        "四、实验步骤",
+        "五、实验结果",
+        "六、结果分析与讨论",
+        "七、实验结论",
+        "参考文献"
+      ],
+      "nonwhitespace_text_characters": 4063,
+      "previous_5_or11page_prose_version_text_characters": 10190,
+      "text_reduction_percent": 60.12757605495584
+    }
+  ],
+  "structure_and_readability": {
+    "assignment1_order": [
+      "一、实验目的",
+      "二、实验原理与方法",
+      "三、实验环境与设置",
+      "四、实验步骤",
+      "五、实验结果",
+      "六、结果分析与改进验证",
+      "七、实验结论",
+      "参考文献"
+    ],
+    "assignment2_order": [
+      "一、实验目的",
+      "二、实验原理与改进方法",
+      "三、实验环境与设置",
+      "四、实验步骤",
+      "五、实验结果",
+      "六、结果分析与讨论",
+      "七、实验结论",
+      "参考文献"
+    ],
+    "both_actual_section_orders_match_experimental_report_logic": true,
+    "narrative_reorganization_is_substantive": true,
+    "reorganization_evidence": [
+      "作业一先定义评测目的与原题评分方法，再说明抽样/模型/预算和执行步骤，之后给26/30结果、四个真实失败与改进验证，最后给结论和参考；不再先堆改进总榜、后补原始实验。",
+      "作业二开篇直接承接作业一的产物未交付和自查覆盖不足，解释五种动作/检查版本及成熟方法支持；环境与协议先于结果，结果先于四个机制案例和贡献范围讨论。",
+      "一级标题为一至七和参考文献；二级标题使用2.x/3.x/5.x/6.x并按方法、设置、结果、案例分组。标题/小标题字号与黑体Medium字重可辨，正文Light黑体保持。",
+      "作业二删去75题逐题附录和冗余案例汇总表；完整逐题评分与轨迹仍由提交附件承载，PDF保留主要成绩、成本、消融和机制案例。"
+    ],
+    "assignment1_motivation_and_assignment2_link_satisfy_the_grading_dimension": true,
+    "first_level_style": {
+      "font": "STHeitiSC-Medium",
+      "points": 14
+    },
+    "second_level_style": {
+      "font": "STHeitiSC-Medium",
+      "points": 11.5
+    },
+    "body_style": {
+      "font": "STHeitiSC-Light",
+      "points": 10.7
+    },
+    "table_header_and_total_rows_bold": true,
+    "key_results_explicitly_bold": true,
+    "no_expected_behavior_column": true,
+    "no_assignment2_per_task_appendix": true,
+    "visual_issues_observed": [],
+    "body_and_table_text_materially_shorter": {
+      "assignment1_nonwhitespace_chars": 2605,
+      "previous_saved_prose_version_chars": 10190,
+      "reduction_percent": 47.941646682653875,
+      "assignment2_nonwhitespace_chars": 4063,
+      "assignment2_reduction_percent": 60.12757605495584,
+      "comparison_scope": "Counts include actual PDF body and table text plus headings/references/footers. The directly available earlier prose snapshots are5/11pages; current3/4pages are also below the user's stated7/11page baseline. No old unavailable7page PDF is invented or newly inspected."
+    }
+  },
+  "font_and_layout": {
+    "all_nonempty_characters_STHeitiSC": true,
+    "all_nonempty_text_black": true,
+    "actual_embedded_weights": [
+      "STHeitiSC-Light",
+      "STHeitiSC-Medium"
+    ],
+    "distinct_weights_not_synthetic_label_only": true,
+    "all_nonempty_characters_within_page_bounds": true,
+    "title_heading_table_and_body_visually_checked": true,
+    "all7pages_no_clipping_overlap_or_broken_characters_observed": true,
+    "rendered_PNGs_reused_without_regenerating_PDF": true
+  },
+  "numerical_and_scope_checks": {
+    "fixed_report_data_sha256": "62c90ea21e23dc818ff23bad7641029d8ac17ab98c8d0bfff8953131f705fca4",
+    "fixed_joint_summary_sha256": "adff31af130194be2c54f8f1006e0c702451e4f5828edbdeb62d610da57a2057",
+    "fixed_scientific_review_sha256": "5d49487ebd98cb8f6b536aab40b1be6eeb90fdc149ee7d001178728975f551f2",
+    "baseline_D30": {
+      "tasks": 30,
+      "passed": 26,
+      "requests": 335,
+      "responses": 334,
+      "input_tokens": 6484685,
+      "output_tokens": 801379,
+      "source": "work/coverage-check/trials.csv"
+    },
+    "same_model_current_comparison": {
+      "main": "75/75",
+      "dsh": "69/75",
+      "repeat": "75/75",
+      "difference_tasks": 6,
+      "difference_percentage_points": 8
+    },
+    "inherited_and_new_positions": {
+      "unchanged_tasks": 67,
+      "inherited_positions": 134,
+      "changed_tasks": 8,
+      "fixed_new_positions": 16,
+      "not_a_fresh_full150_rerun": true
+    },
+    "development_tasks_not_unseen": true,
+    "whole_leaderboard_or_SOTA_claim_present": false,
+    "C0_model_requested_checks_not_C1_automatic_checks": true,
+    "C0_applicable_positions_per_round": 73,
+    "B0_tasks": [
+      "fix-git",
+      "mailman"
+    ],
+    "C1_scope": "历史控制分析；没有把最终C0描述为逐步自动检查。",
+    "same_model_request_counts": {
+      "main": 1270,
+      "dsh": 1200,
+      "repeat": 1209
+    },
+    "main_minus_DSH_requests": 70,
+    "main_request_increase_percent": 5.8,
+    "main_minus_DSH_group_median_seconds": 14.6,
+    "per_actual_attempt_budget_and_multiple_mechanical_attempt_cost_boundary_retained": true,
+    "development_physical_scored_attempts": 246,
+    "development_own_verified_request_count": 4348,
+    "original225_raw_passed": 213,
+    "revisions16_raw_passed": 16,
+    "earlier_JSON5_raw_passed": 5,
+    "cost_groups_not_added_again_to_effective_matrix": true,
+    "known_interruption_wall_seconds_lower_bound": 206.2355789160356,
+    "interruption_attempts_with_unknown_wall": 2,
+    "guidance_ablation": {
+      "raw_with": "3/3",
+      "raw_without": "3/3",
+      "no_observed_success_rate_gain": true,
+      "helpers_present_and_used_in_both_groups": true,
+      "reference_is_original_v18": true,
+      "old_ReLU_reference_rawtrue_check_unqualified_preserved": true,
+      "later_v20_not_substituted": true,
+      "no_single_component_or_strong_general_causal_claim": true
+    },
+    "FEAL": {
+      "only_this_development_task_two_stages_of_two_observations": true,
+      "old_original_passed": "1/2",
+      "new_original_passed": "2/2",
+      "old_requests": 99,
+      "new_requests": 15,
+      "old_summed_wall_seconds": 3763.0203253339278,
+      "new_summed_wall_seconds": 182.06361662596464,
+      "request_reduction_percent": 84.8,
+      "wall_reduction_percent": 95.2,
+      "result_described_as_algorithm_support_plus_semantic_check_bundle": true
+    },
+    "NaN_contract": {
+      "old_original_scores_true_preserved": true,
+      "old_main_public_cases": "8/12",
+      "old_repeat_public_cases": "9/12",
+      "fixed_new_main_public_cases": "12/12",
+      "fixed_new_repeat_public_cases": "12/12",
+      "new_original_scores_true_separately_stated": true,
+      "repeat_public_feedback_steps": [
+        24,
+        28,
+        33
+      ],
+      "steps_described_as_observed_feedback_revision_recheck_chain_not_net_causal_estimate": true,
+      "training_each_feature_has_observations_limit_retained": true
+    },
+    "raw_original_scores_and_public_verification_not_conflated": true,
+    "mechanism_use": {
+      "main_requested_checks": 101,
+      "main_saved": 125,
+      "main_eligible": 53,
+      "repeat_requested_checks": 96,
+      "repeat_saved": 128,
+      "repeat_eligible": 60,
+      "actual_restores_both": 0
+    },
+    "success_not_attributed_to_unused_restore": true
+  },
+  "grading_alignment": {
+    "table_source": "work/hw0102-publish/作业二/evidence/course-grading-tables-20261118.md",
+    "assignment1": "目的/原理/设置/步骤交代真实30题原评测；结果26/30、四个具体错误及三类机制、对应策略和后续验证构成连贯实验报告，证据索引留在附件。",
+    "assignment2_motivation_15point_dimension": "明确从作业一的具体失败提出目标：连接交付与验证、独立检查依据、成熟算法支持；不是只展示75/75总榜。",
+    "assignment2_real_change_and_cases": "真实接口/检查/候选及公开方法机制清楚；query、ELF、FEAL、NaN提供至少3个实际分析案例。",
+    "assignment2_comparison_and_ablation": "同模型DSH、独立重复、开发记录/成本以及3题指导消融均保留，结果与局限分别讨论。",
+    "no_teacher_grade_or_full_marks_prediction": true
+  },
+  "source_integrity": {
+    "load_AST_unchanged_from_structure_before": true,
+    "verify_nvidia_closed_source_AST_unchanged_from_structure_before": true,
+    "report_data_summary_science_review_bytes_unchanged": true,
+    "fee_score_protection_or_completion_gate_changed_by_this_review": false,
+    "previous_report_and_review_versions_not_overwritten": true
+  },
+  "limits": [
+    "此记录批准当前结构、字体、文案与固定数据的一致性，不重做225条轨迹审查，也不替代原科学审查的完整语义/费用边界。",
+    "75题均参与开发，134份继承和16份专项新记录组成最终方法；75/75不代表未见任务泛化或公开整榜最优。",
+    "原题分数、公开检查和保护分别判定；NaN旧原分通过但公开行为有缺口的事实仍清楚保留。",
+    "3题指导消融双方均3/3，历史23题控制分析为事后匹配，不能从中推出各模块的独立强因果收益。",
+    "未执行模型、原评分、虚拟机、网络、Git、远端同步或最终打包；只新增此独立review JSON。"
+  ],
+  "source_sha256": {
+    "work/render_hy4_final_reports.py": "89a81b9f4e23a5db621cb7418e6a46be503bfdd0b39b1cdf71e34189af64cae4",
+    "work/render_course_phase_reports.py": "120787f978cdbb3ff07b8855915fbc7ef0079351437509faed3fd8b138516b1e",
+    "work/hw0102-publish/shared/scripts/render_hw0102_final.py": "524f1bfad4a6bda6a563d7a6a5287c6e625d8449f68923f344185dda7fc3f41d",
+    "work/report-structure-review-20261126/renderer-before.py.txt": "583eebb9b5b0284e41846b8bd5c5498d6bb51c526398f90895ecf68f9b727da6",
+    "work/report-structure-review-20261126/layout-before.py.txt": "f0076e4a91edd0b25d252e2e66436c330c63c7e940d9926e67bd4c710f8004f0",
+    "work/report-structure-review-20261126/baseline-before.py.txt": "259df45c6ea9a74880a8b7c7c6ced2db9ba414829d9d35421344d3cb0c02102c",
+    "work/report-structure-review-20261126/pdf-qa/structural-and-values-check.json": "7f5d0f1f6744c52d01bc1460fb101ee728459230ae4c97bc9b529505f9c76184",
+    "work/parallel-free-evaluation-20261124/report-data-final75-20261126.json": "62c90ea21e23dc818ff23bad7641029d8ac17ab98c8d0bfff8953131f705fca4",
+    "work/parallel-free-evaluation-20261124/final-source-and-trace-review-20261126.json": "5d49487ebd98cb8f6b536aab40b1be6eeb90fdc149ee7d001178728975f551f2",
+    "work/parallel-free-evaluation-20261124/joint-final75-20261126/summary.json": "adff31af130194be2c54f8f1006e0c702451e4f5828edbdeb62d610da57a2057",
+    "work/coverage-check/trials.csv": "b488c46a358a438e207467ea41f0612290d94a88558f2bdde75db5f5865864d6",
+    "work/hw0102-publish/作业二/evidence/course-grading-tables-20261118.md": "6e9b463dc63c96686f2c49710cc5af7a56903733dfdc2b349a99a84c00d52996",
+    "outputs/231880296_邱昱宁_作业一.pdf": "8938d2ce3bce54970dd3cb3000099adc249aff885d4b465458f09f870ddad2ec",
+    "work/report-structure-review-20261126/pdf-qa/assignment-一-text.txt": "2e70ef1da08c757a9f5b6dac7a0f14fdf5cd26e325a33bcb0fc980db50ccee67",
+    "outputs/231880296_邱昱宁_作业二.pdf": "36ddd4615c37df61b321b2dcec9c95468f21bd1f4dc6a583d7c01b0687f63d44",
+    "work/report-structure-review-20261126/pdf-qa/assignment-二-text.txt": "dd7a2dc891396b901548ceed54242f2a0d46632e09cffa4d0f3521e6f9757234"
+  }
+}

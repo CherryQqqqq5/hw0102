@@ -6,7 +6,7 @@ from statistics import median
 
 from reportlab.platypus import PageBreak, Spacer
 
-from render_course_phase_reports import build, heading, link, paragraph, table, width
+from render_course_phase_reports import build, heading, subheading, link, paragraph, table, width
 
 
 work = Path("work")
@@ -24,154 +24,84 @@ footer = "智能推理与规划 · 邱昱宁"
 def baseline_report(confirmation_batch: str | None = None, *, validation_items: list | None = None,
                     output_filename: str | None = None, report_subtitle: str | None = None,
                     report_footer: str | None = None, validation_first: bool = False) -> None:
-    task_records = json.loads((work / "hw0102-publish/作业一/evidence/task-records.json").read_text())["records"]
-    task_index = {record["task"]: record for record in task_records}
     coverage = {row["benchmark"]: row for row in summary["coverage"] if row["split"] == "D" and row["arm"] == "B0"}
     baseline = [row for row in rows if row["split"] == "D" and row["arm"] == "B0"]
     if len(baseline) != 30 or any(coverage[key]["scoreable"] != 10 for key in labels):
-        raise ValueError("The final baseline report requires 30 valid benchmark scores")
-    overview = [["基准", "有效评分", "通过", "未通过", "通过率"]]
+        raise ValueError("The final baseline report requires30valid original scores")
+    overview = [["基准", "已评分", "通过", "未通过", "通过率"]]
     for key, label in labels.items():
         item = coverage[key]
         overview.append([label, 10, item["success"], 10 - item["success"], f"{item['success'] / 10:.0%}"])
     successes = sum(item["success"] for item in coverage.values())
     overview.append(["合计", 30, successes, 30 - successes, f"{successes / 30:.1%}"])
-    valid_responses = sum(int(row["model_responses"]) for row in baseline)
-    calls = sum(int(row["model_calls"]) for row in baseline)
-    input_tokens = sum(int(row["input_tokens"]) for row in baseline)
-    output_tokens = sum(int(row["output_tokens"]) for row in baseline)
-    case_items = [
-        heading("代表案例与归因"),
-        paragraph("视频处理 · video-processing。第 1 次调用发现缺少 toml 模块，但第 14 次调用写出的脚本已可导入。"
-                  "第 3 至 13 次反复探索前景和轮廓，留给示例验证的时间较少。原题验收的两段视频起跳帧为 66 和 322，"
-                  "超出允许区间 50–54 和 219–223。直接失败是定位输出不准确。题面没有标准帧标签，"
-                  "公开检查可以验证产物结构和可执行性，定位精度仍需独立验收。"),
-        paragraph("查询优化 · query-optimize。第 8 步的临时候选在 2.425 秒返回 500 行，第 9 步在临时索引副本上"
-                  "记录候选与原查询输出相同。第 4、5、10 步触及命令时限，最后未写入 /app/sol.sql，原题四项测试因此失败。"
-                  "先保存可运行草稿后，原题才可分别检查正确性、效率、语句数和长度。"),
-        paragraph("批处理调度 · llm-inference-batching-scheduler。第 8 步脚本正常退出，但两个请求桶的八组设置均未达本地指标。第 9 次请求超时后，"
-                  "原题评分器发现 plan_b1.jsonl 缺失，五项测试失败。尽早落盘可以检查候选，已观察到的性能超限仍需解决。"),
-        paragraph("二进制地址提取 · extract-elf。第 5 步已写脚本，第 12 步完成 698 项本地检查并报告零不一致。"
-                  "原题确认程序可执行，但参考地址覆盖率为 0.00%，低于 75%。本地检查沿用实现的固定 0x400000 基址和相同地址映射，"
-                  "因此未独立检验地址定义。已确认的失败是地址集合未覆盖参考结果，地址映射或表示不一致是有依据的原因假设。"
-                  "终止状态 TimeExceeded 无法单独解释零覆盖率。"),
-        paragraph("跨基准对照。Aider 的 go/variable-length-quantity 在第 3 步测试发现两字节序列的解码值错误，"
-                  "第 4 步修正后同套测试通过，正式评分也通过。SWE-bench 的 xarray-6599 在第 11 步修改源码，"
-                  "虽以 TimeExceeded 终止，官方仍判定补丁解决问题。前者展示测试反馈促成修正，后者说明截止前保存的有效产物仍可通过独立验收。"),
-        heading("错误机制与改进"),
-        paragraph("第一类是验证范围不足。脚本能导入、运行或产出格式正确的文件，仍可能在任务语义或精度上失败。"
-                  "将格式、可运行性和任务语义分成独立检查，并标明公开检查的覆盖边界。第二类是探索与交付脱节。"
-                  "存在可运行的临时候选时，后续诊断可能耗尽预算，最终路径仍为空。为显式交付路径设置早期检查点，"
-                  "将草稿落盘和改进过程连接起来。提供方与容器故障单独记录。"),
-        table([["互斥主机制", "实际失败题", "数量", "改进与验证边界"],
-               ["产物交付", "query-optimize；批处理调度", "2/4", "先保存指定路径；保存后仍须检验等价性与性能"],
-               ["语义精度", "video-processing", "1/4", "观察事件邻帧；独立验收定位误差"],
-               ["验证范围不足", "extract-elf", "1/4", "独立检验地址含义；避免实现与自查共用未经检验假设"]],
-              [90, 135, 40, width - 265]),
-        paragraph("表中按每题的直接失败归入一种主机制，四题均来自Terminal任务。超时是伴随条件："
-                  "调度题同时存在性能不足，ELF题在超时前已出现错误自查。因而改进要处理产物、语义和独立验证，延长时间本身不足以消除这些错误。"
-                  "对应策略的复测均已通过，完整对照与消融见作业二。"),
-    ]
+    calls, responses, input_tokens, output_tokens = (
+        sum(int(row[key]) for row in baseline)
+        for key in ("model_calls", "model_responses", "input_tokens", "output_tokens"))
     items = [
-        heading("任务抽样与固定条件"),
-        paragraph("SWE-bench Verified 检查真实软件缺陷修复，Terminal-Bench 2.1 检查终端环境中的多步执行，"
-                  "Aider Polyglot 检查跨语言编程和可执行测试。三套基准分别按仓库、终端任务类型和编程语言覆盖抽样，"
-                  "各冻结 10 道诊断题和 5 道留出题。45 道题均经起始状态和参考解评分对照，完整候选与排除理由见冻结清单。"),
-        paragraph("候选数据分别含 SWE-bench 500 题、Terminal-Bench 89 题、Aider 225 题。SWE 仅保留小于 15 分钟或 "
-                  "15 分钟至 1 小时修复标签，并要求可用官方评分镜像；正式样本来自 Django、xarray、scikit-learn、pytest 四个仓库，"
-                  "偏向短修复。Terminal 限每题不超过 2 个处理器核心、3072 MB 内存、单容器和离线运行；"
-                  "运行时需下载模型或数据、参考解离线失败的题被排除。"),
-        paragraph("Aider 按 C++、Go、Java、JavaScript、Python、Rust 六语言覆盖抽样，D 数量依次为 2、2、1、2、2、1。"
-                  "预检排除参考解缺离线依赖的 Rust alphametics，以及起始实现已经通过的 Go markdown、ledger。"
-                  "筛选规则在正式评测前固定。"),
-        paragraph("基线使用 mini-SWE-agent 2.4.6 和 CodeBuddy 2.179.3，模型固定为 deepseek-v4.1-flash。"
-                  "每题最多 24 次模型请求，模型调用之间检查 600 秒交互时限，单次模型请求上限 150 秒，"
-                  "单条容器命令上限 60 秒。已发出的请求和独立评分会增加实际耗时。智能体容器与评分证据隔离。"),
-        paragraph("Aider题目由mini-SWE-agent执行，原测试可见，使用本实验的预算与提交方式。"),
-        heading("基准结果"), table(overview, [171, 82, 70, 70, width - 393]), Spacer(1, 7),
-        paragraph(f"共记录 {calls} 次模型请求、{valid_responses} 次响应、{input_tokens:,} 个服务报告输入词元和 "
-                  f"{output_tokens:,} 个输出词元。未返回响应的调用可能缺少用量。通过率以各基准的 10 道有效评分为分母。"),
-        paragraph("SWE-bench 由官方 resolved 指标判定，Terminal-Bench 使用 Harbor 的原题奖励，Aider 以原题测试全通过判定。"
-                  "模型超时后由原题评分器检查实际留下的产物，提供方超时单列。评分通过和智能体提交声明分别统计。"),
-        PageBreak(), *case_items, heading("逐题结果与证据索引"),
-        paragraph("下表列出逐题目标、预期行为与实际评分；完整输入、工具轨迹和验收输出随附件提供。"),
-    ]
-    for key, label in labels.items():
-        items.append(heading(label))
-        details = [["任务", "任务目标与预期行为", "原评分", "终止状态"]]
-        for row in baseline:
-            if row["benchmark"] == key:
-                details.append([row["task"], task_index[row["task"]]["task_description"],
-                                "通过" if row["passed"] == "True" else "未通过", row["exit_status"] or "见轨迹"])
-        items.extend([table(details, [161, 188, 45, width - 394]), Spacer(1, 5)])
-    items.extend([
-        heading("实验范围与复现"),
-        paragraph("每套只有 10 道诊断题，且偏向资源有限、可离线评分与较短修复的任务，结果适用于当前抽样范围和运行条件。"
-                  "首轮 xarray 轨迹读取了镜像内缓存的较新版本源码。屏蔽缓存后重新执行，隔离前的尝试另存。"
-                  "公开题的训练暴露与测试覆盖也会影响结论。"),
-        paragraph("作业一附件按题收录输入、预期、实际结果、工具轨迹及原评分，formal-trials.csv可逐题复算。"
-                  "通过分别按SWE-bench的resolved、Terminal奖励1和Aider原测试全过判定。辅助实现与报告整理使用Codex。"),
-        link("作业一证据目录", "https://github.com/CherryQqqqq5/hw0102/tree/main/%E4%BD%9C%E4%B8%9A%E4%B8%80"),
-        link("课程说明", "https://nju-link-lab.feishu.cn/wiki/QLwBwXov6iHjsJkeBPLck9AUncc"),
-        link("Aider Polyglot原始任务与固定版本7e0611e7", "https://github.com/Aider-AI/polyglot-benchmark/tree/7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"),
-        link("SWE-bench Verified原始数据与固定版本78f471bf", "https://huggingface.co/datasets/SWE-bench/SWE-bench_Verified/tree/78f471bf655a3137b2e8a75af1501690ec009ec3"),
-        link("Terminal-Bench 2.1原始任务与固定版本7131e437", "https://github.com/harbor-framework/terminal-bench-2-1/tree/7131e4375048a0e408a8fb404b5f499d726b695b"),
-        link("SWE-bench 官方评测程序", "https://www.swebench.com/SWE-bench/reference/harness/"),
-        link("SWE-bench Verified 覆盖与训练暴露审查", "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/"),
-    ])
-    if confirmation_batch is not None:
-        complete = work / (confirmation_batch + "-summary")
-        confirmed_rows = json.loads((complete / "trials.json").read_text())
-        confirmed = json.loads((complete / "summary.json").read_text())
-        audit = json.loads((work / (confirmation_batch + "-source-audit.json")).read_text())
-        if len(confirmed_rows) != 270 or any(not row["scoreable"] for row in confirmed_rows):
-            raise ValueError("The baseline update requires all 270 original confirmation scores")
-        if audit["batch"] != confirmation_batch or audit["primary_positions"] != 270:
-            raise ValueError("The baseline update requires the matching complete source audit")
-        if audit["free_billing"]["missing_responses"] or audit["free_billing"]["reported_credit_for_returned_responses"] != 0:
-            raise ValueError("The new baseline has missing or nonzero actual billing")
-        grouped = {row["benchmark"]: row for row in confirmed["coverage"] if row["arm"] == "B0"}
-        new_baseline = grouped["all"]
-        if new_baseline["trials"] != 90:
-            raise ValueError("The free baseline requires three scored repeats for each of 30 tasks")
-        items.extend([
-            PageBreak(), heading("免费模型重复基线复测"),
-            paragraph("在另一份固定30题清单上，以hy4flash-free执行三条件、每题三轮共270个位置，"
-                      "其中原生基线B0有90次独立原题评分。该集合曾用于服务复测，属于固定任务重复评测。"
-                      "原报告的30道诊断题和本次30道任务分别记录，不将不同模型、题单及预算口径的成绩相加。"),
-            table([["基准", "B0原题通过", "三轮均通过题数", "模型请求"],
-                *[[label, f"{grouped[key]['success']}/{grouped[key]['trials']}",
-                   f"{grouped[key]['all_three_successful_tasks']}/10", grouped[key]["model_calls"]]
-                  for key, label in labels.items()],
-                ["合计", f"{new_baseline['success']}/90（{new_baseline['success_rate']:.1%}）",
-                 f"{new_baseline['all_three_successful_tasks']}/30", new_baseline["model_calls"]]],
-                [145, 135, 110, width - 390]),
-            paragraph("本次每题24次决策、600秒内部硬时限、60秒命令、4096输出词元上限，无额外请求重试。"
-                      "每条实际服务回复均验证免费模型身份及零积分；未评分和历史未知费用单独保留，"
-                      "不能作为有效失败或零费用填入成绩。客户端截断、轮数异常及输出传输修复按来源版本记录。"
-                      "作业二给出三条件配对比较、成本、失败案例和解释限制。"),
-            paragraph(audit.get("comparison_limitations", "各来源执行版本分别保留。")),
-            heading("推理耗尽而未形成工具动作"),
-            paragraph("免费B0的90次原评分中，20次以RepeatedFormatError退出，其中19次原题失败、1次仍通过。"
-                      "polyglot-rust-c第二轮的三次实际请求，各输出4096个推理词元，合计12288，均没有工具动作，原题失败。"
-                      "后两次请求只在原题后增加短动作错误提示，保存历史分别为2、3条user消息，没有失败原生assistant状态。"
-                      "此处错误发生在工具执行之前，重复提醒仍受相同输出上限约束，后续结果验证没有机会处理未生成的候选。"),
-            paragraph("同题第一轮第2个命令行客户端（Command-Line Interface，CLI）请求包含4096、4096、3650三段原生输出，最终形成动作，记录truncation_recovered且原题通过。"
-                      "首轮B0为29/30，第二、三轮为19/30和20/30；客户端续接与外层恢复的版本变化同时发生，不能只归因于模型能力或某一控制模块。"
-                      "改进假设是在相同总预算内保留原生状态、限制续接并给动作保留额度；本轮只分析原记录，没有运行新恢复方案。"
-                      "这组补充案例不并入原30道诊断题的4条失败分类，完整逐段用量及请求历史角色见作业二的course-execution-failure-analysis-20261118.json。"),
-            paragraph(f"本次基线已返回输入{new_baseline['input_tokens']:,}、输出{new_baseline['output_tokens']:,}词元，"
-                      f"运行总用时中位数{new_baseline['median_wall_seconds']:.1f}秒。"
-                      f"完整逐位置成绩及来源见作业二/evidence/{confirmation_batch}-summary/，"
-                      "原题评分与实际费用由匹配的source-audit.json核验。"),
-            link("免费模型冻结协议", "https://github.com/CherryQqqqq5/hw0102/commit/" + audit["protocol_commit"]),
-        ])
+        heading("一、实验目的"),
+        paragraph("本实验评测编程智能体在软件缺陷修复、终端多步任务和跨语言编程中的表现，"
+                  "通过实际运行与原题评分定位影响完成任务的关键问题，提出对应改进，并检验改进后的结果。"),
+        heading("二、实验原理与方法"),
+        paragraph("使用mini-SWE-agent的原生执行循环：模型读取题面和可见代码，选择命令，"
+                  "根据真实工具返回继续修改，最后交付文件或补丁。任务结束后由独立原题评分器检查实际产物。"
+                  "模型声明完成、命令退出和原题评分分别记录。"),
+        paragraph("SWE-bench Verified按官方resolved指标判定软件修复；Terminal-Bench 2.1使用Harbor执行原题验收；"
+                  "Aider Polyglot以原测试全部通过判定。通过率以实际取得原题评分的任务数为分母。"),
+        heading("三、实验环境与设置"),
+        subheading("3.1 任务抽样"),
+        paragraph("三套基准各选10道诊断题，共30题；另各预留5题用于后续研究。45题均核对起始状态与参考解评分后固定。"
+                  "SWE-bench候选500题，样本覆盖Django、xarray、scikit-learn、pytest；Terminal候选89题，"
+                  "按任务类型覆盖抽样；Aider候选225题，覆盖C++、Go、Java、JavaScript、Python、Rust六种语言。"),
+        paragraph("筛选优先选择可离线评分和较短的软件修复。Terminal任务限制为单容器、至多2个处理器核心及3072 MB内存，"
+                  "排除运行时必须联网下载或参考解离线失败的任务。Aider排除离线依赖缺失或初始实现已通过的题。"
+                  "这些筛选条件在正式评测前固定。"),
+        subheading("3.2 模型与执行预算"),
+        paragraph("基线采用mini-SWE-agent 2.4.6、CodeBuddy 2.179.3与deepseek-v4.1-flash。"
+                  "每题最多24次模型请求，交互时限600秒，在相邻请求之间检查；单请求上限150秒，单命令60秒。"
+                  "已发请求和独立验收可能延长总耗时。智能体与评分证据隔离，Aider题目原测试可见。"),
+        heading("四、实验步骤"),
+        paragraph("（1）固定题单、初始环境和预算，核对起始状态及参考解的原题评分。"),
+        paragraph("（2）为每题创建隔离环境，执行原生智能体，保存模型请求、命令、工具返回和最终产物。"),
+        paragraph("（3）正常提交或达到时限后，对实际留下的产物执行原题评分，汇总三套基准成绩。"),
+        paragraph("（4）从轨迹中提取错误发生的步骤、产物状态与验收断言，区分直接原因和超时等伴随条件，"
+                  "提出改进并用后续原题评分、同题对照和独立重复验证。"),
+        heading("五、实验结果"),
+        table(overview, [171, 82, 70, 70, width - 393]),
+        paragraph(f"30道题中26/30通过，4道未通过均来自Terminal任务。共记录{calls}次模型请求、{responses}次响应，"
+                  f"已返回用量为输入{input_tokens:,}词元、输出{output_tokens:,}词元。"),
+        heading("六、结果分析与改进验证"),
+        subheading("6.1 关键案例分析"),
+        paragraph("视频处理：video-processing第3至13步反复探索前景和轮廓，第14步交付的脚本已可导入，"
+                  "原题两段视频的起跳帧却为66和322，超出允许区间50–54和219–223。"
+                  "直接问题是事件定位精度，格式和导入检查未覆盖这一要求。改进应观察事件邻帧，并以独立定位验收检验算法。"),
+        paragraph("查询优化：query-optimize第8步的临时候选在2.425秒返回500行，第9步记录其与原查询输出相同，"
+                  "最终却未写入/app/sol.sql，原题四项测试因此失败。问题发生在探索与交付之间，"
+                  "应先在指定路径保存可运行草稿，再继续优化和检验等价性。"),
+        paragraph("批处理调度：llm-inference-batching-scheduler第8步脚本正常退出，但两个请求桶的八组设置均未达到本地指标。"
+                  "第9次模型请求超时后，原题评分器又发现plan_b1.jsonl缺失，五项测试失败。"
+                  "性能不足与交付缺失同时存在，改进需先保存计划，再按题面约束检验性能。"),
+        paragraph("二进制提取：extract-elf第12步的698项自查零不一致，原题地址覆盖率却为0%，低于75%。"
+                  "自查沿用实现中的固定0x400000基址与相同映射，未独立验证地址含义。"
+                  "该例暴露了检查与实现共享关键假设的风险，改进应依据二进制实际装载段独立核对。"),
+        subheading("6.2 错误机制与对应策略"),
+        paragraph("四题可归纳为三类直接问题：查询与调度的指定产物未交付，视频的定位精度不足，以及二进制提取的自查范围不足。"
+                  "对应策略是尽早保存产物、检验任务的功能与精度要求、为关键结果引入独立检查依据。"
+                  "调度性能超限和ELF错误自查均在终止前出现，延长时间本身不足以解决这些问题。")]
     if validation_items:
-        if validation_first:
-            items = [*validation_items, PageBreak(), heading("原始诊断评测与错误分析"), *items]
-        else:
-            items.extend([PageBreak(), *validation_items])
-    build(output_filename or f"{identifier}_作业一.pdf", "作业一 · 基线评测与错误分析", items,
+        items.extend(validation_items)
+    items += [
+        heading("七、实验结论"),
+        paragraph("原生基线在30道诊断题上通过26/30。影响结果的关键环节包括产物交付、功能精度和独立验证，"
+                  "单纯可运行或自查通过不足以保证原题验收。对应改进在原诊断集首轮和独立重复均为30/30，四道原失败题两轮均通过4/4。"),
+        paragraph("本实验样本偏向资源受限、可离线评分的任务，结论适用于该抽样与执行条件。"
+                  "后续验证更换了模型和预算，其结果与原诊断分列；同模型方法效果由后续DSH对照判断。"),
+        heading("参考文献"),
+        link("[1] mini-SWE-agent作者代码", "https://github.com/SWE-agent/mini-swe-agent"),
+        link("[2] SWE-bench Verified数据与官方评分器", "https://www.swebench.com/SWE-bench/reference/harness/"),
+        link("[3] Terminal-Bench 2.1原始任务", "https://github.com/harbor-framework/terminal-bench-2-1/tree/7131e4375048a0e408a8fb404b5f499d726b695b"),
+        link("[4] Aider Polyglot原始任务", "https://github.com/Aider-AI/polyglot-benchmark/tree/7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"),
+        link("代码、逐题评分与完整运行记录（随提交包提供）", "https://github.com/CherryQqqqq5/hw0102/tree/main/%E4%BD%9C%E4%B8%9A%E4%B8%80")]
+    build(output_filename or f"{identifier}_作业一.pdf", "作业一：编程智能体评测实验报告", items,
           subtitle=report_subtitle or author, footer=report_footer or footer)
 
 

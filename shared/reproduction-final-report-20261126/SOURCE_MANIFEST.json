@@ -1,16 +1,22 @@
 {
-  "format": "current_report_and_package_sources_v2",
+  "format": "current_report_and_package_sources_v3",
   "files": {
     "work/render_hy4_final_reports.py": {
-      "source_sha256": "583eebb9b5b0284e41846b8bd5c5498d6bb51c526398f90895ecf68f9b727da6",
-      "export_sha256": "583eebb9b5b0284e41846b8bd5c5498d6bb51c526398f90895ecf68f9b727da6",
-      "bytes": 47892,
+      "source_sha256": "89a81b9f4e23a5db621cb7418e6a46be503bfdd0b39b1cdf71e34189af64cae4",
+      "export_sha256": "89a81b9f4e23a5db621cb7418e6a46be503bfdd0b39b1cdf71e34189af64cae4",
+      "bytes": 26394,
+      "byte_identical": true
+    },
+    "work/render_course_phase_reports.py": {
+      "source_sha256": "120787f978cdbb3ff07b8855915fbc7ef0079351437509faed3fd8b138516b1e",
+      "export_sha256": "120787f978cdbb3ff07b8855915fbc7ef0079351437509faed3fd8b138516b1e",
+      "bytes": 4429,
       "byte_identical": true
     },
     "work/check_final75_pdf_delivery.py": {
-      "source_sha256": "af88de2a270b43b1c2fa18927a46cc56c958b77ed2182bacb16f788ff351d8cd",
-      "export_sha256": "af88de2a270b43b1c2fa18927a46cc56c958b77ed2182bacb16f788ff351d8cd",
-      "bytes": 4182,
+      "source_sha256": "44dff1a60d47ef4a0f29b5ca636a475b83bd83d8a41b909b7f49f85984faa2a7",
+      "export_sha256": "44dff1a60d47ef4a0f29b5ca636a475b83bd83d8a41b909b7f49f85984faa2a7",
+      "bytes": 5466,
       "byte_identical": true
     },
     "work/package_final_submission.py": {
@@ -33,6 +39,6 @@
     }
   },
   "source_summary_sha256": "adff31af130194be2c54f8f1006e0c702451e4f5828edbdeb62d610da57a2057",
-  "previous_report_commit": "88527665df8c85158d25819322df6d6a28cc974c",
+  "previous_report_commit": "82b42ef7d6ae0a73670b03418632c9740290743d",
   "new_model_calls": 0
 }
