@@ -2,6 +2,7 @@ import argparse
 import base64
 import hashlib
 import json
+import posixpath
 import subprocess
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -90,6 +91,28 @@ if args.focused:
     if not required_files.issubset(tracked):
         raise ValueError("The focused submission is missing a required report or evidence archive")
 tracked_set = set(tracked)
+
+
+def check_index(directory, filename, include_runs=False):
+    index = json.loads((root / directory / filename).read_text())
+    records = [(directory + "/" + row["path"], row) for row in index["files"]]
+    if include_runs:
+        records.extend((directory + "/" + run["path"] + "/" + row["path"], row)
+                       for run in index["runs"] for row in run["files"])
+    for name, row in records:
+        name = posixpath.normpath(name)
+        if not name.startswith(directory + "/"):
+            raise ValueError("An evidence index points outside its directory")
+        if name not in tracked_set:
+            raise ValueError("The submission is missing an indexed evidence file: " + name)
+        data = (root / name).read_bytes()
+        if len(data) != row["export_bytes"] or hashlib.sha256(data).hexdigest() != row["export_sha256"]:
+            raise ValueError("An indexed evidence file changed: " + name)
+
+
+check_index("作业二/evidence/input-efficiency-20261127", "index.json", include_runs=True)
+check_index("shared/reproduction-input-efficiency-20261127", "SOURCE_MANIFEST.json")
+check_index("作业二/evidence/input-efficiency-cost-history-20261127", "index.json")
 historical_files = set()
 supplement = []
 historical_roots = () if args.focused else ("codebuddy-v3-cases.json", "codebuddy-v3-stopped-summary.json",
