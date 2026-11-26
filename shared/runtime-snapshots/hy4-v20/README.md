@@ -1,6 +1,6 @@
 # ReLU查询恢复与提交检查：v20源码快照
 
-本目录保存两个ReLU新会话实际采用的完整课程运行时。75个执行资源与本机冻结目录逐文件相同，摘要和原计划归属见`SOURCE_MANIFEST.json`。仅此任务使用v20，其余题目的历史运行版本继续按各自原计划核对。
+本目录保存v20提交检查运行时，初始用于两个ReLU新会话，随后同版运行时用于xarray4695的固定首轮与重复会话。最终75题中，ReLU和xarray4695两题使用v20。75个执行资源与本机冻结目录逐文件相同，摘要和初始ReLU计划归属见`SOURCE_MANIFEST.json`；各任务实际运行来源见最终结果目录的`joint-summary.json`。
 
 相对v18，改动限定于`controller.py`、`terminal_runtime.py`以及新增的`oracle_access.py`、`relu_export.py`。数值恢复器`relu_recovery.py`及逐笔费用校验保持原字节。公开导出器接受输入维数、模块及函数名，生成含完整数值恢复器的独立脚本；它不接收隐藏宽度、私有权重或工程验证生成的候选。
 

@@ -1,5 +1,22 @@
 # 共用评测代码与复现
 
+## 本次75题评测的代码入口
+
+本次评测的实际运行版本是v18、v19和v20。先从下列文件阅读报告中的实现；本目录下的`course_eval/`保留历史主干，具体任务的运行版本由最终结果目录的`joint-summary.json`登记。
+
+| 内容 | 对应实现 |
+|---|---|
+| 动作执行、检查和候选管理 | [v18 controller.py](runtime-snapshots/hy4-v18/course_eval/controller.py) |
+| 检查依赖与失效状态 | [v18 verification.py](runtime-snapshots/hy4-v18/course_eval/verification.py) |
+| 文件保存、恢复和测试文件保护 | [v18 candidate_io.py](runtime-snapshots/hy4-v18/course_eval/candidate_io.py) |
+| 连续会话、实际请求预算与零积分核验 | [v18 agent.py](runtime-snapshots/hy4-v18/course_eval/agent.py) |
+| FEAL算法支持 | [v19 terminal_runtime.py](reproduction-20261126/work/frozen-performance-hy4-feal-linear-v19/course_eval/terminal_runtime.py) |
+| ReLU与xarray4695的提交检查 | [v20 controller.py](runtime-snapshots/hy4-v20/course_eval/controller.py) |
+
+v18用于每轮72题，v19用于FEAL一题，v20用于上述两题。两轮按相同任务版本执行，完整来源和依赖见[源码快照说明](reproduction-20261126/README.md)。
+
+## 完整来源与历史记录
+
 本轮75题比较的完整实现见[2026年11月26日源码快照](reproduction-20261126/README.md)，包含942项来源文件、九个冻结运行版本、任务局部修订及统计、报告和提交包入口。[源码与入口执行记录](../作业二/evidence/reproduction-source-validation-20261126.json)分别核对来源摘要和实际命令加载。逐题成绩、原始证据与报告使用各自记录，源码同步不代表模型实验已经完成。
 
 历史单版本入口继续保留：[Hy4 v18](runtime-snapshots/hy4-v18/README.md)、[NVIDIA v31](runtime-snapshots/nvidia-v31/README.md)、[ReLU v20及真实验证](runtime-snapshots/hy4-v20/README.md)和[NVIDIA v30](runtime-snapshots/nvidia-v30/README.md)。[2026年11月25日的164份评分证据](../作业二/evidence/performance75-current-20261125.md)是当时的部分完成快照，包含其全部通过与未通过记录。
