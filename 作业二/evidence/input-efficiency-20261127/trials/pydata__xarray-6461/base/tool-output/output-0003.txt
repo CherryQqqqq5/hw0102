@@ -1,0 +1,199 @@
+/opt/miniconda3/bin/python
+/usr/bin/python
+/bin/python
+/opt/miniconda3/bin/python3
+/usr/bin/python3
+/bin/python3
+--- candidates ---
+/opt/miniconda3
+/root/environment.yml
+/usr/local/bin
+/usr/local/etc
+/usr/local/games
+/usr/local/include
+/usr/local/lib
+/usr/local/man
+/usr/local/sbin
+/usr/local/share
+/usr/local/src
+--- python paths ---
+/opt/miniconda3/bin/python ['', '/opt/miniconda3/lib/python311.zip', '/opt/miniconda3/lib/python3.11', '/opt/miniconda3/lib/python3.11/lib-dynload', '/opt/miniconda3/lib/python3.11/site-packages']
+--- apply_variable_ufunc ---
+   625	    if signature.all_core_dims:
+   626	        func = np.vectorize(
+   627	            func,
+   628	            otypes=output_dtypes,
+   629	            signature=signature.to_gufunc_string(exclude_dims),
+   630	        )
+   631	    else:
+   632	        func = np.vectorize(func, otypes=output_dtypes)
+   633	
+   634	    return func
+   635	
+   636	
+   637	def apply_variable_ufunc(
+   638	    func,
+   639	    *args,
+   640	    signature,
+   641	    exclude_dims=frozenset(),
+   642	    dask="forbidden",
+   643	    output_dtypes=None,
+   644	    vectorize=False,
+   645	    keep_attrs="override",
+   646	    dask_gufunc_kwargs=None,
+   647	):
+   648	    """Apply a ndarray level function over Variable and/or ndarray objects."""
+   649	    from .variable import Variable, as_compatible_data
+   650	
+   651	    dim_sizes = unified_dim_sizes(
+   652	        (a for a in args if hasattr(a, "dims")), exclude_dims=exclude_dims
+   653	    )
+   654	    broadcast_dims = tuple(
+   655	        dim for dim in dim_sizes if dim not in signature.all_core_dims
+   656	    )
+   657	    output_dims = [broadcast_dims + out for out in signature.output_core_dims]
+   658	
+   659	    input_data = [
+   660	        broadcast_compat_data(arg, broadcast_dims, core_dims)
+   661	        if isinstance(arg, Variable)
+   662	        else arg
+   663	        for arg, core_dims in zip(args, signature.input_core_dims)
+   664	    ]
+   665	
+   666	    if any(is_duck_dask_array(array) for array in input_data):
+   667	        if dask == "forbidden":
+   668	            raise ValueError(
+   669	                "apply_ufunc encountered a dask array on an "
+   670	                "argument, but handling for dask arrays has not "
+   671	                "been enabled. Either set the ``dask`` argument "
+   672	                "or load your data into memory first with "
+   673	                "``.load()`` or ``.compute()``"
+   674	            )
+   675	        elif dask == "parallelized":
+   676	            numpy_func = func
+   677	
+   678	            if dask_gufunc_kwargs is None:
+   679	                dask_gufunc_kwargs = {}
+   680	            else:
+   681	                dask_gufunc_kwargs = dask_gufunc_kwargs.copy()
+   682	
+   683	            allow_rechunk = dask_gufunc_kwargs.get("allow_rechunk", None)
+   684	            if allow_rechunk is None:
+   685	                for n, (data, core_dims) in enumerate(
+   686	                    zip(input_data, signature.input_core_dims)
+   687	                ):
+   688	                    if is_duck_dask_array(data):
+   689	                        # core dimensions cannot span multiple chunks
+   690	                        for axis, dim in enumerate(core_dims, start=-len(core_dims)):
+   691	                            if len(data.chunks[axis]) != 1:
+   692	                                raise ValueError(
+   693	                                    f"dimension {dim} on {n}th function argument to "
+   694	                                    "apply_ufunc with dask='parallelized' consists of "
+   695	                                    "multiple chunks, but is also a core dimension. To "
+   696	                                    "fix, either rechunk into a single dask array chunk along "
+   697	                                    f"this dimension, i.e., ``.chunk(dict({dim}=-1))``, or "
+   698	                                    "pass ``allow_rechunk=True`` in ``dask_gufunc_kwargs`` "
+   699	                                    "but beware that this may significantly increase memory usage."
+   700	                                )
+   701	                dask_gufunc_kwargs["allow_rechunk"] = True
+   702	
+   703	            output_sizes = dask_gufunc_kwargs.pop("output_sizes", {})
+   704	            if output_sizes:
+   705	                output_sizes_renamed = {}
+   706	                for key, value in output_sizes.items():
+   707	                    if key not in signature.all_output_core_dims:
+   708	                        raise ValueError(
+   709	                            f"dimension '{key}' in 'output_sizes' must correspond to output_core_dims"
+   710	                        )
+   711	                    output_sizes_renamed[signature.dims_map[key]] = value
+   712	                dask_gufunc_kwargs["output_sizes"] = output_sizes_renamed
+   713	
+   714	            for key in signature.all_output_core_dims:
+   715	                if key not in signature.all_input_core_dims and key not in output_sizes:
+   716	                    raise ValueError(
+   717	                        f"dimension '{key}' in 'output_core_dims' needs corresponding (dim, size) in 'output_sizes'"
+   718	                    )
+   719	
+   720	            def func(*arrays):
+   721	                import dask.array as da
+   722	
+   723	                res = da.apply_gufunc(
+   724	                    numpy_func,
+   725	                    signature.to_gufunc_string(exclude_dims),
+   726	                    *arrays,
+   727	                    vectorize=vectorize,
+   728	                    output_dtypes=output_dtypes,
+   729	                    **dask_gufunc_kwargs,
+   730	                )
+   731	
+   732	                return res
+   733	
+   734	        elif dask == "allowed":
+   735	            pass
+   736	        else:
+   737	            raise ValueError(
+   738	                "unknown setting for dask array handling in "
+   739	                "apply_ufunc: {}".format(dask)
+   740	            )
+   741	    else:
+   742	        if vectorize:
+   743	            func = _vectorize(
+   744	                func, signature, output_dtypes=output_dtypes, exclude_dims=exclude_dims
+   745	            )
+   746	
+   747	    result_data = func(*input_data)
+   748	
+   749	    if signature.num_outputs == 1:
+   750	        result_data = (result_data,)
+   751	    elif (
+   752	        not isinstance(result_data, tuple) or len(result_data) != signature.num_outputs
+   753	    ):
+   754	        raise ValueError(
+   755	            "applied function does not have the number of "
+   756	            "outputs specified in the ufunc signature. "
+   757	            "Result is not a tuple of {} elements: {!r}".format(
+   758	                signature.num_outputs, result_data
+   759	            )
+   760	        )
+   761	
+   762	    objs = _all_of_type(args, Variable)
+   763	    attrs = merge_attrs(
+   764	        [obj.attrs for obj in objs],
+   765	        combine_attrs=keep_attrs,
+   766	    )
+   767	
+   768	    output = []
+   769	    for dims, data in zip(output_dims, result_data):
+   770	        data = as_compatible_data(data)
+   771	        if data.ndim != len(dims):
+   772	            raise ValueError(
+   773	                "applied function returned data with unexpected "
+   774	                f"number of dimensions. Received {data.ndim} dimension(s) but "
+   775	                f"expected {len(dims)} dimensions with names: {dims!r}"
+   776	            )
+   777	
+   778	        var = Variable(dims, data, fastpath=True)
+   779	        for dim, new_size in var.sizes.items():
+   780	            if dim in dim_sizes and new_size != dim_sizes[dim]:
+   781	                raise ValueError(
+   782	                    "size of dimension {!r} on inputs was unexpectedly "
+   783	                    "changed by applied function from {} to {}. Only "
+   784	                    "dimensions specified in ``exclude_dims`` with "
+   785	                    "xarray.apply_ufunc are allowed to change size.".format(
+   786	                        dim, dim_sizes[dim], new_size
+   787	                    )
+   788	                )
+   789	
+   790	        var.attrs = attrs
+   791	        output.append(var)
+   792	
+   793	    if signature.num_outputs == 1:
+   794	        return output[0]
+   795	    else:
+   796	        return tuple(output)
+   797	
+   798	
+   799	def apply_array_ufunc(func, *args, dask="forbidden"):
+   800	    """Apply a ndarray level function over ndarray objects."""
+
+Budget: 1746.5s, 493 decisions remaining.

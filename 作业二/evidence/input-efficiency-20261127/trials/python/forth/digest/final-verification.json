@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "d10f5d0ff10d0ae3869aefa1716b5b8b828ded1691d4588bfa8856386e92722b",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-suite": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "500942b98103370fc8c7860d2905c332b12da33425439eaee958d540a4d7042a  forth.py\n05f78a51ce5b3e18439088442925c7cea5b1fb1703bc10832dd048c057b7639c  forth_test.py\n"
+    }
+  },
+  "elapsed_seconds": 157.9974112487398
+}

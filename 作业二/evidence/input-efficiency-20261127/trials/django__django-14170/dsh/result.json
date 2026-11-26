@@ -1,0 +1,19 @@
+{
+  "task": "django__django-14170",
+  "wall_seconds": 289.58665157388896,
+  "exit_status": "Submitted",
+  "submission": "Implemented the fix in `django/db/models/functions/datetime.py` by removing the `YearExact`/`YearGt`/`YearGte`/`YearLt`/`YearLte` registrations from `ExtractIsoYear`. ISO year filters now use `ExtractIsoYear` instead of the calendar-year `BETWEEN` optimization, while regular `__year` filtering remains optimized.\n\nAdded executable `.course-public-check/check.py`, which verifies:\n- Date and datetime `__iso_year` filters do not use `BETWEEN`.\n- Boundary dates such as 2019-12-30 and 2021-01-01 are included in ISO year 2020.\n- Exact, gt, gte, lt, and lte ISO year lookups return correct results.\n- Explicit `ExtractIsoYear` annotation filters retain extraction.\n- Ordinary `__year` filtering still uses `BETWEEN`.\n\nVerification:\n- The reproducer fails on the unfixed source and passes on the patched source.\n- With the checked-in tests’ invalid ISO-year optimization assertions corrected, the full `db_functions.datetime.test_extract_trunc` module passes (81 tests, 2 skipped).\n- No existing test files or test configuration were modified.",
+  "framework": "deepseek-harness-sdk-0.2.2rc2",
+  "sdk_result": {
+    "session_id": "course-task",
+    "final_response": "Implemented the fix in `django/db/models/functions/datetime.py` by removing the `YearExact`/`YearGt`/`YearGte`/`YearLt`/`YearLte` registrations from `ExtractIsoYear`. ISO year filters now use `ExtractIsoYear` instead of the calendar-year `BETWEEN` optimization, while regular `__year` filtering remains optimized.\n\nAdded executable `.course-public-check/check.py`, which verifies:\n- Date and datetime `__iso_year` filters do not use `BETWEEN`.\n- Boundary dates such as 2019-12-30 and 2021-01-01 are included in ISO year 2020.\n- Exact, gt, gte, lt, and lte ISO year lookups return correct results.\n- Explicit `ExtractIsoYear` annotation filters retain extraction.\n- Ordinary `__year` filtering still uses `BETWEEN`.\n\nVerification:\n- The reproducer fails on the unfixed source and passes on the patched source.\n- With the checked-in tests’ invalid ISO-year optimization assertions corrected, the full `db_functions.datetime.test_extract_trunc` module passes (81 tests, 2 skipped).\n- No existing test files or test configuration were modified.",
+    "finish_reason": "completed",
+    "events": 67,
+    "notifications": 69,
+    "sdk_model_http_requests": 12,
+    "wall_seconds": 195.9138080747798
+  },
+  "scoreable": true,
+  "passed": false,
+  "grader_seconds": 71.61843869788572
+}

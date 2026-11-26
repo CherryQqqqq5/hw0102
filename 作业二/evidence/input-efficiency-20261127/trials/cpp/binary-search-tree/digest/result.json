@@ -1,0 +1,10 @@
+{
+  "task": "cpp/binary-search-tree",
+  "wall_seconds": 837.2069484908134,
+  "exit_status": "Submitted",
+  "submission": "Submit the verified binary search tree implementation.",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 175.4063222319819
+}

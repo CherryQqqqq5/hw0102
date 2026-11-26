@@ -1,0 +1,114 @@
+    79	class DateFunctionTests(TestCase):
+    80	
+    81	    def create_model(self, start_datetime, end_datetime):
+    82	        return DTModel.objects.create(
+    83	            name=start_datetime.isoformat() if start_datetime else 'None',
+    84	            start_datetime=start_datetime,
+    85	            end_datetime=end_datetime,
+    86	            start_date=start_datetime.date() if start_datetime else None,
+    87	            end_date=end_datetime.date() if end_datetime else None,
+    88	            start_time=start_datetime.time() if start_datetime else None,
+    89	            end_time=end_datetime.time() if end_datetime else None,
+    90	            duration=(end_datetime - start_datetime) if start_datetime and end_datetime else None,
+    91	        )
+    92	
+    93	    def test_extract_year_exact_lookup(self):
+    94	        """
+    95	        Extract year uses a BETWEEN filter to compare the year to allow indexes
+    96	        to be used.
+    97	        """
+    98	        start_datetime = datetime(2015, 6, 15, 14, 10)
+    99	        end_datetime = datetime(2016, 6, 15, 14, 10)
+   100	        if settings.USE_TZ:
+   101	            start_datetime = timezone.make_aware(start_datetime, is_dst=False)
+   102	            end_datetime = timezone.make_aware(end_datetime, is_dst=False)
+   103	        self.create_model(start_datetime, end_datetime)
+   104	        self.create_model(end_datetime, start_datetime)
+   105	
+   106	        for lookup in ('year', 'iso_year'):
+   107	            with self.subTest(lookup):
+   108	                qs = DTModel.objects.filter(**{'start_datetime__%s__exact' % lookup: 2015})
+   109	                self.assertEqual(qs.count(), 1)
+   110	                query_string = str(qs.query).lower()
+   111	                self.assertEqual(query_string.count(' between '), 1)
+   112	                self.assertEqual(query_string.count('extract'), 0)
+   113	                # exact is implied and should be the same
+   114	                qs = DTModel.objects.filter(**{'start_datetime__%s' % lookup: 2015})
+   115	                self.assertEqual(qs.count(), 1)
+   116	                query_string = str(qs.query).lower()
+   117	                self.assertEqual(query_string.count(' between '), 1)
+   118	                self.assertEqual(query_string.count('extract'), 0)
+   119	                # date and datetime fields should behave the same
+   120	                qs = DTModel.objects.filter(**{'start_date__%s' % lookup: 2015})
+   121	                self.assertEqual(qs.count(), 1)
+   122	                query_string = str(qs.query).lower()
+   123	                self.assertEqual(query_string.count(' between '), 1)
+   124	                self.assertEqual(query_string.count('extract'), 0)
+   125	                # an expression rhs cannot use the between optimization.
+   126	                qs = DTModel.objects.annotate(
+   127	                    start_year=ExtractYear('start_datetime'),
+   128	                ).filter(end_datetime__year=F('start_year') + 1)
+   129	                self.assertEqual(qs.count(), 1)
+   130	                query_string = str(qs.query).lower()
+   131	                self.assertEqual(query_string.count(' between '), 0)
+   132	                self.assertEqual(query_string.count('extract'), 3)
+   133	
+   134	    def test_extract_year_greaterthan_lookup(self):
+   135	        start_datetime = datetime(2015, 6, 15, 14, 10)
+   136	        end_datetime = datetime(2016, 6, 15, 14, 10)
+   137	        if settings.USE_TZ:
+   138	            start_datetime = timezone.make_aware(start_datetime, is_dst=False)
+   139	            end_datetime = timezone.make_aware(end_datetime, is_dst=False)
+   140	        self.create_model(start_datetime, end_datetime)
+   141	        self.create_model(end_datetime, start_datetime)
+   142	
+   143	        for lookup in ('year', 'iso_year'):
+   144	            with self.subTest(lookup):
+   145	                qs = DTModel.objects.filter(**{'start_datetime__%s__gt' % lookup: 2015})
+   146	                self.assertEqual(qs.count(), 1)
+   147	                self.assertEqual(str(qs.query).lower().count('extract'), 0)
+   148	                qs = DTModel.objects.filter(**{'start_datetime__%s__gte' % lookup: 2015})
+   149	                self.assertEqual(qs.count(), 2)
+   150	                self.assertEqual(str(qs.query).lower().count('extract'), 0)
+   151	                qs = DTModel.objects.annotate(
+   152	                    start_year=ExtractYear('start_datetime'),
+   153	                ).filter(**{'end_datetime__%s__gte' % lookup: F('start_year')})
+   154	                self.assertEqual(qs.count(), 1)
+   155	                self.assertGreaterEqual(str(qs.query).lower().count('extract'), 2)
+   156	
+   157	    def test_extract_year_lessthan_lookup(self):
+   158	        start_datetime = datetime(2015, 6, 15, 14, 10)
+   159	        end_datetime = datetime(2016, 6, 15, 14, 10)
+   160	        if settings.USE_TZ:
+   161	            start_datetime = timezone.make_aware(start_datetime, is_dst=False)
+   162	            end_datetime = timezone.make_aware(end_datetime, is_dst=False)
+   163	        self.create_model(start_datetime, end_datetime)
+   164	        self.create_model(end_datetime, start_datetime)
+   165	
+   166	        for lookup in ('year', 'iso_year'):
+   167	            with self.subTest(lookup):
+   168	                qs = DTModel.objects.filter(**{'start_datetime__%s__lt' % lookup: 2016})
+   169	                self.assertEqual(qs.count(), 1)
+   170	                self.assertEqual(str(qs.query).count('extract'), 0)
+   171	                qs = DTModel.objects.filter(**{'start_datetime__%s__lte' % lookup: 2016})
+   172	                self.assertEqual(qs.count(), 2)
+   173	                self.assertEqual(str(qs.query).count('extract'), 0)
+   174	                qs = DTModel.objects.annotate(
+   175	                    end_year=ExtractYear('end_datetime'),
+   176	                ).filter(**{'start_datetime__%s__lte' % lookup: F('end_year')})
+   177	                self.assertEqual(qs.count(), 1)
+   178	                self.assertGreaterEqual(str(qs.query).lower().count('extract'), 2)
+   179	
+   180	    def test_extract_func(self):
+   181	        start_datetime = datetime(2015, 6, 15, 14, 30, 50, 321)
+   182	        end_datetime = datetime(2016, 6, 15, 14, 10, 50, 123)
+   183	        if settings.USE_TZ:
+   184	            start_datetime = timezone.make_aware(start_datetime, is_dst=False)
+   185	            end_datetime = timezone.make_aware(end_datetime, is_dst=False)
+   186	        self.create_model(start_datetime, end_datetime)
+   187	        self.create_model(end_datetime, start_datetime)
+   188	
+   189	        with self.assertRaisesMessage(ValueError, 'lookup_name must be provided'):
+   190	            Extract('start_datetime')
+
+Budget: 1621.6s, 484 decisions remaining.

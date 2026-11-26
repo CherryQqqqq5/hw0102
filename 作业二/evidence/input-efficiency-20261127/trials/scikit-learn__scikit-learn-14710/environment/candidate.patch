@@ -1,0 +1,133 @@
+diff --git a/.course-public-check/check.py b/.course-public-check/check.py
+new file mode 100755
+index 000000000..a695d9122
+--- /dev/null
++++ b/.course-public-check/check.py
+@@ -0,0 +1,107 @@
++#!/usr/bin/env python
++"""Reproducer and regression checks for string targets with early stopping."""
++from __future__ import print_function
++
++import numpy as np
++
++from sklearn.experimental import enable_hist_gradient_boosting  # noqa: F401
++from sklearn.ensemble import HistGradientBoostingClassifier
++from sklearn.metrics import accuracy_score
++from sklearn.preprocessing import LabelEncoder
++
++
++def make_data(labels, n_samples=120, n_features=8):
++    rng = np.random.RandomState(0)
++    X = rng.normal(size=(n_samples, n_features))
++    class_index = np.arange(n_samples) % len(labels)
++    y = np.asarray([labels[i] for i in class_index], dtype=object)
++    y_encoded = LabelEncoder().fit_transform(y).astype(np.float64)
++    return X, y, y_encoded
++
++
++def fit_params(scoring, validation_fraction):
++    return dict(
++        max_iter=30,
++        min_samples_leaf=5,
++        n_iter_no_change=5,
++        tol=1e-7,
++        scoring=scoring,
++        validation_fraction=validation_fraction,
++        random_state=0,
++    )
++
++
++def check_equivalent_scores(labels, scoring, validation_fraction):
++    X, y, y_encoded = make_data(labels)
++    params = fit_params(scoring, validation_fraction)
++
++    string_model = HistGradientBoostingClassifier(**params).fit(X, y)
++    numeric_model = HistGradientBoostingClassifier(**params).fit(X, y_encoded)
++
++    assert np.array_equal(string_model.classes_, np.asarray(sorted(labels)))
++    assert string_model.n_iter_ == numeric_model.n_iter_
++    # One score for the initial model plus one per fitted iteration.
++    assert len(string_model.train_score_) == string_model.n_iter_ + 1
++    np.testing.assert_allclose(
++        string_model.train_score_, numeric_model.train_score_, rtol=0, atol=1e-12
++    )
++    if validation_fraction is not None:
++        assert len(string_model.validation_score_) == string_model.n_iter_ + 1
++        np.testing.assert_allclose(
++            string_model.validation_score_,
++            numeric_model.validation_score_,
++            rtol=0,
++            atol=1e-12,
++        )
++
++    predicted = string_model.predict(X)
++    assert predicted.dtype == y.dtype
++    assert set(np.unique(predicted)).issubset(set(labels))
++    original_classes = np.asarray(sorted(labels))
++    expected = original_classes[numeric_model.predict(X).astype(int)]
++    assert np.array_equal(predicted, expected)
++
++
++def check_custom_scorer_receives_original_labels():
++    X, y, _ = make_data(("x", "y"))
++    observed = []
++
++    def scorer(estimator, X_scorer, y_true):
++        y_true = np.asarray(y_true)
++        observed.append(y_true)
++        return accuracy_score(y_true, estimator.predict(X_scorer))
++
++    model = HistGradientBoostingClassifier(
++        max_iter=20,
++        min_samples_leaf=5,
++        n_iter_no_change=5,
++        scoring=scorer,
++        random_state=0,
++    ).fit(X, y)
++
++    assert observed, "custom scorer was not used"
++    for y_true in observed:
++        assert y_true.dtype.kind in "USO", (
++            "early-stopping scorer must receive original string labels, got %r"
++            % (y_true,)
++        )
++        assert set(np.unique(y_true)).issubset({"x", "y"})
++    assert model.n_iter_ <= 20
++
++
++def main():
++    # Default scorer, with a validation split.
++    check_equivalent_scores(("x", "y"), None, 0.2)
++    # Explicit scorer, computing early-stopping scores on training data.
++    check_equivalent_scores(("x", "y"), "accuracy", None)
++    # Multiclass strings exercise the inverse mapping for all classes.
++    check_equivalent_scores(("red", "green", "blue"), "accuracy", 0.2)
++    # The loss-based path is a regression guard: it intentionally uses labels
++    # encoded as integers and must remain unchanged.
++    check_equivalent_scores(("x", "y"), "loss", 0.2)
++    check_custom_scorer_receives_original_labels()
++    print("all early-stopping string-target checks passed")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py b/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py
+index ad6a5a8ca..fa48f647c 100644
+--- a/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py
++++ b/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py
+@@ -426,6 +426,15 @@ class BaseHistGradientBoosting(BaseEstimator, ABC):
+ 
+         Scores are computed on validation data or on training data.
+         """
++        # The scorer is called with the predictions of the estimator, which
++        # are the original class labels for classifiers. The targets used
++        # internally are encoded as integers, so they must be decoded before
++        # being passed to the scorer.
++        if hasattr(self, 'classes_'):
++            y_small_train = self.classes_[y_small_train.astype(np.intp)]
++            if self._use_validation_data:
++                y_val = self.classes_[y_val.astype(np.intp)]
++
+         self.train_score_.append(
+             self.scorer_(self, X_binned_small_train, y_small_train)
+         )

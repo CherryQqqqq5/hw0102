@@ -1,0 +1,79 @@
+diff --git a/.course-public-check/check.py b/.course-public-check/check.py
+new file mode 100755
+index 00000000..c400394d
+--- /dev/null
++++ b/.course-public-check/check.py
+@@ -0,0 +1,60 @@
++#!/usr/bin/env python3
++"""Reproducer and regression checks for xr.where(..., keep_attrs=True)."""
++import numpy as np
++import xarray as xr
++from xarray.testing import assert_identical
++
++
++def main() -> None:
++    # Original issue: a scalar x must not make keep_attrs=True raise IndexError.
++    cond = xr.DataArray([1, 2, 3]) > 0
++    actual = xr.where(cond, 1, 0, keep_attrs=True)
++    expected = xr.DataArray([1, 1, 1], dims=cond.dims)
++    assert_identical(expected, actual)
++    assert actual.attrs == {}
++
++    # Explicitly disabling attrs remains unchanged.
++    actual = xr.where(cond, 1, 0, keep_attrs=False)
++    assert_identical(expected, actual)
++
++    # Boundary: when x and y are scalars, the single xarray-like input's
++    # attributes are kept rather than causing an IndexError.
++    cond = xr.DataArray([True, False], dims="x", attrs={"attr": "cond"})
++    actual = xr.where(cond, 1, 0, keep_attrs=True)
++    expected = xr.DataArray([1, 0], dims="x", attrs={"attr": "cond"})
++    assert_identical(expected, actual)
++
++    # Boundary: a scalar condition with x as the only DataArray still keeps x's attrs.
++    x = xr.DataArray([1, 2], dims="x", attrs={"attr": "x"})
++    actual = xr.where(True, x, 0, keep_attrs=True)
++    expected = xr.DataArray([1, 2], dims="x", attrs={"attr": "x"})
++    assert_identical(expected, actual)
++
++    # Existing regression: with three DataArrays, x's attrs win.
++    cond = xr.DataArray([True, False], dims="x", attrs={"attr": "cond"})
++    x = xr.DataArray([1, 1], dims="x", attrs={"attr": "x"})
++    y = xr.DataArray([0, 0], dims="x", attrs={"attr": "y"})
++    actual = xr.where(cond, x, y, keep_attrs=True)
++    expected = xr.DataArray([1, 0], dims="x", attrs={"attr": "x"})
++    assert_identical(expected, actual)
++
++    # Dataset boundary cases: scalar x and Dataset x.
++    ds_cond = xr.Dataset({"v": ("x", [True, False])})
++    scalar_out = xr.where(ds_cond, 1, 0, keep_attrs=True)
++    assert scalar_out.attrs == {}
++    assert scalar_out.v.attrs == {}
++    np.testing.assert_array_equal(scalar_out.v.values, [1, 0])
++
++    ds_x = xr.Dataset({"v": ("x", [1, 1])}, attrs={"attr": "x"})
++    ds_x.v.attrs["attr"] = "x_var"
++    ds_y = xr.Dataset({"v": ("x", [0, 0])}, attrs={"attr": "y"})
++    ds_y.v.attrs["attr"] = "y_var"
++    dataset_out = xr.where(ds_cond, ds_x, ds_y, keep_attrs=True)
++    assert dataset_out.attrs == {"attr": "x"}
++    assert dataset_out.v.attrs == {"attr": "x_var"}
++    np.testing.assert_array_equal(dataset_out.v.values, [1, 0])
++
++
++if __name__ == "__main__":
++    main()
++    print("xr.where keep_attrs checks passed")
+diff --git a/xarray/core/computation.py b/xarray/core/computation.py
+index 7676d8e5..1249ae70 100644
+--- a/xarray/core/computation.py
++++ b/xarray/core/computation.py
+@@ -1829,7 +1829,7 @@ def where(cond, x, y, keep_attrs=None):
+     if keep_attrs is True:
+         # keep the attributes of x, the second parameter, by default to
+         # be consistent with the `where` method of `DataArray` and `Dataset`
+-        keep_attrs = lambda attrs, context: attrs[1]
++        keep_attrs = lambda attrs, context: attrs[1] if len(attrs) > 1 else attrs[0]
+ 
+     # alignment for three arguments is complicated, so don't support it yet
+     return apply_ufunc(

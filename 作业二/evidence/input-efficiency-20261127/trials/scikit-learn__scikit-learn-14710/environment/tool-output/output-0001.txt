@@ -1,0 +1,156 @@
+total 156
+drwxrwxrwx  1 root root  4096 Aug 13 03:27 .
+drwxr-xr-x  1 root root  4096 Nov 26 21:45 ..
+drwxrwxrwx  2 root root  4096 Aug 13 03:26 .circleci
+-rw-r--r--  1 root root   701 Aug 13 03:26 .codecov.yml
+-rw-r--r--  1 root root   121 Aug 13 03:26 .coveragerc
+drwxrwxrwx  1 root root  4096 Nov 26 21:45 .git
+-rw-r--r--  1 root root    31 Aug 13 03:26 .gitattributes
+-rw-r--r--  1 root root   891 Aug 13 03:26 .gitignore
+-rw-r--r--  1 root root    86 Aug 13 03:26 .landscape.yml
+-rw-r--r--  1 root root  7263 Aug 13 03:26 .mailmap
+-rw-r--r--  1 root root  1221 Aug 13 03:26 .travis.yml
+-rw-r--r--  1 root root  2096 Aug 13 03:26 CONTRIBUTING.md
+-rw-r--r--  1 root root  1559 Aug 13 03:26 COPYING
+-rw-r--r--  1 root root  1860 Aug 13 03:26 ISSUE_TEMPLATE.md
+-rw-r--r--  1 root root   248 Aug 13 03:26 MANIFEST.in
+-rw-r--r--  1 root root  1618 Aug 13 03:26 Makefile
+-rw-r--r--  1 root root  1198 Aug 13 03:26 PULL_REQUEST_TEMPLATE.md
+-rw-r--r--  1 root root  5501 Aug 13 03:26 README.rst
+-rw-r--r--  1 root root  4694 Aug 13 03:26 appveyor.yml
+-rw-r--r--  1 root root  2743 Aug 13 03:26 azure-pipelines.yml
+drwxrwxrwx  2 root root  4096 Aug 13 03:26 benchmarks
+drwxr-xr-x  3 root root  4096 Aug 13 03:27 build
+drwxrwxrwx  6 root root  4096 Aug 13 03:26 build_tools
+-rw-r--r--  1 root root  2968 Aug 13 03:26 conftest.py
+drwxrwxrwx 15 root root  4096 Aug 13 03:26 doc
+drwxrwxrwx 30 root root  4096 Aug 13 03:26 examples
+-rw-r--r--  1 root root   188 Aug 13 03:26 lgtm.yml
+drwxrwxrwx  2 root root  4096 Aug 13 03:26 maint_tools
+drwxr-xr-x  2 root root  4096 Aug 13 03:27 scikit_learn.egg-info
+-rw-r--r--  1 root root   716 Aug 13 03:26 setup.cfg
+-rwxr-xr-x  1 root root 11002 Aug 13 03:26 setup.py
+-rw-r--r--  1 root root   292 Aug 13 03:26 site.cfg
+drwxrwxrwx 32 root root  4096 Aug 13 03:31 sklearn
+"""Fast Gradient Boosting decision trees for classification and regression."""
+# Author: Nicolas Hug
+
+from abc import ABC, abstractmethod
+from functools import partial
+
+import numpy as np
+from timeit import default_timer as time
+from ...base import (BaseEstimator, RegressorMixin, ClassifierMixin,
+                     is_classifier)
+from ...utils import check_X_y, check_random_state, check_array, resample
+from ...utils.validation import check_is_fitted
+from ...utils.multiclass import check_classification_targets
+from ...metrics import check_scoring
+from ...model_selection import train_test_split
+from ...preprocessing import LabelEncoder
+from ._gradient_boosting import _update_raw_predictions
+from .common import Y_DTYPE, X_DTYPE, X_BINNED_DTYPE
+
+from .binning import _BinMapper
+from .grower import TreeGrower
+from .loss import _LOSSES
+
+
+class BaseHistGradientBoosting(BaseEstimator, ABC):
+    """Base class for histogram-based gradient boosting estimators."""
+
+    @abstractmethod
+    def __init__(self, loss, learning_rate, max_iter, max_leaf_nodes,
+                 max_depth, min_samples_leaf, l2_regularization, max_bins,
+                 warm_start, scoring, validation_fraction, n_iter_no_change,
+                 tol, verbose, random_state):
+        self.loss = loss
+        self.learning_rate = learning_rate
+        self.max_iter = max_iter
+        self.max_leaf_nodes = max_leaf_nodes
+        self.max_depth = max_depth
+        self.min_samples_leaf = min_samples_leaf
+        self.l2_regularization = l2_regularization
+        self.max_bins = max_bins
+        self.warm_start = warm_start
+        self.scoring = scoring
+        self.validation_fraction = validation_fraction
+        self.n_iter_no_change = n_iter_no_change
+        self.tol = tol
+        self.verbose = verbose
+        self.random_state = random_state
+
+    def _validate_parameters(self):
+        """Validate parameters passed to __init__.
+
+        The parameters that are directly passed to the grower are checked in
+        TreeGrower."""
+
+        if self.loss not in self._VALID_LOSSES:
+            raise ValueError(
+                "Loss {} is not supported for {}. Accepted losses: "
+                "{}.".format(self.loss, self.__class__.__name__,
+                             ', '.join(self._VALID_LOSSES)))
+
+        if self.learning_rate <= 0:
+            raise ValueError('learning_rate={} must '
+                             'be strictly positive'.format(self.learning_rate))
+        if self.max_iter < 1:
+            raise ValueError('max_iter={} must not be smaller '
+                             'than 1.'.format(self.max_iter))
+        if self.n_iter_no_change is not None and self.n_iter_no_change < 0:
+            raise ValueError('n_iter_no_change={} must be '
+                             'positive.'.format(self.n_iter_no_change))
+        if (self.validation_fraction is not None and
+                self.validation_fraction <= 0):
+            raise ValueError(
+                'validation_fraction={} must be strictly '
+                'positive, or None.'.format(self.validation_fraction))
+        if self.tol is not None and self.tol < 0:
+            raise ValueError('tol={} '
+                             'must not be smaller than 0.'.format(self.tol))
+
+        if not (2 <= self.max_bins <= 255):
+            raise ValueError('max_bins={} should be no smaller than 2 '
+                             'and no larger than 255.'.format(self.max_bins))
+
+    def fit(self, X, y):
+        """Fit the gradient boosting model.
+
+        Parameters
+        ----------
+        X : array-like, shape=(n_samples, n_features)
+            The input samples.
+
+        y : array-like, shape=(n_samples,)
+            Target values.
+
+        Returns
+        -------
+        self : object
+        """
+        fit_start_time = time()
+        acc_find_split_time = 0.  # time spent finding the best splits
+        acc_apply_split_time = 0.  # time spent splitting nodes
+        acc_compute_hist_time = 0.  # time spent computing histograms
+        # time spent predicting X for gradient and hessians update
+        acc_prediction_time = 0.
+        X, y = check_X_y(X, y, dtype=[X_DTYPE], force_all_finite=False)
+        y = self._encode_y(y)
+
+        # The rng state must be preserved if warm_start is True
+        if (self.warm_start and hasattr(self, '_rng')):
+            rng = self._rng
+        else:
+            rng = check_random_state(self.random_state)
+            self._rng = rng
+
+        self._validate_parameters()
+        self.n_features_ = X.shape[1]  # used for validation in predict()
+
+        # we need this stateful variable to tell raw_predict() that it was
+        # called from fit() (this current method), and that the data it has
+        # received is pre-binned.
+        # predicting is faster on pre-binned data, so we want early stopping
+
+Budget: 1790.9s, 499 decisions remaining.

@@ -1,0 +1,20 @@
+{
+  "task": "javascript/binary",
+  "wall_seconds": 204.76877688011155,
+  "exit_status": "Submitted",
+  "submission": "Implemented `binary.js` with manual base-2 conversion and invalid-input handling. Ran `/aider/benchmark/npm-test.sh`: all 10 tests passed.",
+  "framework": "deepseek-harness-sdk-0.2.2rc2",
+  "sdk_result": {
+    "session_id": "course-task",
+    "final_response": "Implemented `binary.js` with manual base-2 conversion and invalid-input handling. Ran `/aider/benchmark/npm-test.sh`: all 10 tests passed.",
+    "finish_reason": "completed",
+    "events": 27,
+    "notifications": 29,
+    "sdk_model_http_requests": 4,
+    "wall_seconds": 119.91189191490412
+  },
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 26.961931639816612
+}

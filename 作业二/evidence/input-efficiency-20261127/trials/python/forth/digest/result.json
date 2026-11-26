@@ -1,0 +1,10 @@
+{
+  "task": "python/forth",
+  "wall_seconds": 171.08852605428547,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 8.048564350232482
+}

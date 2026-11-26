@@ -1,0 +1,30 @@
+{
+  "stage": "registered_before_first_fresh_generation",
+  "registered_unix": 1795713904.8390033,
+  "reason": "Diagnostics show that environment guidance has task-dependent costs; compare the simplest same-framework baseline on every fixed fresh task",
+  "fresh_model_files": [],
+  "completed_diagnostic_positions": 6,
+  "completed_diagnostic_all_passed": true,
+  "maximum_model_task_trials_before": 33,
+  "maximum_model_task_trials_after": 39,
+  "maximum_extra_agent_seconds": 10800,
+  "maximum_extra_swe_grading_seconds": 5400,
+  "all_six_base_positions_required": true,
+  "model_inputs_task_selection_limits_fee_selection_repeat_rules_unchanged": true,
+  "original_plan_sha256": "f9082e3aaa79ee5c6760c7d7538737a09c1a7c0ea5baeef707a9ca76cb5a4d5f",
+  "source_changes": {
+    "work/input-efficiency-20261126/analyze_study.py": {
+      "before": "4db7840746a78736a752258e0575604f6de1a864ad63014f34fb76deb085cbfb",
+      "after": "4e4092c17081146b78559e29139d14b9df78b8304f26498fceb2d890c2fb4f3d"
+    },
+    "work/input-efficiency-20261126/candidate-tasks.json": {
+      "before": "1f42b5bea6c2cfa16010d1e27b5ad573228de4afeb334f9af490ed8e11ce11d5",
+      "after": "fab16e1654479787a4343aec919dc879e9c3f456de4594d523dc7521cf3ac61f"
+    },
+    "work/input-efficiency-20261126/run_study.py": {
+      "before": "5f05af39730250f156fb042b51ba5cf0c6ff9b585775cd804a6f2e2e24225ee1",
+      "after": "1cdfb4aa5198c7f8eb383f9e76f68e18469be577148d7122e6ea8b30f2baed72"
+    }
+  },
+  "new_model_calls": 0
+}

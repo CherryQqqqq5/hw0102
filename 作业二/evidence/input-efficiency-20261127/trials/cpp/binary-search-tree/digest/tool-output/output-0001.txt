@@ -1,0 +1,419 @@
+--- CMakeLists.txt ---
+# Get the exercise name from the current directory
+get_filename_component(exercise ${CMAKE_CURRENT_SOURCE_DIR} NAME)
+
+# Basic CMake project
+cmake_minimum_required(VERSION 3.5.1)
+
+# Name the project after the exercise
+project(${exercise} CXX)
+
+# Get a source filename from the exercise name by replacing -'s with _'s
+string(REPLACE "-" "_" file ${exercise})
+
+# Implementation could be only a header
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/${file}.cpp)
+    set(exercise_cpp ${file}.cpp)
+else()
+    set(exercise_cpp "")
+endif()
+
+# Use the common Catch library?
+if(EXERCISM_COMMON_CATCH)
+    # For Exercism track development only
+    add_executable(${exercise} ${file}_test.cpp ${exercise_cpp} ${file}.h $<TARGET_OBJECTS:catchlib>)
+elseif(EXERCISM_TEST_SUITE)
+    # The Exercism test suite is being run, the Docker image already
+    # includes a pre-built version of Catch.
+    find_package(Catch2 REQUIRED)
+    add_executable(${exercise} ${file}_test.cpp ${exercise_cpp} ${file}.h)
+    target_link_libraries(${exercise} PRIVATE Catch2::Catch2WithMain)
+    # When Catch is installed system wide we need to include a different
+    # header, we need this define to use the correct one.
+    target_compile_definitions(${exercise} PRIVATE EXERCISM_TEST_SUITE)
+else()
+    # Build executable from sources and headers
+    add_executable(${exercise} ${file}_test.cpp ${exercise_cpp} ${file}.h test/tests-main.cpp)
+endif()
+
+set_target_properties(${exercise} PROPERTIES
+    CXX_STANDARD 17
+    CXX_STANDARD_REQUIRED OFF
+    CXX_EXTENSIONS OFF
+)
+
+set(CMAKE_BUILD_TYPE Debug)
+
+if("${CMAKE_CXX_COMPILER_ID}" MATCHES "(GNU|Clang)")
+    set_target_properties(${exercise} PROPERTIES
+        COMPILE_FLAGS "-Wall -Wextra -Wpedantic -Werror"
+    )
+endif()
+
+# Configure to run all the tests?
+if(${EXERCISM_RUN_ALL_TESTS})
+    target_compile_definitions(${exercise} PRIVATE EXERCISM_RUN_ALL_TESTS)
+endif()
+
+# Tell MSVC not to warn us about unchecked iterators in debug builds
+# Treat warnings as errors
+# Treat type conversion warnings C4244 and C4267 as level 4 warnings, i.e. ignore them in level 3
+if(${MSVC})
+    set_target_properties(${exercise} PROPERTIES
+        COMPILE_DEFINITIONS_DEBUG _SCL_SECURE_NO_WARNINGS
+        COMPILE_FLAGS "/WX /w44244 /w44267")
+endif()
+
+# Run the tests on every build
+add_custom_target(test_${exercise} ALL DEPENDS ${exercise} COMMAND ${exercise})
+--- test entry ---
+#define CATCH_CONFIG_MAIN
+#include "catch.hpp"
+--- baseline test ---
+-- The CXX compiler identification is GNU 12.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /exercise/binary-search-tree/build
+[ 25%] Building CXX object CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o
+baseline exit status: 2
+/exercise/binary-search-tree/binary_search_tree_test.cpp:12:63: error: 'binary_tree' is not a member of 'binary_search_tree'
+   12 | using tree_ptr = typename std::unique_ptr<binary_search_tree::binary_tree<T>>;
+      |                                                               ^~~~~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:12:75: error: template argument 1 is invalid
+   12 | using tree_ptr = typename std::unique_ptr<binary_search_tree::binary_tree<T>>;
+      |                                                                           ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:12:75: error: template argument 2 is invalid
+/exercise/binary-search-tree/binary_search_tree_test.cpp:12:76: error: expected identifier before '>' token
+   12 | using tree_ptr = typename std::unique_ptr<binary_search_tree::binary_tree<T>>;
+      |                                                                            ^~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:15:29: error: 'tree_ptr' does not name a type
+   15 | static void test_leaf(const tree_ptr<T> &tree,
+      |                             ^~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:15:37: error: expected ',' or '...' before '<' token
+   15 | static void test_leaf(const tree_ptr<T> &tree,
+      |                                     ^
+In file included from /exercise/binary-search-tree/binary_search_tree_test.cpp:5:
+/exercise/binary-search-tree/binary_search_tree_test.cpp: In function 'void test_leaf(int)':
+/exercise/binary-search-tree/binary_search_tree_test.cpp:18:13: error: 'data' was not declared in this scope; did you mean 'std::data'?
+   18 |     REQUIRE(data == tree->data());
+      |             ^~~~
+In file included from /usr/include/c++/12/string:52,
+                 from /exercise/binary-search-tree/test/catch.hpp:475:
+/usr/include/c++/12/bits/range_access.h:343:5: note: 'std::data' declared here
+  343 |     data(initializer_list<_Tp> __il) noexcept
+      |     ^~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:18:21: error: 'tree' was not declared in this scope; did you mean 'free'?
+   18 |     REQUIRE(data == tree->data());
+      |                     ^~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:18:13: error: 'data' was not declared in this scope; did you mean 'std::data'?
+   18 |     REQUIRE(data == tree->data());
+      |             ^~~~
+/usr/include/c++/12/bits/range_access.h:343:5: note: 'std::data' declared here
+  343 |     data(initializer_list<_Tp> __il) noexcept
+      |     ^~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:18:21: error: 'tree' was not declared in this scope; did you mean 'free'?
+   18 |     REQUIRE(data == tree->data());
+      |                     ^~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:19:36: error: 'has_left' was not declared in this scope
+   19 |     REQUIRE((bool) tree->left() == has_left);
+      |                                    ^~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:19:36: error: 'has_left' was not declared in this scope
+   19 |     REQUIRE((bool) tree->left() == has_left);
+      |                                    ^~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:20:37: error: 'has_right' was not declared in this scope
+   20 |     REQUIRE((bool) tree->right() == has_right);
+      |                                     ^~~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:20:37: error: 'has_right' was not declared in this scope
+   20 |     REQUIRE((bool) tree->right() == has_right);
+      |                                     ^~~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp: At global scope:
+/exercise/binary-search-tree/binary_search_tree_test.cpp:24:8: error: 'tree_ptr' does not name a type
+   24 | static tree_ptr<T> make_tree(const std::vector<T> &data)
+      |        ^~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp: In function 'void ____C_A_T_C_H____T_E_S_T____0()':
+/exercise/binary-search-tree/binary_search_tree_test.cpp:43:19: error: 'make_tree' was not declared in this scope
+   43 |     auto tested = make_tree<uint32_t>({4});
+      |                   ^~~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:43:37: error: expected primary-expression before '>' token
+   43 |     auto tested = make_tree<uint32_t>({4});
+      |                                     ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:43:38: error: ISO C++ forbids braced-groups within expressions [-Werror=pedantic]
+   43 |     auto tested = make_tree<uint32_t>({4});
+      |                                      ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:43:41: error: expected ';' before '}' token
+   43 |     auto tested = make_tree<uint32_t>({4});
+      |                                         ^
+      |                                         ;
+/exercise/binary-search-tree/binary_search_tree_test.cpp: In function 'void ____C_A_T_C_H____T_E_S_T____2()':
+/exercise/binary-search-tree/binary_search_tree_test.cpp:51:19: error: 'make_tree' was not declared in this scope
+   51 |     auto tested = make_tree<uint32_t>({4, 2});
+      |                   ^~~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:51:37: error: expected primary-expression before '>' token
+   51 |     auto tested = make_tree<uint32_t>({4, 2});
+      |                                     ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:51:38: error: ISO C++ forbids braced-groups within expressions [-Werror=pedantic]
+   51 |     auto tested = make_tree<uint32_t>({4, 2});
+      |                                      ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:51:40: error: left operand of comma operator has no effect [-Werror=unused-value]
+   51 |     auto tested = make_tree<uint32_t>({4, 2});
+      |                                        ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:51:44: error: expected ';' before '}' token
+   51 |     auto tested = make_tree<uint32_t>({4, 2});
+      |                                            ^
+      |                                            ;
+/exercise/binary-search-tree/binary_search_tree_test.cpp: In function 'void ____C_A_T_C_H____T_E_S_T____4()':
+/exercise/binary-search-tree/binary_search_tree_test.cpp:59:19: error: 'make_tree' was not declared in this scope
+   59 |     auto tested = make_tree<uint32_t>({4, 4});
+      |                   ^~~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:59:37: error: expected primary-expression before '>' token
+   59 |     auto tested = make_tree<uint32_t>({4, 4});
+      |                                     ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:59:38: error: ISO C++ forbids braced-groups within expressions [-Werror=pedantic]
+   59 |     auto tested = make_tree<uint32_t>({4, 4});
+      |                                      ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:59:40: error: left operand of comma operator has no effect [-Werror=unused-value]
+   59 |     auto tested = make_tree<uint32_t>({4, 4});
+      |                                        ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:59:44: error: expected ';' before '}' token
+   59 |     auto tested = make_tree<uint32_t>({4, 4});
+      |                                            ^
+      |                                            ;
+/exercise/binary-search-tree/binary_search_tree_test.cpp: In function 'void ____C_A_T_C_H____T_E_S_T____6()':
+/exercise/binary-search-tree/binary_search_tree_test.cpp:67:19: error: 'make_tree' was not declared in this scope
+   67 |     auto tested = make_tree<uint32_t>({4, 5});
+      |                   ^~~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:67:37: error: expected primary-expression before '>' token
+   67 |     auto tested = make_tree<uint32_t>({4, 5});
+      |                                     ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:67:38: error: ISO C++ forbids braced-groups within expressions [-Werror=pedantic]
+   67 |     auto tested = make_tree<uint32_t>({4, 5});
+      |                                      ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:67:40: error: left operand of comma operator has no effect [-Werror=unused-value]
+   67 |     auto tested = make_tree<uint32_t>({4, 5});
+      |                                        ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:67:44: error: expected ';' before '}' token
+   67 |     auto tested = make_tree<uint32_t>({4, 5});
+      |                                            ^
+      |                                            ;
+/exercise/binary-search-tree/binary_search_tree_test.cpp: In function 'void ____C_A_T_C_H____T_E_S_T____8()':
+/exercise/binary-search-tree/binary_search_tree_test.cpp:75:19: error: 'make_tree' was not declared in this scope
+   75 |     auto tested = make_tree<uint32_t>({4, 2, 6, 1, 3, 5, 7});
+      |                   ^~~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:75:37: error: expected primary-expression before '>' token
+   75 |     auto tested = make_tree<uint32_t>({4, 2, 6, 1, 3, 5, 7});
+      |                                     ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:75:38: error: ISO C++ forbids braced-groups within expressions [-Werror=pedantic]
+   75 |     auto tested = make_tree<uint32_t>({4, 2, 6, 1, 3, 5, 7});
+      |                                      ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:75:40: error: left operand of comma operator has no effect [-Werror=unused-value]
+   75 |     auto tested = make_tree<uint32_t>({4, 2, 6, 1, 3, 5, 7});
+      |                                        ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:75:46: error: right operand of comma operator has no effect [-Werror=unused-value]
+   75 |     auto tested = make_tree<uint32_t>({4, 2, 6, 1, 3, 5, 7});
+      |                                              ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:75:49: error: right operand of comma operator has no effect [-Werror=unused-value]
+   75 |     auto tested = make_tree<uint32_t>({4, 2, 6, 1, 3, 5, 7});
+      |                                                 ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:75:52: error: right operand of comma operator has no effect [-Werror=unused-value]
+   75 |     auto tested = make_tree<uint32_t>({4, 2, 6, 1, 3, 5, 7});
+      |                                                    ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:75:55: error: right operand of comma operator has no effect [-Werror=unused-value]
+   75 |     auto tested = make_tree<uint32_t>({4, 2, 6, 1, 3, 5, 7});
+      |                                                       ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:75:58: error: right operand of comma operator has no effect [-Werror=unused-value]
+   75 |     auto tested = make_tree<uint32_t>({4, 2, 6, 1, 3, 5, 7});
+      |                                                          ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:75:59: error: expected ';' before '}' token
+   75 |     auto tested = make_tree<uint32_t>({4, 2, 6, 1, 3, 5, 7});
+      |                                                           ^
+      |                                                           ;
+/exercise/binary-search-tree/binary_search_tree_test.cpp: At global scope:
+/exercise/binary-search-tree/binary_search_tree_test.cpp:92:29: error: 'tree_ptr' does not name a type
+   92 | static void test_sort(const tree_ptr<T> &tree, const std::vector<T> &expected)
+      |                             ^~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:92:37: error: expected ',' or '...' before '<' token
+   92 | static void test_sort(const tree_ptr<T> &tree, const std::vector<T> &expected)
+      |                                     ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp: In function 'void test_sort(int)':
+/exercise/binary-search-tree/binary_search_tree_test.cpp:95:21: error: 'tree' was not declared in this scope; did you mean 'free'?
+   95 |     for (auto& x : *tree) {
+      |                     ^~~~
+      |                     free
+/exercise/binary-search-tree/binary_search_tree_test.cpp:98:13: error: 'expected' was not declared in this scope
+   98 |     REQUIRE(expected == actual);
+      |             ^~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:98:13: error: 'expected' was not declared in this scope
+   98 |     REQUIRE(expected == actual);
+      |             ^~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp: In function 'void ____C_A_T_C_H____T_E_S_T____10()':
+/exercise/binary-search-tree/binary_search_tree_test.cpp:104:15: error: 'make_tree' was not declared in this scope
+  104 |     test_sort(make_tree<uint32_t>({2}), {2});
+      |               ^~~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:104:33: error: expected primary-expression before '>' token
+  104 |     test_sort(make_tree<uint32_t>({2}), {2});
+      |                                 ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:104:34: error: ISO C++ forbids braced-groups within expressions [-Werror=pedantic]
+  104 |     test_sort(make_tree<uint32_t>({2}), {2});
+      |                                  ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:104:37: error: expected ';' before '}' token
+  104 |     test_sort(make_tree<uint32_t>({2}), {2});
+      |                                     ^
+      |                                     ;
+/exercise/binary-search-tree/binary_search_tree_test.cpp: In function 'void ____C_A_T_C_H____T_E_S_T____12()':
+/exercise/binary-search-tree/binary_search_tree_test.cpp:109:15: error: 'make_tree' was not declared in this scope
+  109 |     test_sort(make_tree<uint32_t>({2, 1}), {1, 2});
+      |               ^~~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:109:33: error: expected primary-expression before '>' token
+  109 |     test_sort(make_tree<uint32_t>({2, 1}), {1, 2});
+      |                                 ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:109:34: error: ISO C++ forbids braced-groups within expressions [-Werror=pedantic]
+  109 |     test_sort(make_tree<uint32_t>({2, 1}), {1, 2});
+      |                                  ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:109:36: error: left operand of comma operator has no effect [-Werror=unused-value]
+  109 |     test_sort(make_tree<uint32_t>({2, 1}), {1, 2});
+      |                                    ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:109:40: error: expected ';' before '}' token
+  109 |     test_sort(make_tree<uint32_t>({2, 1}), {1, 2});
+      |                                        ^
+      |                                        ;
+/exercise/binary-search-tree/binary_search_tree_test.cpp: In function 'void ____C_A_T_C_H____T_E_S_T____14()':
+/exercise/binary-search-tree/binary_search_tree_test.cpp:114:15: error: 'make_tree' was not declared in this scope
+  114 |     test_sort(make_tree<uint32_t>({2, 2}), {2, 2});
+      |               ^~~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:114:33: error: expected primary-expression before '>' token
+  114 |     test_sort(make_tree<uint32_t>({2, 2}), {2, 2});
+      |                                 ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:114:34: error: ISO C++ forbids braced-groups within expressions [-Werror=pedantic]
+  114 |     test_sort(make_tree<uint32_t>({2, 2}), {2, 2});
+      |                                  ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:114:36: error: left operand of comma operator has no effect [-Werror=unused-value]
+  114 |     test_sort(make_tree<uint32_t>({2, 2}), {2, 2});
+      |                                    ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:114:40: error: expected ';' before '}' token
+  114 |     test_sort(make_tree<uint32_t>({2, 2}), {2, 2});
+      |                                        ^
+      |                                        ;
+/exercise/binary-search-tree/binary_search_tree_test.cpp: In function 'void ____C_A_T_C_H____T_E_S_T____16()':
+/exercise/binary-search-tree/binary_search_tree_test.cpp:119:15: error: 'make_tree' was not declared in this scope
+  119 |     test_sort(make_tree<uint32_t>({2, 3}), {2, 3});
+      |               ^~~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:119:33: error: expected primary-expression before '>' token
+  119 |     test_sort(make_tree<uint32_t>({2, 3}), {2, 3});
+      |                                 ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:119:34: error: ISO C++ forbids braced-groups within expressions [-Werror=pedantic]
+  119 |     test_sort(make_tree<uint32_t>({2, 3}), {2, 3});
+      |                                  ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:119:36: error: left operand of comma operator has no effect [-Werror=unused-value]
+  119 |     test_sort(make_tree<uint32_t>({2, 3}), {2, 3});
+      |                                    ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:119:40: error: expected ';' before '}' token
+  119 |     test_sort(make_tree<uint32_t>({2, 3}), {2, 3});
+      |                                        ^
+      |                                        ;
+/exercise/binary-search-tree/binary_search_tree_test.cpp: In function 'void ____C_A_T_C_H____T_E_S_T____18()':
+/exercise/binary-search-tree/binary_search_tree_test.cpp:124:15: error: 'make_tree' was not declared in this scope
+  124 |     test_sort(make_tree<uint32_t>({2, 1, 3, 6, 7, 5}), {1, 2, 3, 5, 6, 7});
+      |               ^~~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:124:33: error: expected primary-expression before '>' token
+  124 |     test_sort(make_tree<uint32_t>({2, 1, 3, 6, 7, 5}), {1, 2, 3, 5, 6, 7});
+      |                                 ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:124:34: error: ISO C++ forbids braced-groups within expressions [-Werror=pedantic]
+  124 |     test_sort(make_tree<uint32_t>({2, 1, 3, 6, 7, 5}), {1, 2, 3, 5, 6, 7});
+      |                                  ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:124:36: error: left operand of comma operator has no effect [-Werror=unused-value]
+  124 |     test_sort(make_tree<uint32_t>({2, 1, 3, 6, 7, 5}), {1, 2, 3, 5, 6, 7});
+      |                                    ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:124:42: error: right operand of comma operator has no effect [-Werror=unused-value]
+  124 |     test_sort(make_tree<uint32_t>({2, 1, 3, 6, 7, 5}), {1, 2, 3, 5, 6, 7});
+      |                                          ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:124:45: error: right operand of comma operator has no effect [-Werror=unused-value]
+  124 |     test_sort(make_tree<uint32_t>({2, 1, 3, 6, 7, 5}), {1, 2, 3, 5, 6, 7});
+      |                                             ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:124:48: error: right operand of comma operator has no effect [-Werror=unused-value]
+  124 |     test_sort(make_tree<uint32_t>({2, 1, 3, 6, 7, 5}), {1, 2, 3, 5, 6, 7});
+      |                                                ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:124:51: error: right operand of comma operator has no effect [-Werror=unused-value]
+  124 |     test_sort(make_tree<uint32_t>({2, 1, 3, 6, 7, 5}), {1, 2, 3, 5, 6, 7});
+      |                                                   ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:124:52: error: expected ';' before '}' token
+  124 |     test_sort(make_tree<uint32_t>({2, 1, 3, 6, 7, 5}), {1, 2, 3, 5, 6, 7});
+      |                                                    ^
+      |                                                    ;
+/exercise/binary-search-tree/binary_search_tree_test.cpp: In function 'void ____C_A_T_C_H____T_E_S_T____20()':
+/exercise/binary-search-tree/binary_search_tree_test.cpp:131:19: error: 'make_tree' was not declared in this scope
+  131 |     auto tested = make_tree<std::string>({"delicious", "ballon", "flag", "apple", "cat", "elispsis", "grains"});
+      |                   ^~~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:131:40: error: expected primary-expression before '>' token
+  131 |     auto tested = make_tree<std::string>({"delicious", "ballon", "flag", "apple", "cat", "elispsis", "grains"});
+      |                                        ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:131:41: error: ISO C++ forbids braced-groups within expressions [-Werror=pedantic]
+  131 |     auto tested = make_tree<std::string>({"delicious", "ballon", "flag", "apple", "cat", "elispsis", "grains"});
+      |                                         ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:131:43: error: left operand of comma operator has no effect [-Werror=unused-value]
+  131 |     auto tested = make_tree<std::string>({"delicious", "ballon", "flag", "apple", "cat", "elispsis", "grains"});
+      |                                           ^~~~~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:131:66: error: right operand of comma operator has no effect [-Werror=unused-value]
+  131 |     auto tested = make_tree<std::string>({"delicious", "ballon", "flag", "apple", "cat", "elispsis", "grains"});
+      |                                                                  ^~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:131:74: error: right operand of comma operator has no effect [-Werror=unused-value]
+  131 |     auto tested = make_tree<std::string>({"delicious", "ballon", "flag", "apple", "cat", "elispsis", "grains"});
+      |                                                                          ^~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:131:83: error: right operand of comma operator has no effect [-Werror=unused-value]
+  131 |     auto tested = make_tree<std::string>({"delicious", "ballon", "flag", "apple", "cat", "elispsis", "grains"});
+      |                                                                                   ^~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:131:90: error: right operand of comma operator has no effect [-Werror=unused-value]
+  131 |     auto tested = make_tree<std::string>({"delicious", "ballon", "flag", "apple", "cat", "elispsis", "grains"});
+      |                                                                                          ^~~~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:131:102: error: right operand of comma operator has no effect [-Werror=unused-value]
+  131 |     auto tested = make_tree<std::string>({"delicious", "ballon", "flag", "apple", "cat", "elispsis", "grains"});
+      |                                                                                                      ^~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:131:110: error: expected ';' before '}' token
+  131 |     auto tested = make_tree<std::string>({"delicious", "ballon", "flag", "apple", "cat", "elispsis", "grains"});
+      |                                                                                                              ^
+      |                                                                                                              ;
+/exercise/binary-search-tree/binary_search_tree_test.cpp: In function 'void ____C_A_T_C_H____T_E_S_T____22()':
+/exercise/binary-search-tree/binary_search_tree_test.cpp:146:15: error: 'make_tree' was not declared in this scope
+  146 |     test_sort(make_tree<std::string>({"A", "few", "random", "strings", "that", "should", "be", "sorted"}), {"A", "be", "few", "random", "should", "sorted", "strings", "that"});
+      |               ^~~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:146:36: error: expected primary-expression before '>' token
+  146 |     test_sort(make_tree<std::string>({"A", "few", "random", "strings", "that", "should", "be", "sorted"}), {"A", "be", "few", "random", "should", "sorted", "strings", "that"});
+      |                                    ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:146:37: error: ISO C++ forbids braced-groups within expressions [-Werror=pedantic]
+  146 |     test_sort(make_tree<std::string>({"A", "few", "random", "strings", "that", "should", "be", "sorted"}), {"A", "be", "few", "random", "should", "sorted", "strings", "that"});
+      |                                     ^
+/exercise/binary-search-tree/binary_search_tree_test.cpp:146:39: error: left operand of comma operator has no effect [-Werror=unused-value]
+  146 |     test_sort(make_tree<std::string>({"A", "few", "random", "strings", "that", "should", "be", "sorted"}), {"A", "be", "few", "random", "should", "sorted", "strings", "that"});
+      |                                       ^~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:146:51: error: right operand of comma operator has no effect [-Werror=unused-value]
+  146 |     test_sort(make_tree<std::string>({"A", "few", "random", "strings", "that", "should", "be", "sorted"}), {"A", "be", "few", "random", "should", "sorted", "strings", "that"});
+      |                                                   ^~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:146:61: error: right operand of comma operator has no effect [-Werror=unused-value]
+  146 |     test_sort(make_tree<std::string>({"A", "few", "random", "strings", "that", "should", "be", "sorted"}), {"A", "be", "few", "random", "should", "sorted", "strings", "that"});
+      |                                                             ^~~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:146:72: error: right operand of comma operator has no effect [-Werror=unused-value]
+  146 |     test_sort(make_tree<std::string>({"A", "few", "random", "strings", "that", "should", "be", "sorted"}), {"A", "be", "few", "random", "should", "sorted", "strings", "that"});
+      |                                                                        ^~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:146:80: error: right operand of comma operator has no effect [-Werror=unused-value]
+  146 |     test_sort(make_tree<std::string>({"A", "few", "random", "strings", "that", "should", "be", "sorted"}), {"A", "be", "few", "random", "should", "sorted", "strings", "that"});
+      |                                                                                ^~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:146:90: error: right operand of comma operator has no effect [-Werror=unused-value]
+  146 |     test_sort(make_tree<std::string>({"A", "few", "random", "strings", "that", "should", "be", "sorted"}), {"A", "be", "few", "random", "should", "sorted", "strings", "that"});
+      |                                                                                          ^~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:146:96: error: right operand of comma operator has no effect [-Werror=unused-value]
+  146 |     test_sort(make_tree<std::string>({"A", "few", "random", "strings", "that", "should", "be", "sorted"}), {"A", "be", "few", "random", "should", "sorted", "strings", "that"});
+      |                                                                                                ^~~~~~~~
+/exercise/binary-search-tree/binary_search_tree_test.cpp:146:104: error: expected ';' before '}' token
+  146 |     test_sort(make_tree<std::string>({"A", "few", "random", "strings", "that", "should", "be", "sorted"}), {"A", "be", "few", "random", "should", "sorted", "strings", "that"});
+      |                                                                                                        ^
+      |                                                                                                        ;
+cc1plus: all warnings being treated as errors
+make[2]: *** [CMakeFiles/binary-search-tree.dir/build.make:76: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:85: CMakeFiles/binary-search-tree.dir/all] Error 2
+make: *** [Makefile:91: all] Error 2
+
+Budget: 1762.5s, 498 decisions remaining.

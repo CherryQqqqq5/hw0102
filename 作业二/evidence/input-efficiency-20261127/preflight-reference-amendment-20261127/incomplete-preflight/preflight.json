@@ -1,0 +1,9 @@
+{
+  "task": "cpp/binary-search-tree",
+  "original_starter": {
+    "scoreable": true,
+    "passed": false,
+    "grader_exit_code": 2,
+    "grader_seconds": 25.697685923893005
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "source": "python-3.13.12-linux-x86_64.tar.gz",
+  "sha256": "ad178e36a84de3f845885d0ace5ca6f87fa9502d1f0cf53ba3dd42194277d42e",
+  "python": "Python 3.13.12",
+  "seconds": 39.99092800030485,
+  "all_configurations": true,
+  "public_helper_initialized_before_snapshot": true,
+  "starter_test_returncode": 1
+}

@@ -1,0 +1,156 @@
+--- custom AdminSite instances ---
+tests/admin_custom_urls/models.py:80:site = admin.AdminSite(name='admin_custom_urls')
+tests/auth_tests/urls_custom_user_admin.py:6:site = admin.AdminSite(name='custom_user_admin')
+tests/auth_tests/urls_admin.py:12:site = admin.AdminSite(name='auth_test_admin')
+tests/auth_tests/test_admin_multidb.py:19:site = admin.AdminSite(name='test_adminsite')
+tests/admin_registration/tests.py:21:        self.site = admin.AdminSite()
+tests/modeladmin/test_checks.py:21:            admin_site = AdminSite()
+tests/modeladmin/test_checks.py:31:        admin_obj = model_admin(model, AdminSite())
+tests/modeladmin/test_checks.py:42:            admin_site = AdminSite()
+tests/modeladmin/test_checks.py:1425:        site = AdminSite()
+tests/modeladmin/test_checks.py:1445:        site = AdminSite()
+tests/modeladmin/test_checks.py:1456:        site = AdminSite()
+tests/modeladmin/test_actions.py:37:        ma = BandAdmin(Band, admin.AdminSite())
+tests/modeladmin/test_actions.py:74:        ma1 = AdminA(Band, admin.AdminSite())
+tests/modeladmin/test_actions.py:78:        ma2 = AdminB(Band, admin.AdminSite())
+tests/modeladmin/test_actions.py:91:        admin_site = admin.AdminSite()
+tests/modeladmin/tests.py:47:        self.site = AdminSite()
+tests/modeladmin/tests.py:729:            "<ModelAdmin: model=Band site=AdminSite(name='admin')>",
+tests/modeladmin/tests.py:760:        ma = ModelAdmin(Band, AdminSite())
+tests/modeladmin/tests.py:776:        ma = ModelAdmin(Band, AdminSite())
+tests/modeladmin/tests.py:797:        ma = BandAdmin(Band, AdminSite())
+tests/modeladmin/tests.py:811:        ma = ModelAdmin(Band, AdminSite())
+tests/modeladmin/tests.py:827:        ma = ModelAdmin(Band, AdminSite())
+tests/modeladmin/tests.py:843:        ma = ModelAdmin(Band, AdminSite())
+tests/admin_utils/admin.py:34:site = admin.AdminSite(name='admin')
+tests/proxy_models/admin.py:5:site = admin.AdminSite(name='admin_proxy')
+tests/gis_tests/geoadmin/models.py:17:site = admin.AdminSite(name='gis_admin_modeladmin')
+tests/gis_tests/geoadmin/models.py:20:site_gis = admin.AdminSite(name='gis_admin_gismodeladmin')
+tests/gis_tests/geoadmin_deprecated/models.py:19:site = admin.AdminSite(name='admin_gis')
+tests/admin_default_site/sites.py:4:class CustomAdminSite(admin.AdminSite):
+tests/admin_default_site/tests.py:22:        admin.site = sites.site = sites.DefaultAdminSite()
+tests/admin_default_site/tests.py:36:        self.assertEqual(str(admin.site), "AdminSite(name='admin')")
+tests/admin_default_site/tests.py:37:        self.assertEqual(repr(admin.site), "AdminSite(name='admin')")
+tests/admin_default_site/tests.py:42:        admin_site = CustomAdminSite(name='other')
+tests/admin_default_site/tests.py:43:        self.assertEqual(repr(admin_site), "CustomAdminSite(name='other')")
+tests/timezones/admin.py:14:site = admin.AdminSite(name='admin_tz')
+tests/generic_inline_admin/tests.py:299:        self.site = AdminSite()
+tests/generic_inline_admin/tests.py:302:        media_inline = MediaInline(Media, AdminSite())
+tests/generic_inline_admin/admin.py:8:site = admin.AdminSite(name="admin")
+tests/admin_ordering/tests.py:28:site = admin.AdminSite()
+tests/admin_inlines/admin.py:18:site = admin.AdminSite(name="admin")
+tests/admin_inlines/admin.py:406:site2 = admin.AdminSite(name='tabular_inline_hidden_field_admin')
+tests/admin_inlines/admin.py:408:site3 = admin.AdminSite(name='stacked_inline_hidden_field_in_group_admin')
+tests/admin_inlines/admin.py:410:site4 = admin.AdminSite(name='stacked_inline_hidden_field_on_single_line_admin')
+tests/admin_changelist/tests.py:1124:        site = admin.AdminSite(name='admin')
+tests/admin_changelist/tests.py:1220:        site = admin.AdminSite(name='admin')
+tests/admin_changelist/admin.py:8:site = admin.AdminSite(name="admin")
+tests/admin_views/test_multidb.py:20:site = admin.AdminSite(name='test_adminsite')
+tests/admin_views/tests.py:6406:            admin = CityAdmin(City, AdminSite())
+tests/admin_views/test_adminsite.py:10:site = admin.AdminSite(name="test_adminsite")
+tests/admin_views/test_adminsite.py:84:        self.site = admin.AdminSite()
+tests/admin_views/test_autocomplete_view.py:39:site = admin.AdminSite(name='autocomplete_admin')
+tests/admin_views/admin.py:1011:site = admin.AdminSite(name="admin")
+tests/admin_views/admin.py:1134:site2 = admin.AdminSite(name="namespaced_admin")
+tests/admin_views/admin.py:1146:site7 = admin.AdminSite(name="admin7")
+tests/admin_views/admin.py:1185:site6 = admin.AdminSite(name='admin6')
+tests/admin_views/admin.py:1207:site9 = admin.AdminSite(name='admin9')
+tests/admin_views/admin.py:1211:site10 = admin.AdminSite(name='admin10')
+tests/admin_checks/tests.py:246:        class CustomAdminSite(admin.AdminSite):
+tests/admin_checks/tests.py:249:        custom_site = CustomAdminSite()
+tests/admin_checks/tests.py:282:        errors = SongAdmin(Song, AdminSite()).check()
+tests/admin_checks/tests.py:297:        self.assertEqual(SongAdmin(Song, AdminSite()).check(), [
+tests/admin_checks/tests.py:309:        self.assertEqual(SongAdmin(Song, AdminSite()).check(), [
+tests/admin_checks/tests.py:328:        errors = SongAdmin(Song, AdminSite()).check()
+tests/admin_checks/tests.py:349:        errors = SongAdmin(Song, AdminSite()).check()
+tests/admin_checks/tests.py:356:        errors = ValidFields(Song, AdminSite()).check()
+tests/admin_checks/tests.py:364:        errors = ValidFormFieldsets(Song, AdminSite()).check()
+tests/admin_checks/tests.py:380:        errors = NotATupleAdmin(Song, AdminSite()).check()
+tests/admin_checks/tests.py:404:        errors = NotATupleAdmin(Song, AdminSite()).check()
+tests/admin_checks/tests.py:421:        errors = ExcludedFields1(Book, AdminSite()).check()
+tests/admin_checks/tests.py:435:        errors = ExcludedFields2(Book, AdminSite()).check()
+tests/admin_checks/tests.py:454:        errors = ExcludedFieldsAlbumAdmin(Album, AdminSite()).check()
+tests/admin_checks/tests.py:477:        errors = AlbumAdmin(Album, AdminSite()).check()
+tests/admin_checks/tests.py:499:        errors = SongAdmin(Song, AdminSite()).check()
+tests/admin_checks/tests.py:513:        errors = SongAdmin(Song, AdminSite()).check()
+tests/admin_checks/tests.py:535:        errors = SongAdmin(Song, AdminSite()).check()
+tests/admin_checks/tests.py:557:        errors = SongAdmin(Song, AdminSite()).check()
+tests/admin_checks/tests.py:579:        errors = SongAdmin(Song, AdminSite()).check()
+tests/admin_checks/tests.py:602:        errors = SongAdmin(Song, AdminSite()).check()
+tests/admin_checks/tests.py:617:        errors = RawIdNonexistentAdmin(Album, AdminSite()).check()
+tests/admin_checks/tests.py:642:        errors = MyAdmin(Album, AdminSite()).check()
+--- url patterns with custom prefixes ---
+tests/admin_changelist/urls.py:6:    path('admin/', admin.site.urls),
+tests/admin_docs/urls.py:11:    path('admin/', admin.site.urls),
+tests/admin_inlines/urls.py:6:    path('admin/', admin.site.urls),
+tests/admin_views/urls.py:16:    path('test_admin/admin/', admin.site.urls),
+tests/admin_views/urls.py:17:    path('test_admin/admin2/', customadmin.site.urls),
+tests/admin_views/urls.py:27:    path('test_admin/has_permission_admin/', custom_has_permission_admin.site.urls),
+tests/admin_widgets/urls.py:6:    path('', widgetadmin.site.urls),
+tests/auth_tests/urls.py:169:    path('admin/', admin.site.urls),
+tests/generic_inline_admin/urls.py:6:    path('generic_inline_admin/admin/', admin.site.urls),
+tests/timezones/urls.py:6:    path('admin/', tz_admin.site.urls),
+tests/admin_changelist/urls.py:6:    path('admin/', admin.site.urls),
+tests/admin_checks/tests.py:245:    def test_custom_adminsite(self):
+tests/admin_default_site/tests.py:27:    def test_use_custom_admin_site(self):
+tests/admin_docs/namespace_urls.py:12:    path('admin/', admin.site.urls),
+tests/admin_docs/test_views.py:149:                path('admin/', admin.site.urls),
+tests/admin_docs/urls.py:11:    path('admin/', admin.site.urls),
+tests/admin_inlines/urls.py:6:    path('admin/', admin.site.urls),
+tests/admin_registration/tests.py:41:    def test_prevent_double_registration_for_custom_admin(self):
+tests/admin_views/admin.py:194:    change_list_template = 'custom_admin/change_list.html'
+tests/admin_views/admin.py:195:    change_form_template = 'custom_admin/change_form.html'
+tests/admin_views/admin.py:196:    add_form_template = 'custom_admin/add_form.html'
+tests/admin_views/admin.py:197:    object_history_template = 'custom_admin/object_history.html'
+tests/admin_views/admin.py:198:    delete_confirmation_template = 'custom_admin/delete_confirmation.html'
+tests/admin_views/admin.py:199:    delete_selected_confirmation_template = 'custom_admin/delete_selected_confirmation.html'
+tests/admin_views/admin.py:200:    popup_response_template = 'custom_admin/popup_response.html'
+tests/admin_views/customadmin.py:14:    app_index_template = 'custom_admin/app_index.html'
+tests/admin_views/customadmin.py:16:    login_template = 'custom_admin/login.html'
+tests/admin_views/customadmin.py:17:    logout_template = 'custom_admin/logout.html'
+tests/admin_views/customadmin.py:18:    index_template = ['custom_admin/index.html']  # a list, to test fix for #18697
+tests/admin_views/customadmin.py:19:    password_change_template = 'custom_admin/password_change_form.html'
+tests/admin_views/customadmin.py:20:    password_change_done_template = 'custom_admin/password_change_done.html'
+tests/admin_views/tests.py:1160:        self.assertTemplateUsed(response, 'custom_admin/change_list.html')
+tests/admin_views/tests.py:1164:        self.assertTemplateUsed(response, 'custom_admin/add_form.html')
+tests/admin_views/tests.py:1179:        self.assertTemplateUsed(response, 'custom_admin/change_form.html')
+tests/admin_views/tests.py:1181:        self.assertTemplateUsed(response, 'custom_admin/delete_confirmation.html')
+tests/admin_views/tests.py:1187:        self.assertTemplateUsed(response, 'custom_admin/delete_selected_confirmation.html')
+tests/admin_views/tests.py:1189:        self.assertTemplateUsed(response, 'custom_admin/object_history.html')
+tests/admin_views/tests.py:1199:        self.assertEqual(response.template_name, 'custom_admin/popup_response.html')
+tests/admin_views/tests.py:1447:    def test_custom_admin_site_login_form(self):
+tests/admin_views/tests.py:1461:    def test_custom_admin_site_login_template(self):
+tests/admin_views/tests.py:1465:        self.assertTemplateUsed(response, 'custom_admin/login.html')
+tests/admin_views/tests.py:1468:    def test_custom_admin_site_logout_template(self):
+tests/admin_views/tests.py:1471:        self.assertTemplateUsed(response, 'custom_admin/logout.html')
+tests/admin_views/tests.py:1474:    def test_custom_admin_site_index_view_and_template(self):
+tests/admin_views/tests.py:1477:        self.assertTemplateUsed(response, 'custom_admin/index.html')
+tests/admin_views/tests.py:1480:    def test_custom_admin_site_app_index_view_and_template(self):
+tests/admin_views/tests.py:1483:        self.assertTemplateUsed(response, 'custom_admin/app_index.html')
+tests/admin_views/tests.py:1486:    def test_custom_admin_site_password_change_template(self):
+tests/admin_views/tests.py:1489:        self.assertTemplateUsed(response, 'custom_admin/password_change_form.html')
+tests/admin_views/tests.py:1492:    def test_custom_admin_site_password_change_with_extra_context(self):
+tests/admin_views/tests.py:1495:        self.assertTemplateUsed(response, 'custom_admin/password_change_form.html')
+tests/admin_views/tests.py:1498:    def test_custom_admin_site_password_change_done_template(self):
+tests/admin_views/tests.py:1501:        self.assertTemplateUsed(response, 'custom_admin/password_change_done.html')
+tests/admin_views/tests.py:1504:    def test_custom_admin_site_view(self):
+tests/admin_views/urls.py:16:    path('test_admin/admin/', admin.site.urls),
+tests/admin_views/urls.py:17:    path('test_admin/admin2/', customadmin.site.urls),
+tests/admin_views/urls.py:27:    path('test_admin/has_permission_admin/', custom_has_permission_admin.site.urls),
+tests/admin_widgets/urls.py:6:    path('', widgetadmin.site.urls),
+tests/auth_tests/urls.py:169:    path('admin/', admin.site.urls),
+tests/generic_inline_admin/urls.py:6:    path('generic_inline_admin/admin/', admin.site.urls),
+tests/timezones/urls.py:6:    path('admin/', tz_admin.site.urls),
+tests/view_tests/default_urls.py:6:    path('admin/', admin.site.urls),
+--- readonly url assertions ---
+728:        self.assertContains(response, '<a href="%s">' % reverse('admin:password_change'))
+1846:        change_list_link = '&rsaquo; <a href="%s">Articles</a>' % reverse('admin:admin_views_article_changelist')
+2714:            '<li>Answer: <a href="%s">Because.</a></li>' % reverse('admin:admin_views_answer_change', args=(a1.pk,))
+2718:            '<li>Answer: <a href="%s">Yes.</a></li>' % reverse('admin:admin_views_answer_change', args=(a2.pk,))
+2798:            '<li>Villain: <a href="%s">Bob</a>' % reverse('admin:admin_views_villain_change', args=(self.sv1.pk,)),
+2915:        should_contain = '<th class="field-__str__"><a href="%s">%s</a></th>' % (change_url, escape(self.pk))
+2933:        should_contain = '<a href="%s">%s</a>' % (change_url, escape(self.pk))
+5119:            '<div class="readonly"><a href="%s">super</a></div>' % user_url,
+5129:            '<div class="readonly"><a href="%s">_40</a></div>' % language_url,
+
+Budget: 1768.4s, 497 decisions remaining.

@@ -1,0 +1,766 @@
+ M src/_pytest/logging.py
+?? .course-public-check/
+
+--- diff ---
+diff --git a/src/_pytest/logging.py b/src/_pytest/logging.py
+index 11031f2f2..2ce6f4c30 100644
+--- a/src/_pytest/logging.py
++++ b/src/_pytest/logging.py
+@@ -346,6 +346,13 @@ class LogCaptureFixture:
+         self._item = item
+         # dict of log name -> log level
+         self._initial_logger_levels = {}  # type: Dict[Optional[str], int]
++        # The caplog handler is shared between tests, so remember its level
++        # before ``set_level`` can change it. Fall back to recording it when
++        # ``set_level`` is first called if the handler is not available yet.
++        try:
++            self._initial_level = self.handler.level  # type: Optional[int]
++        except KeyError:
++            self._initial_level = None
+ 
+     def _finalize(self) -> None:
+         """Finalizes the fixture.
+@@ -357,6 +364,9 @@ class LogCaptureFixture:
+             logger = logging.getLogger(logger_name)
+             logger.setLevel(level)
+ 
++        if self._initial_level is not None:
++            self.handler.setLevel(self._initial_level)
++
+     @property
+     def handler(self) -> LogCaptureHandler:
+         """
+@@ -434,6 +444,8 @@ class LogCaptureFixture:
+         # save the original log-level to restore it during teardown
+         self._initial_logger_levels.setdefault(logger, logger_obj.level)
+         logger_obj.setLevel(level)
++        if self._initial_level is None:
++            self._initial_level = self.handler.level
+         self.handler.setLevel(level)
+ 
+     @contextmanager
+
+--- check size/mode ---
+-rwxr-xr-x 1 root root 7531 Nov 26 17:44 .course-public-check/check.py
+
+--- fixture regression tests ---
+....................FF.....F............................................ [ 38%]
+..F....x................................................................ [ 76%]
+..........................F.............s....                            [100%]
+=================================== FAILURES ===================================
+_____________ TestFillFixtures.test_extend_fixture_conftest_plugin _____________
+
+self = <fixtures.TestFillFixtures object at 0x7f59ab627220>
+testdir = <Testdir local('/tmp/pytest-of-root/pytest-4/test_extend_fixture_conftest_plugin0')>
+
+    def test_extend_fixture_conftest_plugin(self, testdir):
+        testdir.makepyfile(
+            testplugin="""
+            import pytest
+    
+            @pytest.fixture
+            def foo():
+                return 7
+        """
+        )
+>       testdir.syspathinsert()
+
+/testbed/testing/python/fixtures.py:165: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/testbed/src/_pytest/pytester.py:761: in syspathinsert
+    self.monkeypatch.syspath_prepend(str(path))
+/testbed/src/_pytest/monkeypatch.py:300: in syspath_prepend
+    from pkg_resources import fixup_namespace_packages
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    """
+    Package resource API
+    --------------------
+    
+    A resource is a logical file contained within a package, or a logical
+    subdirectory thereof.  The package resource API expects resource names
+    to have their path parts separated with ``/``, *not* whatever the local
+    path separator is.  Do not use os.path operations to manipulate resource
+    names being passed into the API.
+    
+    The package resource API is designed to work with normal filesystem packages,
+    .egg files, and unpacked .egg files.  It can also work in a limited way with
+    .zip files and with custom PEP 302 loaders that support the ``get_data()``
+    method.
+    
+    This module is deprecated. Users are directed to :mod:`importlib.resources`,
+    :mod:`importlib.metadata` and :pypi:`packaging` instead.
+    """
+    
+    from __future__ import annotations
+    
+    import sys
+    
+    if sys.version_info < (3, 8):  # noqa: UP036 # Check for unsupported versions
+        raise RuntimeError("Python 3.8 or later is required")
+    
+    import _imp
+    import collections
+    import email.parser
+    import errno
+    import functools
+    import importlib
+    import importlib.abc
+    import importlib.machinery
+    import inspect
+    import io
+    import ntpath
+    import operator
+    import os
+    import pkgutil
+    import platform
+    import plistlib
+    import posixpath
+    import re
+    import stat
+    import tempfile
+    import textwrap
+    import time
+    import types
+    import warnings
+    import zipfile
+    import zipimport
+    from pkgutil import get_importer
+    from typing import (
+        TYPE_CHECKING,
+        Any,
+        BinaryIO,
+        Callable,
+        Dict,
+        Iterable,
+        Iterator,
+        Literal,
+        Mapping,
+        MutableSequence,
+        NamedTuple,
+        NoReturn,
+        Protocol,
+        Tuple,
+        TypeVar,
+        Union,
+        overload,
+    )
+    
+    sys.path.extend(((vendor_path := os.path.join(os.path.dirname(os.path.dirname(__file__)), 'setuptools', '_vendor')) not in sys.path) * [vendor_path])  # fmt: skip
+    # workaround for #4476
+    sys.modules.pop('backports', None)
+    
+    # capture these to bypass sandboxing
+    from os import open as os_open, utime  # isort: skip
+    from os.path import isdir, split  # isort: skip
+    
+    try:
+        from os import mkdir, rename, unlink
+    
+        WRITE_SUPPORT = True
+    except ImportError:
+        # no write support, probably under GAE
+        WRITE_SUPPORT = False
+    
+    import packaging.markers
+    import packaging.requirements
+    import packaging.specifiers
+    import packaging.utils
+    import packaging.version
+    from jaraco.text import drop_comment, join_continuation, yield_lines
+    from platformdirs import user_cache_dir as _user_cache_dir
+    
+    if TYPE_CHECKING:
+        from _typeshed import BytesPath, StrOrBytesPath, StrPath
+        from _typeshed.importlib import LoaderProtocol
+        from typing_extensions import Self, TypeAlias
+    
+>   warnings.warn(
+        "pkg_resources is deprecated as an API. "
+        "See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+        DeprecationWarning,
+        stacklevel=2,
+    )
+E   DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:103: DeprecationWarning
+______________ TestFillFixtures.test_extend_fixture_plugin_plugin ______________
+
+self = <fixtures.TestFillFixtures object at 0x7f59aac1adc0>
+testdir = <Testdir local('/tmp/pytest-of-root/pytest-4/test_extend_fixture_plugin_plugin0')>
+
+    def test_extend_fixture_plugin_plugin(self, testdir):
+        # Two plugins should extend each order in loading order
+        testdir.makepyfile(
+            testplugin0="""
+            import pytest
+    
+            @pytest.fixture
+            def foo():
+                return 7
+        """
+        )
+        testdir.makepyfile(
+            testplugin1="""
+            import pytest
+    
+            @pytest.fixture
+            def foo(foo):
+                return foo + 7
+        """
+        )
+>       testdir.syspathinsert()
+
+/testbed/testing/python/fixtures.py:206: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/testbed/src/_pytest/pytester.py:761: in syspathinsert
+    self.monkeypatch.syspath_prepend(str(path))
+/testbed/src/_pytest/monkeypatch.py:300: in syspath_prepend
+    from pkg_resources import fixup_namespace_packages
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    """
+    Package resource API
+    --------------------
+    
+    A resource is a logical file contained within a package, or a logical
+    subdirectory thereof.  The package resource API expects resource names
+    to have their path parts separated with ``/``, *not* whatever the local
+    path separator is.  Do not use os.path operations to manipulate resource
+    names being passed into the API.
+    
+    The package resource API is designed to work with normal filesystem packages,
+    .egg files, and unpacked .egg files.  It can also work in a limited way with
+    .zip files and with custom PEP 302 loaders that support the ``get_data()``
+    method.
+    
+    This module is deprecated. Users are directed to :mod:`importlib.resources`,
+    :mod:`importlib.metadata` and :pypi:`packaging` instead.
+    """
+    
+    from __future__ import annotations
+    
+    import sys
+    
+    if sys.version_info < (3, 8):  # noqa: UP036 # Check for unsupported versions
+        raise RuntimeError("Python 3.8 or later is required")
+    
+    import _imp
+    import collections
+    import email.parser
+    import errno
+    import functools
+    import importlib
+    import importlib.abc
+    import importlib.machinery
+    import inspect
+    import io
+    import ntpath
+    import operator
+    import os
+    import pkgutil
+    import platform
+    import plistlib
+    import posixpath
+    import re
+    import stat
+    import tempfile
+    import textwrap
+    import time
+    import types
+    import warnings
+    import zipfile
+    import zipimport
+    from pkgutil import get_importer
+    from typing import (
+        TYPE_CHECKING,
+        Any,
+        BinaryIO,
+        Callable,
+        Dict,
+        Iterable,
+        Iterator,
+        Literal,
+        Mapping,
+        MutableSequence,
+        NamedTuple,
+        NoReturn,
+        Protocol,
+        Tuple,
+        TypeVar,
+        Union,
+        overload,
+    )
+    
+    sys.path.extend(((vendor_path := os.path.join(os.path.dirname(os.path.dirname(__file__)), 'setuptools', '_vendor')) not in sys.path) * [vendor_path])  # fmt: skip
+    # workaround for #4476
+    sys.modules.pop('backports', None)
+    
+    # capture these to bypass sandboxing
+    from os import open as os_open, utime  # isort: skip
+    from os.path import isdir, split  # isort: skip
+    
+    try:
+        from os import mkdir, rename, unlink
+    
+        WRITE_SUPPORT = True
+    except ImportError:
+        # no write support, probably under GAE
+        WRITE_SUPPORT = False
+    
+    import packaging.markers
+    import packaging.requirements
+    import packaging.specifiers
+    import packaging.utils
+    import packaging.version
+    from jaraco.text import drop_comment, join_continuation, yield_lines
+    from platformdirs import user_cache_dir as _user_cache_dir
+    
+    if TYPE_CHECKING:
+        from _typeshed import BytesPath, StrOrBytesPath, StrPath
+        from _typeshed.importlib import LoaderProtocol
+        from typing_extensions import Self, TypeAlias
+    
+>   warnings.warn(
+        "pkg_resources is deprecated as an API. "
+        "See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+        DeprecationWarning,
+        stacklevel=2,
+    )
+E   DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:103: DeprecationWarning
+_________________ TestFillFixtures.test_autouse_fixture_plugin _________________
+
+self = <fixtures.TestFillFixtures object at 0x7f59aac156a0>
+testdir = <Testdir local('/tmp/pytest-of-root/pytest-4/test_autouse_fixture_plugin0')>
+
+    def test_autouse_fixture_plugin(self, testdir):
+        # A fixture from a plugin has no baseid set, which screwed up
+        # the autouse fixture handling.
+        testdir.makepyfile(
+            testplugin="""
+            import pytest
+    
+            @pytest.fixture(autouse=True)
+            def foo(request):
+                request.function.foo = 7
+        """
+        )
+>       testdir.syspathinsert()
+
+/testbed/testing/python/fixtures.py:410: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/testbed/src/_pytest/pytester.py:761: in syspathinsert
+    self.monkeypatch.syspath_prepend(str(path))
+/testbed/src/_pytest/monkeypatch.py:300: in syspath_prepend
+    from pkg_resources import fixup_namespace_packages
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    """
+    Package resource API
+    --------------------
+    
+    A resource is a logical file contained within a package, or a logical
+    subdirectory thereof.  The package resource API expects resource names
+    to have their path parts separated with ``/``, *not* whatever the local
+    path separator is.  Do not use os.path operations to manipulate resource
+    names being passed into the API.
+    
+    The package resource API is designed to work with normal filesystem packages,
+    .egg files, and unpacked .egg files.  It can also work in a limited way with
+    .zip files and with custom PEP 302 loaders that support the ``get_data()``
+    method.
+    
+    This module is deprecated. Users are directed to :mod:`importlib.resources`,
+    :mod:`importlib.metadata` and :pypi:`packaging` instead.
+    """
+    
+    from __future__ import annotations
+    
+    import sys
+    
+    if sys.version_info < (3, 8):  # noqa: UP036 # Check for unsupported versions
+        raise RuntimeError("Python 3.8 or later is required")
+    
+    import _imp
+    import collections
+    import email.parser
+    import errno
+    import functools
+    import importlib
+    import importlib.abc
+    import importlib.machinery
+    import inspect
+    import io
+    import ntpath
+    import operator
+    import os
+    import pkgutil
+    import platform
+    import plistlib
+    import posixpath
+    import re
+    import stat
+    import tempfile
+    import textwrap
+    import time
+    import types
+    import warnings
+    import zipfile
+    import zipimport
+    from pkgutil import get_importer
+    from typing import (
+        TYPE_CHECKING,
+        Any,
+        BinaryIO,
+        Callable,
+        Dict,
+        Iterable,
+        Iterator,
+        Literal,
+        Mapping,
+        MutableSequence,
+        NamedTuple,
+        NoReturn,
+        Protocol,
+        Tuple,
+        TypeVar,
+        Union,
+        overload,
+    )
+    
+    sys.path.extend(((vendor_path := os.path.join(os.path.dirname(os.path.dirname(__file__)), 'setuptools', '_vendor')) not in sys.path) * [vendor_path])  # fmt: skip
+    # workaround for #4476
+    sys.modules.pop('backports', None)
+    
+    # capture these to bypass sandboxing
+    from os import open as os_open, utime  # isort: skip
+    from os.path import isdir, split  # isort: skip
+    
+    try:
+        from os import mkdir, rename, unlink
+    
+        WRITE_SUPPORT = True
+    except ImportError:
+        # no write support, probably under GAE
+        WRITE_SUPPORT = False
+    
+    import packaging.markers
+    import packaging.requirements
+    import packaging.specifiers
+    import packaging.utils
+    import packaging.version
+    from jaraco.text import drop_comment, join_continuation, yield_lines
+    from platformdirs import user_cache_dir as _user_cache_dir
+    
+    if TYPE_CHECKING:
+        from _typeshed import BytesPath, StrOrBytesPath, StrPath
+        from _typeshed.importlib import LoaderProtocol
+        from typing_extensions import Self, TypeAlias
+    
+>   warnings.warn(
+        "pkg_resources is deprecated as an API. "
+        "See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+        DeprecationWarning,
+        stacklevel=2,
+    )
+E   DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:103: DeprecationWarning
+________ TestFixtureManagerParseFactories.test_package_fixture_complex _________
+
+self = <fixtures.TestFixtureManagerParseFactories object at 0x7f59a9ad9730>
+testdir = <Testdir local('/tmp/pytest-of-root/pytest-4/test_package_fixture_complex0')>
+
+    def test_package_fixture_complex(self, testdir):
+        testdir.makepyfile(
+            __init__="""\
+            values = []
+        """
+        )
+>       testdir.syspathinsert(testdir.tmpdir.dirname)
+
+/testbed/testing/python/fixtures.py:1534: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/testbed/src/_pytest/pytester.py:761: in syspathinsert
+    self.monkeypatch.syspath_prepend(str(path))
+/testbed/src/_pytest/monkeypatch.py:300: in syspath_prepend
+    from pkg_resources import fixup_namespace_packages
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    """
+    Package resource API
+    --------------------
+    
+    A resource is a logical file contained within a package, or a logical
+    subdirectory thereof.  The package resource API expects resource names
+    to have their path parts separated with ``/``, *not* whatever the local
+    path separator is.  Do not use os.path operations to manipulate resource
+    names being passed into the API.
+    
+    The package resource API is designed to work with normal filesystem packages,
+    .egg files, and unpacked .egg files.  It can also work in a limited way with
+    .zip files and with custom PEP 302 loaders that support the ``get_data()``
+    method.
+    
+    This module is deprecated. Users are directed to :mod:`importlib.resources`,
+    :mod:`importlib.metadata` and :pypi:`packaging` instead.
+    """
+    
+    from __future__ import annotations
+    
+    import sys
+    
+    if sys.version_info < (3, 8):  # noqa: UP036 # Check for unsupported versions
+        raise RuntimeError("Python 3.8 or later is required")
+    
+    import _imp
+    import collections
+    import email.parser
+    import errno
+    import functools
+    import importlib
+    import importlib.abc
+    import importlib.machinery
+    import inspect
+    import io
+    import ntpath
+    import operator
+    import os
+    import pkgutil
+    import platform
+    import plistlib
+    import posixpath
+    import re
+    import stat
+    import tempfile
+    import textwrap
+    import time
+    import types
+    import warnings
+    import zipfile
+    import zipimport
+    from pkgutil import get_importer
+    from typing import (
+        TYPE_CHECKING,
+        Any,
+        BinaryIO,
+        Callable,
+        Dict,
+        Iterable,
+        Iterator,
+        Literal,
+        Mapping,
+        MutableSequence,
+        NamedTuple,
+        NoReturn,
+        Protocol,
+        Tuple,
+        TypeVar,
+        Union,
+        overload,
+    )
+    
+    sys.path.extend(((vendor_path := os.path.join(os.path.dirname(os.path.dirname(__file__)), 'setuptools', '_vendor')) not in sys.path) * [vendor_path])  # fmt: skip
+    # workaround for #4476
+    sys.modules.pop('backports', None)
+    
+    # capture these to bypass sandboxing
+    from os import open as os_open, utime  # isort: skip
+    from os.path import isdir, split  # isort: skip
+    
+    try:
+        from os import mkdir, rename, unlink
+    
+        WRITE_SUPPORT = True
+    except ImportError:
+        # no write support, probably under GAE
+        WRITE_SUPPORT = False
+    
+    import packaging.markers
+    import packaging.requirements
+    import packaging.specifiers
+    import packaging.utils
+    import packaging.version
+    from jaraco.text import drop_comment, join_continuation, yield_lines
+    from platformdirs import user_cache_dir as _user_cache_dir
+    
+    if TYPE_CHECKING:
+        from _typeshed import BytesPath, StrOrBytesPath, StrPath
+        from _typeshed.importlib import LoaderProtocol
+        from typing_extensions import Self, TypeAlias
+    
+>   warnings.warn(
+        "pkg_resources is deprecated as an API. "
+        "See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+        DeprecationWarning,
+        stacklevel=2,
+    )
+E   DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:103: DeprecationWarning
+______________ TestParameterizedSubRequest.test_non_relative_path ______________
+
+self = <fixtures.TestParameterizedSubRequest object at 0x7f59a75ab520>
+testdir = <Testdir local('/tmp/pytest-of-root/pytest-4/test_non_relative_path0')>
+
+    def test_non_relative_path(self, testdir):
+        tests_dir = testdir.mkdir("tests")
+        fixdir = testdir.mkdir("fixtures")
+        fixfile = fixdir.join("fix.py")
+        fixfile.write(
+            textwrap.dedent(
+                """\
+                import pytest
+    
+                @pytest.fixture(params=[0, 1, 2])
+                def fix_with_param(request):
+                    return request.param
+                """
+            )
+        )
+    
+        testfile = tests_dir.join("test_foos.py")
+        testfile.write(
+            textwrap.dedent(
+                """\
+                from fix import fix_with_param
+    
+                def test_foo(request):
+                    request.getfixturevalue('fix_with_param')
+                """
+            )
+        )
+    
+        tests_dir.chdir()
+>       testdir.syspathinsert(fixdir)
+
+/testbed/testing/python/fixtures.py:3690: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/testbed/src/_pytest/pytester.py:761: in syspathinsert
+    self.monkeypatch.syspath_prepend(str(path))
+/testbed/src/_pytest/monkeypatch.py:300: in syspath_prepend
+    from pkg_resources import fixup_namespace_packages
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    """
+    Package resource API
+    --------------------
+    
+    A resource is a logical file contained within a package, or a logical
+    subdirectory thereof.  The package resource API expects resource names
+    to have their path parts separated with ``/``, *not* whatever the local
+    path separator is.  Do not use os.path operations to manipulate resource
+    names being passed into the API.
+    
+    The package resource API is designed to work with normal filesystem packages,
+    .egg files, and unpacked .egg files.  It can also work in a limited way with
+    .zip files and with custom PEP 302 loaders that support the ``get_data()``
+    method.
+    
+    This module is deprecated. Users are directed to :mod:`importlib.resources`,
+    :mod:`importlib.metadata` and :pypi:`packaging` instead.
+    """
+    
+    from __future__ import annotations
+    
+    import sys
+    
+    if sys.version_info < (3, 8):  # noqa: UP036 # Check for unsupported versions
+        raise RuntimeError("Python 3.8 or later is required")
+    
+    import _imp
+    import collections
+    import email.parser
+    import errno
+    import functools
+    import importlib
+    import importlib.abc
+    import importlib.machinery
+    import inspect
+    import io
+    import ntpath
+    import operator
+    import os
+    import pkgutil
+    import platform
+    import plistlib
+    import posixpath
+    import re
+    import stat
+    import tempfile
+    import textwrap
+    import time
+    import types
+    import warnings
+    import zipfile
+    import zipimport
+    from pkgutil import get_importer
+    from typing import (
+        TYPE_CHECKING,
+        Any,
+        BinaryIO,
+        Callable,
+        Dict,
+        Iterable,
+        Iterator,
+        Literal,
+        Mapping,
+        MutableSequence,
+        NamedTuple,
+        NoReturn,
+        Protocol,
+        Tuple,
+        TypeVar,
+        Union,
+        overload,
+    )
+    
+    sys.path.extend(((vendor_path := os.path.join(os.path.dirname(os.path.dirname(__file__)), 'setuptools', '_vendor')) not in sys.path) * [vendor_path])  # fmt: skip
+    # workaround for #4476
+    sys.modules.pop('backports', None)
+    
+    # capture these to bypass sandboxing
+    from os import open as os_open, utime  # isort: skip
+    from os.path import isdir, split  # isort: skip
+    
+    try:
+        from os import mkdir, rename, unlink
+    
+        WRITE_SUPPORT = True
+    except ImportError:
+        # no write support, probably under GAE
+        WRITE_SUPPORT = False
+    
+    import packaging.markers
+    import packaging.requirements
+    import packaging.specifiers
+    import packaging.utils
+    import packaging.version
+    from jaraco.text import drop_comment, join_continuation, yield_lines
+    from platformdirs import user_cache_dir as _user_cache_dir
+    
+    if TYPE_CHECKING:
+        from _typeshed import BytesPath, StrOrBytesPath, StrPath
+        from _typeshed.importlib import LoaderProtocol
+        from typing_extensions import Self, TypeAlias
+    
+>   warnings.warn(
+        "pkg_resources is deprecated as an API. "
+        "See https://setuptools.pypa.io/en/latest/pkg_resources.html",
+        DeprecationWarning,
+        stacklevel=2,
+    )
+E   DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+
+/opt/miniconda3/envs/testbed/lib/python3.9/site-packages/pkg_resources/__init__.py:103: DeprecationWarning
+=========================== short test summary info ============================
+FAILED testing/python/fixtures.py::TestFillFixtures::test_extend_fixture_conftest_plugin
+FAILED testing/python/fixtures.py::TestFillFixtures::test_extend_fixture_plugin_plugin
+FAILED testing/python/fixtures.py::TestFillFixtures::test_autouse_fixture_plugin
+FAILED testing/python/fixtures.py::TestFixtureManagerParseFactories::test_package_fixture_complex
+FAILED testing/python/fixtures.py::TestParameterizedSubRequest::test_non_relative_path
+5 failed, 182 passed, 1 skipped, 1 xfailed in 95.82s (0:01:35)
+
+Budget: 1272.9s, 477 decisions remaining.

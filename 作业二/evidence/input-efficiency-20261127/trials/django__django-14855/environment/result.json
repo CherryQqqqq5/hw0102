@@ -1,0 +1,22 @@
+{
+  "task": "django__django-14855",
+  "wall_seconds": 2276.3048949874938,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 573.2566112852655,
+  "grader_seconds_total": 1203.5704788039438,
+  "original_grading_attempts": [
+    {
+      "timeout_seconds": 600,
+      "scoreable": false,
+      "result": "work/input-efficiency-20261126/scoring-amendment-20261127/result-grader600.json"
+    },
+    {
+      "timeout_seconds": 1800,
+      "scoreable": true,
+      "result": "work/input-efficiency-20261126/trials/django__django-14855/environment/grader-recovery-1800/regrade-result.json"
+    }
+  ]
+}

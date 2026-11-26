@@ -1,0 +1,15 @@
+{
+  "task": "scikit-learn__scikit-learn-14710",
+  "tag": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-14710:latest",
+  "status": "ready",
+  "source": "docker.io/swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-14710@sha256:537ebd245449fa21aad1773af3374e7165a2f03ad17c363cb4354b285bc27d87",
+  "manifest_digest": "sha256:537ebd245449fa21aad1773af3374e7165a2f03ad17c363cb4354b285bc27d87",
+  "config_digest": "sha256:4832a969ff4538fce25c13dbdefe339f895ea02ab8242aa930866117bfb4cbfb",
+  "new_model_calls": 0,
+  "compressed_layer_bytes": 1496287398,
+  "image_id": "sha256:537ebd245449fa21aad1773af3374e7165a2f03ad17c363cb4354b285bc27d87",
+  "actual_image_id": "sha256:537ebd245449fa21aad1773af3374e7165a2f03ad17c363cb4354b285bc27d87",
+  "docker_endpoint": "unix://[server-project]/guest/docker.sock",
+  "image_identity_rule": "Pinned manifest, config and all uncompressed layer digests; actual Docker identity verified",
+  "preparation_route": "Verified native-host OCI export/import"
+}

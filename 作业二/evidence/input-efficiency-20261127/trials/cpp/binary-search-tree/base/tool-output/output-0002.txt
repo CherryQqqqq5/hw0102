@@ -1,0 +1,172 @@
+--- log ---
+[ 25%] Linking CXX executable binary-search-tree
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: warning: relocation against `_ZTVN5Catch20ITransientExpressionE' in read-only section `.text._ZN5Catch20ITransientExpressionC2Ebb[_ZN5Catch20ITransientExpressionC5Ebb]'
+/usr/bin/ld: /usr/lib/gcc/x86_64-linux-gnu/12/../../../x86_64-linux-gnu/Scrt1.o: in function `_start':
+(.text+0x17): undefined reference to `main'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `void test_leaf<unsigned int>(std::unique_ptr<binary_search_tree::binary_tree<unsigned int>, std::default_delete<binary_search_tree::binary_tree<unsigned int> > > const&, unsigned int const&, bool, bool)':
+/exercise/binary-search-tree/binary_search_tree_test.cpp:18: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:18: undefined reference to `Catch::AssertionHandler::AssertionHandler(Catch::StringRef const&, Catch::SourceLineInfo const&, Catch::StringRef, Catch::ResultDisposition::Flags)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:18: undefined reference to `Catch::AssertionHandler::handleExpr(Catch::ITransientExpression const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:18: undefined reference to `Catch::AssertionHandler::complete()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:19: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:19: undefined reference to `Catch::AssertionHandler::AssertionHandler(Catch::StringRef const&, Catch::SourceLineInfo const&, Catch::StringRef, Catch::ResultDisposition::Flags)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:19: undefined reference to `Catch::AssertionHandler::handleExpr(Catch::ITransientExpression const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:19: undefined reference to `Catch::AssertionHandler::complete()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:20: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:20: undefined reference to `Catch::AssertionHandler::AssertionHandler(Catch::StringRef const&, Catch::SourceLineInfo const&, Catch::StringRef, Catch::ResultDisposition::Flags)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:20: undefined reference to `Catch::AssertionHandler::handleExpr(Catch::ITransientExpression const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:20: undefined reference to `Catch::AssertionHandler::complete()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:18: undefined reference to `Catch::AssertionHandler::handleUnexpectedInflightException()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:19: undefined reference to `Catch::AssertionHandler::handleUnexpectedInflightException()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:20: undefined reference to `Catch::AssertionHandler::handleUnexpectedInflightException()'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `void test_sort<unsigned int>(std::unique_ptr<binary_search_tree::binary_tree<unsigned int>, std::default_delete<binary_search_tree::binary_tree<unsigned int> > > const&, std::vector<unsigned int, std::allocator<unsigned int> > const&)':
+/exercise/binary-search-tree/binary_search_tree_test.cpp:98: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:98: undefined reference to `Catch::AssertionHandler::AssertionHandler(Catch::StringRef const&, Catch::SourceLineInfo const&, Catch::StringRef, Catch::ResultDisposition::Flags)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:98: undefined reference to `Catch::AssertionHandler::handleExpr(Catch::ITransientExpression const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:98: undefined reference to `Catch::AssertionHandler::complete()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:98: undefined reference to `Catch::AssertionHandler::handleUnexpectedInflightException()'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `void test_leaf<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(std::unique_ptr<binary_search_tree::binary_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::default_delete<binary_search_tree::binary_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool, bool)':
+/exercise/binary-search-tree/binary_search_tree_test.cpp:18: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:18: undefined reference to `Catch::AssertionHandler::AssertionHandler(Catch::StringRef const&, Catch::SourceLineInfo const&, Catch::StringRef, Catch::ResultDisposition::Flags)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:18: undefined reference to `Catch::AssertionHandler::handleExpr(Catch::ITransientExpression const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:18: undefined reference to `Catch::AssertionHandler::complete()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:19: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:19: undefined reference to `Catch::AssertionHandler::AssertionHandler(Catch::StringRef const&, Catch::SourceLineInfo const&, Catch::StringRef, Catch::ResultDisposition::Flags)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:19: undefined reference to `Catch::AssertionHandler::handleExpr(Catch::ITransientExpression const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:19: undefined reference to `Catch::AssertionHandler::complete()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:20: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:20: undefined reference to `Catch::AssertionHandler::AssertionHandler(Catch::StringRef const&, Catch::SourceLineInfo const&, Catch::StringRef, Catch::ResultDisposition::Flags)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:20: undefined reference to `Catch::AssertionHandler::handleExpr(Catch::ITransientExpression const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:20: undefined reference to `Catch::AssertionHandler::complete()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:18: undefined reference to `Catch::AssertionHandler::handleUnexpectedInflightException()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:19: undefined reference to `Catch::AssertionHandler::handleUnexpectedInflightException()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:20: undefined reference to `Catch::AssertionHandler::handleUnexpectedInflightException()'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `void test_sort<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(std::unique_ptr<binary_search_tree::binary_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::default_delete<binary_search_tree::binary_tree<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > const&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&)':
+/exercise/binary-search-tree/binary_search_tree_test.cpp:98: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:98: undefined reference to `Catch::AssertionHandler::AssertionHandler(Catch::StringRef const&, Catch::SourceLineInfo const&, Catch::StringRef, Catch::ResultDisposition::Flags)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:98: undefined reference to `Catch::AssertionHandler::handleExpr(Catch::ITransientExpression const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:98: undefined reference to `Catch::AssertionHandler::complete()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:98: undefined reference to `Catch::AssertionHandler::handleUnexpectedInflightException()'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `__static_initialization_and_destruction_0(int, int)':
+/exercise/binary-search-tree/binary_search_tree_test.cpp:41: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:41: undefined reference to `Catch::NameAndTags::NameAndTags(Catch::StringRef const&, Catch::StringRef const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:41: undefined reference to `Catch::makeTestInvoker(void (*)())'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:41: undefined reference to `Catch::AutoReg::AutoReg(Catch::ITestInvoker*, Catch::SourceLineInfo const&, Catch::StringRef const&, Catch::NameAndTags const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:41: undefined reference to `Catch::AutoReg::~AutoReg()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:49: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:49: undefined reference to `Catch::NameAndTags::NameAndTags(Catch::StringRef const&, Catch::StringRef const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:49: undefined reference to `Catch::makeTestInvoker(void (*)())'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:49: undefined reference to `Catch::AutoReg::AutoReg(Catch::ITestInvoker*, Catch::SourceLineInfo const&, Catch::StringRef const&, Catch::NameAndTags const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:49: undefined reference to `Catch::AutoReg::~AutoReg()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:57: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:57: undefined reference to `Catch::NameAndTags::NameAndTags(Catch::StringRef const&, Catch::StringRef const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:57: undefined reference to `Catch::makeTestInvoker(void (*)())'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:57: undefined reference to `Catch::AutoReg::AutoReg(Catch::ITestInvoker*, Catch::SourceLineInfo const&, Catch::StringRef const&, Catch::NameAndTags const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:57: undefined reference to `Catch::AutoReg::~AutoReg()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:65: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:65: undefined reference to `Catch::NameAndTags::NameAndTags(Catch::StringRef const&, Catch::StringRef const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:65: undefined reference to `Catch::makeTestInvoker(void (*)())'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:65: undefined reference to `Catch::AutoReg::AutoReg(Catch::ITestInvoker*, Catch::SourceLineInfo const&, Catch::StringRef const&, Catch::NameAndTags const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:65: undefined reference to `Catch::AutoReg::~AutoReg()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:73: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:73: undefined reference to `Catch::NameAndTags::NameAndTags(Catch::StringRef const&, Catch::StringRef const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:73: undefined reference to `Catch::makeTestInvoker(void (*)())'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:73: undefined reference to `Catch::AutoReg::AutoReg(Catch::ITestInvoker*, Catch::SourceLineInfo const&, Catch::StringRef const&, Catch::NameAndTags const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:73: undefined reference to `Catch::AutoReg::~AutoReg()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:102: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:102: undefined reference to `Catch::NameAndTags::NameAndTags(Catch::StringRef const&, Catch::StringRef const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:102: undefined reference to `Catch::makeTestInvoker(void (*)())'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:102: undefined reference to `Catch::AutoReg::AutoReg(Catch::ITestInvoker*, Catch::SourceLineInfo const&, Catch::StringRef const&, Catch::NameAndTags const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:102: undefined reference to `Catch::AutoReg::~AutoReg()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:107: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:107: undefined reference to `Catch::NameAndTags::NameAndTags(Catch::StringRef const&, Catch::StringRef const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:107: undefined reference to `Catch::makeTestInvoker(void (*)())'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:107: undefined reference to `Catch::AutoReg::AutoReg(Catch::ITestInvoker*, Catch::SourceLineInfo const&, Catch::StringRef const&, Catch::NameAndTags const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:107: undefined reference to `Catch::AutoReg::~AutoReg()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:112: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:112: undefined reference to `Catch::NameAndTags::NameAndTags(Catch::StringRef const&, Catch::StringRef const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:112: undefined reference to `Catch::makeTestInvoker(void (*)())'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:112: undefined reference to `Catch::AutoReg::AutoReg(Catch::ITestInvoker*, Catch::SourceLineInfo const&, Catch::StringRef const&, Catch::NameAndTags const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:112: undefined reference to `Catch::AutoReg::~AutoReg()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:117: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:117: undefined reference to `Catch::NameAndTags::NameAndTags(Catch::StringRef const&, Catch::StringRef const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:117: undefined reference to `Catch::makeTestInvoker(void (*)())'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:117: undefined reference to `Catch::AutoReg::AutoReg(Catch::ITestInvoker*, Catch::SourceLineInfo const&, Catch::StringRef const&, Catch::NameAndTags const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:117: undefined reference to `Catch::AutoReg::~AutoReg()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:122: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:122: undefined reference to `Catch::NameAndTags::NameAndTags(Catch::StringRef const&, Catch::StringRef const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:122: undefined reference to `Catch::makeTestInvoker(void (*)())'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:122: undefined reference to `Catch::AutoReg::AutoReg(Catch::ITestInvoker*, Catch::SourceLineInfo const&, Catch::StringRef const&, Catch::NameAndTags const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:122: undefined reference to `Catch::AutoReg::~AutoReg()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:129: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:129: undefined reference to `Catch::NameAndTags::NameAndTags(Catch::StringRef const&, Catch::StringRef const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:129: undefined reference to `Catch::makeTestInvoker(void (*)())'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:129: undefined reference to `Catch::AutoReg::AutoReg(Catch::ITestInvoker*, Catch::SourceLineInfo const&, Catch::StringRef const&, Catch::NameAndTags const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:129: undefined reference to `Catch::AutoReg::~AutoReg()'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:144: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:144: undefined reference to `Catch::NameAndTags::NameAndTags(Catch::StringRef const&, Catch::StringRef const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:144: undefined reference to `Catch::makeTestInvoker(void (*)())'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:144: undefined reference to `Catch::AutoReg::AutoReg(Catch::ITestInvoker*, Catch::SourceLineInfo const&, Catch::StringRef const&, Catch::NameAndTags const&)'
+/usr/bin/ld: /exercise/binary-search-tree/binary_search_tree_test.cpp:144: undefined reference to `Catch::AutoReg::~AutoReg()'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `Catch::ITransientExpression::ITransientExpression(bool, bool)':
+/exercise/binary-search-tree/test/catch.hpp:2207: undefined reference to `vtable for Catch::ITransientExpression'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `Catch::BinaryExpr<unsigned int const&, unsigned int const&>::~BinaryExpr()':
+/exercise/binary-search-tree/test/catch.hpp:2222: undefined reference to `Catch::ITransientExpression::~ITransientExpression()'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `Catch::BinaryExpr<bool, bool>::~BinaryExpr()':
+/exercise/binary-search-tree/test/catch.hpp:2222: undefined reference to `Catch::ITransientExpression::~ITransientExpression()'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `Catch::BinaryExpr<std::vector<unsigned int, std::allocator<unsigned int> > const&, std::vector<unsigned int, std::allocator<unsigned int> > const&>::~BinaryExpr()':
+/exercise/binary-search-tree/test/catch.hpp:2222: undefined reference to `Catch::ITransientExpression::~ITransientExpression()'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `Catch::BinaryExpr<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>::~BinaryExpr()':
+/exercise/binary-search-tree/test/catch.hpp:2222: undefined reference to `Catch::ITransientExpression::~ITransientExpression()'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `Catch::BinaryExpr<std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&>::~BinaryExpr()':
+/exercise/binary-search-tree/test/catch.hpp:2222: undefined reference to `Catch::ITransientExpression::~ITransientExpression()'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `Catch::BinaryExpr<unsigned int const&, unsigned int const&> const Catch::ExprLhs<unsigned int const&>::operator==<unsigned int>(unsigned int const&)':
+/exercise/binary-search-tree/test/catch.hpp:2343: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `Catch::ExprLhs<bool>::operator==(bool)':
+/exercise/binary-search-tree/test/catch.hpp:2346: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `Catch::BinaryExpr<std::vector<unsigned int, std::allocator<unsigned int> > const&, std::vector<unsigned int, std::allocator<unsigned int> > const&> const Catch::ExprLhs<std::vector<unsigned int, std::allocator<unsigned int> > const&>::operator==<std::vector<unsigned int, std::allocator<unsigned int> > >(std::vector<unsigned int, std::allocator<unsigned int> > const&)':
+/exercise/binary-search-tree/test/catch.hpp:2343: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `Catch::BinaryExpr<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&> const Catch::ExprLhs<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>::operator==<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)':
+/exercise/binary-search-tree/test/catch.hpp:2343: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `Catch::BinaryExpr<std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&> const Catch::ExprLhs<std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&>::operator==<std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&)':
+/exercise/binary-search-tree/test/catch.hpp:2343: undefined reference to `Catch::StringRef::StringRef(char const*)'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o:(.data.rel.ro._ZTIN5Catch10BinaryExprIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EESB_EE[_ZTIN5Catch10BinaryExprIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EESB_EE]+0x10): undefined reference to `typeinfo for Catch::ITransientExpression'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o:(.data.rel.ro._ZTIN5Catch10BinaryExprIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EE[_ZTIN5Catch10BinaryExprIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EE]+0x10): undefined reference to `typeinfo for Catch::ITransientExpression'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o:(.data.rel.ro._ZTIN5Catch10BinaryExprIRKSt6vectorIjSaIjEES5_EE[_ZTIN5Catch10BinaryExprIRKSt6vectorIjSaIjEES5_EE]+0x10): undefined reference to `typeinfo for Catch::ITransientExpression'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o:(.data.rel.ro._ZTIN5Catch10BinaryExprIRKjS2_EE[_ZTIN5Catch10BinaryExprIRKjS2_EE]+0x10): undefined reference to `typeinfo for Catch::ITransientExpression'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o:(.data.rel.ro._ZTIN5Catch10BinaryExprIbbEE[_ZTIN5Catch10BinaryExprIbbEE]+0x10): undefined reference to `typeinfo for Catch::ITransientExpression'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `Catch::BinaryExpr<std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&>::streamReconstructedExpression(std::ostream&) const':
+/exercise/binary-search-tree/test/catch.hpp:2229: undefined reference to `Catch::formatReconstructedExpression(std::ostream&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Catch::StringRef, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `Catch::BinaryExpr<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>::streamReconstructedExpression(std::ostream&) const':
+/exercise/binary-search-tree/test/catch.hpp:2229: undefined reference to `Catch::formatReconstructedExpression(std::ostream&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Catch::StringRef, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `Catch::BinaryExpr<std::vector<unsigned int, std::allocator<unsigned int> > const&, std::vector<unsigned int, std::allocator<unsigned int> > const&>::streamReconstructedExpression(std::ostream&) const':
+/exercise/binary-search-tree/test/catch.hpp:2229: undefined reference to `Catch::formatReconstructedExpression(std::ostream&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Catch::StringRef, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `Catch::BinaryExpr<unsigned int const&, unsigned int const&>::streamReconstructedExpression(std::ostream&) const':
+/exercise/binary-search-tree/test/catch.hpp:2229: undefined reference to `Catch::formatReconstructedExpression(std::ostream&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Catch::StringRef, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `Catch::BinaryExpr<bool, bool>::streamReconstructedExpression(std::ostream&) const':
+/exercise/binary-search-tree/test/catch.hpp:2229: undefined reference to `Catch::formatReconstructedExpression(std::ostream&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Catch::StringRef, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > Catch::Detail::stringify<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)':
+/exercise/binary-search-tree/test/catch.hpp:1643: undefined reference to `Catch::StringMaker<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, void>::convert(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > Catch::Detail::stringify<unsigned int>(unsigned int const&)':
+/exercise/binary-search-tree/test/catch.hpp:1643: undefined reference to `Catch::StringMaker<unsigned int, void>::convert[abi:cxx11](unsigned int)'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > Catch::Detail::stringify<bool>(bool const&)':
+/exercise/binary-search-tree/test/catch.hpp:1643: undefined reference to `Catch::StringMaker<bool, void>::convert[abi:cxx11](bool)'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > Catch::Detail::rangeToString<__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > >(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >)':
+/exercise/binary-search-tree/test/catch.hpp:1828: undefined reference to `Catch::ReusableStringStream::ReusableStringStream()'
+/usr/bin/ld: /exercise/binary-search-tree/test/catch.hpp:1836: undefined reference to `Catch::ReusableStringStream::str[abi:cxx11]() const'
+/usr/bin/ld: /exercise/binary-search-tree/test/catch.hpp:1837: undefined reference to `Catch::ReusableStringStream::~ReusableStringStream()'
+/usr/bin/ld: /exercise/binary-search-tree/test/catch.hpp:1837: undefined reference to `Catch::ReusableStringStream::~ReusableStringStream()'
+/usr/bin/ld: CMakeFiles/binary-search-tree.dir/binary_search_tree_test.cpp.o: in function `std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > Catch::Detail::rangeToString<__gnu_cxx::__normal_iterator<unsigned int const*, std::vector<unsigned int, std::allocator<unsigned int> > >, __gnu_cxx::__normal_iterator<unsigned int const*, std::vector<unsigned int, std::allocator<unsigned int> > > >(__gnu_cxx::__normal_iterator<unsigned int const*, std::vector<unsigned int, std::allocator<unsigned int> > >, __gnu_cxx::__normal_iterator<unsigned int const*, std::vector<unsigned int, std::allocator<unsigned int> > >)':
+/exercise/binary-search-tree/test/catch.hpp:1828: undefined reference to `Catch::ReusableStringStream::ReusableStringStream()'
+/usr/bin/ld: /exercise/binary-search-tree/test/catch.hpp:1836: undefined reference to `Catch::ReusableStringStream::str[abi:cxx11]() const'
+/usr/bin/ld: /exercise/binary-search-tree/test/catch.hpp:1837: undefined reference to `Catch::ReusableStringStream::~ReusableStringStream()'
+/usr/bin/ld: /exercise/binary-search-tree/test/catch.hpp:1837: undefined reference to `Catch::ReusableStringStream::~ReusableStringStream()'
+/usr/bin/ld: warning: creating DT_TEXTREL in a PIE
+collect2: error: ld returned 1 exit status
+make[2]: *** [CMakeFiles/binary-search-tree.dir/build.make:129: binary-search-tree] Error 1
+make[1]: *** [CMakeFiles/Makefile2:85: CMakeFiles/binary-search-tree.dir/all] Error 2
+make: *** [Makefile:91: all] Error 2
+--- active build/test processes ---
+--- executable ---
+
+Budget: 1479.2s, 493 decisions remaining.

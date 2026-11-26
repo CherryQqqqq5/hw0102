@@ -1,0 +1,28 @@
+{
+  "task": "python/forth",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "configuration": "C0",
+  "environment_context": false,
+  "tool_output_policy": "archive",
+  "execution_environment": "ModelArts project Linux guest; original container scoring",
+  "docker_endpoint": "unix://[server-project]/guest/docker.sock",
+  "aider_platform": "linux/amd64",
+  "compact_success_feedback": false,
+  "common_instruction_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "framework": "mini-swe",
+  "readonly_swe_repository": false,
+  "persistent_native_session": true,
+  "limits": {
+    "model_calls": 500,
+    "wall_seconds": 1800,
+    "command_seconds": 120,
+    "max_output_tokens": 64000,
+    "timeout_retries": 0,
+    "strict_wall": true
+  },
+  "runtime_root": "work/input-efficiency-20261126/runtime",
+  "billing": "Actual per-call model identity and zero-cost receipt; no request retry or paid fallback",
+  "historical_unknown_calls_preserved": 35,
+  "benchmark_grader": "unchanged original task scorer"
+}

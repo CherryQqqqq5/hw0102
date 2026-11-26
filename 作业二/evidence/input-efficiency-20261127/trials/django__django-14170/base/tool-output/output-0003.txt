@@ -1,0 +1,78 @@
+django/core/handlers/asgi.py:6:from asgiref.sync import sync_to_async
+django/core/handlers/exception.py:6:from asgiref.sync import sync_to_async
+django/core/handlers/base.py:5:from asgiref.sync import async_to_sync, sync_to_async
+django/utils/translation/reloader.py:3:from asgiref.local import Local
+django/utils/translation/trans_real.py:9:from asgiref.local import Local
+django/utils/timezone.py:9:import pytz
+django/utils/timezone.py:10:from asgiref.local import Local
+django/utils/deprecation.py:5:from asgiref.sync import sync_to_async
+django/utils/connection.py:1:from asgiref.local import Local
+django/contrib/staticfiles/handlers.py:4:from asgiref.sync import sync_to_async
+django/urls/resolvers.py:15:from asgiref.local import Local
+django/urls/base.py:3:from asgiref.local import Local
+django/db/backends/base/operations.py:5:import sqlparse
+django/db/backends/base/base.py:9:import pytz
+django/db/backends/mysql/introspection.py:3:import sqlparse
+django/db/backends/sqlite3/introspection.py:4:import sqlparse
+django/db/backends/sqlite3/base.py:17:import pytz
+django/templatetags/tz.py:3:import pytz
+django/test/signals.py:5:from asgiref.local import Local
+django/test/testcases.py:22:from asgiref.sync import async_to_sync
+django/test/client.py:12:from asgiref.sync import sync_to_async
+django/db/backends/base/operations.py:307:            sqlparse.format(statement, strip_comments=True)
+django/db/backends/base/operations.py:308:            for statement in sqlparse.split(sql) if statement
+django/db/backends/mysql/introspection.py:194:        statement = sqlparse.parse(check_clause)[0]
+django/db/backends/mysql/introspection.py:198:                token.ttype == sqlparse.tokens.Name and
+django/db/backends/sqlite3/introspection.py:252:            if token.match(sqlparse.tokens.Punctuation, '('):
+django/db/backends/sqlite3/introspection.py:254:            elif token.match(sqlparse.tokens.Punctuation, ')'):
+django/db/backends/sqlite3/introspection.py:259:            elif braces_deep == 0 and token.match(sqlparse.tokens.Punctuation, ','):
+django/db/backends/sqlite3/introspection.py:264:                is_constraint_definition = token.match(sqlparse.tokens.Keyword, 'CONSTRAINT')
+django/db/backends/sqlite3/introspection.py:270:                    if token.ttype in (sqlparse.tokens.Name, sqlparse.tokens.Keyword):
+django/db/backends/sqlite3/introspection.py:272:                    elif token.ttype == sqlparse.tokens.Literal.String.Symbol:
+django/db/backends/sqlite3/introspection.py:275:                if token.match(sqlparse.tokens.Keyword, 'UNIQUE'):
+django/db/backends/sqlite3/introspection.py:284:                    if token.ttype in (sqlparse.tokens.Name, sqlparse.tokens.Keyword):
+django/db/backends/sqlite3/introspection.py:286:                    elif token.ttype == sqlparse.tokens.Literal.String.Symbol:
+django/db/backends/sqlite3/introspection.py:291:                    if token.ttype in (sqlparse.tokens.Name, sqlparse.tokens.Keyword):
+django/db/backends/sqlite3/introspection.py:293:                    elif token.ttype == sqlparse.tokens.Literal.String.Symbol:
+django/db/backends/sqlite3/introspection.py:295:                if token.match(sqlparse.tokens.Keyword, 'UNIQUE'):
+django/db/backends/sqlite3/introspection.py:298:            if token.match(sqlparse.tokens.Keyword, 'CHECK'):
+django/db/backends/sqlite3/introspection.py:307:                if token.ttype in (sqlparse.tokens.Name, sqlparse.tokens.Keyword):
+django/db/backends/sqlite3/introspection.py:310:                elif token.ttype == sqlparse.tokens.Literal.String.Symbol:
+django/db/backends/sqlite3/introspection.py:334:        statement = sqlparse.parse(sql)[0]
+django/db/backends/sqlite3/introspection.py:340:            if token.match(sqlparse.tokens.Punctuation, '('):
+django/db/backends/sqlite3/introspection.py:357:            if end_token.match(sqlparse.tokens.Punctuation, ')'):
+django/db/backends/sqlite3/introspection.py:441:        tokens = sqlparse.parse(sql)[0]
+django/db/backends/sqlite3/introspection.py:443:            if isinstance(token, sqlparse.sql.Parenthesis):
+django/db/backends/sqlite3/introspection.py:458:        columns = str(sqlparse.parse(sql)[0][-1]).strip('()').split(', ')
+django/core/handlers/asgi.py:6:from asgiref.sync import sync_to_async
+django/core/handlers/asgi.py:154:        await sync_to_async(signals.request_started.send, thread_sensitive=True)(sender=self.__class__, scope=scope)
+django/core/handlers/asgi.py:262:        await sync_to_async(response.close, thread_sensitive=True)()
+django/core/handlers/exception.py:6:from asgiref.sync import sync_to_async
+django/core/handlers/exception.py:40:                response = await sync_to_async(response_for_exception, thread_sensitive=False)(request, exc)
+django/core/handlers/base.py:5:from asgiref.sync import async_to_sync, sync_to_async
+django/core/handlers/base.py:106:          - Asynchronous methods are wrapped with async_to_sync
+django/core/handlers/base.py:108:          - Synchronous methods are wrapped with sync_to_async()
+django/core/handlers/base.py:119:                return sync_to_async(method, thread_sensitive=True)
+django/core/handlers/base.py:123:            return async_to_sync(method)
+django/core/handlers/base.py:153:            await sync_to_async(log_response, thread_sensitive=False)(
+django/core/handlers/base.py:179:                wrapped_callback = async_to_sync(wrapped_callback)
+django/core/handlers/base.py:231:                wrapped_callback = sync_to_async(wrapped_callback, thread_sensitive=True)
+django/core/handlers/base.py:235:                response = await sync_to_async(
+django/core/handlers/base.py:263:                    response = await sync_to_async(response.render, thread_sensitive=True)()
+django/core/handlers/base.py:265:                response = await sync_to_async(
+django/utils/deprecation.py:5:from asgiref.sync import sync_to_async
+django/utils/deprecation.py:138:            response = await sync_to_async(
+django/utils/deprecation.py:144:            response = await sync_to_async(
+django/utils/asyncio.py:31:        message = 'You cannot call this from an async context - use a thread or sync_to_async.'
+django/contrib/staticfiles/handlers.py:4:from asgiref.sync import sync_to_async
+django/contrib/staticfiles/handlers.py:59:            return await sync_to_async(self.serve, thread_sensitive=False)(request)
+django/contrib/staticfiles/handlers.py:61:            return await sync_to_async(response_for_exception, thread_sensitive=False)(request, e)
+django/test/testcases.py:22:from asgiref.sync import async_to_sync
+django/test/testcases.py:270:            setattr(self, self._testMethodName, async_to_sync(testMethod))
+django/test/client.py:12:from asgiref.sync import sync_to_async
+django/test/client.py:184:        await sync_to_async(request_started.send, thread_sensitive=False)(sender=self.__class__, scope=scope)
+django/test/client.py:200:            response.streaming_content = await sync_to_async(closing_iterator_wrapper, thread_sensitive=False)(
+django/test/client.py:207:            await sync_to_async(response.close, thread_sensitive=False)()
+grep: django/utils/__pycache__/deprecation.cpython-311.pyc: binary file matches
+
+Budget: 1674.9s, 490 decisions remaining.

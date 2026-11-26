@@ -1,0 +1,25 @@
+{
+  "stage": "frozen",
+  "revisions": {
+    "swe": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+    "terminal": "7131e4375048a0e408a8fb404b5f499d726b695b",
+    "aider": "7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"
+  },
+  "selected": [
+    {
+      "benchmark": "aider",
+      "id": "javascript/binary",
+      "stratum": "javascript",
+      "group": "binary",
+      "solution_files": [
+        "binary.js"
+      ],
+      "test_files": [
+        "binary.spec.js"
+      ],
+      "exclude": null
+    }
+  ],
+  "original_image_id": "sha256:ba5755de2b7f295a8476398af0884abdf4da0bec63974a66d98154761ec86ff2",
+  "original_manifest_digest": null
+}

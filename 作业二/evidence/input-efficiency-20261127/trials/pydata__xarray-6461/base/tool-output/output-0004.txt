@@ -1,0 +1,181 @@
+xarray 2022.3.1.dev43+g851dadeb0 numpy 1.23.0
+bare scalars OK [1 1 1] {}
+scalar x OK [1 9] {}
+scalar y OK [1 0] {}
+
+--- dataarray vfunc context ---
+   260	    return output_coords, output_indexes
+   261	
+   262	
+   263	def apply_dataarray_vfunc(
+   264	    func,
+   265	    *args,
+   266	    signature,
+   267	    join="inner",
+   268	    exclude_dims=frozenset(),
+   269	    keep_attrs="override",
+   270	):
+   271	    """Apply a variable level function over DataArray, Variable and/or ndarray
+   272	    objects.
+   273	    """
+   274	    from .dataarray import DataArray
+   275	
+   276	    if len(args) > 1:
+   277	        args = deep_align(
+   278	            args, join=join, copy=False, exclude=exclude_dims, raise_on_invalid=False
+   279	        )
+   280	
+   281	    objs = _all_of_type(args, DataArray)
+   282	
+   283	    if keep_attrs == "drop":
+   284	        name = result_name(args)
+   285	    else:
+   286	        first_obj = _first_of_type(args, DataArray)
+   287	        name = first_obj.name
+   288	    result_coords, result_indexes = build_output_coords_and_indexes(
+   289	        args, signature, exclude_dims, combine_attrs=keep_attrs
+   290	    )
+   291	
+   292	    data_vars = [getattr(a, "variable", a) for a in args]
+   293	    result_var = func(*data_vars)
+   294	
+   295	    if signature.num_outputs > 1:
+   296	        out = tuple(
+   297	            DataArray(
+   298	                variable, coords=coords, indexes=indexes, name=name, fastpath=True
+   299	            )
+   300	            for variable, coords, indexes in zip(
+   301	                result_var, result_coords, result_indexes
+   302	            )
+   303	        )
+   304	    else:
+   305	        (coords,) = result_coords
+   306	        (indexes,) = result_indexes
+   307	        out = DataArray(
+   308	            result_var, coords=coords, indexes=indexes, name=name, fastpath=True
+   309	        )
+   310	
+   311	    attrs = merge_attrs([x.attrs for x in objs], combine_attrs=keep_attrs)
+   312	    if isinstance(out, tuple):
+   313	        for da in out:
+   314	            da.attrs = attrs
+   315	    else:
+   316	        out.attrs = attrs
+   317	
+   318	    return out
+   319	
+   320	
+   430	    exclude_dims=frozenset(),
+   431	    keep_attrs="override",
+   432	):
+   433	    """Apply a variable level function over Dataset, dict of DataArray,
+   434	    DataArray, Variable and/or ndarray objects.
+   435	    """
+   436	    from .dataset import Dataset
+   437	
+   438	    if dataset_join not in _JOINS_WITHOUT_FILL_VALUES and fill_value is _NO_FILL_VALUE:
+   439	        raise TypeError(
+   440	            "to apply an operation to datasets with different "
+   441	            "data variables with apply_ufunc, you must supply the "
+   442	            "dataset_fill_value argument."
+   443	        )
+   444	
+   445	    objs = _all_of_type(args, Dataset)
+   446	
+   447	    if len(args) > 1:
+   448	        args = deep_align(
+   449	            args, join=join, copy=False, exclude=exclude_dims, raise_on_invalid=False
+   450	        )
+   451	
+   452	    list_of_coords, list_of_indexes = build_output_coords_and_indexes(
+   453	        args, signature, exclude_dims, combine_attrs=keep_attrs
+   454	    )
+   455	    args = [getattr(arg, "data_vars", arg) for arg in args]
+   456	
+   457	    result_vars = apply_dict_of_variables_vfunc(
+   458	        func, *args, signature=signature, join=dataset_join, fill_value=fill_value
+   459	    )
+   460	
+   461	    if signature.num_outputs > 1:
+   462	        out = tuple(
+   463	            _fast_dataset(*args)
+   464	            for args in zip(result_vars, list_of_coords, list_of_indexes)
+   465	        )
+   466	    else:
+   467	        (coord_vars,) = list_of_coords
+   468	        (indexes,) = list_of_indexes
+   469	        out = _fast_dataset(result_vars, coord_vars, indexes=indexes)
+   470	
+   471	    attrs = merge_attrs([x.attrs for x in objs], combine_attrs=keep_attrs)
+   472	    if isinstance(out, tuple):
+   473	        for ds in out:
+   474	            ds.attrs = attrs
+   475	    else:
+   476	        out.attrs = attrs
+   477	
+   478	    return out
+   479	
+   480	
+   735	            pass
+   736	        else:
+   737	            raise ValueError(
+   738	                "unknown setting for dask array handling in "
+   739	                "apply_ufunc: {}".format(dask)
+   740	            )
+   741	    else:
+   742	        if vectorize:
+   743	            func = _vectorize(
+   744	                func, signature, output_dtypes=output_dtypes, exclude_dims=exclude_dims
+   745	            )
+   746	
+   747	    result_data = func(*input_data)
+   748	
+   749	    if signature.num_outputs == 1:
+   750	        result_data = (result_data,)
+   751	    elif (
+   752	        not isinstance(result_data, tuple) or len(result_data) != signature.num_outputs
+   753	    ):
+   754	        raise ValueError(
+   755	            "applied function does not have the number of "
+   756	            "outputs specified in the ufunc signature. "
+   757	            "Result is not a tuple of {} elements: {!r}".format(
+   758	                signature.num_outputs, result_data
+   759	            )
+   760	        )
+   761	
+   762	    objs = _all_of_type(args, Variable)
+   763	    attrs = merge_attrs(
+   764	        [obj.attrs for obj in objs],
+   765	        combine_attrs=keep_attrs,
+   766	    )
+   767	
+   768	    output = []
+   769	    for dims, data in zip(output_dims, result_data):
+   770	        data = as_compatible_data(data)
+   771	        if data.ndim != len(dims):
+   772	            raise ValueError(
+   773	                "applied function returned data with unexpected "
+   774	                f"number of dimensions. Received {data.ndim} dimension(s) but "
+   775	                f"expected {len(dims)} dimensions with names: {dims!r}"
+   776	            )
+   777	
+   778	        var = Variable(dims, data, fastpath=True)
+   779	        for dim, new_size in var.sizes.items():
+   780	            if dim in dim_sizes and new_size != dim_sizes[dim]:
+   781	                raise ValueError(
+   782	                    "size of dimension {!r} on inputs was unexpectedly "
+   783	                    "changed by applied function from {} to {}. Only "
+   784	                    "dimensions specified in ``exclude_dims`` with "
+   785	                    "xarray.apply_ufunc are allowed to change size.".format(
+   786	                        dim, dim_sizes[dim], new_size
+   787	                    )
+   788	                )
+   789	
+   790	        var.attrs = attrs
+   791	        output.append(var)
+   792	
+   793	    if signature.num_outputs == 1:
+   794	        return output[0]
+   795	    else:
+
+Budget: 1693.8s, 491 decisions remaining.

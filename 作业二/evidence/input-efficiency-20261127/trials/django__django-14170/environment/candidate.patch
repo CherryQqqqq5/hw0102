@@ -1,0 +1,166 @@
+diff --git a/.course-public-check/check.py b/.course-public-check/check.py
+new file mode 100755
+index 0000000000..a1a7a106ad
+--- /dev/null
++++ b/.course-public-check/check.py
+@@ -0,0 +1,143 @@
++#!/usr/bin/env python
++"""Reproducer for the __iso_year optimization bug.
++
++Run from anywhere with the repository's configured Python interpreter.
++"""
++import os
++import subprocess
++import sys
++from datetime import date, datetime
++
++import django
++from django.conf import settings
++
++REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
++
++if not settings.configured:
++    settings.configure(
++        DATABASES={
++            'default': {
++                'ENGINE': 'django.db.backends.sqlite3',
++                'NAME': ':memory:',
++            },
++        },
++        INSTALLED_APPS=[],
++        USE_TZ=False,
++        DEFAULT_AUTO_FIELD='django.db.models.AutoField',
++    )
++django.setup()
++
++from django.core.management import call_command  # noqa: E402
++from django.db import connection, models  # noqa: E402
++from django.db.models.functions import ExtractIsoYear  # noqa: E402
++
++
++class DTModel(models.Model):
++    label = models.CharField(max_length=50)
++    start_datetime = models.DateTimeField()
++    start_date = models.DateField()
++
++    class Meta:
++        app_label = 'iso_year_repro'
++
++
++def assert_no_between(qs, description):
++    sql = str(qs.query)
++    assert 'BETWEEN' not in sql.upper(), (
++        '%s must not use calendar-year BETWEEN optimization: %s' % (description, sql)
++    )
++    assert 'iso_year' in sql.lower() or 'isoyear' in sql.lower(), (
++        '%s must extract the ISO year: %s' % (description, sql)
++    )
++    return sql
++
++
++def values(qs):
++    return list(qs.order_by('start_datetime').values_list('label', flat=True))
++
++
++def main():
++    with connection.schema_editor() as editor:
++        editor.create_model(DTModel)
++
++    # Dates around the 2014/2015 and 2015/2016 ISO-year boundaries. ISO year
++    # 2015 includes 2014-12-31 and 2016-01-01, while calendar-year BETWEEN
++    # 2015-01-01 AND 2015-12-31 does not.
++    rows = [
++        ('iso2014', datetime(2014, 12, 27, 13, 0), date(2014, 12, 27)),
++        ('iso2015-early', datetime(2014, 12, 31, 13, 0), date(2014, 12, 31)),
++        ('iso2015-mid', datetime(2015, 12, 31, 13, 0), date(2015, 12, 31)),
++        ('iso2015-late', datetime(2016, 1, 1, 13, 0), date(2016, 1, 1)),
++    ]
++    DTModel.objects.bulk_create([
++        DTModel(label=label, start_datetime=dt, start_date=d)
++        for label, dt, d in rows
++    ])
++
++    # The query itself must use ExtractIsoYear rather than a calendar-year
++    # range, both for the implicit lookup and for an explicit annotation.
++    implicit = DTModel.objects.filter(start_datetime__iso_year=2015)
++    assert_no_between(implicit, 'implicit __iso_year lookup')
++    annotated = DTModel.objects.annotate(
++        extracted=ExtractIsoYear('start_datetime'),
++    ).filter(extracted=2015)
++    assert_no_between(annotated, 'explicit annotation filter')
++
++    assert values(implicit) == ['iso2015-early', 'iso2015-mid', 'iso2015-late'], (
++        'implicit __iso_year=2015 returned %r' % values(implicit)
++    )
++    assert values(annotated) == ['iso2015-early', 'iso2015-mid', 'iso2015-late'], (
++        'annotation filter returned %r' % values(annotated)
++    )
++    assert values(DTModel.objects.filter(start_datetime__iso_year=2014)) == ['iso2014']
++
++    # Positive control: the ordinary calendar-year optimization is still valid
++    # and must remain enabled. 2014-12-31 and 2016-01-01 belong to ISO year
++    # 2015 but not calendar year 2015.
++    year_qs = DTModel.objects.filter(start_datetime__year=2015)
++    year_sql = str(year_qs.query)
++    assert 'BETWEEN' in year_sql.upper(), (
++        'ordinary __year lookup should retain the BETWEEN optimization: %s' % year_sql
++    )
++    assert 'extract' not in year_sql.lower(), (
++        'ordinary __year lookup should not use EXTRACT: %s' % year_sql
++    )
++    assert values(year_qs) == ['iso2015-mid']
++
++    # DateField and direct-value comparisons must behave identically.
++    assert values(DTModel.objects.filter(start_date__iso_year=2015)) == [
++        'iso2015-early', 'iso2015-mid', 'iso2015-late',
++    ]
++    assert values(DTModel.objects.filter(start_datetime__iso_year__gt=2014)) == [
++        'iso2015-early', 'iso2015-mid', 'iso2015-late',
++    ]
++    assert values(DTModel.objects.filter(start_datetime__iso_year__gte=2015)) == [
++        'iso2015-early', 'iso2015-mid', 'iso2015-late',
++    ]
++    assert values(DTModel.objects.filter(start_datetime__iso_year__lt=2015)) == ['iso2014']
++    assert values(DTModel.objects.filter(start_datetime__iso_year__lte=2014)) == ['iso2014']
++
++    # An expression RHS must keep working (existing regression coverage).
++    expression_rhs = DTModel.objects.annotate(
++        extracted=ExtractIsoYear('start_datetime'),
++    ).filter(start_datetime__iso_year=django.db.models.F('extracted'))
++    assert expression_rhs.count() == 4
++
++    # Run the existing focused regression tests as part of this check.
++    env = dict(os.environ)
++    env['PYTHONPATH'] = REPO_ROOT + os.pathsep + env.get('PYTHONPATH', '')
++    result = subprocess.run([
++        sys.executable,
++        os.path.join(REPO_ROOT, 'tests', 'runtests.py'),
++        'db_functions.datetime.test_extract_trunc.DateFunctionTests.test_extract_year_func',
++        'db_functions.datetime.test_extract_trunc.DateFunctionTests.test_extract_iso_year_func',
++        'db_functions.datetime.test_extract_trunc.DateFunctionTests.test_extract_iso_year_func_boundaries',
++        'lookup.test_lookups.YearLookupTests.test_get_bound_params',
++    ], cwd=REPO_ROOT, env=env)
++    assert result.returncode == 0, 'existing focused regression tests failed'
++
++    print('ISO-year reproducer and focused regression tests passed')
++
++
++if __name__ == '__main__':
++    main()
+diff --git a/django/db/models/functions/datetime.py b/django/db/models/functions/datetime.py
+index 90e6f41be0..bbe9fa8c79 100644
+--- a/django/db/models/functions/datetime.py
++++ b/django/db/models/functions/datetime.py
+@@ -164,12 +164,6 @@ ExtractYear.register_lookup(YearGte)
+ ExtractYear.register_lookup(YearLt)
+ ExtractYear.register_lookup(YearLte)
+ 
+-ExtractIsoYear.register_lookup(YearExact)
+-ExtractIsoYear.register_lookup(YearGt)
+-ExtractIsoYear.register_lookup(YearGte)
+-ExtractIsoYear.register_lookup(YearLt)
+-ExtractIsoYear.register_lookup(YearLte)
+-
+ 
+ class Now(Func):
+     template = 'CURRENT_TIMESTAMP'

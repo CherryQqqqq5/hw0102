@@ -1,0 +1,9 @@
+{
+  "task": "pytest-dev__pytest-7571",
+  "wall_seconds": 582.2412573709153,
+  "exit_status": "Submitted",
+  "submission": "Submitting final caplog handler-level restoration fix and verified reproducer.",
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 57.52820114279166
+}

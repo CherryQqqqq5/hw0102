@@ -1,0 +1,229 @@
+--- git status ---
+ M django/contrib/admin/helpers.py
+?? .course-public-check/
+--- tracked diff ---
+diff --git a/django/contrib/admin/helpers.py b/django/contrib/admin/helpers.py
+index dd154f72ee..dae626b550 100755
+--- a/django/contrib/admin/helpers.py
++++ b/django/contrib/admin/helpers.py
+@@ -209,7 +209,11 @@ class AdminReadonlyField:
+             remote_field.model._meta.model_name,
+         )
+         try:
+-            url = reverse(url_name, args=[quote(remote_obj.pk)])
++            url = reverse(
++                url_name,
++                args=[quote(remote_obj.pk)],
++                current_app=self.model_admin.admin_site.name,
++            )
+             return format_html('<a href="{}">{}</a>', url, remote_obj)
+         except NoReverseMatch:
+             return str(remote_obj)
+--- check.py ---
+#!/usr/bin/env python3
+"""Reproducer for readonly related-object links under a custom AdminSite."""
+import importlib.util
+import os
+import sys
+
+# The benchmark interpreter is a Conda environment that is not necessarily on
+# PATH when this file is executed directly. Re-exec there if dependencies such
+# as asgiref are missing from the current interpreter.
+_TESTBED_PYTHON = '/opt/miniconda3/envs/testbed/bin/python'
+_REEXEC_ENV = '_READONLY_ADMIN_URL_CHECK_REEXEC'
+if (
+    os.environ.get(_REEXEC_ENV) != '1'
+    and importlib.util.find_spec('asgiref') is None
+    and os.path.exists(_TESTBED_PYTHON)
+):
+    os.environ[_REEXEC_ENV] = '1'
+    os.execv(_TESTBED_PYTHON, [_TESTBED_PYTHON, os.path.abspath(__file__), *sys.argv[1:]])
+
+# Allow this script to be run directly from any working directory.
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+import django
+from django.conf import settings
+
+if not settings.configured:
+    settings.configure(
+        DEBUG=False,
+        SECRET_KEY='readonly-admin-url-check',
+        ROOT_URLCONF=__name__,
+        INSTALLED_APPS=[
+            'django.contrib.admin',
+            'django.contrib.auth',
+            'django.contrib.contenttypes',
+            'django.contrib.sessions',
+            'django.contrib.messages',
+        ],
+        DATABASES={},
+        USE_TZ=True,
+    )
+django.setup()
+
+from django import forms  # noqa: E402
+from django.contrib import admin  # noqa: E402
+from django.contrib.admin.helpers import AdminReadonlyField  # noqa: E402
+from django.db import models  # noqa: E402
+from django.urls import path, reverse  # noqa: E402
+
+
+class CheckTarget(models.Model):
+    name = models.CharField(max_length=50)
+
+    class Meta:
+        app_label = 'readonly_admin_url_check'
+
+
+class CheckSource(models.Model):
+    target = models.ForeignKey(CheckTarget, on_delete=models.CASCADE)
+
+    class Meta:
+        app_label = 'readonly_admin_url_check'
+
+
+class UnregisteredTarget(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        app_label = 'readonly_admin_url_check'
+
+
+class TargetAdmin(admin.ModelAdmin):
+    pass
+
+
+class SourceAdmin(admin.ModelAdmin):
+    readonly_fields = ('target',)
+
+
+default_site = admin.AdminSite(name='admin')
+custom_site = admin.AdminSite(name='custom_admin')
+other_custom_site = admin.AdminSite(name='other_custom_admin')
+
+for site in (default_site, custom_site, other_custom_site):
+    site.register(CheckTarget, TargetAdmin)
+    site.register(CheckSource, SourceAdmin)
+
+# The default site is deliberately listed first: reverse('admin:...') without
+# current_app resolves against this instance, which is the reported bug.
+urlpatterns = [
+    path('admin/', default_site.urls),
+    path('custom-admin/', custom_site.urls),
+    path('other-custom-admin/', other_custom_site.urls),
+]
+
+
+class SourceForm(forms.ModelForm):
+    class Meta:
+        model = CheckSource
+        fields = ()
+
+
+def readonly_link(site, remote_field, remote_obj):
+    helper = AdminReadonlyField(
+        SourceForm(),
+        'target',
+        is_first=True,
+        model_admin=site._registry[CheckSource],
+    )
+    return str(helper.get_admin_url(remote_field, remote_obj))
+
+
+def check_custom_site_link():
+    target = CheckTarget(pk=17, name='Target 17')
+    remote_field = CheckSource._meta.get_field('target').remote_field
+    html = readonly_link(custom_site, remote_field, target)
+    expected = reverse(
+        'admin:readonly_admin_url_check_checktarget_change',
+        args=[target.pk],
+        current_app='custom_admin',
+    )
+    assert expected == '/custom-admin/readonly_admin_url_check/checktarget/17/change/', expected
+    assert 'href="%s"' % expected in html, html
+    assert '/admin/readonly_admin_url_check/checktarget/17/change/' not in html, html
+
+
+def check_other_custom_site_link():
+    target = CheckTarget(pk=23, name='Target 23')
+    remote_field = CheckSource._meta.get_field('target').remote_field
+    html = readonly_link(other_custom_site, remote_field, target)
+    expected = reverse(
+        'admin:readonly_admin_url_check_checktarget_change',
+        args=[target.pk],
+        current_app='other_custom_admin',
+    )
+    assert expected == '/other-custom-admin/readonly_admin_url_check/checktarget/23/change/', expected
+    assert 'href="%s"' % expected in html, html
+
+
+def check_default_site_link_is_unchanged():
+    target = CheckTarget(pk=31, name='Target 31')
+    remote_field = CheckSource._meta.get_field('target').remote_field
+    html = readonly_link(default_site, remote_field, target)
+    expected = reverse(
+        'admin:readonly_admin_url_check_checktarget_change',
+        args=[target.pk],
+        current_app='admin',
+    )
+    assert expected == '/admin/readonly_admin_url_check/checktarget/31/change/', expected
+    assert 'href="%s"' % expected in html, html
+
+
+def check_unregistered_related_object_falls_back_to_text():
+    obj = UnregisteredTarget(pk=41, name='Unregistered object')
+    field = models.ForeignKey(
+        UnregisteredTarget,
+        models.CASCADE,
+        related_name='+',
+    )
+    field.set_attributes_from_name('unregistered_target')
+    html = readonly_link(default_site, field.remote_field, obj)
+    assert '<a' not in html, html
+    assert 'Unregistered object' in html, html
+
+
+def main():
+    checks = [
+        check_custom_site_link,
+        check_other_custom_site_link,
+        check_default_site_link_is_unchanged,
+        check_unregistered_related_object_falls_back_to_text,
+    ]
+    failures = []
+    for check in checks:
+        try:
+            check()
+        except Exception as exc:  # report every case, then fail
+            failures.append('%s: %s: %s' % (check.__name__, type(exc).__name__, exc))
+        else:
+            print('ok - %s' % check.__name__)
+    if failures:
+        print('\n'.join('FAIL - %s' % failure for failure in failures), file=sys.stderr)
+        return 1
+    print('All readonly AdminSite URL checks passed.')
+    return 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
+--- syntax ---
+syntax ok
+--- direct execution ---
+ok - check_custom_site_link
+ok - check_other_custom_site_link
+ok - check_default_site_link_is_unchanged
+ok - check_unregistered_related_object_falls_back_to_text
+All readonly AdminSite URL checks passed.
+--- explicit benchmark interpreter ---
+ok - check_custom_site_link
+ok - check_other_custom_site_link
+ok - check_default_site_link_is_unchanged
+ok - check_unregistered_related_object_falls_back_to_text
+All readonly AdminSite URL checks passed.
+
+Budget: 1321.2s, 482 decisions remaining.

@@ -1,0 +1,6 @@
+{
+  "cwd": "/exercise",
+  "python": "/usr/local/bin/python3",
+  "version": "3.13.12",
+  "test_entry": "/aider/benchmark/npm-test.sh"
+}

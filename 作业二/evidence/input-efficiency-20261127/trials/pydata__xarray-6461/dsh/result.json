@@ -1,0 +1,19 @@
+{
+  "task": "pydata__xarray-6461",
+  "wall_seconds": 1411.602788459044,
+  "exit_status": "Submitted",
+  "submission": "Fixed `xarray/core/computation.py` so `xr.where(..., keep_attrs=True)` falls back to the first available attribute set when there is only one xarray-like input, preventing the reported `IndexError`.\n\nAdded executable `.course-public-check/check.py` with the reproducer, boundary cases, and existing regression assertions. Verified it fails on the unpatched code (`IndexError`) and passes with the fix.\n\nValidation completed:\n- `python -m pytest -q xarray/tests/test_computation.py -k 'where or keep_attrs'` → 59 passed\n- `python -m pytest -q xarray/tests/test_units.py -k 'where'` → 130 passed\n- `python .course-public-check/check.py` → passed\n\nOriginal tests and test configuration were preserved.",
+  "framework": "deepseek-harness-sdk-0.2.2rc2",
+  "sdk_result": {
+    "session_id": "course-task",
+    "final_response": "Fixed `xarray/core/computation.py` so `xr.where(..., keep_attrs=True)` falls back to the first available attribute set when there is only one xarray-like input, preventing the reported `IndexError`.\n\nAdded executable `.course-public-check/check.py` with the reproducer, boundary cases, and existing regression assertions. Verified it fails on the unpatched code (`IndexError`) and passes with the fix.\n\nValidation completed:\n- `python -m pytest -q xarray/tests/test_computation.py -k 'where or keep_attrs'` → 59 passed\n- `python -m pytest -q xarray/tests/test_units.py -k 'where'` → 130 passed\n- `python .course-public-check/check.py` → passed\n\nOriginal tests and test configuration were preserved.",
+    "finish_reason": "completed",
+    "events": 202,
+    "notifications": 204,
+    "sdk_model_http_requests": 39,
+    "wall_seconds": 1175.3915575859137
+  },
+  "scoreable": true,
+  "passed": false,
+  "grader_seconds": 220.91009902535006
+}

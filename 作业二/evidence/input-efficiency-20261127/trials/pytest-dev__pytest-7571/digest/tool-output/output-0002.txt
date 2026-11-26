@@ -1,0 +1,342 @@
+--- src/_pytest/logging.py 250-320 ---
+   250	    )
+   251	    add_option_ini(
+   252	        "--log-file",
+   253	        dest="log_file",
+   254	        default=None,
+   255	        help="path to a file when logging will be written to.",
+   256	    )
+   257	    add_option_ini(
+   258	        "--log-file-level",
+   259	        dest="log_file_level",
+   260	        default=None,
+   261	        help="log file logging level.",
+   262	    )
+   263	    add_option_ini(
+   264	        "--log-file-format",
+   265	        dest="log_file_format",
+   266	        default=DEFAULT_LOG_FORMAT,
+   267	        help="log format as used by the logging module.",
+   268	    )
+   269	    add_option_ini(
+   270	        "--log-file-date-format",
+   271	        dest="log_file_date_format",
+   272	        default=DEFAULT_LOG_DATE_FORMAT,
+   273	        help="log date format as used by the logging module.",
+   274	    )
+   275	    add_option_ini(
+   276	        "--log-auto-indent",
+   277	        dest="log_auto_indent",
+   278	        default=None,
+   279	        help="Auto-indent multiline messages passed to the logging module. Accepts true|on, false|off or an integer.",
+   280	    )
+   281	
+   282	
+   283	_HandlerType = TypeVar("_HandlerType", bound=logging.Handler)
+   284	
+   285	
+   286	# Not using @contextmanager for performance reasons.
+   287	class catching_logs:
+   288	    """Context manager that prepares the whole logging machinery properly."""
+   289	
+   290	    __slots__ = ("handler", "level", "orig_level")
+   291	
+   292	    def __init__(self, handler: _HandlerType, level: Optional[int] = None) -> None:
+   293	        self.handler = handler
+   294	        self.level = level
+   295	
+   296	    def __enter__(self):
+   297	        root_logger = logging.getLogger()
+   298	        if self.level is not None:
+   299	            self.handler.setLevel(self.level)
+   300	        root_logger.addHandler(self.handler)
+   301	        if self.level is not None:
+   302	            self.orig_level = root_logger.level
+   303	            root_logger.setLevel(min(self.orig_level, self.level))
+   304	        return self.handler
+   305	
+   306	    def __exit__(self, type, value, traceback):
+   307	        root_logger = logging.getLogger()
+   308	        if self.level is not None:
+   309	            root_logger.setLevel(self.orig_level)
+   310	        root_logger.removeHandler(self.handler)
+   311	
+   312	
+   313	class LogCaptureHandler(logging.StreamHandler):
+   314	    """A logging handler that stores log records and the log text."""
+   315	
+   316	    stream = None  # type: StringIO
+   317	
+   318	    def __init__(self) -> None:
+   319	        """Creates a new log handler."""
+   320	        super().__init__(StringIO())
+--- src/_pytest/logging.py 340-475 ---
+   340	
+   341	class LogCaptureFixture:
+   342	    """Provides access and control of log capturing."""
+   343	
+   344	    def __init__(self, item: nodes.Node) -> None:
+   345	        """Creates a new funcarg."""
+   346	        self._item = item
+   347	        # dict of log name -> log level
+   348	        self._initial_logger_levels = {}  # type: Dict[Optional[str], int]
+   349	
+   350	    def _finalize(self) -> None:
+   351	        """Finalizes the fixture.
+   352	
+   353	        This restores the log levels changed by :meth:`set_level`.
+   354	        """
+   355	        # restore log levels
+   356	        for logger_name, level in self._initial_logger_levels.items():
+   357	            logger = logging.getLogger(logger_name)
+   358	            logger.setLevel(level)
+   359	
+   360	    @property
+   361	    def handler(self) -> LogCaptureHandler:
+   362	        """
+   363	        :rtype: LogCaptureHandler
+   364	        """
+   365	        return self._item._store[caplog_handler_key]
+   366	
+   367	    def get_records(self, when: str) -> List[logging.LogRecord]:
+   368	        """
+   369	        Get the logging records for one of the possible test phases.
+   370	
+   371	        :param str when:
+   372	            Which test phase to obtain the records from. Valid values are: "setup", "call" and "teardown".
+   373	
+   374	        :rtype: List[logging.LogRecord]
+   375	        :return: the list of captured records at the given stage
+   376	
+   377	        .. versionadded:: 3.4
+   378	        """
+   379	        return self._item._store[caplog_records_key].get(when, [])
+   380	
+   381	    @property
+   382	    def text(self) -> str:
+   383	        """Returns the formatted log text."""
+   384	        return _remove_ansi_escape_sequences(self.handler.stream.getvalue())
+   385	
+   386	    @property
+   387	    def records(self) -> List[logging.LogRecord]:
+   388	        """Returns the list of log records."""
+   389	        return self.handler.records
+   390	
+   391	    @property
+   392	    def record_tuples(self) -> List[Tuple[str, int, str]]:
+   393	        """Returns a list of a stripped down version of log records intended
+   394	        for use in assertion comparison.
+   395	
+   396	        The format of the tuple is:
+   397	
+   398	            (logger_name, log_level, message)
+   399	        """
+   400	        return [(r.name, r.levelno, r.getMessage()) for r in self.records]
+   401	
+   402	    @property
+   403	    def messages(self) -> List[str]:
+   404	        """Returns a list of format-interpolated log messages.
+   405	
+   406	        Unlike 'records', which contains the format string and parameters for interpolation, log messages in this list
+   407	        are all interpolated.
+   408	        Unlike 'text', which contains the output from the handler, log messages in this list are unadorned with
+   409	        levels, timestamps, etc, making exact comparisons more reliable.
+   410	
+   411	        Note that traceback or stack info (from :func:`logging.exception` or the `exc_info` or `stack_info` arguments
+   412	        to the logging functions) is not included, as this is added by the formatter in the handler.
+   413	
+   414	        .. versionadded:: 3.7
+   415	        """
+   416	        return [r.getMessage() for r in self.records]
+   417	
+   418	    def clear(self) -> None:
+   419	        """Reset the list of log records and the captured log text."""
+   420	        self.handler.reset()
+   421	
+   422	    def set_level(self, level: Union[int, str], logger: Optional[str] = None) -> None:
+   423	        """Sets the level for capturing of logs. The level will be restored to its previous value at the end of
+   424	        the test.
+   425	
+   426	        :param int level: the logger to level.
+   427	        :param str logger: the logger to update the level. If not given, the root logger level is updated.
+   428	
+   429	        .. versionchanged:: 3.4
+   430	            The levels of the loggers changed by this function will be restored to their initial values at the
+   431	            end of the test.
+   432	        """
+   433	        logger_obj = logging.getLogger(logger)
+   434	        # save the original log-level to restore it during teardown
+   435	        self._initial_logger_levels.setdefault(logger, logger_obj.level)
+   436	        logger_obj.setLevel(level)
+   437	        self.handler.setLevel(level)
+   438	
+   439	    @contextmanager
+   440	    def at_level(
+   441	        self, level: int, logger: Optional[str] = None
+   442	    ) -> Generator[None, None, None]:
+   443	        """Context manager that sets the level for capturing of logs. After the end of the 'with' statement the
+   444	        level is restored to its original value.
+   445	
+   446	        :param int level: the logger to level.
+   447	        :param str logger: the logger to update the level. If not given, the root logger level is updated.
+   448	        """
+   449	        logger_obj = logging.getLogger(logger)
+   450	        orig_level = logger_obj.level
+   451	        logger_obj.setLevel(level)
+   452	        handler_orig_level = self.handler.level
+   453	        self.handler.setLevel(level)
+   454	        try:
+   455	            yield
+   456	        finally:
+   457	            logger_obj.setLevel(orig_level)
+   458	            self.handler.setLevel(handler_orig_level)
+   459	
+   460	
+   461	@pytest.fixture
+   462	def caplog(request: FixtureRequest) -> Generator[LogCaptureFixture, None, None]:
+   463	    """Access and control log capturing.
+   464	
+   465	    Captured logs are available through the following properties/methods::
+   466	
+   467	    * caplog.messages        -> list of format-interpolated log messages
+   468	    * caplog.text            -> string containing formatted log output
+   469	    * caplog.records         -> list of logging.LogRecord instances
+   470	    * caplog.record_tuples   -> list of (logger_name, level, message) tuples
+   471	    * caplog.clear()         -> clear captured records and formatted log output string
+   472	    """
+   473	    result = LogCaptureFixture(request.node)
+   474	    yield result
+   475	    result._finalize()
+--- testing/logging/test_fixture.py 1-130 ---
+     1	import logging
+     2	
+     3	import pytest
+     4	from _pytest.logging import caplog_records_key
+     5	
+     6	logger = logging.getLogger(__name__)
+     7	sublogger = logging.getLogger(__name__ + ".baz")
+     8	
+     9	
+    10	def test_fixture_help(testdir):
+    11	    result = testdir.runpytest("--fixtures")
+    12	    result.stdout.fnmatch_lines(["*caplog*"])
+    13	
+    14	
+    15	def test_change_level(caplog):
+    16	    caplog.set_level(logging.INFO)
+    17	    logger.debug("handler DEBUG level")
+    18	    logger.info("handler INFO level")
+    19	
+    20	    caplog.set_level(logging.CRITICAL, logger=sublogger.name)
+    21	    sublogger.warning("logger WARNING level")
+    22	    sublogger.critical("logger CRITICAL level")
+    23	
+    24	    assert "DEBUG" not in caplog.text
+    25	    assert "INFO" in caplog.text
+    26	    assert "WARNING" not in caplog.text
+    27	    assert "CRITICAL" in caplog.text
+    28	
+    29	
+    30	def test_change_level_undo(testdir):
+    31	    """Ensure that 'set_level' is undone after the end of the test"""
+    32	    testdir.makepyfile(
+    33	        """
+    34	        import logging
+    35	
+    36	        def test1(caplog):
+    37	            caplog.set_level(logging.INFO)
+    38	            # using + operator here so fnmatch_lines doesn't match the code in the traceback
+    39	            logging.info('log from ' + 'test1')
+    40	            assert 0
+    41	
+    42	        def test2(caplog):
+    43	            # using + operator here so fnmatch_lines doesn't match the code in the traceback
+    44	            logging.info('log from ' + 'test2')
+    45	            assert 0
+    46	    """
+    47	    )
+    48	    result = testdir.runpytest()
+    49	    result.stdout.fnmatch_lines(["*log from test1*", "*2 failed in *"])
+    50	    result.stdout.no_fnmatch_line("*log from test2*")
+    51	
+    52	
+    53	def test_with_statement(caplog):
+    54	    with caplog.at_level(logging.INFO):
+    55	        logger.debug("handler DEBUG level")
+    56	        logger.info("handler INFO level")
+    57	
+    58	        with caplog.at_level(logging.CRITICAL, logger=sublogger.name):
+    59	            sublogger.warning("logger WARNING level")
+    60	            sublogger.critical("logger CRITICAL level")
+    61	
+    62	    assert "DEBUG" not in caplog.text
+    63	    assert "INFO" in caplog.text
+    64	    assert "WARNING" not in caplog.text
+    65	    assert "CRITICAL" in caplog.text
+    66	
+    67	
+    68	def test_log_access(caplog):
+    69	    caplog.set_level(logging.INFO)
+    70	    logger.info("boo %s", "arg")
+    71	    assert caplog.records[0].levelname == "INFO"
+    72	    assert caplog.records[0].msg == "boo %s"
+    73	    assert "boo arg" in caplog.text
+    74	
+    75	
+    76	def test_messages(caplog):
+    77	    caplog.set_level(logging.INFO)
+    78	    logger.info("boo %s", "arg")
+    79	    logger.info("bar %s\nbaz %s", "arg1", "arg2")
+    80	    assert "boo arg" == caplog.messages[0]
+    81	    assert "bar arg1\nbaz arg2" == caplog.messages[1]
+    82	    assert caplog.text.count("\n") > len(caplog.messages)
+    83	    assert len(caplog.text.splitlines()) > len(caplog.messages)
+    84	
+    85	    try:
+    86	        raise Exception("test")
+    87	    except Exception:
+    88	        logger.exception("oops")
+    89	
+    90	    assert "oops" in caplog.text
+    91	    assert "oops" in caplog.messages[-1]
+    92	    # Tracebacks are stored in the record and not added until the formatter or handler.
+    93	    assert "Exception" in caplog.text
+    94	    assert "Exception" not in caplog.messages[-1]
+    95	
+    96	
+    97	def test_record_tuples(caplog):
+    98	    caplog.set_level(logging.INFO)
+    99	    logger.info("boo %s", "arg")
+   100	
+   101	    assert caplog.record_tuples == [(__name__, logging.INFO, "boo arg")]
+   102	
+   103	
+   104	def test_unicode(caplog):
+   105	    caplog.set_level(logging.INFO)
+   106	    logger.info("bū")
+   107	    assert caplog.records[0].levelname == "INFO"
+   108	    assert caplog.records[0].msg == "bū"
+   109	    assert "bū" in caplog.text
+   110	
+   111	
+   112	def test_clear(caplog):
+   113	    caplog.set_level(logging.INFO)
+   114	    logger.info("bū")
+   115	    assert len(caplog.records)
+   116	    assert caplog.text
+   117	    caplog.clear()
+   118	    assert not len(caplog.records)
+   119	    assert not caplog.text
+   120	
+   121	
+   122	@pytest.fixture
+   123	def logging_during_setup_and_teardown(caplog):
+   124	    caplog.set_level("INFO")
+   125	    logger.info("a_setup_log")
+   126	    yield
+   127	    logger.info("a_teardown_log")
+   128	    assert [x.message for x in caplog.get_records("teardown")] == ["a_teardown_log"]
+   129	
+   130	
+
+Budget: 1773.9s, 497 decisions remaining.

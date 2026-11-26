@@ -1,0 +1,16 @@
+{
+  "pydata__xarray-6461": [
+    {
+      "check_id": "agent-check",
+      "source_quote": "Create .course-public-check/check.py",
+      "command": "/opt/miniconda3/envs/testbed/bin/python .course-public-check/check.py",
+      "dependencies": [
+        ".course-public-check/check.py"
+      ],
+      "coverage": [
+        "Agent-authored visible-task reproducer and assertions"
+      ],
+      "timeout_seconds": 120
+    }
+  ]
+}

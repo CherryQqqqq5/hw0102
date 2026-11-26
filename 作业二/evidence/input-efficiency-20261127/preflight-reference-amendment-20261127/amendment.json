@@ -1,0 +1,34 @@
+{
+  "stage": "registered_before_affected_task_first_generation",
+  "registered_unix": 1795718754.959408,
+  "reason": "The declared C++ upstream example is header-only; preserve unmatched original stubs while mapping every declared reference once",
+  "source_changes": {
+    "work/input-efficiency-20261126/runtime/course_eval/preflight.py": {
+      "before": "94af5813e40f782e603e0c24aa5c55c63a08ff0d6cabe2f384d713125be94e84",
+      "after": "b1c325d8fbd8737659166a79540acd8ac1b531360e843553cbfd6953a3984712"
+    }
+  },
+  "original_plan_sha256": "e14ef719e81abc7f59f8c970b4355db4ba7f0cba1945a437f5091cefaf0b5a6e",
+  "controls": {
+    "task": "cpp/binary-search-tree",
+    "original_starter": {
+      "scoreable": true,
+      "passed": false,
+      "grader_exit_code": 2,
+      "grader_seconds": 24.22913836268708
+    },
+    "upstream_reference": {
+      "scoreable": true,
+      "passed": true,
+      "grader_exit_code": 0,
+      "grader_seconds": 170.062443011906
+    }
+  },
+  "existing_zero_credit_requests": 275,
+  "completed_positions": 17,
+  "affected_task_model_requests": 0,
+  "new_model_calls_by_repair": 0,
+  "model_prompt_task_grader_limits_fee_selection_repeat_rules_unchanged": true,
+  "upstream_header_sha256": "8b6b2e7228912896cd76fae4908a7408f09349fc1ccbe12631af3d9d8460b6a7",
+  "untouched_source_stub_sha256": "b187ba8545d85d0589049755cef9e1a9db612cd984f82d18b72dca3890437681"
+}

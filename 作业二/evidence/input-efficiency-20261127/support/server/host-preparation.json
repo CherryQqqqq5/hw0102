@@ -1,0 +1,66 @@
+{
+  "stage": "host_tools_and_base_image_ready",
+  "new_model_calls": 0,
+  "packages": {
+    "qemu-system-x86": {
+      "file": "qemu-system-x86_1%3a6.2+dfsg-2ubuntu6.31_amd64.deb",
+      "sha256": "154327d064e982cd13fc26f1957f4a76054f89e5805427667d6d524af4c9fd5d"
+    },
+    "qemu-system-common": {
+      "file": "qemu-system-common_1%3a6.2+dfsg-2ubuntu6.31_amd64.deb",
+      "sha256": "a6fd72861325ed69e196d0e82bee4864285def1f7a1fe63918d0032a7865aa1a"
+    },
+    "qemu-system-data": {
+      "file": "qemu-system-data_1%3a6.2+dfsg-2ubuntu6.31_all.deb",
+      "sha256": "34b91ff7aaad845035c30a9223c781cc13227877e230aa776b7166798e9200c9"
+    },
+    "qemu-utils": {
+      "file": "qemu-utils_1%3a6.2+dfsg-2ubuntu6.31_amd64.deb",
+      "sha256": "a12f6867b8c76f0184f3b247df41d20da8fee67f9eff0a01eecbb96bd6a32334"
+    },
+    "seabios": {
+      "file": "seabios_1.15.0-1_all.deb",
+      "sha256": "e9dee06c8f2c60c95012ec7c6b1b8e099c2aa2e9214760eba271242221decbd1"
+    },
+    "ipxe-qemu": {
+      "file": "ipxe-qemu_1.21.1+git-20220113.fbbdc3926-0ubuntu1_all.deb",
+      "sha256": "601cd351e25b1e00c8f5d67c6b7e92ff30f5e8fcd04d9202ede378dbc9f6b5d6"
+    },
+    "libaio1": {
+      "file": "libaio1_0.3.112-13build1_amd64.deb",
+      "sha256": "2dcfe0b49d7cccfbf1bd6a3f627cf44bea9f51fb32f7e0e552a0df75698e0d27"
+    },
+    "libfdt1": {
+      "file": "libfdt1_1.6.1-1_amd64.deb",
+      "sha256": "1738b8661a24aa1679bdf2fb7e60976260dec99372735c8764f37ebfaad36518"
+    },
+    "libfuse3-3": {
+      "file": "libfuse3-3_3.10.5-1build1_amd64.deb",
+      "sha256": "724634f1bd214e6fd8c7df7daaf1f1eb3bf88c887ecc2690c98de78e468d7957"
+    },
+    "libpmem1": {
+      "file": "libpmem1_1.11.1-3build1_amd64.deb",
+      "sha256": "6824ba30ec4bc8a84ab81a3cd3332666db4570031ab276f3e169dead28a98a93"
+    },
+    "libslirp0": {
+      "file": "libslirp0_4.6.1-1ubuntu0.2_amd64.deb",
+      "sha256": "b313de55b17cf8974996706b9cc70e4de387a39decf0bc3fa3a4256734476ee8"
+    },
+    "liburing2": {
+      "file": "liburing2_2.1-2build1_amd64.deb",
+      "sha256": "f6e9bdf50c9683cd9a74ad92d51dde085f40baf0a5fcd8a56fc68425c1bd3c5f"
+    },
+    "libdaxctl1": {
+      "file": "libdaxctl1_72.1-1_amd64.deb",
+      "sha256": "acf0237b4953751a0618c5479ee8220c2bc2b356f7551ee5bc70c7e9946228d9"
+    },
+    "libndctl6": {
+      "file": "libndctl6_72.1-1_amd64.deb",
+      "sha256": "32c064c1760dff9fcaacae1d1774960e3c86c16384c0da243a2173b75b9d6fce"
+    }
+  },
+  "guest_base_sha256": "8f47444392c8a4f40fdee2902ef8f8345b4534b12d5458caaa631fedf411efb5",
+  "guest_base_bytes": 292791808,
+  "guest_started": false,
+  "pinned_benchmark_images_downloaded": 0
+}

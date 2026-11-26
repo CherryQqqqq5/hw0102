@@ -1,0 +1,187 @@
+diff --git a/.course-public-check/check.py b/.course-public-check/check.py
+new file mode 100755
+index 0000000000..e9ab1e54c3
+--- /dev/null
++++ b/.course-public-check/check.py
+@@ -0,0 +1,165 @@
++#!/opt/miniconda3/envs/testbed/bin/python
++"""Standalone reproducer/assertions for the __iso_year lookup optimization bug."""
++import sys
++from datetime import date, datetime
++
++sys.path.insert(0, "/testbed")
++
++from django.conf import settings
++
++if not settings.configured:
++    settings.configure(
++        DATABASES={
++            "default": {
++                "ENGINE": "django.db.backends.sqlite3",
++                "NAME": ":memory:",
++            }
++        },
++        INSTALLED_APPS=[],
++        SECRET_KEY="course-public-check",
++        USE_TZ=False,
++    )
++
++import django
++
++django.setup()
++
++from django.db import connection, models
++from django.db.models.functions import ExtractIsoYear
++
++
++class DTModel(models.Model):
++    start_date = models.DateField()
++    start_datetime = models.DateTimeField()
++
++    class Meta:
++        app_label = "course_iso_year_check"
++
++
++DATE_YEAR_ROWS = [
++    (date(2014, 12, 27), 2014),  # Sunday: ISO 2014 week 52
++    (date(2014, 12, 31), 2015),  # Wednesday: ISO 2015 week 1
++    (date(2015, 1, 1), 2015),
++    (date(2015, 12, 31), 2015),  # Thursday: ISO 2015 week 53
++    (date(2016, 1, 1), 2015),    # Friday: still ISO 2015
++    (date(2016, 1, 4), 2016),
++    (date(2020, 12, 31), 2020),
++    (date(2021, 1, 1), 2020),    # Friday: still ISO 2020
++    (date(2021, 1, 4), 2021),
++]
++
++
++def fail(message):
++    print("FAIL: %s" % message)
++    sys.exit(1)
++
++
++def check(condition, message):
++    if not condition:
++        fail(message)
++
++
++def insert_rows():
++    with connection.schema_editor() as schema_editor:
++        schema_editor.create_model(DTModel)
++    for day, iso_year in DATE_YEAR_ROWS:
++        DTModel.objects.create(
++            start_date=day,
++            start_datetime=datetime(day.year, day.month, day.day, 12, 0),
++        )
++
++
++def expected_exact(year):
++    return {day for day, iso_year in DATE_YEAR_ROWS if iso_year == year}
++
++
++def compare_lookup_results(field, lookup, value, expected, label):
++    qs = DTModel.objects.filter(**{"%s__%s" % (field, lookup): value})
++    got = set(qs.values_list(field, flat=True))
++    check(got == expected, "%s returned %r, expected %r" % (label, sorted(got), sorted(expected)))
++    sql = str(qs.query).upper()
++    check("BETWEEN" not in sql, "%s used the invalid BETWEEN optimization: %s" % (label, sql))
++    return sql
++
++
++def main():
++    insert_rows()
++
++    for field in ("start_date", "start_datetime"):
++        value_field = field
++        if field == "start_datetime":
++            expected_dates = expected_exact(2015)
++            expected = {
++                datetime(day.year, day.month, day.day, 12, 0) for day in expected_dates
++            }
++        else:
++            expected = expected_exact(2015)
++
++        # Explicit exact and implied exact must both use the real ISO-year extract.
++        for suffix in ("exact", ""):
++            lookup = "iso_year__%s" % suffix if suffix else "iso_year"
++            qs = DTModel.objects.filter(**{"%s__%s" % (field, lookup): 2015})
++            got = set(qs.values_list(value_field, flat=True))
++            check(
++                got == expected,
++                "%s__%s returned %r, expected %r" % (
++                    field, lookup, sorted(got), sorted(expected)
++                ),
++            )
++            sql = str(qs.query).upper()
++            check(
++                "BETWEEN" not in sql,
++                "%s__%s used the invalid BETWEEN optimization: %s" % (field, lookup, sql),
++            )
++
++        # All comparison lookups registered against the ISO-year transform must
++        # retain EXTRACT semantics; none may use calendar-year bounds.
++        for lookup, predicate in (
++            ("gt", lambda y: y > 2015),
++            ("gte", lambda y: y >= 2015),
++            ("lt", lambda y: y < 2015),
++            ("lte", lambda y: y <= 2015),
++        ):
++            expected_dates = {day for day, iso_year in DATE_YEAR_ROWS if predicate(iso_year)}
++            if field == "start_datetime":
++                expected = {
++                    datetime(day.year, day.month, day.day, 12, 0) for day in expected_dates
++                }
++            else:
++                expected = expected_dates
++            compare_lookup_results(
++                field, "iso_year__%s" % lookup, 2015, expected,
++                "%s__iso_year__%s" % (field, lookup),
++            )
++
++    # Filtering an explicit ISO-year annotation must use the annotation's
++    # extraction rather than silently rewriting it to calendar-year bounds.
++    annotated = DTModel.objects.annotate(
++        extracted=ExtractIsoYear("start_date")
++    ).filter(extracted=2015)
++    got = set(annotated.values_list("start_date", flat=True))
++    check(
++        got == expected_exact(2015),
++        "annotation filter returned %r, expected %r" % (
++            sorted(got), sorted(expected_exact(2015))
++        ),
++    )
++    check(
++        "BETWEEN" not in str(annotated.query).upper(),
++        "annotation filter used BETWEEN: %s" % annotated.query,
++    )
++
++    # The optimization must still exist for the ordinary year transform.
++    year_qs = DTModel.objects.filter(start_date__year=2020)
++    year_sql = str(year_qs.query).upper()
++    check("BETWEEN" in year_sql, "year lookup lost its BETWEEN optimization: %s" % year_sql)
++    check(
++        set(year_qs.values_list("start_date", flat=True)) == {date(2020, 12, 31)},
++        "year lookup returned unexpected rows",
++    )
++
++    print("All ISO-year lookup assertions passed.")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/django/db/models/functions/datetime.py b/django/db/models/functions/datetime.py
+index 90e6f41be0..3e140bfa84 100644
+--- a/django/db/models/functions/datetime.py
++++ b/django/db/models/functions/datetime.py
+@@ -164,11 +164,6 @@ ExtractYear.register_lookup(YearGte)
+ ExtractYear.register_lookup(YearLt)
+ ExtractYear.register_lookup(YearLte)
+ 
+-ExtractIsoYear.register_lookup(YearExact)
+-ExtractIsoYear.register_lookup(YearGt)
+-ExtractIsoYear.register_lookup(YearGte)
+-ExtractIsoYear.register_lookup(YearLt)
+-ExtractIsoYear.register_lookup(YearLte)
+ 
+ 
+ class Now(Func):

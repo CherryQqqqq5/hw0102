@@ -1,0 +1,227 @@
+
+        y : array-like, shape=(n_samples,)
+            Target values.
+
+        Returns
+        -------
+        self : object
+        """
+        fit_start_time = time()
+        acc_find_split_time = 0.  # time spent finding the best splits
+        acc_apply_split_time = 0.  # time spent splitting nodes
+        acc_compute_hist_time = 0.  # time spent computing histograms
+        # time spent predicting X for gradient and hessians update
+        acc_prediction_time = 0.
+        X, y = check_X_y(X, y, dtype=[X_DTYPE], force_all_finite=False)
+        y = self._encode_y(y)
+
+        # The rng state must be preserved if warm_start is True
+        if (self.warm_start and hasattr(self, '_rng')):
+            rng = self._rng
+        else:
+            rng = check_random_state(self.random_state)
+            self._rng = rng
+
+        self._validate_parameters()
+        self.n_features_ = X.shape[1]  # used for validation in predict()
+
+        # we need this stateful variable to tell raw_predict() that it was
+        # called from fit() (this current method), and that the data it has
+        # received is pre-binned.
+        # predicting is faster on pre-binned data, so we want early stopping
+            # with this layout (training is faster on F-arrays though)
+            X_binned = np.ascontiguousarray(X_binned)
+        toc = time()
+        if self.verbose:
+            duration = toc - tic
+            print("{:.3f} s".format(duration))
+
+        return X_binned
+
+    def _print_iteration_stats(self, iteration_start_time):
+        """Print info about the current fitting iteration."""
+        log_msg = ''
+
+        predictors_of_ith_iteration = [
+            predictors_list for predictors_list in self._predictors[-1]
+            if predictors_list
+        ]
+        n_trees = len(predictors_of_ith_iteration)
+        max_depth = max(predictor.get_max_depth()
+                        for predictor in predictors_of_ith_iteration)
+        n_leaves = sum(predictor.get_n_leaf_nodes()
+                       for predictor in predictors_of_ith_iteration)
+
+        if n_trees == 1:
+            log_msg += ("{} tree, {} leaves, ".format(n_trees, n_leaves))
+        else:
+            log_msg += ("{} trees, {} leaves ".format(n_trees, n_leaves))
+            log_msg += ("({} on avg), ".format(int(n_leaves / n_trees)))
+
+        log_msg += "max depth = {}, ".format(max_depth)
+
+        if self.do_early_stopping_:
+            if self.scoring == 'loss':
+                factor = -1  # score_ arrays contain the negative loss
+                name = 'loss'
+            else:
+                factor = 1
+                name = 'score'
+            log_msg += "train {}: {:.5f}, ".format(name, factor *
+                                                   self.train_score_[-1])
+            if self._use_validation_data:
+                log_msg += "val {}: {:.5f}, ".format(
+                    name, factor * self.validation_score_[-1])
+
+        iteration_time = time() - iteration_start_time
+        log_msg += "in {:0.3f}s".format(iteration_time)
+
+        print(log_msg)
+
+    def _raw_predict(self, X):
+        """Return the sum of the leaves values over all predictors.
+
+        Parameters
+        ----------
+        X : array-like, shape=(n_samples, n_features)
+            The input samples.
+
+    def _more_tags(self):
+        return {'allow_nan': True}
+
+    @abstractmethod
+    def _get_loss(self):
+        pass
+
+    @abstractmethod
+    def _encode_y(self, y=None):
+        pass
+
+    @property
+    def n_iter_(self):
+        check_is_fitted(self)
+        return len(self._predictors)
+
+
+class HistGradientBoostingRegressor(BaseHistGradientBoosting, RegressorMixin):
+    """Histogram-based Gradient Boosting Regression Tree.
+
+    This estimator is much faster than
+    :class:`GradientBoostingRegressor<sklearn.ensemble.GradientBoostingRegressor>`
+    for big datasets (n_samples >= 10 000).
+
+    This estimator has native support for missing values (NaNs). During
+    training, the tree grower learns at each split point whether samples
+    with missing values should go to the left or right child, based on the
+    potential gain. When predicting, samples with missing values are
+    assigned to the left or right child consequently. If no missing values
+    were encountered for a given feature during training, then samples with
+        Parameters
+        ----------
+        X : array-like, shape (n_samples, n_features)
+            The input samples.
+
+        Returns
+        -------
+        y : ndarray, shape (n_samples,)
+            The predicted values.
+        """
+        # Return raw predictions after converting shape
+        # (n_samples, 1) to (n_samples,)
+        return self._raw_predict(X).ravel()
+
+    def _encode_y(self, y):
+        # Just convert y to the expected dtype
+        self.n_trees_per_iteration_ = 1
+        y = y.astype(Y_DTYPE, copy=False)
+        return y
+
+    def _get_loss(self):
+        return _LOSSES[self.loss]()
+
+
+class HistGradientBoostingClassifier(BaseHistGradientBoosting,
+                                     ClassifierMixin):
+            max_leaf_nodes=max_leaf_nodes, max_depth=max_depth,
+            min_samples_leaf=min_samples_leaf,
+            l2_regularization=l2_regularization, max_bins=max_bins,
+            warm_start=warm_start, scoring=scoring,
+            validation_fraction=validation_fraction,
+            n_iter_no_change=n_iter_no_change, tol=tol, verbose=verbose,
+            random_state=random_state)
+
+    def predict(self, X):
+        """Predict classes for X.
+
+        Parameters
+        ----------
+        X : array-like, shape (n_samples, n_features)
+            The input samples.
+
+        Returns
+        -------
+        y : ndarray, shape (n_samples,)
+            The predicted classes.
+        """
+        # TODO: This could be done in parallel
+        encoded_classes = np.argmax(self.predict_proba(X), axis=1)
+        return self.classes_[encoded_classes]
+
+    def predict_proba(self, X):
+        """Predict class probabilities for X.
+
+        Parameters
+        ----------
+        X : array-like, shape (n_samples, n_features)
+            The input samples.
+
+        Returns
+        -------
+        p : ndarray, shape (n_samples, n_classes)
+            The class probabilities of the input samples.
+        """
+        raw_predictions = self._raw_predict(X)
+        return self.loss_.predict_proba(raw_predictions)
+
+    def decision_function(self, X):
+        """Compute the decision function of X.
+
+        Parameters
+        ----------
+        X : array-like, shape (n_samples, n_features)
+            The input samples.
+
+        Returns
+        -------
+        decision : ndarray, shape (n_samples,) or \
+                (n_samples, n_trees_per_iteration)
+            The raw predicted values (i.e. the sum of the trees leaves) for
+            each sample. n_trees_per_iteration is equal to the number of
+            classes in multiclass classification.
+        """
+        decision = self._raw_predict(X)
+        if decision.shape[0] == 1:
+            decision = decision.ravel()
+        return decision.T
+
+    def _encode_y(self, y):
+        # encode classes into 0 ... n_classes - 1 and sets attributes classes_
+        # and n_trees_per_iteration_
+        check_classification_targets(y)
+
+        label_encoder = LabelEncoder()
+        encoded_y = label_encoder.fit_transform(y)
+        self.classes_ = label_encoder.classes_
+        n_classes = self.classes_.shape[0]
+        # only 1 tree for binary classification. For multiclass classification,
+        # we build 1 tree per class.
+        self.n_trees_per_iteration_ = 1 if n_classes <= 2 else n_classes
+        encoded_y = encoded_y.astype(Y_DTYPE, copy=False)
+        return encoded_y
+
+    def _get_loss(self):
+        if self.loss == 'auto':
+            if self.n_trees_per_iteration_ == 1:
+                return _LOSSES['binary_crossentropy']()
+
+Budget: 1762.9s, 495 decisions remaining.

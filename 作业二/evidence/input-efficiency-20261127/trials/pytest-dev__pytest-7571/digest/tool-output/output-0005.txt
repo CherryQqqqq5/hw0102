@@ -1,0 +1,189 @@
+            yield
+        finally:
+            logger_obj.setLevel(orig_level)
+            self.handler.setLevel(handler_orig_level)
+
+
+@pytest.fixture
+def caplog(request: FixtureRequest) -> Generator[LogCaptureFixture, None, None]:
+    """Access and control log capturing.
+
+    Captured logs are available through the following properties/methods::
+
+    * caplog.messages        -> list of format-interpolated log messages
+    * caplog.text            -> string containing formatted log output
+    * caplog.records         -> list of logging.LogRecord instances
+    * caplog.record_tuples   -> list of (logger_name, level, message) tuples
+    * caplog.clear()         -> clear captured records and formatted log output string
+    """
+    result = LogCaptureFixture(request.node)
+    yield result
+    result._finalize()
+
+
+def get_log_level_for_setting(config: Config, *setting_names: str) -> Optional[int]:
+    for setting_name in setting_names:
+        log_level = config.getoption(setting_name)
+
+=== _runtest_for ===
+            return
+
+        if self._log_cli_enabled() and self._config.getoption("verbose") < 1:
+            # setting verbose flag is needed to avoid messy test progress output
+            self._config.option.verbose = 1
+
+        with catching_logs(self.log_cli_handler, level=self.log_cli_level):
+            with catching_logs(self.log_file_handler, level=self.log_file_level):
+                yield  # run all the tests
+
+    @pytest.hookimpl
+    def pytest_runtest_logstart(self) -> None:
+        self.log_cli_handler.reset()
+        self.log_cli_handler.set_when("start")
+
+    @pytest.hookimpl
+    def pytest_runtest_logreport(self) -> None:
+        self.log_cli_handler.set_when("logreport")
+
+    def _runtest_for(self, item: nodes.Item, when: str) -> Generator[None, None, None]:
+        """Implements the internals of pytest_runtest_xxx() hook."""
+        with catching_logs(
+            self.caplog_handler, level=self.log_level,
+        ) as caplog_handler, catching_logs(
+            self.report_handler, level=self.log_level,
+        ) as report_handler:
+            caplog_handler.reset()
+            report_handler.reset()
+            item._store[caplog_records_key][when] = caplog_handler.records
+            item._store[caplog_handler_key] = caplog_handler
+
+            yield
+
+            log = report_handler.stream.getvalue().strip()
+            item.add_report_section(when, "log", log)
+
+    @pytest.hookimpl(hookwrapper=True)
+    def pytest_runtest_setup(self, item: nodes.Item) -> Generator[None, None, None]:
+        self.log_cli_handler.set_when("setup")
+
+        empty = {}  # type: Dict[str, List[logging.LogRecord]]
+
+=== at_level end ===
+
+        :param int level: the logger to level.
+        :param str logger: the logger to update the level. If not given, the root logger level is updated.
+        """
+        logger_obj = logging.getLogger(logger)
+        orig_level = logger_obj.level
+        logger_obj.setLevel(level)
+        handler_orig_level = self.handler.level
+        self.handler.setLevel(level)
+        try:
+            yield
+        finally:
+            logger_obj.setLevel(orig_level)
+            self.handler.setLevel(handler_orig_level)
+
+
+@pytest.fixture
+def caplog(request: FixtureRequest) -> Generator[LogCaptureFixture, None, None]:
+
+=== full test_fixture level tests ===
+import logging
+
+import pytest
+from _pytest.logging import caplog_records_key
+
+logger = logging.getLogger(__name__)
+sublogger = logging.getLogger(__name__ + ".baz")
+
+
+def test_fixture_help(testdir):
+    result = testdir.runpytest("--fixtures")
+    result.stdout.fnmatch_lines(["*caplog*"])
+
+
+def test_change_level(caplog):
+    caplog.set_level(logging.INFO)
+    logger.debug("handler DEBUG level")
+    logger.info("handler INFO level")
+
+    caplog.set_level(logging.CRITICAL, logger=sublogger.name)
+    sublogger.warning("logger WARNING level")
+    sublogger.critical("logger CRITICAL level")
+
+    assert "DEBUG" not in caplog.text
+    assert "INFO" in caplog.text
+    assert "WARNING" not in caplog.text
+    assert "CRITICAL" in caplog.text
+
+
+def test_change_level_undo(testdir):
+    """Ensure that 'set_level' is undone after the end of the test"""
+    testdir.makepyfile(
+        """
+        import logging
+
+        def test1(caplog):
+            caplog.set_level(logging.INFO)
+            # using + operator here so fnmatch_lines doesn't match the code in the traceback
+            logging.info('log from ' + 'test1')
+            assert 0
+
+        def test2(caplog):
+            # using + operator here so fnmatch_lines doesn't match the code in the traceback
+            logging.info('log from ' + 'test2')
+            assert 0
+    """
+    )
+    result = testdir.runpytest()
+    result.stdout.fnmatch_lines(["*log from test1*", "*2 failed in *"])
+    result.stdout.no_fnmatch_line("*log from test2*")
+
+
+def test_with_statement(caplog):
+    with caplog.at_level(logging.INFO):
+        logger.debug("handler DEBUG level")
+        [pytest]
+        log_level=ERROR
+    """
+    )
+
+    result = testdir.runpytest()
+    # make sure that that we get a '0' exit code for the testsuite
+    assert result.ret == 0
+
+
+def test_caplog_can_override_global_log_level(testdir):
+    testdir.makepyfile(
+        """
+        import pytest
+        import logging
+        def test_log_level_override(request, caplog):
+            logger = logging.getLogger('catchlog')
+            plugin = request.config.pluginmanager.getplugin('logging-plugin')
+            assert plugin.log_level == logging.WARNING
+
+            logger.info("INFO message won't be shown")
+
+            caplog.set_level(logging.INFO, logger.name)
+
+            with caplog.at_level(logging.DEBUG, logger.name):
+                logger.debug("DEBUG message will be shown")
+
+            logger.debug("DEBUG message won't be shown")
+
+            with caplog.at_level(logging.CRITICAL, logger.name):
+                logger.warning("WARNING message won't be shown")
+
+            logger.debug("DEBUG message won't be shown")
+            logger.info("INFO message will be shown")
+
+            assert "message won't be shown" not in caplog.text
+    """
+    )
+    testdir.makeini(
+        """
+        [pytest]
+
+Budget: 1737.9s, 493 decisions remaining.

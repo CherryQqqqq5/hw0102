@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "bfb8b5f7e483a885fb60085a171a671b37c79ec877933c9d5b3caa745740e8a7",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-suite": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "b187ba8545d85d0589049755cef9e1a9db612cd984f82d18b72dca3890437681  binary_search_tree.cpp\nb249396508fa1fcf24d9360a5afa36090084775a17a1c335a7dedbae31877d54  binary_search_tree.h\n79ff6a886a42d7691ec0240f9ea08191016f1042a752da9c2809a3da24c361e5  binary_search_tree_test.cpp\n"
+    }
+  },
+  "elapsed_seconds": 640.9933376619592
+}

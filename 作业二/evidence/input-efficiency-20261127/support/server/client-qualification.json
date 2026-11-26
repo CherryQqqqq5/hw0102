@@ -1,0 +1,42 @@
+{
+  "status": "actual_project_docker_api_and_cli_passed",
+  "docker_host": "unix://[server-project]/guest/docker.sock",
+  "socket_mode": "0o600",
+  "sdk_version": "7.1.0",
+  "api_seconds": 0.5508518340066075,
+  "server_version": "29.1.3",
+  "api_version": "1.52",
+  "operating_system": "Ubuntu 22.04.5 LTS",
+  "architecture": "x86_64",
+  "guest_cpus": 4,
+  "guest_memory_bytes": 8350826496,
+  "docker_cli_sha256": "87bb910f051879cdf2a4a38e01748cbebeb27f3de962122dfdcbd0a4fbeea4ff",
+  "cli_matches_actual_sdk_info": true,
+  "compose_available": false,
+  "compose_stdout": "",
+  "compose_stderr": "docker: unknown command: docker compose\n\nRun 'docker --help' for more information",
+  "idle_microbenchmark": {
+    "host": {
+      "value": 499897499674,
+      "arithmetic_seconds": 0.16534754913300276,
+      "ten_process_seconds": 0.005635809153318405
+    },
+    "guest": {
+      "value": 499897499674,
+      "arithmetic_seconds": 2.3833698099999765,
+      "ten_process_seconds": 0.3056350840000164
+    },
+    "arithmetic_ratio": 14.414303825470279,
+    "process_ratio": 54.23091444110669
+  },
+  "source_sha256": {
+    "guest_vm.py": "e96fb489d70fe1375c8db01556e96657cc40551f609e6f5ad6605eff715422c7",
+    "prepare_small_image.py": "0496483e1583316475c0d46fc9bdc6232c7cbdcf8d90eaecc6435de46e9b7a19",
+    "finish_client.py": "12cda80f0f16db56f4a9148fac7f93fdadb25166d7f699b70e77c5192ae680f9",
+    "qualification.json": "6c53de8ae08690ca23135dc01651b9c581e0118d89323e046b83efb464d71652",
+    "small-image.json": "47f8f9ef762f052e359a4dea55eed097dc7751e0943cd146094d872a1d1ad032"
+  },
+  "new_model_calls": 0,
+  "new_original_grader_calls": 0,
+  "original_course_image_or_grader_qualified": false
+}

@@ -1,0 +1,690 @@
+{
+  "stage": "selection_before_model_calls",
+  "seed": "nju-input-efficiency-20261126-v1",
+  "revisions": {
+    "swe": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+    "terminal": "7131e4375048a0e408a8fb404b5f499d726b695b",
+    "aider": "7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"
+  },
+  "selected": [
+    {
+      "benchmark": "aider",
+      "id": "javascript/book-store",
+      "stratum": "javascript",
+      "group": "book-store",
+      "solution_files": [
+        "book-store.js"
+      ],
+      "test_files": [
+        "book-store.spec.js"
+      ],
+      "exclude": null
+    },
+    {
+      "benchmark": "swe",
+      "id": "django__django-14855",
+      "stratum": "django/django",
+      "group": "django__django-14855",
+      "difficulty": "<15 min fix",
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14855:latest",
+      "base_commit": "475cffd1d64c690cdad16ede4d5e81985738ceb4",
+      "exclude": null
+    },
+    {
+      "benchmark": "swe",
+      "id": "pytest-dev__pytest-7571",
+      "stratum": "pytest-dev/pytest",
+      "group": "pytest-dev__pytest-7571",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7571:latest",
+      "base_commit": "422685d0bdc110547535036c1ff398b5e1c44145",
+      "exclude": null
+    },
+    {
+      "benchmark": "aider",
+      "id": "javascript/binary",
+      "stratum": "javascript",
+      "group": "binary",
+      "solution_files": [
+        "binary.js"
+      ],
+      "test_files": [
+        "binary.spec.js"
+      ],
+      "exclude": null
+    },
+    {
+      "benchmark": "aider",
+      "id": "python/forth",
+      "stratum": "python",
+      "group": "forth",
+      "solution_files": [
+        "forth.py"
+      ],
+      "test_files": [
+        "forth_test.py"
+      ],
+      "exclude": null
+    },
+    {
+      "benchmark": "aider",
+      "id": "cpp/binary-search-tree",
+      "stratum": "cpp",
+      "group": "binary-search-tree",
+      "solution_files": [
+        "binary_search_tree.cpp",
+        "binary_search_tree.h"
+      ],
+      "test_files": [
+        "binary_search_tree_test.cpp"
+      ],
+      "exclude": null
+    },
+    {
+      "benchmark": "swe",
+      "id": "django__django-14170",
+      "stratum": "django/django",
+      "group": "django__django-14170",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14170:latest",
+      "base_commit": "6efc35b4fe3009666e56a60af0675d7d532bf4ff",
+      "exclude": null
+    },
+    {
+      "benchmark": "swe",
+      "id": "pydata__xarray-6461",
+      "stratum": "pydata/xarray",
+      "group": "pydata__xarray-6461",
+      "difficulty": "<15 min fix",
+      "image": "swebench/sweb.eval.x86_64.pydata_1776_xarray-6461:latest",
+      "base_commit": "851dadeb0338403e5021c3fbe80cbc9127ee672d",
+      "exclude": null
+    },
+    {
+      "benchmark": "swe",
+      "id": "scikit-learn__scikit-learn-14710",
+      "stratum": "scikit-learn/scikit-learn",
+      "group": "scikit-learn__scikit-learn-14710",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-14710:latest",
+      "base_commit": "4b6273b87442a4437d8b3873ea3022ae163f4fdf",
+      "exclude": null
+    }
+  ],
+  "inventory": [
+    {
+      "benchmark": "aider",
+      "id": "javascript/book-store",
+      "stratum": "javascript",
+      "group": "book-store",
+      "solution_files": [
+        "book-store.js"
+      ],
+      "test_files": [
+        "book-store.spec.js"
+      ],
+      "exclude": null
+    },
+    {
+      "benchmark": "swe",
+      "id": "django__django-14855",
+      "stratum": "django/django",
+      "group": "django__django-14855",
+      "difficulty": "<15 min fix",
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14855:latest",
+      "base_commit": "475cffd1d64c690cdad16ede4d5e81985738ceb4",
+      "exclude": null
+    },
+    {
+      "benchmark": "swe",
+      "id": "pytest-dev__pytest-7571",
+      "stratum": "pytest-dev/pytest",
+      "group": "pytest-dev__pytest-7571",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7571:latest",
+      "base_commit": "422685d0bdc110547535036c1ff398b5e1c44145",
+      "exclude": null
+    },
+    {
+      "benchmark": "aider",
+      "id": "javascript/binary",
+      "stratum": "javascript",
+      "group": "binary",
+      "solution_files": [
+        "binary.js"
+      ],
+      "test_files": [
+        "binary.spec.js"
+      ],
+      "exclude": null
+    },
+    {
+      "benchmark": "aider",
+      "id": "python/forth",
+      "stratum": "python",
+      "group": "forth",
+      "solution_files": [
+        "forth.py"
+      ],
+      "test_files": [
+        "forth_test.py"
+      ],
+      "exclude": null
+    },
+    {
+      "benchmark": "aider",
+      "id": "cpp/binary-search-tree",
+      "stratum": "cpp",
+      "group": "binary-search-tree",
+      "solution_files": [
+        "binary_search_tree.cpp",
+        "binary_search_tree.h"
+      ],
+      "test_files": [
+        "binary_search_tree_test.cpp"
+      ],
+      "exclude": null
+    },
+    {
+      "benchmark": "swe",
+      "id": "django__django-14170",
+      "stratum": "django/django",
+      "group": "django__django-14170",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14170:latest",
+      "base_commit": "6efc35b4fe3009666e56a60af0675d7d532bf4ff",
+      "exclude": null
+    },
+    {
+      "benchmark": "swe",
+      "id": "pydata__xarray-6461",
+      "stratum": "pydata/xarray",
+      "group": "pydata__xarray-6461",
+      "difficulty": "<15 min fix",
+      "image": "swebench/sweb.eval.x86_64.pydata_1776_xarray-6461:latest",
+      "base_commit": "851dadeb0338403e5021c3fbe80cbc9127ee672d",
+      "exclude": null
+    },
+    {
+      "benchmark": "swe",
+      "id": "scikit-learn__scikit-learn-14710",
+      "stratum": "scikit-learn/scikit-learn",
+      "group": "scikit-learn__scikit-learn-14710",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-14710:latest",
+      "base_commit": "4b6273b87442a4437d8b3873ea3022ae163f4fdf",
+      "exclude": null
+    }
+  ],
+  "diagnostic_ids": [
+    "javascript/book-store",
+    "django__django-14855",
+    "pytest-dev__pytest-7571"
+  ],
+  "confirmation_ids": [
+    "javascript/binary",
+    "python/forth",
+    "cpp/binary-search-tree",
+    "django__django-14170",
+    "pydata__xarray-6461",
+    "scikit-learn__scikit-learn-14710"
+  ],
+  "excluded_ids": [
+    [
+      "aider",
+      "cpp/all-your-base"
+    ],
+    [
+      "aider",
+      "cpp/allergies"
+    ],
+    [
+      "aider",
+      "cpp/gigasecond"
+    ],
+    [
+      "aider",
+      "cpp/linked-list"
+    ],
+    [
+      "aider",
+      "cpp/parallel-letter-frequency"
+    ],
+    [
+      "aider",
+      "go/alphametics"
+    ],
+    [
+      "aider",
+      "go/beer-song"
+    ],
+    [
+      "aider",
+      "go/connect"
+    ],
+    [
+      "aider",
+      "go/ledger"
+    ],
+    [
+      "aider",
+      "go/markdown"
+    ],
+    [
+      "aider",
+      "go/trinary"
+    ],
+    [
+      "aider",
+      "go/variable-length-quantity"
+    ],
+    [
+      "aider",
+      "java/change"
+    ],
+    [
+      "aider",
+      "java/phone-number"
+    ],
+    [
+      "aider",
+      "java/pig-latin"
+    ],
+    [
+      "aider",
+      "javascript/book-store"
+    ],
+    [
+      "aider",
+      "javascript/food-chain"
+    ],
+    [
+      "aider",
+      "javascript/house"
+    ],
+    [
+      "aider",
+      "javascript/sum-of-multiples"
+    ],
+    [
+      "aider",
+      "javascript/triangle"
+    ],
+    [
+      "aider",
+      "python/grep"
+    ],
+    [
+      "aider",
+      "python/list-ops"
+    ],
+    [
+      "aider",
+      "python/proverb"
+    ],
+    [
+      "aider",
+      "python/rest-api"
+    ],
+    [
+      "aider",
+      "python/tree-building"
+    ],
+    [
+      "aider",
+      "rust/accumulate"
+    ],
+    [
+      "aider",
+      "rust/alphametics"
+    ],
+    [
+      "aider",
+      "rust/doubly-linked-list"
+    ],
+    [
+      "swe",
+      "django__django-11999"
+    ],
+    [
+      "swe",
+      "django__django-12050"
+    ],
+    [
+      "swe",
+      "django__django-12193"
+    ],
+    [
+      "swe",
+      "django__django-13109"
+    ],
+    [
+      "swe",
+      "django__django-13346"
+    ],
+    [
+      "swe",
+      "django__django-14855"
+    ],
+    [
+      "swe",
+      "django__django-15554"
+    ],
+    [
+      "swe",
+      "django__django-15987"
+    ],
+    [
+      "swe",
+      "django__django-16082"
+    ],
+    [
+      "swe",
+      "psf__requests-1724"
+    ],
+    [
+      "swe",
+      "psf__requests-1766"
+    ],
+    [
+      "swe",
+      "psf__requests-1921"
+    ],
+    [
+      "swe",
+      "psf__requests-5414"
+    ],
+    [
+      "swe",
+      "pydata__xarray-2905"
+    ],
+    [
+      "swe",
+      "pydata__xarray-3305"
+    ],
+    [
+      "swe",
+      "pydata__xarray-4687"
+    ],
+    [
+      "swe",
+      "pydata__xarray-4695"
+    ],
+    [
+      "swe",
+      "pydata__xarray-6599"
+    ],
+    [
+      "swe",
+      "pydata__xarray-7393"
+    ],
+    [
+      "swe",
+      "pytest-dev__pytest-5631"
+    ],
+    [
+      "swe",
+      "pytest-dev__pytest-7205"
+    ],
+    [
+      "swe",
+      "pytest-dev__pytest-7490"
+    ],
+    [
+      "swe",
+      "pytest-dev__pytest-7571"
+    ],
+    [
+      "swe",
+      "pytest-dev__pytest-8399"
+    ],
+    [
+      "swe",
+      "scikit-learn__scikit-learn-10908"
+    ],
+    [
+      "swe",
+      "scikit-learn__scikit-learn-11310"
+    ],
+    [
+      "swe",
+      "scikit-learn__scikit-learn-13124"
+    ],
+    [
+      "swe",
+      "scikit-learn__scikit-learn-13496"
+    ],
+    [
+      "swe",
+      "scikit-learn__scikit-learn-14053"
+    ],
+    [
+      "swe",
+      "scikit-learn__scikit-learn-14496"
+    ],
+    [
+      "swe",
+      "scikit-learn__scikit-learn-25232"
+    ],
+    [
+      "terminal",
+      "adaptive-rejection-sampler"
+    ],
+    [
+      "terminal",
+      "bn-fit-modify"
+    ],
+    [
+      "terminal",
+      "build-cython-ext"
+    ],
+    [
+      "terminal",
+      "build-pov-ray"
+    ],
+    [
+      "terminal",
+      "chess-best-move"
+    ],
+    [
+      "terminal",
+      "circuit-fibsqrt"
+    ],
+    [
+      "terminal",
+      "configure-git-webserver"
+    ],
+    [
+      "terminal",
+      "constraints-scheduling"
+    ],
+    [
+      "terminal",
+      "count-dataset-tokens"
+    ],
+    [
+      "terminal",
+      "custom-memory-heap-crash"
+    ],
+    [
+      "terminal",
+      "db-wal-recovery"
+    ],
+    [
+      "terminal",
+      "distribution-search"
+    ],
+    [
+      "terminal",
+      "dna-assembly"
+    ],
+    [
+      "terminal",
+      "extract-elf"
+    ],
+    [
+      "terminal",
+      "feal-linear-cryptanalysis"
+    ],
+    [
+      "terminal",
+      "fix-code-vulnerability"
+    ],
+    [
+      "terminal",
+      "fix-git"
+    ],
+    [
+      "terminal",
+      "fix-ocaml-gc"
+    ],
+    [
+      "terminal",
+      "git-leak-recovery"
+    ],
+    [
+      "terminal",
+      "git-multibranch"
+    ],
+    [
+      "terminal",
+      "hf-model-inference"
+    ],
+    [
+      "terminal",
+      "largest-eigenval"
+    ],
+    [
+      "terminal",
+      "llm-inference-batching-scheduler"
+    ],
+    [
+      "terminal",
+      "log-summary-date-ranges"
+    ],
+    [
+      "terminal",
+      "mailman"
+    ],
+    [
+      "terminal",
+      "model-extraction-relu-logits"
+    ],
+    [
+      "terminal",
+      "modernize-scientific-stack"
+    ],
+    [
+      "terminal",
+      "mteb-retrieve"
+    ],
+    [
+      "terminal",
+      "multi-source-data-merger"
+    ],
+    [
+      "terminal",
+      "nginx-request-logging"
+    ],
+    [
+      "terminal",
+      "openssl-selfsigned-cert"
+    ],
+    [
+      "terminal",
+      "password-recovery"
+    ],
+    [
+      "terminal",
+      "path-tracing-reverse"
+    ],
+    [
+      "terminal",
+      "polyglot-rust-c"
+    ],
+    [
+      "terminal",
+      "prove-plus-comm"
+    ],
+    [
+      "terminal",
+      "pypi-server"
+    ],
+    [
+      "terminal",
+      "pytorch-model-cli"
+    ],
+    [
+      "terminal",
+      "pytorch-model-recovery"
+    ],
+    [
+      "terminal",
+      "query-optimize"
+    ],
+    [
+      "terminal",
+      "raman-fitting"
+    ],
+    [
+      "terminal",
+      "regex-log"
+    ],
+    [
+      "terminal",
+      "reshard-c4-data"
+    ],
+    [
+      "terminal",
+      "sanitize-git-repo"
+    ],
+    [
+      "terminal",
+      "sparql-university"
+    ],
+    [
+      "terminal",
+      "sqlite-db-truncate"
+    ],
+    [
+      "terminal",
+      "sqlite-with-gcov"
+    ],
+    [
+      "terminal",
+      "tune-mjcf"
+    ],
+    [
+      "terminal",
+      "video-processing"
+    ],
+    [
+      "terminal",
+      "vulnerable-secret"
+    ]
+  ],
+  "excluded_count": 108,
+  "source_sha256": "ec582e76f80338283b30107738c07831c1af66db45df0a848b3b40c7f2b7bf40",
+  "selection_uses_model_results": false,
+  "confirmation_selected_before_diagnostic_calls": true,
+  "primary_variable": "New successful long bash output: full versus deterministic digest with full-output recall",
+  "limits": {
+    "model_calls": 500,
+    "wall_seconds": 1800,
+    "command_seconds": 120,
+    "max_output_tokens": 64000,
+    "timeout_retries": 0
+  },
+  "maximum_model_task_trials": 39,
+  "confirmation_arms": ["base", "dsh", "environment", "digest"],
+  "baseline_amendment": "Add base on all six fixed fresh tasks before their first generation; diagnostics motivated this amendment; no fresh results were observed; retain the original selection and repeat rules",
+  "diagnostic_progression": "Complete all9; admit digest to fresh confirmation only if all3 original scores pass and no mechanical boundary remains",
+  "routing_candidates": {
+    "dsh-aider-env-swe": {"aider": "dsh", "swe": "environment"},
+    "dsh-aider-digest-swe": {"aider": "dsh", "swe": "digest"}
+  },
+  "selection_rule": "All6 original grades and applicable controller checks pass; >=10% lower tokens per passed task than environment C0, median and maximum agent time <=110% of environment C0; choose lowest tokens; repeat exactly6 once",
+  "repeat_adoption_rule": "All6 pass, >=10% lower tokens per passed task and median/maximum time <=110% of first-round environment C0",
+  "execution_target": "ModelArts isolated Linux guest; original container scorer; local authenticated free-model relay",
+  "fee_rule": "Hy4free actual own zero-credit record per generation; stop unknown or nonzero; historical35 retained"
+}

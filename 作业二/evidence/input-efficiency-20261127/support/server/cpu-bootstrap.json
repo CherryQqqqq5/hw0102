@@ -1,0 +1,20 @@
+{
+  "stage": "provisional_during_trusted_guest_package_bootstrap",
+  "host": {
+    "value": 499897499674,
+    "arithmetic_seconds": 0.11151520488783717,
+    "ten_subprocess_seconds": 0.007647944614291191,
+    "python": "3.10.6"
+  },
+  "guest": {
+    "value": 499897499674,
+    "arithmetic_seconds": 3.346717981999973,
+    "ten_subprocess_seconds": 0.5056213679999928,
+    "python": "3.10.12"
+  },
+  "arithmetic_ratio": 30.011315366062654,
+  "program_sha256": "98f15d2e8ddc50847f82897218318118aeda78e4f886096325a83c7aa0bf48e8",
+  "new_model_calls": 0,
+  "original_grader_calls": 0,
+  "interpretation": "TCG microbenchmark only; guest apt may run concurrently"
+}

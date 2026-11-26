@@ -1,0 +1,31 @@
+{
+  "stage": "registered_before_any_further_generation",
+  "original_test_timeout_seconds": 600,
+  "uniform_swe_test_timeout_seconds": 1800,
+  "reason": "Actual official test timeout; installed official CLI default is 1800",
+  "testset_and_candidate_unchanged": true,
+  "model_and_agent_limits_unchanged": true,
+  "source_changes": {
+    "work/input-efficiency-20261126/run_registered.py": {
+      "before": "037d246918587163c5d65c9c3eb36cfb00fc58c60656f68e72bfa00ec6cfffc4",
+      "after": "e7b2477bd41746ca1bafc9975824131538e908b082eb0b182875445f7fefb744"
+    },
+    "work/input-efficiency-20261126/runtime/course_eval/benchmarks.py": {
+      "before": "834dea91e2d84eda07d7d835dc0f9288cea0f13b29fbf7571a147c81df30761a",
+      "after": "abbd625eaac5bbac56f3b9222f9aff3a15ab85fd04c38ad2fa365d5046a2e249"
+    }
+  },
+  "original_plan_sha256": "548665ad00a28bcc3c96a2a75cd328755706b5e98a122148587a0e7addfdf079",
+  "original_result_sha256": "559c557c5e433a76f1b444207e6707795d23ba2fcdbbf2ec03e355708e2decfa",
+  "official_runner_sha256": "39b7e95f726df65c67f19f8d79a0f5f10f9d9e12e224076c8cb011851d060016",
+  "candidate_sha256": "47442bacef9306ee9c7fac6b219dee9db2b2f895adc99b7c5f0efee6c225bd64",
+  "original_eval_script_sha256": "8dd32f1d6c28d0281d43ddd42e4398b42f1f3892a53ee42d08e6ab2c69e11e37",
+  "model_before": {
+    "sha256": "f8995db7199abe01b357e8f8b35bb4325cbbf3fbfeae01f69a2eb075c431709c",
+    "actual_requests": 31,
+    "verified_zero_credit_requests": 31
+  },
+  "regrading_rule": "One original 1800-second scoring attempt on the saved candidate; no model resampling; stop if unscoreable",
+  "disk_maintenance": "The same live QEMU process, CPU, memory, Docker identity and disk path; virtual capacity expanded 16 to 48 GiB after actual import ENOSPC",
+  "new_model_calls": 0
+}

@@ -1,0 +1,15 @@
+{
+  "task": "django__django-14170",
+  "tag": "swebench/sweb.eval.x86_64.django_1776_django-14170:latest",
+  "status": "ready",
+  "source": "docker.io/swebench/sweb.eval.x86_64.django_1776_django-14170@sha256:d10fbbbb16acdfa184b9e4c8292ca40becd40099afba97a19665384d4ea5d751",
+  "manifest_digest": "sha256:d10fbbbb16acdfa184b9e4c8292ca40becd40099afba97a19665384d4ea5d751",
+  "config_digest": "sha256:4e8c1f0ba7634c0469799c5340f1f438afe254651e872fe11e3dd0d79bbb9585",
+  "new_model_calls": 0,
+  "compressed_layer_bytes": 1192739472,
+  "image_id": "sha256:d10fbbbb16acdfa184b9e4c8292ca40becd40099afba97a19665384d4ea5d751",
+  "actual_image_id": "sha256:d10fbbbb16acdfa184b9e4c8292ca40becd40099afba97a19665384d4ea5d751",
+  "docker_endpoint": "unix://[server-project]/guest/docker.sock",
+  "image_identity_rule": "Pinned manifest, config and all uncompressed layer digests; actual Docker identity verified",
+  "preparation_route": "Verified native-host OCI export/import"
+}

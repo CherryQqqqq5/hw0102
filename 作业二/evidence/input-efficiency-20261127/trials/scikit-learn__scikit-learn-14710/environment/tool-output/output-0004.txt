@@ -1,0 +1,128 @@
+   960	            max_leaf_nodes=max_leaf_nodes, max_depth=max_depth,
+   961	            min_samples_leaf=min_samples_leaf,
+   962	            l2_regularization=l2_regularization, max_bins=max_bins,
+   963	            warm_start=warm_start, scoring=scoring,
+   964	            validation_fraction=validation_fraction,
+   965	            n_iter_no_change=n_iter_no_change, tol=tol, verbose=verbose,
+   966	            random_state=random_state)
+   967	
+   968	    def predict(self, X):
+   969	        """Predict classes for X.
+   970	
+   971	        Parameters
+   972	        ----------
+   973	        X : array-like, shape (n_samples, n_features)
+   974	            The input samples.
+   975	
+   976	        Returns
+   977	        -------
+   978	        y : ndarray, shape (n_samples,)
+   979	            The predicted classes.
+   980	        """
+   981	        # TODO: This could be done in parallel
+   982	        encoded_classes = np.argmax(self.predict_proba(X), axis=1)
+   983	        return self.classes_[encoded_classes]
+   984	
+   985	    def predict_proba(self, X):
+   986	        """Predict class probabilities for X.
+   987	
+   988	        Parameters
+   989	        ----------
+   990	        X : array-like, shape (n_samples, n_features)
+   991	            The input samples.
+   992	
+   993	        Returns
+   994	        -------
+   995	        p : ndarray, shape (n_samples, n_classes)
+   996	            The class probabilities of the input samples.
+   997	        """
+   998	        raw_predictions = self._raw_predict(X)
+   999	        return self.loss_.predict_proba(raw_predictions)
+  1000	
+  1001	    def decision_function(self, X):
+  1002	        """Compute the decision function of X.
+  1003	
+  1004	        Parameters
+  1005	        ----------
+  1006	        X : array-like, shape (n_samples, n_features)
+  1007	            The input samples.
+  1008	
+  1009	        Returns
+  1010	        -------
+  1011	        decision : ndarray, shape (n_samples,) or \
+  1012	                (n_samples, n_trees_per_iteration)
+  1013	            The raw predicted values (i.e. the sum of the trees leaves) for
+  1014	            each sample. n_trees_per_iteration is equal to the number of
+  1015	            classes in multiclass classification.
+  1016	        """
+  1017	        decision = self._raw_predict(X)
+  1018	        if decision.shape[0] == 1:
+  1019	            decision = decision.ravel()
+  1020	        return decision.T
+  1021	
+  1022	    def _encode_y(self, y):
+  1023	        # encode classes into 0 ... n_classes - 1 and sets attributes classes_
+  1024	        # and n_trees_per_iteration_
+  1025	        check_classification_targets(y)
+  1026	
+  1027	        label_encoder = LabelEncoder()
+  1028	        encoded_y = label_encoder.fit_transform(y)
+  1029	        self.classes_ = label_encoder.classes_
+  1030	        n_classes = self.classes_.shape[0]
+  1031	        # only 1 tree for binary classification. For multiclass classification,
+  1032	        # we build 1 tree per class.
+  1033	        self.n_trees_per_iteration_ = 1 if n_classes <= 2 else n_classes
+  1034	        encoded_y = encoded_y.astype(Y_DTYPE, copy=False)
+  1035	        return encoded_y
+  1036	
+  1037	    def _get_loss(self):
+  1038	        if self.loss == 'auto':
+  1039	            if self.n_trees_per_iteration_ == 1:
+  1040	                return _LOSSES['binary_crossentropy']()
+  1041	            else:
+  1042	                return _LOSSES['categorical_crossentropy']()
+  1043	
+  1044	        return _LOSSES[self.loss]()
+
+--- predict in classifier ---
+787:    def predict(self, X):
+968:    def predict(self, X):
+985:    def predict_proba(self, X):
+   870	    min_samples_leaf : int, optional (default=20)
+   871	        The minimum number of samples per leaf. For small datasets with less
+   872	        than a few hundred samples, it is recommended to lower this value
+   873	        since only very shallow trees would be built.
+   874	    l2_regularization : float, optional (default=0)
+   875	        The L2 regularization parameter. Use 0 for no regularization.
+   876	    max_bins : int, optional (default=255)
+   877	        The maximum number of bins to use for non-missing values. Before
+   878	        training, each feature of the input array `X` is binned into
+   879	        integer-valued bins, which allows for a much faster training stage.
+   880	        Features with a small number of unique values may use less than
+   881	        ``max_bins`` bins. In addition to the ``max_bins`` bins, one more bin
+   882	        is always reserved for missing values. Must be no larger than 255.
+   883	    warm_start : bool, optional (default=False)
+   884	        When set to ``True``, reuse the solution of the previous call to fit
+   885	        and add more estimators to the ensemble. For results to be valid, the
+   886	        estimator should be re-trained on the same data only.
+   887	        See :term:`the Glossary <warm_start>`.
+   888	    scoring : str or callable or None, optional (default=None)
+   889	        Scoring parameter to use for early stopping. It can be a single
+   890	        string (see :ref:`scoring_parameter`) or a callable (see
+   891	        :ref:`scoring`). If None, the estimator's default scorer
+   892	        is used. If ``scoring='loss'``, early stopping is checked
+   893	        w.r.t the loss value. Only used if ``n_iter_no_change`` is not None.
+   894	    validation_fraction : int or float or None, optional (default=0.1)
+   895	        Proportion (or absolute size) of training data to set aside as
+   896	        validation data for early stopping. If None, early stopping is done on
+   897	        the training data.
+   898	    n_iter_no_change : int or None, optional (default=None)
+   899	        Used to determine when to "early stop". The fitting process is
+   900	        stopped when none of the last ``n_iter_no_change`` scores are better
+   901	        than the ``n_iter_no_change - 1`` -th-to-last one, up to some
+   902	        tolerance. If None or 0, no early-stopping is done.
+   903	    tol : float or None, optional (default=1e-7)
+   904	        The absolute tolerance to use when comparing scores. The higher the
+   905	        tolerance, the more likely we are to early stop: higher tolerance
+
+Budget: 1763.6s, 495 decisions remaining.

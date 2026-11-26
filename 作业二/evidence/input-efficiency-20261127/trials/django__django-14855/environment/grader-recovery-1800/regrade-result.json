@@ -1,0 +1,8 @@
+{
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 573.2566112852655,
+  "new_model_calls": 0,
+  "candidate_sha256": "47442bacef9306ee9c7fac6b219dee9db2b2f895adc99b7c5f0efee6c225bd64",
+  "test_timeout_seconds": 1800
+}

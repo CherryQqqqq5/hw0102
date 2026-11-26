@@ -1,0 +1,114 @@
+   255	            if indexed_elements:
+   256	                # TODO(shoyer): consider adjusting this logic. Are we really
+   257	                # OK throwing away variable without an index in favor of
+   258	                # indexed variables, without even checking if values match?
+   259	                variable, index = indexed_elements[0]
+   260	                for other_var, other_index in indexed_elements[1:]:
+   261	                    if not indexes_equal(
+   262	                        index, other_index, variable, other_var, index_cmp_cache
+   263	                    ):
+   264	                        raise MergeError(
+   265	                            f"conflicting values/indexes on objects to be combined fo coordinate {name!r}\n"
+   266	                            f"first index: {index!r}\nsecond index: {other_index!r}\n"
+   267	                            f"first variable: {variable!r}\nsecond variable: {other_var!r}\n"
+   268	                        )
+   269	                if compat == "identical":
+   270	                    for other_variable, _ in indexed_elements[1:]:
+   271	                        if not dict_equiv(variable.attrs, other_variable.attrs):
+   272	                            raise MergeError(
+   273	                                "conflicting attribute values on combined "
+   274	                                f"variable {name!r}:\nfirst value: {variable.attrs!r}\nsecond value: {other_variable.attrs!r}"
+   275	                            )
+   276	                merged_vars[name] = variable
+   277	                merged_vars[name].attrs = merge_attrs(
+   278	                    [var.attrs for var, _ in indexed_elements],
+   279	                    combine_attrs=combine_attrs,
+   280	                )
+   281	                merged_indexes[name] = index
+   282	            else:
+   283	                variables = [variable for variable, _ in elements_list]
+   284	                try:
+   285	                    merged_vars[name] = unique_variable(
+   286	                        name, variables, compat, equals.get(name, None)
+   287	                    )
+   288	                except MergeError:
+   289	                    if compat != "minimal":
+   290	                        # we need more than "minimal" compatibility (for which
+   291	                        # we drop conflicting coordinates)
+   292	                        raise
+   293	
+   294	                if name in merged_vars:
+   295	                    merged_vars[name].attrs = merge_attrs(
+   296	                        [var.attrs for var in variables], combine_attrs=combine_attrs
+   297	                    )
+   298	
+   299	    return merged_vars, merged_indexes
+   300	
+   301	
+   302	def collect_variables_and_indexes(
+   303	    list_of_mappings: list[DatasetLike],
+   304	    indexes: Mapping[Any, Any] | None = None,
+   305	) -> dict[Hashable, list[MergeElement]]:
+   306	    """Collect variables and indexes from list of mappings of xarray objects.
+   307	
+   308	    Mappings must either be Dataset objects, or have values of one of the
+   309	    following types:
+   310	    - an xarray.Variable
+   750	    )
+   751	
+   752	    return _MergeResult(variables, coord_names, dims, out_indexes, attrs)
+   753	
+   754	
+   755	def merge(
+   756	    objects: Iterable[DataArray | CoercibleMapping],
+   757	    compat: str = "no_conflicts",
+   758	    join: str = "outer",
+   759	    fill_value: object = dtypes.NA,
+   760	    combine_attrs: str = "override",
+   761	) -> Dataset:
+   762	    """Merge any number of xarray objects into a single Dataset as variables.
+   763	
+   764	    Parameters
+   765	    ----------
+   766	    objects : iterable of Dataset or iterable of DataArray or iterable of dict-like
+   767	        Merge together all variables from these objects. If any of them are
+   768	        DataArray objects, they must have a name.
+   769	    compat : {"identical", "equals", "broadcast_equals", "no_conflicts", "override"}, optional
+   770	        String indicating how to compare variables of the same name for
+   771	        potential conflicts:
+   772	
+   773	        - "broadcast_equals": all values must be equal when variables are
+   774	          broadcast against each other to ensure common dimensions.
+   775	        - "equals": all values and dimensions must be the same.
+   776	        - "identical": all values, dimensions and attributes must be the
+   777	          same.
+   778	        - "no_conflicts": only values which are not null in both datasets
+   779	          must be equal. The returned dataset then contains the combination
+   780	          of all non-null values.
+   781	        - "override": skip comparing and pick variable from first dataset
+   782	    join : {"outer", "inner", "left", "right", "exact"}, optional
+   783	        String indicating how to combine differing indexes in objects.
+   784	
+   785	        - "outer": use the union of object indexes
+   786	        - "inner": use the intersection of object indexes
+   787	        - "left": use indexes from the first object with each dimension
+   788	        - "right": use indexes from the last object with each dimension
+   789	        - "exact": instead of aligning, raise `ValueError` when indexes to be
+   790	          aligned are not equal
+   791	        - "override": if indexes are of same size, rewrite indexes to be
+   792	          those of the first object with that dimension. Indexes for the same
+   793	          dimension must have the same size in all objects.
+   794	    fill_value : scalar or dict-like, optional
+   795	        Value to use for newly missing values. If a dict-like, maps
+   796	        variable names to fill values. Use a data array's name to
+   797	        refer to its values.
+   798	    combine_attrs : {"drop", "identical", "no_conflicts", "drop_conflicts", \
+   799	                    "override"} or callable, default: "override"
+   800	        A callable or a string indicating how to combine attrs of the objects being
+   801	        merged:
+   802	
+   803	        - "drop": empty attrs on returned Dataset.
+   804	        - "identical": all attrs must be the same on every object.
+   805	        - "no_conflicts": attrs from all objects are combined, any that have
+
+Budget: 1540.5s, 483 decisions remaining.

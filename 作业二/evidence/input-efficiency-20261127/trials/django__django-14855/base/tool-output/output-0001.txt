@@ -1,0 +1,261 @@
+/testbed
+
+--- top level ---
+total 184
+drwxrwxrwx   1 root root  4096 Aug 15 06:14 .
+drwxr-xr-x   1 root root  4096 Nov 26 16:58 ..
+-rwxrwxrwx   1 root root   807 Aug 15 06:13 .editorconfig
+-rwxrwxrwx   1 root root   120 Aug 15 06:13 .eslintignore
+-rwxrwxrwx   1 root root  1407 Aug 15 06:13 .eslintrc
+drwxrwxrwx   1 root root  4096 Nov 26 16:57 .git
+-rwxrwxrwx   1 root root   297 Aug 15 06:13 .gitattributes
+drwxrwxrwx   3 root root  4096 Aug 15 06:13 .github
+-rwxrwxrwx   1 root root   353 Aug 15 06:13 .gitignore
+-rwxrwxrwx   1 root root   281 Aug 15 06:13 .pre-commit-config.yaml
+drwxrwxrwx   2 root root  4096 Aug 15 06:13 .tx
+-rwxrwxrwx   1 root root 39549 Aug 15 06:13 AUTHORS
+-rwxrwxrwx   1 root root  1115 Aug 15 06:13 CONTRIBUTING.rst
+drwxr-xr-x   2 root root  4096 Aug 15 06:14 Django.egg-info
+-rwxrwxrwx   1 root root   369 Aug 15 06:13 Gruntfile.js
+-rwxrwxrwx   1 root root   236 Aug 15 06:13 INSTALL
+-rwxrwxrwx   1 root root  1552 Aug 15 06:13 LICENSE
+-rwxrwxrwx   1 root root 14377 Aug 15 06:13 LICENSE.python
+-rwxrwxrwx   1 root root   276 Aug 15 06:13 MANIFEST.in
+-rwxrwxrwx   1 root root  2122 Aug 15 06:13 README.rst
+drwxrwxrwx  18 root root  4096 Aug 15 06:14 django
+drwxrwxrwx  13 root root  4096 Aug 15 06:13 docs
+drwxrwxrwx   2 root root  4096 Aug 15 06:13 extras
+drwxrwxrwx   4 root root  4096 Aug 15 06:13 js_tests
+-rwxrwxrwx   1 root root   334 Aug 15 06:13 package.json
+-rwxrwxrwx   1 root root   109 Aug 15 06:13 pyproject.toml
+drwxrwxrwx   2 root root  4096 Aug 15 06:13 scripts
+-rwxrwxrwx   1 root root  2124 Aug 15 06:13 setup.cfg
+-rwxrwxrwx   1 root root  1611 Aug 15 06:13 setup.py
+drwxrwxrwx 213 root root 12288 Aug 15 06:13 tests
+-rwxrwxrwx   1 root root  1551 Aug 15 06:13 tox.ini
+
+--- git status ---
+
+--- django helpers ---
+import json
+
+from django import forms
+from django.contrib.admin.utils import (
+    display_for_field, flatten_fieldsets, help_text_for_field, label_for_field,
+    lookup_field, quote,
+)
+from django.core.exceptions import ObjectDoesNotExist
+from django.db.models.fields.related import (
+    ForeignObjectRel, ManyToManyRel, OneToOneField,
+)
+from django.forms.utils import flatatt
+from django.template.defaultfilters import capfirst, linebreaksbr
+from django.urls import NoReverseMatch, reverse
+from django.utils.html import conditional_escape, format_html
+from django.utils.safestring import mark_safe
+from django.utils.translation import gettext, gettext_lazy as _
+
+ACTION_CHECKBOX_NAME = '_selected_action'
+
+
+class ActionForm(forms.Form):
+    action = forms.ChoiceField(label=_('Action:'))
+    select_across = forms.BooleanField(
+        label='',
+        required=False,
+        initial=0,
+        widget=forms.HiddenInput({'class': 'select-across'}),
+    )
+
+
+checkbox = forms.CheckboxInput({'class': 'action-select'}, lambda value: False)
+
+
+class AdminForm:
+    def __init__(self, form, fieldsets, prepopulated_fields, readonly_fields=None, model_admin=None):
+        self.form, self.fieldsets = form, fieldsets
+        self.prepopulated_fields = [{
+            'field': form[field_name],
+            'dependencies': [form[f] for f in dependencies]
+        } for field_name, dependencies in prepopulated_fields.items()]
+        self.model_admin = model_admin
+        if readonly_fields is None:
+            readonly_fields = ()
+        self.readonly_fields = readonly_fields
+
+    def __repr__(self):
+        return (
+            f'<{self.__class__.__qualname__}: '
+            f'form={self.form.__class__.__qualname__} '
+            f'fieldsets={self.fieldsets!r}>'
+        )
+
+    def __iter__(self):
+        for name, options in self.fieldsets:
+            yield Fieldset(
+                self.form, name,
+                readonly_fields=self.readonly_fields,
+                model_admin=self.model_admin,
+                **options
+            )
+
+    @property
+    def errors(self):
+        return self.form.errors
+
+    @property
+    def non_field_errors(self):
+        return self.form.non_field_errors
+
+    @property
+    def media(self):
+        media = self.form.media
+        for fs in self:
+            media = media + fs.media
+        return media
+
+
+class Fieldset:
+    def __init__(self, form, name=None, readonly_fields=(), fields=(), classes=(),
+                 description=None, model_admin=None):
+        self.form = form
+        self.name, self.fields = name, fields
+        self.classes = ' '.join(classes)
+        self.description = description
+        self.model_admin = model_admin
+        self.readonly_fields = readonly_fields
+
+    @property
+    def media(self):
+        if 'collapse' in self.classes:
+            return forms.Media(js=['admin/js/collapse.js'])
+        return forms.Media()
+
+    def __iter__(self):
+        for field in self.fields:
+            yield Fieldline(self.form, field, self.readonly_fields, model_admin=self.model_admin)
+
+
+class Fieldline:
+    def __init__(self, form, field, readonly_fields=None, model_admin=None):
+        self.form = form  # A django.forms.Form instance
+        if not hasattr(field, "__iter__") or isinstance(field, str):
+            self.fields = [field]
+        else:
+            self.fields = field
+        self.has_visible_field = not all(
+            field in self.form.fields and self.form.fields[field].widget.is_hidden
+            for field in self.fields
+        )
+        self.model_admin = model_admin
+        if readonly_fields is None:
+            readonly_fields = ()
+        self.readonly_fields = readonly_fields
+
+    def __iter__(self):
+        for i, field in enumerate(self.fields):
+            if field in self.readonly_fields:
+                yield AdminReadonlyField(self.form, field, is_first=(i == 0), model_admin=self.model_admin)
+            else:
+                yield AdminField(self.form, field, is_first=(i == 0))
+
+    def errors(self):
+        return mark_safe(
+            '\n'.join(
+                self.form[f].errors.as_ul() for f in self.fields if f not in self.readonly_fields
+            ).strip('\n')
+        )
+
+
+class AdminField:
+    def __init__(self, form, field, is_first):
+        self.field = form[field]  # A django.forms.BoundField instance
+        self.is_first = is_first  # Whether this field is first on the line
+        self.is_checkbox = isinstance(self.field.field.widget, forms.CheckboxInput)
+        self.is_readonly = False
+
+    def label_tag(self):
+        classes = []
+        contents = conditional_escape(self.field.label)
+        if self.is_checkbox:
+            classes.append('vCheckboxLabel')
+
+        if self.field.field.required:
+            classes.append('required')
+        if not self.is_first:
+            classes.append('inline')
+        attrs = {'class': ' '.join(classes)} if classes else {}
+        # checkboxes should not have a label suffix as the checkbox appears
+        # to the left of the label.
+        return self.field.label_tag(
+            contents=mark_safe(contents), attrs=attrs,
+            label_suffix='' if self.is_checkbox else None,
+        )
+
+    def errors(self):
+        return mark_safe(self.field.errors.as_ul())
+
+
+class AdminReadonlyField:
+    def __init__(self, form, field, is_first, model_admin=None):
+        # Make self.field look a little bit like a field. This means that
+        # {{ field.name }} must be a useful class name to identify the field.
+        # For convenience, store other field-related data here too.
+        if callable(field):
+            class_name = field.__name__ if field.__name__ != '<lambda>' else ''
+        else:
+            class_name = field
+
+        if form._meta.labels and class_name in form._meta.labels:
+            label = form._meta.labels[class_name]
+        else:
+            label = label_for_field(field, form._meta.model, model_admin, form=form)
+
+        if form._meta.help_texts and class_name in form._meta.help_texts:
+            help_text = form._meta.help_texts[class_name]
+        else:
+            help_text = help_text_for_field(class_name, form._meta.model)
+
+        if field in form.fields:
+            is_hidden = form.fields[field].widget.is_hidden
+        else:
+            is_hidden = False
+
+        self.field = {
+            'name': class_name,
+            'label': label,
+            'help_text': help_text,
+            'field': field,
+            'is_hidden': is_hidden,
+        }
+        self.form = form
+        self.model_admin = model_admin
+        self.is_first = is_first
+        self.is_checkbox = False
+        self.is_readonly = True
+        self.empty_value_display = model_admin.get_empty_value_display()
+
+    def label_tag(self):
+        attrs = {}
+        if not self.is_first:
+            attrs["class"] = "inline"
+        label = self.field['label']
+        return format_html('<label{}>{}{}</label>', flatatt(attrs), capfirst(label), self.form.label_suffix)
+
+    def get_admin_url(self, remote_field, remote_obj):
+        url_name = 'admin:%s_%s_change' % (
+            remote_field.model._meta.app_label,
+            remote_field.model._meta.model_name,
+        )
+        try:
+            url = reverse(url_name, args=[quote(remote_obj.pk)])
+            return format_html('<a href="{}">{}</a>', url, remote_obj)
+        except NoReverseMatch:
+            return str(remote_obj)
+
+    def contents(self):
+        from django.contrib.admin.templatetags.admin_list import _boolean_icon
+        field, obj, model_admin = self.field['field'], self.form.instance, self.model_admin
+        try:
+
+Budget: 1787.0s, 499 decisions remaining.

@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "bb55e2d9c14f8e1529ddba103a634904d317f71468a318a658a08e88d89fd706",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "agent-check": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "008482be11cea3d0f6902e2b4fdadcde03b7688062e9bc70731cb220703052b7  .course-public-check/check.py\n"
+    }
+  },
+  "elapsed_seconds": 799.7980993171223
+}

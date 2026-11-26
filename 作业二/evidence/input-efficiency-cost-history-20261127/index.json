@@ -1,0 +1,25 @@
+{
+  "files": [
+    {
+      "path": "billing-ledger.json",
+      "source_sha256": "7117e708ea1c727f1b6188c2dbc544721e6e3b8379164c36ca7c53375d36a684",
+      "export_sha256": "7117e708ea1c727f1b6188c2dbc544721e6e3b8379164c36ca7c53375d36a684",
+      "export_bytes": 97846
+    },
+    {
+      "path": "interruption-review.json",
+      "source_sha256": "ed1c7f8a7877dcd6746aa980f6eda8a98a0f1822ddabe8b0ec8abf6b329335c2",
+      "export_sha256": "b277ed886c49db01a93b0270ed6ab5c77bcbdecc5f1023a64175e901f343358b",
+      "export_bytes": 62248
+    },
+    {
+      "path": "interrupted-result.json",
+      "source_sha256": "c0aafa8c7a695926d6d1db071d6ac732013a9031b8e880465680c51359557f90",
+      "export_sha256": "c0aafa8c7a695926d6d1db071d6ac732013a9031b8e880465680c51359557f90",
+      "export_bytes": 205
+    }
+  ],
+  "original_model_log_sha256": "313a48c11ee0c7d95a20b66fa17b7f7823530b80cb24526d2754064d94c7aed3",
+  "scope": "Actual cost receipts and one unresolved request; not a completed model score",
+  "new_model_calls": 0
+}

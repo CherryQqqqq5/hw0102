@@ -1,0 +1,193 @@
+diff --git a/.course-public-check/check.py b/.course-public-check/check.py
+new file mode 100755
+index 0000000000..d026a12f2f
+--- /dev/null
++++ b/.course-public-check/check.py
+@@ -0,0 +1,170 @@
++#!/opt/miniconda3/envs/testbed/bin/python
++"""Reproduce readonly ForeignKey links generated for a custom AdminSite."""
++import os
++import sys
++import types
++
++REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
++sys.path.insert(0, REPO_ROOT)
++
++from django.conf import settings
++
++if not settings.configured:
++    settings.configure(
++        SECRET_KEY='readonly-admin-url-check',
++        DEBUG=True,
++        ALLOWED_HOSTS=['testserver'],
++        ROOT_URLCONF='readonly_admin_url_check_urls',
++        INSTALLED_APPS=[
++            'django.contrib.contenttypes',
++            'django.contrib.auth',
++            'django.contrib.sessions',
++            'django.contrib.messages',
++            'django.contrib.admin.apps.SimpleAdminConfig',
++        ],
++        DATABASES={
++            'default': {
++                'ENGINE': 'django.db.backends.sqlite3',
++                'NAME': ':memory:',
++            },
++        },
++        MIDDLEWARE=[],
++        TEMPLATES=[{
++            'BACKEND': 'django.template.backends.django.DjangoTemplates',
++            'APP_DIRS': True,
++            'OPTIONS': {'context_processors': []},
++        }],
++        USE_TZ=True,
++    )
++
++import django
++
++django.setup()
++
++from django.contrib import admin
++from django.contrib.admin.helpers import AdminReadonlyField
++from django.db import models
++from django.forms.models import modelform_factory
++from django.urls import clear_url_caches, path, reverse
++
++
++class Author(models.Model):
++    name = models.CharField(max_length=100)
++
++    class Meta:
++        app_label = 'checks'
++
++    def __str__(self):
++        return self.name
++
++
++class Book(models.Model):
++    author = models.ForeignKey(Author, on_delete=models.CASCADE)
++
++    class Meta:
++        app_label = 'checks'
++
++
++class Publisher(models.Model):
++    name = models.CharField(max_length=100)
++
++    class Meta:
++        app_label = 'checks'
++
++    def __str__(self):
++        return self.name
++
++
++class Magazine(models.Model):
++    publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
++
++    class Meta:
++        app_label = 'checks'
++
++
++default_site = admin.AdminSite(name='admin')
++custom_site = admin.AdminSite(name='custom_admin')
++default_site.register(Author)
++default_site.register(Book)
++default_site.register(Magazine)
++custom_site.register(Author)
++custom_site.register(Book)
++custom_site.register(Magazine)
++
++urlpatterns = [
++    path('admin/', default_site.urls),
++    path('custom-admin/', custom_site.urls),
++]
++urlconf_module = types.ModuleType('readonly_admin_url_check_urls')
++urlconf_module.urlpatterns = urlpatterns
++sys.modules[urlconf_module.__name__] = urlconf_module
++clear_url_caches()
++
++
++def readonly_link(model, field_name, site, remote_obj):
++    model_admin = admin.ModelAdmin(model, site)
++    form_class = modelform_factory(model, fields=[])
++    helper = AdminReadonlyField(form_class(instance=model()), field_name, True, model_admin)
++    return str(helper.get_admin_url(model._meta.get_field(field_name).remote_field, remote_obj))
++
++
++def check(condition, message):
++    if not condition:
++        raise AssertionError(message)
++
++
++def main():
++    remote_field = Book._meta.get_field('author')
++
++    # The reported bug: an AdminSite named "custom_admin" must reverse through
++    # its own instance namespace, not the default "admin" instance.
++    author = Author(pk=42, name='Ada')
++    actual = readonly_link(Book, 'author', custom_site, author)
++    expected_url = reverse(
++        'admin:checks_author_change',
++        args=[str(author.pk)],
++        current_app=custom_site.name,
++    )
++    check(
++        expected_url == '/custom-admin/checks/author/42/change/',
++        'reproducer setup unexpectedly resolved %r' % expected_url,
++    )
++    check(
++        actual == '<a href="%s">Ada</a>' % expected_url,
++        'custom AdminSite readonly link was %r, expected %r' % (actual, expected_url),
++    )
++
++    # Existing default-site behavior must remain unchanged.
++    default_link = readonly_link(Book, 'author', default_site, author)
++    default_url = reverse(
++        'admin:checks_author_change',
++        args=[str(author.pk)],
++        current_app=default_site.name,
++    )
++    check(
++        default_link == '<a href="%s">Ada</a>' % default_url,
++        'default AdminSite readonly link was %r, expected %r' % (default_link, default_url),
++    )
++    check(
++        default_url == '/admin/checks/author/42/change/',
++        'default AdminSite URL changed to %r' % default_url,
++    )
++
++    # Quoting of nonnumeric primary keys must still be applied.
++    special_author = Author(pk='Ada Lovelace', name='Ada')
++    special_link = readonly_link(Book, 'author', custom_site, special_author)
++    check(
++        special_link == '<a href="/custom-admin/checks/author/Ada%20Lovelace/change/">Ada</a>',
++        'quoted-PK link was %r' % special_link,
++    )
++
++    # An unregistered related model still renders as plain text.
++    publisher = Publisher(pk=7, name='No Admin')
++    fallback = readonly_link(Magazine, 'publisher', custom_site, publisher)
++    check(fallback == 'No Admin', 'unregistered target rendered as %r' % fallback)
++
++    print('All readonly AdminSite URL checks passed.')
++
++
++if __name__ == '__main__':
++    main()
+diff --git a/django/contrib/admin/helpers.py b/django/contrib/admin/helpers.py
+index dd154f72ee..dae626b550 100755
+--- a/django/contrib/admin/helpers.py
++++ b/django/contrib/admin/helpers.py
+@@ -209,7 +209,11 @@ class AdminReadonlyField:
+             remote_field.model._meta.model_name,
+         )
+         try:
+-            url = reverse(url_name, args=[quote(remote_obj.pk)])
++            url = reverse(
++                url_name,
++                args=[quote(remote_obj.pk)],
++                current_app=self.model_admin.admin_site.name,
++            )
+             return format_html('<a href="{}">{}</a>', url, remote_obj)
+         except NoReverseMatch:
+             return str(remote_obj)

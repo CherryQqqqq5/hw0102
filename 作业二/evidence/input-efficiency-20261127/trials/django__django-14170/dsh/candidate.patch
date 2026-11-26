@@ -1,0 +1,166 @@
+diff --git a/.course-public-check/check.py b/.course-public-check/check.py
+new file mode 100755
+index 0000000000..b77d813e2b
+--- /dev/null
++++ b/.course-public-check/check.py
+@@ -0,0 +1,143 @@
++#!/usr/bin/env python
++"""Standalone reproducer for the __iso_year lookup optimization bug.
++
++This check verifies that ISO year filtering uses ExtractIsoYear rather than the
++calendar-year BETWEEN optimization, including dates on either side of an ISO
++year boundary. It also verifies that the regular __year optimization remains
++in place.
++"""
++import sys
++from datetime import date, datetime
++from pathlib import Path
++
++sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
++
++from django.conf import settings
++
++if not settings.configured:
++    settings.configure(
++        DATABASES={
++            'default': {
++                'ENGINE': 'django.db.backends.sqlite3',
++                'NAME': ':memory:',
++            },
++        },
++        INSTALLED_APPS=[],
++        USE_TZ=False,
++        DEFAULT_AUTO_FIELD='django.db.models.AutoField',
++    )
++
++import django
++
++django.setup()
++
++from django.db import connection, models
++from django.db.models.functions import ExtractIsoYear
++
++
++class DTModel(models.Model):
++    start_date = models.DateField()
++    start_datetime = models.DateTimeField()
++
++    class Meta:
++        app_label = 'course_iso_year_check'
++
++
++def require(condition, message):
++    if not condition:
++        raise AssertionError(message)
++
++
++def iso_year(value):
++    return value.isocalendar()[0]
++
++
++DATES = [
++    date(2019, 12, 29),  # ISO year 2019, just before the 2020 ISO year begins.
++    date(2019, 12, 30),  # ISO year 2020, but outside calendar year 2020.
++    date(2020, 1, 1),
++    date(2020, 12, 31),
++    date(2021, 1, 1),    # ISO year 2020, but outside calendar year 2020.
++    date(2021, 1, 4),    # ISO year 2021.
++]
++
++with connection.schema_editor() as editor:
++    editor.create_model(DTModel)
++
++for value in DATES:
++    DTModel.objects.create(
++        start_date=value,
++        start_datetime=datetime(value.year, value.month, value.day, 12, 30),
++    )
++
++
++def result_dates(queryset):
++    return list(queryset.order_by('start_date').values_list('start_date', flat=True))
++
++
++# Direct ISO year lookups must extract the ISO year. The calendar-year BETWEEN
++# shortcut would miss 2019-12-30 and 2021-01-01 for ISO year 2020.
++expected_2020 = [value for value in DATES if iso_year(value) == 2020]
++require(len(expected_2020) == 4, 'test setup should have four dates in ISO year 2020')
++for field in ('start_date', 'start_datetime'):
++    queryset = DTModel.objects.filter(**{'%s__iso_year' % field: 2020})
++    sql = str(queryset.query).lower()
++    require(' between ' not in sql, '%s__iso_year used the BETWEEN optimization: %s' % (field, sql))
++    require('isoyear' in sql or 'iso_year' in sql, '%s__iso_year did not extract the ISO year: %s' % (field, sql))
++    expected_values = [
++        datetime(value.year, value.month, value.day, 12, 30) if field.endswith('datetime') else value
++        for value in expected_2020
++    ]
++    actual_values = list(queryset.order_by(field).values_list(field, flat=True))
++    require(actual_values == expected_values, '%s__iso_year=2020 returned %r, expected %r' % (
++        field, actual_values, expected_values,
++    ))
++
++# Explicit ISO year lookups behave the same way.
++explicit = DTModel.objects.filter(start_date__iso_year__exact=2020)
++require(' between ' not in str(explicit.query).lower(), 'explicit iso_year exact used BETWEEN')
++require(result_dates(explicit) == expected_2020, 'explicit iso_year exact returned wrong rows')
++
++# Filtering an ExtractIsoYear annotation must not rewrite the predicate against
++# the underlying date field.
++annotated = DTModel.objects.annotate(
++    extracted=ExtractIsoYear('start_date'),
++).filter(extracted=2020)
++annotated_sql = str(annotated.query).lower()
++require(' between ' not in annotated_sql, 'annotated ISO year filter used BETWEEN: %s' % annotated_sql)
++require('isoyear' in annotated_sql or 'iso_year' in annotated_sql,
++        'annotated ISO year filter lost the extraction: %s' % annotated_sql)
++require(result_dates(annotated) == expected_2020, 'annotated ISO year filter returned wrong rows')
++
++# Boundary cases for all registered comparison lookups.
++for lookup in ('exact', 'gt', 'gte', 'lt', 'lte'):
++    for year in (2019, 2020, 2021):
++        lookup_name = 'start_date__iso_year'
++        if lookup != 'exact':
++            lookup_name += '__%s' % lookup
++        queryset = DTModel.objects.filter(**{lookup_name: year})
++        sql = str(queryset.query).lower()
++        require(' between ' not in sql, '%s used BETWEEN: %s' % (lookup_name, sql))
++        years = [iso_year(value) for value in DATES]
++        if lookup == 'exact':
++            expected = [value for value, value_year in zip(DATES, years) if value_year == year]
++        elif lookup == 'gt':
++            expected = [value for value, value_year in zip(DATES, years) if value_year > year]
++        elif lookup == 'gte':
++            expected = [value for value, value_year in zip(DATES, years) if value_year >= year]
++        elif lookup == 'lt':
++            expected = [value for value, value_year in zip(DATES, years) if value_year < year]
++        else:
++            expected = [value for value, value_year in zip(DATES, years) if value_year <= year]
++        actual = result_dates(queryset)
++        require(actual == expected, '%s=%s returned %r, expected %r' % (lookup_name, year, actual, expected))
++
++# The original optimisation for the ordinary calendar year must remain intact.
++year_queryset = DTModel.objects.filter(start_date__year=2020)
++year_sql = str(year_queryset.query).lower()
++require(' between ' in year_sql, 'regular __year lost its BETWEEN optimization: %s' % year_sql)
++require('extract' not in year_sql, 'regular __year unexpectedly used extraction: %s' % year_sql)
++require(result_dates(year_queryset) == [date(2020, 1, 1), date(2020, 12, 31)],
++        'regular __year returned wrong rows')
++
++print('ISO year lookup reproducer passed')
+diff --git a/django/db/models/functions/datetime.py b/django/db/models/functions/datetime.py
+index 90e6f41be0..bbe9fa8c79 100644
+--- a/django/db/models/functions/datetime.py
++++ b/django/db/models/functions/datetime.py
+@@ -164,12 +164,6 @@ ExtractYear.register_lookup(YearGte)
+ ExtractYear.register_lookup(YearLt)
+ ExtractYear.register_lookup(YearLte)
+ 
+-ExtractIsoYear.register_lookup(YearExact)
+-ExtractIsoYear.register_lookup(YearGt)
+-ExtractIsoYear.register_lookup(YearGte)
+-ExtractIsoYear.register_lookup(YearLt)
+-ExtractIsoYear.register_lookup(YearLte)
+-
+ 
+ class Now(Func):
+     template = 'CURRENT_TIMESTAMP'

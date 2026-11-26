@@ -1,0 +1,270 @@
+--- tests/admin_views/urls.py ---
+from django.http import HttpResponse
+from django.urls import include, path
+
+from . import admin, custom_has_permission_admin, customadmin, views
+from .test_autocomplete_view import site as autocomplete_site
+
+
+def non_admin_view(request):
+    return HttpResponse()
+
+
+urlpatterns = [
+    path('test_admin/admin/doc/', include('django.contrib.admindocs.urls')),
+    path('test_admin/admin/secure-view/', views.secure_view, name='secure_view'),
+    path('test_admin/admin/secure-view2/', views.secure_view2, name='secure_view2'),
+    path('test_admin/admin/', admin.site.urls),
+    path('test_admin/admin2/', customadmin.site.urls),
+    path('test_admin/admin3/', (admin.site.get_urls(), 'admin', 'admin3'), {'form_url': 'pony'}),
+    path('test_admin/admin4/', customadmin.simple_site.urls),
+    path('test_admin/admin5/', admin.site2.urls),
+    path('test_admin/admin6/', admin.site6.urls),
+    path('test_admin/admin7/', admin.site7.urls),
+    # All admin views accept `extra_context` to allow adding it like this:
+    path('test_admin/admin8/', (admin.site.get_urls(), 'admin', 'admin-extra-context'), {'extra_context': {}}),
+    path('test_admin/admin9/', admin.site9.urls),
+    path('test_admin/admin10/', admin.site10.urls),
+    path('test_admin/has_permission_admin/', custom_has_permission_admin.site.urls),
+    path('test_admin/autocomplete_admin/', autocomplete_site.urls),
+    # Shares the admin URL prefix.
+    path('test_admin/admin/non_admin_view/', non_admin_view, name='non_admin'),
+    path('test_admin/admin10/non_admin_view/', non_admin_view, name='non_admin10'),
+]
+--- customadmin.py ---
+"""
+A second, custom AdminSite -- see tests.CustomAdminSiteTests.
+"""
+from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.models import User
+from django.http import HttpResponse
+from django.urls import path
+
+from . import admin as base_admin, forms, models
+
+
+class Admin2(admin.AdminSite):
+    app_index_template = 'custom_admin/app_index.html'
+    login_form = forms.CustomAdminAuthenticationForm
+    login_template = 'custom_admin/login.html'
+    logout_template = 'custom_admin/logout.html'
+    index_template = ['custom_admin/index.html']  # a list, to test fix for #18697
+    password_change_template = 'custom_admin/password_change_form.html'
+    password_change_done_template = 'custom_admin/password_change_done.html'
+
+    # A custom index view.
+    def index(self, request, extra_context=None):
+        return super().index(request, {'foo': '*bar*'})
+
+    def get_urls(self):
+        return [
+            path('my_view/', self.admin_view(self.my_view), name='my_view'),
+        ] + super().get_urls()
+
+    def my_view(self, request):
+        return HttpResponse("Django is a magical pony!")
+
+    def password_change(self, request, extra_context=None):
+        return super().password_change(request, {'spam': 'eggs'})
+
+
+class UserLimitedAdmin(UserAdmin):
+    # used for testing password change on a user not in queryset
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        return qs.filter(is_superuser=False)
+
+
+class CustomPwdTemplateUserAdmin(UserAdmin):
+    change_user_password_template = ['admin/auth/user/change_password.html']  # a list, to test fix for #18697
+
+
+class BookAdmin(admin.ModelAdmin):
+    def get_deleted_objects(self, objs, request):
+        return ['a deletable object'], {'books': 1}, set(), []
+
+
+site = Admin2(name="admin2")
+
+site.register(models.Article, base_admin.ArticleAdmin)
+site.register(models.Book, BookAdmin)
+site.register(models.Section, inlines=[base_admin.ArticleInline], search_fields=['name'])
+site.register(models.Thing, base_admin.ThingAdmin)
+site.register(models.Fabric, base_admin.FabricAdmin)
+site.register(models.ChapterXtra1, base_admin.ChapterXtra1Admin)
+site.register(User, UserLimitedAdmin)
+site.register(models.UndeletableObject, base_admin.UndeletableObjectAdmin)
+site.register(models.Simple, base_admin.AttributeErrorRaisingAdmin)
+
+simple_site = Admin2(name='admin4')
+simple_site.register(User, CustomPwdTemplateUserAdmin)
+--- admin.py registrations near custom site ---
+site.register(EmptyModelMixin, EmptyModelMixinAdmin)
+site.register(StumpJoke)
+site.register(Recipe)
+site.register(Ingredient)
+site.register(NotReferenced)
+site.register(ExplicitlyProvidedPK, GetFormsetsArgumentCheckingAdmin)
+site.register(ImplicitlyGeneratedPK, GetFormsetsArgumentCheckingAdmin)
+site.register(UserProxy)
+
+# Register core models we need in our tests
+site.register(User, UserAdmin)
+site.register(Group, GroupAdmin)
+
+# Used to test URL namespaces
+site2 = admin.AdminSite(name="namespaced_admin")
+site2.register(User, UserAdmin)
+site2.register(Group, GroupAdmin)
+site2.register(ParentWithUUIDPK)
+site2.register(
+    RelatedWithUUIDPKModel,
+    list_display=['pk', 'parent'],
+    list_editable=['parent'],
+    raw_id_fields=['parent'],
+)
+site2.register(Person, save_as_continue=False)
+
+site7 = admin.AdminSite(name="admin7")
+site7.register(Article, ArticleAdmin2)
+site7.register(Section)
+site7.register(PrePopulatedPost, PrePopulatedPostReadOnlyAdmin)
+
+
+# Used to test ModelAdmin.sortable_by and get_sortable_by().
+class ArticleAdmin6(admin.ModelAdmin):
+    list_display = (
+        'content', 'date', callable_year, 'model_year', 'modeladmin_year',
+        'model_year_reversed', 'section',
+    )
+    sortable_by = ('date', callable_year)
+
+    @admin.display(ordering='date')
+    def modeladmin_year(self, obj):
+        return obj.date.year
+
+
+class ActorAdmin6(admin.ModelAdmin):
+    list_display = ('name', 'age')
+    sortable_by = ('name',)
+
+    def get_sortable_by(self, request):
+        return ('age',)
+
+
+class ChapterAdmin6(admin.ModelAdmin):
+    list_display = ('title', 'book')
+    sortable_by = ()
+
+
+class ColorAdmin6(admin.ModelAdmin):
+    list_display = ('value',)
+
+    def get_sortable_by(self, request):
+        return ()
+
+
+site6 = admin.AdminSite(name='admin6')
+site6.register(Article, ArticleAdmin6)
+site6.register(Actor, ActorAdmin6)
+site6.register(Chapter, ChapterAdmin6)
+site6.register(Color, ColorAdmin6)
+
+
+class ArticleAdmin9(admin.ModelAdmin):
+    def has_change_permission(self, request, obj=None):
+        # Simulate that the user can't change a specific object.
+        return obj is None
+
+
+class ActorAdmin9(admin.ModelAdmin):
+    def get_urls(self):
+        # Opt-out of append slash for single model.
+        urls = super().get_urls()
+        for pattern in urls:
+            pattern.callback = no_append_slash(pattern.callback)
+        return urls
+
+
+site9 = admin.AdminSite(name='admin9')
+site9.register(Article, ArticleAdmin9)
+site9.register(Actor, ActorAdmin9)
+
+site10 = admin.AdminSite(name='admin10')
+site10.final_catch_all_view = False
+site10.register(Article, ArticleAdminWithExtraUrl)
+--- readonly relation tests ---
+  5080	        response = self.client.get(reverse('admin:admin_views_pizza_add'))
+  5081	        self.assertEqual(response.status_code, 200)
+  5082	
+  5083	    def test_user_password_change_limited_queryset(self):
+  5084	        su = User.objects.filter(is_superuser=True)[0]
+  5085	        response = self.client.get(reverse('admin2:auth_user_password_change', args=(su.pk,)))
+  5086	        self.assertEqual(response.status_code, 404)
+  5087	
+  5088	    def test_change_form_renders_correct_null_choice_value(self):
+  5089	        """
+  5090	        Regression test for #17911.
+  5091	        """
+  5092	        choice = Choice.objects.create(choice=None)
+  5093	        response = self.client.get(reverse('admin:admin_views_choice_change', args=(choice.pk,)))
+  5094	        self.assertContains(response, '<div class="readonly">No opinion</div>', html=True)
+  5095	
+  5096	    def test_readonly_foreignkey_links(self):
+  5097	        """
+  5098	        ForeignKey readonly fields render as links if the target model is
+  5099	        registered in admin.
+  5100	        """
+  5101	        chapter = Chapter.objects.create(
+  5102	            title='Chapter 1',
+  5103	            content='content',
+  5104	            book=Book.objects.create(name='Book 1'),
+  5105	        )
+  5106	        language = Language.objects.create(iso='_40', name='Test')
+  5107	        obj = ReadOnlyRelatedField.objects.create(
+  5108	            chapter=chapter,
+  5109	            language=language,
+  5110	            user=self.superuser,
+  5111	        )
+  5112	        response = self.client.get(
+  5113	            reverse('admin:admin_views_readonlyrelatedfield_change', args=(obj.pk,)),
+  5114	        )
+  5115	        # Related ForeignKey object registered in admin.
+  5116	        user_url = reverse('admin:auth_user_change', args=(self.superuser.pk,))
+  5117	        self.assertContains(
+  5118	            response,
+  5119	            '<div class="readonly"><a href="%s">super</a></div>' % user_url,
+  5120	            html=True,
+  5121	        )
+  5122	        # Related ForeignKey with the string primary key registered in admin.
+  5123	        language_url = reverse(
+  5124	            'admin:admin_views_language_change',
+  5125	            args=(quote(language.pk),),
+  5126	        )
+  5127	        self.assertContains(
+  5128	            response,
+  5129	            '<div class="readonly"><a href="%s">_40</a></div>' % language_url,
+  5130	            html=True,
+  5131	        )
+  5132	        # Related ForeignKey object not registered in admin.
+  5133	        self.assertContains(response, '<div class="readonly">Chapter 1</div>', html=True)
+  5134	
+  5135	    def test_readonly_manytomany_backwards_ref(self):
+  5136	        """
+  5137	        Regression test for #16433 - backwards references for related objects
+  5138	        broke if the related field is read-only due to the help_text attribute
+  5139	        """
+  5140	        topping = Topping.objects.create(name='Salami')
+  5141	        pizza = Pizza.objects.create(name='Americano')
+  5142	        pizza.toppings.add(topping)
+  5143	        response = self.client.get(reverse('admin:admin_views_topping_add'))
+  5144	        self.assertEqual(response.status_code, 200)
+  5145	
+  5146	    def test_readonly_manytomany_forwards_ref(self):
+  5147	        topping = Topping.objects.create(name='Salami')
+  5148	        pizza = Pizza.objects.create(name='Americano')
+  5149	        pizza.toppings.add(topping)
+  5150	        response = self.client.get(reverse('admin:admin_views_pizza_change', args=(pizza.pk,)))
+
+Budget: 1760.6s, 496 decisions remaining.

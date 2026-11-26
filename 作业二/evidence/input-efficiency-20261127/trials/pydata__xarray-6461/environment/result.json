@@ -1,0 +1,9 @@
+{
+  "task": "pydata__xarray-6461",
+  "wall_seconds": 1121.8206088268198,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": false,
+  "grader_seconds": 188.89247608091682
+}

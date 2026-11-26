@@ -1,0 +1,15 @@
+{
+  "task": "pytest-dev__pytest-7571",
+  "tag": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7571:latest",
+  "status": "ready",
+  "source": "docker.io/swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7571@sha256:a4cdd92a11a554106948342c614cbcaa9a7fc7f42b261859c9deef149a673cfe",
+  "manifest_digest": "sha256:a4cdd92a11a554106948342c614cbcaa9a7fc7f42b261859c9deef149a673cfe",
+  "config_digest": "sha256:b6e68d529d5f8332712390052f0843b7ae4528a21fc40e80517709d27ae17fde",
+  "new_model_calls": 0,
+  "compressed_layer_bytes": 1026626175,
+  "image_id": "sha256:a4cdd92a11a554106948342c614cbcaa9a7fc7f42b261859c9deef149a673cfe",
+  "actual_image_id": "sha256:a4cdd92a11a554106948342c614cbcaa9a7fc7f42b261859c9deef149a673cfe",
+  "docker_endpoint": "unix://[server-project]/guest/docker.sock",
+  "image_identity_rule": "Pinned manifest, config and all uncompressed layer digests; actual Docker identity verified",
+  "preparation_route": "Verified native-host OCI export/import"
+}

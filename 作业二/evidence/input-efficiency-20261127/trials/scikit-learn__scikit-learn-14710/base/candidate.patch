@@ -1,0 +1,322 @@
+diff --git a/.course-public-check/check.py b/.course-public-check/check.py
+new file mode 100755
+index 000000000..8135f89f6
+--- /dev/null
++++ b/.course-public-check/check.py
+@@ -0,0 +1,296 @@
++#!/opt/miniconda3/envs/testbed/bin/python
++"""Reproducer and regression checks for string targets with early stopping.
++
++The bug being checked is that the early-stopping scorer receives encoded
++integer labels (0, 1, ...) while ``predict`` returns the original class
++labels.  The scorer must see labels on the same scale as the predictions.
++"""
++
++from __future__ import print_function
++
++import traceback
++
++import numpy as np
++from numpy.testing import assert_allclose, assert_array_equal
++
++from sklearn.experimental import enable_hist_gradient_boosting  # noqa
++from sklearn.ensemble import (HistGradientBoostingClassifier,
++                              HistGradientBoostingRegressor)
++from sklearn.metrics import accuracy_score, roc_auc_score
++from sklearn.model_selection import train_test_split
++
++
++SEED = 0
++VALIDATION_FRACTION = 0.2
++
++
++def make_classification_data(labels):
++    """Return easily separable data using the supplied string class labels."""
++    rng = np.random.RandomState(SEED)
++    X = rng.normal(size=(120, 4))
++    encoded = (X[:, 0] > 0).astype(int)
++    if len(labels) == 2:
++        y = np.array([labels[i] for i in encoded], dtype=object)
++    else:
++        # Three balanced classes, all represented in the validation split.
++        third = np.digitize(X[:, 1], [-0.6, 0.6])
++        y = np.array([labels[i] for i in third], dtype=object)
++    return X, y
++
++
++def estimator_split(X, y, random_state=SEED):
++    """Reproduce the estimator's deterministic train/validation split."""
++    split_seed = np.random.RandomState(random_state).randint(1024)
++    return train_test_split(
++        X, y, test_size=VALIDATION_FRACTION, random_state=split_seed,
++        stratify=y
++    )
++
++
++def assert_scores_named_and_finite(gbrt, with_validation):
++    assert gbrt.n_iter_ > 0, "no boosting iterations were run"
++    expected_length = gbrt.n_iter_ + 1
++    assert len(gbrt.train_score_) == expected_length, (
++        "train_score_ has length {}, expected {}".format(
++            len(gbrt.train_score_), expected_length))
++    assert np.all(np.isfinite(gbrt.train_score_)), (
++        "train scores are not finite: {}".format(gbrt.train_score_))
++    if with_validation:
++        assert len(gbrt.validation_score_) == expected_length, (
++            "validation_score_ has length {}, expected {}".format(
++                len(gbrt.validation_score_), expected_length))
++        assert np.all(np.isfinite(gbrt.validation_score_)), (
++            "validation scores are not finite: {}".format(
++                gbrt.validation_score_))
++
++
++def check_original_reproducer():
++    """The exact scenario from the issue must fit without a TypeError."""
++    rng = np.random.RandomState(SEED)
++    X = rng.randn(100, 10)
++    y = np.array(['x'] * 50 + ['y'] * 50, dtype=object)
++    gbrt = HistGradientBoostingClassifier(n_iter_no_change=10,
++                                          random_state=SEED)
++    gbrt.fit(X, y)
++
++    assert_array_equal(gbrt.classes_, np.array(['x', 'y'], dtype=object))
++    assert set(gbrt.predict(X)).issubset({'x', 'y'})
++    assert_scores_named_and_finite(gbrt, with_validation=True)
++
++
++def check_binary_string_validation_score():
++    labels = ['zeta', 'alpha']  # lexicographic order differs from input order
++    X, y = make_classification_data(labels)
++    gbrt = HistGradientBoostingClassifier(
++        max_iter=20, n_iter_no_change=5, validation_fraction=VALIDATION_FRACTION,
++        min_samples_leaf=5, random_state=SEED
++    )
++    gbrt.fit(X, y)
++
++    assert_array_equal(gbrt.classes_, np.array(sorted(labels), dtype=object))
++    assert set(np.unique(gbrt.predict(X))).issubset(set(labels))
++    assert_scores_named_and_finite(gbrt, with_validation=True)
++
++    # The stored validation score must be accuracy against the ORIGINAL
++    # string labels, not accuracy against their integer encodings.
++    _, X_val, _, y_val = estimator_split(X, y)
++    expected = accuracy_score(y_val, gbrt.predict(X_val))
++    assert_allclose(gbrt.validation_score_[-1], expected, rtol=0, atol=1e-12,
++                    err_msg="validation score does not use original labels")
++
++
++def check_binary_string_train_only_score():
++    labels = ['zeta', 'alpha']
++    X, y = make_classification_data(labels)
++    gbrt = HistGradientBoostingClassifier(
++        max_iter=20, n_iter_no_change=5, validation_fraction=None,
++        min_samples_leaf=5, random_state=SEED
++    )
++    gbrt.fit(X, y)
++
++    assert_scores_named_and_finite(gbrt, with_validation=False)
++    # Fewer than 10000 samples means the entire training set is scored.
++    expected = accuracy_score(y, gbrt.predict(X))
++    assert_allclose(gbrt.train_score_[-1], expected, rtol=0, atol=1e-12,
++                    err_msg="train score does not use original labels")
++
++
++def check_multiclass_string_validation_score():
++    labels = ['zebra', 'cat', 'mouse']
++    X, y = make_classification_data(labels)
++    gbrt = HistGradientBoostingClassifier(
++        max_iter=20, n_iter_no_change=5, validation_fraction=VALIDATION_FRACTION,
++        min_samples_leaf=5, random_state=SEED
++    )
++    gbrt.fit(X, y)
++
++    assert gbrt.n_trees_per_iteration_ == 3
++    assert_array_equal(gbrt.classes_, np.array(sorted(labels), dtype=object))
++    assert set(np.unique(gbrt.predict(X))).issubset(set(labels))
++    assert_scores_named_and_finite(gbrt, with_validation=True)
++
++    _, X_val, _, y_val = estimator_split(X, y)
++    expected = accuracy_score(y_val, gbrt.predict(X_val))
++    assert_allclose(gbrt.validation_score_[-1], expected, rtol=0, atol=1e-12,
++                    err_msg="multiclass validation score uses wrong labels")
++
++
++def check_explicit_scoring_string():
++    labels = ['no', 'yes']
++    X, y = make_classification_data(labels)
++    gbrt = HistGradientBoostingClassifier(
++        max_iter=20, n_iter_no_change=5, validation_fraction=VALIDATION_FRACTION,
++        scoring='accuracy', min_samples_leaf=5, random_state=SEED
++    )
++    gbrt.fit(X, y)
++
++    assert_scores_named_and_finite(gbrt, with_validation=True)
++    _, X_val, _, y_val = estimator_split(X, y)
++    assert_allclose(gbrt.validation_score_[-1],
++                    accuracy_score(y_val, gbrt.predict(X_val)),
++                    rtol=0, atol=1e-12)
++
++
++def check_loss_scoring_with_string_target():
++    # scoring='loss' consumes encoded targets and raw predictions; it must
++    # remain unaffected by the scorer-label conversion.
++    labels = ['zeta', 'alpha']
++    X, y = make_classification_data(labels)
++    gbrt = HistGradientBoostingClassifier(
++        max_iter=20, n_iter_no_change=5, validation_fraction=VALIDATION_FRACTION,
++        scoring='loss', min_samples_leaf=5, random_state=SEED
++    )
++    gbrt.fit(X, y)
++
++    assert_array_equal(gbrt.classes_, np.array(sorted(labels), dtype=object))
++    assert_scores_named_and_finite(gbrt, with_validation=True)
++
++
++def check_noncanonical_numeric_labels():
++    # The same label-scale bug affects numeric classes that are not 0, 1, ...
++    rng = np.random.RandomState(SEED)
++    X = rng.normal(size=(120, 4))
++    y = np.where(X[:, 0] > 0, 10, 20)
++    gbrt = HistGradientBoostingClassifier(
++        max_iter=20, n_iter_no_change=5,
++        validation_fraction=VALIDATION_FRACTION, random_state=SEED
++    )
++    gbrt.fit(X, y)
++
++    assert_array_equal(gbrt.classes_, np.array([10, 20]))
++    assert_scores_named_and_finite(gbrt, with_validation=True)
++    _, X_val, _, y_val = estimator_split(X, y)
++    assert_allclose(gbrt.validation_score_[-1],
++                    accuracy_score(y_val, gbrt.predict(X_val)),
++                    rtol=0, atol=1e-12)
++
++
++def check_probability_scorer_with_string_target():
++    # Scorers backed by predict_proba must also see original labels.
++    X, y_str = make_classification_data(['alpha', 'zeta'])
++    gbrt = HistGradientBoostingClassifier(
++        max_iter=20, n_iter_no_change=5,
++        validation_fraction=VALIDATION_FRACTION, scoring='roc_auc',
++        random_state=SEED
++    )
++    gbrt.fit(X, y_str)
++
++    assert_scores_named_and_finite(gbrt, with_validation=True)
++    _, X_val, _, y_val = estimator_split(X, y_str)
++    expected = roc_auc_score(y_val, gbrt.predict_proba(X_val)[:, 1])
++    assert_allclose(gbrt.validation_score_[-1], expected,
++                    rtol=0, atol=1e-12)
++
++
++def check_no_early_stopping_with_string_target():
++    labels = ['zeta', 'alpha']
++    X, y = make_classification_data(labels)
++    max_iter = 7
++    gbrt = HistGradientBoostingClassifier(max_iter=max_iter,
++                                          n_iter_no_change=None,
++                                          random_state=SEED)
++    gbrt.fit(X, y)
++
++    assert gbrt.n_iter_ == max_iter
++    assert set(np.unique(gbrt.predict(X))).issubset(set(labels))
++    assert gbrt.train_score_.size == 0
++
++
++def check_numeric_and_regression_targets():
++    # Integer classes have no labels to decode; regressors have no classes_.
++    X, y = make_classification_data(['zeta', 'alpha'])
++    y_numeric = (y == 'zeta').astype(int)
++    clf = HistGradientBoostingClassifier(
++        max_iter=20, n_iter_no_change=5, validation_fraction=VALIDATION_FRACTION,
++        random_state=SEED
++    )
++    clf.fit(X, y_numeric)
++    assert_scores_named_and_finite(clf, with_validation=True)
++    assert set(np.unique(clf.predict(X))).issubset({0, 1})
++
++    X_reg = np.random.RandomState(SEED).normal(size=(80, 3))
++    y_reg = X_reg[:, 0] * 2.0 + 0.5
++    reg = HistGradientBoostingRegressor(
++        max_iter=20, n_iter_no_change=5, validation_fraction=VALIDATION_FRACTION,
++        scoring='neg_mean_squared_error', random_state=SEED
++    )
++    reg.fit(X_reg, y_reg)
++    assert not hasattr(reg, 'classes_')
++    assert_scores_named_and_finite(reg, with_validation=True)
++
++
++def check_warm_start_with_string_target():
++    labels = ['zeta', 'alpha']
++    X, y = make_classification_data(labels)
++    first = HistGradientBoostingClassifier(
++        max_iter=5, n_iter_no_change=5, validation_fraction=VALIDATION_FRACTION,
++        warm_start=True, random_state=SEED
++    )
++    first.fit(X, y)
++    first.set_params(max_iter=10)
++    first.fit(X, y)
++
++    assert_array_equal(first.classes_, np.array(sorted(labels), dtype=object))
++    assert_scores_named_and_finite(first, with_validation=True)
++    assert set(np.unique(first.predict(X))).issubset(set(labels))
++
++
++CHECKS = [
++    ('original reproducer', check_original_reproducer),
++    ('binary string target with validation scorer',
++     check_binary_string_validation_score),
++    ('binary string target, training-only scorer',
++     check_binary_string_train_only_score),
++    ('multiclass string target with validation scorer',
++     check_multiclass_string_validation_score),
++    ('explicit accuracy scorer', check_explicit_scoring_string),
++    ('non-zero-based numeric labels', check_noncanonical_numeric_labels),
++    ('probability-based scorer with string labels',
++     check_probability_scorer_with_string_target),
++    ('loss scoring boundary', check_loss_scoring_with_string_target),
++    ('no early stopping boundary', check_no_early_stopping_with_string_target),
++    ('numeric and regression regression tests', check_numeric_and_regression_targets),
++    ('warm start with string target', check_warm_start_with_string_target),
++]
++
++
++def main():
++    failures = []
++    for name, check in CHECKS:
++        try:
++            check()
++        except Exception:
++            failures.append(name)
++            print('FAIL: {}'.format(name))
++            traceback.print_exc()
++        else:
++            print('PASS: {}'.format(name))
++
++    if failures:
++        raise AssertionError('{} check(s) failed: {}'.format(
++            len(failures), ', '.join(failures)))
++    print('All {} checks passed.'.format(len(CHECKS)))
++
++
++if __name__ == '__main__':
++    main()
+diff --git a/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py b/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py
+index ad6a5a8ca..e4e70d184 100644
+--- a/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py
++++ b/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py
+@@ -426,6 +426,15 @@ class BaseHistGradientBoosting(BaseEstimator, ABC):
+ 
+         Scores are computed on validation data or on training data.
+         """
++        if is_classifier(self):
++            # The scorer is called with the predictions of the estimator,
++            # which are the original class labels, while y is encoded
++            # internally. Decode the targets so that both sides use the same
++            # labels.
++            y_small_train = self.classes_[y_small_train.astype(int)]
++            if self._use_validation_data:
++                y_val = self.classes_[y_val.astype(int)]
++
+         self.train_score_.append(
+             self.scorer_(self, X_binned_small_train, y_small_train)
+         )

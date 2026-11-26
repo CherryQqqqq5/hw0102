@@ -1,0 +1,216 @@
+diff --git a/.course-public-check/check.py b/.course-public-check/check.py
+new file mode 100755
+index 000000000..96857df50
+--- /dev/null
++++ b/.course-public-check/check.py
+@@ -0,0 +1,185 @@
++#!/opt/miniconda3/envs/testbed/bin/python
++"""Reproducer and regression checks for early stopping with string labels."""
++
++import subprocess
++import sys
++from pathlib import Path
++
++import numpy as np
++
++ROOT = Path(__file__).resolve().parents[1]
++if str(ROOT) not in sys.path:
++    sys.path.insert(0, str(ROOT))
++
++from sklearn.experimental import enable_hist_gradient_boosting  # noqa: F401
++from sklearn.ensemble import (HistGradientBoostingClassifier,
++                              HistGradientBoostingRegressor)
++from sklearn.metrics import accuracy_score
++
++
++def make_spy_scorer(classes, seen):
++    """Build a scorer that records the labels it is given."""
++
++    def scorer(estimator, X, y_true):
++        y_true = np.asarray(y_true)
++        y_pred = np.asarray(estimator.predict(X))
++
++        # The scorer must see the original labels, not the internal integer
++        # encoding used to train the trees.
++        assert y_true.shape == y_pred.shape
++        assert not np.issubdtype(y_true.dtype, np.number), y_true.dtype
++        assert set(np.unique(y_true)).issubset(set(classes)), (y_true, classes)
++        assert set(np.unique(y_pred)).issubset(set(classes)), (y_pred, classes)
++
++        seen.append((y_true.copy(), y_pred.copy()))
++        return accuracy_score(y_true, y_pred)
++
++    return scorer
++
++
++def assert_scores_are_consistent(gb, validation):
++    assert len(gb.train_score_) == gb.n_iter_ + 1
++    assert np.all(np.isfinite(gb.train_score_))
++    if validation:
++        assert len(gb.validation_score_) == gb.n_iter_ + 1
++        assert np.all(np.isfinite(gb.validation_score_))
++    else:
++        assert len(gb.validation_score_) == 0
++
++
++def check_binary_with_validation():
++    """The original reproducer: binary object/string target + early stopping."""
++    rng = np.random.RandomState(0)
++    X = rng.normal(size=(120, 6))
++    y = np.where(X[:, 0] > 0, 'x', 'y').astype(object)
++    classes = np.unique(y)
++    seen = []
++
++    gb = HistGradientBoostingClassifier(
++        n_iter_no_change=5, max_iter=20, tol=1e-7,
++        validation_fraction=0.2, scoring=make_spy_scorer(classes, seen),
++        random_state=0
++    ).fit(X, y)
++
++    np.testing.assert_array_equal(gb.classes_, classes)
++    assert set(gb.predict(X)).issubset(set(classes))
++    assert_scores_are_consistent(gb, validation=True)
++
++    # Both decode sites are exercised: 96 training rows and 24 validation rows.
++    seen_sizes = {len(y_true) for y_true, _ in seen}
++    assert {96, 24}.issubset(seen_sizes), seen_sizes
++
++
++def check_multiclass_without_validation():
++    """Multiclass string labels with scoring on the (sub)sampled train set."""
++    rng = np.random.RandomState(1)
++    X = rng.normal(size=(150, 5))
++    y = np.array(['alpha', 'beta', 'gamma'])[np.digitize(
++        X[:, 0], [-0.5, 0.5])].astype(object)
++    classes = np.unique(y)
++    seen = []
++
++    gb = HistGradientBoostingClassifier(
++        n_iter_no_change=5, max_iter=15, tol=1e-1,
++        validation_fraction=None, scoring=make_spy_scorer(classes, seen),
++        random_state=0
++    ).fit(X, y)
++
++    np.testing.assert_array_equal(gb.classes_, classes)
++    assert_scores_are_consistent(gb, validation=False)
++    assert seen
++    assert all(len(y_true) == len(y) for y_true, _ in seen)
++
++
++def check_loss_and_regression_paths():
++    """The loss-based early stopping path and regressors are unaffected."""
++    rng = np.random.RandomState(2)
++    X = rng.normal(size=(120, 5))
++    y = np.where(X[:, 0] > 0, 'left', 'right').astype(object)
++
++    clf = HistGradientBoostingClassifier(
++        n_iter_no_change=5, max_iter=20, tol=1e-7, scoring='loss',
++        validation_fraction=0.2, random_state=0
++    ).fit(X, y)
++    np.testing.assert_array_equal(clf.classes_, ['left', 'right'])
++    assert_scores_are_consistent(clf, validation=True)
++
++    y_reg = rng.normal(size=len(X))
++    reg = HistGradientBoostingRegressor(
++        n_iter_no_change=5, max_iter=20, tol=1e-7,
++        validation_fraction=0.2, random_state=0
++    ).fit(X, y_reg)
++    assert_scores_are_consistent(reg, validation=True)
++
++
++def check_warm_start_with_string_labels():
++    """Warm-start early stopping also reuses the decoded labels."""
++    rng = np.random.RandomState(3)
++    X = rng.normal(size=(80, 4))
++    y = np.where(X[:, 1] > 0, 'no', 'yes').astype(object)
++    classes = np.unique(y)
++    seen = []
++
++    gb = HistGradientBoostingClassifier(
++        n_iter_no_change=5, max_iter=12, tol=1e-2, warm_start=True,
++        validation_fraction=0.2, scoring=make_spy_scorer(classes, seen),
++        random_state=0
++    ).fit(X, y)
++    first_n_iter = gb.n_iter_
++    gb.set_params(max_iter=first_n_iter + 12).fit(X, y)
++
++    assert gb.n_iter_ >= first_n_iter
++    np.testing.assert_array_equal(gb.classes_, classes)
++    assert_scores_are_consistent(gb, validation=True)
++    assert seen
++
++
++def check_large_train_subsample():
++    """The >10k-row scorer subsample must use decoded labels as well."""
++    rng = np.random.RandomState(4)
++    X = rng.normal(size=(10020, 3))
++    y = np.where(X[:, 0] > 0, 'high', 'low').astype(object)
++    seen = []
++
++    gb = HistGradientBoostingClassifier(
++        n_iter_no_change=3, max_iter=5, tol=1e-2, min_samples_leaf=100,
++        validation_fraction=None, scoring=make_spy_scorer(
++            np.unique(y), seen), random_state=0
++    ).fit(X, y)
++
++    assert_scores_are_consistent(gb, validation=False)
++    assert seen
++    assert all(len(y_true) == 10000 for y_true, _ in seen), [
++        len(y_true) for y_true, _ in seen]
++
++
++def check_existing_regression_tests():
++    """Run the existing early-stopping tests unchanged."""
++    tests = [
++        'sklearn/ensemble/_hist_gradient_boosting/tests/'
++        'test_gradient_boosting.py::test_early_stopping_classification',
++        'sklearn/ensemble/_hist_gradient_boosting/tests/'
++        'test_warm_start.py::test_warm_start_early_stopping',
++    ]
++    print('Running existing early-stopping regression tests...')
++    subprocess.run([sys.executable, '-m', 'pytest', '-q'] + tests,
++                   cwd=str(ROOT), check=True)
++
++
++def main():
++    check_binary_with_validation()
++    print('PASS: binary string labels with validation scoring')
++    check_multiclass_without_validation()
++    print('PASS: multiclass string labels with train scoring')
++    check_loss_and_regression_paths()
++    print('PASS: loss-based early stopping and regression paths')
++    check_warm_start_with_string_labels()
++    print('PASS: warm start with string labels')
++    check_large_train_subsample()
++    print('PASS: string labels with >10k-row scorer subsample')
++    check_existing_regression_tests()
++    print('PASS: all checks')
++
++
++if __name__ == '__main__':
++    main()
+diff --git a/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py b/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py
+index ad6a5a8ca..32eef82d1 100644
+--- a/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py
++++ b/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py
+@@ -426,11 +426,20 @@ class BaseHistGradientBoosting(BaseEstimator, ABC):
+ 
+         Scores are computed on validation data or on training data.
+         """
++        # The scorer is called with the original (unencoded) target values:
++        # unlike the loss, it has no knowledge of the label encoding done in
++        # _encode_y(). Otherwise, comparing y_true (encoded) with y_pred
++        # (original labels) would fail for non-numeric labels.
++        if is_classifier(self):
++            y_small_train = self.classes_[y_small_train.astype(int)]
++
+         self.train_score_.append(
+             self.scorer_(self, X_binned_small_train, y_small_train)
+         )
+ 
+         if self._use_validation_data:
++            if is_classifier(self):
++                y_val = self.classes_[y_val.astype(int)]
+             self.validation_score_.append(
+                 self.scorer_(self, X_binned_val, y_val)
+             )

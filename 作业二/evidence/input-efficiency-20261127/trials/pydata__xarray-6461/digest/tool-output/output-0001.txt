@@ -1,0 +1,204 @@
+  1735	        input_core_dims=input_core_dims,
+  1736	        output_core_dims=output_core_dims,
+  1737	        join=join,
+  1738	        dask="allowed",
+  1739	    )
+  1740	    return result.transpose(*all_dims, missing_dims="ignore")
+  1741	
+  1742	
+  1743	def where(cond, x, y, keep_attrs=None):
+  1744	    """Return elements from `x` or `y` depending on `cond`.
+  1745	
+  1746	    Performs xarray-like broadcasting across input arguments.
+  1747	
+  1748	    All dimension coordinates on `x` and `y`  must be aligned with each
+  1749	    other and with `cond`.
+  1750	
+  1751	    Parameters
+  1752	    ----------
+  1753	    cond : scalar, array, Variable, DataArray or Dataset
+  1754	        When True, return values from `x`, otherwise returns values from `y`.
+  1755	    x : scalar, array, Variable, DataArray or Dataset
+  1756	        values to choose from where `cond` is True
+  1757	    y : scalar, array, Variable, DataArray or Dataset
+  1758	        values to choose from where `cond` is False
+  1759	    keep_attrs : bool or str or callable, optional
+  1760	        How to treat attrs. If True, keep the attrs of `x`.
+  1761	
+  1762	    Returns
+  1763	    -------
+  1764	    Dataset, DataArray, Variable or array
+  1765	        In priority order: Dataset, DataArray, Variable or array, whichever
+  1766	        type appears as an input argument.
+  1767	
+  1768	    Examples
+  1769	    --------
+  1770	    >>> x = xr.DataArray(
+  1771	    ...     0.1 * np.arange(10),
+  1772	    ...     dims=["lat"],
+  1773	    ...     coords={"lat": np.arange(10)},
+  1774	    ...     name="sst",
+  1775	    ... )
+
+--- apply_ufunc args/attrs ---
+  1100	
+  1101	    # handle dask_gufunc_kwargs
+  1102	    if dask == "parallelized":
+  1103	        if dask_gufunc_kwargs is None:
+  1104	            dask_gufunc_kwargs = {}
+  1105	        else:
+  1106	            dask_gufunc_kwargs = dask_gufunc_kwargs.copy()
+  1107	        # todo: remove warnings after deprecation cycle
+  1108	        if meta is not None:
+  1109	            warnings.warn(
+  1110	                "``meta`` should be given in the ``dask_gufunc_kwargs`` parameter."
+  1111	                " It will be removed as direct parameter in a future version.",
+  1112	                FutureWarning,
+  1113	                stacklevel=2,
+  1114	            )
+  1115	            dask_gufunc_kwargs.setdefault("meta", meta)
+  1116	        if output_sizes is not None:
+  1117	            warnings.warn(
+  1118	                "``output_sizes`` should be given in the ``dask_gufunc_kwargs`` "
+  1119	                "parameter. It will be removed as direct parameter in a future "
+  1120	                "version.",
+  1121	                FutureWarning,
+  1122	                stacklevel=2,
+  1123	            )
+  1124	            dask_gufunc_kwargs.setdefault("output_sizes", output_sizes)
+  1125	
+  1126	    if kwargs:
+  1127	        func = functools.partial(func, **kwargs)
+  1128	
+  1129	    if keep_attrs is None:
+  1130	        keep_attrs = _get_keep_attrs(default=False)
+  1131	
+  1132	    if isinstance(keep_attrs, bool):
+  1133	        keep_attrs = "override" if keep_attrs else "drop"
+  1134	
+  1135	    variables_vfunc = functools.partial(
+  1136	        apply_variable_ufunc,
+  1137	        func,
+  1138	        signature=signature,
+  1139	        exclude_dims=exclude_dims,
+  1140	        keep_attrs=keep_attrs,
+  1141	        dask=dask,
+  1142	        vectorize=vectorize,
+  1143	        output_dtypes=output_dtypes,
+  1144	        dask_gufunc_kwargs=dask_gufunc_kwargs,
+  1145	    )
+  1146	
+  1147	    # feed groupby-apply_ufunc through apply_groupby_func
+  1148	    if any(isinstance(a, GroupBy) for a in args):
+  1149	        this_apply = functools.partial(
+  1150	            apply_ufunc,
+  1151	            func,
+  1152	            input_core_dims=input_core_dims,
+  1153	            output_core_dims=output_core_dims,
+  1154	            exclude_dims=exclude_dims,
+  1155	            join=join,
+  1156	            dataset_join=dataset_join,
+  1157	            dataset_fill_value=dataset_fill_value,
+  1158	            keep_attrs=keep_attrs,
+  1159	            dask=dask,
+  1160	            vectorize=vectorize,
+  1161	            output_dtypes=output_dtypes,
+  1162	            dask_gufunc_kwargs=dask_gufunc_kwargs,
+  1163	        )
+  1164	        return apply_groupby_func(this_apply, *args)
+  1165	    # feed datasets apply_variable_ufunc through apply_dataset_vfunc
+  1166	    elif any(is_dict_like(a) for a in args):
+  1167	        return apply_dataset_vfunc(
+  1168	            variables_vfunc,
+  1169	            *args,
+  1170	            signature=signature,
+  1171	            join=join,
+  1172	            exclude_dims=exclude_dims,
+  1173	            dataset_join=dataset_join,
+  1174	            fill_value=dataset_fill_value,
+  1175	            keep_attrs=keep_attrs,
+  1176	        )
+  1177	    # feed DataArray apply_variable_ufunc through apply_dataarray_vfunc
+  1178	    elif any(isinstance(a, DataArray) for a in args):
+  1179	        return apply_dataarray_vfunc(
+  1180	            variables_vfunc,
+  1181	            *args,
+  1182	            signature=signature,
+  1183	            join=join,
+  1184	            exclude_dims=exclude_dims,
+  1185	            keep_attrs=keep_attrs,
+  1186	        )
+  1187	    # feed Variables directly through apply_variable_ufunc
+  1188	    elif any(isinstance(a, Variable) for a in args):
+  1189	        return variables_vfunc(*args)
+  1190	    else:
+  1191	        # feed anything else through apply_array_ufunc
+  1192	        return apply_array_ufunc(func, *args, dask=dask)
+  1193	
+  1194	
+  1195	def cov(da_a, da_b, dim=None, ddof=1):
+  1196	    """
+  1197	    Compute covariance between two DataArray objects along a shared dimension.
+  1198	
+  1199	    Parameters
+  1200	    ----------
+
+--- merge_attrs ---
+xarray/core/merge.py:604:def merge_attrs(variable_attrs, combine_attrs, context=None):
+
+--- existing tests ---
+  1900	    with xr.set_options(arithmetic_join="left"):
+  1901	        actual = xr.dot(da_a, da_b)
+  1902	        expected = (da_a * da_b).sum(["a", "b"])
+  1903	        xr.testing.assert_allclose(expected, actual)
+  1904	
+  1905	    with xr.set_options(arithmetic_join="right"):
+  1906	        actual = xr.dot(da_a, da_b)
+  1907	        expected = (da_a * da_b).sum(["a", "b"])
+  1908	        xr.testing.assert_allclose(expected, actual)
+  1909	
+  1910	    with xr.set_options(arithmetic_join="outer"):
+  1911	        actual = xr.dot(da_a, da_b)
+  1912	        expected = (da_a * da_b).sum(["a", "b"])
+  1913	        xr.testing.assert_allclose(expected, actual)
+  1914	
+  1915	
+  1916	def test_where() -> None:
+  1917	    cond = xr.DataArray([True, False], dims="x")
+  1918	    actual = xr.where(cond, 1, 0)
+  1919	    expected = xr.DataArray([1, 0], dims="x")
+  1920	    assert_identical(expected, actual)
+  1921	
+  1922	
+  1923	def test_where_attrs() -> None:
+  1924	    cond = xr.DataArray([True, False], dims="x", attrs={"attr": "cond"})
+  1925	    x = xr.DataArray([1, 1], dims="x", attrs={"attr": "x"})
+  1926	    y = xr.DataArray([0, 0], dims="x", attrs={"attr": "y"})
+  1927	    actual = xr.where(cond, x, y, keep_attrs=True)
+  1928	    expected = xr.DataArray([1, 0], dims="x", attrs={"attr": "x"})
+  1929	    assert_identical(expected, actual)
+  1930	
+  1931	
+  1932	@pytest.mark.parametrize("use_dask", [True, False])
+  1933	@pytest.mark.parametrize("use_datetime", [True, False])
+  1934	def test_polyval(use_dask, use_datetime) -> None:
+  1935	    if use_dask and not has_dask:
+  1936	        pytest.skip("requires dask")
+  1937	
+  1938	    if use_datetime:
+  1939	        xcoord = xr.DataArray(
+  1940	            pd.date_range("2000-01-01", freq="D", periods=10), dims=("x",), name="x"
+  1941	        )
+  1942	        x = xr.core.missing.get_clean_interp_index(xcoord, "x")
+  1943	    else:
+  1944	        x = np.arange(10)
+  1945	        xcoord = xr.DataArray(x, dims=("x",), name="x")
+
+--- version/log ---
+1c58de2f SWE-bench
+851dadeb No chunk warning if empty (#6402)
+9b6ed58a Add xarray-einstats (#6464)
+24d9f3ec Suggest `.drop_vars` rather than `.drop` (#6460)
+8389fe6e In backends, support expressing a dimension's preferred chunk sizes as a tuple of integers (#6334)
+
+Budget: 1776.7s, 497 decisions remaining.

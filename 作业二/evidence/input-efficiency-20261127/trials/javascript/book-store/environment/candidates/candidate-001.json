@@ -1,0 +1,20 @@
+{
+  "candidate_id": "candidate-001",
+  "artifact_digest": "a432ffe6bfa2ed64dab09bf701e6905a2310265766b1b0d07d622bc840075a54",
+  "protected_digest": "5b298fcbee14b1828e3be791f68d88cf6e012653b30a6ce54e59482bf150ae42",
+  "eligible": false,
+  "evidence": {
+    "public-suite": {
+      "state": "pending",
+      "returncode": null,
+      "snapshot": null
+    }
+  },
+  "saved_elapsed": 553.6674103769474,
+  "files": {
+    "book-store.js": {
+      "data": "Y29uc3QgQk9PS19QUklDRV9DRU5UUyA9IDgwMDsKY29uc3QgR1JPVVBfUFJJQ0VfQ0VOVFMgPSBbMCwgODAwLCAxNTIwLCAyMTYwLCAyNTYwLCAzMDAwXTsKCmNvbnN0IG5vcm1hbGl6ZSA9IChjb3VudHMpID0+IGNvdW50cwogIC5maWx0ZXIoKGNvdW50KSA9PiBjb3VudCA+IDApCiAgLnNvcnQoKGxlZnQsIHJpZ2h0KSA9PiByaWdodCAtIGxlZnQpOwoKZXhwb3J0IGNvbnN0IGNvc3QgPSAoYm9va3MpID0+IHsKICBjb25zdCBjb3VudHNCeUlkID0gbmV3IE1hcCgpOwoKICBmb3IgKGNvbnN0IGJvb2sgb2YgYm9va3MpIHsKICAgIGNvdW50c0J5SWQuc2V0KGJvb2ssIChjb3VudHNCeUlkLmdldChib29rKSB8fCAwKSArIDEpOwogIH0KCiAgY29uc3QgbWVtbyA9IG5ldyBNYXAoKTsKCiAgY29uc3QgY2hlYXBlc3QgPSAocmVtYWluaW5nKSA9PiB7CiAgICBpZiAocmVtYWluaW5nLmxlbmd0aCA9PT0gMCkgewogICAgICByZXR1cm4gMDsKICAgIH0KCiAgICBjb25zdCBrZXkgPSByZW1haW5pbmcuam9pbignLCcpOwogICAgaWYgKG1lbW8uaGFzKGtleSkpIHsKICAgICAgcmV0dXJuIG1lbW8uZ2V0KGtleSk7CiAgICB9CgogICAgbGV0IGJlc3QgPSByZW1haW5pbmcucmVkdWNlKCh0b3RhbCwgY291bnQpID0+IHRvdGFsICsgY291bnQgKiBCT09LX1BSSUNFX0NFTlRTLCAwKTsKCiAgICBmb3IgKGxldCBzaXplID0gMjsgc2l6ZSA8PSBNYXRoLm1pbig1LCByZW1haW5pbmcubGVuZ3RoKTsgc2l6ZSArPSAxKSB7CiAgICAgIGNvbnN0IG5leHQgPSByZW1haW5pbmcKICAgICAgICAubWFwKChjb3VudCwgaW5kZXgpID0+IChpbmRleCA8IHNpemUgPyBjb3VudCAtIDEgOiBjb3VudCkpOwogICAgICBiZXN0ID0gTWF0aC5taW4oYmVzdCwgR1JPVVBfUFJJQ0VfQ0VOVFNbc2l6ZV0gKyBjaGVhcGVzdChub3JtYWxpemUobmV4dCkpKTsKICAgIH0KCiAgICBtZW1vLnNldChrZXksIGJlc3QpOwogICAgcmV0dXJuIGJlc3Q7CiAgfTsKCiAgcmV0dXJuIGNoZWFwZXN0KG5vcm1hbGl6ZShbLi4uY291bnRzQnlJZC52YWx1ZXMoKV0pKTsKfTsK",
+      "mode": 420
+    }
+  }
+}

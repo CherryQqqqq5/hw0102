@@ -1,0 +1,20 @@
+{
+  "task": "python/forth",
+  "wall_seconds": 182.77630115672946,
+  "exit_status": "Submitted",
+  "submission": "Implemented `forth.py` with a complete evaluator for the required Forth subset:\n\n- Arithmetic `+`, `-`, `*`, `/` (truncating integer division, explicit `ZeroDivisionError(\"divide by zero\")`)\n- Stack ops `DUP`, `DROP`, `SWAP`, `OVER`\n- Custom `StackUnderflowError` with message `\"Insufficient number of items in stack\"`\n- User definitions `: name ... ;` with case-insensitive words, definitions persisted across lines (including multi-line definitions), snapshot semantics for redefinitions, and `ValueError(\"illegal operation\")` / `ValueError(\"undefined operation\")` where appropriate\n\nValidation: all 54 visible pytest tests pass, plus extra smoke checks for multi-line definitions, negative division, redefinition snapshots, and all error paths.",
+  "framework": "deepseek-harness-sdk-0.2.2rc2",
+  "sdk_result": {
+    "session_id": "course-task",
+    "final_response": "Implemented `forth.py` with a complete evaluator for the required Forth subset:\n\n- Arithmetic `+`, `-`, `*`, `/` (truncating integer division, explicit `ZeroDivisionError(\"divide by zero\")`)\n- Stack ops `DUP`, `DROP`, `SWAP`, `OVER`\n- Custom `StackUnderflowError` with message `\"Insufficient number of items in stack\"`\n- User definitions `: name ... ;` with case-insensitive words, definitions persisted across lines (including multi-line definitions), snapshot semantics for redefinitions, and `ValueError(\"illegal operation\")` / `ValueError(\"undefined operation\")` where appropriate\n\nValidation: all 54 visible pytest tests pass, plus extra smoke checks for multi-line definitions, negative division, redefinition snapshots, and all error paths.",
+    "finish_reason": "completed",
+    "events": 47,
+    "notifications": 49,
+    "sdk_model_http_requests": 8,
+    "wall_seconds": 167.33039343124256
+  },
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 7.827836484182626
+}

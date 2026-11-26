@@ -1,0 +1,14 @@
+{
+  "task": "django__django-14855",
+  "tag": "swebench/sweb.eval.x86_64.django_1776_django-14855:latest",
+  "status": "ready",
+  "source": "docker.io/swebench/sweb.eval.x86_64.django_1776_django-14855@sha256:9608345ccf73197d430f05bea45b9b73cc9d52ddf40dcecbb75f5b60ef5d1ab6",
+  "manifest_digest": "sha256:9608345ccf73197d430f05bea45b9b73cc9d52ddf40dcecbb75f5b60ef5d1ab6",
+  "config_digest": "sha256:4482ed260f2daf4e3726fe2ac6f2feabba5c99d5716c18289d44740b8f263380",
+  "new_model_calls": 0,
+  "compressed_layer_bytes": 1194677377,
+  "image_id": "sha256:9608345ccf73197d430f05bea45b9b73cc9d52ddf40dcecbb75f5b60ef5d1ab6",
+  "actual_image_id": "sha256:9608345ccf73197d430f05bea45b9b73cc9d52ddf40dcecbb75f5b60ef5d1ab6",
+  "docker_endpoint": "unix://[server-project]/guest/docker.sock",
+  "image_identity_rule": "Pinned manifest, config and all uncompressed layer digests; actual Docker identity verified"
+}

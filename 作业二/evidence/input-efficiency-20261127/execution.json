@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "scope": "actual isolated Docker transport, DSH import and authenticated client identity; task original graders admitted separately",
+  "docker_id": "0100ed6c-6a76-442a-86ed-a05ead3738a2",
+  "docker_endpoint": "unix://[server-project]/guest/docker.sock",
+  "task_network": "none",
+  "cpus": 4,
+  "memory_bytes": 8350826496,
+  "guest_state_path": "[server-project]/guest/state.json",
+  "qualification_sha256": "81cb5fe146849d0ca55bd2daa92b4988398ea0a352d63fb492cabafd536dad55",
+  "dsh_runtime_guest_path": "/var/lib/docker/volumes/course-dsh-runtime-20261126/_data",
+  "free_client_socket": "[server-project]/hy4-relay.sock",
+  "free_client_entry": "[project]/work/input-efficiency-20261126/runtime/course_eval/remote_codebuddy.py",
+  "free_client_sha256": "bfc167075d229f101878a378e6c5f9a8c2b64463545dd5ffb3881d6417040915",
+  "free_client_version": "2.179.3",
+  "fee_rule": "Actual fresh zero-credit receipt for each generation; stop on unknown or nonzero",
+  "new_model_calls": 0
+}

@@ -1,0 +1,22 @@
+{
+  "stage": "frozen",
+  "revisions": {
+    "swe": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+    "terminal": "7131e4375048a0e408a8fb404b5f499d726b695b",
+    "aider": "7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"
+  },
+  "selected": [
+    {
+      "benchmark": "swe",
+      "id": "scikit-learn__scikit-learn-14710",
+      "stratum": "scikit-learn/scikit-learn",
+      "group": "scikit-learn__scikit-learn-14710",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-14710:latest",
+      "base_commit": "4b6273b87442a4437d8b3873ea3022ae163f4fdf",
+      "exclude": null
+    }
+  ],
+  "original_image_id": "sha256:537ebd245449fa21aad1773af3374e7165a2f03ad17c363cb4354b285bc27d87",
+  "original_manifest_digest": "sha256:537ebd245449fa21aad1773af3374e7165a2f03ad17c363cb4354b285bc27d87"
+}

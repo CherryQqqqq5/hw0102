@@ -1,0 +1,272 @@
+diff --git a/.course-public-check/check.py b/.course-public-check/check.py
+new file mode 100755
+index 000000000..c8a3e82bc
+--- /dev/null
++++ b/.course-public-check/check.py
+@@ -0,0 +1,229 @@
++#!/usr/bin/env python3
++"""Executable reproducer and regression checks for caplog level restoration."""
++
++import os
++import subprocess
++import sys
++import tempfile
++import textwrap
++from pathlib import Path
++
++REPO = Path(__file__).resolve().parents[1]
++SRC = REPO / "src"
++
++
++def find_python():
++    """Return an interpreter that can import this checkout's pytest."""
++    candidates = [
++        sys.executable,
++        "/opt/miniconda3/envs/testbed/bin/python",
++        "/usr/bin/python3",
++    ]
++    env = os.environ.copy()
++    env["PYTHONPATH"] = str(SRC) + os.pathsep + env.get("PYTHONPATH", "")
++    for candidate in candidates:
++        try:
++            proc = subprocess.run(
++                [candidate, "-c", "import pytest; print(pytest.__file__)"],
++                cwd=str(REPO),
++                env=env,
++                stdout=subprocess.PIPE,
++                stderr=subprocess.PIPE,
++                text=True,
++            )
++        except OSError:
++            continue
++        if proc.returncode == 0 and "src" in proc.stdout:
++            return candidate
++    raise RuntimeError("no Python interpreter can import pytest from " + str(SRC))
++
++
++PYTHON = find_python()
++
++
++def run_pytest(test_source=None, extra_args=(), target=None, expected_returncode=0):
++    """Run pytest in an isolated temp directory (unless target is given)."""
++    env = os.environ.copy()
++    env["PYTHONDONTWRITEBYTECODE"] = "1"
++    env["PYTHONPATH"] = str(SRC) + os.pathsep + env.get("PYTHONPATH", "")
++    with tempfile.TemporaryDirectory(prefix="caplog-level-check-") as tmpdir:
++        if test_source is not None:
++            test_file = Path(tmpdir) / "test_caplog_restore.py"
++            test_file.write_text(textwrap.dedent(test_source), encoding="utf-8")
++            target = str(test_file)
++        if target is None:
++            raise AssertionError("run_pytest requires test_source or target")
++        proc = subprocess.run(
++            [
++                PYTHON,
++                "-m",
++                "pytest",
++                "-p",
++                "no:cacheprovider",
++                "-q",
++                *extra_args,
++                target,
++            ],
++            cwd=str(REPO),
++            env=env,
++            stdout=subprocess.PIPE,
++            stderr=subprocess.PIPE,
++            text=True,
++        )
++    output = proc.stdout + proc.stderr
++    if proc.returncode != expected_returncode:
++        raise AssertionError(
++            "pytest exited with %r, expected %r\n%s"
++            % (proc.returncode, expected_returncode, output)
++        )
++    return output
++
++
++def check_basic_restoration():
++    """The exact reported bug: caplog.set_level(42) must not leak."""
++    run_pytest(
++        """
++        import logging
++
++        def test_set_level(caplog):
++            assert caplog.handler.level == logging.NOTSET
++            caplog.set_level(42)
++            assert caplog.handler.level == 42
++
++        def test_level_is_restored(caplog):
++            assert caplog.handler.level == logging.NOTSET, caplog.handler.level
++        """
++    )
++
++
++def check_repeated_and_named_logger_restoration():
++    """Repeated calls restore the original handler and named logger levels."""
++    run_pytest(
++        """
++        import logging
++
++        LOGGER_NAME = "caplog.level.check.named"
++        state = {}
++
++        def test_change_levels(caplog):
++            state["handler"] = caplog.handler.level
++            state["root"] = logging.getLogger().level
++            state["named"] = logging.getLogger(LOGGER_NAME).level
++            caplog.set_level(logging.DEBUG)
++            caplog.set_level(logging.CRITICAL, logger=LOGGER_NAME)
++            assert caplog.handler.level == logging.CRITICAL
++            assert logging.getLogger().level == logging.DEBUG
++            assert logging.getLogger(LOGGER_NAME).level == logging.CRITICAL
++
++        def test_levels_are_restored(caplog):
++            assert caplog.handler.level == state["handler"], caplog.handler.level
++            assert logging.getLogger().level == state["root"]
++            assert logging.getLogger(LOGGER_NAME).level == state["named"]
++        """
++    )
++
++
++def check_at_level_and_set_level_interaction():
++    """at_level still restores its own level, and set_level leaks nothing."""
++    run_pytest(
++        """
++        import logging
++
++        def test_at_level_then_set_level(caplog):
++            initial = caplog.handler.level
++            with caplog.at_level(logging.INFO):
++                assert caplog.handler.level == logging.INFO
++                with caplog.at_level(logging.DEBUG):
++                    assert caplog.handler.level == logging.DEBUG
++                assert caplog.handler.level == logging.INFO
++            assert caplog.handler.level == initial
++            caplog.set_level(logging.WARNING)
++            assert caplog.handler.level == logging.WARNING
++
++        def test_handler_level_is_restored(caplog):
++            assert caplog.handler.level == logging.NOTSET, caplog.handler.level
++        """
++    )
++
++
++def check_set_level_inside_at_level():
++    """A set_level call inside at_level must not change the test's baseline."""
++    run_pytest(
++        """
++        import logging
++
++        def test_set_level_inside_at_level(caplog):
++            initial = caplog.handler.level
++            with caplog.at_level(logging.INFO):
++                caplog.set_level(logging.DEBUG)
++                assert caplog.handler.level == logging.DEBUG
++            assert caplog.handler.level == initial
++
++        def test_handler_level_is_restored(caplog):
++            assert caplog.handler.level == logging.NOTSET, caplog.handler.level
++        """
++    )
++
++
++def check_failing_test_finalization():
++    """Fixture finalization must restore the handler even when a test fails."""
++    output = run_pytest(
++        """
++        import logging
++
++        def test_fails_after_set_level(caplog):
++            caplog.set_level(42)
++            assert False, "intentional failure"
++
++        def test_next_test_after_failure(caplog):
++            assert caplog.handler.level == logging.NOTSET, caplog.handler.level
++        """,
++        expected_returncode=1,
++    )
++    if "1 failed, 1 passed" not in output:
++        raise AssertionError("expected only the intentional failure\n" + output)
++
++
++def check_configured_log_level():
++    """An explicit --log-level remains in force for subsequent tests."""
++    run_pytest(
++        """
++        import logging
++
++        def test_override(caplog):
++            assert caplog.handler.level == logging.ERROR
++            caplog.set_level(logging.INFO)
++            assert caplog.handler.level == logging.INFO
++
++        def test_configured_level_returns(caplog):
++            assert caplog.handler.level == logging.ERROR, caplog.handler.level
++        """,
++        extra_args=("-o", "log_level=ERROR"),
++    )
++
++
++def check_existing_regression_suite():
++    """Preserve the existing caplog fixture regression suite."""
++    output = run_pytest(target="testing/logging/test_fixture.py")
++    if "passed" not in output:
++        raise AssertionError("no test results in existing suite\n" + output)
++
++
++def main():
++    checks = [
++        check_basic_restoration,
++        check_repeated_and_named_logger_restoration,
++        check_at_level_and_set_level_interaction,
++        check_set_level_inside_at_level,
++        check_failing_test_finalization,
++        check_configured_log_level,
++        check_existing_regression_suite,
++    ]
++    for check in checks:
++        print("running %s" % check.__name__)
++        check()
++    print("all %d caplog restoration checks passed" % len(checks))
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/src/_pytest/logging.py b/src/_pytest/logging.py
+index 11031f2f2..2ce6f4c30 100644
+--- a/src/_pytest/logging.py
++++ b/src/_pytest/logging.py
+@@ -346,6 +346,13 @@ class LogCaptureFixture:
+         self._item = item
+         # dict of log name -> log level
+         self._initial_logger_levels = {}  # type: Dict[Optional[str], int]
++        # The caplog handler is shared between tests, so remember its level
++        # before ``set_level`` can change it. Fall back to recording it when
++        # ``set_level`` is first called if the handler is not available yet.
++        try:
++            self._initial_level = self.handler.level  # type: Optional[int]
++        except KeyError:
++            self._initial_level = None
+ 
+     def _finalize(self) -> None:
+         """Finalizes the fixture.
+@@ -357,6 +364,9 @@ class LogCaptureFixture:
+             logger = logging.getLogger(logger_name)
+             logger.setLevel(level)
+ 
++        if self._initial_level is not None:
++            self.handler.setLevel(self._initial_level)
++
+     @property
+     def handler(self) -> LogCaptureHandler:
+         """
+@@ -434,6 +444,8 @@ class LogCaptureFixture:
+         # save the original log-level to restore it during teardown
+         self._initial_logger_levels.setdefault(logger, logger_obj.level)
+         logger_obj.setLevel(level)
++        if self._initial_level is None:
++            self._initial_level = self.handler.level
+         self.handler.setLevel(level)
+ 
+     @contextmanager

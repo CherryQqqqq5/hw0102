@@ -1,0 +1,20 @@
+{
+  "task": "cpp/binary-search-tree",
+  "wall_seconds": 665.4394591660239,
+  "exit_status": "Submitted",
+  "submission": "Implemented the generic binary search tree in `binary_search_tree.h`: node storage with `unique_ptr`, insertion with equal values going left, accessors, and in-order forward/const iterators. `binary_search_tree.cpp` remains only the required include.\n\nAll 12 visible tests passed using a lightweight local Catch-compatible runner. The official `/aider/benchmark/cpp-test.sh` build timed out while compiling the bundled Catch main, but compilation of the solution/test object succeeded.",
+  "framework": "deepseek-harness-sdk-0.2.2rc2",
+  "sdk_result": {
+    "session_id": "course-task",
+    "final_response": "Implemented the generic binary search tree in `binary_search_tree.h`: node storage with `unique_ptr`, insertion with equal values going left, accessors, and in-order forward/const iterators. `binary_search_tree.cpp` remains only the required include.\n\nAll 12 visible tests passed using a lightweight local Catch-compatible runner. The official `/aider/benchmark/cpp-test.sh` build timed out while compiling the bundled Catch main, but compilation of the solution/test object succeeded.",
+    "finish_reason": "completed",
+    "events": 52,
+    "notifications": 54,
+    "sdk_model_http_requests": 9,
+    "wall_seconds": 442.18050496978685
+  },
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 215.08422570722178
+}

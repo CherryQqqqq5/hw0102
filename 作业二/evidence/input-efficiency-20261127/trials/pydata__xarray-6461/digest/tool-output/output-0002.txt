@@ -1,0 +1,181 @@
+  1120	                "version.",
+  1121	                FutureWarning,
+  1122	                stacklevel=2,
+  1123	            )
+  1124	            dask_gufunc_kwargs.setdefault("output_sizes", output_sizes)
+  1125	
+  1126	    if kwargs:
+  1127	        func = functools.partial(func, **kwargs)
+  1128	
+  1129	    if keep_attrs is None:
+  1130	        keep_attrs = _get_keep_attrs(default=False)
+  1131	
+  1132	    if isinstance(keep_attrs, bool):
+  1133	        keep_attrs = "override" if keep_attrs else "drop"
+  1134	
+  1135	    variables_vfunc = functools.partial(
+  1136	        apply_variable_ufunc,
+  1137	        func,
+  1138	        signature=signature,
+  1139	        exclude_dims=exclude_dims,
+  1140	        keep_attrs=keep_attrs,
+  1141	        dask=dask,
+  1142	        vectorize=vectorize,
+  1143	        output_dtypes=output_dtypes,
+  1144	        dask_gufunc_kwargs=dask_gufunc_kwargs,
+  1145	    )
+  1146	
+  1147	    # feed groupby-apply_ufunc through apply_groupby_func
+  1148	    if any(isinstance(a, GroupBy) for a in args):
+  1149	        this_apply = functools.partial(
+  1150	            apply_ufunc,
+  1151	            func,
+  1152	            input_core_dims=input_core_dims,
+  1153	            output_core_dims=output_core_dims,
+  1154	            exclude_dims=exclude_dims,
+  1155	            join=join,
+  1156	            dataset_join=dataset_join,
+  1157	            dataset_fill_value=dataset_fill_value,
+  1158	            keep_attrs=keep_attrs,
+  1159	            dask=dask,
+  1160	            vectorize=vectorize,
+  1161	            output_dtypes=output_dtypes,
+  1162	            dask_gufunc_kwargs=dask_gufunc_kwargs,
+  1163	        )
+  1164	        return apply_groupby_func(this_apply, *args)
+  1165	    # feed datasets apply_variable_ufunc through apply_dataset_vfunc
+  1166	    elif any(is_dict_like(a) for a in args):
+  1167	        return apply_dataset_vfunc(
+  1168	            variables_vfunc,
+  1169	            *args,
+  1170	            signature=signature,
+  1171	            join=join,
+  1172	            exclude_dims=exclude_dims,
+  1173	            dataset_join=dataset_join,
+  1174	            fill_value=dataset_fill_value,
+  1175	            keep_attrs=keep_attrs,
+  1176	        )
+  1177	    # feed DataArray apply_variable_ufunc through apply_dataarray_vfunc
+  1178	    elif any(isinstance(a, DataArray) for a in args):
+  1179	        return apply_dataarray_vfunc(
+  1180	            variables_vfunc,
+  1181	            *args,
+  1182	            signature=signature,
+  1183	            join=join,
+  1184	            exclude_dims=exclude_dims,
+  1185	            keep_attrs=keep_attrs,
+  1186	        )
+  1187	    # feed Variables directly through apply_variable_ufunc
+  1188	    elif any(isinstance(a, Variable) for a in args):
+  1189	        return variables_vfunc(*args)
+  1190	    else:
+  1191	        # feed anything else through apply_array_ufunc
+  1192	        return apply_array_ufunc(func, *args, dask=dask)
+  1193	
+  1194	
+  1195	def cov(da_a, da_b, dim=None, ddof=1):
+
+--- build_output_coords/attrs helper ---
+   250	            }
+   251	            filtered_indexes = filter_indexes_from_coords(
+   252	                merged_indexes, set(filtered_coords)
+   253	            )
+   254	        else:
+   255	            filtered_coords = merged_vars
+   256	            filtered_indexes = merged_indexes
+   257	        output_coords.append(filtered_coords)
+   258	        output_indexes.append(filtered_indexes)
+   259	
+   260	    return output_coords, output_indexes
+   261	
+   262	
+   263	def apply_dataarray_vfunc(
+   264	    func,
+   265	    *args,
+   266	    signature,
+   267	    join="inner",
+   268	    exclude_dims=frozenset(),
+   269	    keep_attrs="override",
+   270	):
+   271	    """Apply a variable level function over DataArray, Variable and/or ndarray
+   272	    objects.
+   273	    """
+   274	    from .dataarray import DataArray
+   275	
+   276	    if len(args) > 1:
+   277	        args = deep_align(
+   278	            args, join=join, copy=False, exclude=exclude_dims, raise_on_invalid=False
+   279	        )
+   280	
+   281	    objs = _all_of_type(args, DataArray)
+   282	
+   283	    if keep_attrs == "drop":
+   284	        name = result_name(args)
+   285	    else:
+   286	        first_obj = _first_of_type(args, DataArray)
+   287	        name = first_obj.name
+   288	    result_coords, result_indexes = build_output_coords_and_indexes(
+   289	        args, signature, exclude_dims, combine_attrs=keep_attrs
+   290	    )
+   291	
+   292	    data_vars = [getattr(a, "variable", a) for a in args]
+   293	    result_var = func(*data_vars)
+   294	
+   295	    if signature.num_outputs > 1:
+   296	        out = tuple(
+   297	            DataArray(
+   298	                variable, coords=coords, indexes=indexes, name=name, fastpath=True
+   299	            )
+   300	            for variable, coords, indexes in zip(
+   301	                result_var, result_coords, result_indexes
+   302	            )
+   303	        )
+   304	    else:
+   305	        (coords,) = result_coords
+   306	        (indexes,) = result_indexes
+   307	        out = DataArray(
+   308	            result_var, coords=coords, indexes=indexes, name=name, fastpath=True
+   309	        )
+   310	
+   311	    attrs = merge_attrs([x.attrs for x in objs], combine_attrs=keep_attrs)
+   312	    if isinstance(out, tuple):
+   313	        for da in out:
+   314	            da.attrs = attrs
+   315	    else:
+   316	        out.attrs = attrs
+   317	
+   318	    return out
+   319	
+   320	
+   321	def ordered_set_union(all_keys: list[Iterable]) -> Iterable:
+   322	    return {key: None for keys in all_keys for key in keys}.keys()
+   323	
+   324	
+   325	def ordered_set_intersection(all_keys: list[Iterable]) -> Iterable:
+
+--- relevant test body ---
+  1910	    with xr.set_options(arithmetic_join="outer"):
+  1911	        actual = xr.dot(da_a, da_b)
+  1912	        expected = (da_a * da_b).sum(["a", "b"])
+  1913	        xr.testing.assert_allclose(expected, actual)
+  1914	
+  1915	
+  1916	def test_where() -> None:
+  1917	    cond = xr.DataArray([True, False], dims="x")
+  1918	    actual = xr.where(cond, 1, 0)
+  1919	    expected = xr.DataArray([1, 0], dims="x")
+  1920	    assert_identical(expected, actual)
+  1921	
+  1922	
+  1923	def test_where_attrs() -> None:
+  1924	    cond = xr.DataArray([True, False], dims="x", attrs={"attr": "cond"})
+  1925	    x = xr.DataArray([1, 1], dims="x", attrs={"attr": "x"})
+  1926	    y = xr.DataArray([0, 0], dims="x", attrs={"attr": "y"})
+  1927	    actual = xr.where(cond, x, y, keep_attrs=True)
+  1928	    expected = xr.DataArray([1, 0], dims="x", attrs={"attr": "x"})
+  1929	    assert_identical(expected, actual)
+  1930	
+  1931	
+  1932	@pytest.mark.parametrize("use_dask", [True, False])
+
+Budget: 1763.4s, 495 decisions remaining.

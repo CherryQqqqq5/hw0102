@@ -1,0 +1,238 @@
+OK: ISO-year lookups use ISO extraction and return correct boundary data
+--- status ---
+ M django/db/models/functions/datetime.py
+?? .course-public-check/
+--- diff ---
+diff --git a/django/db/models/functions/datetime.py b/django/db/models/functions/datetime.py
+index 90e6f41be0..bbe9fa8c79 100644
+--- a/django/db/models/functions/datetime.py
++++ b/django/db/models/functions/datetime.py
+@@ -164,12 +164,6 @@ ExtractYear.register_lookup(YearGte)
+ ExtractYear.register_lookup(YearLt)
+ ExtractYear.register_lookup(YearLte)
+ 
+-ExtractIsoYear.register_lookup(YearExact)
+-ExtractIsoYear.register_lookup(YearGt)
+-ExtractIsoYear.register_lookup(YearGte)
+-ExtractIsoYear.register_lookup(YearLt)
+-ExtractIsoYear.register_lookup(YearLte)
+-
+ 
+ class Now(Func):
+     template = 'CURRENT_TIMESTAMP'
+--- check file ---
+#!/usr/bin/env python3
+"""Reproducer for ISO-year lookups incorrectly using calendar-year bounds."""
+import os
+import sys
+from datetime import date, datetime
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
+
+import importlib
+import sys
+import threading
+import types
+from datetime import datetime, tzinfo as datetime_tzinfo, timezone as datetime_timezone
+try:
+    from zoneinfo import ZoneInfo
+except ImportError:
+    ZoneInfo = None
+
+
+def _module_missing(name):
+    try:
+        importlib.import_module(name)
+    except ImportError:
+        return True
+    return False
+
+
+# The benchmark image has no third-party Django dependencies. Provide just
+# enough of them for a synchronous, SQLite-based ORM reproducer.
+if _module_missing("asgiref"):
+    asgiref = types.ModuleType("asgiref")
+    asgiref.__path__ = []
+    sync_module = types.ModuleType("asgiref.sync")
+
+    def _identity_decorator(func=None, **kwargs):
+        if func is None:
+            return lambda wrapped: wrapped
+        return func
+
+    sync_module.sync_to_async = _identity_decorator
+    sync_module.async_to_sync = _identity_decorator
+    local_module = types.ModuleType("asgiref.local")
+
+    class Local:
+        def __init__(self, thread_critical=False):
+            self._storage = threading.local()
+
+        def __call__(self, name, default=None):
+            return getattr(self._storage, name, default)
+
+        def __setattr__(self, name, value):
+            if name == "_storage":
+                super().__setattr__(name, value)
+            else:
+                setattr(self._storage, name, value)
+
+        def __getattr__(self, name):
+            try:
+                return getattr(self._storage, name)
+            except AttributeError:
+                raise AttributeError(name)
+
+    local_module.Local = Local
+    asgiref.sync = sync_module
+    asgiref.local = local_module
+    sys.modules["asgiref"] = asgiref
+    sys.modules["asgiref.sync"] = sync_module
+    sys.modules["asgiref.local"] = local_module
+
+if _module_missing("sqlparse"):
+    sqlparse = types.ModuleType("sqlparse")
+    sqlparse.format = lambda sql, **kwargs: sql
+    sqlparse.split = lambda sql: [sql]
+    sqlparse.parse = lambda sql: []
+    literal = types.SimpleNamespace(String=types.SimpleNamespace(Symbol="Symbol"))
+    sqlparse.tokens = types.SimpleNamespace(
+        Name="Name", Punctuation="Punctuation", Keyword="Keyword", Literal=literal,
+    )
+    sqlparse.sql = types.SimpleNamespace(Parenthesis=type("Parenthesis", (), {}))
+    sys.modules["sqlparse"] = sqlparse
+
+if _module_missing("pytz"):
+    pytz = types.ModuleType("pytz")
+    if ZoneInfo is not None:
+        def pytz_timezone(name):
+            return ZoneInfo("UTC") if name == "UTC" else ZoneInfo(name)
+    else:
+        def pytz_timezone(name):
+            return datetime_timezone.utc
+    pytz.utc = pytz.UTC = datetime_timezone.utc
+    pytz.timezone = pytz_timezone
+    pytz.tzinfo = types.SimpleNamespace(BaseTzInfo=datetime_tzinfo)
+    pytz._FixedOffset = datetime_timezone
+    pytz.AmbiguousTimeError = type("AmbiguousTimeError", (Exception,), {})
+    pytz.NonExistentTimeError = type("NonExistentTimeError", (Exception,), {})
+    pytz.UnknownTimeZoneError = type("UnknownTimeZoneError", (KeyError,), {})
+    sys.modules["pytz"] = pytz
+
+import django
+from django.conf import settings
+
+if not settings.configured:
+    settings.configure(
+        DEBUG=True,
+        DATABASES={"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": ":memory:"}},
+        INSTALLED_APPS=["django.contrib.contenttypes"],
+        USE_TZ=False,
+        SECRET_KEY="iso-year-check",
+    )
+django.setup()
+
+from django.db import connection, models
+from django.db.models.functions import ExtractIsoYear
+
+
+class IsoYearModel(models.Model):
+    label = models.CharField(max_length=32)
+    day = models.DateField()
+    moment = models.DateTimeField()
+
+    class Meta:
+        app_label = "contenttypes"
+
+
+def sql_of(queryset):
+    return str(queryset.query)
+
+
+def values(queryset):
+    return list(queryset.order_by("label").values_list("label", flat=True))
+
+
+with connection.schema_editor() as editor:
+    editor.create_model(IsoYearModel)
+
+# These dates straddle ISO year boundaries: calendar years do not match ISO
+# week-numbering years.
+IsoYearModel.objects.bulk_create([
+    IsoYearModel(label="2014-12-27", day=date(2014, 12, 27), moment=datetime(2014, 12, 27, 12)),
+    IsoYearModel(label="2014-12-31", day=date(2014, 12, 31), moment=datetime(2014, 12, 31, 12)),
+    IsoYearModel(label="2015-12-31", day=date(2015, 12, 31), moment=datetime(2015, 12, 31, 12)),
+    IsoYearModel(label="2016-01-03", day=date(2016, 1, 3), moment=datetime(2016, 1, 3, 12)),
+    IsoYearModel(label="2016-01-04", day=date(2016, 1, 4), moment=datetime(2016, 1, 4, 12)),
+])
+
+expected_2014 = ["2014-12-27"]
+expected_2015 = ["2014-12-31", "2015-12-31", "2016-01-03"]
+expected_2016 = ["2016-01-04"]
+
+# Validate the fixture against Python's ISO calendar before querying the ORM.
+assert date(2014, 12, 27).isocalendar()[0] == 2014
+assert date(2014, 12, 31).isocalendar()[0] == 2015
+assert date(2015, 12, 31).isocalendar()[0] == 2015
+assert date(2016, 1, 3).isocalendar()[0] == 2015
+assert date(2016, 1, 4).isocalendar()[0] == 2016
+
+for field in ("day", "moment"):
+    lookup = "%s__iso_year" % field
+
+    # Implicit lookup must use ISO extraction, not calendar-year BETWEEN.
+    qs = IsoYearModel.objects.filter(**{lookup: 2015})
+    query_sql = sql_of(qs)
+    assert "BETWEEN" not in query_sql, (
+        "%s=2015 was optimized with calendar-year BETWEEN: %s" % (lookup, query_sql)
+    )
+    assert "extract" in query_sql.lower(), (
+        "%s=2015 did not extract the ISO year: %s" % (lookup, query_sql)
+    )
+    assert values(qs) == expected_2015, (
+        "%s=2015 returned %r, expected %r (SQL: %s)"
+        % (lookup, values(qs), expected_2015, query_sql)
+    )
+
+    assert values(IsoYearModel.objects.filter(**{lookup: 2014})) == expected_2014
+    assert values(IsoYearModel.objects.filter(**{lookup: 2016})) == expected_2016
+
+    # Explicit annotation used in a filter must not be replaced by a BETWEEN
+    # over the original date/datetime column.
+    annotated = IsoYearModel.objects.annotate(
+        extracted=ExtractIsoYear(field),
+    ).filter(extracted=2015)
+    annotated_sql = sql_of(annotated)
+    assert "BETWEEN" not in annotated_sql, (
+        "annotation filter was optimized with BETWEEN: %s" % annotated_sql
+    )
+    assert values(annotated) == expected_2015
+
+    # Comparison lookups have the same ISO-vs-calendar boundary problem.
+    assert values(IsoYearModel.objects.filter(**{lookup + "__gt": 2014})) == (
+        expected_2015 + expected_2016
+    )
+    assert values(IsoYearModel.objects.filter(**{lookup + "__gte": 2015})) == (
+        expected_2015 + expected_2016
+    )
+    assert values(IsoYearModel.objects.filter(**{lookup + "__lt": 2015})) == expected_2014
+    assert values(IsoYearModel.objects.filter(**{lookup + "__lte": 2015})) == (
+        expected_2014 + expected_2015
+    )
+
+# The regular year lookup optimization is still valid and must be preserved.
+year_sql = sql_of(IsoYearModel.objects.filter(day__year=2015))
+assert "BETWEEN" in year_sql, "regular year lookup lost its BETWEEN optimization: %s" % year_sql
+assert values(IsoYearModel.objects.filter(day__year=2015)) == [
+    "2015-12-31",
+]
+
+# Non-boundary extraction through an annotation continues to work.
+assert values(IsoYearModel.objects.annotate(
+    extracted=ExtractIsoYear("day"),
+).filter(extracted=2014)) == expected_2014
+
+print("OK: ISO-year lookups use ISO extraction and return correct boundary data")
+
+Budget: 1509.8s, 477 decisions remaining.

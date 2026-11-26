@@ -1,0 +1,27 @@
+{
+  "task": {
+    "benchmark": "swe",
+    "id": "pydata__xarray-6461",
+    "stratum": "pydata/xarray",
+    "group": "pydata__xarray-6461",
+    "difficulty": "<15 min fix",
+    "image": "swebench/sweb.eval.x86_64.pydata_1776_xarray-6461:latest",
+    "base_commit": "851dadeb0338403e5021c3fbe80cbc9127ee672d",
+    "exclude": null
+  },
+  "phase": "formal",
+  "configuration": "B0",
+  "status": "started",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "framework": "dsh",
+  "protocol_commit": null,
+  "limits": {
+    "model_calls": 500,
+    "wall_seconds": 1800,
+    "command_seconds": 120,
+    "max_output_tokens": 64000,
+    "timeout_retries": 0,
+    "strict_wall": true
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "stdout": "\n> test\n> jest ./*\n\n",
+  "stderr": "PASS ./binary.spec.js (10.173 s)\n  binary\n    ✓ 0 is decimal 0 (38 ms)\n    ✓ 1 is decimal 1 (7 ms)\n    ✓ 10 is decimal 2 (6 ms)\n    ✓ 11 is decimal 3 (3 ms)\n    ✓ 100 is decimal 4 (4 ms)\n    ✓ 1001 is decimal 9 (6 ms)\n    ✓ 11010 is decimal 26 (6 ms)\n    ✓ 10001101000 is decimal 1128 (5 ms)\n    ✓ ignores leading zeros (5 ms)\n    ✓ invalid inputs are null (15 ms)\n\nTest Suites: 1 passed, 1 total\nTests:       10 passed, 10 total\nSnapshots:   0 total\nTime:        10.599 s\nRan all test suites matching /.\\/LICENSE|.\\/babel.config.js|.\\/binary.js|.\\/binary.spec.js|.\\/node_modules|.\\/package-lock.json|.\\/package.json/i.\n",
+  "returncode": 0
+}

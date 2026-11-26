@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "type": "actual archived-output replay and real container IO; not model validation",
+  "source_tool_log_sha256": "d213bdb3adbc20f444b50a39da35dcd9fa657736b1d5abfb8a29134376500b83",
+  "replay": [
+    {
+      "policy": "archive",
+      "original_characters": 7326,
+      "presented_characters": 7384,
+      "recalled_exact": true
+    },
+    {
+      "policy": "digest",
+      "original_characters": 7326,
+      "presented_characters": 2604,
+      "recalled_exact": true
+    }
+  ],
+  "real_failed_subprocess_preserved": true,
+  "recall_not_recompressed": true,
+  "short_unchanged": true,
+  "actual_environment_probe": true,
+  "new_model_calls": 0,
+  "docker_endpoint": "unix://[server-project]/guest/docker.sock",
+  "platform": "linux/amd64"
+}

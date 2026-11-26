@@ -1,0 +1,30 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "javascript/binary",
+    "stratum": "javascript",
+    "group": "binary",
+    "solution_files": [
+      "binary.js"
+    ],
+    "test_files": [
+      "binary.spec.js"
+    ],
+    "exclude": null
+  },
+  "phase": "formal",
+  "configuration": "C0",
+  "status": "started",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "framework": "mini-swe",
+  "protocol_commit": null,
+  "limits": {
+    "model_calls": 500,
+    "wall_seconds": 1800,
+    "command_seconds": 120,
+    "max_output_tokens": 64000,
+    "timeout_retries": 0,
+    "strict_wall": true
+  }
+}

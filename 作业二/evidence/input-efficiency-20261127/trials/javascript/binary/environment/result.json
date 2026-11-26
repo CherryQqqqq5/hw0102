@@ -1,0 +1,10 @@
+{
+  "task": "javascript/binary",
+  "wall_seconds": 250.3964705397375,
+  "exit_status": "Submitted",
+  "submission": "",
+  "scoreable": true,
+  "passed": true,
+  "grader_exit_code": 0,
+  "grader_seconds": 26.67963984888047
+}

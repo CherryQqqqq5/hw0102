@@ -1,0 +1,56 @@
+2026-11-27 03:53:04,538 - INFO - Creating container for django__django-14170...
+2026-11-27 03:53:04,841 - INFO - Container for django__django-14170 created: 248dd30e9a031177258320ec3ff75338c8fb702d7e75a3b8d25e256c234cab56
+2026-11-27 03:53:05,993 - INFO - Container for django__django-14170 started: 248dd30e9a031177258320ec3ff75338c8fb702d7e75a3b8d25e256c234cab56
+2026-11-27 03:53:05,999 - INFO - Intermediate patch for django__django-14170 written to [project]/work/input-efficiency-20261126/trials/django__django-14170/base/swe-official/base/course-mini-swe-agent/django__django-14170/patch.diff, now applying to container...
+2026-11-27 03:53:06,985 - INFO - >>>>> Applied Patch:
+Checking patch .course-public-check/check.py...
+Checking patch django/db/models/functions/datetime.py...
+Applied patch .course-public-check/check.py cleanly.
+Applied patch django/db/models/functions/datetime.py cleanly.
+
+2026-11-27 03:53:16,165 - INFO - Git diff before:
+diff --git a/django/db/models/functions/datetime.py b/django/db/models/functions/datetime.py
+index 90e6f41be0..bbe9fa8c79 100644
+--- a/django/db/models/functions/datetime.py
++++ b/django/db/models/functions/datetime.py
+@@ -164,12 +164,6 @@ ExtractYear.register_lookup(YearGte)
+ ExtractYear.register_lookup(YearLt)
+ ExtractYear.register_lookup(YearLte)
+ 
+-ExtractIsoYear.register_lookup(YearExact)
+-ExtractIsoYear.register_lookup(YearGt)
+-ExtractIsoYear.register_lookup(YearGte)
+-ExtractIsoYear.register_lookup(YearLt)
+-ExtractIsoYear.register_lookup(YearLte)
+-
+ 
+ class Now(Func):
+     template = 'CURRENT_TIMESTAMP'
+2026-11-27 03:53:16,179 - INFO - Eval script for django__django-14170 written to [project]/work/input-efficiency-20261126/trials/django__django-14170/base/swe-official/base/course-mini-swe-agent/django__django-14170/eval.sh; copying to container...
+2026-11-27 03:53:59,231 - INFO - Test runtime: 42.55 seconds
+2026-11-27 03:53:59,233 - INFO - Test output for django__django-14170 written to [project]/work/input-efficiency-20261126/trials/django__django-14170/base/swe-official/base/course-mini-swe-agent/django__django-14170/test_output.txt
+2026-11-27 03:53:59,913 - INFO - Git diff after:
+diff --git a/django/db/models/functions/datetime.py b/django/db/models/functions/datetime.py
+index 90e6f41be0..bbe9fa8c79 100644
+--- a/django/db/models/functions/datetime.py
++++ b/django/db/models/functions/datetime.py
+@@ -164,12 +164,6 @@ ExtractYear.register_lookup(YearGte)
+ ExtractYear.register_lookup(YearLt)
+ ExtractYear.register_lookup(YearLte)
+ 
+-ExtractIsoYear.register_lookup(YearExact)
+-ExtractIsoYear.register_lookup(YearGt)
+-ExtractIsoYear.register_lookup(YearGte)
+-ExtractIsoYear.register_lookup(YearLt)
+-ExtractIsoYear.register_lookup(YearLte)
+-
+ 
+ class Now(Func):
+     template = 'CURRENT_TIMESTAMP'
+2026-11-27 03:53:59,913 - INFO - Grading answer for django__django-14170...
+2026-11-27 03:53:59,916 - INFO - report: {'django__django-14170': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': False, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['test_extract_iso_year_func_boundaries (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_iso_year_func_boundaries (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)'], 'failure': []}, 'PASS_TO_PASS': {'success': ['test_extract_day_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_duration_unsupported_lookups (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_duration_without_native_duration_field (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_hour_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_iso_weekday_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_iso_year_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_minute_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_month_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_none (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_quarter_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_quarter_func_boundaries (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_second_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_week_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_week_func_boundaries (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_weekday_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_trunc_date_none (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_trunc_day_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_trunc_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_trunc_hour_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_trunc_minute_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_trunc_month_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_trunc_none (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_trunc_quarter_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_trunc_second_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_trunc_subquery_with_parameters (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_trunc_time_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_trunc_time_none (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_trunc_week_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_trunc_year_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_day_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_duration_unsupported_lookups (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_duration_without_native_duration_field (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_func_explicit_timezone_priority (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_func_with_timezone (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_hour_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_invalid_field_with_timezone (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_iso_weekday_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_iso_year_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_minute_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_month_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_none (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_quarter_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_quarter_func_boundaries (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_second_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_week_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_week_func_boundaries (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_weekday_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_trunc_date_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_trunc_date_none (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_trunc_day_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_trunc_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'If the truncated datetime transitions to a different offset (daylight', 'test_trunc_hour_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_trunc_invalid_field_with_timezone (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_trunc_minute_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_trunc_month_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_trunc_none (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_trunc_quarter_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_trunc_second_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_trunc_subquery_with_parameters (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_trunc_time_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_trunc_time_none (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_trunc_timezone_applied_before_truncation (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_trunc_week_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_trunc_year_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)'], 'failure': ['Extract year uses a BETWEEN filter to compare the year to allow indexes', 'test_extract_year_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_year_greaterthan_lookup (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_year_lessthan_lookup (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_trunc_date_func (db_functions.datetime.test_extract_trunc.DateFunctionTests)', 'test_extract_year_func (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_year_greaterthan_lookup (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_extract_year_lessthan_lookup (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)', 'test_trunc_ambiguous_and_invalid_times (db_functions.datetime.test_extract_trunc.DateFunctionWithTimeZoneTests)']}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for django__django-14170: resolved: False
+2026-11-27 03:53:59,922 - INFO - Attempting to stop container sweb.eval.django__django-14170.base...
+2026-11-27 03:54:15,808 - INFO - Container sweb.eval.django__django-14170.base stopped successfully.
+2026-11-27 03:54:15,808 - INFO - Attempting to remove container sweb.eval.django__django-14170.base...
+2026-11-27 03:54:16,087 - INFO - Container sweb.eval.django__django-14170.base removed successfully.

@@ -1,0 +1,274 @@
+  1120	                "version.",
+  1121	                FutureWarning,
+  1122	                stacklevel=2,
+  1123	            )
+  1124	            dask_gufunc_kwargs.setdefault("output_sizes", output_sizes)
+  1125	
+  1126	    if kwargs:
+  1127	        func = functools.partial(func, **kwargs)
+  1128	
+  1129	    if keep_attrs is None:
+  1130	        keep_attrs = _get_keep_attrs(default=False)
+  1131	
+  1132	    if isinstance(keep_attrs, bool):
+  1133	        keep_attrs = "override" if keep_attrs else "drop"
+  1134	
+  1135	    variables_vfunc = functools.partial(
+  1136	        apply_variable_ufunc,
+  1137	        func,
+  1138	        signature=signature,
+  1139	        exclude_dims=exclude_dims,
+  1140	        keep_attrs=keep_attrs,
+  1141	        dask=dask,
+  1142	        vectorize=vectorize,
+  1143	        output_dtypes=output_dtypes,
+  1144	        dask_gufunc_kwargs=dask_gufunc_kwargs,
+  1145	    )
+  1146	
+  1147	    # feed groupby-apply_ufunc through apply_groupby_func
+  1148	    if any(isinstance(a, GroupBy) for a in args):
+  1149	        this_apply = functools.partial(
+  1150	            apply_ufunc,
+  1151	            func,
+  1152	            input_core_dims=input_core_dims,
+  1153	            output_core_dims=output_core_dims,
+  1154	            exclude_dims=exclude_dims,
+  1155	            join=join,
+  1156	            dataset_join=dataset_join,
+  1157	            dataset_fill_value=dataset_fill_value,
+  1158	            keep_attrs=keep_attrs,
+  1159	            dask=dask,
+  1160	            vectorize=vectorize,
+  1161	            output_dtypes=output_dtypes,
+  1162	            dask_gufunc_kwargs=dask_gufunc_kwargs,
+  1163	        )
+  1164	        return apply_groupby_func(this_apply, *args)
+  1165	    # feed datasets apply_variable_ufunc through apply_dataset_vfunc
+  1166	    elif any(is_dict_like(a) for a in args):
+  1167	        return apply_dataset_vfunc(
+  1168	            variables_vfunc,
+  1169	            *args,
+  1170	            signature=signature,
+  1171	            join=join,
+  1172	            exclude_dims=exclude_dims,
+  1173	            dataset_join=dataset_join,
+  1174	            fill_value=dataset_fill_value,
+  1175	            keep_attrs=keep_attrs,
+  1176	        )
+  1177	    # feed DataArray apply_variable_ufunc through apply_dataarray_vfunc
+  1178	    elif any(isinstance(a, DataArray) for a in args):
+  1179	        return apply_dataarray_vfunc(
+  1180	            variables_vfunc,
+  1181	            *args,
+  1182	            signature=signature,
+  1183	            join=join,
+  1184	            exclude_dims=exclude_dims,
+  1185	            keep_attrs=keep_attrs,
+  1186	        )
+  1187	    # feed Variables directly through apply_variable_ufunc
+  1188	    elif any(isinstance(a, Variable) for a in args):
+  1189	        return variables_vfunc(*args)
+  1190	    else:
+  1191	        # feed anything else through apply_array_ufunc
+  1192	        return apply_array_ufunc(func, *args, dask=dask)
+  1193	
+  1194	
+  1195	def cov(da_a, da_b, dim=None, ddof=1):
+
+--- test_computation around where ---
+  1880	    if use_dask:
+  1881	        da_a = da_a.chunk({"a": 3})
+  1882	        da_b = da_b.chunk({"a": 3})
+  1883	
+  1884	    # join="inner" is the default
+  1885	    actual = xr.dot(da_a, da_b)
+  1886	    # `dot` sums over the common dimensions of the arguments
+  1887	    expected = (da_a * da_b).sum(["a", "b"])
+  1888	    xr.testing.assert_allclose(expected, actual)
+  1889	
+  1890	    actual = xr.dot(da_a, da_b, dims=...)
+  1891	    expected = (da_a * da_b).sum()
+  1892	    xr.testing.assert_allclose(expected, actual)
+  1893	
+  1894	    with xr.set_options(arithmetic_join="exact"):
+  1895	        with pytest.raises(ValueError, match=r"cannot align.*join.*exact.*not equal.*"):
+  1896	            xr.dot(da_a, da_b)
+  1897	
+  1898	    # NOTE: dot always uses `join="inner"` because `(a * b).sum()` yields the same for all
+  1899	    # join method (except "exact")
+  1900	    with xr.set_options(arithmetic_join="left"):
+  1901	        actual = xr.dot(da_a, da_b)
+  1902	        expected = (da_a * da_b).sum(["a", "b"])
+  1903	        xr.testing.assert_allclose(expected, actual)
+  1904	
+  1905	    with xr.set_options(arithmetic_join="right"):
+  1906	        actual = xr.dot(da_a, da_b)
+  1907	        expected = (da_a * da_b).sum(["a", "b"])
+  1908	        xr.testing.assert_allclose(expected, actual)
+  1909	
+  1910	    with xr.set_options(arithmetic_join="outer"):
+  1911	        actual = xr.dot(da_a, da_b)
+  1912	        expected = (da_a * da_b).sum(["a", "b"])
+  1913	        xr.testing.assert_allclose(expected, actual)
+  1914	
+  1915	
+  1916	def test_where() -> None:
+  1917	    cond = xr.DataArray([True, False], dims="x")
+  1918	    actual = xr.where(cond, 1, 0)
+  1919	    expected = xr.DataArray([1, 0], dims="x")
+  1920	    assert_identical(expected, actual)
+  1921	
+  1922	
+  1923	def test_where_attrs() -> None:
+  1924	    cond = xr.DataArray([True, False], dims="x", attrs={"attr": "cond"})
+  1925	    x = xr.DataArray([1, 1], dims="x", attrs={"attr": "x"})
+  1926	    y = xr.DataArray([0, 0], dims="x", attrs={"attr": "y"})
+  1927	    actual = xr.where(cond, x, y, keep_attrs=True)
+  1928	    expected = xr.DataArray([1, 0], dims="x", attrs={"attr": "x"})
+  1929	    assert_identical(expected, actual)
+  1930	
+  1931	
+  1932	@pytest.mark.parametrize("use_dask", [True, False])
+  1933	@pytest.mark.parametrize("use_datetime", [True, False])
+  1934	def test_polyval(use_dask, use_datetime) -> None:
+  1935	    if use_dask and not has_dask:
+  1936	        pytest.skip("requires dask")
+  1937	
+  1938	    if use_datetime:
+  1939	        xcoord = xr.DataArray(
+  1940	            pd.date_range("2000-01-01", freq="D", periods=10), dims=("x",), name="x"
+  1941	        )
+  1942	        x = xr.core.missing.get_clean_interp_index(xcoord, "x")
+  1943	    else:
+  1944	        x = np.arange(10)
+  1945	        xcoord = xr.DataArray(x, dims=("x",), name="x")
+  1946	
+  1947	    da = xr.DataArray(
+  1948	        np.stack((1.0 + x + 2.0 * x**2, 1.0 + 2.0 * x + 3.0 * x**2)),
+  1949	        dims=("d", "x"),
+  1950	        coords={"x": xcoord, "d": [0, 1]},
+
+--- merge_attrs ---
+xarray/core/merge.py:604:def merge_attrs(variable_attrs, combine_attrs, context=None):
+import warnings
+from typing import TYPE_CHECKING, Literal, TypedDict, Union
+
+from .utils import FrozenDict
+
+if TYPE_CHECKING:
+    try:
+        from matplotlib.colors import Colormap
+    except ImportError:
+        Colormap = str
+
+
+class T_Options(TypedDict):
+    arithmetic_join: Literal["inner", "outer", "left", "right", "exact"]
+    cmap_divergent: Union[str, "Colormap"]
+    cmap_sequential: Union[str, "Colormap"]
+    display_max_rows: int
+    display_values_threshold: int
+    display_style: Literal["text", "html"]
+    display_width: int
+    display_expand_attrs: Literal["default", True, False]
+    display_expand_coords: Literal["default", True, False]
+    display_expand_data_vars: Literal["default", True, False]
+    display_expand_data: Literal["default", True, False]
+    enable_cftimeindex: bool
+    file_cache_maxsize: int
+    keep_attrs: Literal["default", True, False]
+    warn_for_unclosed_files: bool
+    use_bottleneck: bool
+
+
+OPTIONS: T_Options = {
+    "arithmetic_join": "inner",
+    "cmap_divergent": "RdBu_r",
+    "cmap_sequential": "viridis",
+    "display_max_rows": 12,
+    "display_values_threshold": 200,
+    "display_style": "html",
+    "display_width": 80,
+    "display_expand_attrs": "default",
+    "display_expand_coords": "default",
+    "display_expand_data_vars": "default",
+    "display_expand_data": "default",
+    "enable_cftimeindex": True,
+    "file_cache_maxsize": 128,
+    "keep_attrs": "default",
+    "use_bottleneck": True,
+    "warn_for_unclosed_files": False,
+}
+
+_JOIN_OPTIONS = frozenset(["inner", "outer", "left", "right", "exact"])
+_DISPLAY_OPTIONS = frozenset(["text", "html"])
+
+
+def _positive_integer(value):
+    return isinstance(value, int) and value > 0
+
+
+_VALIDATORS = {
+    "arithmetic_join": _JOIN_OPTIONS.__contains__,
+    "display_max_rows": _positive_integer,
+    "display_values_threshold": _positive_integer,
+    "display_style": _DISPLAY_OPTIONS.__contains__,
+    "display_width": _positive_integer,
+    "display_expand_attrs": lambda choice: choice in [True, False, "default"],
+    "display_expand_coords": lambda choice: choice in [True, False, "default"],
+    "display_expand_data_vars": lambda choice: choice in [True, False, "default"],
+    "display_expand_data": lambda choice: choice in [True, False, "default"],
+    "enable_cftimeindex": lambda value: isinstance(value, bool),
+    "file_cache_maxsize": _positive_integer,
+    "keep_attrs": lambda choice: choice in [True, False, "default"],
+    "use_bottleneck": lambda value: isinstance(value, bool),
+    "warn_for_unclosed_files": lambda value: isinstance(value, bool),
+}
+
+
+def _set_file_cache_maxsize(value):
+    from ..backends.file_manager import FILE_CACHE
+
+    FILE_CACHE.maxsize = value
+
+
+def _warn_on_setting_enable_cftimeindex(enable_cftimeindex):
+    warnings.warn(
+        "The enable_cftimeindex option is now a no-op "
+        "and will be removed in a future version of xarray.",
+        FutureWarning,
+    )
+
+
+_SETTERS = {
+    "enable_cftimeindex": _warn_on_setting_enable_cftimeindex,
+    "file_cache_maxsize": _set_file_cache_maxsize,
+}
+
+
+def _get_boolean_with_default(option, default):
+    global_choice = OPTIONS[option]
+
+    if global_choice == "default":
+        return default
+    elif global_choice in [True, False]:
+        return global_choice
+    else:
+        raise ValueError(
+            f"The global option {option} must be one of True, False or 'default'."
+        )
+
+
+def _get_keep_attrs(default):
+    return _get_boolean_with_default("keep_attrs", default)
+
+
+class set_options:
+    """
+    Set options for xarray in a controlled context.
+
+    Parameters
+    ----------
+    arithmetic_join : {"inner", "outer", "left", "right", "exact"}, default: "inner"
+
+Budget: 1762.3s, 495 decisions remaining.

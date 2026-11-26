@@ -1,0 +1,179 @@
+
+class LogCaptureFixture:
+    """Provides access and control of log capturing."""
+
+    def __init__(self, item: nodes.Node) -> None:
+        """Creates a new funcarg."""
+        self._item = item
+        # dict of log name -> log level
+        self._initial_logger_levels = {}  # type: Dict[Optional[str], int]
+
+    def _finalize(self) -> None:
+        """Finalizes the fixture.
+
+        This restores the log levels changed by :meth:`set_level`.
+        """
+        # restore log levels
+        for logger_name, level in self._initial_logger_levels.items():
+            logger = logging.getLogger(logger_name)
+            logger.setLevel(level)
+
+    @property
+    def handler(self) -> LogCaptureHandler:
+        """
+        :rtype: LogCaptureHandler
+        """
+        return self._item._store[caplog_handler_key]
+
+    def get_records(self, when: str) -> List[logging.LogRecord]:
+        """
+        Get the logging records for one of the possible test phases.
+
+        :param str when:
+            Which test phase to obtain the records from. Valid values are: "setup", "call" and "teardown".
+
+        :rtype: List[logging.LogRecord]
+        :return: the list of captured records at the given stage
+
+        .. versionadded:: 3.4
+        """
+        return self._item._store[caplog_records_key].get(when, [])
+
+    @property
+    def text(self) -> str:
+        """Returns the formatted log text."""
+        return _remove_ansi_escape_sequences(self.handler.stream.getvalue())
+
+    @property
+    def records(self) -> List[logging.LogRecord]:
+        """Returns the list of log records."""
+        return self.handler.records
+
+    @property
+    def record_tuples(self) -> List[Tuple[str, int, str]]:
+        """Returns a list of a stripped down version of log records intended
+        for use in assertion comparison.
+
+        The format of the tuple is:
+
+            (logger_name, log_level, message)
+        """
+        return [(r.name, r.levelno, r.getMessage()) for r in self.records]
+
+    @property
+    def messages(self) -> List[str]:
+        """Returns a list of format-interpolated log messages.
+
+        Unlike 'records', which contains the format string and parameters for interpolation, log messages in this list
+        are all interpolated.
+        Unlike 'text', which contains the output from the handler, log messages in this list are unadorned with
+        levels, timestamps, etc, making exact comparisons more reliable.
+
+        Note that traceback or stack info (from :func:`logging.exception` or the `exc_info` or `stack_info` arguments
+        to the logging functions) is not included, as this is added by the formatter in the handler.
+
+        .. versionadded:: 3.7
+        """
+        return [r.getMessage() for r in self.records]
+
+    def clear(self) -> None:
+        """Reset the list of log records and the captured log text."""
+        self.handler.reset()
+
+    def set_level(self, level: Union[int, str], logger: Optional[str] = None) -> None:
+        """Sets the level for capturing of logs. The level will be restored to its previous value at the end of
+        the test.
+
+        :param int level: the logger to level.
+        :param str logger: the logger to update the level. If not given, the root logger level is updated.
+
+        .. versionchanged:: 3.4
+            The levels of the loggers changed by this function will be restored to their initial values at the
+            end of the test.
+        """
+        logger_obj = logging.getLogger(logger)
+        # save the original log-level to restore it during teardown
+        self._initial_logger_levels.setdefault(logger, logger_obj.level)
+        logger_obj.setLevel(level)
+        self.handler.setLevel(level)
+
+    @contextmanager
+    def at_level(
+        self, level: int, logger: Optional[str] = None
+    ) -> Generator[None, None, None]:
+        """Context manager that sets the level for capturing of logs. After the end of the 'with' statement the
+        level is restored to its original value.
+
+        :param int level: the logger to level.
+        :param str logger: the logger to update the level. If not given, the root logger level is updated.
+        """
+        logger_obj = logging.getLogger(logger)
+        orig_level = logger_obj.level
+        logger_obj.setLevel(level)
+        handler_orig_level = self.handler.level
+        self.handler.setLevel(level)
+        try:
+            yield
+        finally:
+            logger_obj.setLevel(orig_level)
+            self.handler.setLevel(handler_orig_level)
+
+
+@pytest.fixture
+def caplog(request: FixtureRequest) -> Generator[LogCaptureFixture, None, None]:
+    """Access and control log capturing.
+
+    Captured logs are available through the following properties/methods::
+
+    * caplog.messages        -> list of format-interpolated log messages
+    * caplog.text            -> string containing formatted log output
+    * caplog.records         -> list of logging.LogRecord instances
+    * caplog.record_tuples   -> list of (logger_name, level, message) tuples
+    * caplog.clear()         -> clear captured records and formatted log output string
+    """
+    result = LogCaptureFixture(request.node)
+    yield result
+    result._finalize()
+
+
+def get_log_level_for_setting(config: Config, *setting_names: str) -> Optional[int]:
+    for setting_name in setting_names:
+        log_level = config.getoption(setting_name)
+        if log_level is None:
+            log_level = config.getini(setting_name)
+        if log_level:
+            break
+    else:
+        return None
+
+    if isinstance(log_level, str):
+        log_level = log_level.upper()
+    try:
+
+--- test files ---
+testing/test_resultlog.py
+
+--- caplog tests ---
+testing/python/fixtures.py:704:            def test_finalizer_ran():
+testing/python/fixtures.py:2187:    def test_scope_module_and_finalizer(self, testdir):
+testing/python/fixtures.py:2686:    def test_fixture_finalizer(self, testdir):
+testing/python/fixtures.py:2702:        b.join("test_overridden_fixture_finalizer.py").write(
+testing/python/fixtures.py:2793:    def test_parametrize_function_scoped_finalizers_called(self, testdir):
+testing/python/fixtures.py:2818:    def test_finalizer_order_on_parametrization(self, scope, testdir):
+testing/python/fixtures.py:3090:    def test_issue498_fixture_finalizer_failing(self, testdir):
+testing/python/fixtures.py:3723:def test_pytest_fixture_setup_and_post_finalizer_hook(testdir):
+testing/python/fixtures.py:3728:        def pytest_fixture_post_finalizer(fixturedef, request):
+testing/python/fixtures.py:3737:            def pytest_fixture_post_finalizer(fixturedef, request):
+testing/logging/test_fixture.py:16:    caplog.set_level(logging.INFO)
+testing/logging/test_fixture.py:20:    caplog.set_level(logging.CRITICAL, logger=sublogger.name)
+testing/logging/test_fixture.py:31:    """Ensure that 'set_level' is undone after the end of the test"""
+testing/logging/test_fixture.py:37:            caplog.set_level(logging.INFO)
+testing/logging/test_fixture.py:69:    caplog.set_level(logging.INFO)
+testing/logging/test_fixture.py:77:    caplog.set_level(logging.INFO)
+testing/logging/test_fixture.py:98:    caplog.set_level(logging.INFO)
+testing/logging/test_fixture.py:105:    caplog.set_level(logging.INFO)
+testing/logging/test_fixture.py:113:    caplog.set_level(logging.INFO)
+testing/logging/test_fixture.py:124:    caplog.set_level("INFO")
+testing/logging/test_fixture.py:182:            caplog.set_level(logging.INFO, logger.name)
+
+Budget: 1772.4s, 497 decisions remaining.

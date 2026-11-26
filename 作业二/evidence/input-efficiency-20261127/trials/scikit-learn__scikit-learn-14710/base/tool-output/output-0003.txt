@@ -1,0 +1,350 @@
+--- fit setup ---
+    85	
+    86	        Parameters
+    87	        ----------
+    88	        X : array-like, shape=(n_samples, n_features)
+    89	            The input samples.
+    90	
+    91	        y : array-like, shape=(n_samples,)
+    92	            Target values.
+    93	
+    94	        Returns
+    95	        -------
+    96	        self : object
+    97	        """
+    98	        fit_start_time = time()
+    99	        acc_find_split_time = 0.  # time spent finding the best splits
+   100	        acc_apply_split_time = 0.  # time spent splitting nodes
+   101	        acc_compute_hist_time = 0.  # time spent computing histograms
+   102	        # time spent predicting X for gradient and hessians update
+   103	        acc_prediction_time = 0.
+   104	        X, y = check_X_y(X, y, dtype=[X_DTYPE], force_all_finite=False)
+   105	        y = self._encode_y(y)
+   106	
+   107	        # The rng state must be preserved if warm_start is True
+   108	        if (self.warm_start and hasattr(self, '_rng')):
+   109	            rng = self._rng
+   110	        else:
+   111	            rng = check_random_state(self.random_state)
+   112	            self._rng = rng
+   113	
+   114	        self._validate_parameters()
+   115	        self.n_features_ = X.shape[1]  # used for validation in predict()
+   116	
+   117	        # we need this stateful variable to tell raw_predict() that it was
+   118	        # called from fit() (this current method), and that the data it has
+   119	        # received is pre-binned.
+   120	        # predicting is faster on pre-binned data, so we want early stopping
+   121	        # predictions to be made on pre-binned data. Unfortunately the scorer_
+   122	        # can only call predict() or predict_proba(), not raw_predict(), and
+   123	        # there's no way to tell the scorer that it needs to predict binned
+   124	        # data.
+   125	        self._in_fit = True
+   126	
+   127	        self.loss_ = self._get_loss()
+   128	
+   129	        self.do_early_stopping_ = (self.n_iter_no_change is not None and
+   130	                                   self.n_iter_no_change > 0)
+   131	
+   132	        # create validation data if needed
+   133	        self._use_validation_data = self.validation_fraction is not None
+   134	        if self.do_early_stopping_ and self._use_validation_data:
+   135	            # stratify for classification
+   136	            stratify = y if hasattr(self.loss_, 'predict_proba') else None
+   137	
+   138	            # Save the state of the RNG for the training and validation split.
+   139	            # This is needed in order to have the same split when using
+   140	            # warm starting.
+   141	            if not (self._is_fitted() and self.warm_start):
+   142	                self._train_val_split_seed = rng.randint(1024)
+   143	
+   144	            X_train, X_val, y_train, y_val = train_test_split(
+   145	                X, y, test_size=self.validation_fraction, stratify=stratify,
+   146	                random_state=self._train_val_split_seed)
+   147	        else:
+   148	            X_train, y_train = X, y
+   149	            X_val, y_val = None, None
+   150	
+   151	        has_missing_values = np.isnan(X_train).any(axis=0).astype(np.uint8)
+   152	
+   153	        # Bin the data
+   154	        # For ease of use of the API, the user-facing GBDT classes accept the
+   155	        # parameter max_bins, which doesn't take into account the bin for
+   156	        # missing values (which is always allocated). However, since max_bins
+   157	        # isn't the true maximal number of bins, all other private classes
+   158	        # (binmapper, histbuilder...) accept n_bins instead, which is the
+   159	        # actual total number of bins. Everywhere in the code, the
+   160	        # convention is that n_bins == max_bins + 1
+   161	        n_bins = self.max_bins + 1  # + 1 for missing values
+   162	        self.bin_mapper_ = _BinMapper(n_bins=n_bins, random_state=rng)
+   163	        X_binned_train = self._bin_data(X_train, rng, is_training_data=True)
+   164	        if X_val is not None:
+   165	            X_binned_val = self._bin_data(X_val, rng, is_training_data=False)
+   166	        else:
+   167	            X_binned_val = None
+   168	
+   169	        if self.verbose:
+   170	            print("Fitting gradient boosted rounds:")
+   171	
+   172	        n_samples = X_binned_train.shape[0]
+   173	
+   174	        # First time calling fit, or no warm start
+   175	        if not (self._is_fitted() and self.warm_start):
+   176	            # Clear random state and score attributes
+   177	            self._clear_state()
+   178	
+   179	            # initialize raw_predictions: those are the accumulated values
+   180	            # predicted by the trees for the training data. raw_predictions has
+--- scorer helper ---
+   375	            n_predictors = sum(
+   376	                len(predictors_at_ith_iteration)
+   377	                for predictors_at_ith_iteration in self._predictors)
+   378	            print("Fit {} trees in {:.3f} s, ({} total leaves)".format(
+   379	                n_predictors, duration, n_total_leaves))
+   380	            print("{:<32} {:.3f}s".format('Time spent computing histograms:',
+   381	                                          acc_compute_hist_time))
+   382	            print("{:<32} {:.3f}s".format('Time spent finding best splits:',
+   383	                                          acc_find_split_time))
+   384	            print("{:<32} {:.3f}s".format('Time spent applying splits:',
+   385	                                          acc_apply_split_time))
+   386	            print("{:<32} {:.3f}s".format('Time spent predicting:',
+   387	                                          acc_prediction_time))
+   388	
+   389	        self.train_score_ = np.asarray(self.train_score_)
+   390	        self.validation_score_ = np.asarray(self.validation_score_)
+   391	        del self._in_fit  # hard delete so we're sure it can't be used anymore
+   392	        return self
+   393	
+   394	    def _is_fitted(self):
+   395	        return len(getattr(self, '_predictors', [])) > 0
+   396	
+   397	    def _clear_state(self):
+   398	        """Clear the state of the gradient boosting model."""
+   399	        for var in ('train_score_', 'validation_score_', '_rng'):
+   400	            if hasattr(self, var):
+   401	                delattr(self, var)
+   402	
+   403	    def _get_small_trainset(self, X_binned_train, y_train, seed):
+   404	        """Compute the indices of the subsample set and return this set.
+   405	
+   406	        For efficiency, we need to subsample the training set to compute scores
+   407	        with scorers.
+   408	        """
+   409	        subsample_size = 10000
+   410	        if X_binned_train.shape[0] > subsample_size:
+   411	            indices = np.arange(X_binned_train.shape[0])
+   412	            stratify = y_train if is_classifier(self) else None
+   413	            indices = resample(indices, n_samples=subsample_size,
+   414	                               replace=False, random_state=seed,
+   415	                               stratify=stratify)
+   416	            X_binned_small_train = X_binned_train[indices]
+   417	            y_small_train = y_train[indices]
+   418	            X_binned_small_train = np.ascontiguousarray(X_binned_small_train)
+   419	            return X_binned_small_train, y_small_train
+   420	        else:
+   421	            return X_binned_train, y_train
+   422	
+   423	    def _check_early_stopping_scorer(self, X_binned_small_train, y_small_train,
+   424	                                     X_binned_val, y_val):
+   425	        """Check if fitting should be early-stopped based on scorer.
+   426	
+   427	        Scores are computed on validation data or on training data.
+   428	        """
+   429	        self.train_score_.append(
+   430	            self.scorer_(self, X_binned_small_train, y_small_train)
+   431	        )
+   432	
+   433	        if self._use_validation_data:
+   434	            self.validation_score_.append(
+   435	                self.scorer_(self, X_binned_val, y_val)
+   436	            )
+   437	            return self._should_stop(self.validation_score_)
+   438	        else:
+   439	            return self._should_stop(self.train_score_)
+   440	
+   441	    def _check_early_stopping_loss(self,
+   442	                                   raw_predictions,
+   443	                                   y_train,
+   444	                                   raw_predictions_val,
+   445	                                   y_val):
+--- base _encode_y ---
+   615	                                                     averaged_predictions[k])
+   616	        # Note that the learning rate is already accounted for in the leaves
+   617	        # values.
+   618	
+   619	        return averaged_predictions
+   620	
+   621	    def _more_tags(self):
+   622	        return {'allow_nan': True}
+   623	
+   624	    @abstractmethod
+   625	    def _get_loss(self):
+   626	        pass
+   627	
+   628	    @abstractmethod
+   629	    def _encode_y(self, y=None):
+   630	        pass
+   631	
+   632	    @property
+   633	    def n_iter_(self):
+   634	        check_is_fitted(self)
+   635	        return len(self._predictors)
+   636	
+   637	
+   638	class HistGradientBoostingRegressor(BaseHistGradientBoosting, RegressorMixin):
+   639	    """Histogram-based Gradient Boosting Regression Tree.
+   640	
+   641	    This estimator is much faster than
+   642	    :class:`GradientBoostingRegressor<sklearn.ensemble.GradientBoostingRegressor>`
+   643	    for big datasets (n_samples >= 10 000).
+   644	
+   645	    This estimator has native support for missing values (NaNs). During
+   646	    training, the tree grower learns at each split point whether samples
+   647	    with missing values should go to the left or right child, based on the
+   648	    potential gain. When predicting, samples with missing values are
+   649	    assigned to the left or right child consequently. If no missing values
+   650	    were encountered for a given feature during training, then samples with
+--- regressor/classifier relevant methods ---
+   790	        Parameters
+   791	        ----------
+   792	        X : array-like, shape (n_samples, n_features)
+   793	            The input samples.
+   794	
+   795	        Returns
+   796	        -------
+   797	        y : ndarray, shape (n_samples,)
+   798	            The predicted values.
+   799	        """
+   800	        # Return raw predictions after converting shape
+   801	        # (n_samples, 1) to (n_samples,)
+   802	        return self._raw_predict(X).ravel()
+   803	
+   804	    def _encode_y(self, y):
+   805	        # Just convert y to the expected dtype
+   806	        self.n_trees_per_iteration_ = 1
+   807	        y = y.astype(Y_DTYPE, copy=False)
+   808	        return y
+   809	
+   810	    def _get_loss(self):
+   811	        return _LOSSES[self.loss]()
+   812	
+   813	
+   814	class HistGradientBoostingClassifier(BaseHistGradientBoosting,
+   815	                                     ClassifierMixin):
+   816	    """Histogram-based Gradient Boosting Classification Tree.
+   817	
+   818	    This estimator is much faster than
+   819	    :class:`GradientBoostingClassifier<sklearn.ensemble.GradientBoostingClassifier>`
+   820	    for big datasets (n_samples >= 10 000).
+   821	
+   822	    This estimator has native support for missing values (NaNs). During
+   823	    training, the tree grower learns at each split point whether samples
+   824	    with missing values should go to the left or right child, based on the
+   825	    potential gain. When predicting, samples with missing values are
+   826	    assigned to the left or right child consequently. If no missing values
+   827	    were encountered for a given feature during training, then samples with
+   828	    missing values are mapped to whichever child has the most samples.
+   829	
+   830	    This implementation is inspired by
+   831	    `LightGBM <https://github.com/Microsoft/LightGBM>`_.
+   832	
+   833	    .. note::
+   834	
+   835	      This estimator is still **experimental** for now: the predictions
+   836	      and the API might change without any deprecation cycle. To use it,
+   837	      you need to explicitly import ``enable_hist_gradient_boosting``::
+   838	
+   839	        >>> # explicitly require this experimental feature
+   840	        >>> from sklearn.experimental import enable_hist_gradient_boosting  # noqa
+   955	                 l2_regularization=0., max_bins=255, warm_start=False,
+   956	                 scoring=None, validation_fraction=0.1, n_iter_no_change=None,
+   957	                 tol=1e-7, verbose=0, random_state=None):
+   958	        super(HistGradientBoostingClassifier, self).__init__(
+   959	            loss=loss, learning_rate=learning_rate, max_iter=max_iter,
+   960	            max_leaf_nodes=max_leaf_nodes, max_depth=max_depth,
+   961	            min_samples_leaf=min_samples_leaf,
+   962	            l2_regularization=l2_regularization, max_bins=max_bins,
+   963	            warm_start=warm_start, scoring=scoring,
+   964	            validation_fraction=validation_fraction,
+   965	            n_iter_no_change=n_iter_no_change, tol=tol, verbose=verbose,
+   966	            random_state=random_state)
+   967	
+   968	    def predict(self, X):
+   969	        """Predict classes for X.
+   970	
+   971	        Parameters
+   972	        ----------
+   973	        X : array-like, shape (n_samples, n_features)
+   974	            The input samples.
+   975	
+   976	        Returns
+   977	        -------
+   978	        y : ndarray, shape (n_samples,)
+   979	            The predicted classes.
+   980	        """
+   981	        # TODO: This could be done in parallel
+   982	        encoded_classes = np.argmax(self.predict_proba(X), axis=1)
+   983	        return self.classes_[encoded_classes]
+   984	
+   985	    def predict_proba(self, X):
+   986	        """Predict class probabilities for X.
+   987	
+   988	        Parameters
+   989	        ----------
+   990	        X : array-like, shape (n_samples, n_features)
+   991	            The input samples.
+   992	
+   993	        Returns
+   994	        -------
+   995	        p : ndarray, shape (n_samples, n_classes)
+   996	            The class probabilities of the input samples.
+   997	        """
+   998	        raw_predictions = self._raw_predict(X)
+   999	        return self.loss_.predict_proba(raw_predictions)
+  1000	
+  1001	    def decision_function(self, X):
+  1002	        """Compute the decision function of X.
+  1003	
+  1004	        Parameters
+  1005	        ----------
+  1006	        X : array-like, shape (n_samples, n_features)
+  1007	            The input samples.
+  1008	
+  1009	        Returns
+  1010	        -------
+  1011	        decision : ndarray, shape (n_samples,) or \
+  1012	                (n_samples, n_trees_per_iteration)
+  1013	            The raw predicted values (i.e. the sum of the trees leaves) for
+  1014	            each sample. n_trees_per_iteration is equal to the number of
+  1015	            classes in multiclass classification.
+  1016	        """
+  1017	        decision = self._raw_predict(X)
+  1018	        if decision.shape[0] == 1:
+  1019	            decision = decision.ravel()
+  1020	        return decision.T
+  1021	
+  1022	    def _encode_y(self, y):
+  1023	        # encode classes into 0 ... n_classes - 1 and sets attributes classes_
+  1024	        # and n_trees_per_iteration_
+  1025	        check_classification_targets(y)
+  1026	
+  1027	        label_encoder = LabelEncoder()
+  1028	        encoded_y = label_encoder.fit_transform(y)
+  1029	        self.classes_ = label_encoder.classes_
+  1030	        n_classes = self.classes_.shape[0]
+  1031	        # only 1 tree for binary classification. For multiclass classification,
+  1032	        # we build 1 tree per class.
+  1033	        self.n_trees_per_iteration_ = 1 if n_classes <= 2 else n_classes
+  1034	        encoded_y = encoded_y.astype(Y_DTYPE, copy=False)
+  1035	        return encoded_y
+  1036	
+  1037	    def _get_loss(self):
+  1038	        if self.loss == 'auto':
+  1039	            if self.n_trees_per_iteration_ == 1:
+  1040	                return _LOSSES['binary_crossentropy']()
+  1041	            else:
+  1042	                return _LOSSES['categorical_crossentropy']()
+  1043	
+  1044	        return _LOSSES[self.loss]()
+
+Budget: 1775.1s, 497 decisions remaining.

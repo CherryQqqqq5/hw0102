@@ -1,0 +1,22 @@
+{
+  "stage": "frozen",
+  "revisions": {
+    "swe": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+    "terminal": "7131e4375048a0e408a8fb404b5f499d726b695b",
+    "aider": "7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"
+  },
+  "selected": [
+    {
+      "benchmark": "swe",
+      "id": "django__django-14170",
+      "stratum": "django/django",
+      "group": "django__django-14170",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.django_1776_django-14170:latest",
+      "base_commit": "6efc35b4fe3009666e56a60af0675d7d532bf4ff",
+      "exclude": null
+    }
+  ],
+  "original_image_id": "sha256:d10fbbbb16acdfa184b9e4c8292ca40becd40099afba97a19665384d4ea5d751",
+  "original_manifest_digest": "sha256:d10fbbbb16acdfa184b9e4c8292ca40becd40099afba97a19665384d4ea5d751"
+}

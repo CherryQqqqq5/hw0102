@@ -1,0 +1,96 @@
+2026-11-27 01:48:08,631 - INFO - Creating container for pytest-dev__pytest-7571...
+2026-11-27 01:48:08,967 - INFO - Container for pytest-dev__pytest-7571 created: ecf430a3c7ba61abdc9c91326f5562df55c4c701c35cf97304e82037d63c048e
+2026-11-27 01:48:10,174 - INFO - Container for pytest-dev__pytest-7571 started: ecf430a3c7ba61abdc9c91326f5562df55c4c701c35cf97304e82037d63c048e
+2026-11-27 01:48:10,180 - INFO - Intermediate patch for pytest-dev__pytest-7571 written to [project]/work/input-efficiency-20261126/trials/pytest-dev__pytest-7571/base/swe-official/base/course-mini-swe-agent/pytest-dev__pytest-7571/patch.diff, now applying to container...
+2026-11-27 01:48:11,154 - INFO - >>>>> Applied Patch:
+Checking patch .course-public-check/check.py...
+Checking patch src/_pytest/logging.py...
+Applied patch .course-public-check/check.py cleanly.
+Applied patch src/_pytest/logging.py cleanly.
+
+2026-11-27 01:48:12,307 - INFO - Git diff before:
+diff --git a/src/_pytest/logging.py b/src/_pytest/logging.py
+index 11031f2f2..2ce6f4c30 100644
+--- a/src/_pytest/logging.py
++++ b/src/_pytest/logging.py
+@@ -346,6 +346,13 @@ class LogCaptureFixture:
+         self._item = item
+         # dict of log name -> log level
+         self._initial_logger_levels = {}  # type: Dict[Optional[str], int]
++        # The caplog handler is shared between tests, so remember its level
++        # before ``set_level`` can change it. Fall back to recording it when
++        # ``set_level`` is first called if the handler is not available yet.
++        try:
++            self._initial_level = self.handler.level  # type: Optional[int]
++        except KeyError:
++            self._initial_level = None
+ 
+     def _finalize(self) -> None:
+         """Finalizes the fixture.
+@@ -357,6 +364,9 @@ class LogCaptureFixture:
+             logger = logging.getLogger(logger_name)
+             logger.setLevel(level)
+ 
++        if self._initial_level is not None:
++            self.handler.setLevel(self._initial_level)
++
+     @property
+     def handler(self) -> LogCaptureHandler:
+         """
+@@ -434,6 +444,8 @@ class LogCaptureFixture:
+         # save the original log-level to restore it during teardown
+         self._initial_logger_levels.setdefault(logger, logger_obj.level)
+         logger_obj.setLevel(level)
++        if self._initial_level is None:
++            self._initial_level = self.handler.level
+         self.handler.setLevel(level)
+ 
+     @contextmanager
+2026-11-27 01:48:12,313 - INFO - Eval script for pytest-dev__pytest-7571 written to [project]/work/input-efficiency-20261126/trials/pytest-dev__pytest-7571/base/swe-official/base/course-mini-swe-agent/pytest-dev__pytest-7571/eval.sh; copying to container...
+2026-11-27 01:48:47,607 - INFO - Test runtime: 34.82 seconds
+2026-11-27 01:48:47,615 - INFO - Test output for pytest-dev__pytest-7571 written to [project]/work/input-efficiency-20261126/trials/pytest-dev__pytest-7571/base/swe-official/base/course-mini-swe-agent/pytest-dev__pytest-7571/test_output.txt
+2026-11-27 01:48:48,164 - INFO - Git diff after:
+diff --git a/src/_pytest/logging.py b/src/_pytest/logging.py
+index 11031f2f2..2ce6f4c30 100644
+--- a/src/_pytest/logging.py
++++ b/src/_pytest/logging.py
+@@ -346,6 +346,13 @@ class LogCaptureFixture:
+         self._item = item
+         # dict of log name -> log level
+         self._initial_logger_levels = {}  # type: Dict[Optional[str], int]
++        # The caplog handler is shared between tests, so remember its level
++        # before ``set_level`` can change it. Fall back to recording it when
++        # ``set_level`` is first called if the handler is not available yet.
++        try:
++            self._initial_level = self.handler.level  # type: Optional[int]
++        except KeyError:
++            self._initial_level = None
+ 
+     def _finalize(self) -> None:
+         """Finalizes the fixture.
+@@ -357,6 +364,9 @@ class LogCaptureFixture:
+             logger = logging.getLogger(logger_name)
+             logger.setLevel(level)
+ 
++        if self._initial_level is not None:
++            self.handler.setLevel(self._initial_level)
++
+     @property
+     def handler(self) -> LogCaptureHandler:
+         """
+@@ -434,6 +444,8 @@ class LogCaptureFixture:
+         # save the original log-level to restore it during teardown
+         self._initial_logger_levels.setdefault(logger, logger_obj.level)
+         logger_obj.setLevel(level)
++        if self._initial_level is None:
++            self._initial_level = self.handler.level
+         self.handler.setLevel(level)
+ 
+     @contextmanager
+2026-11-27 01:48:48,164 - INFO - Grading answer for pytest-dev__pytest-7571...
+2026-11-27 01:48:48,167 - INFO - report: {'pytest-dev__pytest-7571': {'patch_is_None': False, 'patch_exists': True, 'patch_successfully_applied': True, 'resolved': True, 'infra_failure': False, 'tests_status': {'FAIL_TO_PASS': {'success': ['testing/logging/test_fixture.py::test_change_level_undos_handler_level'], 'failure': []}, 'PASS_TO_PASS': {'success': ['testing/logging/test_fixture.py::test_change_level', 'testing/logging/test_fixture.py::test_with_statement', 'testing/logging/test_fixture.py::test_log_access', 'testing/logging/test_fixture.py::test_messages', 'testing/logging/test_fixture.py::test_record_tuples', 'testing/logging/test_fixture.py::test_unicode', 'testing/logging/test_fixture.py::test_clear', 'testing/logging/test_fixture.py::test_caplog_captures_for_all_stages', 'testing/logging/test_fixture.py::test_fixture_help', 'testing/logging/test_fixture.py::test_change_level_undo', 'testing/logging/test_fixture.py::test_ini_controls_global_log_level', 'testing/logging/test_fixture.py::test_caplog_can_override_global_log_level', 'testing/logging/test_fixture.py::test_caplog_captures_despite_exception', 'testing/logging/test_fixture.py::test_log_report_captures_according_to_config_option_upon_failure'], 'failure': []}, 'FAIL_TO_FAIL': {'success': [], 'failure': []}, 'PASS_TO_FAIL': {'success': [], 'failure': []}}}}
+Result for pytest-dev__pytest-7571: resolved: True
+2026-11-27 01:48:48,172 - INFO - Attempting to stop container sweb.eval.pytest-dev__pytest-7571.base...
+2026-11-27 01:49:03,913 - INFO - Container sweb.eval.pytest-dev__pytest-7571.base stopped successfully.
+2026-11-27 01:49:03,913 - INFO - Attempting to remove container sweb.eval.pytest-dev__pytest-7571.base...
+2026-11-27 01:49:04,115 - INFO - Container sweb.eval.pytest-dev__pytest-7571.base removed successfully.

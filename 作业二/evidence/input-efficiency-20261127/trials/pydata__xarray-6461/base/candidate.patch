@@ -1,0 +1,157 @@
+diff --git a/.course-public-check/check.py b/.course-public-check/check.py
+new file mode 100755
+index 00000000..a958d4be
+--- /dev/null
++++ b/.course-public-check/check.py
+@@ -0,0 +1,97 @@
++#!/usr/bin/env python3
++"""Reproducer and regression checks for xr.where(..., keep_attrs=True)."""
++from __future__ import annotations
++
++import os
++import sys
++
++try:
++    import numpy as np
++except ImportError:
++    # The benchmark image keeps scientific dependencies in a dedicated env.
++    candidate = "/opt/miniconda3/envs/testbed/bin/python"
++    if os.path.exists(candidate) and os.path.realpath(candidate) != os.path.realpath(sys.executable):
++        os.execv(candidate, [candidate, os.path.abspath(__file__), *sys.argv[1:]])
++    raise
++
++REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
++if REPO_ROOT not in sys.path:
++    sys.path.insert(0, REPO_ROOT)
++
++import xarray as xr  # noqa: E402
++
++
++def check_reported_case() -> None:
++    cond = xr.DataArray([1, 2, 3]) > 0
++    actual = xr.where(cond, 1, 0, keep_attrs=True)
++    expected = xr.DataArray([1, 1, 1])
++    xr.testing.assert_identical(expected, actual)
++
++
++def check_global_option_case() -> None:
++    cond = xr.DataArray([1, 2, 3]) > 0
++    with xr.set_options(keep_attrs=True):
++        actual = xr.where(cond, 1, 0)
++    expected = xr.DataArray([1, 1, 1])
++    xr.testing.assert_identical(expected, actual)
++
++
++def check_scalar_x_has_no_attrs_to_keep() -> None:
++    cond = xr.DataArray([True, False], dims="x")
++    y = xr.DataArray([0, 9], dims="x", attrs={"source": "y"})
++    actual = xr.where(cond, 1, y, keep_attrs=True)
++    assert actual.attrs == {}, actual.attrs
++    np.testing.assert_array_equal(actual.values, [1, 9])
++
++
++def check_array_x_attrs_are_kept() -> None:
++    cond = xr.DataArray([True, False], dims="x", attrs={"source": "cond"})
++    x = xr.DataArray([1, 2], dims="x", attrs={"source": "x"})
++    y = xr.DataArray([0, 9], dims="x", attrs={"source": "y"})
++    actual = xr.where(cond, x, y, keep_attrs=True)
++    assert actual.attrs == {"source": "x"}, actual.attrs
++    np.testing.assert_array_equal(actual.values, [1, 9])
++
++
++def check_scalar_cond_keeps_x_attrs() -> None:
++    x = xr.DataArray([1, 2], dims="x", attrs={"source": "x"})
++    y = xr.DataArray([0, 9], dims="x", attrs={"source": "y"})
++    actual = xr.where(True, x, y, keep_attrs=True)
++    assert actual.attrs == {"source": "x"}, actual.attrs
++    np.testing.assert_array_equal(actual.values, [1, 2])
++
++
++def check_dataset_scalar() -> None:
++    cond = xr.DataArray([True, False], dims="x")
++    y = xr.Dataset({"a": ("x", [0, 9])}, attrs={"source": "y"})
++    actual = xr.where(cond, 1, y, keep_attrs=True)
++    assert actual.attrs == {}, actual.attrs
++    np.testing.assert_array_equal(actual["a"].values, [1, 9])
++
++
++def check_existing_regression() -> None:
++    cond = xr.DataArray([True, False], dims="x", attrs={"attr": "cond"})
++    x = xr.DataArray([1, 2], dims="x", attrs={"attr": "x"})
++    y = xr.DataArray([0, 0], dims="x", attrs={"attr": "y"})
++    actual = xr.where(cond, x, y, keep_attrs=True)
++    expected = xr.DataArray([1, 0], dims="x", attrs={"attr": "x"})
++    xr.testing.assert_identical(expected, actual)
++
++
++def main() -> None:
++    checks = [
++        check_reported_case,
++        check_global_option_case,
++        check_scalar_x_has_no_attrs_to_keep,
++        check_array_x_attrs_are_kept,
++        check_scalar_cond_keeps_x_attrs,
++        check_dataset_scalar,
++        check_existing_regression,
++    ]
++    for check in checks:
++        check()
++        print(f"PASS {check.__name__}")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/xarray/core/computation.py b/xarray/core/computation.py
+index 7676d8e5..99becc62 100644
+--- a/xarray/core/computation.py
++++ b/xarray/core/computation.py
+@@ -1826,13 +1826,32 @@ def where(cond, x, y, keep_attrs=None):
+     if keep_attrs is None:
+         keep_attrs = _get_keep_attrs(default=False)
+ 
+-    if keep_attrs is True:
+-        # keep the attributes of x, the second parameter, by default to
+-        # be consistent with the `where` method of `DataArray` and `Dataset`
+-        keep_attrs = lambda attrs, context: attrs[1]
++    keep_x_attrs = keep_attrs is True
++    x_attrs = getattr(x, "attrs", None)
++    if keep_x_attrs:
++        # Keep the attributes of `x`, the second parameter, by default to
++        # be consistent with the `where` method of `DataArray` and `Dataset`.
++        # Scalars have no attributes and are omitted from the list of attrs
++        # passed to a callable `keep_attrs`, so find `x` by identity and use
++        # its position only as a fallback for merged coordinate attrs.
++        if hasattr(x, "coords"):
++            # Coordinates are merged in argument order, including Datasets.
++            x_index = sum(hasattr(arg, "coords") for arg in (cond,))
++        else:
++            x_index = sum(isinstance(arg, Variable) for arg in (cond,))
++
++        def keep_attrs(attrs, context):
++            if x_attrs is None:
++                return {}
++            for candidate in attrs:
++                if candidate is x_attrs:
++                    return candidate
++            if len(attrs) > x_index:
++                return attrs[x_index]
++            return {}
+ 
+     # alignment for three arguments is complicated, so don't support it yet
+-    return apply_ufunc(
++    result = apply_ufunc(
+         duck_array_ops.where,
+         cond,
+         x,
+@@ -1843,6 +1862,11 @@ def where(cond, x, y, keep_attrs=None):
+         keep_attrs=keep_attrs,
+     )
+ 
++    if keep_x_attrs and hasattr(result, "attrs"):
++        result.attrs = {} if x_attrs is None else dict(x_attrs)
++
++    return result
++
+ 
+ def polyval(coord, coeffs, degree_dim="degree"):
+     """Evaluate a polynomial at specific values

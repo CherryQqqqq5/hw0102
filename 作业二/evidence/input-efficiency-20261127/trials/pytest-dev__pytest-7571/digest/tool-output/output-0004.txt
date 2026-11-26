@@ -1,0 +1,224 @@
+        self.stream = StringIO()
+
+    def handleError(self, record: logging.LogRecord) -> None:
+        if logging.raiseExceptions:
+            # Fail the test if the log message is bad (emit failed).
+            # The default behavior of logging is to print "Logging error"
+            # to stderr with the call stack and some extra details.
+            # pytest wants to make such mistakes visible during testing.
+            raise
+
+
+class LogCaptureFixture:
+    """Provides access and control of log capturing."""
+
+    def __init__(self, item: nodes.Node) -> None:
+        """Creates a new funcarg."""
+        self._item = item
+        # dict of log name -> log level
+        self._initial_logger_levels = {}  # type: Dict[Optional[str], int]
+
+    def _finalize(self) -> None:
+        """Finalizes the fixture.
+
+        This restores the log levels changed by :meth:`set_level`.
+        """
+        # restore log levels
+        for logger_name, level in self._initial_logger_levels.items():
+            logger = logging.getLogger(logger_name)
+            logger.setLevel(level)
+
+    @property
+    def handler(self) -> LogCaptureHandler:
+        """
+        :rtype: LogCaptureHandler
+        """
+        return self._item._store[caplog_handler_key]
+
+    def get_records(self, when: str) -> List[logging.LogRecord]:
+        """
+        Get the logging records for one of the possible test phases.
+
+        :param str when:
+            Which test phase to obtain the records from. Valid values are: "setup", "call" and "teardown".
+
+        :rtype: List[logging.LogRecord]
+        :return: the list of captured records at the given stage
+
+        .. versionadded:: 3.4
+        """
+        return self._item._store[caplog_records_key].get(when, [])
+
+    @property
+    def text(self) -> str:
+        """Returns the formatted log text."""
+        return _remove_ansi_escape_sequences(self.handler.stream.getvalue())
+
+    @property
+    def records(self) -> List[logging.LogRecord]:
+        """Returns the list of log records."""
+        return self.handler.records
+
+    @property
+    def record_tuples(self) -> List[Tuple[str, int, str]]:
+        """Returns a list of a stripped down version of log records intended
+        for use in assertion comparison.
+
+        The format of the tuple is:
+
+            (logger_name, log_level, message)
+        """
+        return [(r.name, r.levelno, r.getMessage()) for r in self.records]
+
+    @property
+    def messages(self) -> List[str]:
+        """Returns a list of format-interpolated log messages.
+
+        Unlike 'records', which contains the format string and parameters for interpolation, log messages in this list
+        are all interpolated.
+        Unlike 'text', which contains the output from the handler, log messages in this list are unadorned with
+        levels, timestamps, etc, making exact comparisons more reliable.
+
+        Note that traceback or stack info (from :func:`logging.exception` or the `exc_info` or `stack_info` arguments
+        to the logging functions) is not included, as this is added by the formatter in the handler.
+
+        .. versionadded:: 3.7
+        """
+        return [r.getMessage() for r in self.records]
+
+    def clear(self) -> None:
+        """Reset the list of log records and the captured log text."""
+        self.handler.reset()
+
+    def set_level(self, level: Union[int, str], logger: Optional[str] = None) -> None:
+        """Sets the level for capturing of logs. The level will be restored to its previous value at the end of
+        the test.
+
+        :param int level: the logger to level.
+        :param str logger: the logger to update the level. If not given, the root logger level is updated.
+
+        .. versionchanged:: 3.4
+            The levels of the loggers changed by this function will be restored to their initial values at the
+            end of the test.
+        """
+        logger_obj = logging.getLogger(logger)
+        # save the original log-level to restore it during teardown
+        self._initial_logger_levels.setdefault(logger, logger_obj.level)
+        logger_obj.setLevel(level)
+        self.handler.setLevel(level)
+
+    @contextmanager
+    def at_level(
+        self, level: int, logger: Optional[str] = None
+    ) -> Generator[None, None, None]:
+        """Context manager that sets the level for capturing of logs. After the end of the 'with' statement the
+        level is restored to its original value.
+
+        :param int level: the logger to level.
+        :param str logger: the logger to update the level. If not given, the root logger level is updated.
+        """
+        logger_obj = logging.getLogger(logger)
+        orig_level = logger_obj.level
+
+=== fixture ===
+            yield
+        finally:
+            logger_obj.setLevel(orig_level)
+            self.handler.setLevel(handler_orig_level)
+
+
+@pytest.fixture
+def caplog(request: FixtureRequest) -> Generator[LogCaptureFixture, None, None]:
+    """Access and control log capturing.
+
+    Captured logs are available through the following properties/methods::
+
+    * caplog.messages        -> list of format-interpolated log messages
+    * caplog.text            -> string containing formatted log output
+    * caplog.records         -> list of logging.LogRecord instances
+    * caplog.record_tuples   -> list of (logger_name, level, message) tuples
+    * caplog.clear()         -> clear captured records and formatted log output string
+    """
+    result = LogCaptureFixture(request.node)
+    yield result
+    result._finalize()
+
+
+def get_log_level_for_setting(config: Config, *setting_names: str) -> Optional[int]:
+    for setting_name in setting_names:
+        log_level = config.getoption(setting_name)
+        if log_level is None:
+            log_level = config.getini(setting_name)
+        if log_level:
+            break
+    else:
+
+=== pytest_runtest teardown ===
+    def pytest_runtestloop(self, session: Session) -> Generator[None, None, None]:
+        """Runs all collected test items."""
+
+        if session.config.option.collectonly:
+            yield
+            return
+
+        if self._log_cli_enabled() and self._config.getoption("verbose") < 1:
+            # setting verbose flag is needed to avoid messy test progress output
+            self._config.option.verbose = 1
+
+        with catching_logs(self.log_cli_handler, level=self.log_cli_level):
+            with catching_logs(self.log_file_handler, level=self.log_file_level):
+                yield  # run all the tests
+
+    @pytest.hookimpl
+    def pytest_runtest_logstart(self) -> None:
+        self.log_cli_handler.reset()
+        self.log_cli_handler.set_when("start")
+
+    @pytest.hookimpl
+    def pytest_runtest_logreport(self) -> None:
+        self.log_cli_handler.set_when("logreport")
+
+    def _runtest_for(self, item: nodes.Item, when: str) -> Generator[None, None, None]:
+        """Implements the internals of pytest_runtest_xxx() hook."""
+        with catching_logs(
+            self.caplog_handler, level=self.log_level,
+        ) as caplog_handler, catching_logs(
+            self.report_handler, level=self.log_level,
+        ) as report_handler:
+            caplog_handler.reset()
+            report_handler.reset()
+            item._store[caplog_records_key][when] = caplog_handler.records
+            item._store[caplog_handler_key] = caplog_handler
+
+            yield
+
+            log = report_handler.stream.getvalue().strip()
+            item.add_report_section(when, "log", log)
+
+    @pytest.hookimpl(hookwrapper=True)
+    def pytest_runtest_setup(self, item: nodes.Item) -> Generator[None, None, None]:
+        self.log_cli_handler.set_when("setup")
+
+        empty = {}  # type: Dict[str, List[logging.LogRecord]]
+        item._store[caplog_records_key] = empty
+        yield from self._runtest_for(item, "setup")
+
+    @pytest.hookimpl(hookwrapper=True)
+    def pytest_runtest_call(self, item: nodes.Item) -> Generator[None, None, None]:
+        self.log_cli_handler.set_when("call")
+
+        yield from self._runtest_for(item, "call")
+
+    @pytest.hookimpl(hookwrapper=True)
+    def pytest_runtest_teardown(self, item: nodes.Item) -> Generator[None, None, None]:
+        self.log_cli_handler.set_when("teardown")
+
+        yield from self._runtest_for(item, "teardown")
+        del item._store[caplog_records_key]
+        del item._store[caplog_handler_key]
+
+    @pytest.hookimpl
+    def pytest_runtest_logfinish(self) -> None:
+        self.log_cli_handler.set_when("finish")
+
+Budget: 1757.3s, 495 decisions remaining.

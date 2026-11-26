@@ -1,0 +1,312 @@
+src/_pytest/logging.py:37:caplog_handler_key = StoreKey["LogCaptureHandler"]()
+src/_pytest/logging.py:38:caplog_records_key = StoreKey[Dict[str, List[logging.LogRecord]]]()
+src/_pytest/logging.py:365:        return self._item._store[caplog_handler_key]
+src/_pytest/logging.py:379:        return self._item._store[caplog_records_key].get(when, [])
+src/_pytest/logging.py:422:    def set_level(self, level: Union[int, str], logger: Optional[str] = None) -> None:
+src/_pytest/logging.py:462:def caplog(request: FixtureRequest) -> Generator[LogCaptureFixture, None, None]:
+src/_pytest/logging.py:467:    * caplog.messages        -> list of format-interpolated log messages
+src/_pytest/logging.py:468:    * caplog.text            -> string containing formatted log output
+src/_pytest/logging.py:469:    * caplog.records         -> list of logging.LogRecord instances
+src/_pytest/logging.py:470:    * caplog.record_tuples   -> list of (logger_name, level, message) tuples
+src/_pytest/logging.py:471:    * caplog.clear()         -> clear captured records and formatted log output string
+src/_pytest/logging.py:526:        self.caplog_handler = LogCaptureHandler()
+src/_pytest/logging.py:527:        self.caplog_handler.setFormatter(self.formatter)
+src/_pytest/logging.py:677:            self.caplog_handler, level=self.log_level,
+src/_pytest/logging.py:678:        ) as caplog_handler, catching_logs(
+src/_pytest/logging.py:681:            caplog_handler.reset()
+src/_pytest/logging.py:683:            item._store[caplog_records_key][when] = caplog_handler.records
+src/_pytest/logging.py:684:            item._store[caplog_handler_key] = caplog_handler
+src/_pytest/logging.py:696:        item._store[caplog_records_key] = empty
+src/_pytest/logging.py:710:        del item._store[caplog_records_key]
+src/_pytest/logging.py:711:        del item._store[caplog_handler_key]
+testing/logging/test_fixture.py:4:from _pytest.logging import caplog_records_key
+testing/logging/test_fixture.py:12:    result.stdout.fnmatch_lines(["*caplog*"])
+testing/logging/test_fixture.py:15:def test_change_level(caplog):
+testing/logging/test_fixture.py:16:    caplog.set_level(logging.INFO)
+testing/logging/test_fixture.py:20:    caplog.set_level(logging.CRITICAL, logger=sublogger.name)
+testing/logging/test_fixture.py:24:    assert "DEBUG" not in caplog.text
+testing/logging/test_fixture.py:25:    assert "INFO" in caplog.text
+testing/logging/test_fixture.py:26:    assert "WARNING" not in caplog.text
+testing/logging/test_fixture.py:27:    assert "CRITICAL" in caplog.text
+testing/logging/test_fixture.py:36:        def test1(caplog):
+testing/logging/test_fixture.py:37:            caplog.set_level(logging.INFO)
+testing/logging/test_fixture.py:42:        def test2(caplog):
+testing/logging/test_fixture.py:53:def test_with_statement(caplog):
+testing/logging/test_fixture.py:54:    with caplog.at_level(logging.INFO):
+testing/logging/test_fixture.py:58:        with caplog.at_level(logging.CRITICAL, logger=sublogger.name):
+testing/logging/test_fixture.py:62:    assert "DEBUG" not in caplog.text
+testing/logging/test_fixture.py:63:    assert "INFO" in caplog.text
+testing/logging/test_fixture.py:64:    assert "WARNING" not in caplog.text
+testing/logging/test_fixture.py:65:    assert "CRITICAL" in caplog.text
+testing/logging/test_fixture.py:68:def test_log_access(caplog):
+testing/logging/test_fixture.py:69:    caplog.set_level(logging.INFO)
+testing/logging/test_fixture.py:71:    assert caplog.records[0].levelname == "INFO"
+testing/logging/test_fixture.py:72:    assert caplog.records[0].msg == "boo %s"
+testing/logging/test_fixture.py:73:    assert "boo arg" in caplog.text
+testing/logging/test_fixture.py:76:def test_messages(caplog):
+testing/logging/test_fixture.py:77:    caplog.set_level(logging.INFO)
+testing/logging/test_fixture.py:80:    assert "boo arg" == caplog.messages[0]
+testing/logging/test_fixture.py:81:    assert "bar arg1\nbaz arg2" == caplog.messages[1]
+testing/logging/test_fixture.py:82:    assert caplog.text.count("\n") > len(caplog.messages)
+testing/logging/test_fixture.py:83:    assert len(caplog.text.splitlines()) > len(caplog.messages)
+testing/logging/test_fixture.py:90:    assert "oops" in caplog.text
+testing/logging/test_fixture.py:91:    assert "oops" in caplog.messages[-1]
+testing/logging/test_fixture.py:93:    assert "Exception" in caplog.text
+testing/logging/test_fixture.py:94:    assert "Exception" not in caplog.messages[-1]
+testing/logging/test_fixture.py:97:def test_record_tuples(caplog):
+testing/logging/test_fixture.py:98:    caplog.set_level(logging.INFO)
+testing/logging/test_fixture.py:101:    assert caplog.record_tuples == [(__name__, logging.INFO, "boo arg")]
+testing/logging/test_fixture.py:104:def test_unicode(caplog):
+testing/logging/test_fixture.py:105:    caplog.set_level(logging.INFO)
+testing/logging/test_fixture.py:107:    assert caplog.records[0].levelname == "INFO"
+testing/logging/test_fixture.py:108:    assert caplog.records[0].msg == "bū"
+testing/logging/test_fixture.py:109:    assert "bū" in caplog.text
+testing/logging/test_fixture.py:112:def test_clear(caplog):
+testing/logging/test_fixture.py:113:    caplog.set_level(logging.INFO)
+testing/logging/test_fixture.py:115:    assert len(caplog.records)
+testing/logging/test_fixture.py:116:    assert caplog.text
+testing/logging/test_fixture.py:117:    caplog.clear()
+testing/logging/test_fixture.py:118:    assert not len(caplog.records)
+testing/logging/test_fixture.py:119:    assert not caplog.text
+testing/logging/test_fixture.py:123:def logging_during_setup_and_teardown(caplog):
+testing/logging/test_fixture.py:124:    caplog.set_level("INFO")
+testing/logging/test_fixture.py:128:    assert [x.message for x in caplog.get_records("teardown")] == ["a_teardown_log"]
+testing/logging/test_fixture.py:131:def test_caplog_captures_for_all_stages(caplog, logging_during_setup_and_teardown):
+testing/logging/test_fixture.py:132:    assert not caplog.records
+testing/logging/test_fixture.py:133:    assert not caplog.get_records("call")
+testing/logging/test_fixture.py:135:    assert [x.message for x in caplog.get_records("call")] == ["a_call_log"]
+testing/logging/test_fixture.py:137:    assert [x.message for x in caplog.get_records("setup")] == ["a_setup_log"]
+testing/logging/test_fixture.py:140:    assert set(caplog._item._store[caplog_records_key]) == {"setup", "call"}
+testing/logging/test_fixture.py:148:        def test_log_level_override(request, caplog):
+testing/logging/test_fixture.py:154:            assert 'WARNING' not in caplog.text
+testing/logging/test_fixture.py:155:            assert 'ERROR' in caplog.text
+testing/logging/test_fixture.py:170:def test_caplog_can_override_global_log_level(testdir):
+testing/logging/test_fixture.py:175:        def test_log_level_override(request, caplog):
+testing/logging/test_fixture.py:182:            caplog.set_level(logging.INFO, logger.name)
+testing/logging/test_fixture.py:184:            with caplog.at_level(logging.DEBUG, logger.name):
+testing/logging/test_fixture.py:189:            with caplog.at_level(logging.CRITICAL, logger.name):
+testing/logging/test_fixture.py:195:            assert "message won't be shown" not in caplog.text
+testing/logging/test_fixture.py:209:def test_caplog_captures_despite_exception(testdir):
+testing/logging/test_fixture.py:214:        def test_log_level_override(request, caplog):
+testing/logging/test_fixture.py:221:            with caplog.at_level(logging.DEBUG, logger.name):
+testing/logging/test_fixture.py:241:    (1) `caplog` succeeded to capture the DEBUG message and assert on it => No `Exception` is raised
+testing/logging/test_fixture.py:256:        def test_that_fails(request, caplog):
+testing/logging/test_fixture.py:260:            with caplog.at_level(logging.DEBUG):
+testing/logging/test_fixture.py:263:            if 'DEBUG log ' + 'message' not in caplog.text:
+testing/logging/test_fixture.py:264:                raise Exception('caplog failed to ' + 'capture DEBUG')
+testing/logging/test_fixture.py:271:    result.stdout.no_fnmatch_line("*Exception: caplog failed to capture DEBUG*")
+
+--- logging.py relevant sections ---
+   120	        Default behavior is auto-indent off.
+   121	
+   122	        Using the string "True" or "on" or the boolean True as the value
+   123	        turns auto indent on, using the string "False" or "off" or the
+   124	        boolean False or the int 0 turns it off, and specifying a
+   125	        positive integer fixes the indentation position to the value
+   126	        specified.
+   127	
+   128	        Any other values for the option are invalid, and will silently be
+   129	        converted to the default.
+   130	
+   131	        :param any auto_indent_option: User specified option for indentation
+   132	            from command line, config or extra kwarg. Accepts int, bool or str.
+   133	            str option accepts the same range of values as boolean config options,
+   134	            as well as positive integers represented in str form.
+   135	
+   136	        :returns: indentation value, which can be
+   137	            -1 (automatically determine indentation) or
+   138	            0 (auto-indent turned off) or
+   139	            >0 (explicitly set indentation position).
+   140	        """
+   141	
+   142	        if auto_indent_option is None:
+   143	            return 0
+   144	        elif isinstance(auto_indent_option, bool):
+   145	            if auto_indent_option:
+   146	                return -1
+   147	            else:
+   148	                return 0
+   149	        elif isinstance(auto_indent_option, int):
+   150	            return int(auto_indent_option)
+   151	        elif isinstance(auto_indent_option, str):
+   152	            try:
+   153	                return int(auto_indent_option)
+   154	            except ValueError:
+   155	                pass
+   156	            try:
+   157	                if _strtobool(auto_indent_option):
+   158	                    return -1
+   159	            except ValueError:
+   160	                return 0
+   161	
+   162	        return 0
+   163	
+   164	    def format(self, record: logging.LogRecord) -> str:
+   165	        if "\n" in record.message:
+   166	            if hasattr(record, "auto_indent"):
+   167	                # passed in from the "extra={}" kwarg on the call to logging.log()
+   168	                auto_indent = self._get_auto_indent(record.auto_indent)  # type: ignore[attr-defined]
+   169	            else:
+   170	                auto_indent = self._auto_indent
+   171	
+   172	            if auto_indent:
+   173	                lines = record.message.splitlines()
+   174	                formatted = self._fmt % self._update_message(record.__dict__, lines[0])
+   175	
+   176	                if auto_indent < 0:
+   177	                    indentation = _remove_ansi_escape_sequences(formatted).find(
+   178	                        lines[0]
+   179	                    )
+   180	                else:
+   181	                    # optimizes logging by allowing a fixed indentation
+   182	                    indentation = auto_indent
+   183	                lines[0] = formatted
+   184	                return ("\n" + " " * indentation).join(lines)
+   185	        return self._fmt % record.__dict__
+   186	
+   187	
+   188	def get_option_ini(config: Config, *names: str):
+   189	    for name in names:
+   190	        ret = config.getoption(name)  # 'default' arg won't work as expected
+   191	        if ret is None:
+   192	            ret = config.getini(name)
+   193	        if ret:
+   194	            return ret
+   195	
+   196	
+   197	def pytest_addoption(parser: Parser) -> None:
+   198	    """Add options to control log capturing."""
+   199	    group = parser.getgroup("logging")
+   200	
+   201	    def add_option_ini(option, dest, default=None, type=None, **kwargs):
+   202	        parser.addini(
+   203	            dest, default=default, type=type, help="default value for " + option
+   204	        )
+   205	        group.addoption(option, dest=dest, **kwargs)
+   206	
+   207	    add_option_ini(
+   208	        "--log-level",
+   209	        dest="log_level",
+   210	        default=None,
+   211	        metavar="LEVEL",
+   212	        help=(
+   213	            "level of messages to catch/display.\n"
+   214	            "Not set by default, so it depends on the root/parent log handler's"
+   215	            ' effective level, where it is "WARNING" by default.'
+   216	        ),
+   217	    )
+   218	    add_option_ini(
+   219	        "--log-format",
+   220	        dest="log_format",
+   221	        default=DEFAULT_LOG_FORMAT,
+   222	        help="log format as used by the logging module.",
+   223	    )
+   224	    add_option_ini(
+   225	        "--log-date-format",
+   226	        dest="log_date_format",
+   227	        default=DEFAULT_LOG_DATE_FORMAT,
+   228	        help="log date format as used by the logging module.",
+   229	    )
+   230	    parser.addini(
+   231	        "log_cli",
+   232	        default=False,
+   233	        type="bool",
+   234	        help='enable log display during test run (also known as "live logging").',
+   235	    )
+   236	    add_option_ini(
+   237	        "--log-cli-level", dest="log_cli_level", default=None, help="cli logging level."
+   238	    )
+   239	    add_option_ini(
+   240	        "--log-cli-format",
+   241	        dest="log_cli_format",
+   242	        default=None,
+   243	        help="log format as used by the logging module.",
+   244	    )
+   245	    add_option_ini(
+   246	        "--log-cli-date-format",
+   247	        dest="log_cli_date_format",
+   248	        default=None,
+   249	        help="log date format as used by the logging module.",
+   250	    )
+   251	    add_option_ini(
+   252	        "--log-file",
+   253	        dest="log_file",
+   254	        default=None,
+   255	        help="path to a file when logging will be written to.",
+   256	    )
+   257	    add_option_ini(
+   258	        "--log-file-level",
+   259	        dest="log_file_level",
+   260	        default=None,
+   261	        help="log file logging level.",
+   262	    )
+   263	    add_option_ini(
+   264	        "--log-file-format",
+   265	        dest="log_file_format",
+   266	        default=DEFAULT_LOG_FORMAT,
+   267	        help="log format as used by the logging module.",
+   268	    )
+   269	    add_option_ini(
+   270	        "--log-file-date-format",
+   271	        dest="log_file_date_format",
+   272	        default=DEFAULT_LOG_DATE_FORMAT,
+   273	        help="log date format as used by the logging module.",
+   274	    )
+   275	    add_option_ini(
+   276	        "--log-auto-indent",
+   277	        dest="log_auto_indent",
+   278	        default=None,
+   279	        help="Auto-indent multiline messages passed to the logging module. Accepts true|on, false|off or an integer.",
+   280	    )
+   281	
+   282	
+   283	_HandlerType = TypeVar("_HandlerType", bound=logging.Handler)
+   284	
+   285	
+   286	# Not using @contextmanager for performance reasons.
+   287	class catching_logs:
+   288	    """Context manager that prepares the whole logging machinery properly."""
+   289	
+   290	    __slots__ = ("handler", "level", "orig_level")
+   291	
+   292	    def __init__(self, handler: _HandlerType, level: Optional[int] = None) -> None:
+   293	        self.handler = handler
+   294	        self.level = level
+   295	
+   296	    def __enter__(self):
+   297	        root_logger = logging.getLogger()
+   298	        if self.level is not None:
+   299	            self.handler.setLevel(self.level)
+   300	        root_logger.addHandler(self.handler)
+   301	        if self.level is not None:
+   302	            self.orig_level = root_logger.level
+   303	            root_logger.setLevel(min(self.orig_level, self.level))
+   304	        return self.handler
+   305	
+   306	    def __exit__(self, type, value, traceback):
+   307	        root_logger = logging.getLogger()
+   308	        if self.level is not None:
+   309	            root_logger.setLevel(self.orig_level)
+   310	        root_logger.removeHandler(self.handler)
+   311	
+   312	
+   313	class LogCaptureHandler(logging.StreamHandler):
+   314	    """A logging handler that stores log records and the log text."""
+   315	
+   316	    stream = None  # type: StringIO
+   317	
+   318	    def __init__(self) -> None:
+   319	        """Creates a new log handler."""
+   320	        super().__init__(StringIO())
+   321	        self.records = []  # type: List[logging.LogRecord]
+   322	
+   323	    def emit(self, record: logging.LogRecord) -> None:
+   324	        """Keep the log records in a list in addition to the log text."""
+   325	        self.records.append(record)
+   326	        super().emit(record)
+   327	
+   328	    def reset(self) -> None:
+   329	        self.records = []
+   330	        self.stream = StringIO()
+
+Budget: 1784.3s, 498 decisions remaining.

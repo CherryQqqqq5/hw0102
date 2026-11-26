@@ -1,0 +1,270 @@
+
+> test
+> jest ./*
+
+FAIL ./book-store.spec.js
+  Book Store
+    Creating a basket
+      ✕ only a single book (18 ms)
+      ✕ two of the same book (4 ms)
+      ✕ empty basket (50 ms)
+      ✕ two different books (32 ms)
+      ✕ three different books (12 ms)
+      ✕ four different books (10 ms)
+      ✕ five different books (9 ms)
+      ✕ two groups of four is cheaper than group of five plus group of three (5 ms)
+      ✕ two groups of four is cheaper than groups of five and three (5 ms)
+      ✕ group of four plus group of two is cheaper than two groups of three (7 ms)
+      ✕ two each of first 4 books and 1 copy each of rest (7 ms)
+      ✕ two copies of each book (7 ms)
+      ✕ three copies of first book and 2 each of remaining (7 ms)
+      ✕ three each of first 2 books and 2 each of remaining books (6 ms)
+      ✕ four groups of four are cheaper than two groups each of five and three (4 ms)
+      ✕ two groups of four and a group of five (4 ms)
+      ✕ shuffled book order (3 ms)
+
+  ● Book Store › Creating a basket › only a single book
+
+    Remove this statement and implement this function
+
+      5 |
+      6 | export const cost = (books) => {
+    > 7 |   throw new Error('Remove this statement and implement this function');
+        |         ^
+      8 | };
+      9 |
+
+      at cost (book-store.js:7:9)
+      at Object.<anonymous> (book-store.spec.js:7:18)
+
+  ● Book Store › Creating a basket › two of the same book
+
+    Remove this statement and implement this function
+
+      5 |
+      6 | export const cost = (books) => {
+    > 7 |   throw new Error('Remove this statement and implement this function');
+        |         ^
+      8 | };
+      9 |
+
+      at cost (book-store.js:7:9)
+      at Object.<anonymous> (book-store.spec.js:12:18)
+
+  ● Book Store › Creating a basket › empty basket
+
+    Remove this statement and implement this function
+
+      5 |
+      6 | export const cost = (books) => {
+    > 7 |   throw new Error('Remove this statement and implement this function');
+        |         ^
+      8 | };
+      9 |
+
+      at cost (book-store.js:7:9)
+      at Object.<anonymous> (book-store.spec.js:17:18)
+
+  ● Book Store › Creating a basket › two different books
+
+    Remove this statement and implement this function
+
+      5 |
+      6 | export const cost = (books) => {
+    > 7 |   throw new Error('Remove this statement and implement this function');
+        |         ^
+      8 | };
+      9 |
+
+      at cost (book-store.js:7:9)
+      at Object.<anonymous> (book-store.spec.js:22:18)
+
+  ● Book Store › Creating a basket › three different books
+
+    Remove this statement and implement this function
+
+      5 |
+      6 | export const cost = (books) => {
+    > 7 |   throw new Error('Remove this statement and implement this function');
+        |         ^
+      8 | };
+      9 |
+
+      at cost (book-store.js:7:9)
+      at Object.<anonymous> (book-store.spec.js:27:18)
+
+  ● Book Store › Creating a basket › four different books
+
+    Remove this statement and implement this function
+
+      5 |
+      6 | export const cost = (books) => {
+    > 7 |   throw new Error('Remove this statement and implement this function');
+        |         ^
+      8 | };
+      9 |
+
+      at cost (book-store.js:7:9)
+      at Object.<anonymous> (book-store.spec.js:32:18)
+
+  ● Book Store › Creating a basket › five different books
+
+    Remove this statement and implement this function
+
+      5 |
+      6 | export const cost = (books) => {
+    > 7 |   throw new Error('Remove this statement and implement this function');
+        |         ^
+      8 | };
+      9 |
+
+      at cost (book-store.js:7:9)
+      at Object.<anonymous> (book-store.spec.js:37:18)
+
+  ● Book Store › Creating a basket › two groups of four is cheaper than group of five plus group of three
+
+    Remove this statement and implement this function
+
+      5 |
+      6 | export const cost = (books) => {
+    > 7 |   throw new Error('Remove this statement and implement this function');
+        |         ^
+      8 | };
+      9 |
+
+      at cost (book-store.js:7:9)
+      at Object.<anonymous> (book-store.spec.js:42:18)
+
+  ● Book Store › Creating a basket › two groups of four is cheaper than groups of five and three
+
+    Remove this statement and implement this function
+
+      5 |
+      6 | export const cost = (books) => {
+    > 7 |   throw new Error('Remove this statement and implement this function');
+        |         ^
+      8 | };
+      9 |
+
+      at cost (book-store.js:7:9)
+      at Object.<anonymous> (book-store.spec.js:47:18)
+
+  ● Book Store › Creating a basket › group of four plus group of two is cheaper than two groups of three
+
+    Remove this statement and implement this function
+
+      5 |
+      6 | export const cost = (books) => {
+    > 7 |   throw new Error('Remove this statement and implement this function');
+        |         ^
+      8 | };
+      9 |
+
+      at cost (book-store.js:7:9)
+      at Object.<anonymous> (book-store.spec.js:52:18)
+
+  ● Book Store › Creating a basket › two each of first 4 books and 1 copy each of rest
+
+    Remove this statement and implement this function
+
+      5 |
+      6 | export const cost = (books) => {
+    > 7 |   throw new Error('Remove this statement and implement this function');
+        |         ^
+      8 | };
+      9 |
+
+      at cost (book-store.js:7:9)
+      at Object.<anonymous> (book-store.spec.js:57:18)
+
+  ● Book Store › Creating a basket › two copies of each book
+
+    Remove this statement and implement this function
+
+      5 |
+      6 | export const cost = (books) => {
+    > 7 |   throw new Error('Remove this statement and implement this function');
+        |         ^
+      8 | };
+      9 |
+
+      at cost (book-store.js:7:9)
+      at Object.<anonymous> (book-store.spec.js:62:18)
+
+  ● Book Store › Creating a basket › three copies of first book and 2 each of remaining
+
+    Remove this statement and implement this function
+
+      5 |
+      6 | export const cost = (books) => {
+    > 7 |   throw new Error('Remove this statement and implement this function');
+        |         ^
+      8 | };
+      9 |
+
+      at cost (book-store.js:7:9)
+      at Object.<anonymous> (book-store.spec.js:67:18)
+
+  ● Book Store › Creating a basket › three each of first 2 books and 2 each of remaining books
+
+    Remove this statement and implement this function
+
+      5 |
+      6 | export const cost = (books) => {
+    > 7 |   throw new Error('Remove this statement and implement this function');
+        |         ^
+      8 | };
+      9 |
+
+      at cost (book-store.js:7:9)
+      at Object.<anonymous> (book-store.spec.js:72:18)
+
+  ● Book Store › Creating a basket › four groups of four are cheaper than two groups each of five and three
+
+    Remove this statement and implement this function
+
+      5 |
+      6 | export const cost = (books) => {
+    > 7 |   throw new Error('Remove this statement and implement this function');
+        |         ^
+      8 | };
+      9 |
+
+      at cost (book-store.js:7:9)
+      at Object.<anonymous> (book-store.spec.js:77:18)
+
+  ● Book Store › Creating a basket › two groups of four and a group of five
+
+    Remove this statement and implement this function
+
+      5 |
+      6 | export const cost = (books) => {
+    > 7 |   throw new Error('Remove this statement and implement this function');
+        |         ^
+      8 | };
+      9 |
+
+      at cost (book-store.js:7:9)
+      at Object.<anonymous> (book-store.spec.js:82:18)
+
+  ● Book Store › Creating a basket › shuffled book order
+
+    Remove this statement and implement this function
+
+      5 |
+      6 | export const cost = (books) => {
+    > 7 |   throw new Error('Remove this statement and implement this function');
+        |         ^
+      8 | };
+      9 |
+
+      at cost (book-store.js:7:9)
+      at Object.<anonymous> (book-store.spec.js:87:18)
+
+Test Suites: 1 failed, 1 total
+Tests:       17 failed, 17 total
+Snapshots:   0 total
+Time:        4.456 s, estimated 12 s
+Ran all test suites matching /.\/LICENSE|.\/babel.config.js|.\/book-store.js|.\/book-store.spec.js|.\/node_modules|.\/package-lock.json|.\/package.json/i.
+
+Budget: 1725.8s, 497 decisions remaining.

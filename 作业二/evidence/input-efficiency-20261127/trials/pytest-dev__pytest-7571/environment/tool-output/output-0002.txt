@@ -1,0 +1,296 @@
+     1	import logging
+     2	
+     3	import pytest
+     4	from _pytest.logging import caplog_records_key
+     5	
+     6	logger = logging.getLogger(__name__)
+     7	sublogger = logging.getLogger(__name__ + ".baz")
+     8	
+     9	
+    10	def test_fixture_help(testdir):
+    11	    result = testdir.runpytest("--fixtures")
+    12	    result.stdout.fnmatch_lines(["*caplog*"])
+    13	
+    14	
+    15	def test_change_level(caplog):
+    16	    caplog.set_level(logging.INFO)
+    17	    logger.debug("handler DEBUG level")
+    18	    logger.info("handler INFO level")
+    19	
+    20	    caplog.set_level(logging.CRITICAL, logger=sublogger.name)
+    21	    sublogger.warning("logger WARNING level")
+    22	    sublogger.critical("logger CRITICAL level")
+    23	
+    24	    assert "DEBUG" not in caplog.text
+    25	    assert "INFO" in caplog.text
+    26	    assert "WARNING" not in caplog.text
+    27	    assert "CRITICAL" in caplog.text
+    28	
+    29	
+    30	def test_change_level_undo(testdir):
+    31	    """Ensure that 'set_level' is undone after the end of the test"""
+    32	    testdir.makepyfile(
+    33	        """
+    34	        import logging
+    35	
+    36	        def test1(caplog):
+    37	            caplog.set_level(logging.INFO)
+    38	            # using + operator here so fnmatch_lines doesn't match the code in the traceback
+    39	            logging.info('log from ' + 'test1')
+    40	            assert 0
+    41	
+    42	        def test2(caplog):
+    43	            # using + operator here so fnmatch_lines doesn't match the code in the traceback
+    44	            logging.info('log from ' + 'test2')
+    45	            assert 0
+    46	    """
+    47	    )
+    48	    result = testdir.runpytest()
+    49	    result.stdout.fnmatch_lines(["*log from test1*", "*2 failed in *"])
+    50	    result.stdout.no_fnmatch_line("*log from test2*")
+    51	
+    52	
+    53	def test_with_statement(caplog):
+    54	    with caplog.at_level(logging.INFO):
+    55	        logger.debug("handler DEBUG level")
+    56	        logger.info("handler INFO level")
+    57	
+    58	        with caplog.at_level(logging.CRITICAL, logger=sublogger.name):
+    59	            sublogger.warning("logger WARNING level")
+    60	            sublogger.critical("logger CRITICAL level")
+    61	
+    62	    assert "DEBUG" not in caplog.text
+    63	    assert "INFO" in caplog.text
+    64	    assert "WARNING" not in caplog.text
+    65	    assert "CRITICAL" in caplog.text
+    66	
+    67	
+    68	def test_log_access(caplog):
+    69	    caplog.set_level(logging.INFO)
+    70	    logger.info("boo %s", "arg")
+    71	    assert caplog.records[0].levelname == "INFO"
+    72	    assert caplog.records[0].msg == "boo %s"
+    73	    assert "boo arg" in caplog.text
+    74	
+    75	
+    76	def test_messages(caplog):
+    77	    caplog.set_level(logging.INFO)
+    78	    logger.info("boo %s", "arg")
+    79	    logger.info("bar %s\nbaz %s", "arg1", "arg2")
+    80	    assert "boo arg" == caplog.messages[0]
+    81	    assert "bar arg1\nbaz arg2" == caplog.messages[1]
+    82	    assert caplog.text.count("\n") > len(caplog.messages)
+    83	    assert len(caplog.text.splitlines()) > len(caplog.messages)
+    84	
+    85	    try:
+    86	        raise Exception("test")
+    87	    except Exception:
+    88	        logger.exception("oops")
+    89	
+    90	    assert "oops" in caplog.text
+    91	    assert "oops" in caplog.messages[-1]
+    92	    # Tracebacks are stored in the record and not added until the formatter or handler.
+    93	    assert "Exception" in caplog.text
+    94	    assert "Exception" not in caplog.messages[-1]
+    95	
+    96	
+    97	def test_record_tuples(caplog):
+    98	    caplog.set_level(logging.INFO)
+    99	    logger.info("boo %s", "arg")
+   100	
+   101	    assert caplog.record_tuples == [(__name__, logging.INFO, "boo arg")]
+   102	
+   103	
+   104	def test_unicode(caplog):
+   105	    caplog.set_level(logging.INFO)
+   106	    logger.info("bū")
+   107	    assert caplog.records[0].levelname == "INFO"
+   108	    assert caplog.records[0].msg == "bū"
+   109	    assert "bū" in caplog.text
+   110	
+   111	
+   112	def test_clear(caplog):
+   113	    caplog.set_level(logging.INFO)
+   114	    logger.info("bū")
+   115	    assert len(caplog.records)
+   116	    assert caplog.text
+   117	    caplog.clear()
+   118	    assert not len(caplog.records)
+   119	    assert not caplog.text
+   120	
+   121	
+   122	@pytest.fixture
+   123	def logging_during_setup_and_teardown(caplog):
+   124	    caplog.set_level("INFO")
+   125	    logger.info("a_setup_log")
+   126	    yield
+   127	    logger.info("a_teardown_log")
+   128	    assert [x.message for x in caplog.get_records("teardown")] == ["a_teardown_log"]
+   129	
+   130	
+   131	def test_caplog_captures_for_all_stages(caplog, logging_during_setup_and_teardown):
+   132	    assert not caplog.records
+   133	    assert not caplog.get_records("call")
+   134	    logger.info("a_call_log")
+   135	    assert [x.message for x in caplog.get_records("call")] == ["a_call_log"]
+   136	
+   137	    assert [x.message for x in caplog.get_records("setup")] == ["a_setup_log"]
+   138	
+   139	    # This reaches into private API, don't use this type of thing in real tests!
+   140	    assert set(caplog._item._store[caplog_records_key]) == {"setup", "call"}
+   141	
+   142	
+   143	def test_ini_controls_global_log_level(testdir):
+   144	    testdir.makepyfile(
+   145	        """
+   146	        import pytest
+   147	        import logging
+   148	        def test_log_level_override(request, caplog):
+   149	            plugin = request.config.pluginmanager.getplugin('logging-plugin')
+   150	            assert plugin.log_level == logging.ERROR
+   151	            logger = logging.getLogger('catchlog')
+   152	            logger.warning("WARNING message won't be shown")
+   153	            logger.error("ERROR message will be shown")
+   154	            assert 'WARNING' not in caplog.text
+   155	            assert 'ERROR' in caplog.text
+   156	    """
+   157	    )
+   158	    testdir.makeini(
+   159	        """
+   160	        [pytest]
+   161	        log_level=ERROR
+   162	    """
+   163	    )
+   164	
+   165	    result = testdir.runpytest()
+   166	    # make sure that that we get a '0' exit code for the testsuite
+   167	    assert result.ret == 0
+   168	
+   169	
+   170	def test_caplog_can_override_global_log_level(testdir):
+   171	    testdir.makepyfile(
+   172	        """
+   173	        import pytest
+   174	        import logging
+   175	        def test_log_level_override(request, caplog):
+   176	            logger = logging.getLogger('catchlog')
+   177	            plugin = request.config.pluginmanager.getplugin('logging-plugin')
+   178	            assert plugin.log_level == logging.WARNING
+   179	
+   180	            logger.info("INFO message won't be shown")
+   181	
+   182	            caplog.set_level(logging.INFO, logger.name)
+   183	
+   184	            with caplog.at_level(logging.DEBUG, logger.name):
+   185	                logger.debug("DEBUG message will be shown")
+   186	
+   187	            logger.debug("DEBUG message won't be shown")
+   188	
+   189	            with caplog.at_level(logging.CRITICAL, logger.name):
+   190	                logger.warning("WARNING message won't be shown")
+   191	
+   192	            logger.debug("DEBUG message won't be shown")
+   193	            logger.info("INFO message will be shown")
+   194	
+   195	            assert "message won't be shown" not in caplog.text
+   196	    """
+   197	    )
+   198	    testdir.makeini(
+   199	        """
+   200	        [pytest]
+   201	        log_level=WARNING
+   202	    """
+   203	    )
+   204	
+   205	    result = testdir.runpytest()
+
+--- catching_logs/lifecycle ---
+   280	    )
+   281	
+   282	
+   283	_HandlerType = TypeVar("_HandlerType", bound=logging.Handler)
+   284	
+   285	
+   286	# Not using @contextmanager for performance reasons.
+   287	class catching_logs:
+   288	    """Context manager that prepares the whole logging machinery properly."""
+   289	
+   290	    __slots__ = ("handler", "level", "orig_level")
+   291	
+   292	    def __init__(self, handler: _HandlerType, level: Optional[int] = None) -> None:
+   293	        self.handler = handler
+   294	        self.level = level
+   295	
+   296	    def __enter__(self):
+   297	        root_logger = logging.getLogger()
+   298	        if self.level is not None:
+   299	            self.handler.setLevel(self.level)
+   300	        root_logger.addHandler(self.handler)
+   301	        if self.level is not None:
+   302	            self.orig_level = root_logger.level
+   303	            root_logger.setLevel(min(self.orig_level, self.level))
+   304	        return self.handler
+   305	
+   306	    def __exit__(self, type, value, traceback):
+   307	        root_logger = logging.getLogger()
+   308	        if self.level is not None:
+   309	            root_logger.setLevel(self.orig_level)
+   310	        root_logger.removeHandler(self.handler)
+   311	
+   312	
+   313	class LogCaptureHandler(logging.StreamHandler):
+   314	    """A logging handler that stores log records and the log text."""
+   315	
+   316	    stream = None  # type: StringIO
+   317	
+   318	    def __init__(self) -> None:
+   319	        """Creates a new log handler."""
+   320	        super().__init__(StringIO())
+   670	    @pytest.hookimpl
+   671	    def pytest_runtest_logreport(self) -> None:
+   672	        self.log_cli_handler.set_when("logreport")
+   673	
+   674	    def _runtest_for(self, item: nodes.Item, when: str) -> Generator[None, None, None]:
+   675	        """Implements the internals of pytest_runtest_xxx() hook."""
+   676	        with catching_logs(
+   677	            self.caplog_handler, level=self.log_level,
+   678	        ) as caplog_handler, catching_logs(
+   679	            self.report_handler, level=self.log_level,
+   680	        ) as report_handler:
+   681	            caplog_handler.reset()
+   682	            report_handler.reset()
+   683	            item._store[caplog_records_key][when] = caplog_handler.records
+   684	            item._store[caplog_handler_key] = caplog_handler
+   685	
+   686	            yield
+   687	
+   688	            log = report_handler.stream.getvalue().strip()
+   689	            item.add_report_section(when, "log", log)
+   690	
+   691	    @pytest.hookimpl(hookwrapper=True)
+   692	    def pytest_runtest_setup(self, item: nodes.Item) -> Generator[None, None, None]:
+   693	        self.log_cli_handler.set_when("setup")
+   694	
+   695	        empty = {}  # type: Dict[str, List[logging.LogRecord]]
+   696	        item._store[caplog_records_key] = empty
+   697	        yield from self._runtest_for(item, "setup")
+   698	
+   699	    @pytest.hookimpl(hookwrapper=True)
+   700	    def pytest_runtest_call(self, item: nodes.Item) -> Generator[None, None, None]:
+   701	        self.log_cli_handler.set_when("call")
+   702	
+   703	        yield from self._runtest_for(item, "call")
+   704	
+   705	    @pytest.hookimpl(hookwrapper=True)
+   706	    def pytest_runtest_teardown(self, item: nodes.Item) -> Generator[None, None, None]:
+   707	        self.log_cli_handler.set_when("teardown")
+   708	
+   709	        yield from self._runtest_for(item, "teardown")
+   710	        del item._store[caplog_records_key]
+   711	        del item._store[caplog_handler_key]
+   712	
+   713	    @pytest.hookimpl
+   714	    def pytest_runtest_logfinish(self) -> None:
+   715	        self.log_cli_handler.set_when("finish")
+
+Budget: 1759.9s, 494 decisions remaining.

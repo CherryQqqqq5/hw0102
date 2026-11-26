@@ -1,0 +1,71 @@
+diff --git a/.course-public-check/check.py b/.course-public-check/check.py
+new file mode 100755
+index 00000000..d0aa79ae
+--- /dev/null
++++ b/.course-public-check/check.py
+@@ -0,0 +1,38 @@
++#!/usr/bin/env python
++"""Reproducer and regression checks for xr.where(..., keep_attrs=True)."""
++import numpy as np
++import xarray as xr
++from xarray.testing import assert_identical
++
++
++def main():
++    # Reported failure: the condition is a DataArray but x and y are scalars.
++    cond = xr.DataArray([1, 2, 3]) > 0
++    actual = xr.where(cond, 1, 0)
++    assert_identical(xr.DataArray([1, 1, 1], dims=cond.dims), actual)
++
++    # keep_attrs=True must still keep x's attrs for the original three-array case.
++    cond = xr.DataArray([True, False], dims="x", attrs={"attr": "cond"})
++    x = xr.DataArray([1, 1], dims="x", attrs={"attr": "x"})
++    y = xr.DataArray([0, 0], dims="x", attrs={"attr": "y"})
++    actual = xr.where(cond, x, y, keep_attrs=True)
++    assert_identical(xr.DataArray([1, 0], dims="x", attrs={"attr": "x"}), actual)
++
++    # If x is the only xarray object, keep_attrs=True must keep its attrs.
++    x = xr.DataArray([1, 2], dims="x", attrs={"attr": "x"})
++    actual = xr.where(True, x, 0, keep_attrs=True)
++    assert_identical(xr.DataArray([1, 2], dims="x", attrs={"attr": "x"}), actual)
++
++    # Explicitly disabling attrs remains supported.
++    actual = xr.where(True, x, 0, keep_attrs=False)
++    assert actual.attrs == {}
++
++    # A user-provided callable strategy remains supported.
++    actual = xr.where(cond, x, 0, keep_attrs=lambda attrs, context: {"attr": "custom"})
++    assert actual.attrs == {"attr": "custom"}
++
++    print("all xr.where keep_attrs checks passed")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/xarray/core/computation.py b/xarray/core/computation.py
+index 7676d8e5..c22b497d 100644
+--- a/xarray/core/computation.py
++++ b/xarray/core/computation.py
+@@ -1740,6 +1740,13 @@ def dot(*arrays, dims=None, **kwargs):
+     return result.transpose(*all_dims, missing_dims="ignore")
+ 
+ 
++def _get_attrs_of_x(attrs, context):
++    """Keep the attrs of ``x`` when only one argument has attrs."""
++    if len(attrs) == 1:
++        return attrs[0]
++    return attrs[1]
++
++
+ def where(cond, x, y, keep_attrs=None):
+     """Return elements from `x` or `y` depending on `cond`.
+ 
+@@ -1829,7 +1836,7 @@ def where(cond, x, y, keep_attrs=None):
+     if keep_attrs is True:
+         # keep the attributes of x, the second parameter, by default to
+         # be consistent with the `where` method of `DataArray` and `Dataset`
+-        keep_attrs = lambda attrs, context: attrs[1]
++        keep_attrs = _get_attrs_of_x
+ 
+     # alignment for three arguments is complicated, so don't support it yet
+     return apply_ufunc(

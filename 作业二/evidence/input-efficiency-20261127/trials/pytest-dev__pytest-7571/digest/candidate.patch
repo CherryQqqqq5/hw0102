@@ -1,0 +1,164 @@
+diff --git a/.course-public-check/check.py b/.course-public-check/check.py
+new file mode 100755
+index 000000000..dde64d30b
+--- /dev/null
++++ b/.course-public-check/check.py
+@@ -0,0 +1,129 @@
++#!/usr/bin/env python3
++"""Executable reproducer for caplog level restoration.
++
++Runs small pytest suites against the checked-out pytest source and asserts
++that levels set through caplog do not leak into later tests/test phases.
++"""
++from __future__ import annotations
++
++import os
++import subprocess
++import sys
++import tempfile
++from pathlib import Path
++
++REPO = Path(__file__).resolve().parents[1]
++PYTHON = Path("/opt/miniconda3/envs/testbed/bin/python")
++if not PYTHON.exists():
++    PYTHON = Path(sys.executable)
++ENV = dict(os.environ, PYTHONPATH=str(REPO / "src"))
++
++
++def run_pytest(source: str, *args: str) -> subprocess.CompletedProcess[str]:
++    with tempfile.TemporaryDirectory() as td:
++        test_file = Path(td) / "test_caplog_level.py"
++        test_file.write_text(source)
++        return subprocess.run(
++            [str(PYTHON), "-m", "pytest", "-q", "-s", *args, str(test_file)],
++            cwd=REPO,
++            env=ENV,
++            text=True,
++            stdout=subprocess.PIPE,
++            stderr=subprocess.STDOUT,
++        )
++
++
++def check(name: str, source: str, *args: str) -> None:
++    result = run_pytest(source, *args)
++    print(f"--- {name} ---")
++    print(result.stdout.strip())
++    assert result.returncode == 0, f"{name}: pytest failed:\n{result.stdout}"
++
++
++def main() -> None:
++    # Original report: set_level(42) in one test must not leak into the next.
++    check(
++        "reported root-logger leak",
++        """
++def test_foo(caplog):
++    caplog.set_level(42)
++
++def test_bar(caplog):
++    print("LEVEL", caplog.handler.level)
++    assert caplog.handler.level == 0
++""",
++    )
++
++    # Multiple set_level calls in one test must still restore the handler.
++    check(
++        "repeated set_level calls",
++        """
++import logging
++
++def test_first(caplog):
++    caplog.set_level(logging.DEBUG)
++    caplog.set_level(logging.WARNING)
++    assert caplog.handler.level == logging.WARNING
++
++def test_second(caplog):
++    print("LEVEL", caplog.handler.level)
++    assert caplog.handler.level == 0
++""",
++    )
++
++    # A named-logger level must be restored too; handler level must not be
++    # changed by named-logger-only set_level in this version.
++    check(
++        "named logger restoration",
++        """
++import logging
++
++def test_first(caplog):
++    logger = logging.getLogger("named")
++    assert logger.level == logging.NOTSET
++    caplog.set_level(logging.INFO, logger="named")
++    assert logger.level == logging.INFO
++
++def test_second(caplog):
++    logger = logging.getLogger("named")
++    assert logger.level == logging.NOTSET
++    assert caplog.handler.level == 0
++""",
++    )
++
++    # A configured --log-level is the baseline to restore, not zero.
++    check(
++        "configured log level baseline",
++        """
++import logging
++
++def test_first(caplog):
++    assert caplog.handler.level == logging.INFO
++    caplog.set_level(logging.DEBUG)
++
++def test_second(caplog):
++    print("LEVEL", caplog.handler.level)
++    assert caplog.handler.level == logging.INFO
++""",
++        "--log-level=INFO",
++    )
++
++    # at_level is a context manager and must restore within the same test.
++    check(
++        "at_level boundary",
++        """
++import logging
++
++def test_at_level(caplog):
++    before = caplog.handler.level
++    with caplog.at_level(logging.DEBUG):
++        assert caplog.handler.level == logging.DEBUG
++    assert caplog.handler.level == before
++""",
++    )
++
++    print("ALL CAPLOG LEVEL RESTORATION CHECKS PASSED")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/src/_pytest/logging.py b/src/_pytest/logging.py
+index 11031f2f2..20f5ebf69 100644
+--- a/src/_pytest/logging.py
++++ b/src/_pytest/logging.py
+@@ -287,7 +287,7 @@ _HandlerType = TypeVar("_HandlerType", bound=logging.Handler)
+ class catching_logs:
+     """Context manager that prepares the whole logging machinery properly."""
+ 
+-    __slots__ = ("handler", "level", "orig_level")
++    __slots__ = ("handler", "level", "orig_level", "orig_handler_level")
+ 
+     def __init__(self, handler: _HandlerType, level: Optional[int] = None) -> None:
+         self.handler = handler
+@@ -295,6 +295,7 @@ class catching_logs:
+ 
+     def __enter__(self):
+         root_logger = logging.getLogger()
++        self.orig_handler_level = self.handler.level
+         if self.level is not None:
+             self.handler.setLevel(self.level)
+         root_logger.addHandler(self.handler)
+@@ -307,6 +308,7 @@ class catching_logs:
+         root_logger = logging.getLogger()
+         if self.level is not None:
+             root_logger.setLevel(self.orig_level)
++        self.handler.setLevel(self.orig_handler_level)
+         root_logger.removeHandler(self.handler)
+ 
+ 

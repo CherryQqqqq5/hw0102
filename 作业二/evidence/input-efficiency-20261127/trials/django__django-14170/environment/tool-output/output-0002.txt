@@ -1,0 +1,116 @@
+   140	class ExtractSecond(Extract):
+   141	    lookup_name = 'second'
+   142	
+   143	
+   144	DateField.register_lookup(ExtractYear)
+   145	DateField.register_lookup(ExtractMonth)
+   146	DateField.register_lookup(ExtractDay)
+   147	DateField.register_lookup(ExtractWeekDay)
+   148	DateField.register_lookup(ExtractIsoWeekDay)
+   149	DateField.register_lookup(ExtractWeek)
+   150	DateField.register_lookup(ExtractIsoYear)
+   151	DateField.register_lookup(ExtractQuarter)
+   152	
+   153	TimeField.register_lookup(ExtractHour)
+   154	TimeField.register_lookup(ExtractMinute)
+   155	TimeField.register_lookup(ExtractSecond)
+   156	
+   157	DateTimeField.register_lookup(ExtractHour)
+   158	DateTimeField.register_lookup(ExtractMinute)
+   159	DateTimeField.register_lookup(ExtractSecond)
+   160	
+   161	ExtractYear.register_lookup(YearExact)
+   162	ExtractYear.register_lookup(YearGt)
+   163	ExtractYear.register_lookup(YearGte)
+   164	ExtractYear.register_lookup(YearLt)
+   165	ExtractYear.register_lookup(YearLte)
+   166	
+   167	ExtractIsoYear.register_lookup(YearExact)
+   168	ExtractIsoYear.register_lookup(YearGt)
+   169	ExtractIsoYear.register_lookup(YearGte)
+   170	ExtractIsoYear.register_lookup(YearLt)
+   171	ExtractIsoYear.register_lookup(YearLte)
+   172	
+   173	
+   174	class Now(Func):
+   175	    template = 'CURRENT_TIMESTAMP'
+   176	    output_field = DateTimeField()
+   177	
+   178	    def as_postgresql(self, compiler, connection, **extra_context):
+   179	        # PostgreSQL's CURRENT_TIMESTAMP means "the time at the start of the
+   180	        # transaction". Use STATEMENT_TIMESTAMP to be cross-compatible with
+   181	        # other databases.
+   182	        return self.as_sql(compiler, connection, template='STATEMENT_TIMESTAMP()', **extra_context)
+   183	
+   184	
+   185	class TruncBase(TimezoneMixin, Transform):
+   186	    kind = None
+   187	    tzinfo = None
+   188	
+   189	    def __init__(self, expression, output_field=None, tzinfo=None, is_dst=None, **extra):
+   190	        self.tzinfo = tzinfo
+--- boundary test ---
+   350	    def test_extract_iso_year_func_boundaries(self):
+   351	        end_datetime = datetime(2016, 6, 15, 14, 10, 50, 123)
+   352	        if settings.USE_TZ:
+   353	            end_datetime = timezone.make_aware(end_datetime, is_dst=False)
+   354	        week_52_day_2014 = datetime(2014, 12, 27, 13, 0)  # Sunday
+   355	        week_1_day_2014_2015 = datetime(2014, 12, 31, 13, 0)  # Wednesday
+   356	        week_53_day_2015 = datetime(2015, 12, 31, 13, 0)  # Thursday
+   357	        if settings.USE_TZ:
+   358	            week_1_day_2014_2015 = timezone.make_aware(week_1_day_2014_2015, is_dst=False)
+   359	            week_52_day_2014 = timezone.make_aware(week_52_day_2014, is_dst=False)
+   360	            week_53_day_2015 = timezone.make_aware(week_53_day_2015, is_dst=False)
+   361	        days = [week_52_day_2014, week_1_day_2014_2015, week_53_day_2015]
+   362	        self.create_model(week_53_day_2015, end_datetime)
+   363	        self.create_model(week_52_day_2014, end_datetime)
+   364	        self.create_model(week_1_day_2014_2015, end_datetime)
+   365	        qs = DTModel.objects.filter(start_datetime__in=days).annotate(
+   366	            extracted=ExtractIsoYear('start_datetime'),
+   367	        ).order_by('start_datetime')
+   368	        self.assertQuerysetEqual(qs, [
+   369	            (week_52_day_2014, 2014),
+   370	            (week_1_day_2014_2015, 2015),
+   371	            (week_53_day_2015, 2015),
+   372	        ], lambda m: (m.start_datetime, m.extracted))
+   373	
+   374	    def test_extract_month_func(self):
+   375	        start_datetime = datetime(2015, 6, 15, 14, 30, 50, 321)
+   376	        end_datetime = datetime(2016, 6, 15, 14, 10, 50, 123)
+   377	        if settings.USE_TZ:
+   378	            start_datetime = timezone.make_aware(start_datetime, is_dst=False)
+   379	            end_datetime = timezone.make_aware(end_datetime, is_dst=False)
+   380	        self.create_model(start_datetime, end_datetime)
+   381	        self.create_model(end_datetime, start_datetime)
+   382	        self.assertQuerysetEqual(
+   383	            DTModel.objects.annotate(extracted=ExtractMonth('start_datetime')).order_by('start_datetime'),
+   384	            [(start_datetime, start_datetime.month), (end_datetime, end_datetime.month)],
+   385	            lambda m: (m.start_datetime, m.extracted)
+   386	        )
+   387	        self.assertQuerysetEqual(
+   388	            DTModel.objects.annotate(extracted=ExtractMonth('start_date')).order_by('start_datetime'),
+   389	            [(start_datetime, start_datetime.month), (end_datetime, end_datetime.month)],
+   390	            lambda m: (m.start_datetime, m.extracted)
+   391	        )
+   392	        self.assertEqual(DTModel.objects.filter(start_datetime__month=ExtractMonth('start_datetime')).count(), 2)
+   393	
+   394	    def test_extract_day_func(self):
+   395	        start_datetime = datetime(2015, 6, 15, 14, 30, 50, 321)
+   396	        end_datetime = datetime(2016, 6, 15, 14, 10, 50, 123)
+   397	        if settings.USE_TZ:
+   398	            start_datetime = timezone.make_aware(start_datetime, is_dst=False)
+   399	            end_datetime = timezone.make_aware(end_datetime, is_dst=False)
+   400	        self.create_model(start_datetime, end_datetime)
+--- version ---
+3:VERSION = (4, 0, 0, 'alpha', 0)
+5:__version__ = get_version(VERSION)
+1ba07e0ccf SWE-bench
+6efc35b4fe Optimized django.utils.text.capfirst().
+2cd4026334 Refs #32353, Refs #32352 -- Fixed GIS tests with PROJ 7.X.
+71ec102b01 Fixed #32483 -- Fixed QuerySet.values()/values_list() on JSONField key transforms with booleans on SQLite.
+c4df8b86c7 Refs #32483 -- Added tests QuerySet.values()/values_list() on key transforms with structures containing booleans.
+037607ff19 Refs #31936 -- Added tests for __in lookup on JSONField key transforms with booleans.
+562898034f Refs #31732 -- Fixed django.utils.inspect caching for bound methods.
+ac72a216a7 Refs #31372 -- Added django.utils.inspect tests for bound methods.
+
+Budget: 1763.5s, 496 decisions remaining.

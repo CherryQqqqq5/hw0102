@@ -1,0 +1,169 @@
+   206	    def get_admin_url(self, remote_field, remote_obj):
+   207	        url_name = 'admin:%s_%s_change' % (
+   208	            remote_field.model._meta.app_label,
+   209	            remote_field.model._meta.model_name,
+   210	        )
+   211	        try:
+   212	            url = reverse(url_name, args=[quote(remote_obj.pk)])
+   213	            return format_html('<a href="{}">{}</a>', url, remote_obj)
+   214	        except NoReverseMatch:
+   215	            return str(remote_obj)
+   216	
+   217	    def contents(self):
+   218	        from django.contrib.admin.templatetags.admin_list import _boolean_icon
+   219	        field, obj, model_admin = self.field['field'], self.form.instance, self.model_admin
+   220	        try:
+   221	            f, attr, value = lookup_field(field, obj, model_admin)
+   222	        except (AttributeError, ValueError, ObjectDoesNotExist):
+   223	            result_repr = self.empty_value_display
+   224	        else:
+   225	            if field in self.form.fields:
+   226	                widget = self.form[field].field.widget
+   227	                # This isn't elegant but suffices for contrib.auth's
+   228	                # ReadOnlyPasswordHashWidget.
+   229	                if getattr(widget, 'read_only', False):
+   230	                    return widget.render(field, value)
+   231	            if f is None:
+   232	                if getattr(attr, 'boolean', False):
+   233	                    result_repr = _boolean_icon(value)
+   234	                else:
+   235	                    if hasattr(value, "__html__"):
+   236	                        result_repr = value
+   237	                    else:
+   238	                        result_repr = linebreaksbr(value)
+   239	            else:
+   240	                if isinstance(f.remote_field, ManyToManyRel) and value is not None:
+   241	                    result_repr = ", ".join(map(str, value.all()))
+   242	                elif (
+   243	                    isinstance(f.remote_field, (ForeignObjectRel, OneToOneField)) and
+   244	                    value is not None
+   245	                ):
+   246	                    result_repr = self.get_admin_url(f.remote_field, value)
+   247	                else:
+   248	                    result_repr = display_for_field(value, f, self.empty_value_display)
+   249	                result_repr = linebreaksbr(result_repr)
+   250	        return conditional_escape(result_repr)
+   251	
+   252	
+   253	class InlineAdminFormSet:
+   254	    """
+   255	    A wrapper around an inline formset for use in the admin system.
+   256	    """
+   257	    def __init__(self, inline, formset, fieldsets, prepopulated_fields=None,
+   258	                 readonly_fields=None, model_admin=None, has_add_permission=True,
+   259	                 has_change_permission=True, has_delete_permission=True,
+   260	                 has_view_permission=True):
+   261	        self.opts = inline
+   262	        self.formset = formset
+   263	        self.fieldsets = fieldsets
+   264	        self.model_admin = model_admin
+   265	        if readonly_fields is None:
+   266	            readonly_fields = ()
+   267	        self.readonly_fields = readonly_fields
+   268	        if prepopulated_fields is None:
+   269	            prepopulated_fields = {}
+   270	        self.prepopulated_fields = prepopulated_fields
+   271	        self.classes = ' '.join(inline.classes) if inline.classes else ''
+   272	        self.has_add_permission = has_add_permission
+   273	        self.has_change_permission = has_change_permission
+   274	        self.has_delete_permission = has_delete_permission
+   275	        self.has_view_permission = has_view_permission
+   276	
+   277	    def __iter__(self):
+   278	        if self.has_change_permission:
+   279	            readonly_fields_for_editing = self.readonly_fields
+   280	        else:
+   281	            readonly_fields_for_editing = self.readonly_fields + flatten_fieldsets(self.fieldsets)
+   282	
+   283	        for form, original in zip(self.formset.initial_forms, self.formset.get_queryset()):
+   284	            view_on_site_url = self.opts.get_view_on_site_url(original)
+   285	            yield InlineAdminForm(
+   286	                self.formset, form, self.fieldsets, self.prepopulated_fields,
+   287	                original, readonly_fields_for_editing, model_admin=self.opts,
+   288	                view_on_site_url=view_on_site_url,
+   289	            )
+   290	        for form in self.formset.extra_forms:
+   291	            yield InlineAdminForm(
+   292	                self.formset, form, self.fieldsets, self.prepopulated_fields,
+   293	                None, self.readonly_fields, model_admin=self.opts,
+   294	            )
+   295	        if self.has_add_permission:
+   296	            yield InlineAdminForm(
+   297	                self.formset, self.formset.empty_form,
+   298	                self.fieldsets, self.prepopulated_fields, None,
+   299	                self.readonly_fields, model_admin=self.opts,
+   300	            )
+--- lookup_field related handling ---
+263:def lookup_field(name, obj, model_admin=None):
+264-    opts = obj._meta
+265-    try:
+266-        f = _get_non_gfk_field(opts, name)
+267-    except (FieldDoesNotExist, FieldIsAForeignKeyColumnName):
+268-        # For non-field values, the value is either a method, property or
+269-        # returned via a callable.
+270-        if callable(name):
+271-            attr = name
+272-            value = attr(obj)
+273-        elif hasattr(model_admin, name) and name != '__str__':
+274-            attr = getattr(model_admin, name)
+275-            value = attr(obj)
+276-        else:
+277-            attr = getattr(obj, name)
+278-            if callable(attr):
+279-                value = attr()
+280-            else:
+281-                value = attr
+282-        f = None
+283-    else:
+284-        attr = None
+285-        value = getattr(obj, name)
+286-    return f, attr, value
+287-
+288-
+289-def _get_non_gfk_field(opts, name):
+290-    """
+291-    For historical reasons, the admin app relies on GenericForeignKeys as being
+292-    "not found" by get_field(). This could likely be cleaned up.
+293-
+294-    Reverse relations should also be excluded as these aren't attributes of the
+295-    model (rather something like `foo_set`).
+296-    """
+297-    field = opts.get_field(name)
+298-    if (field.is_relation and
+299-            # Generic foreign keys OR reverse relations
+300-            ((field.many_to_one and not field.related_model) or field.one_to_many)):
+301-        raise FieldDoesNotExist()
+302-
+303-    # Avoid coercing <FK>_id fields to FK
+304-    if field.is_relation and not field.many_to_many and hasattr(field, 'attname') and field.attname == name:
+305-        raise FieldIsAForeignKeyColumnName()
+306-
+307-    return field
+308-
+309-
+310-def label_for_field(name, model, model_admin=None, return_attr=False, form=None):
+311-    """
+312-    Return a sensible label for a field name. The name can be a callable,
+313-    property (but not created with @property decorator), or the name of an
+314-    object's attribute, as well as a model field. If return_attr is True, also
+315-    return the resolved attribute (which could be a callable). This will be
+316-    None if (and only if) the name refers to a field.
+317-    """
+318-    attr = None
+319-    try:
+320-        field = _get_non_gfk_field(model._meta, name)
+321-        try:
+322-            label = field.verbose_name
+323-        except AttributeError:
+324-            # field is likely a ForeignObjectRel
+325-            label = field.related_model._meta.verbose_name
+326-    except FieldDoesNotExist:
+327-        if name == "__str__":
+328-            label = str(model._meta.verbose_name)
+329-            attr = str
+330-        else:
+331-            if callable(name):
+332-                attr = name
+333-            elif hasattr(model_admin, name):
+
+Budget: 1672.8s, 490 decisions remaining.

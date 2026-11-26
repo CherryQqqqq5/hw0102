@@ -1,0 +1,10 @@
+{
+  "info": {
+    "exit_status": "Submitted",
+    "submission": "Submitting final caplog handler-level restoration fix and verified reproducer.",
+    "model_stats": {
+      "instance_cost": 0.0,
+      "api_calls": 24
+    }
+  }
+}

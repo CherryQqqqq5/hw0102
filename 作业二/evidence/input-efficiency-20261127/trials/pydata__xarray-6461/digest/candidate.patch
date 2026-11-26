@@ -1,0 +1,97 @@
+diff --git a/.course-public-check/check.py b/.course-public-check/check.py
+new file mode 100755
+index 00000000..3799a19b
+--- /dev/null
++++ b/.course-public-check/check.py
+@@ -0,0 +1,76 @@
++#!/usr/bin/env python
++"""Reproducer and regression checks for xr.where(..., keep_attrs=True)."""
++from __future__ import annotations
++
++import numpy as np
++
++import xarray as xr
++from xarray.testing import assert_identical
++
++
++def main() -> None:
++    # Exact report: scalar second argument used to raise IndexError.
++    cond = xr.DataArray([1, 2, 3]) > 0
++    actual = xr.where(cond, 1, 0)
++    assert_identical(xr.DataArray([1, 1, 1], dims="dim_0"), actual)
++
++    explicit = xr.where(cond, 1, 0, keep_attrs=True)
++    assert_identical(xr.DataArray([1, 1, 1], dims="dim_0"), explicit)
++
++    # Also cover the report's implicit form via the global option.
++    with xr.set_options(keep_attrs=True):
++        from_option = xr.where(xr.DataArray([1, 2, 3]) > 0, 1, 0)
++    assert_identical(xr.DataArray([1, 1, 1], dims="dim_0"), from_option)
++
++    # With no xarray objects at all there are no attrs to merge.
++    assert xr.where(True, 1, 0, keep_attrs=True) == 1
++
++    # Scalar x with other attributed inputs must not raise and must select values.
++    cond_with_attrs = xr.DataArray([True, False], dims="x", attrs={"source": "cond"})
++    y_with_attrs = xr.DataArray([9, 9], dims="x", attrs={"source": "y"})
++    result = xr.where(cond_with_attrs, 1, y_with_attrs, keep_attrs=True)
++    assert result.dims == ("x",)
++    np.testing.assert_array_equal(result.values, [1, 9])
++
++    # Existing supported case: keep attrs from x, not cond or y.
++    x = xr.DataArray([1, 1], dims="x", attrs={"source": "x"})
++    y = xr.DataArray([0, 0], dims="x", attrs={"source": "y"})
++    result = xr.where(cond_with_attrs, x, y, keep_attrs=True)
++    assert_identical(xr.DataArray([1, 0], dims="x", attrs={"source": "x"}), result)
++
++    # Scalar y and scalar cond still work when x is the only DataArray.
++    result = xr.where(True, x, 0, keep_attrs=True)
++    assert_identical(xr.DataArray([1, 1], dims="x", attrs={"source": "x"}), result)
++
++    # Dataset x attrs are supported too.
++    ds_x = xr.Dataset({"a": ("x", [1, 1])}, attrs={"source": "x"})
++    ds_y = xr.Dataset({"a": ("x", [0, 0])}, attrs={"source": "y"})
++    ds_cond = xr.Dataset({"a": ("x", [True, False])})
++    result = xr.where(ds_cond, ds_x, ds_y, keep_attrs=True)
++    assert result.attrs == {"source": "x"}
++
++    # Alternate keep_attrs values retain their documented semantics.
++    assert xr.where(cond_with_attrs, x, y, keep_attrs=False).attrs == {}
++    assert xr.where(cond_with_attrs, x, y, keep_attrs="override").attrs == {"source": "cond"}
++    called = []
++    result = xr.where(
++        cond_with_attrs,
++        x,
++        y,
++        keep_attrs=lambda attrs, context: (called.append(attrs) or {"source": "custom"}),
++    )
++    assert result.attrs == {"source": "custom"}
++    assert called
++
++    # Values are selected correctly across broadcasting and all-false cases.
++    cond2 = xr.DataArray([[True, False], [False, True]], dims=("i", "j"))
++    values = xr.DataArray(np.array([10, 20]), dims="j", attrs={"source": "x"})
++    result = xr.where(cond2, values, -1, keep_attrs=True)
++    np.testing.assert_array_equal(result.values, [[10, -1], [-1, 20]])
++    assert result.attrs == {"source": "x"}
++
++    print("all check assertions passed")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/xarray/core/computation.py b/xarray/core/computation.py
+index 7676d8e5..91925778 100644
+--- a/xarray/core/computation.py
++++ b/xarray/core/computation.py
+@@ -1829,7 +1829,9 @@ def where(cond, x, y, keep_attrs=None):
+     if keep_attrs is True:
+         # keep the attributes of x, the second parameter, by default to
+         # be consistent with the `where` method of `DataArray` and `Dataset`
+-        keep_attrs = lambda attrs, context: attrs[1]
++        keep_attrs = lambda attrs, context: (
++            attrs[1] if len(attrs) > 1 else attrs[0] if attrs else {}
++        )
+ 
+     # alignment for three arguments is complicated, so don't support it yet
+     return apply_ufunc(

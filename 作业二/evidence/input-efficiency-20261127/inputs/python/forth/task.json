@@ -1,0 +1,25 @@
+{
+  "stage": "frozen",
+  "revisions": {
+    "swe": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+    "terminal": "7131e4375048a0e408a8fb404b5f499d726b695b",
+    "aider": "7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"
+  },
+  "selected": [
+    {
+      "benchmark": "aider",
+      "id": "python/forth",
+      "stratum": "python",
+      "group": "forth",
+      "solution_files": [
+        "forth.py"
+      ],
+      "test_files": [
+        "forth_test.py"
+      ],
+      "exclude": null
+    }
+  ],
+  "original_image_id": "sha256:4c2ff731711edaca2df3016ec1c56723037ea41a667158282f4e40766fd37c62",
+  "original_manifest_digest": null
+}

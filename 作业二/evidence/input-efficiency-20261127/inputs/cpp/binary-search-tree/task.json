@@ -1,0 +1,26 @@
+{
+  "stage": "frozen",
+  "revisions": {
+    "swe": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+    "terminal": "7131e4375048a0e408a8fb404b5f499d726b695b",
+    "aider": "7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"
+  },
+  "selected": [
+    {
+      "benchmark": "aider",
+      "id": "cpp/binary-search-tree",
+      "stratum": "cpp",
+      "group": "binary-search-tree",
+      "solution_files": [
+        "binary_search_tree.cpp",
+        "binary_search_tree.h"
+      ],
+      "test_files": [
+        "binary_search_tree_test.cpp"
+      ],
+      "exclude": null
+    }
+  ],
+  "original_image_id": "sha256:5fd6f3215a631debffd4a543b14885004bdefc44402b3adff9e95ecc6cf1672d",
+  "original_manifest_digest": null
+}

@@ -1,0 +1,121 @@
+191-        }
+192-        self.form = form
+193-        self.model_admin = model_admin
+194-        self.is_first = is_first
+195-        self.is_checkbox = False
+196-        self.is_readonly = True
+197-        self.empty_value_display = model_admin.get_empty_value_display()
+198-
+199-    def label_tag(self):
+200-        attrs = {}
+201-        if not self.is_first:
+202-            attrs["class"] = "inline"
+203-        label = self.field['label']
+204-        return format_html('<label{}>{}{}</label>', flatatt(attrs), capfirst(label), self.form.label_suffix)
+205-
+206:    def get_admin_url(self, remote_field, remote_obj):
+207-        url_name = 'admin:%s_%s_change' % (
+208-            remote_field.model._meta.app_label,
+209-            remote_field.model._meta.model_name,
+210-        )
+211-        try:
+212-            url = reverse(url_name, args=[quote(remote_obj.pk)])
+213-            return format_html('<a href="{}">{}</a>', url, remote_obj)
+214-        except NoReverseMatch:
+215-            return str(remote_obj)
+216-
+217-    def contents(self):
+218-        from django.contrib.admin.templatetags.admin_list import _boolean_icon
+219-        field, obj, model_admin = self.field['field'], self.form.instance, self.model_admin
+220-        try:
+221-            f, attr, value = lookup_field(field, obj, model_admin)
+222-        except (AttributeError, ValueError, ObjectDoesNotExist):
+223-            result_repr = self.empty_value_display
+224-        else:
+225-            if field in self.form.fields:
+226-                widget = self.form[field].field.widget
+227-                # This isn't elegant but suffices for contrib.auth's
+228-                # ReadOnlyPasswordHashWidget.
+229-                if getattr(widget, 'read_only', False):
+230-                    return widget.render(field, value)
+231-            if f is None:
+232-                if getattr(attr, 'boolean', False):
+233-                    result_repr = _boolean_icon(value)
+234-                else:
+235-                    if hasattr(value, "__html__"):
+236-                        result_repr = value
+237-                    else:
+238-                        result_repr = linebreaksbr(value)
+239-            else:
+240-                if isinstance(f.remote_field, ManyToManyRel) and value is not None:
+241-                    result_repr = ", ".join(map(str, value.all()))
+242-                elif (
+243-                    isinstance(f.remote_field, (ForeignObjectRel, OneToOneField)) and
+244-                    value is not None
+245-                ):
+246-                    result_repr = self.get_admin_url(f.remote_field, value)
+247-                else:
+248-                    result_repr = display_for_field(value, f, self.empty_value_display)
+249-                result_repr = linebreaksbr(result_repr)
+250-        return conditional_escape(result_repr)
+251-
+tests/admin_views/test_multidb.py:20:site = admin.AdminSite(name='test_adminsite')
+tests/admin_views/customadmin.py:2:A second, custom AdminSite -- see tests.CustomAdminSiteTests.
+tests/admin_views/customadmin.py:14:    app_index_template = 'custom_admin/app_index.html'
+tests/admin_views/customadmin.py:15:    login_form = forms.CustomAdminAuthenticationForm
+tests/admin_views/customadmin.py:16:    login_template = 'custom_admin/login.html'
+tests/admin_views/customadmin.py:17:    logout_template = 'custom_admin/logout.html'
+tests/admin_views/customadmin.py:18:    index_template = ['custom_admin/index.html']  # a list, to test fix for #18697
+tests/admin_views/customadmin.py:19:    password_change_template = 'custom_admin/password_change_form.html'
+tests/admin_views/customadmin.py:20:    password_change_done_template = 'custom_admin/password_change_done.html'
+tests/admin_views/forms.py:6:class CustomAdminAuthenticationForm(AdminAuthenticationForm):
+tests/admin_views/tests.py:1160:        self.assertTemplateUsed(response, 'custom_admin/change_list.html')
+tests/admin_views/tests.py:1164:        self.assertTemplateUsed(response, 'custom_admin/add_form.html')
+tests/admin_views/tests.py:1179:        self.assertTemplateUsed(response, 'custom_admin/change_form.html')
+tests/admin_views/tests.py:1181:        self.assertTemplateUsed(response, 'custom_admin/delete_confirmation.html')
+tests/admin_views/tests.py:1187:        self.assertTemplateUsed(response, 'custom_admin/delete_selected_confirmation.html')
+tests/admin_views/tests.py:1189:        self.assertTemplateUsed(response, 'custom_admin/object_history.html')
+tests/admin_views/tests.py:1199:        self.assertEqual(response.template_name, 'custom_admin/popup_response.html')
+tests/admin_views/tests.py:1447:    def test_custom_admin_site_login_form(self):
+tests/admin_views/tests.py:1461:    def test_custom_admin_site_login_template(self):
+tests/admin_views/tests.py:1465:        self.assertTemplateUsed(response, 'custom_admin/login.html')
+tests/admin_views/tests.py:1468:    def test_custom_admin_site_logout_template(self):
+tests/admin_views/tests.py:1471:        self.assertTemplateUsed(response, 'custom_admin/logout.html')
+tests/admin_views/tests.py:1474:    def test_custom_admin_site_index_view_and_template(self):
+tests/admin_views/tests.py:1477:        self.assertTemplateUsed(response, 'custom_admin/index.html')
+tests/admin_views/tests.py:1480:    def test_custom_admin_site_app_index_view_and_template(self):
+tests/admin_views/tests.py:1483:        self.assertTemplateUsed(response, 'custom_admin/app_index.html')
+tests/admin_views/tests.py:1486:    def test_custom_admin_site_password_change_template(self):
+tests/admin_views/tests.py:1489:        self.assertTemplateUsed(response, 'custom_admin/password_change_form.html')
+tests/admin_views/tests.py:1492:    def test_custom_admin_site_password_change_with_extra_context(self):
+tests/admin_views/tests.py:1495:        self.assertTemplateUsed(response, 'custom_admin/password_change_form.html')
+tests/admin_views/tests.py:1498:    def test_custom_admin_site_password_change_done_template(self):
+tests/admin_views/tests.py:1501:        self.assertTemplateUsed(response, 'custom_admin/password_change_done.html')
+tests/admin_views/tests.py:1504:    def test_custom_admin_site_view(self):
+tests/admin_views/test_adminsite.py:10:site = admin.AdminSite(name="test_adminsite")
+tests/admin_views/test_autocomplete_view.py:39:site = admin.AdminSite(name='autocomplete_admin')
+tests/admin_views/admin.py:194:    change_list_template = 'custom_admin/change_list.html'
+tests/admin_views/admin.py:195:    change_form_template = 'custom_admin/change_form.html'
+tests/admin_views/admin.py:196:    add_form_template = 'custom_admin/add_form.html'
+tests/admin_views/admin.py:197:    object_history_template = 'custom_admin/object_history.html'
+tests/admin_views/admin.py:198:    delete_confirmation_template = 'custom_admin/delete_confirmation.html'
+tests/admin_views/admin.py:199:    delete_selected_confirmation_template = 'custom_admin/delete_selected_confirmation.html'
+tests/admin_views/admin.py:200:    popup_response_template = 'custom_admin/popup_response.html'
+tests/admin_views/admin.py:1011:site = admin.AdminSite(name="admin")
+tests/admin_views/admin.py:1134:site2 = admin.AdminSite(name="namespaced_admin")
+tests/admin_views/admin.py:1146:site7 = admin.AdminSite(name="admin7")
+tests/admin_views/admin.py:1185:site6 = admin.AdminSite(name='admin6')
+tests/admin_views/admin.py:1207:site9 = admin.AdminSite(name='admin9')
+tests/admin_views/admin.py:1211:site10 = admin.AdminSite(name='admin10')
+django/contrib/admin/sites.py:226:                if request.path == reverse('admin:logout', current_app=self.name):
+django/contrib/admin/sites.py:227:                    index_path = reverse('admin:index', current_app=self.name)
+django/contrib/admin/sites.py:234:                    reverse('admin:login', current_app=self.name)
+django/contrib/admin/sites.py:331:        url = reverse('admin:password_change_done', current_app=self.name)
+django/contrib/admin/sites.py:392:            index_path = reverse('admin:index', current_app=self.name)
+django/contrib/admin/sites.py:408:            context[REDIRECT_FIELD_NAME] = reverse('admin:index', current_app=self.name)
+django/contrib/admin/sites.py:476:                    model_dict['admin_url'] = reverse('admin:%s_%s_changelist' % info, current_app=self.name)
+django/contrib/admin/sites.py:481:                    model_dict['add_url'] = reverse('admin:%s_%s_add' % info, current_app=self.name)
+django/contrib/admin/options.py:1469:            post_url = reverse('admin:index', current_app=self.admin_site.name)
+django/contrib/admin/options.py:1543:        url = reverse('admin:index', current_app=self.admin_site.name)
+
+Budget: 1777.3s, 498 decisions remaining.

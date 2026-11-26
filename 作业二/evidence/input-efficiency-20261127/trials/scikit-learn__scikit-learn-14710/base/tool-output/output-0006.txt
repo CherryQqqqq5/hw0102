@@ -1,0 +1,163 @@
+FAIL: original reproducer
+FAIL: binary string target with validation scorer
+FAIL: binary string target, training-only scorer
+FAIL: multiclass string target with validation scorer
+FAIL: explicit accuracy scorer
+PASS: loss scoring boundary
+PASS: no early stopping boundary
+PASS: numeric and regression regression tests
+FAIL: warm start with string target
+check exit status: 1
+Traceback (most recent call last):
+  File ".course-public-check/check.py", line 242, in main
+    check()
+  File ".course-public-check/check.py", line 74, in check_original_reproducer
+    gbrt.fit(X, y)
+  File "/testbed/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py", line 254, in fit
+    X_binned_val, y_val,
+  File "/testbed/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py", line 430, in _check_early_stopping_scorer
+    self.scorer_(self, X_binned_small_train, y_small_train)
+  File "/testbed/sklearn/metrics/scorer.py", line 241, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/testbed/sklearn/base.py", line 368, in score
+    return accuracy_score(y, self.predict(X), sample_weight=sample_weight)
+  File "/testbed/sklearn/metrics/classification.py", line 176, in accuracy_score
+    y_type, y_true, y_pred = _check_targets(y_true, y_pred)
+  File "/testbed/sklearn/metrics/classification.py", line 94, in _check_targets
+    unique_values = np.union1d(y_true, y_pred)
+  File "<__array_function__ internals>", line 6, in union1d
+  File "/opt/miniconda3/envs/testbed/lib/python3.6/site-packages/numpy/lib/arraysetops.py", line 749, in union1d
+    return unique(np.concatenate((ar1, ar2), axis=None))
+  File "<__array_function__ internals>", line 6, in unique
+  File "/opt/miniconda3/envs/testbed/lib/python3.6/site-packages/numpy/lib/arraysetops.py", line 261, in unique
+    ret = _unique1d(ar, return_index, return_inverse, return_counts)
+  File "/opt/miniconda3/envs/testbed/lib/python3.6/site-packages/numpy/lib/arraysetops.py", line 322, in _unique1d
+    ar.sort()
+TypeError: '<' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File ".course-public-check/check.py", line 242, in main
+    check()
+  File ".course-public-check/check.py", line 88, in check_binary_string_validation_score
+    gbrt.fit(X, y)
+  File "/testbed/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py", line 254, in fit
+    X_binned_val, y_val,
+  File "/testbed/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py", line 430, in _check_early_stopping_scorer
+    self.scorer_(self, X_binned_small_train, y_small_train)
+  File "/testbed/sklearn/metrics/scorer.py", line 241, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/testbed/sklearn/base.py", line 368, in score
+    return accuracy_score(y, self.predict(X), sample_weight=sample_weight)
+  File "/testbed/sklearn/metrics/classification.py", line 176, in accuracy_score
+    y_type, y_true, y_pred = _check_targets(y_true, y_pred)
+  File "/testbed/sklearn/metrics/classification.py", line 94, in _check_targets
+    unique_values = np.union1d(y_true, y_pred)
+  File "<__array_function__ internals>", line 6, in union1d
+  File "/opt/miniconda3/envs/testbed/lib/python3.6/site-packages/numpy/lib/arraysetops.py", line 749, in union1d
+    return unique(np.concatenate((ar1, ar2), axis=None))
+  File "<__array_function__ internals>", line 6, in unique
+  File "/opt/miniconda3/envs/testbed/lib/python3.6/site-packages/numpy/lib/arraysetops.py", line 261, in unique
+    ret = _unique1d(ar, return_index, return_inverse, return_counts)
+  File "/opt/miniconda3/envs/testbed/lib/python3.6/site-packages/numpy/lib/arraysetops.py", line 322, in _unique1d
+    ar.sort()
+TypeError: '<' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File ".course-public-check/check.py", line 242, in main
+    check()
+  File ".course-public-check/check.py", line 109, in check_binary_string_train_only_score
+    gbrt.fit(X, y)
+  File "/testbed/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py", line 254, in fit
+    X_binned_val, y_val,
+  File "/testbed/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py", line 430, in _check_early_stopping_scorer
+    self.scorer_(self, X_binned_small_train, y_small_train)
+  File "/testbed/sklearn/metrics/scorer.py", line 241, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/testbed/sklearn/base.py", line 368, in score
+    return accuracy_score(y, self.predict(X), sample_weight=sample_weight)
+  File "/testbed/sklearn/metrics/classification.py", line 176, in accuracy_score
+    y_type, y_true, y_pred = _check_targets(y_true, y_pred)
+  File "/testbed/sklearn/metrics/classification.py", line 94, in _check_targets
+    unique_values = np.union1d(y_true, y_pred)
+  File "<__array_function__ internals>", line 6, in union1d
+  File "/opt/miniconda3/envs/testbed/lib/python3.6/site-packages/numpy/lib/arraysetops.py", line 749, in union1d
+    return unique(np.concatenate((ar1, ar2), axis=None))
+  File "<__array_function__ internals>", line 6, in unique
+  File "/opt/miniconda3/envs/testbed/lib/python3.6/site-packages/numpy/lib/arraysetops.py", line 261, in unique
+    ret = _unique1d(ar, return_index, return_inverse, return_counts)
+  File "/opt/miniconda3/envs/testbed/lib/python3.6/site-packages/numpy/lib/arraysetops.py", line 322, in _unique1d
+    ar.sort()
+TypeError: '<' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File ".course-public-check/check.py", line 242, in main
+    check()
+  File ".course-public-check/check.py", line 135, in check_multiclass_string_validation_score
+    err_msg="multiclass validation score uses wrong labels")
+  File "/opt/miniconda3/envs/testbed/lib/python3.6/site-packages/numpy/testing/_private/utils.py", line 1528, in assert_allclose
+    verbose=verbose, header=header, equal_nan=equal_nan)
+  File "/opt/miniconda3/envs/testbed/lib/python3.6/site-packages/numpy/testing/_private/utils.py", line 840, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Not equal to tolerance rtol=0, atol=1e-12
+multiclass validation score uses wrong labels
+Mismatched elements: 1 / 1 (100%)
+Max absolute difference: 0.91666667
+Max relative difference: 1.
+ x: array(0.)
+ y: array(0.916667)
+Traceback (most recent call last):
+  File ".course-public-check/check.py", line 242, in main
+    check()
+  File ".course-public-check/check.py", line 145, in check_explicit_scoring_string
+    gbrt.fit(X, y)
+  File "/testbed/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py", line 254, in fit
+    X_binned_val, y_val,
+  File "/testbed/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py", line 430, in _check_early_stopping_scorer
+    self.scorer_(self, X_binned_small_train, y_small_train)
+  File "/testbed/sklearn/metrics/scorer.py", line 98, in __call__
+    **self._kwargs)
+  File "/testbed/sklearn/metrics/classification.py", line 176, in accuracy_score
+    y_type, y_true, y_pred = _check_targets(y_true, y_pred)
+  File "/testbed/sklearn/metrics/classification.py", line 94, in _check_targets
+    unique_values = np.union1d(y_true, y_pred)
+  File "<__array_function__ internals>", line 6, in union1d
+  File "/opt/miniconda3/envs/testbed/lib/python3.6/site-packages/numpy/lib/arraysetops.py", line 749, in union1d
+    return unique(np.concatenate((ar1, ar2), axis=None))
+  File "<__array_function__ internals>", line 6, in unique
+  File "/opt/miniconda3/envs/testbed/lib/python3.6/site-packages/numpy/lib/arraysetops.py", line 261, in unique
+    ret = _unique1d(ar, return_index, return_inverse, return_counts)
+  File "/opt/miniconda3/envs/testbed/lib/python3.6/site-packages/numpy/lib/arraysetops.py", line 322, in _unique1d
+    ar.sort()
+TypeError: '<' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File ".course-public-check/check.py", line 242, in main
+    check()
+  File ".course-public-check/check.py", line 213, in check_warm_start_with_string_target
+    first.fit(X, y)
+  File "/testbed/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py", line 254, in fit
+    X_binned_val, y_val,
+  File "/testbed/sklearn/ensemble/_hist_gradient_boosting/gradient_boosting.py", line 430, in _check_early_stopping_scorer
+    self.scorer_(self, X_binned_small_train, y_small_train)
+  File "/testbed/sklearn/metrics/scorer.py", line 241, in _passthrough_scorer
+    return estimator.score(*args, **kwargs)
+  File "/testbed/sklearn/base.py", line 368, in score
+    return accuracy_score(y, self.predict(X), sample_weight=sample_weight)
+  File "/testbed/sklearn/metrics/classification.py", line 176, in accuracy_score
+    y_type, y_true, y_pred = _check_targets(y_true, y_pred)
+  File "/testbed/sklearn/metrics/classification.py", line 94, in _check_targets
+    unique_values = np.union1d(y_true, y_pred)
+  File "<__array_function__ internals>", line 6, in union1d
+  File "/opt/miniconda3/envs/testbed/lib/python3.6/site-packages/numpy/lib/arraysetops.py", line 749, in union1d
+    return unique(np.concatenate((ar1, ar2), axis=None))
+  File "<__array_function__ internals>", line 6, in unique
+  File "/opt/miniconda3/envs/testbed/lib/python3.6/site-packages/numpy/lib/arraysetops.py", line 261, in unique
+    ret = _unique1d(ar, return_index, return_inverse, return_counts)
+  File "/opt/miniconda3/envs/testbed/lib/python3.6/site-packages/numpy/lib/arraysetops.py", line 322, in _unique1d
+    ar.sort()
+TypeError: '<' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File ".course-public-check/check.py", line 257, in <module>
+    main()
+  File ".course-public-check/check.py", line 252, in main
+    len(failures), ', '.join(failures)))
+AssertionError: 6 check(s) failed: original reproducer, binary string target with validation scorer, binary string target, training-only scorer, multiclass string target with validation scorer, explicit accuracy scorer, warm start with string target
+
+Budget: 1676.0s, 489 decisions remaining.

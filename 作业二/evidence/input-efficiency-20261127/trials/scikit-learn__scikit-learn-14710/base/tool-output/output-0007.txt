@@ -1,0 +1,175 @@
+--- new regression tests only ---
+============================= test session starts ==============================
+platform linux -- Python 3.6.13, pytest-6.2.4, py-1.11.0, pluggy-0.13.1 -- /opt/miniconda3/envs/testbed/bin/python
+cachedir: .pytest_cache
+rootdir: /testbed, configfile: setup.cfg
+collecting ... collected 82 items / 78 deselected / 4 selected
+
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification_string_labels[0.1-labels0] FAILED [ 25%]
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification_string_labels[0.1-labels1] FAILED [ 50%]
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification_string_labels[None-labels0] FAILED [ 75%]
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification_string_labels[None-labels1] FAILED [100%]
+
+=================================== FAILURES ===================================
+________ test_early_stopping_classification_string_labels[0.1-labels0] _________
+
+labels = array(['y', 'x'], dtype=object), validation_fraction = 0.1
+
+    @pytest.mark.parametrize(
+        'labels', (
+            np.array(['y', 'x'], dtype=object),
+            np.array(['zebra', 'cat', 'mouse'], dtype=object),
+        )
+    )
+    @pytest.mark.parametrize('validation_fraction', (.1, None))
+    def test_early_stopping_classification_string_labels(labels,
+                                                         validation_fraction):
+        # The scorer sees the predictions of the estimator (original labels)
+        # while y is encoded internally. Both must use the same label scale.
+        n_classes = len(labels)
+        X, encoded = make_classification(
+            n_samples=50, n_classes=n_classes,
+            n_informative=max(2, n_classes), n_clusters_per_class=1, random_state=0
+        )
+        y = labels[encoded]
+    
+        gb = HistGradientBoostingClassifier(
+            max_iter=30, min_samples_leaf=5, scoring='accuracy',
+            validation_fraction=validation_fraction, n_iter_no_change=5,
+            random_state=0
+        )
+        gb.fit(X, y)
+    
+>       assert_array_equal(gb.classes_, np.sort(labels))
+E       NameError: name 'assert_array_equal' is not defined
+
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py:160: NameError
+________ test_early_stopping_classification_string_labels[0.1-labels1] _________
+
+labels = array(['zebra', 'cat', 'mouse'], dtype=object)
+validation_fraction = 0.1
+
+    @pytest.mark.parametrize(
+        'labels', (
+            np.array(['y', 'x'], dtype=object),
+            np.array(['zebra', 'cat', 'mouse'], dtype=object),
+        )
+    )
+    @pytest.mark.parametrize('validation_fraction', (.1, None))
+    def test_early_stopping_classification_string_labels(labels,
+                                                         validation_fraction):
+        # The scorer sees the predictions of the estimator (original labels)
+        # while y is encoded internally. Both must use the same label scale.
+        n_classes = len(labels)
+        X, encoded = make_classification(
+            n_samples=50, n_classes=n_classes,
+            n_informative=max(2, n_classes), n_clusters_per_class=1, random_state=0
+        )
+        y = labels[encoded]
+    
+        gb = HistGradientBoostingClassifier(
+            max_iter=30, min_samples_leaf=5, scoring='accuracy',
+            validation_fraction=validation_fraction, n_iter_no_change=5,
+            random_state=0
+        )
+        gb.fit(X, y)
+    
+>       assert_array_equal(gb.classes_, np.sort(labels))
+E       NameError: name 'assert_array_equal' is not defined
+
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py:160: NameError
+________ test_early_stopping_classification_string_labels[None-labels0] ________
+
+labels = array(['y', 'x'], dtype=object), validation_fraction = None
+
+    @pytest.mark.parametrize(
+        'labels', (
+            np.array(['y', 'x'], dtype=object),
+            np.array(['zebra', 'cat', 'mouse'], dtype=object),
+        )
+    )
+    @pytest.mark.parametrize('validation_fraction', (.1, None))
+    def test_early_stopping_classification_string_labels(labels,
+                                                         validation_fraction):
+        # The scorer sees the predictions of the estimator (original labels)
+        # while y is encoded internally. Both must use the same label scale.
+        n_classes = len(labels)
+        X, encoded = make_classification(
+            n_samples=50, n_classes=n_classes,
+            n_informative=max(2, n_classes), n_clusters_per_class=1, random_state=0
+        )
+        y = labels[encoded]
+    
+        gb = HistGradientBoostingClassifier(
+            max_iter=30, min_samples_leaf=5, scoring='accuracy',
+            validation_fraction=validation_fraction, n_iter_no_change=5,
+            random_state=0
+        )
+        gb.fit(X, y)
+    
+>       assert_array_equal(gb.classes_, np.sort(labels))
+E       NameError: name 'assert_array_equal' is not defined
+
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py:160: NameError
+________ test_early_stopping_classification_string_labels[None-labels1] ________
+
+labels = array(['zebra', 'cat', 'mouse'], dtype=object)
+validation_fraction = None
+
+    @pytest.mark.parametrize(
+        'labels', (
+            np.array(['y', 'x'], dtype=object),
+            np.array(['zebra', 'cat', 'mouse'], dtype=object),
+        )
+    )
+    @pytest.mark.parametrize('validation_fraction', (.1, None))
+    def test_early_stopping_classification_string_labels(labels,
+                                                         validation_fraction):
+        # The scorer sees the predictions of the estimator (original labels)
+        # while y is encoded internally. Both must use the same label scale.
+        n_classes = len(labels)
+        X, encoded = make_classification(
+            n_samples=50, n_classes=n_classes,
+            n_informative=max(2, n_classes), n_clusters_per_class=1, random_state=0
+        )
+        y = labels[encoded]
+    
+        gb = HistGradientBoostingClassifier(
+            max_iter=30, min_samples_leaf=5, scoring='accuracy',
+            validation_fraction=validation_fraction, n_iter_no_change=5,
+            random_state=0
+        )
+        gb.fit(X, y)
+    
+>       assert_array_equal(gb.classes_, np.sort(labels))
+E       NameError: name 'assert_array_equal' is not defined
+
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py:160: NameError
+================= 4 failed, 78 deselected, 1 warning in 9.67s ==================
+new tests status: 1
+--- existing early stopping classification tests ---
+============================= test session starts ==============================
+platform linux -- Python 3.6.13, pytest-6.2.4, py-1.11.0, pluggy-0.13.1 -- /opt/miniconda3/envs/testbed/bin/python
+cachedir: .pytest_cache
+rootdir: /testbed, configfile: setup.cfg
+collecting ... collected 82 items / 68 deselected / 14 selected
+
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[accuracy-0.1-5-1e-07-data0] PASSED [  7%]
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[accuracy-0.1-5-1e-07-data1] PASSED [ 14%]
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[accuracy-None-5-0.1-data0] PASSED [ 21%]
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[accuracy-None-5-0.1-data1] PASSED [ 28%]
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[None-0.1-5-1e-07-data0] PASSED [ 35%]
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[None-0.1-5-1e-07-data1] PASSED [ 42%]
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[None-None-5-0.1-data0] PASSED [ 50%]
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[None-None-5-0.1-data1] PASSED [ 57%]
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[loss-0.1-5-1e-07-data0] PASSED [ 64%]
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[loss-0.1-5-1e-07-data1] PASSED [ 71%]
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[loss-None-5-0.1-data0] PASSED [ 78%]
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[loss-None-5-0.1-data1] PASSED [ 85%]
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[None-None-None-None-data0] PASSED [ 92%]
+sklearn/ensemble/_hist_gradient_boosting/tests/test_gradient_boosting.py::test_early_stopping_classification[None-None-None-None-data1] PASSED [100%]
+
+================ 14 passed, 68 deselected, 1 warning in 15.78s =================
+existing tests status: 0
+
+Budget: 1453.0s, 484 decisions remaining.

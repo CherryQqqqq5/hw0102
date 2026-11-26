@@ -1,0 +1,31 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "cpp/binary-search-tree",
+    "stratum": "cpp",
+    "group": "binary-search-tree",
+    "solution_files": [
+      "binary_search_tree.cpp",
+      "binary_search_tree.h"
+    ],
+    "test_files": [
+      "binary_search_tree_test.cpp"
+    ],
+    "exclude": null
+  },
+  "phase": "formal",
+  "configuration": "C0",
+  "status": "started",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "framework": "mini-swe",
+  "protocol_commit": null,
+  "limits": {
+    "model_calls": 500,
+    "wall_seconds": 1800,
+    "command_seconds": 120,
+    "max_output_tokens": 64000,
+    "timeout_retries": 0,
+    "strict_wall": true
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "task": {
+    "benchmark": "aider",
+    "id": "python/forth",
+    "stratum": "python",
+    "group": "forth",
+    "solution_files": [
+      "forth.py"
+    ],
+    "test_files": [
+      "forth_test.py"
+    ],
+    "exclude": null
+  },
+  "phase": "formal",
+  "configuration": "B0",
+  "status": "started",
+  "model": "hy4flash-free",
+  "backend": "codebuddy",
+  "framework": "dsh",
+  "protocol_commit": null,
+  "limits": {
+    "model_calls": 500,
+    "wall_seconds": 1800,
+    "command_seconds": 120,
+    "max_output_tokens": 64000,
+    "timeout_retries": 0,
+    "strict_wall": true
+  }
+}

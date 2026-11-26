@@ -1,0 +1,19 @@
+{
+  "task": "scikit-learn__scikit-learn-14710",
+  "wall_seconds": 636.8301090388559,
+  "exit_status": "Submitted",
+  "submission": "Fixed `HistGradientBoostingClassifier` early stopping with string targets: `_check_early_stopping_scorer` now maps internally encoded classifier labels back through `classes_` before calling the scorer, for both training-subsample and validation scores. Regression and `scoring='loss'` paths are unchanged.\n\nAdded executable `.course-public-check/check.py` with assertions for the original reproducer, binary/multiclass string labels, validation and no-validation scoring, warm start, the >10k-row subsample path, regression/loss paths, and existing early-stopping tests. Verified the check passes (including 16 existing tests) and fails when the production fix is reverted.",
+  "framework": "deepseek-harness-sdk-0.2.2rc2",
+  "sdk_result": {
+    "session_id": "course-task",
+    "final_response": "Fixed `HistGradientBoostingClassifier` early stopping with string targets: `_check_early_stopping_scorer` now maps internally encoded classifier labels back through `classes_` before calling the scorer, for both training-subsample and validation scores. Regression and `scoring='loss'` paths are unchanged.\n\nAdded executable `.course-public-check/check.py` with assertions for the original reproducer, binary/multiclass string labels, validation and no-validation scoring, warm start, the >10k-row subsample path, regression/loss paths, and existing early-stopping tests. Verified the check passes (including 16 existing tests) and fails when the production fix is reverted.",
+    "finish_reason": "completed",
+    "events": 107,
+    "notifications": 109,
+    "sdk_model_http_requests": 20,
+    "wall_seconds": 475.6307716630399
+  },
+  "scoreable": true,
+  "passed": true,
+  "grader_seconds": 144.68981492705643
+}

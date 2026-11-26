@@ -1,0 +1,22 @@
+{
+  "stage": "frozen",
+  "revisions": {
+    "swe": "78f471bf655a3137b2e8a75af1501690ec009ec3",
+    "terminal": "7131e4375048a0e408a8fb404b5f499d726b695b",
+    "aider": "7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"
+  },
+  "selected": [
+    {
+      "benchmark": "swe",
+      "id": "pytest-dev__pytest-7571",
+      "stratum": "pytest-dev/pytest",
+      "group": "pytest-dev__pytest-7571",
+      "difficulty": "15 min - 1 hour",
+      "image": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7571:latest",
+      "base_commit": "422685d0bdc110547535036c1ff398b5e1c44145",
+      "exclude": null
+    }
+  ],
+  "original_image_id": "sha256:a4cdd92a11a554106948342c614cbcaa9a7fc7f42b261859c9deef149a673cfe",
+  "original_manifest_digest": "sha256:a4cdd92a11a554106948342c614cbcaa9a7fc7f42b261859c9deef149a673cfe"
+}

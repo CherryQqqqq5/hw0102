@@ -1,0 +1,150 @@
+diff --git a/.course-public-check/check.py b/.course-public-check/check.py
+new file mode 100755
+index 000000000..5e3ec0145
+--- /dev/null
++++ b/.course-public-check/check.py
+@@ -0,0 +1,113 @@
++#!/usr/bin/env python3
++"""Executable reproducer for caplog fixture log-level restoration."""
++import os
++import subprocess
++import sys
++import tempfile
++from pathlib import Path
++
++DEFAULT_PYTHON = "/opt/miniconda3/envs/testbed/bin/python"
++PYTHON = DEFAULT_PYTHON if Path(DEFAULT_PYTHON).exists() else sys.executable
++REPO = Path(__file__).resolve().parents[1]
++
++
++def run_pytest(test_source, ini=None):
++    with tempfile.TemporaryDirectory() as tmp:
++        root = Path(tmp)
++        (root / "test_caplog_level.py").write_text(test_source)
++        if ini is not None:
++            (root / "pytest.ini").write_text(ini)
++        env = dict(os.environ)
++        env["PYTHONPATH"] = str(REPO / "src") + os.pathsep + env.get("PYTHONPATH", "")
++        proc = subprocess.run(
++            [PYTHON, "-m", "pytest", "-p", "no:cacheprovider", "-q", "-s"],
++            cwd=root,
++            env=env,
++            text=True,
++            stdout=subprocess.PIPE,
++            stderr=subprocess.STDOUT,
++        )
++        return proc.returncode, proc.stdout
++
++
++def main():
++    source = '''
++import logging
++
++def test_set_level(caplog):
++    assert caplog.handler.level == logging.NOTSET
++    assert logging.getLogger().level == logging.WARNING
++    caplog.set_level(42)
++    assert caplog.handler.level == 42
++    assert logging.getLogger().level == 42
++
++def test_level_restored(caplog):
++    print("HANDLER_LEVEL=%d" % caplog.handler.level)
++    print("ROOT_LEVEL=%d" % logging.getLogger().level)
++    assert caplog.handler.level == logging.NOTSET
++    assert logging.getLogger().level == logging.WARNING
++'''
++    code, output = run_pytest(source)
++    assert code == 0, "baseline caplog tests failed:\n" + output
++    assert "HANDLER_LEVEL=0" in output, (
++        "caplog handler level was not restored between tests; got:\n" + output
++    )
++    assert "ROOT_LEVEL=30" in output, (
++        "root logger level was not restored between tests; got:\n" + output
++    )
++
++    # A configured logging level is the baseline that set_level must restore,
++    # rather than unconditionally forcing the handler back to NOTSET.
++    source_with_ini = '''
++import logging
++
++def test_set_level_configured(caplog):
++    assert caplog.handler.level == logging.DEBUG
++    caplog.set_level(42)
++    assert caplog.handler.level == 42
++
++def test_configured_level_restored(caplog):
++    print("CONFIGURED_HANDLER_LEVEL=%d" % caplog.handler.level)
++    assert caplog.handler.level == logging.DEBUG
++'''
++    code, output = run_pytest(source_with_ini, "[pytest]\nlog_level = DEBUG\n")
++    assert code == 0, "configured-level caplog tests failed:\n" + output
++    assert "CONFIGURED_HANDLER_LEVEL=10" in output, (
++        "configured caplog handler level was not preserved; got:\n" + output
++    )
++
++    # Multiple set_level calls (including named loggers and string levels)
++    # must still restore the original handler level exactly once.
++    source_repeated = '''
++import logging
++
++def test_repeated_levels(caplog):
++    named = logging.getLogger("repeated.named")
++    assert caplog.handler.level == logging.NOTSET
++    assert named.level == logging.NOTSET
++    caplog.set_level(logging.DEBUG)
++    caplog.set_level("CRITICAL", logger="repeated.named")
++    caplog.set_level(logging.WARNING)
++    assert caplog.handler.level == logging.WARNING
++    assert named.level == logging.CRITICAL
++
++def test_repeated_levels_restored(caplog):
++    print("REPEATED_HANDLER_LEVEL=%d" % caplog.handler.level)
++    print("REPEATED_NAMED_LEVEL=%d" % logging.getLogger("repeated.named").level)
++    assert caplog.handler.level == logging.NOTSET
++    assert logging.getLogger("repeated.named").level == logging.NOTSET
++'''
++    code, output = run_pytest(source_repeated)
++    assert code == 0, "repeated/named-level tests failed:\n" + output
++    assert "REPEATED_HANDLER_LEVEL=0" in output, (
++        "repeated set_level calls did not restore the handler; got:\n" + output
++    )
++    assert "REPEATED_NAMED_LEVEL=0" in output, (
++        "named logger level was not restored; got:\n" + output
++    )
++
++    print("caplog level restoration checks passed")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/src/_pytest/logging.py b/src/_pytest/logging.py
+index 11031f2f2..5bf77646c 100644
+--- a/src/_pytest/logging.py
++++ b/src/_pytest/logging.py
+@@ -346,6 +346,8 @@ class LogCaptureFixture:
+         self._item = item
+         # dict of log name -> log level
+         self._initial_logger_levels = {}  # type: Dict[Optional[str], int]
++        # The handler level is only remembered once set_level changes it.
++        self._initial_handler_level = None  # type: Optional[int]
+ 
+     def _finalize(self) -> None:
+         """Finalizes the fixture.
+@@ -356,6 +358,8 @@ class LogCaptureFixture:
+         for logger_name, level in self._initial_logger_levels.items():
+             logger = logging.getLogger(logger_name)
+             logger.setLevel(level)
++        if self._initial_handler_level is not None:
++            self.handler.setLevel(self._initial_handler_level)
+ 
+     @property
+     def handler(self) -> LogCaptureHandler:
+@@ -434,6 +438,8 @@ class LogCaptureFixture:
+         # save the original log-level to restore it during teardown
+         self._initial_logger_levels.setdefault(logger, logger_obj.level)
+         logger_obj.setLevel(level)
++        if self._initial_handler_level is None:
++            self._initial_handler_level = self.handler.level
+         self.handler.setLevel(level)
+ 
+     @contextmanager

@@ -1,0 +1,15 @@
+{
+  "reason": "submission",
+  "artifact_digest": "ecda868f9151a39eaffff0c11b9316f2391e01d1a9fb6795d156998eb1cfa32e",
+  "protected_unchanged": true,
+  "restored_candidate": null,
+  "valid_verification": true,
+  "evidence": {
+    "public-suite": {
+      "state": "passed",
+      "returncode": 0,
+      "snapshot": "25b1196acec5fc86d29ffc4aa6fc5d2270da96ea53ef4e3dd70dc93b73a4f378  book-store.js\n9d00e95fe8e50963aa8165441ad0f237e54d00a09c4306800a6c23b4ff646415  book-store.spec.js\n"
+    }
+  },
+  "elapsed_seconds": 313.72720557497814
+}
