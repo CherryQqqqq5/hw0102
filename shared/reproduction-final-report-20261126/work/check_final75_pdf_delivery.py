@@ -14,7 +14,7 @@ if (not data["complete_required_experiments"] or not data["main_and_repeat_all75
         or review["source_summary_sha256"] != data["summary_sha256"] or review["blocking_findings_remaining"]):
     raise ValueError("Final PDF checks require the qualified actual final results")
 tasks = json.loads((root / data["tasks_path"]).read_bytes())["selected"]
-output = root / "work/final75-pdf-qa-20261126"
+output = root / "work/report-prose-review-20261126/pdf-qa"
 output.mkdir(exist_ok=True)
 results = []
 for numeral in ("一", "二"):
@@ -40,9 +40,9 @@ for numeral in ("一", "二"):
         required += ["26/30", "30/30", "4/4", "27/30", "原始诊断评测与错误分析"]
         required += ["extract-elf", "llm-inference-batching-scheduler", "query-optimize", "video-processing"]
     else:
-        required += ["75/75", "69/75", "8.0", "35", "1270", "1200", "1209",
+        required += ["75/75", "69/75", "8.0", "134", "16", "1270", "1200", "1209",
             "34,626,096", "27,159,037", "29,615,186", "18,267.7", "20,731.3", "18,700.0",
-            "0.9543", "0.4276", "2.23x", "3题消融", "未当作同种子配对速度实验"]
+            "0.9543", "0.4276", "2.23x", "3题消融", "参考与候选的采样种子未配对"]
         required += [task["id"] for task in tasks]
     missing = [value for value in required if re.sub(r"\s+", "", value) not in compact]
     repository = "https://github.com/CherryQqqqq5/hw0102"

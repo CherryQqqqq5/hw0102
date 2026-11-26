@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "record_kind": "independent_final_report_prose_and_pure_controller_refactor_review",
+  "observed_utc": "2026-11-26T03:36:04Z",
+  "reviewer": "/root/parallel_capacity_review",
+  "status": "APPROVE_WITH_STATED_LIMITS",
+  "blocking_findings": [],
+  "blocking_findings_remaining": 0,
+  "remaining_specific_issues": [],
+  "review_scope": {
+    "current_report_renderer": "work/render_hy4_final_reports.py",
+    "assignment1_renderer": "work/hw0102-publish/shared/scripts/render_hw0102_final.py",
+    "published_controller": "work/hw0102-publish/shared/course_eval/controller.py",
+    "actual_pdf_full_text_read": true,
+    "actual_pdf_full_text_independently_extracted_and_compared": true,
+    "fixed_original225_trajectory_reaudit": false,
+    "model_VM_network_Git_or_original_grader_actions": 0,
+    "source_file_changes_by_reviewer": 0,
+    "new_file_only": "work/report-prose-review-20261126/independent-final-review.json",
+    "scope_note": "This is a bounded final wording and pure-code-refactor check. The scientific result source audit5d4948and report-generation addendum81a6remain unchanged,with their original source-version coverage. It is not a new experiment or remote publication/package-execution attestation."
+  },
+  "actual_pdf_outputs": [
+    {
+      "path": "outputs/231880296_邱昱宁_作业一.pdf",
+      "sha256": "2f5677e53ccec4430baa88e36db3c3fbfa176a1110351bf74a2ce742f1d1711d",
+      "bytes": 237063,
+      "pages": 5,
+      "full_actual_text_read_and_matches_saved_text": true,
+      "text_path": "work/report-prose-review-20261126/pdf-qa/assignment-一-text.txt",
+      "text_sha256": "caa651a7b3a240f124b36792680ee0c74189f785bcd5f88bb643cc2f397f7d39"
+    },
+    {
+      "path": "outputs/231880296_邱昱宁_作业二.pdf",
+      "sha256": "a0b697b517468a972c37fc19de6d51c1698892775a5ef62ea6e6e29fb28f1608",
+      "bytes": 288456,
+      "pages": 11,
+      "full_actual_text_read_and_matches_saved_text": true,
+      "text_path": "work/report-prose-review-20261126/pdf-qa/assignment-二-text.txt",
+      "text_sha256": "1ba75e9dca5d66713eb9cc4c93fe889cfc445c420292b15d8d4cb0791f649d77"
+    }
+  ],
+  "renderer_change_review": {
+    "exact_final_renderer_sha256": "583eebb9b5b0284e41846b8bd5c5498d6bb51c526398f90895ecf68f9b727da6",
+    "before_renderer_sha256": "fb8ca3f1fb1e1479ef81022084fbcafb1d3294228919c31b933363fe8b06d2e1",
+    "NVIDIA_auxiliary_result_rendering_functions_removed": [
+      "nvidia_validation_items",
+      "nvidia_closed_cost_items"
+    ],
+    "removal_changes_Hy4_main_result_or_score_denominator": false,
+    "retained_source_cost_data_not_deleted": true,
+    "load_function_AST_equals_before": true,
+    "verify_nvidia_closed_source_AST_equals_before": true,
+    "billing_producer_unchanged_sha256": "2aee4a2ab4381a0abbaf9c0a115ee7755d007befab451839cce8cc468c070ca2",
+    "report_data_unchanged_sha256": "62c90ea21e23dc818ff23bad7641029d8ac17ab98c8d0bfff8953131f705fca4",
+    "source_summary_unchanged_sha256": "adff31af130194be2c54f8f1006e0c702451e4f5828edbdeb62d610da57a2057",
+    "scientific_review_unchanged_sha256": "5d49487ebd98cb8f6b536aab40b1be6eeb90fdc149ee7d001178728975f551f2",
+    "assignment1_score_and_cost_computation_prefix_AST_unchanged": true,
+    "assignment1_other_function_AST_unchanged": true,
+    "actual_rates_preserved": {
+      "main": "75/75",
+      "dsh": "69/75",
+      "repeat": "75/75"
+    },
+    "all75_task_ids_present_in_actual_appendix": true
+  },
+  "scientific_wording_checks": [
+    {
+      "topic": "继承与新增",
+      "result": "PASS",
+      "evidence": "作业二第3页明确67题134份原记录＋8题16份固定新会话，并说明不是最终冻结后全量重跑；原225、修订16、旧JSON5互不重复，最终表不得再次累加。"
+    },
+    {
+      "topic": "开发集与公开榜单",
+      "result": "PASS",
+      "evidence": "第2页明确D30/C30/H15均已参与开发；第3页将独立重复限定为本开发题集可重复；第8页明确完整公开榜单最优水平尚未验证，没有把75题结果写成全榜最优。"
+    },
+    {
+      "topic": "同题复测与预算",
+      "result": "PASS",
+      "evidence": "作业一第1页明确原诊断与复测模型、预算不同；作业二使用同模型同题DSH完整方案对照。500/3600/120/64000/0retry按每次实际尝试，机械恢复可多attempt，206.2秒下界与2个缺失耗时保留。"
+    },
+    {
+      "topic": "ReLU数值来源与v20新会话",
+      "result": "PASS",
+      "evidence": "当前report-data的137063次查询/7.145830765720106e-14数值确来自新v20主会话实际controller第5步，源SHAaa7c7571…dacb；不是把旧v18数值套进新会话。7/8次模型调用、独立脚本、观察到的query-only轨迹与未触发拒绝分别表述。"
+    },
+    {
+      "topic": "消融参考与因果边界",
+      "result": "PASS",
+      "evidence": "实际第7—8页继续使用原v18有指导参考，保留ReLU原分通过但检查不合格；两组3/3未显示指导成功率增益。旧23题同协议分析被标为事后；自动检查未显示稳定收益，不据此推出单模块强因果效果。"
+    },
+    {
+      "topic": "公开检查覆盖",
+      "result": "PASS_AFTER_SMALL_CORRECTION",
+      "evidence": "Oracle限编译/SQLite实测、NaN12例训练每列有观测、旧测试显示断言替代范围、MuJoCo50自测与前5显式finite、原打印0.0000及未配对种子均保留。pytest7205已改为实际6类参数×3mode=18例。"
+    },
+    {
+      "topic": "原题分数和保护",
+      "result": "PASS",
+      "evidence": "原固定225的213通过/12未通过仍在成本表；raw原评分与提交检查/测试保护在案例中分别报告。最终73个C0位置及fix-git/mailman B0说明保留，不把DSH标成课程保护控制通过。"
+    },
+    {
+      "topic": "方法收益的表述",
+      "result": "PASS",
+      "evidence": "75对69是完整方案比较，正文明确提示、动作、公开算法与检查一起构成比较对象。FEAL的84.8%请求/95.2%耗时减少限定在同一道开发题、两个阶段各两次观察，未扩展成全榜普遍收益。"
+    }
+  ],
+  "grading_table_alignment": {
+    "source": "work/hw0102-publish/作业二/evidence/course-grading-tables-20261118.md",
+    "sha256": "6e9b463dc63c96686f2c49710cc5af7a56903733dfdc2b349a99a84c00d52996",
+    "assignment1": {
+      "evaluation_and_results": "30题逐题目标/预期/原评分/终止状态及三基准分母保留。",
+      "trace_evidence": "四个真实失败具体步数、工具返回、产物路径与原验收对应，完整附件入口保留。",
+      "error_analysis": "区分直接失败与超时伴随条件；ELF共同映射假设、调度性能与交付、视频精度均有实际依据。",
+      "mechanism_and_improvement": "至少两类机制，现有三类互斥归纳及相应策略。",
+      "validation_and_quality": "原模型/预算差异与后续DSH/独立重复分列，范围与可复现入口保留。"
+    },
+    "assignment2": {
+      "problem_and_motivation": "明确由作业一交付/精度/验证范围问题出发。",
+      "real_agent_change": "持久会话、结构化动作、验证与候选、任务局部公开算法及对应代码/验收证据。",
+      "controlled_comparison": "75同题DSH、独立重复、请求/词元/时间与开发成本保持明确分母和范围。",
+      "cases_and_ablation": "超过3个实际案例；3题指导消融及旧控制比较保留无增益/有限证据。",
+      "reproducibility_and_scope": "75逐题附录、源/导出摘要、代码/配置/工具轨迹/许可、开发集与贡献边界保留。"
+    },
+    "teacher_grade_or_full_marks_predicted": false
+  },
+  "pure_refactor_check": {
+    "only_changed_class": "BoundedTarget",
+    "new_private_helper": "_operation_timeout",
+    "timeout_calculation_and_exact_TimeExceeded_AST_equal_both_old_operations": true,
+    "same_exec_and_upload_signatures_defaults_and_delegated_args": true,
+    "all_other_controller_module_AST_unchanged": true,
+    "actual_local_exec_copy_boundary_cases": 8,
+    "all8_same_behavior": true,
+    "rejected_budget_cases_have_zero_underlying_calls": true,
+    "actual_copied_bytes_equal": true,
+    "real_existing_control_feedback_result": "pass",
+    "control_feedback_event_count": 36,
+    "control_feedback_final_public_and_protected": true,
+    "models_or_original_scores_reexecuted": 0,
+    "frozen_v18_controller_SHA_still": "6c136191b64eca3ac069c1fd147eea60e200587f8a76657cfcf2b5f4e2174b62",
+    "frozen_v18_billing_SHA_still": "a794f3f5c638636fa1ba21600e862e6c1b1242a75401e28dad2538afb2988b28",
+    "scope": "The published readable controller is refactored; original evaluated frozen snapshots are not relabelled or changed. The existing local feedback replay is a neighboring protection/recovery check,and the8exec/copy cases plus AST comparison directly cover the refactor."
+  },
+  "finding_fixed_before_final_review": {
+    "priority": "P2",
+    "status": "FIXED",
+    "location": "work/render_hy4_final_reports.py:324",
+    "observed_intermediate_renderer_sha256": "d2fd3039dd0175775aecf4093d810c6462a4d1bdb1b557d58440a6434a8d18bf",
+    "finding": "The earlier table wording could overstate18total public cases as18value groups across3modes and suggested uniform truncation/custom-repr-exception coverage not present in the frozen6scenario×3mode public probe.",
+    "current_text": "统一安全显示bytes、str、int及显式或函数生成的参数标识；6类参数×3种setup场景，共18例。",
+    "fixed_renderer_sha256": "583eebb9b5b0284e41846b8bd5c5498d6bb51c526398f90895ecf68f9b727da6",
+    "actual_final_PDF_text_contains_corrected_scope": true,
+    "new_experiment_or_score_change": false
+  },
+  "focused_submission_profile": {
+    "status": "PASS",
+    "static_source_read_and_existing_nonempty_roots_checked": [
+      {
+        "prefix": "shared/",
+        "exists_nonempty": true
+      },
+      {
+        "prefix": "作业一/",
+        "exists_nonempty": true
+      },
+      {
+        "prefix": "作业二/configs/",
+        "exists_nonempty": true
+      },
+      {
+        "prefix": "作业二/evidence/performance75-final-20261126/",
+        "exists_nonempty": true
+      },
+      {
+        "prefix": "作业二/evidence/confirmation-hy4flash-free-v16/",
+        "exists_nonempty": true
+      },
+      {
+        "prefix": "作业二/evidence/confirmation-hy4flash-free-v16-summary/",
+        "exists_nonempty": true
+      },
+      {
+        "prefix": "作业二/evidence/performance75-cost-history-20261126/hy4-interruptions/",
+        "exists_nonempty": true
+      }
+    ],
+    "three_final_scored_zip_files_explicitly_required": [
+      {
+        "path": "作业二/evidence/performance75-final-20261126-part1.zip",
+        "exists": true
+      },
+      {
+        "path": "作业二/evidence/performance75-final-20261126-part2.zip",
+        "exists": true
+      },
+      {
+        "path": "作业二/evidence/performance75-final-20261126-part3.zip",
+        "exists": true
+      }
+    ],
+    "shared_all_code_assignment1_assignment2_configs_final_metadata_old270_and_Hy4_interruptions_selected": true,
+    "separate_service_debug_history_not_in_focused_zip_but_not_deleted_from_repository": true,
+    "actual_Git_tracked_set_or_remote_package_run_executed_by_reviewer": false,
+    "scope": "Static focused selection/read-only existing root presence,not execution of package script,Git enumeration or remote/PDF byte verification"
+  },
+  "limits": [
+    "本记录只审当前文案、实际5/11页PDF文字、小重构及静态精简包选择；不重复225轨迹，也不预测教师分数。",
+    "版面页界采用当前已保存结构资格，实际全文另经独立抽取比对；本轮未重新逐页视觉检查全部PNG。",
+    "没有调用模型、原评分、虚拟机、网络、Git；没有执行有远端接口的打包脚本，也没有宣称GitHub已同步这些最终字节。",
+    "原科学review5d4948及附录81a6的旧源码/PDF版本记录保留不回写；本记录明确绑定当前583renderer和本次最终PDF摘要。"
+  ],
+  "source_sha256": {
+    "work/report-prose-review-20261126/controller-before.py.txt": "9a8a1a28d14228fc339887e0e056e1e58175c0cffe323e5856a3c7c55ce863ef",
+    "work/hw0102-publish/shared/course_eval/controller.py": "c4ace54a82772c56bc2903d7e935b7c031eca9e9d6d43ac0d99e941200b70431",
+    "work/report-prose-review-20261126/timeout-refactor-validation.json": "29d2745b8ac42794be2580a1d05bd450c870c3db4fb8124c0aec5fdd760afe3c",
+    "work/report-prose-review-20261126/control-feedback/result.json": "475a3448d2fe3e77197d72722cec74c507b0adf935077685b58bcb1f2165c54c",
+    "work/report-prose-review-20261126/control-feedback/controller.jsonl": "23f503a421d0d3f11215f756fb19f77a5d9da2f6ece1a2a70aa328d520b9df10",
+    "work/report-prose-review-20261126/control-feedback/final-verification.json": "39b15ed6790616c3d5ac2d03a8323ad08e059355ca6722d629bbf7dcd4d830b8",
+    "work/report-prose-review-20261126/renderer-before.py.txt": "fb8ca3f1fb1e1479ef81022084fbcafb1d3294228919c31b933363fe8b06d2e1",
+    "work/render_hy4_final_reports.py": "583eebb9b5b0284e41846b8bd5c5498d6bb51c526398f90895ecf68f9b727da6",
+    "work/report-prose-review-20261126/baseline-renderer-before.py.txt": "8996f708610407be1140f4d1c5b1e0b77e626e17ee291cc48a3f2cd1cf692389",
+    "work/hw0102-publish/shared/scripts/render_hw0102_final.py": "259df45c6ea9a74880a8b7c7c6ced2db9ba414829d9d35421344d3cb0c02102c",
+    "work/hw0102-publish/作业二/evidence/course-grading-tables-20261118.md": "6e9b463dc63c96686f2c49710cc5af7a56903733dfdc2b349a99a84c00d52996",
+    "work/parallel-free-evaluation-20261124/report-data-final75-20261126.json": "62c90ea21e23dc818ff23bad7641029d8ac17ab98c8d0bfff8953131f705fca4",
+    "work/package_final_submission.py": "55ced3389dd91eab88193dfac3f1034761ea10cdf0540290f47f66c0b1ac145c",
+    "work/submission_readme.py": "b0410436020dd02b56f587bab348a5f9ef0f47817d9551413350831dfd941b1a",
+    "work/report-prose-review-20261126/pdf-qa/structural-and-values-check.json": "7c4f4aab487adcbb7d0f177f7e1782e5d9971243568ce2b130a85098745cb5ad",
+    "work/parallel-free-evaluation-20261124/final-source-and-trace-review-20261126.json": "5d49487ebd98cb8f6b536aab40b1be6eeb90fdc149ee7d001178728975f551f2",
+    "outputs/231880296_邱昱宁_作业一.pdf": "2f5677e53ccec4430baa88e36db3c3fbfa176a1110351bf74a2ce742f1d1711d",
+    "work/report-prose-review-20261126/pdf-qa/assignment-一-text.txt": "caa651a7b3a240f124b36792680ee0c74189f785bcd5f88bb643cc2f397f7d39",
+    "outputs/231880296_邱昱宁_作业二.pdf": "a0b697b517468a972c37fc19de6d51c1698892775a5ef62ea6e6e29fb28f1608",
+    "work/report-prose-review-20261126/pdf-qa/assignment-二-text.txt": "1ba75e9dca5d66713eb9cc4c93fe889cfc445c420292b15d8d4cb0791f649d77",
+    "work/pytest-7205-semantics-20261125/public_setup_repr_probe.py": "0000946f24c55f9b7d7d5fcdef0751461da24275b45a0a2e064a62f97ffcd162",
+    "work/vmshare/performance-relu-submit-boundary-v20-20261125/model-extraction-relu-logits-C0-query-boundary-main-r1/model-extraction-relu-logits__t6vi98E/agent/controller.jsonl": "aa7c7571a88ebf644b51dbee3bfef621d340a86638132ea8b5e42883ba90dacb"
+  }
+}

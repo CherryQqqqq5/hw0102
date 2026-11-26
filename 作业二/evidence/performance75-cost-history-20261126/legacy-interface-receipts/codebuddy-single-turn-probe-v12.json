@@ -1,0 +1,224 @@
+{
+  "format": "pruned_interface_debug_receipts_v1",
+  "probe": "codebuddy-single-turn-probe-v12",
+  "source_sha256": "c1d2f3d9a3ed1a702b59769f9906d716724b33f44b70b844c0f14412389e152b",
+  "original_benchmark_score": null,
+  "billing_events": [
+    {
+      "event": "billing_verified",
+      "time": 1794925654.2199502,
+      "request_id": 1,
+      "request_model": "hy4flash-free",
+      "provider_model": "hy4-flash-free",
+      "credit": 0,
+      "usage_records": 1,
+      "local_cli_errors": [
+        {
+          "skipRun": true,
+          "error": {
+            "message": "Max turns (1) exceeded",
+            "isNetworkError": false,
+            "networkErrorAutoRetry": false,
+            "isStreamTimeout": false,
+            "isRetryable": false
+          },
+          "agent": "cli",
+          "conversationRequestId": "01a1e9e7e0f172c787e155c4ead1e591",
+          "model_message_id": "01a1e9e7e1a97800b520ba930980c4de"
+        }
+      ]
+    },
+    {
+      "event": "billing_verified",
+      "time": 1794925679.432147,
+      "request_id": 2,
+      "request_model": "hy4flash-free",
+      "provider_model": "hy4-flash-free",
+      "credit": 0,
+      "usage_records": 1,
+      "local_cli_errors": []
+    },
+    {
+      "event": "billing_verified",
+      "time": 1794925685.916656,
+      "request_id": 3,
+      "request_model": "hy4flash-free",
+      "provider_model": "hy4-flash-free",
+      "credit": 0,
+      "usage_records": 1,
+      "local_cli_errors": []
+    }
+  ],
+  "native_usage": [
+    {
+      "request_id": 1,
+      "native_id": null,
+      "session_id": null,
+      "provider": {
+        "conversationRequestId": "01a1e9e7e0f172c787e155c4ead1e591",
+        "messageId": "01a1e9e7e1a97800b520ba930980c4de",
+        "model": "hy4-flash-free",
+        "requestModelId": "hy4flash-free",
+        "requestModelName": "Hy4 flash",
+        "rawUsage": {
+          "prompt_tokens": 3785,
+          "completion_tokens": 329,
+          "total_tokens": 4114,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 270,
+            "rejected_prediction_tokens": 0,
+            "cached_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 3785,
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "prompt_cache_write_tokens": 0,
+          "completion_thinking_tokens": 270,
+          "credit": 0,
+          "cached_tokens": 0,
+          "quota": {
+            "model": "hy4-flash",
+            "percent": 8,
+            "reset_at": "1794993390",
+            "shared_models": [
+              "hy4free"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "request_id": 2,
+      "native_id": null,
+      "session_id": null,
+      "provider": {
+        "conversationRequestId": "01a1e9e7f7f1754583ebbd2623863266",
+        "messageId": "01a1e9e7f87a7522ba040d8601f0b91d",
+        "model": "hy4-flash-free",
+        "requestModelId": "hy4flash-free",
+        "requestModelName": "Hy4 flash",
+        "rawUsage": {
+          "prompt_tokens": 3616,
+          "completion_tokens": 4096,
+          "total_tokens": 7712,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 2959,
+            "rejected_prediction_tokens": 0,
+            "cached_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 3616,
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "prompt_cache_write_tokens": 0,
+          "completion_thinking_tokens": 2959,
+          "credit": 0,
+          "cached_tokens": 0,
+          "quota": {
+            "model": "hy4-flash",
+            "percent": 8,
+            "reset_at": "1794993390",
+            "shared_models": [
+              "hy4free"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "request_id": 3,
+      "native_id": null,
+      "session_id": null,
+      "provider": {
+        "conversationRequestId": "01a1e9e85cc97501ad92a42082b25534",
+        "messageId": "01a1e9e85d5b7119959e30da84f0f1a3",
+        "model": "hy4-flash-free",
+        "requestModelId": "hy4flash-free",
+        "requestModelName": "Hy4 flash",
+        "rawUsage": {
+          "prompt_tokens": 3686,
+          "completion_tokens": 202,
+          "total_tokens": 3888,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 175,
+            "rejected_prediction_tokens": 0,
+            "cached_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 3686,
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "prompt_cache_write_tokens": 0,
+          "completion_thinking_tokens": 175,
+          "credit": 0,
+          "cached_tokens": 0,
+          "quota": {
+            "model": "hy4-flash",
+            "percent": 8,
+            "reset_at": "1794993390",
+            "shared_models": [
+              "hy4free"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "requests": [
+    {
+      "time": 1794925647.0193121,
+      "request_id": 1,
+      "model": "hy4flash-free",
+      "attempt": 1,
+      "configured_max_output_tokens": 4096
+    },
+    {
+      "time": 1794925654.2538712,
+      "request_id": 2,
+      "model": "hy4flash-free",
+      "attempt": 1,
+      "configured_max_output_tokens": 4096
+    },
+    {
+      "time": 1794925679.466974,
+      "request_id": 3,
+      "model": "hy4flash-free",
+      "attempt": 1,
+      "configured_max_output_tokens": 4096
+    }
+  ],
+  "request_errors": [],
+  "summary": {
+    "scope": "Bounded interface probes; no benchmark commands executed or benchmark scores",
+    "actual_cli_requests": 3,
+    "historical_unknown_cli_requests": 10
+  }
+}

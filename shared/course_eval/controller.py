@@ -91,19 +91,18 @@ class BoundedTarget:
     def __getattr__(self, name):
         return getattr(self.target, name)
 
-    def exec(self, command, *, cwd="", timeout):
+    def _operation_timeout(self, timeout):
         seconds = min(timeout, int(self.budget.remaining() - 3))
         if seconds < 1:
             raise TimeExceeded({"role": "exit", "content": "Execution deadline",
                                 "extra": {"exit_status": "TimeExceeded", "submission": ""}})
-        return self.target.exec(command, cwd=cwd, timeout=seconds)
+        return seconds
+
+    def exec(self, command, *, cwd="", timeout):
+        return self.target.exec(command, cwd=cwd, timeout=self._operation_timeout(timeout))
 
     def upload_file(self, source, destination, *, timeout=20):
-        seconds = min(timeout, int(self.budget.remaining() - 3))
-        if seconds < 1:
-            raise TimeExceeded({"role": "exit", "content": "Execution deadline",
-                                "extra": {"exit_status": "TimeExceeded", "submission": ""}})
-        return self.target.upload_file(source, destination, timeout=seconds)
+        return self.target.upload_file(source, destination, timeout=self._operation_timeout(timeout))
 
 
 class CandidateOperationError(RuntimeError):

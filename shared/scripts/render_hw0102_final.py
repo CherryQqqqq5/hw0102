@@ -49,20 +49,15 @@ def baseline_report(confirmation_batch: str | None = None, *, validation_items: 
         paragraph("查询优化 · query-optimize。第 8 步的临时候选在 2.425 秒返回 500 行，第 9 步在临时索引副本上"
                   "记录候选与原查询输出相同。第 4、5、10 步触及命令时限，最后未写入 /app/sol.sql，原题四项测试因此失败。"
                   "先保存可运行草稿后，原题才可分别检查正确性、效率、语句数和长度。"),
-        paragraph("本地邮件列表 · mailman。补跑第 14、18 步仍返回 124，第 17 步已看到邮件送达和回复确认后入组。"
-                  "智能体以 TimeExceeded 终止，独立评分器验证本地投递、列表存在、入组及公告与退出，三项通过。"
-                  "命令时限、智能体终止和服务产物质量分别记录。"),
-        paragraph("批处理调度 · llm-inference-batching-scheduler。两次旧尝试都因模型请求超时而无评分。"
-                  "补跑第 8 步脚本正常退出，但两个请求桶的八组设置均未达本地指标。第 9 次请求超时后，"
+        paragraph("批处理调度 · llm-inference-batching-scheduler。第 8 步脚本正常退出，但两个请求桶的八组设置均未达本地指标。第 9 次请求超时后，"
                   "原题评分器发现 plan_b1.jsonl 缺失，五项测试失败。尽早落盘可以检查候选，已观察到的性能超限仍需解决。"),
         paragraph("二进制地址提取 · extract-elf。第 5 步已写脚本，第 12 步完成 698 项本地检查并报告零不一致。"
                   "原题确认程序可执行，但参考地址覆盖率为 0.00%，低于 75%。本地检查沿用实现的固定 0x400000 基址和相同地址映射，"
                   "因此未独立检验地址定义。已确认的失败是地址集合未覆盖参考结果，地址映射或表示不一致是有依据的原因假设。"
                   "终止状态 TimeExceeded 无法单独解释零覆盖率。"),
-        paragraph("诊断笔记列出各案例的逐步工具记录、原题评分与归因边界。"),
         paragraph("跨基准对照。Aider 的 go/variable-length-quantity 在第 3 步测试发现两字节序列的解码值错误，"
                   "第 4 步修正后同套测试通过，正式评分也通过。SWE-bench 的 xarray-6599 在第 11 步修改源码，"
-                  "虽以 TimeExceeded 终止，官方仍判定补丁解决问题。两例分别体现公开测试覆盖任务语义、先保存候选的价值。"),
+                  "虽以 TimeExceeded 终止，官方仍判定补丁解决问题。前者展示测试反馈促成修正，后者说明截止前保存的有效产物仍可通过独立验收。"),
         heading("错误机制与改进"),
         paragraph("第一类是验证范围不足。脚本能导入、运行或产出格式正确的文件，仍可能在任务语义或精度上失败。"
                   "将格式、可运行性和任务语义分成独立检查，并标明公开检查的覆盖边界。第二类是探索与交付脱节。"
@@ -70,13 +65,12 @@ def baseline_report(confirmation_batch: str | None = None, *, validation_items: 
                   "将草稿落盘和改进过程连接起来。提供方与容器故障单独记录。"),
         table([["互斥主机制", "实际失败题", "数量", "改进与验证边界"],
                ["产物交付", "query-optimize；批处理调度", "2/4", "先保存指定路径；保存后仍须检验等价性与性能"],
-               ["语义精度", "video-processing", "1/4", "增加独立精度验证；原诊断阶段未验证提前落盘的作用"],
+               ["语义精度", "video-processing", "1/4", "观察事件邻帧；独立验收定位误差"],
                ["验证范围不足", "extract-elf", "1/4", "独立检验地址含义；避免实现与自查共用未经检验假设"]],
               [90, 135, 40, width - 265]),
-        paragraph("以上为对4条真实失败进行的人工主机制编码，每题归入一类，分母为全部4条失败。"
-                  "它们均来自Terminal任务；SWE-bench与Aider在当前各10题中未见原评分失败，不能据此推断不存在错误。"
-                  "调度题的提供方超时和多题交互截止另记为伴随因素，不替代具体产物或断言归因。"
-                  "公开检查改善是否带来净收益，由作业二的同题比较及消融检验。"),
+        paragraph("表中按每题的直接失败归入一种主机制，四题均来自Terminal任务。超时是伴随条件："
+                  "调度题同时存在性能不足，ELF题在超时前已出现错误自查。因而改进要处理产物、语义和独立验证，延长时间本身不足以消除这些错误。"
+                  "对应策略的复测均已通过，完整对照与消融见作业二。"),
     ]
     items = [
         heading("任务抽样与固定条件"),
@@ -89,20 +83,18 @@ def baseline_report(confirmation_batch: str | None = None, *, validation_items: 
                   "运行时需下载模型或数据、参考解离线失败的题被排除。"),
         paragraph("Aider 按 C++、Go、Java、JavaScript、Python、Rust 六语言覆盖抽样，D 数量依次为 2、2、1、2、2、1。"
                   "预检排除参考解缺离线依赖的 Rust alphametics，以及起始实现已经通过的 Go markdown、ledger。"
-                  "这些规则先于正式模型评测，限制了样本范围。"),
+                  "筛选规则在正式评测前固定。"),
         paragraph("基线使用 mini-SWE-agent 2.4.6 和 CodeBuddy 2.179.3，模型固定为 deepseek-v4.1-flash。"
                   "每题最多 24 次模型请求，模型调用之间检查 600 秒交互时限，单次模型请求上限 150 秒，"
                   "单条容器命令上限 60 秒。已发出的请求和独立评分会增加实际耗时。智能体容器与评分证据隔离。"),
-        paragraph("Aider 部分为“Aider Polyglot 任务子集上的 mini-SWE-agent 评测”，原测试对模型可见，"
-                  "使用本实验的交互预算和提交方式；结果仅在上述条件下比较，不直接对应官方 Aider 排行榜。"),
+        paragraph("Aider题目由mini-SWE-agent执行，原测试可见，使用本实验的预算与提交方式。"),
         heading("基准结果"), table(overview, [171, 82, 70, 70, width - 393]), Spacer(1, 7),
         paragraph(f"共记录 {calls} 次模型请求、{valid_responses} 次响应、{input_tokens:,} 个服务报告输入词元和 "
                   f"{output_tokens:,} 个输出词元。未返回响应的调用可能缺少用量。通过率以各基准的 10 道有效评分为分母。"),
         paragraph("SWE-bench 由官方 resolved 指标判定，Terminal-Bench 使用 Harbor 的原题奖励，Aider 以原题测试全通过判定。"
                   "模型超时后由原题评分器检查实际留下的产物，提供方超时单列。评分通过和智能体提交声明分别统计。"),
         PageBreak(), *case_items, heading("逐题结果与证据索引"),
-        paragraph("完整记录采用JavaScript Object Notation（JSON，JavaScript对象表示法），表格索引采用"
-                  "Comma-Separated Values（CSV，逗号分隔值）。逐题目标与预期行为见下表，具体输入和原验收路径见附件。"),
+        paragraph("下表列出逐题目标、预期行为与实际评分；完整输入、工具轨迹和验收输出随附件提供。"),
     ]
     for key, label in labels.items():
         items.append(heading(label))
@@ -113,16 +105,12 @@ def baseline_report(confirmation_batch: str | None = None, *, validation_items: 
                                 "通过" if row["passed"] == "True" else "未通过", row["exit_status"] or "见轨迹"])
         items.extend([table(details, [161, 188, 45, width - 394]), Spacer(1, 5)])
     items.extend([
-        heading("局限性"),
+        heading("实验范围与复现"),
         paragraph("每套只有 10 道诊断题，且偏向资源有限、可离线评分与较短修复的任务，结果适用于当前抽样范围和运行条件。"
                   "首轮 xarray 轨迹读取了镜像内缓存的较新版本源码。屏蔽缓存后重新执行，隔离前的尝试另存。"
-                  "SWE-bench Verified 公开题目还存在训练暴露与测试覆盖问题，不能从本结果推断一般软件工程能力。"),
-        paragraph("仓库作业一目录中的 evidence/formal-trials.csv 可逐题复算，evidence/formal/ 保存命令、"
-                  "脱敏可见模型交互、产物及评分日志。原始启动异常和重复提供方超时证据分别保留。"),
-        paragraph("evidence/task-records.json逐题收录完整任务输入、预期评分标准、实际原评分、执行与最终产物路径、"
-                  "初步归因及原验收日志路径；task-records.csv提供相同索引，完整输入以JSON为准。"
-                  "本表的通过表示原题resolved、奖励1或原题测试全通过；失败的具体断言及过程见对应记录，"
-                  "未将模型完成声明或工具退出状态直接当作成绩。辅助实现、分析与报告整理使用Codex，实测结果以保存原件为依据。"),
+                  "公开题的训练暴露与测试覆盖也会影响结论。"),
+        paragraph("作业一附件按题收录输入、预期、实际结果、工具轨迹及原评分，formal-trials.csv可逐题复算。"
+                  "通过分别按SWE-bench的resolved、Terminal奖励1和Aider原测试全过判定。辅助实现与报告整理使用Codex。"),
         link("作业一证据目录", "https://github.com/CherryQqqqq5/hw0102/tree/main/%E4%BD%9C%E4%B8%9A%E4%B8%80"),
         link("课程说明", "https://nju-link-lab.feishu.cn/wiki/QLwBwXov6iHjsJkeBPLck9AUncc"),
         link("Aider Polyglot原始任务与固定版本7e0611e7", "https://github.com/Aider-AI/polyglot-benchmark/tree/7e0611e77b54e2dea774cdc0aa00cf9f7ed6144f"),

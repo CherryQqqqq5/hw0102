@@ -1,0 +1,32 @@
+{
+  "format": "pruned_interface_debug_receipts_v1",
+  "probe": "codebuddy-single-turn-probe-v9",
+  "source_sha256": "c383da5d65b4f9b2c0ba52f649b6eabf3e0bc183a46a5fc64c13a96dedde05d8",
+  "original_benchmark_score": null,
+  "billing_events": [],
+  "native_usage": [],
+  "requests": [
+    {
+      "time": 1794918021.977371,
+      "request_id": 1,
+      "model": "hy4flash-free",
+      "attempt": 1,
+      "configured_max_output_tokens": 64
+    }
+  ],
+  "request_errors": [
+    {
+      "event": "request_error",
+      "time": 1794918038.879248,
+      "request_id": 1,
+      "attempt": 1,
+      "returncode": 0,
+      "failure_category": "invalid_cli_json",
+      "billing_status": "unknown",
+      "diagnostic": {
+        "category": "local_cli_turn_limit",
+        "message": "Max turns (1) exceeded"
+      }
+    }
+  ]
+}

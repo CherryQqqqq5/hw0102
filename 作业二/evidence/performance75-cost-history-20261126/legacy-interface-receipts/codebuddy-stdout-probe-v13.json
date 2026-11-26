@@ -1,0 +1,92 @@
+{
+  "format": "pruned_interface_debug_receipts_v1",
+  "probe": "codebuddy-stdout-probe-v13",
+  "source_sha256": "7707387f4908db8414222eac7d8e8547c309c3128450a1b058e95eb177a9ba83",
+  "original_benchmark_score": null,
+  "billing_events": [
+    {
+      "event": "billing_verified",
+      "time": 1794931745.2536142,
+      "request_id": 1,
+      "request_model": "hy4flash-free",
+      "provider_model": "hy4-flash-free",
+      "credit": 0,
+      "usage_records": 1,
+      "local_cli_errors": []
+    }
+  ],
+  "native_usage": [
+    {
+      "request_id": 1,
+      "native_id": null,
+      "session_id": null,
+      "provider": {
+        "conversationRequestId": "01a1ea4499b57c4e8bab6ce0b1c14ab1",
+        "messageId": "01a1ea449a1a76deb9fd95c9432e6191",
+        "model": "hy4-flash-free",
+        "requestModelId": "hy4flash-free",
+        "requestModelName": "Hy4 flash",
+        "rawUsage": {
+          "prompt_tokens": 38953,
+          "completion_tokens": 2527,
+          "total_tokens": 41480,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 2152,
+            "rejected_prediction_tokens": 0,
+            "cached_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0,
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 38953,
+          "cache_read_input_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "prompt_cache_write_tokens": 0,
+          "completion_thinking_tokens": 2152,
+          "credit": 0,
+          "cached_tokens": 0,
+          "quota": {
+            "model": "hy4-flash",
+            "percent": 9,
+            "reset_at": "1794993390",
+            "shared_models": [
+              "hy4free"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "requests": [
+    {
+      "time": 1794931724.234103,
+      "request_id": 1,
+      "model": "hy4flash-free",
+      "attempt": 1,
+      "configured_max_output_tokens": 4096
+    }
+  ],
+  "request_errors": [],
+  "summary": {
+    "scope": "One actual matched interface request; no returned benchmark action executed or original score",
+    "source_batch": "confirmation-hy4flash-free-v12",
+    "source_run_id": "C-swe-pydata__xarray-7393-C0-r2",
+    "source_request_id": 21,
+    "actual_cli_requests": 1,
+    "historical_unknown_cli_requests": 11,
+    "billing": {
+      "request_model": "hy4flash-free",
+      "provider_model": "hy4-flash-free",
+      "credit": 0,
+      "usage_records": 1,
+      "local_cli_errors": []
+    }
+  }
+}

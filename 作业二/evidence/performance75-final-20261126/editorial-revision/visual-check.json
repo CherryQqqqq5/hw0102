@@ -1,0 +1,23 @@
+{
+  "pdfs": [
+    {
+      "sha256": "2f5677e53ccec4430baa88e36db3c3fbfa176a1110351bf74a2ce742f1d1711d",
+      "pages": 5
+    },
+    {
+      "sha256": "a0b697b517468a972c37fc19de6d51c1698892775a5ef62ea6e6e29fb28f1608",
+      "pages": 11
+    }
+  ],
+  "all_16_rendered_pages_visually_inspected": true,
+  "sheets": {
+    "assignment-1-contact-1.png": "75b97d88562097cff80e8dae48caddb9a25f42fc76c76b385780720647f9c757",
+    "assignment-1-contact-2.png": "61ad4bb9fa7fbf0dbe228357e051cde30750b1d8a0c8ed69610970789b269d21",
+    "assignment-2-contact-1.png": "334ea279e3c8348acb11832df23c8044293dbd49fae420f5725adc2e870a582e",
+    "assignment-2-contact-2.png": "a8c4e6afa570a55d4a4725b438ab8c48c406541f88af1c9a85871621cc9b0dd7",
+    "assignment-2-contact-3.png": "f51f1870c119fdd1251a18972f7b5f835db9e462bf7364f356dff29c816dbd5f"
+  },
+  "clipped_text_or_table_cells": 0,
+  "unintended_blank_pages": 0,
+  "new_model_calls": 0
+}

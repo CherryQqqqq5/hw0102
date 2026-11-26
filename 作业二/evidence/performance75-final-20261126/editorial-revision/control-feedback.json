@@ -1,0 +1,19 @@
+{
+  "engineering_check": "pass",
+  "new_model_requests": 0,
+  "new_original_grader_executions": 0,
+  "archived_empty_feedback_requests": 37,
+  "archived_runs": 24,
+  "archived_fixture": "confirmation-hy4flash-free-v16/C-aider-cpp__all-your-base-C1-r2/candidates/candidate-001.json",
+  "checks": [
+    "requested verification without empty feedback",
+    "candidate change rechecks",
+    "unchanged failed candidate does not repeat",
+    "restore exact bytes",
+    "dependency invalidation rechecks",
+    "final phase without empty feedback",
+    "invalid action has no effects",
+    "five operations return or terminate correctly"
+  ],
+  "scope": "Real local subprocesses and archived candidate bytes; not a model-success experiment"
+}

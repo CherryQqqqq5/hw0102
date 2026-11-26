@@ -1,0 +1,132 @@
+{
+  "removed_files": [
+    {
+      "path": "work/hw0102-publish/作业二/evidence/codebuddy-single-turn-probe-v9/implementation/action_output.py",
+      "bytes": 1266
+    },
+    {
+      "path": "work/hw0102-publish/作业二/evidence/codebuddy-single-turn-probe-v9/implementation/agent.py",
+      "bytes": 35401
+    },
+    {
+      "path": "work/hw0102-publish/作业二/evidence/codebuddy-single-turn-probe-v9/implementation/check_action_output.py",
+      "bytes": 1809
+    },
+    {
+      "path": "work/hw0102-publish/作业二/evidence/codebuddy-single-turn-probe-v9/implementation/check_codebuddy_free.py",
+      "bytes": 15867
+    },
+    {
+      "path": "work/hw0102-publish/作业二/evidence/codebuddy-single-turn-probe-v9/implementation/confirmation.py",
+      "bytes": 10603
+    },
+    {
+      "path": "work/hw0102-publish/作业二/evidence/codebuddy-single-turn-probe-v9/truncated-64/model.jsonl",
+      "bytes": 1458
+    },
+    {
+      "path": "work/codebuddy-single-turn-probe-v9/implementation/action_output.py",
+      "bytes": 1266
+    },
+    {
+      "path": "work/codebuddy-single-turn-probe-v9/implementation/agent.py",
+      "bytes": 35401
+    },
+    {
+      "path": "work/codebuddy-single-turn-probe-v9/implementation/check_action_output.py",
+      "bytes": 1809
+    },
+    {
+      "path": "work/codebuddy-single-turn-probe-v9/implementation/check_codebuddy_free.py",
+      "bytes": 15867
+    },
+    {
+      "path": "work/codebuddy-single-turn-probe-v9/implementation/confirmation.py",
+      "bytes": 10603
+    },
+    {
+      "path": "work/codebuddy-single-turn-probe-v9/implementation/export_revision.py",
+      "bytes": 7096
+    },
+    {
+      "path": "work/codebuddy-single-turn-probe-v9/truncated-64/model.jsonl",
+      "bytes": 1421
+    },
+    {
+      "path": "work/hw0102-publish/作业二/evidence/codebuddy-single-turn-probe-v11/model.jsonl",
+      "bytes": 21696
+    },
+    {
+      "path": "work/hw0102-publish/作业二/evidence/codebuddy-single-turn-probe-v11/receipt-input.txt",
+      "bytes": 33
+    },
+    {
+      "path": "work/codebuddy-single-turn-probe-v11/model.jsonl",
+      "bytes": 65913
+    },
+    {
+      "path": "work/codebuddy-single-turn-probe-v11/receipt-input.txt",
+      "bytes": 33
+    },
+    {
+      "path": "work/codebuddy-single-turn-probe-v11/summary.json",
+      "bytes": 1598
+    },
+    {
+      "path": "work/hw0102-publish/作业二/evidence/codebuddy-single-turn-probe-v12/model.jsonl",
+      "bytes": 12980
+    },
+    {
+      "path": "work/hw0102-publish/作业二/evidence/codebuddy-single-turn-probe-v12/receipt-input.txt",
+      "bytes": 33
+    },
+    {
+      "path": "work/codebuddy-single-turn-probe-v12/model.jsonl",
+      "bytes": 91105
+    },
+    {
+      "path": "work/codebuddy-single-turn-probe-v12/receipt-input.txt",
+      "bytes": 33
+    },
+    {
+      "path": "work/codebuddy-single-turn-probe-v12/summary.json",
+      "bytes": 5840
+    },
+    {
+      "path": "work/hw0102-publish/作业二/evidence/codebuddy-stdout-probe-v13/model.jsonl",
+      "bytes": 121986
+    },
+    {
+      "path": "work/codebuddy-stdout-probe-v13/model.jsonl",
+      "bytes": 285189
+    },
+    {
+      "path": "work/codebuddy-stdout-probe-v13/summary.json",
+      "bytes": 3694
+    },
+    {
+      "path": "work/hw0102-publish/作业二/evidence/codebuddy-empty-stream-probe-v14/model.jsonl",
+      "bytes": 35400
+    },
+    {
+      "path": "work/codebuddy-empty-stream-probe-v14/model.jsonl",
+      "bytes": 106434
+    },
+    {
+      "path": "work/codebuddy-empty-stream-probe-v14/summary.json",
+      "bytes": 2422
+    }
+  ],
+  "logical_bytes_deleted": 894256,
+  "retained": [
+    "work/hw0102-publish/作业二/evidence/performance75-cost-history-20261126/legacy-interface-receipts/codebuddy-single-turn-probe-v9.json",
+    "work/codebuddy-single-turn-probe-v9/original-codebuddy-headless.js",
+    "work/hw0102-publish/作业二/evidence/performance75-cost-history-20261126/legacy-interface-receipts/codebuddy-single-turn-probe-v11.json",
+    "work/hw0102-publish/作业二/evidence/performance75-cost-history-20261126/legacy-interface-receipts/codebuddy-single-turn-probe-v12.json",
+    "work/hw0102-publish/作业二/evidence/performance75-cost-history-20261126/legacy-interface-receipts/codebuddy-stdout-probe-v13.json",
+    "work/hw0102-publish/作业二/evidence/performance75-cost-history-20261126/legacy-interface-receipts/codebuddy-empty-stream-probe-v14.json"
+  ],
+  "historical_unknown_count_unchanged": 35,
+  "new_model_calls": 0,
+  "valid_benchmark_runs_removed": 0
+}

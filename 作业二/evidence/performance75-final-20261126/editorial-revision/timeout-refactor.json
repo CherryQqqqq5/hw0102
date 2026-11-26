@@ -1,0 +1,129 @@
+{
+  "cases": [
+    {
+      "operation": "exec",
+      "remaining": 20,
+      "requested": 5,
+      "same_behavior": true,
+      "observed": {
+        "value": "$PROJECT_ROOT/work/report-prose-review-20261126/timeout-replay",
+        "calls": [
+          [
+            "exec",
+            "pwd",
+            "$PROJECT_ROOT/work/report-prose-review-20261126/timeout-replay",
+            5
+          ]
+        ]
+      }
+    },
+    {
+      "operation": "upload",
+      "remaining": 20,
+      "requested": 5,
+      "same_behavior": true,
+      "observed": {
+        "value": "actual local copy\n",
+        "calls": [
+          [
+            "upload",
+            "$PROJECT_ROOT/work/report-prose-review-20261126/timeout-replay/source.txt",
+            "$PROJECT_ROOT/work/report-prose-review-20261126/timeout-replay/destination.txt",
+            5
+          ]
+        ]
+      }
+    },
+    {
+      "operation": "exec",
+      "remaining": 4,
+      "requested": 5,
+      "same_behavior": true,
+      "observed": {
+        "value": "$PROJECT_ROOT/work/report-prose-review-20261126/timeout-replay",
+        "calls": [
+          [
+            "exec",
+            "pwd",
+            "$PROJECT_ROOT/work/report-prose-review-20261126/timeout-replay",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "operation": "upload",
+      "remaining": 4,
+      "requested": 5,
+      "same_behavior": true,
+      "observed": {
+        "value": "actual local copy\n",
+        "calls": [
+          [
+            "upload",
+            "$PROJECT_ROOT/work/report-prose-review-20261126/timeout-replay/source.txt",
+            "$PROJECT_ROOT/work/report-prose-review-20261126/timeout-replay/destination.txt",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "operation": "exec",
+      "remaining": 3.99,
+      "requested": 5,
+      "same_behavior": true,
+      "observed": {
+        "error": [],
+        "calls": []
+      }
+    },
+    {
+      "operation": "upload",
+      "remaining": 3.99,
+      "requested": 5,
+      "same_behavior": true,
+      "observed": {
+        "error": [],
+        "calls": []
+      }
+    },
+    {
+      "operation": "exec",
+      "remaining": 50,
+      "requested": 20,
+      "same_behavior": true,
+      "observed": {
+        "value": "$PROJECT_ROOT/work/report-prose-review-20261126/timeout-replay",
+        "calls": [
+          [
+            "exec",
+            "pwd",
+            "$PROJECT_ROOT/work/report-prose-review-20261126/timeout-replay",
+            20
+          ]
+        ]
+      }
+    },
+    {
+      "operation": "upload",
+      "remaining": 50,
+      "requested": 20,
+      "same_behavior": true,
+      "observed": {
+        "value": "actual local copy\n",
+        "calls": [
+          [
+            "upload",
+            "$PROJECT_ROOT/work/report-prose-review-20261126/timeout-replay/source.txt",
+            "$PROJECT_ROOT/work/report-prose-review-20261126/timeout-replay/destination.txt",
+            20
+          ]
+        ]
+      }
+    }
+  ],
+  "actual_local_subprocess_and_file_copy": true,
+  "new_model_calls": 0,
+  "vm_started": false
+}

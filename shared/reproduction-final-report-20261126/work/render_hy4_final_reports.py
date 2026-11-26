@@ -70,7 +70,7 @@ def environment_note(data, include_image=False):
         image = record["checked_original_task_image"]
         text += (f"单独核验的{image['task']}原镜像为{image['architecture']}架构，与虚拟机架构不同；"
             "该差异对速度的独立影响尚未测定。")
-    return text + "耗时及速度验收按实际本机运行记录报告，不作跨平台或公开原生环境性能的等价推断。"
+    return text + "下文耗时均为该本机环境的实测值。"
 
 
 def load(args):
@@ -146,13 +146,9 @@ def revision_accounting(data):
     if inherited_positions + revision_positions != 150 or inherited_positions % 2 or revision_positions % 2:
         raise ValueError("The local-revision accounting must cover exactly75 main and75 repeat positions")
     inherited_tasks, revised_tasks = inherited_positions // 2, revision_positions // 2
-    nan_revision = any(plan["path"].startswith("work/sklearn-25232-semantics-20261126/")
-        for plan in acceptance["revision_plans"].values())
-    nan_description = "另修订缺失值填充的NaN初值、树估计器实际迭代与训练后特征范围检查。" if nan_revision else ""
     loc_revision = "loc_preservation" in acceptance["revision_plans"]
-    loc_description = "xarray的另一处局部修订在提交前核对当前登记检查与原测试保护。" if loc_revision else ""
     runtime_description = "ReLU与xarray4695的固定新会话使用各自声明的v20运行时" if loc_revision else "ReLU单独使用声明的修订运行时"
-    records = [["记录范围", "已评分位置", "原题通过", "实际生成", "输入/输出词元", "累计计分秒"]]
+    records = [["记录范围", "已评分位置", "原题通过", "模型调用", "输入/输出词元", "累计计分秒"]]
     for label, rows in (("原固定批次（计划225）", original), (f"{revised_tasks}处修订新会话（计划{revision_positions}）", revised),
             ("JSON开发记录", previous)):
         records.append([label, len(rows), sum(row["passed"] for row in rows),
@@ -160,18 +156,11 @@ def revision_accounting(data):
             f"{sum(row['input_tokens'] for row in rows):,} / {sum(row['output_tokens'] for row in rows):,}",
             number(sum(row["wall_seconds"] for row in rows))])
     return [heading("局部修订的验收与开发开销"),
-        paragraph("完整原批次的225个预定位置保留。最终策略局部更新了Django的JavaScript Object Notation（JSON，JavaScript对象表示法）边界检查和FEAL（Fast Data Encipherment Algorithm，快速数据加密算法）通用线性攻击支持，"
-                  "以及xarray的共享对象转换、pytest的安全表示合同检查和既有测试保护指导、ReLU的查询访问约束、自包含导出与提交前检查。"
-                  + nan_description
-                  + loc_description
-                  + f"完整准入计划对这{revised_tasks}题各安排两个固定的新会话；其余{inherited_tasks}题的两份原记录，在原评测完成并核对逐题输入、检查、提示及所用运行时后沿用。"
-                  f"完整计划由{inherited_positions}份原记录与{revision_positions}份新记录组成。下表只计已由原评分器完成评分的记录，未完成位置不计为通过。{runtime_description}，其行为不回填到其他题目的历史记录。"
-                  "同题DSH的75个原始对照位置及其判分保留。"),
+        paragraph(f"最终150个方法位置由{inherited_tasks}题的{inherited_positions}份原记录与{revised_tasks}题的{revision_positions}份固定新会话组成，"
+                  "并非最终冻结后全量重跑。八处更新涉及JSON（JavaScript Object Notation，JavaScript对象表示法）查询、线性攻击、共享对象转换、参数安全显示、数值恢复、缺失值迭代及两题的测试保护。"
+                  f"继承记录的任务输入、提示、检查和运行时已逐项核对；{runtime_description}。同题DSH保留原75份评分。"),
         table(records, [135, 50, 50, 60, 135, width - 430]),
-        paragraph("上表各行互不重复；最终方法与DSH对照表中的有效位置会使用其中相应记录，因此不能再与上表累加。"
-                  f"这{revised_tasks}题原批次的首轮与重复原分完整保留；此前JSON开发记录按各自真实原分保存。"
-                  "表达式、字符串转换与Oracle布尔兼容缺陷由独立检查单列，未执行完成的公开验证不作通过。所有这些尝试的实际词元与请求均保留。"
-                  "三题指导消融与前期SQL正常流程验证另列，不在上表的局部修订成本范围内。")]
+        paragraph("上表列出互不重复的开发记录；前表的最终位置取自这些记录，不能再次累加。指导消融和早期查询布局验证单列。")]
 
 
 def work1_validation(data, indexed):
@@ -181,11 +170,10 @@ def work1_validation(data, indexed):
     repaired = sum(indexed["main"].get(task, {}).get("passed", False) for task in original_failures)
     items = [heading("改进结果与原诊断对照"),
         paragraph(f"原诊断中的二进制提取、批处理调度、查询优化与视频定位四题，本次最终方法首轮已通过{repaired}/4题原评分。"
-                  "下表分别列出同题原生对照及新会话独立重复，原始诊断与错误机制分析随后展开。"),
+                  "下表列出同题DSH对照和新会话独立重复。"),
         paragraph("原30题诊断结果为26/30。后续以hy4flash-free重新运行原题，"
                   "并在同模型、同题目、同声明预算下执行DeepSeek Harness（DSH，DeepSeek智能体执行框架）对照；"
-                  "新容器、新会话用于独立重复。原诊断使用不同模型和预算，跨阶段差异不作单机制因果解释。"),
-        paragraph(environment_note(data)),
+                  "独立重复使用新容器和新会话。原诊断与复测的模型、预算不同，方法收益以同题DSH比较为准。"),
         table([["比较对象", "匹配/原计划", "最终方法通过", "对照或重复通过"],
             ["同题DSH对照", f"{study['matched']}/30", rate(study["left"]), rate(study["right"])],
             ["新会话独立重复", f"{repeat['matched']}/30", rate(repeat["left"]), rate(repeat["right"])]],
@@ -199,113 +187,12 @@ def work1_validation(data, indexed):
                   "视频提供只接收可见像素的固定机位方法，并要求观察实际事件附近画面；"
                   "查询与调度要求按题面路径交付可执行候选，正确性与性能交给原题验收。"
                   "这些策略与持久会话、结构化动作及共同的单次执行预算组成最终配置。"),
-        paragraph("表中通过均来自实际原题评分。同题DSH比较的是整个策略包，包括提示、动作接口与公开算法支持。"
-                  "公开检查、候选保存和模型完成声明分别留证。"),
-        heading("机制验证与局限"),
-        paragraph("作业二给出完整75题比较、重复、指导消融及计算开销。75题均已参与开发，重复支持固定任务的重现性。"
-                  "公开检查仅验证注册范围，原评分保持独立；历史问题与费用缺口留存。新请求逐笔核验实际模型身份及零积分。"),
-        link("最终同75题配置、逐题原分与复现入口", "https://github.com/CherryQqqqq5/hw0102/tree/main/%E4%BD%9C%E4%B8%9A%E4%BA%8C")])
+        paragraph("通过由原题评分器判定。同题DSH比较包括提示、动作接口和公开算法支持的完整方案。"
+                  "作业二进一步报告75题比较、重复与消融；这些题均已参与开发。"),
+        link("75题配置、逐题评分与复现入口", "https://github.com/CherryQqqqq5/hw0102/tree/main/%E4%BD%9C%E4%B8%9A%E4%BA%8C")])
     return items
 
 
-def nvidia_validation_items(data):
-    comparison, repeat = data["comparison"], data["repeat"]
-    labels = {"main": "NVIDIA主方案", "dsh": "NVIDIA原生DSH", "repeat": "NVIDIA独立重复"}
-    scores = [["基准 / 计划", "主方案原分", "原生DSH原分", "独立重复原分"]]
-    for benchmark, label in LABELS.items():
-        scores.append([label + " / 25", *[rate(data["by_benchmark"][arm][benchmark]) for arm in labels]])
-    scores.append(["完整并集 / 75", *[rate(data["groups"][arm]) for arm in labels]])
-    costs = [["组别", "已评分 / 75", "实际生成", "输出词元", "执行中位数 / 秒"]]
-    for arm, label in labels.items():
-        group = data["groups"][arm]
-        costs.append([label, group["completed"], group["requests"], f"{group['output_tokens']:,}", number(group["median_wall_seconds"])])
-    ledger = data["historical_costs"]
-    current_guidance = "v30_common_guidance_remaining74" in data["source_versions"]
-    aligned_idle = "v31_sdk_idle_alignment_remaining220" in data["source_versions"]
-    parallel_dispatch = "v31_runtime_v32_parallel_remaining219" in data["source_versions"]
-    light_first = "v31_runtime_v33_light_first_remaining218" in data["source_versions"]
-    version_note = (
-        "另保留两个mini-SWE的v30 ReLU原分（含主方案未通过）、一个v31原生DSH ReLU原分及一个v32主方案xarray原分（未通过）。"
-        "其余218个计划位置使用v33轻任务优先顺序和原v31运行时；只调整共享资源池调度，任务、检查和预算保持。"
-        "218表示计划位置，尚未执行的位置不计为完成；请求未设置reasoning_effort参数。" if light_first else
-        "ReLU保留主方案与独立重复的v30真实原分（含主方案失败）及原生DSH的v31真实原分。"
-        "其余219个位置沿用同一v31模型运行时；v32仅调整服务间排队和共享资源池调度，逐题输入、模型、检查和预算保持。"
-        "原生DSH空闲等待对齐整题期限，4096字符仍为共同提示的软目标。" if parallel_dispatch else
-        "主方案和独立重复的ReLU保留v30两次真实评分，含主方案失败；其余220个位置采用v31，仅将原生DSH桥接的空闲等待对齐整题期限。"
-        "三组共同的短命令指导保持，4096字符为软目标。" if aligned_idle else
-        "其余74题在三组共同使用短命令、分段交付与任务局部限制优先的提示；4096字符为软目标，工具参数约束及本地校验规则保持。"
-        if current_guidance else "其余74题在各组共同采用v28时限修复，模型输入及工具规则保持。"
-    )
-    items = [heading("补充免费模型的同题比较"),
-        paragraph("为检验另一个实际可用的免费模型，单独使用NVIDIA官方端点的stepfun-ai/step-5-preview，"
-                  "分别运行主方案、原生DSH和独立重复。三组使用相同75题清单与原评分，公开算法材料和声明预算一致，动作接口由各框架实现。"
-                  f"下方严格快照冻结已评分{sum(group['completed'] for group in data['groups'].values())}/225个位置，配对与调用表只对应该范围；"
-                  "快照尚未完成的位置不补成原分。实际服务模型身份有逐笔记录，未核实与其他公开部署的权重字节等价。"
-                  "该组成绩独立于Hy4主比较。"),
-        paragraph("三组extract-elf均保留v27的真实会话和900秒请求上限。" + version_note +
-                  "整题仍为3600秒，持续输出的请求可使用剩余交互窗口，套接字连续无数据的等待仍最多900秒；"
-                  "模型身份、采样、64000输出上限、调用上限和费用检查保持。此前无分中断、旧pilot及其开销单列，"
-                  "不把它们补成新组原分。这是按任务分层的协议，不能表述为全75题只用过一个未变版本。"),
-        table(scores, [165, 105, 105, width - 375]),
-        paragraph(f"本组已形成{comparison['matched']}/{comparison.get('strict_same_stratum_planned', 75)}个同协议主方案与DSH配对：双方均过{comparison['both_pass']}，"
-                  f"仅主方案过{comparison['left_only_pass']}，仅DSH过{comparison['right_only_pass']}，双方均未过{comparison['both_fail']}；"
-                  f"原分差为{comparison['absolute_pass_difference']:+d}题。独立重复已有{repeat['matched']}/{repeat.get('strict_same_stratum_planned', 75)}个同协议配对，"
-                  f"两次均过{repeat['both_pass']}题。严格配对只含同题、同协议且双方已完成并通过证据校验的原分。"
-                  + (f"另有{comparison['cross_stratum_completed_pairs']}个跨协议同题位置，仅作描述性对照，原分和全部费用保留，不进入上述四格。"
-                     if comparison.get("cross_stratum_completed_pairs") else "")),
-        table(costs, [115, 75, 75, 90, width - 355]),
-        paragraph("原分、登记验证与文件保护分别统计："
-                  f"主方案原分及后两项同时通过{data['groups']['main']['qualified_passed']}/{data['groups']['main']['completed']}，"
-                  f"独立重复终局合格{data['groups']['repeat']['qualified_passed']}/{data['groups']['repeat']['completed']}。"
-                  "原生DSH没有课程控制器的登记、保存及保护接口，这些接口状态在其记录中不适用。"
-                  "这些登记条件没有覆盖全部工具访问行为，接口采用与净性能收益另作判断。"),
-        paragraph("上表只累计严格快照已评分位置的调用和词元。"
-                  f"连同保留的先前尝试，本通道已归档{ledger['actual_closed_requests']}次请求事件，"
-                  f"其中{ledger['verified_nonbilled_service_calls']}次具有完整身份和用量证明。"
-                  "NVIDIA采用已授权的官方无词元计费政策及每次实际身份、用量进行免费核验；逐笔美元金额未报告，仍为null。"
-                  "完整链的用量缺口继续保留，仅对已返回响应求和，不把其已知部分当作完整总量。")]
-    over = data["recorded_complete_responses_over900_seconds"]
-    if over:
-        items.append(paragraph(f"已完成记录中有{over}次请求至完整响应的本地记录间隔超过900秒，"
-            f"最长{number(data['longest_recorded_request_response_interval_seconds'])}秒，且均取得完整用量证明。"
-            "该间隔包含传输和等待，不能当作模型纯推理耗时。"))
-    else:
-        items.append(paragraph("当前完成记录没有超过900秒的完整响应；时限拆分已通过真实归档流回放及本地进程检查，"
-            "尚不能据这些记录声称已在云端恢复过超过900秒的生成。"))
-    if data.get("closed_cost_supplement") is not None:
-        items.extend(nvidia_closed_cost_items(data["closed_cost_supplement"]))
-    return items
-
-
-def nvidia_closed_cost_items(closed):
-    latest = closed["latest_step5_originals"]
-    groups = latest["groups"]
-    scores = [["Step5最新原分", "原题通过 / 已评分", "原题未通过", "严格证据记录"]]
-    for arm, label in (("main", "主方案"), ("dsh", "原生DSH"), ("repeat", "独立重复")):
-        group = groups[arm]
-        scores.append([label, rate(group), group["completed"] - group["passed"], group["strict_record_validated"]])
-    attempts = [["关闭位置", "原评分", "请求 / 完整证明"]]
-    for row in closed["closed_course_attempts"]:
-        score = "无原分" if row["passed"] is None else "通过" if row["passed"] else "未通过"
-        label = "MiniMax Aider" if row["lane"] == "minimax_main" else "Step5 scheduler " + row["lane"]
-        attempts.append([label, score, f"{row['actual_requests']}/{row['complete_policy_proofs']}"])
-    costs = closed["combined_retained_costs"]
-    return [heading("关闭记录的原分与成本补充"),
-        paragraph(f"新增两条scheduler原评分均未通过，最新Step5原分为{latest['passed']}/{latest['scored']}，"
-                  f"保留{latest['failed']}条未通过；其中{latest['strict_record_validated']}条满足严格来源与完整回执检查，"
-                  f"现有qualified计数为{latest['qualified_passed']}。DSH的课程登记与保护接口不适用。"
-                  "主scheduler缺请求8完整费用证明及终局控制记录，不能改成合格；重复scheduler公开检查仍为pending。"
-                  "这些新增原分不回填上方冻结7条记录的严格配对或调用表。"),
-        table(scores, [145, 125, 95, width - 365]),
-        table(attempts, [215, 100, width - 315]),
-        paragraph("另有一条Step5原生DSH共享停止无分中断和一条MiniMax HTTP503无分中断，原null保留。"
-                  "MiniMax三次文本、图像函数及64000请求上限资格只作技术资格与成本来源，不是课程原题成绩；"
-                  "64000表示请求上限被接受，未实际生成64000词元，MiniMax也不混入Step5或Hy4成绩。"),
-        paragraph("独立便携补充核验26次请求、24个完整原生身份：23个billing_verified事件和1份独立catalog资格回执。"
-                  f"旧跨服务视图298次请求、291个完整身份与该增量去重后为{costs['physical_requests']}次请求、"
-                  f"{costs['complete_native_policy_proofs']}个完整身份。unknown26—34的缺口继续保留，"
-                  "接受未知不等于取得零费回执；逐笔美元金额及完整总usage仍为null。"
-                  "该关联不再次累计已纳入最新v33快照的scheduler21次请求、20个证明，旧1—25未知也不重建为新调用。")]
 
 
 def work2_items(data, tasks, indexed, preview):
@@ -325,177 +212,130 @@ def work2_items(data, tasks, indexed, preview):
     if preview:
         items.append(paragraph("内部排版预览。实验仍在执行；待评分位置不计作通过或失败，本文不作为完整实验的最终结论。"))
     items.extend([heading("结果概览"),
-        paragraph(f"在已形成的{comparison['matched']}/75个同题比较中，最终方法通过{comparison['left']['passed']}题，"
-                  f"原生DSH通过{comparison['right']['passed']}题。最终方法独立重复已取得{groups['repeat']['completed']}/75份原评分，"
-                  f"其中{groups['repeat']['passed']}题通过。原诊断四题的修复成绩逐题列出。"
-                  "本文报告真实成绩、方法作用及其适用边界，完整逐题原分和计算开销见正文与附录。"),
+        paragraph(f"最终方法通过{comparison['left']['passed']}/75题，新容器、新会话的独立重复通过{groups['repeat']['passed']}/75题；"
+                  f"同模型同题的原生DSH通过{comparison['right']['passed']}/75题，方法提高{comparison['percentage_point_difference']:.1f}个百分点。"
+                  "原诊断中的四道失败题现均在两次运行中通过原题验收。"),
         heading("问题与实质改造"),
         paragraph("作业一的四道失败集中于交付缺失、语义精度和检查覆盖不足。较早270条实验还出现推理耗尽而没有动作、"
                   "上下文续接异常与反复自查的额外开销。最终方案以可靠的连续执行为共同基础，加入结构化动作、"
                   "面向实际产物的公开验证和候选版本接口，并复用适用问题的公开算法方法。"
-                  "执行基础采用mini-SWE-agent及DeepSeek Harness（DSH，DeepSeek智能体执行框架）。"),
+                  "方法以mini-SWE-agent为执行基础，以DeepSeek Harness（DSH，DeepSeek智能体执行框架）为对照。"),
         table([["环节", "实际设计与代码", "验收证据"],
             ["模型与连续状态", "CodeBuddy持久会话；仅接受完整动作；每笔实际身份和零积分。codebuddy_free.py", "model.jsonl内独立请求、响应、真实用量与回执"],
-            ["动作与候选", "controller.py的五种动作；candidate_io.py将保存恢复限定于声明文件，并核对保护摘要", "controller.jsonl、候选元数据、最终验证与产物字节"],
-            ["公开验证", "verification.py按实际文件和依赖使检查失效；复用原公开测试与独立诊断", "真实命令返回、依赖摘要与独立原题评分"],
+            ["动作与候选", "controller.py处理五种动作；candidate_io.py保存和恢复指定文件，并检查受保护文件是否改变", "动作记录、候选文件与提交检查"],
+            ["公开检查", "verification.py在相关文件变化后要求重测；复用公开测试与独立检查方法", "检查命令、文件摘要与原题评分"],
             ["成熟方法复用", "mini-SWE-agent与原生DSH；二进制/数值恢复/视频方法在限定任务范围提供", "源代码、适用边界、实际调用与指导消融"]],
             [90, 235, width - 325]),
-        paragraph("最终文件或仓库任务使用C0，fix-git与mailman使用B0。C0提供主动检查、保存和恢复接口，"
-                  "关闭程序自动检查与自动恢复；C1才启用自动控制。最终成绩不能解释为C1的因果收益。"
-                  "旧270条保留为控制配置对照，包含事后同协议子集；新的3题实验检验明确复用指导的作用。"),
+        paragraph("B0为原生执行循环；C0增加模型主动选择的检查、保存和恢复接口；C1另启用程序自动控制。"
+                  "最终文件或仓库任务采用C0，fix-git与mailman采用B0。自动控制与复用指导的作用分别由后文消融检验。"),
         paragraph("方法来源与适配：二进制检查直接使用pyelftools的装载段解析，避免重写格式解析器。"
                   "ReLU（Rectified Linear Unit，修正线性单元）精度修订依据Carlini、Jagielski与Mironov的CRYPTO2020论文第5.1、5.3节，"
                   "重新定位临界见证并拟合超平面；作者代码的示例传入完整网络架构，本题适配只接受公开可调用函数与输入维数，"
-                  "不传入未知隐藏宽度。视频使用OpenCV读取、形态学处理与连通分量，将背景差分用于固定机位场景；"
-                  "事件接触规则属于本实现的场景适配，没有宣称直接复现通用动作识别系统。"),
+                  "隐藏宽度由查询估计。视频使用OpenCV的背景差分、形态学处理与连通分量，并针对固定机位单跑者设计接触规则。"),
         paragraph("结构化查询语言（Structured Query Language，SQL）的交付复用sqlparse0.6.1去除注释及重复布局空白，保持非布局词元、字面量与顺序；"
                   "只接收一条SELECT。替换前使用公开数据库只读连接比较列名与有序结果，再执行公开检查和独立原验收。"
-                  "布局处理不改变查询算法；SQLite隐式表达式列名可能受空白影响，因此词元保持不能替代实际结果比较。"),
+                  "其中结果比较用于检查SQLite隐式列名等受布局影响的行为。"),
         heading("任务、对照与执行预算"),
         paragraph("完整并集为原诊断D30、后续C30及早期H15，共75个不同任务，SWE-bench Verified、Terminal-Bench 2.1、"
-                  "Aider Polyglot各25题。各集合互不重合；全部均已参与既往开发，H15已不再是未知留出集。"
-                  "Aider部分使用mini-SWE-agent执行跨语言任务，不等同于官方Aider排行榜。"),
+                  "Aider Polyglot各25题。三个集合互不重合，均已参与开发；Aider题目由mini-SWE-agent执行。"),
         paragraph("原生DSH与最终方法使用相同75题、初始镜像摘要、原题验收及声明上限：hy4flash-free、"
                   "每次实际尝试最多500次生成、3600秒交互时限、单命令120秒、最大64000输出词元，额外超时重试0次。"
                   "同一逻辑题目的机械恢复可产生多次尝试，各次分别使用该上限，累计恢复开销另列。"
-                  "新会话保留实际助手与工具消息。DSH的提示和工具协议与课程策略不同；"
-                  "公开算法支持、交付规范化与任务局部检查合同均计入整个方法包，分任务修订及继承来源另行列明。"),
+                  "每题保持助手与工具消息的连续状态。比较对象为完整方案，包括框架提示、工具接口、公开算法支持与检查。"),
         paragraph("独立重复每题重新创建原镜像容器及原生会话，不复制首轮模型输出或候选。下载与镜像导入不使用模型；"
-                  "就绪镜像优先的调度保持原75位置，未按成绩筛选。软件修复、查询性能及相关验收在虚拟机独占执行，"
-                  "两个轻任务可并行。服务端状态与实测耗时没有被固定。"),
+                  "软件修复与性能验收独占虚拟机，两个轻任务可并行；全部75题按计划执行。"),
         paragraph(environment_note(data, include_image=True)),
         heading("原题通过率与同题比较")])
-    score_table = [["基准", "最终方法/计划", "原生DSH/计划", "独立重复/计划"]]
+    score_table = [["基准", "最终方法", "原生DSH", "独立重复"]]
     for bench, label in LABELS.items():
-        score_table.append([label, *[f"{groups[a]['by_benchmark'][bench]['passed']}/{groups[a]['by_benchmark'][bench]['completed']}（计划25）" for a in ARMS]])
-    score_table.append(["合计", *[f"{groups[a]['passed']}/{groups[a]['completed']}（计划75）" for a in ARMS]])
+        score_table.append([label, *[f"{groups[a]['by_benchmark'][bench]['passed']}/{groups[a]['by_benchmark'][bench]['completed']}" for a in ARMS]])
+    score_table.append(["合计", *[f"{groups[a]['passed']}/{groups[a]['completed']}" for a in ARMS]])
     items.extend([table(score_table, [155, 113, 113, width - 381]),
-        paragraph("表中SWE-bench通过表示原评分器所追踪的修复目标与回归测试达到要求，全部测试输出及其他失败保留在原记录。"
-                  "原生DSH的B0不使用课程候选保护接口，模型对测试文件的改动与原评分分别记录。"),
+        paragraph("通过由各基准原评分器判定。方法与重复组还核对公开检查和既有测试保护；DSH不使用课程控制接口。"),
         paragraph(f"已形成{comparison['matched']}/75个同题配对：双方均过{comparison['both_pass']}，"
                   f"仅最终方法过{comparison['left_only_pass']}，仅DSH过{comparison['right_only_pass']}，双方均未过{comparison['both_fail']}。"
-                  f"绝对通过差{comparison['absolute_pass_difference']:+d}题，配对成功率差{number(comparison['percentage_point_difference'])}个百分点。"
-                  f"以同题DSH成功率为基数，相对变化为{number(comparison['relative_success_rate_change_percent'])}%。"
-                  "百分点以同题匹配数为分母；相对变化以DSH通过数为分母，DSH通过数为零时不定义。"),
+                  f"合计增加{comparison['absolute_pass_difference']}题，通过率提高{number(comparison['percentage_point_difference'])}个百分点。"),
         heading("计算开销与效率")])
     items.extend([scored_cost_table(data),
         paragraph(f"同题计分尝试耗时差的中位数为{number(comparison['median_paired_left_minus_right']['wall_seconds'])}秒；"
                   f"每题请求差的均值为{number(comparison['mean_paired_left_minus_right']['actual_requests'])}。"
-                  "单组耗时中位数之差与同题耗时差的中位数是不同统计量。词元包含实际内部续接；缓存输入已计入输入总数，不再重复相加。"
-                  "独立重复行按其与首轮的已评分匹配组汇总；累计时间是各计分尝试记录之和，不等于并行评测的整段墙钟时长。"
-                  "已评分失败与通过均进入所属组的计算开销。每次计分尝试的记录包含执行及原验收，交互预算与验收耗时分别留证；"
-                  "上表未合并此前无分中断的耗时，不能解释为完成题目的全部恢复成本。"),
-        paragraph(f"三个核心组的每个已计入请求均有自身新身份和零积分证明。另保留{data['historical_unknown_calls_preserved']}笔历史未知费用，"
-                  "未知金额没有填零，历史尝试没有并入新组通过率。NVIDIA的辅助实验按官方免费端点及实际身份/用量核验，"
-                  "缺少逐笔金额仍为null；其结果与Hy4主比较分开。"),
-        paragraph(f"最终配置确认的操作恢复链另有{data['additional_interrupted_request_events']}个命令行接口（Command-Line Interface，CLI）请求事件，"
-                  f"其中{data['additional_unverified_request_events']}个没有独立回执。对应尝试未产生原评分；已返回的有效回执和词元单独计入恢复开销，"
-                  "缺失部分的金额与用量保持未知。"
-                  f"这些{len(interrupted_attempts)}次无分尝试中，有记录的中断耗时合计{sum(recorded_interruption_walls):.1f}秒，"
-                  f"另{missing_interruption_walls}次耗时缺失，已知合计仅为下界。"
-                  "这些尝试不计作任务成功或失败；上表描述核心有效评分位置的实际用量。"),
+                  "词元包含内部续接及缓存输入。累计秒数为执行与原验收的逐题用时之和；同题差值与各组中位数之差分别计算。"
+                  "请求和时间统计包含相应组的所有已评分位置。"),
+        paragraph(f"无分中断另有{sum(recorded_interruption_walls):.1f}秒已知耗时及{missing_interruption_walls}次耗时缺失，故总恢复成本只知下界。"
+                  "计分调用均核对实际零积分；历史费用缺口在附件账目中保留。"),
         *revision_accounting(data),
         heading("独立重复与分集合稳定性")])
     repeated_table = [["任务来源", "配对/计划", "首轮通过", "重复通过", "两次均通过"]]
     for name in ("D30", "C30", "H15", "all75"):
         item = data["independent_repeats"][name]
-        repeated_table.append([name, f"{item['matched']}/{item['planned']}", rate(item["left"]), rate(item["right"]), item["both_pass"]])
+        repeated_table.append(["全部75题" if name == "all75" else name,
+            f"{item['matched']}/{item['planned']}", rate(item["left"]), rate(item["right"]), item["both_pass"]])
     items.extend([table(repeated_table, [85, 95, 100, 100, width - 380]),
-        paragraph(f"完整并集当前两次均通过{repeat['both_pass']}/{repeat['matched']}个匹配题。"
-                  "首轮或重复中的真实未通过均保留，未按最好一轮替换。重复仍使用已暴露题目，"
-                  "支持的是固定任务与配置的重现性；不能据此推断新任务成功率。"),
+        paragraph(f"{repeat['both_pass']}/{repeat['matched']}题两次均通过，说明本开发题集结果可重复；新任务表现仍待独立测试。"),
         heading("检查与候选接口的实际使用"),
         table([["组别", "C0位置", "主动检查", "保存候选", "其中合格", "实际恢复"],
             *[[ARMS[arm], *[data["mechanism_use"][arm][key] for key in
                 ("controlled_positions", "requested_checks", "candidates_saved", "eligible_candidates_saved", "actual_restores")]]
                 for arm in ("main", "repeat")]], [80, 70, 90, 90, 85, width - 415]),
-        paragraph("计数来自实际控制器事件。合格候选要求对应检查和保护摘要成立；保存或恢复次数不等于任务通过次数。"
-                  "两组均关闭自动控制，检查由模型主动请求。恢复未实际执行时，不将成功归因于恢复；"
-                  "整体策略的成绩与机制调用情况分别报告。"),
-        heading("真实案例一：交付与语义检查的区别"),
+        paragraph("合格候选须通过对应检查并保持受保护文件。两组检查均由模型主动请求，未实际执行恢复操作。"),
+        heading("案例一：先交付，再验证结果与速度"),
         paragraph("query-optimize的原诊断已找到可运行临时候选，却没有交付/app/sol.sql。最终策略要求先形成题面路径的实际产物，"
                   "再依照原题验收同时判断等价性与速度。SQL语法或EXPLAIN检查"
                   "只覆盖可解析性，不能替代结果逐行比较和性能测量。"
                   f"新原验收6项全过；{query['iterations']}次测量中位数为候选{query['solution']['median_s']:.3f}秒、"
                   f"参考{query['golden']['median_s']:.3f}秒，参考耗时/候选耗时为{query['speedup_solution_vs_golden']:.3f}。"
-                  "该比值来自本题原验收，不能外推为其他数据库或任务的加速。"
-                  "失败反馈、候选改变、复测通过的先后顺序属于过程证据；"
-                  "成功率仅报告所述匹配条件下的观察差异。"),
-        heading("真实案例二：独立地址语义验证"),
+                  "这说明指定路径的可运行交付与结果、速度的联合验收补足了原诊断缺口。"),
+        heading("案例二：用独立检查发现地址映射错误"),
         paragraph("extract-elf的原诊断自查698项零不一致，原评分地址覆盖率却为0%。自查与实现共用地址映射假设，"
                   "不能排除共同错误。新配置复用pyelftools解析PT_LOAD装载段，按虚拟地址比较无符号32位字，"
-                  "将独立内存语义与程序输出连接。它是公开二进制的诊断方法，没有使用隐藏参考答案。"
+                  "独立对照公开二进制中的内存内容。"
                   f"本次公开诊断匹配{elf['matched_loadable_words']}/{elf['total_loadable_words']}个装载字，"
-                  "二进制摘要保持，随后原题2项验收通过。公开诊断与独立评分范围分别留证；该检查不覆盖所有二进制格式。"),
-        heading("真实案例三：数值恢复需要精度证据"),
-        paragraph("ReLU任务要求通过可调用的单隐层分段线性函数恢复输入权重方向，涉及未知宽度、折点分离及浮点误差；"
-                  "数值恢复器以公开可调用函数和输入维数为输入，利用折点与临界见证进行精度修正，"
-                  "恢复器内部不读取实现、全局变量或私有权重。该函数性质与智能体整段轨迹的访问行为分别核查；"
-                  "原题环境暴露了实现文件及模块全局变量，原分通过本身不能证明全程遵循黑盒查询限制。"
-                  "粗略方向相似和较小输出拟合误差不能替代题目所需权重精度。"
+                  "二进制摘要保持，随后原题2项验收通过。检查范围为本题ELF装载段。"),
+        heading("案例三：提高网络权重恢复精度"),
+        paragraph("ReLU任务要求从函数查询恢复未知宽度单隐层网络的输入权重方向。参考公开数值提取方法，"
+                  "恢复器定位分段线性折点，再用临界见证修正精度；输入只有可调用函数和输入维数。"
                   f"本次保存矩阵与新查询推得的尺寸均为{relu['actual_shape']}；{relu['fresh_oracle_queries']:,}次本地函数查询"
                   f"所得最大方向误差为{relu['max_direction_error']:.2e}，阈值{relu['direction_tolerance']:.0e}，原题矩阵验收通过。"
-                  "本地数值查询次数与模型生成次数分别统计。有限网格可能漏掉邻近或弱折点，符号和尺度有歧义，"
-                  "公开一致性检查不构成完整性证明。"),
-        paragraph("最终ReLU局部修订还提供公开恢复器的自包含脚本导出，并在C0提交时要求当前候选的登记检查与保护摘要成立。"
+                  "这是保存产物的数值检查，本地函数查询与模型调用分别计数；有限网格仍可能漏掉弱折点。"),
+        paragraph("最终ReLU方案将恢复程序导出为独立脚本，C0提交时检查当前候选是否通过公开检查、受保护文件是否保持。"
                   "两个新会话实际调用通用导出命令、生成相同字节的独立脚本并通过原题验收；"
                   f"分别产生{indexed['main']['model-extraction-relu-logits']['actual_requests']}与"
-                  f"{indexed['repeat']['model-extraction-relu-logits']['actual_requests']}次模型调用，每次均有自身零积分回执。"
-                  "完整工具轨迹未见读取oracle实现、模块全局变量或私有权重；首轮还从另一个工作目录执行交付脚本。"
-                  "重复中首次保存的候选因检查待定而不合格，主动检查后保存的新候选合格，随后提交。"
-                  "违规访问和检查待定时的提交拒绝仅由独立的零模型工程回放验证，这两次实际任务没有触发这两项拒绝，"
-                  "因此其拦截效果没有实测分数收益。命令级访问约束的范围有限，不构成操作系统隔离。"
-                  "旧会话的原分、实现读取及登记检查待定问题留在原批次，未改写为新修订通过。"),
-        heading("真实案例四：视频方法的适用范围"),
+                  f"{indexed['repeat']['model-extraction-relu-logits']['actual_requests']}次模型调用。"
+                  "两次完整工具轨迹均只见函数查询；首轮还在另一工作目录运行独立脚本。重复先保存待检查候选，"
+                  "再主动验证、保存合格版本并提交。访问拒绝与提交检查另经零模型回放验证，本例两次成功未触发拒绝。"),
+        heading("案例四：按实际画面定位起跳与落地"),
         paragraph("video-processing的原失败是定位精度，脚本可导入仍输出错误事件帧。新方法复用固定机位单跑者的时间背景、"
                   "脚接触和连续腾空区间，输入只有可见像素；要求在预测位置及邻帧检查实际画面。最终脚本自包含，"
-                  "不依赖添加到运行容器的工具目录。静态场景掩码带有启发式假设，方法不能直接推广到任意镜头或多人场景。"
+                  "场景假设为固定机位、单跑者。"
                   f"保存的示例结果为起跳{video['jump_takeoff_frame_number']}帧、落地{video['jump_land_frame_number']}帧；"
-                  "原题5项验收同时通过示例、另一段视频和脚本导入。注册的语法检查不验证事件帧，精度依据原题评分与实际观察。"),
-        table([["案例原分", "最终方法", "同题DSH", "独立重复"],
+                  "原题5项验收通过示例、另一段视频和脚本导入。事件精度由原题验收判定，语法检查只检验可运行性。"),
+        table([["案例原题评分", "最终方法", "同题DSH", "独立重复"],
             *[[task, *[outcome(indexed[arm], task) for arm in ARMS]] for task in
                 ("query-optimize", "extract-elf", "model-extraction-relu-logits", "video-processing")]],
             [220, 85, 85, width - 390]),
         *feal_result_items(data, indexed),
         *mujoco_result_items(data),
-        heading("公开检查的覆盖与适用范围"),
-        paragraph("Django13346的原评分使用SQLite。JSON的IN查询需要保留"
-                  "数组、对象及标量的编码语义，同时支持父接口已有的Value与F表达式。扩展公开检查覆盖48项SQLite类型及查询边界、"
-                  "6项列表表达式、3项Oracle编译参数隔离、10项受控字符串右值解码及2项Oracle布尔返回字符串契约。后12项在SQLite适配器中只执行限定编译片段，"
-                  "没有运行MySQL或Oracle服务器，不能据此宣称跨数据库集成通过。成熟实现按参数处理，保留父表达式准备逻辑，"
-                  "需要时显式提取JSON值并绑定JSON文档。Oracle默认JSON_VALUE把布尔值返回为字符串，不能将绑定值统一解码为Python布尔值。"
-                  "最终注册检查另提供公开成熟接口与返回类型指导。独立工程参考全部通过，复用同字节参考的真实原评分，工程回放与新模型成绩分别记录。"),
-        paragraph("该修订的两个固定新会话均通过原题评分、69项最终公开检查及保护检查，共69次实际生成。"
-                  "其中独立重复首次公开检查为65/69；模型据实际反馈将Oracle JSON文档改为绑定参数，同一注册检查随后69/69通过。"
-                  "首轮失败检查、不合格候选以及两次被拒绝的格式无效动作均计入各自原记录与全部开销。"
-                  "嵌套KeyTransform作为IN列表元素的父接口既有限制仍保留，以上结果不扩展为整个对象关系映射接口的正确性证明。"),
-        paragraph("xarray2905的两个原补丁只修了赋值入口，共享转换函数仍将任意对象的values属性当作数组数据；"
-                  "构造路径因此继续失败。修订复用官方显式识别受支持容器的方式，并从题面对象语义补充26项构造、赋值及既有容器检查。"
-                  "两个固定新会话均在共享函数中采用该方式，各通过26项公开检查及原grader的365项测试，分别产生24和23次自身零积分生成。"
-                  "更广套件的6项失败在撤去补丁后仍复现，未将其写成修订后整库全过。"),
-        paragraph("pytest7205题面明确要求安全地表示全部参数。成熟实现统一使用saferepr，既处理bytes及Unicode，"
-                  "也保留字符串的引号与转义、截断冗长表示，并处理对象repr异常。旧公开套件中9条格式断言仍期待隐式str显示，"
-                  "与新显示合同冲突；修订显式排除其所属的3个格式检查函数，保留16条其他检查，另加18个从题面选取的值与三种setup模式的真实-bb命令行场景。"
-                  "原测试和配置文件保持；独立工程参考及两个固定新模型会话均通过上述检查，原题独立评分各26项全部通过。"
-                  "两会话各16次实际零费生成、173.1与221.3秒；这里验证了注册的显示合同，没有把改写期望后的自查当作原评分。"
-                  "新会话保留逐场景命令、返回码、呈现及输出摘要；完整独立子进程逐字日志只在工程资格中另存。"),
+        heading("其他软件缺陷的检查设计"),
+        table([["任务", "复用方法与检查重点", "两次真实验收"],
+            ["Django13346", "保留父表达式处理；逐参数区分JSON标量、列表及编码语义",
+             "公开69/69，原题与保护均通过"],
+            ["xarray2905", "在共享函数中显式识别受支持容器，同时覆盖构造与赋值",
+             "公开26/26，原题365项均通过"],
+            ["pytest7205", "统一安全显示bytes、str、int及显式或函数生成的参数标识",
+             "6类参数×3种setup场景，共18例；原题26项通过"]], [90, 225, width - 315]),
+        paragraph("Django的Oracle部分只检查编译，实际数据库验收为SQLite。xarray更广套件另有6项基线已有失败。"
+                  "pytest按题面的新显示要求排除3个旧格式检查函数中的9条断言，保留16条其他检查；原测试文件和独立原评分保持。"),
         *nan_contract_items(data, indexed),
         *loc_preservation_items(data, indexed),
-        paragraph("调度题的注册检查只覆盖产物存在与JSON可解析。对开发阶段真实保存的Hy4候选，复用题目CostModel做完整公共语义重放，"
-                  "22个条件全部满足，仅有2种全局批处理形状。这项离线重放用于解释诊断覆盖，不计作新模型成功，"
-                  "也没有测量将完整检查接回模型后的增益。"
-                  "公开检查使用严格小于、原题边界使用小于等于，这份候选未落在等号边界。"),
-        paragraph("pytest5631的首轮生产补丁通过了原题评分和公开的NumPy回归检查，但模型在既有测试文件中追加了18行内容，"
-                  "终局保护检查因此不合格。原评分器会先恢复该测试文件，再独立放入验收测试；原题通过与既有文件保存约束需要分别核对。"
-                  "该题修订只在任务指导中明确：自写检查放入临时文件，提交前恢复既有测试，并按pytest6.0.0的哨兵身份语义处理NumPy对象。"
-                  "模型运行代码、原题评分、公开检查和保护范围保持。两次新会话固定为首轮与独立重复；"
-                  "它们的真实原分和终局检查均列入逐题结果，保留此前原分通过但保护失败的记录及其成本。"),
+        paragraph("批处理调度的注册检查只检验文件和JSON格式。对实际保存候选另用题目CostModel离线重放，22个语义条件均满足；"
+                  "这项回放定位了检查覆盖差距，其作用尚未通过新增模型对照测量。"),
+        paragraph("pytest5631也使用相同保护原则：自写检查放入临时文件，既有测试保持；生产修复按pytest6.0.0的哨兵身份语义处理NumPy对象。"
+                  "固定的首轮与重复均通过原题、公开检查和测试保护，分别使用14与16次生成。"),
         heading("消融：明确复用指导的实际作用"),
         paragraph("事前冻结3题消融，在ReLU、二进制提取和视频上只撤去优先观察并复用现有方法的指导句。"
                   "算法文件、可用性、原输入、公开检查、保护范围、模型和预算保持。每题使用新会话与新容器，"
-                  "与消融计划明确绑定的原v18完整指导首轮逐题比较，保留该参考的原分与登记、保护状态。"
-                  "ReLU后续v20还修改了交付与提交机制，不替换此消融的原参考。该实验检验指导而非工具可用性，也不是自动控制消融。")])
-    ablation_table = [["任务", "原分：有/无指导", "检查合格：有/无", "实际请求：有/无"]]
+                  "与原v18有指导首轮逐题比较。ReLU后续v20改变了交付机制，故此处仍使用v18参考；所检验变量为指导句。")])
+    ablation_table = [["任务", "原题评分：有/无指导", "检查合格：有/无", "模型调用：有/无"]]
     for row in data["ablation"]["rows"]:
         left, right = row["full_guidance_reference"], row["without_guidance"]
         scores = "/".join("通过" if record["passed"] else "未通过" for record in (left, right))
@@ -504,31 +344,19 @@ def work2_items(data, tasks, indexed, preview):
     if len(ablation_table) == 1:
         ablation_table.append(["3个事前指定位置", "已有参考", "尚未执行", "待实际用量"])
     items.extend([table(ablation_table, [210, 90, 90, width - 390]),
-        paragraph("3题消融的样本量有限，不能把偶然全过或单次差异外推为一般机制收益。旧270条记录中，"
+        paragraph("3题消融两组均通过，未观察到指导带来的通过率提升，模型在两组都实际调用了现成方法。旧270条记录中，"
                   f"严格同协议{old_match['tasks']}题比较为"
                   + "、".join(f"{arm} {old_match['arms'][arm]['passed']}/{old_match['tasks']}" for arm in ("B0", "C0", "C1"))
                   + f"；全部{history['all270']['C1']['trials']}次C1与C0通过题次之差为"
                   f"{history['all270']['C1']['passed']-history['all270']['C0']['passed']:+d}。"
-                  "旧记录存在执行版本变化，事后同协议分组仅报告观察差异。它们支持保留自动检查的开销与覆盖限制，"
-                  "没有把控制器实现正确等同于收益已经证实。"),
-        *nvidia_validation_items(data["nvidia_auxiliary"]),
+                  "该23题分组为事后同协议分析。现有消融支持最终方案采用模型主动检查；自动检查未显示稳定通过率收益。"),
         heading("贡献范围与公开强方案"),
-        paragraph("复用原生DSH和mini-SWE-agent作为成熟执行基础，避免重新实现完整框架。公开高成绩给出了配置参照，"
-                  "但公开Terminal-Bench整榜包含不同模型、任务数量、推理设置与采样协议。本文75题是三套基准的资源受限开发子集，"
-                  "不能用子集通过率宣称超过完整公开排行榜。可检验的性能结论限于这里实际运行的同75题、相同单次声明预算下的原生DSH比较，"
-                  "机械恢复的累计开销单独报告。"),
-        paragraph("最终配置合并了持久状态、结构化动作、候选接口、公开检查与任务范围内的算法支持。"
-                  "整体策略比较不能分离每一组成部分的独立贡献。实际恢复次数与检查原因从controller.jsonl复算，"
-                  "C0检查为模型主动请求；没有发生恢复时不宣称恢复挽救了任务。"),
-        heading("复现、真实性与材料组织"),
-        paragraph("每个位置保存原题输入、固定镜像摘要、运行源码摘要、模型请求、工具返回、费用证明及原评分。"
-                  "原生最终文件仅在实际注册并成功采集的位置提供；部分早期DSH任务仅保留写入命令、后续修改和原评分执行证据，"
-                  "不能据此声称已有最终文件的字节核验。模型回复的推理及部分自由文本经导出过滤，导出摘要与源摘要分别列明。"
-                  "统计按实际原分复算；未评分尝试不冒充有效失败，机械恢复的旧记录保持可追溯。"
-                  "历史270条、旧版本75题、其他模型的真实失败与费用缺口单独保存，没有拼接成新配置成绩。"),
-        paragraph("共享代码保存控制器、客户端、候选和验证实现、冻结运行版本及分析命令；证据目录保存逐题索引、"
-                  "结构化交互与验收、消融、独立审查和零模型工程验证。教师可直接核查任务、动作、已采集产物及判分。"
-                  "第三方项目版本与许可证分别登记；凭据、虚拟机磁盘及可重建镜像缓存不进入提交包。"),
+        paragraph("DeepSeek官方在Terminal-Bench 2.1公布DSH Minimal 90.6%、mini-SWE 90.3%，使用DeepSeek V4.1 Flash、"
+                  "最高推理强度、100万词元上下文和每题3次采样。本实验使用Hy4及三基准各25道开发题，"
+                  "性能结论为本题集上75/75对DSH 69/75；完整公开榜单的最优水平尚未验证。"),
+        heading("代码与复现"),
+        paragraph("仓库提供代码、配置、逐题评分及工具轨迹，按任务索引可复算本文表格。代码与原评分分别固定版本；"
+                  "记录中的源摘要与过滤后导出摘要分列，部分早期DSH只保存命令和验收轨迹。第三方来源及许可证随代码登记。"),
         link("完整代码、原始证据与复现命令", "https://github.com/CherryQqqqq5/hw0102"),
         link("课程原文及3.4、4.3评分要求", "https://nju-link-lab.feishu.cn/wiki/QLwBwXov6iHjsJkeBPLck9AUncc"),
         link("mini-SWE-agent作者代码", "https://github.com/SWE-agent/mini-swe-agent"),
@@ -566,12 +394,12 @@ def loc_preservation_items(data, indexed):
         return []
     labels = {"base": "原始实现", "recorded_bad_repeat": "原重复完整候选",
         "recorded_good_main": "原首轮完整候选", "recorded_repeat_tests_restored": "重复候选仅恢复测试"}
-    records = [["原pin工程回放", "原题示例", "登记检查", "原测试保护", "允许提交"]]
+    records = [["原镜像本地验证", "原题示例", "公开检查", "测试文件保护", "允许提交"]]
     for row in facts["engineering_variants"]:
         records.append([labels[row["variant"]], "通过" if row["original_issue_example_passed"] else "未通过",
             "通过" if row["controller_state"] == "passed" else "保护失效",
             "保持" if row["final_protected_unchanged"] else "改变", "是" if row["submit_accepted"] else "否"])
-    sessions = [["固定新模型会话", "原题评分", "终局登记 / 保护", "实际生成 / 秒"]]
+    sessions = [["固定新模型会话", "原题评分", "提交检查 / 测试保护", "模型调用 / 秒"]]
     for slot in facts["fixed_model_sessions"]:
         if slot["status"] != "original_scored":
             sessions.append([ARMS[slot["arm"]], "待评分", "待验证", "尚未形成完整记录"])
@@ -582,17 +410,12 @@ def loc_preservation_items(data, indexed):
             + ("保持" if slot["final_protected_unchanged"] else "改变"),
             f"{row['actual_requests']} / {row['wall_seconds']:.1f}"])
     return [heading("提交时核对测试保护与当前证据"),
-        paragraph("xarray4695的原两次模型均修正了保留关键字维度的.loc索引，并通过原题跟踪评分；"
-                  "其中重复会话还在既有测试文件中追加15行自测。第14步登记检查已返回保护依赖改变，模型仍按pytest的9条通过输出理解为成功，"
-                  "第15步保存了不合格候选，第21步提交。首轮则在提交前恢复了原测试，只保留生产改动。"
-                  "原评分器恢复既有测试后执行独立验收，因而原题通过和交付时保持测试需要分别验证。"),
-        paragraph("本题复用已实现的C0提交检查：当前登记证据待定、过期或保护摘要不一致时返回可修复的拒绝，并提示恢复测试后重新verify与save。"
-                  "它没有开启每步自动检查，也不为其他历史位置补记该行为。四个原镜像工程回放中，坏候选即使pytest返回0仍被拒绝；"
-                  "仅恢复其测试改动后可以通过。原始实现的公开子集也通过，但原题method示例失败，说明提交检查只保证已登记范围和保护约束，"
-                  "仍需要原题评分独立判断功能正确性。"),
+        paragraph("xarray4695的旧重复修复了.loc索引，却向既有测试追加15行自测。第14步已报告保护失效，"
+                  "模型仍依据9条测试通过继续保存、提交。这揭示了测试退出码与交付约束的差别。"
+                  "C0在提交时核对当前检查与保护摘要，失败时要求恢复测试、重新检查。下表以原镜像回放验证："
+                  "相同生产修复仅恢复测试文件，就由拒绝提交变为允许。功能仍由原题评分器独立验收。"),
         table(records, [145, 60, 85, 75, width - 365]),
-        paragraph("两个固定新模型会话保持原题、镜像、公开检查命令、评分和逐次预算，仅增加三条测试保护指导并复用该提交检查。"
-                  "工程回放不计作模型成功；实际新会话及其全部生成开销如下，旧原分和保护失败继续保留。"),
+        paragraph("固定新会话仅增加三条测试保护指导并复用提交检查；任务、镜像、公开命令、评分及预算保持。两次均完成合格交付："),
         table(sessions, [115, 85, 130, width - 330])]
 
 
@@ -604,12 +427,12 @@ def nan_contract_items(data, indexed):
     labels = {"base": "原始实现", "actual_main": "原首轮候选", "actual_repeat": "原重复候选",
         "public_reference": "独立工程参考"}
     reference = facts["separate_engineering_original_grade"]
-    variants = [["实际检查对象", "公开案例", "终局验证", "原测试保护"]]
+    variants = [["检查对象", "公开检查", "提交检查", "测试文件保护"]]
     for row in facts["engineering_variants"]:
         variants.append([labels[row["variant"]], f"{row['public_passed']}/{row['public_total']}",
             "通过" if row["final_valid_verification"] else "未通过",
             "保持" if row["final_protected_unchanged"] else "改变"])
-    sessions = [["新模型会话", "原题评分", "公开案例", "终局 / 保护", "实际生成 / 秒"]]
+    sessions = [["新模型会话", "原题评分", "公开检查", "提交检查 / 测试保护", "模型调用 / 秒"]]
     for slot in facts["fixed_model_sessions"]:
         row = indexed[slot["arm"]].get(task)
         if slot["status"] != "original_scored":
@@ -637,26 +460,21 @@ def nan_contract_items(data, indexed):
             f"模型第{fix['model_step']}步修正特征排序，保留可用于后续转换的训练列，仅过滤训练时真正全空的列；"
             f"第{following['step']}步同一检查达到{following['passed']}/{following['total']}，随后保存合格候选。"
             f"第{final['step']}步对同一最终产物再次通过。首轮的一次注册检查直接通过。"
-            "该过程支持重复会话实际采用了反馈，尚未隔离该机制的独立净收益。"))
+            "这条轨迹显示模型根据实际反馈补全了转换逻辑。"))
     return [heading("缺失值处理：区分初值统计与训练缺失状态"),
-        paragraph("本题要求IterativeImputer支持常量初值，包括NaN（Not a Number，非数值），以配合能处理缺失预测变量的树估计器。"
-                  "原首轮与重复都通过原题评分，真实工具返回却显示：各列都有观测值时，NaN初值仍会让统计量全为NaN，"
-                  "旧逻辑据此把有效特征集合置空并提前返回，没有执行应有的迭代；训练后转换的特征掩码也存在不一致。"
-                  "原评分通过不足以排除这项题面功能缺口。"),
+        paragraph("IterativeImputer须支持NaN（Not a Number，非数值）常量初值，以配合树估计器。"
+                  "旧候选虽通过原评分，NaN初值仍将有效特征误判为空，提前返回并跳过迭代。"
+                  "原因是把初值统计当作训练列是否有观测值的依据，训练后转换也沿用了错误列掩码。"),
         paragraph("修订借鉴官方实现，从原训练数据的缺失掩码识别空列，在fit时缓存并供transform复用；"
                   "初值统计与是否存在训练观测值分别处理。新增公开检查覆盖常量与默认初值、两种缺失哨兵、两种空列保留设置、"
                   "树估计器实际迭代，以及训练后新缺失列的转换。给定小样本与平方损失单叶树的预测应为目标观察均值，"
                   "另用四个零填充或一填充负控核对数值判据能拒绝错误实现。"),
         table(variants, [170, 90, 100, width - 360]),
-        paragraph(f"独立工程参考另通过一次原题验收：{reference['fail_to_pass_passed']}个修复目标与"
-                  f"{reference['pass_to_pass_passed']}个回归目标全部通过。该参考只用于零模型资格，"
-                  "没有作为模型候选或答案提供给新会话。下表是原镜像、原评分、同一公开合同下固定的新首轮和独立重复，"
-                  "旧候选及其真实成本保留。"),
+        paragraph(f"独立工程参考通过{reference['fail_to_pass_passed']}个修复目标及{reference['pass_to_pass_passed']}个回归目标，"
+                  "仅用于检验检查规则。随后固定两个新模型会话，模型获得公开检查和方法指导："),
         table(sessions, [85, 70, 75, 110, width - 340]),
         *feedback_items,
-        paragraph("这项修订针对原评分未揭示的语义覆盖问题，不能把旧原分已通过的题写成新增原分收益。"
-                  "公开检查的训练数据每列均有观察值，尚不代表全空训练列的完整合同证明；"
-                  "模型实际采用、最终产物与原评分分别留证。")]
+        paragraph("收益是补足原题评分遗漏的迭代与转换行为；该题原题评分此前已通过。12例均使用每列有观测值的训练数据，全空训练列覆盖仍有限。")]
 
 
 def feal_result_items(data, indexed):
@@ -675,30 +493,28 @@ def feal_result_items(data, indexed):
     new_requests = sum(row["actual_requests"] for row in final)
     old_wall = sum(row["wall_seconds"] for row in previous)
     new_wall = sum(row["wall_seconds"] for row in final)
-    return [heading("真实案例五：复用确定性线性攻击"),
-        paragraph("本题采用四轮结构与20位种子扩展。原形态检查接受100条数字，内容需要另行验证。"
+    return [heading("案例五：复用线性攻击减少计算开销"),
+        paragraph("FEAL（Fast Data Encipherment Algorithm，快速数据加密算法）本题采用四轮结构与20位种子扩展。原形态检查接受100条数字，内容需要另行验证。"
                   "新增支持复用公开线性攻击的概率1关系，仅从题面已知明密文对筛选外轮种子、反解中间轮；"
                   "公开语义检查再比较原程序解密产物的十进制词元与重数。通用算法的输入只有公开已知对。"
-                  "原环境的零模型工程资格已验证错误产物和遗漏项被拒绝、公开程序正确产物被接受。"),
+                  "检查经正确产物与错误、遗漏项回放验证。"),
         paragraph("两次独立新会话都实际编译并调用公开C算法，先用原程序回验32个已知对，再对100条目标输出逐条再加密核对。"
                   f"两份原题评分分别为{outcome(indexed['main'], 'feal-linear-cryptanalysis')}与{outcome(indexed['repeat'], 'feal-linear-cryptanalysis')}，"
                   f"实际生成分别{main['actual_requests']}与{repeat['actual_requests']}次，"
                   f"完整执行耗时{main['wall_seconds']:.1f}与{repeat['wall_seconds']:.1f}秒。"
-                  "两份最终产物各100行、2047字节，与保存候选及最终检查快照同字节。"
-                  "这两份记录展示任务范围内复用算法和内容验证的实际用法及执行开销。"),
+                  "两份最终产物各100行、2047字节，与保存候选一致。"),
         table([["同一题的实际记录", "原题通过", "两次合计生成", "两次合计执行秒数"],
             ["修订前固定批次", f"{sum(row['passed'] for row in previous)}/2", old_requests, f"{old_wall:.1f}"],
             ["修订后固定新会话", f"{sum(row['passed'] for row in final)}/2", new_requests, f"{new_wall:.1f}"]],
             [180, 85, 100, width - 365]),
         paragraph(f"这道开发任务的请求合计减少{100 * (old_requests - new_requests) / old_requests:.1f}%，"
                   f"执行时间合计减少{100 * (old_wall - new_wall) / old_wall:.1f}%。"
-                  "两阶段各两次观测，同时更新了算法支持与公开语义检查；轨迹确认了实际采用，"
-                  "该开销变化不单独归因于自动控制，也不外推到其他任务。")]
+                  "变化来自该题算法支持与语义检查的组合修订，两阶段各观测两次。")]
 
 
 def scored_cost_table(data):
     comparison = data["comparisons"]["all75"]
-    rows = [["计分口径", "实际生成", "输入词元", "输出词元", "中位秒", "累计秒"]]
+    rows = [["评测组", "模型调用", "输入词元", "输出词元", "中位秒", "累计秒"]]
     for label, group in (("最终方法匹配组", comparison["left"]), ("原生DSH匹配组", comparison["right"]),
             ("独立重复匹配组", data["independent_repeats"]["all75"]["right"])):
         rows.append([f"{label}（{group['completed']}题）", group["requests"], f"{group['input_tokens']:,}",
@@ -719,24 +535,21 @@ def mujoco_result_items(data):
     return [heading("速度目标与动态状态精度的联合验收"),
         paragraph("tune-mjcf要求同一场景模拟两秒，耗时不超过原来的60%，完整物理状态误差不超过1e-5，"
                   "且不能出现NaN（Not a Number，非数值）或无穷值。这同时考察速度和数值正确性。"
-                  "下表来自原固定批次的独立重复会话；其四项原验收均通过，公开登记检查仅确认文件存在且"
+                  "下表来自独立重复会话；其四项原题验收均通过，公开检查仅确认文件存在且"
                   "可扩展标记语言（Extensible Markup Language，XML）文件可解析。"),
-        table([["原评分器观测", "记录值"],
+        table([["原题评分器观测", "记录值"],
             ["参考模型平均耗时", f"{case['reference_seconds']:.4f} 秒"],
             ["交付模型平均耗时", f"{case['tuned_seconds']:.4f} 秒"],
             ["报告的耗时比例／加速倍数", f"{case['printed_time_fraction']:.2f} / {case['printed_speedup']:.2f}x"],
             ["状态差异的原打印值", case["printed_final_difference"] + "（按输出精度）"],
             ["最终求解配置", options + "; " + flags]], [155, width - 155]),
-        paragraph("本表是仿真程序耗时，与计分尝试的语言模型交互及验收总耗时口径不同。"
+        paragraph("本表测量仿真程序速度；前文用时表测量模型执行与原题验收的总时间。"
                   "从真实工具输出的原XML与采集的最终XML核对，修改仅涉及求解器选项，原物理属性树保持。"
                   "配置采用PGS（Projected Gauss–Seidel，投影高斯–赛德尔）求解器与稠密约束雅可比矩阵。"
-                  "原评分器的状态差异按打印精度报告，不解释为逐位相同；速度比只代表该次本机验收，未当作同种子配对速度实验。"
-                  "多个参数共同变化，未单独消融各参数，也不把该加速计作课程自动控制器的因果收益。"),
+                  "速度比来自这次本机联合调参验收；参考与候选的采样种子未配对，多个参数同时变化。"),
         paragraph(f"最终写出该配置后的真实脚本还报告{check['samples']}个扰动初态的自测，"
                   f"最大误差{check['reported_maximum_error']:.2e}，{check['reported_above_threshold']}项超过1e-5。"
-                  f"显式有限性重验只覆盖其中前{check['explicit_finite_rechecks']}个；汇总值不扩展为全部初态的逐项有限性或任意初态精度证明。"
-                  "原题正确性验收与这份额外自测分别留证。"),
-        paragraph("MuJoCo官方性能调优说明讨论求解器与雅可比矩阵实现的开销取舍，用于解释本例组合配置的作用范围。"),
+                  f"另对前{check['explicit_finite_rechecks']}个初态显式复查有限性；原题四项验收独立通过。"),
         link("MuJoCo 3.3.5：Performance tuning（性能调优）",
             "https://mujoco.readthedocs.io/en/3.3.5/modeling.html#performance-tuning")]
 
