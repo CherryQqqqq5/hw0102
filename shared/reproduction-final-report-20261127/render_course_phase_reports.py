@@ -42,8 +42,8 @@ header_style = ParagraphStyle("HeaderCell", parent=cell_style, fontName=bold_fon
 
 def paragraph(value: str) -> Paragraph:
     text = escape(value)
-    for key in ("75/75", "69/75", "30/30", "26/30", "8.0个百分点", "84.8%", "95.2%", "4/4", "6/6",
-                "3/3", "2/2", "66.6%", "47.5%", "视频处理：", "查询优化：", "批处理调度：", "二进制提取："):
+    for key in ("75/75", "71/75", "73/75", "69/75", "30/30", "26/30", "8.0个百分点", "84.8%", "95.2%", "4/4", "6/6",
+                "3/3", "2/2", "66.6%", "47.5%", "27.1%", "12.1%", "视频处理：", "查询优化：", "批处理调度：", "二进制提取："):
         text = text.replace(key, "<b>" + key + "</b>")
     return Paragraph(text, body_style)
 

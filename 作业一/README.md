@@ -21,7 +21,7 @@
 - [原逐题成绩](evidence/formal-trials.csv) · [覆盖统计](evidence/formal-coverage.json) · [诊断笔记](evidence/diagnosis-notes.md)
 - [原正式运行轨迹](evidence/formal/) · [原评分预检](evidence/preflights/)
 - [完整75题结果与独立重复](../作业二/evidence/performance75-final-20261126/)：D30、C30、H15的来源和逐题成绩分别列明
-- [源码快照](../shared/reproduction-20261126/) · [最终报告程序](../shared/reproduction-final-report-20261126/)
+- [源码快照](../shared/reproduction-20261126/) · [当前报告程序](../shared/reproduction-final-report-20261127/)
 - [方法与数据来源](../shared/REFERENCES.md)
 
 附件保留完整逐题输入、工具轨迹和原题评分。历史免费模型的[270条对照记录](../作业二/evidence/confirmation-hy4flash-free-v16-summary/)单独统计，源码与导出记录各有对应摘要。

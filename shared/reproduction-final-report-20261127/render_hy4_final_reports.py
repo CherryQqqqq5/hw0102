@@ -143,6 +143,8 @@ def work1_validation(data, indexed):
     for task in ("extract-elf", "llm-inference-batching-scheduler", "query-optimize", "video-processing"):
         records.append([task, *[outcome(indexed[arm], task) for arm in ARMS]])
     return [
+        paragraph("成功对照中，xarray-6599第11步完成源码修改，交互超时结束后，原评分仍判定通过。"
+                  "该例与查询题的交付缺失形成对照：评估任务完成情况，应结合最终产物和原题验收。"),
         subheading("6.3 改进验证"),
         paragraph("后续使用hy4flash-free，以原生DeepSeek Harness（DSH，DeepSeek智能体执行框架）作同模型对照。"
                   "每题单次最多500次模型调用、3600秒交互、最大64000输出词元。"
@@ -160,6 +162,9 @@ def work2_items(data, tasks, indexed, preview, efficiency=None):
     groups = data["groups"]
     comparison = data["comparisons"]["all75"]
     acceptance = data["incremental_acceptance"]
+    original = {arm: [row for row in acceptance["original_core_rows"] if row["arm"] == arm]
+                for arm in ("main", "repeat")}
+    original_passed = {arm: sum(row["passed"] for row in rows) for arm, rows in original.items()}
     facts = data["case_observations"]
     query = facts["query-optimize"]
     elf = facts["extract-elf"]["public_result"]
@@ -187,14 +192,14 @@ def work2_items(data, tasks, indexed, preview, efficiency=None):
             ["保存候选（save）", "保存指定文件及其当前检查状态。"],
             ["恢复候选（restore）", "恢复此前保存的文件版本。"],
             ["提交（submit）", "结束当前求解，将实际产物交给原题评分器。"]], [140, width - 140]),
-        paragraph("CodeBuddy持久会话保留助手消息和工具返回，减少续接时的状态丢失。"
-                  "controller.py处理动作与状态，verification.py跟踪检查依赖，candidate_io.py处理文件保存和恢复。"
-                  "程序记录的检查状态与原题评分分别保存。"),
+        paragraph("CodeBuddy持久会话保留助手消息和工具返回。controller.py连接命令、检查与候选操作，"
+                  "verification.py跟踪检查对应的文件版本，candidate_io.py负责保存与恢复。"
+                  "模型根据检查反馈修改代码，再对新版本复测；第6.4节展示了这一过程。"),
         subheading("2.2 复用成熟方法，补足检查内容"),
         paragraph("本方案同时提供适用任务的公开方法：例如使用pyelftools独立读取二进制装载段，"
                   "使用公开线性攻击求解FEAL（Fast Data Encipherment Algorithm，快速数据加密算法）任务，"
                   "并针对软件题的输入边界补充公开检查。模型仍需调用方法、生成产物并接受原题验收。"
-                  "这些算法支持与执行流程共同构成本次比较的完整方案。"),
+                  "公开算法作为求解工具接入上述执行流程。"),
         heading("三、实验环境与设置"),
         subheading("3.1 任务、模型与对照"),
         paragraph("任务集合由原诊断D30、后续C30和早期H15组成，共75个不同任务："
@@ -206,9 +211,10 @@ def work2_items(data, tasks, indexed, preview, efficiency=None):
                   "最终方案73题使用C0主动检查接口，fix-git和mailman使用B0原生循环；C1自动检查仅用于历史消融分析。"),
         paragraph(environment_note(data)),
         subheading("3.2 版本、重复与评价指标"),
-        paragraph(f"本方案与重复组沿用67题的{acceptance['required_inherited_positions']}份原记录，并为8题各固定首轮、重复两次新会话，"
-                  f"共{acceptance['required_new_positions']}份。DSH使用原75份对照。"
-                  "独立重复使用重新创建的原容器与会话，各自生成候选和输出。软件修复与性能验收独占虚拟机，轻任务按固定资源限制并行。"),
+        paragraph(f"最终结果按逐题配置汇总。67题沿用未受局部修订影响的{acceptance['required_inherited_positions']}份原记录；"
+                  f"8题按修订后的对应配置分别执行首轮和独立重复，共{acceptance['required_new_positions']}份新会话记录。"
+                  "DSH使用原75份对照。每个配置的独立重复均重新创建容器与会话，各自生成候选和输出。"
+                  "软件修复与性能验收独占虚拟机，轻任务按固定资源限制并行。"),
         paragraph("主要指标为原题评分通过率，同时报告实际模型调用、输入与输出词元、每题耗时中位数及累计耗时。"
                   "耗时包含求解与原题验收，累计时间为逐题之和。公开检查和测试文件保护另行判断。"),
         heading("四、实验步骤"),
@@ -219,16 +225,18 @@ def work2_items(data, tasks, indexed, preview, efficiency=None):
         paragraph("（4）按事前固定计划，对网络权重恢复、二进制提取和视频处理撤去明确的复用指导句；"
                   "算法文件、题目、检查、模型和预算保持，使用新容器与新会话，与原v18有指导记录比较。"),
         heading("五、实验结果"),
-        subheading("5.1 通过率与独立重复")]
+        subheading("5.1 通过率与独立重复"),
+        paragraph(f"初版方案首轮通过{original_passed['main']}/{len(original['main'])}，"
+                  f"独立重复通过{original_passed['repeat']}/{len(original['repeat'])}。"
+                  "局部修订后的逐题配置结果如下。")]
     scores = [["基准", "本方案", "原生DSH", "独立重复"]]
     for benchmark, label in LABELS.items():
         scores.append([label, *[rate(groups[arm]["by_benchmark"][benchmark]) for arm in ARMS]])
     scores.append(["合计", *[rate(groups[arm]) for arm in ARMS]])
     items += [
         table(scores, [155, 110, 110, width - 375]),
-        paragraph(f"本方案和独立重复均为75/75，DSH为69/75。双方共同通过{comparison['both_pass']}题，"
-                  f"本方案额外通过{comparison['left_only_pass']}题，DSH单独通过0题。"
-                  "通过率由92.0%升至100%，绝对提高8.0个百分点，相对DSH提高8.7%。独立重复的75题通过状态均与首轮一致。"),
+        paragraph(f"本方案和独立重复均通过75/75，比DSH多{comparison['left_only_pass']}题，"
+                  "通过率从92.0%升至100%，提高8.0个百分点，相对增加8.7%。两轮逐题通过状态一致。"),
         subheading("5.2 模型调用与耗时"),
         scored_cost_table(data),
         paragraph("本方案比DSH多70次模型调用，增加5.8%；每题耗时中位数增加约14.6秒，累计用时减少11.9%。"
@@ -245,6 +253,7 @@ def work2_items(data, tasks, indexed, preview, efficiency=None):
     items += [
         table(ablation, [235, 140, width - 375]),
         paragraph("3题消融两组均为3/3，模型在两组都实际调用了现成方法。"
+                  "移除指导句后，三题的方法采用与通过结果保持一致。"
                   "网络权重恢复题的有指导参考为原计划绑定的v18记录，其原题评分通过、提交检查不合格。"),
         heading("六、结果分析与讨论"),
         subheading("6.1 交付完整性：查询优化"),
@@ -268,10 +277,10 @@ def work2_items(data, tasks, indexed, preview, efficiency=None):
         paragraph("独立重复第24步仍为11/12；模型据反馈修正后续转换的列排序，第28步同一检查达到12/12，"
                   "第33步再次通过。这提供了反馈、代码修改与复测成功的连续记录。"
                   "该题原评分此前已通过，收益体现在补全迭代与转换行为；12例均使用每列有观测值的训练数据。"),
-        subheading("6.5 机制使用与对照分析"),
+        subheading("6.5 机制使用与消融分析"),
         paragraph("两轮各73题使用C0。首轮实际请求101次公开检查、保存125个候选，其中53个合格；"
                   "重复为96次检查、128个候选、60个合格，两轮恢复操作均为0次。"),
-        paragraph("历史消融使用同一mini-SWE-agent：B0保留原生循环，C0增加模型主动调用的检查与保存，"
+        paragraph("检查安排方式的历史消融使用同一mini-SWE-agent：B0保留原生循环，C0增加模型主动调用的检查与保存，"
                   "C1进一步由程序自动安排检查。事后按同协议匹配的"
                   f"{history['tasks']}题为"
                   + "、".join(f"{arm} {history['arms'][arm]['passed']}/{history['tasks']}" for arm in ("B0", "C0", "C1"))
@@ -280,9 +289,8 @@ def work2_items(data, tasks, indexed, preview, efficiency=None):
                   + "次，执行时间中位数为"
                   + "/".join(f"{history['arms'][arm]['median_execution_seconds']:.1f}" for arm in ("B0", "C0", "C1"))
                   + "秒。C0比C1多通过2题，中位用时少17.7秒。当前方案采用主动检查，优先补足检查内容。"),
-        paragraph("本次比较以执行流程、任务检查和公开算法支持组成的完整方案为对象，结合逐题原评分、独立重复和案例轨迹评价整体效果。"),
         heading("七、实验结论"),
-        paragraph("本实验完成了有状态动作接口、文件版本检查和公开方法支持的改造。本方案在75道开发题上两轮均通过75/75，"
+        paragraph("本实验将命令执行、文件保存和检查反馈接入同一流程，并加入适用任务的公开算法。本方案在75道开发题上两轮均通过75/75，"
                   "同模型同题DSH为69/75，通过率提高8.0个百分点；模型调用增加5.8%。"),
         paragraph("案例显示，指定路径交付、独立检查依据和成熟算法复用分别解决了产物缺失、共同错误假设及低效求解问题。"
                   "三题消融中，有无指导均通过3/3。"
@@ -322,10 +330,9 @@ def feal_result_items(data, indexed):
         paragraph("该题要求根据公开的已知明文与密文对，求解四轮FEAL的解密结果。原检查只接受100行数字，无法判断内容。"
                   "修订复用公开线性攻击，并用原程序核对输出；检查另以正确、错误和遗漏项产物验证。"),
         paragraph("两次独立新会话都实际编译并调用公开C算法，先用原程序回验32个已知对，再对100条目标输出逐条再加密核对。"
-                  f"两份原题评分分别为{outcome(indexed['main'], 'feal-linear-cryptanalysis')}与{outcome(indexed['repeat'], 'feal-linear-cryptanalysis')}，"
-                  f"实际生成分别{main['actual_requests']}与{repeat['actual_requests']}次，"
-                  f"完整执行耗时{main['wall_seconds']:.1f}与{repeat['wall_seconds']:.1f}秒。"),
-        table([["同一题的实际记录", "原题通过", "两次合计生成", "两次合计执行秒数"],
+                  f"两次原评分均通过，模型调用分别为{main['actual_requests']}和{repeat['actual_requests']}次，"
+                  f"执行耗时{main['wall_seconds']:.1f}和{repeat['wall_seconds']:.1f}秒。"),
+        table([["同一题的实际记录", "原题通过", "合计模型调用", "合计执行秒数"],
             ["修订前固定批次", f"{sum(row['passed'] for row in previous)}/2", old_requests, f"{old_wall:.1f}"],
             ["修订后固定新会话", f"{sum(row['passed'] for row in final)}/2", new_requests, f"{new_wall:.1f}"]],
             [180, 85, 100, width - 365]),

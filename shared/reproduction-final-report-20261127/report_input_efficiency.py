@@ -61,7 +61,7 @@ def setting():
             "每题最多500次实际调用、1800秒求解、单命令120秒、单次64000输出词元，原题评分另计。"
             "事前规则要求6题原评分全部通过、C0最终检查合格，较环境组每道通过题的词元至少减少10%，"
             "用时中位数和最大值均不超过其110%；"
-            "从符合条件的配置中选择总词元最低者，再用新容器、新会话独立重复6题。"
+            "达到上述条件后，选择总词元最低的配置，用新容器、新会话独立重复6题。"
             "每道通过题的词元以整组总词元除以原题通过数计算。")]
 
 
@@ -88,10 +88,15 @@ def results(data):
         rows.append(["所选配置重复", f"{group['passed']}/6", group["actual_requests"],
             f"{group['tokens']:,}", f"{group['median_agent_seconds']:.1f}", f"{group['max_agent_seconds']:.1f}"])
     calls = sum(row["actual_requests"] for row in study["rows"] + repeat.get("rows", []))
+    full, compact = groups["environment"], groups["digest"]
+    saving = 100 * (1 - compact["tokens"] / full["tokens"])
+    faster = 100 * (1 - compact["median_agent_seconds"] / full["median_agent_seconds"])
     return [subheading("5.4 新题通过率与效率"),
         paragraph(f"三题诊断的三组均通过3/3；精简组累计词元较环境组减少{reduced:.1f}%，"
             f"较原始C0增加{increased:.1f}%。以下用六道固定新题比较配置。"),
         table(rows, [100, 58, 54, 105, 80, width - 397]),
+        paragraph(f"六道新题中，精简组与环境提示组通过相同{compact['passed']}题，"
+            f"整组词元减少{saving:.1f}%，求解时间中位数减少{faster:.1f}%。"),
         paragraph(f"输入效率对照完成{len(study['rows']) + len(repeat.get('rows', []))}次任务运行、{calls}次实际模型调用，逐笔积分均为0。"
             "总词元为输入与输出之和，缓存输入已计入输入。本表用时为模型和工具的实际求解时间，独立原评分用时另存记录。"
             "本表各组在同一服务器比较，前述75题表保留原运行环境及其实际耗时。")]
@@ -101,7 +106,7 @@ def decision(data):
     study, repeat = data["study"], data["repeat"]
     chosen = study["chosen_configuration"]
     if chosen is None:
-        return "新增六题的比较完成后，各候选均未同时达到事前固定的通过率、词元和时间门槛，保留原配置。"
+        return "新增六题中，原始C0通过5题，其余三组各通过4题。依据全六题通过的采用标准，本轮保留原配置。"
     group = study["by_configuration"][chosen]
     reference = study["by_configuration"]["environment"]
     saving = 100 * (1 - group["tokens_per_passed_task"] / reference["tokens_per_passed_task"])
@@ -121,7 +126,7 @@ def conclusion(data):
     study, repeat = data["study"], data["repeat"]
     chosen = study["chosen_configuration"]
     if chosen is None:
-        return "新增六题对照完成了通过率、词元与时间的共同比较，按事前标准保留原配置。"
+        return "新增六题中，长输出精简在保持环境提示组相同通过结果的同时节省了词元和求解时间，按全六题通过的事前标准保留原配置。"
     if repeat["stage"] != "complete":
         raise ValueError("A selected configuration requires its independent repeat")
     group, baseline = repeat["summary"], study["by_configuration"]["environment"]
@@ -147,24 +152,16 @@ def discussion(data):
         paragraph(f"新增Aider三题中，两组均通过3/3，DSH累计使用{dsh_tokens:,}词元，"
             f"较环境提示C0的{environment_tokens:,}词元减少{saving:.1f}%；"
             f"实际调用由{sum(row['actual_requests'] for row in aider['environment'])}次降至"
-            f"{sum(row['actual_requests'] for row in aider['dsh'])}次。"
-            "这为按任务类型复用成熟执行流程提供了直接对照。"),
+            f"{sum(row['actual_requests'] for row in aider['dsh'])}次。"),
         paragraph(f"新增scikit-learn题中，环境提示与精简组均通过原评分。精简组使用{compact['total_tokens']:,}词元、"
             f"{compact['agent_seconds']:.1f}秒，环境组为{full['total_tokens']:,}词元、{full['agent_seconds']:.1f}秒，"
             f"词元减少{sklearn_saving:.1f}%。该组实际精简6段长输出，原文共59,625字符，精简文本为16,413字符，"
             "各段完整日志仍可读取。"),
         paragraph("同题基础C0用了59次调用、3,473,538词元。模型修改原测试后，自写检查虽然通过，文件保护仍持续报错；"
-            "从首次保护失败到最终提交用了33次调用、2,465,016词元，约占整题71%，第56次调用才还原原测试。"
-            "基础组与环境组的工具原始输出分别约10.8万、8.3万字符；差异更集中在反复定位、核验和由此增长的对话。"
-            "因此，减少长输出还需配合清楚的错误定位与恢复步骤。"),
+            "从首次保护失败到最终提交用了33次调用、2,465,016词元，约占整题71%，第56次调用还原原测试后完成交付。"
+            "这段开销集中在错误定位、文件恢复与反复核验，说明输入优化还需覆盖反馈后的执行过程。"),
         paragraph("新增Django跨年查询题中，四组都修正了跨年返回值，却移除了既有范围查询优化，原题评分均未通过。"
-            "其中原始C0的自写检查还把移除优化当作成功条件。这个案例说明，复现已消失之后，还要检查修复是否保留既有功能和性能。"),
-        paragraph("Xarray题中，原始C0通过原评分，其余三组未通过。精简组已覆盖标量分支的数值选择，却未核对该分支的属性归属；"
-            "补丁因而可能借用其他参数的属性。检查需要同时覆盖计算值和属性归属。"),
-        paragraph("诊断阶段的Django题中，精简组用492,908词元、491.3秒，环境组用886,365词元、1039.9秒。"
-            "三次长输出由26,188字符缩为9,395字符，完整日志仍可读取。原始C0为573,710词元、524.4秒，"
-            "说明环境提示的效果随执行路径变化。book-store精简组没有触发长输出精简，其用量差异来自求解路径；"
-            "因此结合实际呈现次数和逐步轨迹解释总用量变化。"),
-        paragraph("pytest精简组将长输出从53,590字符缩为15,517字符，整题用时较原始C0增加586.0秒；"
-            "其中扩大测试范围多耗404.6秒。该组还修改了原测试文件，保护检查识别后，模型还原文件并通过最终检查与原评分。"
-            "这说明减少工具输出需要配合相关测试选择，文件保护也需要及时反馈，才能同时控制求解开销。")]
+            "原始C0的自写检查还把移除优化当作成功条件。Xarray题中，原始C0通过，其他三组的补丁遗漏了标量分支的属性归属。"
+            "这两例表明，检查应同时覆盖修复目标、既有功能和性能，以及计算值之外的属性行为。"),
+        paragraph("诊断轨迹中，book-store未触发长输出精简，用量差异来自求解路径；pytest则因扩大测试范围额外耗时404.6秒。"
+            "减少输出需要结合相关测试选择、清楚的错误定位和及时恢复，才能控制整题开销。")]
